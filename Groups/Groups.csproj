@@ -233,7 +233,6 @@
     <None Include="Resources\ui-check-box.png" />
     <None Include="Resources\copy.png" />
     <Content Include="icon.ico" />
-    <None Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardPainter", "CardPainter\
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GlobalAssemblyInfo", "GlobalAssemblyInfo\GlobalAssemblyInfo.shproj", "{E4EE6FBD-3A72-4573-88F6-DAD4D3F01946}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{39A64642-E5F4-4AEA-A39C-0AAC86DF85A9}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		TODO.txt = TODO.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		GlobalAssemblyInfo\GlobalAssemblyInfo.projitems*{50b0689f-459d-4c43-9ed7-b4529b18b153}*SharedItemsImports = 4
