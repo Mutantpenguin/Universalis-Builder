@@ -8,7 +8,7 @@ Aktivierungsreihenfolge in allen Masken
   - Manager erledigt
   - Editoren fehlen noch
   - AddXToY fehlen noch
-  s
+
 Bei Debug-Builds:
 	- Beim Laden von Objekten überprüfen, ob Dateiname der ID des Objektes entspricht
 		- Actor
