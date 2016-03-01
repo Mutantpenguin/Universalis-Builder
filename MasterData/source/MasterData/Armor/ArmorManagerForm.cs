@@ -1,0 +1,209 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace Tesserakt
+{
+    public partial class ArmorManagerForm : Form
+    {
+        public ArmorManagerForm()
+        {
+            InitializeComponent();
+
+            this.Icon = Properties.Resources.icon;
+
+            filterCamouflage.ComboBox.DataSource = Armor.ECamouflageList;
+            filterCamouflage.ComboBox.SelectionChangeCommitted += new EventHandler( ComboBox_SelectionChangeCommitted );
+
+            refreshGridView();
+
+            toolStripTextBoxSearch.TextBox.Select();
+        }
+
+        private void ComboBox_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            refreshGridView();
+        }
+
+        private void toolStripTextBoxSearch_TextChanged( object sender, EventArgs e )
+        {
+            refreshGridView();
+        }
+
+        private void refreshGridView()
+        {
+            List<Armor> armor = ArmorStorage.Instance.Armors.Where( s => s.Active )
+                                                               .Where( s => filterCamouflage.Enabled ? s.Camouflage == ( (Armor.ECamouflage)filterCamouflage.ComboBox.SelectedValue ) : true )
+                                                               .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                               .OrderBy( x => x.Name )
+                                                               .ToList();
+
+            armorBindingSource.DataSource = armor;
+            dataGridViewArmor.ClearSelection();
+
+            toolStripStatusLabelCount.Text = $"Anzahl: {armor.Count}";
+        }
+
+        private void toolStripButtonArmorAdd_Click( object sender, EventArgs e )
+        {
+            Armor armor = ArmorStorage.Instance.Create();
+
+            toolStripTextBoxSearch.Text = String.Empty;
+            refreshGridView();
+
+            editArmor( armor );
+
+            dataGridViewArmor.ClearSelection();
+            foreach( DataGridViewRow row in dataGridViewArmor.Rows )
+            {
+                if( armor.ID == ( (Armor)row.DataBoundItem ).ID )
+                {
+                    row.Selected = true;
+                    break;
+                }
+            }
+        }
+
+        private void toolStripButtonArmorDelete_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewArmor.SelectedCells.Count > 0 )
+            {
+                Armor armor = (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem;
+
+                var actorsWithArmor = ActorStorage.Instance.ActorsWithArmor( armor );
+
+                if( actorsWithArmor.Count() > 0 )
+                {
+                    using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithArmor ) )
+                    {
+                        actorDisplay.ShowDialog( this );
+                    }
+                }
+                else if( MessageBox.Show( $"Rüstung '{armor.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    ArmorStorage.Delete( armor );
+
+                    refreshGridView();
+                }
+            }
+        }
+
+        private void toolStripButtonCopy_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewArmor.SelectedRows.Count > 0 )
+            {
+                Armor armorSource = (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem;
+
+                Armor armorNew = ArmorStorage.Instance.Create();
+                armorNew.Set( armorSource );
+                armorNew.Name = $"(Kopie von) {armorSource.Name}";
+                ArmorStorage.Save( armorNew );
+
+                toolStripTextBoxSearch.Text = String.Empty;
+                refreshGridView();
+
+                editArmor( armorNew );
+            }
+        }
+
+        private void dataGridViewArmor_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
+        {
+            if( -1 != e.RowIndex )
+            {
+                editArmor( (Armor)dataGridViewArmor.Rows[ e.RowIndex ].DataBoundItem );
+            }
+        }
+
+        private void editArmor( Armor armor )
+        {
+            using( ArmorEditorForm armorEditorForm = new ArmorEditorForm( armor ) )
+            {
+                armorEditorForm.FormClosed += delegate
+                {
+                    this.Show();
+
+                    this.BeginInvoke( new MethodInvoker( () => this.dataGridViewArmor.Focus() ) );
+                };
+
+                this.Hide();
+
+                armorEditorForm.ShowDialog( this );
+            }
+
+            armorBindingSource.ResetBindings( false );
+        }
+
+        private void ArmorManagerForm_KeyDown( object sender, KeyEventArgs e )
+        {
+            if( e.KeyCode == Keys.Escape )
+            {
+                this.Close();
+            }
+        }
+
+        private void dataGridViewArmor_CellToolTipTextNeeded( object sender, DataGridViewCellToolTipTextNeededEventArgs e )
+        {
+            if( e.RowIndex > -1 )
+            {
+                Armor armor = (Armor)dataGridViewArmor.Rows[ e.RowIndex ].DataBoundItem;
+
+                e.ToolTipText = ToolTipHelper.FormatMaxWidth( armor.Description );
+            }
+        }
+
+        private void toolStripButtonUsage_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewArmor.SelectedRows.Count > 0 )
+            {
+                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithArmor( (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem ) ) )
+                {
+                    actorDisplay.ShowDialog( this );
+                }
+            }
+        }
+
+        private void toolStripButtonClearSearch_Click( object sender, EventArgs e )
+        {
+            toolStripTextBoxSearch.Clear();
+        }
+
+        private void checkBoxFilterCamouflage_Click( object sender, EventArgs e )
+        {
+            filterCamouflage.Enabled = !filterCamouflage.Enabled;
+
+            if( checkBoxFilterCamouflage.Checked )
+            {
+                checkBoxFilterCamouflage.Image = Properties.Resources.ui_check_box;
+            }
+            else
+            {
+                checkBoxFilterCamouflage.Image = Properties.Resources.ui_check_box_uncheck;
+            }
+
+            refreshGridView();
+        }
+
+        private void toolStripTextBoxSearch_KeyDown( object sender, KeyEventArgs e )
+        {
+            if( DataGridViewHelper.HandleArrowUpDown( dataGridViewArmor, e.KeyCode ) )
+            {
+                e.Handled = true;
+            }
+            else if( e.KeyCode == Keys.Return )
+            {
+                e.Handled = true;
+                editArmor( (Armor)dataGridViewArmor.CurrentRow.DataBoundItem );
+            }
+        }
+
+        private void dataGridViewArmor_KeyDown( object sender, KeyEventArgs e )
+        {
+            if( e.KeyCode == Keys.Return )
+            {
+                e.Handled = true;
+                editArmor( (Armor)dataGridViewArmor.CurrentRow.DataBoundItem );
+            }
+        }
+    }
+}

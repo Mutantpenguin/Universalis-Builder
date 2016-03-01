@@ -1,0 +1,45 @@
+﻿using System;
+
+namespace Tesserakt
+{
+    static class Costs
+    {
+        public const int AGI = 10;
+        public const int BW = 10;
+        public const int KK = 10;
+        public const int HAK = 10;
+        public const int AFG = 10;
+        public const int SH = 10;
+
+        public const int SZ = 15;
+
+        public const int FOV = 2;
+
+        public static int movementCost( EMovementType movementType )
+        {
+            switch( movementType )
+            {
+                case EMovementType.Antigrav:
+                    return ( 500 );
+
+                case EMovementType.Flug:
+                    return ( 400 );
+
+                case EMovementType.Fuss:
+                    return ( 300 );
+
+                case EMovementType.Kette:
+                    return ( 200 );
+
+                case EMovementType.Rad:
+                    return ( 100 );
+
+                case EMovementType.Stationär:
+                    return ( 0 );
+
+                default:
+                    throw new ArgumentException( "unkown movementType", nameof( movementType ) );
+            }
+        }
+    }
+}

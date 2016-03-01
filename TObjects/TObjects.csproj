@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TObjects</RootNamespace>
+    <AssemblyName>TObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Build\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Build\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Fonts\TesseraktFonts.cs" />
+    <Compile Include="Source\Forms\FactionSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\FactionSelectionForm.Designer.cs">
+      <DependentUpon>FactionSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\ImageSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\ImageSelectionForm.Designer.cs">
+      <DependentUpon>ImageSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\ProgressorPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\ProgressorPanel.Designer.cs">
+      <DependentUpon>ProgressorPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\SelectOutfitForActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\SelectOutfitForActorForm.Designer.cs">
+      <DependentUpon>SelectOutfitForActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Globals\Presets.cs" />
+    <Compile Include="Source\Helper\DataGridViewHelper.cs" />
+    <Compile Include="Source\Helper\ImageHelper.cs" />
+    <Compile Include="Source\Helper\TLock.cs" />
+    <Compile Include="Source\Helper\ToolTipHelper.cs" />
+    <Compile Include="Source\JsonHelper\JsonActorEquipmentConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonActorWeaponConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonArmorConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonFactionConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonGroupActorConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonActorTraitConverter.cs" />
+    <Compile Include="Source\Objects\Actor.cs" />
+    <Compile Include="Source\Objects\Armor.cs" />
+    <Compile Include="Source\Objects\AttributeModifier.cs" />
+    <Compile Include="Source\Objects\Attributes.cs" />
+    <Compile Include="Source\Helper\ImageBase64Helper.cs" />
+    <Compile Include="Source\Globals\Costs.cs" />
+    <Compile Include="Source\Objects\DamageColor.cs" />
+    <Compile Include="Source\Objects\DamageEffect.cs" />
+    <Compile Include="Source\Objects\DamageType.cs" />
+    <Compile Include="Source\Objects\Equipment.cs" />
+    <Compile Include="Source\Objects\Faction.cs" />
+    <Compile Include="Source\Objects\FieldOfView.cs" />
+    <Compile Include="Source\Objects\Group.cs" />
+    <Compile Include="Source\JsonHelper\JsonBitmapConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonActorOutfitConverter.cs" />
+    <Compile Include="Source\Objects\MovementType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Objects\Trait.cs" />
+    <Compile Include="Source\Objects\Weapon.cs" />
+    <Compile Include="Source\Objects\WeaponRange.cs" />
+    <Compile Include="Source\Storage\ActorStorage.cs" />
+    <Compile Include="Source\Storage\ArmorStorage.cs" />
+    <Compile Include="Source\Storage\EquipmentStorage.cs" />
+    <Compile Include="Source\Storage\FactionStorage.cs" />
+    <Compile Include="Source\Storage\GroupStorage.cs" />
+    <Compile Include="Source\Forms\ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Storage\TraitStorage.cs" />
+    <Compile Include="Source\Storage\StorageSettings.cs" />
+    <Compile Include="Source\Storage\WeaponStorage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\FactionSelectionForm.resx">
+      <DependentUpon>FactionSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\ImageSelectionForm.resx">
+      <DependentUpon>ImageSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\ProgressorPanel.resx">
+      <DependentUpon>ProgressorPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\SelectOutfitForActorForm.resx">
+      <DependentUpon>SelectOutfitForActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Tesserakt.Actor+ActorOutfit.datasource" />
+    <None Include="Resources\effekt_desintegrator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_durchschlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_elektro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_emp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_explosiv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_fusion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_hitze.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_kälte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_mikrowelle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_monomolekular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_panzerbrechend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_paralyse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_rail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_schrapnell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_vibro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\novasquare.ttf" />
+    <None Include="Resources\typ_gsw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\typ_kinetik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\typ_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\typ_schlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\typ_schnitt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\typ_strahl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\startup_sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_struktur.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\effekt_komposit.png" />
+  </ItemGroup>
+  <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

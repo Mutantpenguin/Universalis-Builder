@@ -1,0 +1,41 @@
+Stammdaten
+	-> Beim Laden "inaktivierter" Objekte irgendwas machen!
+		-> Bei Actoren in Gruppen bereits erledigt
+	-> Beim Laden fehlender Objekte irgendwas machen
+		-> Bei Outfits in Gruppen bereits erledigt
+
+Aktivierungsreihenfolge in allen Masken
+  - Manager erledigt
+  - Editoren fehlen noch
+  - AddXToY fehlen noch
+
+Bei Debug-Builds:
+	- Beim Laden von Objekten überprüfen, ob Dateiname der ID des Objektes entspricht
+		- Actor
+		- Armor
+		- Equipment
+		- Faction
+		- Group
+		- Trait
+		- Weapon
+	- Beim Laden von Objekten überprüfen, ob es bereits ein Objekt mit gleicher ID gibt
+		-> Achtung: Nur noch bei ActorOutfits, sie haben auch eineindeutige ID's
+
+GroupPDFExport:
+	- Werden die Übersichtsseiten noch benötigt?
+		- Falls ja: "usedBy" auch auf CustomName und Outfit verweisen lassen?
+	- Übersichtsseite aller genutzen Waffeneffekte
+
+Neue Einheit
+	- "Arbiter" https://de.wikipedia.org/wiki/Arbiter_%28Begriffskl%C3%A4rung%29
+
+CardPainter:
+	- use the same "red" for text which is used to color the icons in red
+
+ActorType mit auf Karte ausgeben?
+
+Icons für Waffen, Rüstung, Ausrüstung und Eigenschaften?
+	- Falls ja:
+		- dann im Regelbuch einbauen
+		- auf der Karte anzeigen
+		- auch auf der Flipside bei jedem einzelnen Eintrag

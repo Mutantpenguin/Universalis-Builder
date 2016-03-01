@@ -1,0 +1,138 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace Tesserakt
+{
+    public class EquipmentStorage
+    {
+        private static EquipmentStorage s_instance = new EquipmentStorage();
+
+        private EquipmentStorage() { }
+
+        public static EquipmentStorage Instance
+        {
+            get
+            {
+                return( s_instance );
+            }
+        }
+
+        private static string s_path = Path.Combine( StorageSettings.DataPath, "Equipment" );
+
+        public void LoadAll( BackgroundWorker backgroundWorker )
+        {
+            if( !Directory.Exists( s_path ) )
+            {
+                Directory.CreateDirectory( s_path );
+            }
+
+            backgroundWorker.ReportProgress( 0, "Ausrüstung" );
+
+            backgroundWorker.DoWork += ( sender, e ) =>
+            {
+                string[] files = Directory.GetFiles( s_path, StorageSettings.filePattern, SearchOption.TopDirectoryOnly );
+
+                int i = 1;
+
+                foreach( string file in files )
+                {
+                    try
+                    {
+                        Equipment equipment = JsonConvert.DeserializeObject<Equipment>( File.ReadAllText( file ) );
+#if DEBUG
+                        Equipment equipmentSearch = m_equipmentList.Find( x => x.ID == equipment.ID );
+                        if( equipmentSearch != null )
+                        {
+                            MessageBox.Show( $"ACHTUNG, das Modell '{equipment.Name}' hat die gleiche ID wie das Modell '{equipmentSearch.Name}'!" + Environment.NewLine + Environment.NewLine + equipment.ID );
+                        }
+#endif
+                        m_equipmentList.Add( equipment );
+                    }
+                    catch( Exception ex )
+                    {
+                        MessageBox.Show( $"Problem beim Lesen der Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
+                    }
+
+                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Ausrüstung {i}/{files.Count()} wird geladen..." );
+
+                    i++;
+                }
+            };
+        }
+
+        public static void Save( Equipment equipment )
+        {
+            if( null == equipment )
+            {
+                throw new ArgumentNullException( nameof( equipment ) );
+            }
+
+            string filename = Path.ChangeExtension( Path.Combine( s_path, equipment.ID.ToString() ), StorageSettings.fileExtension );
+            string filenameBackup = Path.ChangeExtension( filename, StorageSettings.backupFileExtension );
+
+            if( File.Exists( filename ) )
+            {
+                File.Copy( filename, filenameBackup, overwrite: true );
+            }
+
+            try
+            {
+                File.WriteAllText( filename, JsonConvert.SerializeObject( equipment, StorageSettings.formatting ) );
+                File.Delete( filenameBackup );
+            }
+            catch( Exception ex )
+            {
+                MessageBox.Show( $"Fehler beim Schreiben der Datei '{filename}':\n{ex.Message}" );
+            }
+        }
+
+        public Equipment Get( Guid id )
+        {
+            Equipment equipment = m_equipmentList.Find( x => x.ID == id );
+
+            if( null == equipment )
+            {
+                throw new InvalidOperationException( $"Die Ausrüstung mit der ID {id} konnte nicht gefunden werden!" );
+            }
+
+            return ( equipment );
+        }
+
+        public Equipment Create()
+        {
+            Equipment equipment = new Equipment();
+
+            Save( equipment );
+
+            m_equipmentList.Add( equipment );
+
+            return ( equipment );
+        }
+
+        public static void Delete( Equipment equipment )
+        {
+            if( null == equipment )
+            {
+                throw new ArgumentNullException( nameof( equipment ) );
+            }
+
+            equipment.Active = false;
+            Save( equipment );
+        }
+
+        public IList<Equipment> Equipments
+        {
+            get
+            {
+                return ( m_equipmentList.AsReadOnly() );
+            }
+        }
+
+        private List<Equipment> m_equipmentList = new List<Equipment>();
+    }
+}

@@ -1,0 +1,12 @@
+﻿namespace Tesserakt
+{
+    static class Presets
+    {
+        public const int MIKELoadCapacityMultiplier = 2;
+        public const float MIKEHitZoneSZMultiplier = 2.0f / 3.0f;
+
+        public const int WBMultiplier = 5;
+        public const int throwRangeLengthMultiplier = 2;
+        public const int throwRangeAmount = 4;
+    }
+}

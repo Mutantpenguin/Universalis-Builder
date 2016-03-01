@@ -1,0 +1,139 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace Tesserakt
+{
+    public class TraitStorage
+    {
+        private static TraitStorage s_instance = new TraitStorage();
+
+        private TraitStorage() { }
+
+        public static TraitStorage Instance
+        {
+            get
+            {
+                return( s_instance );
+            }
+        }
+
+        private static string s_path = Path.Combine( StorageSettings.DataPath, "Traits" );
+
+        public void LoadAll( BackgroundWorker backgroundWorker )
+        {
+            if( !Directory.Exists( s_path ) )
+            {
+                Directory.CreateDirectory( s_path );
+            }
+
+            backgroundWorker.ReportProgress( 0, "Eigenschaften" );
+
+            backgroundWorker.DoWork += ( sender, e ) =>
+            {
+                string[] files = Directory.GetFiles( s_path, StorageSettings.filePattern, SearchOption.TopDirectoryOnly );
+
+                int i = 1;
+
+                foreach( string file in files )
+                {
+                    try
+                    {
+                        Trait trait = JsonConvert.DeserializeObject<Trait>( File.ReadAllText( file ) );
+#if DEBUG
+                        Trait traitSearch = m_traitsList.Find( x => x.ID == trait.ID );
+                        if( traitSearch != null )
+                        {
+                            MessageBox.Show( $"ACHTUNG, das Modell '{trait.Name}' hat die gleiche ID wie das Modell '{traitSearch.Name}'!" + Environment.NewLine + Environment.NewLine + trait.ID );
+                        }
+#endif
+                        m_traitsList.Add( trait );
+                    }
+                    catch( Exception ex )
+                    {
+                        MessageBox.Show( $"Problem beim Lesen der Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
+                    }
+
+                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Eigenschaft {i}/{files.Count()} wird geladen..." );
+
+                    i++;
+                }
+            };
+        }
+
+        public static void Save( Trait trait )
+        {
+            if( null == trait )
+            {
+                throw new ArgumentNullException( nameof( trait ) );
+            }
+
+            string filename = Path.ChangeExtension( Path.Combine( s_path, trait.ID.ToString() ), StorageSettings.fileExtension );
+            string filenameBackup = Path.ChangeExtension( filename, StorageSettings.backupFileExtension );
+
+            if( File.Exists( filename ) )
+            {
+                File.Copy( filename, filenameBackup, overwrite: true );
+            }
+
+            try
+            {
+                File.WriteAllText( filename, JsonConvert.SerializeObject( trait, StorageSettings.formatting ) );
+                File.Delete( filenameBackup );
+            }
+            catch( Exception ex )
+            {
+                MessageBox.Show( $"Fehler beim Schreiben der Datei '{filename}':\n{ex.Message}" );
+            }
+        }
+
+        public Trait Get( Guid id )
+        {
+            Trait trait = m_traitsList.Find( x => x.ID == id );
+
+            if( null == trait )
+            {
+                throw new InvalidOperationException( $"Die Eigenschaft mit der ID {id} konnte nicht gefunden werden!" );
+            }
+
+            return ( trait );
+        }
+
+        public Trait Create()
+        {
+            Trait trait = new Trait();
+            trait.TraitLevelList.Add( new TraitLevel() );
+
+            Save( trait );
+
+            m_traitsList.Add( trait );
+
+            return ( trait );
+        }
+
+        public static void Delete( Trait trait )
+        {
+            if( null == trait )
+            {
+                throw new ArgumentNullException( nameof( trait ) );
+            }
+
+            trait.Active = false;
+            Save( trait );
+        }
+
+        public IList<Trait> Traits
+        {
+            get
+            {
+                return ( m_traitsList.AsReadOnly() );
+            }
+        }
+
+        private List<Trait> m_traitsList = new List<Trait>();
+    }
+}
