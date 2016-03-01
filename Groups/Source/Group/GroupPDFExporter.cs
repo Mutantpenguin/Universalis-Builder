@@ -501,6 +501,7 @@ namespace Tesserakt
                 }
 
                 foreach( Weapon weapon in groupActor.ActorOutfit.ActorWeaponsList.Select( x => x.Weapon )
+                                                                                 .Distinct()
                                                                                  .Where( x => !String.IsNullOrEmpty( x.Rules ) )
                                                                                  .OrderBy( x => x.Name ) )
                 {
@@ -508,6 +509,7 @@ namespace Tesserakt
                 }
 
                 foreach( Equipment equipment in groupActor.ActorOutfit.ActorEquipmentList.Select( x => x.Equipment )
+                                                                                         .Distinct()
                                                                                          .Where( x => !String.IsNullOrEmpty( x.Rules ) )
                                                                                          .OrderBy( x => x.Name ) )
                 {
