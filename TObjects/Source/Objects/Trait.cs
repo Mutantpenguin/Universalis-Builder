@@ -15,13 +15,7 @@ namespace Tesserakt
             III = 3
         }
 
-        public static IList<ELevel> ELevelList
-        {
-            get
-            {
-                return ( Enum.GetValues( typeof( ELevel ) ).Cast<ELevel>().ToList().AsReadOnly() );
-            }
-        }
+        public static readonly IList<ELevel> ELevelList = Enum.GetValues( typeof( ELevel ) ).Cast<ELevel>().ToList().AsReadOnly();
 
         public TraitLevel() {}
 

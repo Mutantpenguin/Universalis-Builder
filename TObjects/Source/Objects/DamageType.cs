@@ -216,13 +216,7 @@ namespace Tesserakt
             Strahl = 4
         }
 
-        public static IList<EType> ETypeList
-        {
-            get
-            {
-                return ( Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly() );
-            }
-        }
+        public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
 
         public enum ELevel
         {
@@ -231,13 +225,7 @@ namespace Tesserakt
             III = 3
         }
 
-        public static IList<ELevel> ELevelList
-        {
-            get
-            {
-                return ( Enum.GetValues( typeof( ELevel ) ).Cast<ELevel>().ToList().AsReadOnly() );
-            }
-        }
+        public static readonly IList<ELevel> ELevelList = Enum.GetValues( typeof( ELevel ) ).Cast<ELevel>().ToList().AsReadOnly();
 
         private static readonly Bitmap s_emptyImage = new Bitmap( 1, 1 );
     }

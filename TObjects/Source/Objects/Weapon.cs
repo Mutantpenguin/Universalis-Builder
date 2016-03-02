@@ -157,21 +157,9 @@ namespace Tesserakt
             Wurf = 3
         }
 
-        public static IList<EClass> EClassList
-        {
-            get
-            {
-                return ( Enum.GetValues( typeof( EClass ) ).Cast<EClass>().ToList().AsReadOnly() );
-            }
-        }
+        public static readonly IList<EClass> EClassList = Enum.GetValues( typeof( EClass ) ).Cast<EClass>().ToList().AsReadOnly();
 
-        public static IList<EType> ETypeList
-        {
-            get
-            {
-                return ( Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly() );
-            }
-        }
+        public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
 
         public Guid ID
         {

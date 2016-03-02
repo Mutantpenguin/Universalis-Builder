@@ -56,13 +56,7 @@ namespace Tesserakt
             Extraterrestrisch = 2
         }
 
-        public static IList<EType> ETypeList
-        {
-            get
-            {
-                return ( Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly() );
-            }
-        }
+        public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
 
         public Guid ID
         {

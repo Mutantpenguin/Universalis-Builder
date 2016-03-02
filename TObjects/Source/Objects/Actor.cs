@@ -199,13 +199,7 @@ namespace Tesserakt
             Groß = 3
         }
 
-        public static IList<ESize> ESizeList
-        {
-            get
-            {
-                return ( Enum.GetValues( typeof( ESize ) ).Cast<ESize>().ToList().AsReadOnly() );
-            }
-        }
+        public static readonly IList<ESize> ESizeList = Enum.GetValues( typeof( ESize ) ).Cast<ESize>().ToList().AsReadOnly();
 
         public enum EType
         {
@@ -213,13 +207,7 @@ namespace Tesserakt
             MIKe = 2,
         }
 
-        public static IList<EType> ETypeList
-        {
-            get
-            {
-                return ( Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly() );
-            }
-        }
+        public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
 
         public Guid ID
         {
