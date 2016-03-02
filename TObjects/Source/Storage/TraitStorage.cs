@@ -45,6 +45,11 @@ namespace Tesserakt
                     {
                         Trait trait = JsonConvert.DeserializeObject<Trait>( File.ReadAllText( file ) );
 #if DEBUG
+                        if( trait.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
+                        {
+                            MessageBox.Show( $"ACHTUNG, die Eigenschaft '{trait.Name}' hat eine abweichende ID im Dateinamen!" + Environment.NewLine + Environment.NewLine + Path.GetFileName( file ) );
+                        }
+
                         Trait traitSearch = m_traitsList.Find( x => x.ID == trait.ID );
                         if( traitSearch != null )
                         {

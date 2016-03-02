@@ -45,6 +45,11 @@ namespace Tesserakt
                     {
                         Faction faction = JsonConvert.DeserializeObject<Faction>( File.ReadAllText( file ) );
 #if DEBUG
+                        if( faction.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
+                        {
+                            MessageBox.Show( $"ACHTUNG, die Fraktion '{faction.Name}' hat eine abweichende ID im Dateinamen!" + Environment.NewLine + Environment.NewLine + Path.GetFileName( file ) );
+                        }
+
                         Faction factionSearch = m_factionList.Find( x => x.ID == faction.ID );
                         if( factionSearch != null )
                         {

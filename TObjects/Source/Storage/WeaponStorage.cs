@@ -45,6 +45,11 @@ namespace Tesserakt
                     {
                         Weapon weapon = JsonConvert.DeserializeObject<Weapon>( File.ReadAllText( file ) );
 #if DEBUG
+                        if( weapon.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
+                        {
+                            MessageBox.Show( $"ACHTUNG, die Waffe '{weapon.Name}' hat eine abweichende ID im Dateinamen!" + Environment.NewLine + Environment.NewLine + Path.GetFileName( file ) );
+                        }
+
                         Weapon weaponSearch = m_weaponList.Find( x => x.ID == weapon.ID );
                         if( weaponSearch != null )
                         {

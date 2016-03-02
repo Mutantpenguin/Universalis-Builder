@@ -45,6 +45,11 @@ namespace Tesserakt
                     {
                         Group group = Load( file );
 #if DEBUG
+                        if( group.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
+                        {
+                            MessageBox.Show( $"ACHTUNG, die Gruppe '{group.Name}' hat eine abweichende ID im Dateinamen!" + Environment.NewLine + Environment.NewLine + Path.GetFileName( file ) );
+                        }
+
                         Group groupSearch = m_groupList.Find( x => x.ID == group.ID );
                         if( groupSearch != null )
                         {

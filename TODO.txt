@@ -4,14 +4,6 @@ Aktivierungsreihenfolge in allen Masken
   - AddXToY fehlen noch
 
 Bei Debug-Builds:
-	- Beim Laden von Objekten überprüfen, ob Dateiname der ID des Objektes entspricht
-		- Actor
-		- Armor
-		- Equipment
-		- Faction
-		- Group
-		- Trait
-		- Weapon
 	- Beim Laden von Objekten überprüfen, ob es bereits ein Objekt mit gleicher ID gibt
 		-> Achtung: Nur noch bei ActorOutfits, sie haben auch eineindeutige ID's
 

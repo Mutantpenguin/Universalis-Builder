@@ -45,6 +45,11 @@ namespace Tesserakt
                     {
                         Actor actor = JsonConvert.DeserializeObject<Actor>( File.ReadAllText( file ) );
 #if DEBUG
+                        if( actor.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
+                        {
+                            MessageBox.Show( $"ACHTUNG, das Modell '{actor.Name}' hat eine abweichende ID im Dateinamen!" + Environment.NewLine + Environment.NewLine + Path.GetFileName( file ) );
+                        }
+
                         Actor actorSearch = m_actorList.Find( x => x.ID == actor.ID );
                         if( actorSearch != null )
                         {

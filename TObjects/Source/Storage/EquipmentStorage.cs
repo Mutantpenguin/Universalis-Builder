@@ -45,6 +45,11 @@ namespace Tesserakt
                     {
                         Equipment equipment = JsonConvert.DeserializeObject<Equipment>( File.ReadAllText( file ) );
 #if DEBUG
+                        if( equipment.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
+                        {
+                            MessageBox.Show( $"ACHTUNG, die Ausrüstung '{equipment.Name}' hat eine abweichende ID im Dateinamen!" + Environment.NewLine + Environment.NewLine + Path.GetFileName( file ) );
+                        }
+
                         Equipment equipmentSearch = m_equipmentList.Find( x => x.ID == equipment.ID );
                         if( equipmentSearch != null )
                         {
