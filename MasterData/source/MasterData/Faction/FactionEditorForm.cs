@@ -123,5 +123,13 @@ namespace Tesserakt
         {
             ( (Faction)factionBindingSource.DataSource ).Type = (Faction.EType)comboBoxType.SelectedItem;
         }
+
+        private void toolStripButtonUsage_Click( object sender, EventArgs e )
+        {
+            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithFaction( m_originalFaction ) ) )
+            {
+                actorDisplay.ShowDialog( this );
+            }
+        }
     }
 }

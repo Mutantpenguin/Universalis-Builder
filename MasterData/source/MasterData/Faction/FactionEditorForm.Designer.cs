@@ -30,8 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
+            this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBoxFactionIcon = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
@@ -39,14 +41,13 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
-            this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -61,6 +62,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(343, 106);
             this.panel1.TabIndex = 0;
+            // 
+            // comboBoxType
+            // 
+            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Location = new System.Drawing.Point(109, 45);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(222, 21);
+            this.comboBoxType.TabIndex = 32;
+            this.comboBoxType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxType_SelectionChangeCommitted);
             // 
             // label1
             // 
@@ -80,6 +91,10 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(222, 20);
             this.textBoxName.TabIndex = 1;
+            // 
+            // factionBindingSource
+            // 
+            this.factionBindingSource.DataSource = typeof(Tesserakt.Faction);
             // 
             // pictureBoxFactionIcon
             // 
@@ -133,6 +148,7 @@
             // toolStrip2
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonUsage,
             this.toolStripButtonSave});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
@@ -149,19 +165,15 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
-            // comboBoxType
+            // toolStripButtonUsage
             // 
-            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(109, 45);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(222, 21);
-            this.comboBoxType.TabIndex = 32;
-            this.comboBoxType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxType_SelectionChangeCommitted);
-            // 
-            // factionBindingSource
-            // 
-            this.factionBindingSource.DataSource = typeof(Tesserakt.Faction);
+            this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonUsage.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonUsage.Name = "toolStripButtonUsage";
+            this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonUsage.Click += new System.EventHandler(this.toolStripButtonUsage_Click);
             // 
             // FactionEditorForm
             // 
@@ -179,6 +191,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FactionEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -186,7 +199,6 @@
             this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,5 +218,6 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButtonSave;
         private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
     }
 }

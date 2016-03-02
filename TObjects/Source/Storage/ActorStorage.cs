@@ -191,6 +191,15 @@ namespace Tesserakt
                                 .AsReadOnly() );
         }
 
+        public IList<Actor> ActorsWithFaction( Faction faction )
+        {
+            return ( m_actorList.Where( x => x.Active )
+                                .Where( x => x.Faction.ID == faction.ID )
+                                .OrderBy( x => x.Name )
+                                .ToList()
+                                .AsReadOnly() );
+        }
+
         private List<Actor> m_actorList = new List<Actor>();
     }
 }

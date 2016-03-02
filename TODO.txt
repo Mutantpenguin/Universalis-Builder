@@ -39,3 +39,6 @@ Icons für Waffen, Rüstung, Ausrüstung und Eigenschaften?
 
 Neue Einheit
 	- "Arbiter" https://de.wikipedia.org/wiki/Arbiter_%28Begriffskl%C3%A4rung%29
+
+ActorDisplayForm
+	- Add possibility to edit Actor from there?

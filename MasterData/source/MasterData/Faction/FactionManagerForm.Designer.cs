@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FactionManagerForm));
             this.dataGridViewFactions = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +42,7 @@
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).BeginInit();
             this.toolStripFactions.SuspendLayout();
@@ -53,8 +54,8 @@
             this.dataGridViewFactions.AllowUserToAddRows = false;
             this.dataGridViewFactions.AllowUserToDeleteRows = false;
             this.dataGridViewFactions.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewFactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewFactions.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewFactions.AutoGenerateColumns = false;
             this.dataGridViewFactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFactions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -103,7 +104,8 @@
             this.toolStripTextBoxSearch,
             this.toolStripButtonAddFaction,
             this.toolStripButtonDeleteFaction,
-            this.toolStripButtonClearSearch});
+            this.toolStripButtonClearSearch,
+            this.toolStripButtonUsage});
             this.toolStripFactions.Location = new System.Drawing.Point(0, 0);
             this.toolStripFactions.Name = "toolStripFactions";
             this.toolStripFactions.Size = new System.Drawing.Size(343, 25);
@@ -165,6 +167,16 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
+            // toolStripButtonUsage
+            // 
+            this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonUsage.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonUsage.Name = "toolStripButtonUsage";
+            this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonUsage.Click += new System.EventHandler(this.toolStripButtonUsage_Click);
+            // 
             // FactionManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,5 +214,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCount;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
+        private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
     }
 }
