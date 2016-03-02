@@ -92,16 +92,11 @@ namespace Tesserakt
         {
             using( FactionEditorForm factionEditorForm = new FactionEditorForm( faction ) )
             {
-                factionEditorForm.FormClosed += delegate
-                {
-                    this.Show();
-
-                    this.BeginInvoke( new MethodInvoker( () => this.dataGridViewFactions.Focus() ) );
-                };
-
                 this.Hide();
 
                 factionEditorForm.ShowDialog( this );
+
+                this.Show();
             }
 
             factionBindingSource.ResetBindings( false );

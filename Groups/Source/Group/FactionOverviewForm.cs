@@ -79,14 +79,11 @@ namespace Tesserakt
 
             using( GroupManagerForm groupManagerForm = new GroupManagerForm( faction ) )
             {
-                groupManagerForm.FormClosed += delegate
-                {
-                    this.Show();
-                };
-
                 this.Hide();
 
                 groupManagerForm.ShowDialog();
+
+                this.Show();
             }
         }
 

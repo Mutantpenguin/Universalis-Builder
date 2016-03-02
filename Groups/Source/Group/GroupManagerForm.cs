@@ -39,16 +39,11 @@ namespace Tesserakt
         {
             using( GroupEditorForm groupEditorForm = new GroupEditorForm( group ) )
             {
-                groupEditorForm.FormClosed += delegate
-                {
-                    this.Show();
-
-                    this.BeginInvoke( new MethodInvoker( () => this.dataGridViewGroups.Focus() ) );
-                };
-
                 this.Hide();
 
                 groupEditorForm.ShowDialog( this );
+
+                this.Show();
             }
 
             groupBindingSource.ResetBindings( false );

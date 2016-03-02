@@ -178,16 +178,11 @@ namespace Tesserakt
         {
             using( WeaponEditorForm weaponEditorForm = new WeaponEditorForm( weapon ) )
             {
-                weaponEditorForm.FormClosed += delegate
-                {
-                    this.Show();
-
-                    this.BeginInvoke( new MethodInvoker( () => this.dataGridViewWeapons.Focus() ) );
-                };
-
                 this.Hide();
 
                 weaponEditorForm.ShowDialog( this );
+
+                this.Show();
             }
 
             weaponBindingSource.ResetBindings( false );

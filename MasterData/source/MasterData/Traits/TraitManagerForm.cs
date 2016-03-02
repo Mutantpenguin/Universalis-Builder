@@ -128,16 +128,11 @@ namespace Tesserakt
         {
             using( TraitEditorForm traitEditorForm = new TraitEditorForm( trait ) )
             {
-                traitEditorForm.FormClosed += delegate
-                {
-                    this.Show();
-
-                    this.BeginInvoke( new MethodInvoker( () => this.dataGridViewTraits.Focus() ) );
-                };
-
                 this.Hide();
 
                 traitEditorForm.ShowDialog( this );
+
+                this.Show();
             }
 
             traitBindingSource.ResetBindings( false );

@@ -119,16 +119,11 @@ namespace Tesserakt
         {
             using( ArmorEditorForm armorEditorForm = new ArmorEditorForm( armor ) )
             {
-                armorEditorForm.FormClosed += delegate
-                {
-                    this.Show();
-
-                    this.BeginInvoke( new MethodInvoker( () => this.dataGridViewArmor.Focus() ) );
-                };
-
                 this.Hide();
 
                 armorEditorForm.ShowDialog( this );
+
+                this.Show();
             }
 
             armorBindingSource.ResetBindings( false );

@@ -110,16 +110,11 @@ namespace Tesserakt
         {
             using( EquipmentEditorForm equipmentEditorForm = new EquipmentEditorForm( equipment ) )
             {
-                equipmentEditorForm.FormClosed += delegate
-                {
-                    this.Show();
-
-                    this.BeginInvoke( new MethodInvoker( () => this.dataGridViewEquipment.Focus() ) );
-                };
-
                 this.Hide();
 
                 equipmentEditorForm.ShowDialog( this );
+
+                this.Show();
             }
 
             equipmentBindingSource.ResetBindings( false );

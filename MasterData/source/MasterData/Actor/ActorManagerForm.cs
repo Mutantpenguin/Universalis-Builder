@@ -40,16 +40,11 @@ namespace Tesserakt
         {
             using( ActorEditorForm actorEditorForm = new ActorEditorForm( actor ) )
             {
-                actorEditorForm.FormClosed += delegate
-                {
-                    this.Show();
-
-                    this.BeginInvoke( new MethodInvoker( () => this.dataGridViewActors.Focus() ) );
-                };
-
                 this.Hide();
 
                 actorEditorForm.ShowDialog( this );
+
+                this.Show();
             }
 
             actorBindingSource.ResetBindings( false );
