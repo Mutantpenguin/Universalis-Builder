@@ -81,7 +81,7 @@ namespace Tesserakt
             {
                 this.Hide();
 
-                groupManagerForm.ShowDialog();
+                groupManagerForm.ShowDialog( this );
 
                 this.Show();
             }

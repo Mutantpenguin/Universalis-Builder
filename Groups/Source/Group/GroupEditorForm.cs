@@ -185,7 +185,7 @@ namespace Tesserakt
                             {
                                 using( SelectOutfitForActorForm selectOutfitForActorForm = new SelectOutfitForActorForm( actor ) )
                                 {
-                                    if( selectOutfitForActorForm.ShowDialog() == DialogResult.OK )
+                                    if( selectOutfitForActorForm.ShowDialog( this ) == DialogResult.OK )
                                     {
                                         m_groupModified.AddActor( actor, selectOutfitForActorForm.SelectedOutfit );
                                     }
@@ -236,7 +236,7 @@ namespace Tesserakt
                 {
                     using( SelectOutfitForActorForm selectOutfitForActorForm = new SelectOutfitForActorForm( groupActor.Actor ) )
                     {
-                        if( selectOutfitForActorForm.ShowDialog() == DialogResult.OK )
+                        if( selectOutfitForActorForm.ShowDialog( this ) == DialogResult.OK )
                         {
                             groupActor.ActorOutfit = selectOutfitForActorForm.SelectedOutfit;
 
@@ -283,7 +283,7 @@ namespace Tesserakt
             {
                 iconFileDialog.InitialDirectory = Properties.Settings.Default.groupIconFilePath;
 
-                if( iconFileDialog.ShowDialog() == DialogResult.OK )
+                if( iconFileDialog.ShowDialog( this ) == DialogResult.OK )
                 {
                     Properties.Settings.Default.groupIconFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
                     Properties.Settings.Default.Save();

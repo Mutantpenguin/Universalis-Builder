@@ -203,7 +203,7 @@ namespace Tesserakt
                 {
                     using( SelectOutfitForActorForm selectOutfitForActorForm = new SelectOutfitForActorForm( actor ) )
                     {
-                        if( selectOutfitForActorForm.ShowDialog() == DialogResult.OK )
+                        if( selectOutfitForActorForm.ShowDialog( this ) == DialogResult.OK )
                         {
                             Actor.ActorOutfit actorOutfit = selectOutfitForActorForm.SelectedOutfit;
                             SaveActorWithOutfitAsJPEG( actor, actorOutfit );

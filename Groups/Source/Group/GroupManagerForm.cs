@@ -158,7 +158,7 @@ namespace Tesserakt
                 {
                     using( GroupPDFExportForm groupPDFExportForm = new GroupPDFExportForm( group ) )
                     {
-                        groupPDFExportForm.ShowDialog();
+                        groupPDFExportForm.ShowDialog( this );
                     }
                 }
             }

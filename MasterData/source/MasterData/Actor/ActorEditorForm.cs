@@ -250,7 +250,7 @@ namespace Tesserakt
             {
                 iconFileDialog.InitialDirectory = Properties.Settings.Default.imageFilePath;
 
-                if( iconFileDialog.ShowDialog() == DialogResult.OK )
+                if( iconFileDialog.ShowDialog(this ) == DialogResult.OK )
                 {
                     Properties.Settings.Default.imageFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
                     Properties.Settings.Default.Save();
@@ -261,7 +261,7 @@ namespace Tesserakt
                     {
                         using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Bild auswählen", img, ImageHelper.imageSize ) )
                         {
-                            if( imageSelectionForm.ShowDialog() == DialogResult.OK )
+                            if( imageSelectionForm.ShowDialog( this ) == DialogResult.OK )
                             {
                                 m_actorModified.Img = new Bitmap( imageSelectionForm.Image );
 
@@ -327,7 +327,7 @@ namespace Tesserakt
 
             using( RenameOutfitForm renameOutfitForm = new RenameOutfitForm( actorOutfit.Name ) )
             {
-                if( renameOutfitForm.ShowDialog() == DialogResult.OK )
+                if( renameOutfitForm.ShowDialog( this ) == DialogResult.OK )
                 {
                     if( m_actorModified.ActorOutfitsList.Exists( x => x.Name == renameOutfitForm.NameNew ) )
                     {
@@ -351,7 +351,7 @@ namespace Tesserakt
 
             using( RenameOutfitForm renameOutfitForm = new RenameOutfitForm( actorOutfit.Name ) )
             {
-                if( renameOutfitForm.ShowDialog() == DialogResult.OK )
+                if( renameOutfitForm.ShowDialog( this ) == DialogResult.OK )
                 {
                     if( m_actorModified.ActorOutfitsList.Exists( x => x.Name == renameOutfitForm.NameNew ) )
                     {

@@ -85,8 +85,8 @@
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
@@ -711,15 +711,6 @@
             this.toolStrip5.TabIndex = 26;
             this.toolStrip5.Text = "toolStrip5";
             // 
-            // toolStripButtonSave
-            // 
-            this.toolStripButtonSave.Image = global::Tesserakt.Properties.Resources.disk;
-            this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSave.Name = "toolStripButtonSave";
-            this.toolStripButtonSave.Size = new System.Drawing.Size(79, 22);
-            this.toolStripButtonSave.Text = "Speichern";
-            this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
-            // 
             // toolStripButtonUsage
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -729,6 +720,15 @@
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonUsage.Click += new System.EventHandler(this.toolStripButtonUsage_Click);
+            // 
+            // toolStripButtonSave
+            // 
+            this.toolStripButtonSave.Image = global::Tesserakt.Properties.Resources.disk;
+            this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSave.Name = "toolStripButtonSave";
+            this.toolStripButtonSave.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButtonSave.Text = "Speichern";
+            this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
             // WeaponEditorForm
             // 
@@ -741,7 +741,7 @@
             this.Controls.Add(this.toolStrip5);
             this.KeyPreview = true;
             this.Name = "WeaponEditorForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Waffen Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WeaponEditorForm_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WeaponEditorForm_KeyDown);
