@@ -1,9 +1,3 @@
-Stammdaten
-	-> Beim Laden "inaktivierter" Objekte irgendwas machen!
-		-> Bei Actoren in Gruppen bereits erledigt
-	-> Beim Laden fehlender Objekte irgendwas machen
-		-> Bei Outfits in Gruppen bereits erledigt
-
 Aktivierungsreihenfolge in allen Masken
   - Manager erledigt
   - Editoren fehlen noch
