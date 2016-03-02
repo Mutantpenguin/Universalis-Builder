@@ -19,5 +19,18 @@ namespace Tesserakt
                 this.Close();
             }
         }
+
+        private void dataGridViewActors_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
+        {
+            if( -1 != e.RowIndex )
+            {
+                Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
+
+                using( ActorEditorForm actorEditorForm = new ActorEditorForm( actor ) )
+                {
+                    actorEditorForm.ShowDialog( this );
+                }
+            }
+        }
     }
 }
