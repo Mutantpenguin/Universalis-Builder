@@ -55,9 +55,6 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.dataGridViewDamageTypes = new System.Windows.Forms.DataGridView();
-            this.GetOriginalBitmap = new System.Windows.Forms.DataGridViewImageColumn();
-            this.typeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.levelDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.eLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.damageTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -67,8 +64,8 @@
             this.toolStripButtonRemoveEffect = new System.Windows.Forms.ToolStripButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridViewDamageEffects = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.effectGetOriginalImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.effectTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damageEffectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -109,6 +106,9 @@
             this.toolStrip7 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.typeGetOriginalImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.typeTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeLevelDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).BeginInit();
@@ -420,9 +420,9 @@
             this.dataGridViewDamageTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageTypes.ColumnHeadersVisible = false;
             this.dataGridViewDamageTypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.GetOriginalBitmap,
-            this.typeDataGridViewTextBoxColumn1,
-            this.levelDataGridViewComboBoxColumn});
+            this.typeGetOriginalImageDataGridViewImageColumn,
+            this.typeTypeDataGridViewTextBoxColumn,
+            this.typeLevelDataGridViewComboBoxColumn});
             this.dataGridViewDamageTypes.DataSource = this.damageTypeBindingSource;
             this.dataGridViewDamageTypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDamageTypes.Location = new System.Drawing.Point(0, 25);
@@ -432,33 +432,6 @@
             this.dataGridViewDamageTypes.Size = new System.Drawing.Size(205, 91);
             this.dataGridViewDamageTypes.TabIndex = 32;
             this.dataGridViewDamageTypes.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewDamageTypes_CurrentCellDirtyStateChanged);
-            // 
-            // GetOriginalBitmap
-            // 
-            this.GetOriginalBitmap.DataPropertyName = "GetOriginalBitmap";
-            this.GetOriginalBitmap.HeaderText = "";
-            this.GetOriginalBitmap.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.GetOriginalBitmap.Name = "GetOriginalBitmap";
-            this.GetOriginalBitmap.ReadOnly = true;
-            this.GetOriginalBitmap.Width = 22;
-            // 
-            // typeDataGridViewTextBoxColumn1
-            // 
-            this.typeDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.typeDataGridViewTextBoxColumn1.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn1.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn1.Name = "typeDataGridViewTextBoxColumn1";
-            this.typeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // levelDataGridViewComboBoxColumn
-            // 
-            this.levelDataGridViewComboBoxColumn.DataPropertyName = "Level";
-            this.levelDataGridViewComboBoxColumn.DataSource = this.eLevelBindingSource;
-            this.levelDataGridViewComboBoxColumn.HeaderText = "Level";
-            this.levelDataGridViewComboBoxColumn.Name = "levelDataGridViewComboBoxColumn";
-            this.levelDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.levelDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.levelDataGridViewComboBoxColumn.Width = 60;
             // 
             // eLevelBindingSource
             // 
@@ -531,8 +504,8 @@
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
             this.dataGridViewDamageEffects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn1,
-            this.typeDataGridViewTextBoxColumn});
+            this.effectGetOriginalImageDataGridViewImageColumn,
+            this.effectTypeDataGridViewTextBoxColumn});
             this.dataGridViewDamageEffects.DataSource = this.damageEffectsBindingSource;
             this.dataGridViewDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDamageEffects.Location = new System.Drawing.Point(0, 25);
@@ -544,22 +517,22 @@
             this.dataGridViewDamageEffects.Size = new System.Drawing.Size(206, 91);
             this.dataGridViewDamageEffects.TabIndex = 28;
             // 
-            // dataGridViewImageColumn1
+            // effectGetOriginalImageDataGridViewImageColumn
             // 
-            this.dataGridViewImageColumn1.DataPropertyName = "GetOriginalBitmap";
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 22;
+            this.effectGetOriginalImageDataGridViewImageColumn.DataPropertyName = "GetOriginalImage";
+            this.effectGetOriginalImageDataGridViewImageColumn.HeaderText = "";
+            this.effectGetOriginalImageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.effectGetOriginalImageDataGridViewImageColumn.Name = "effectGetOriginalImageDataGridViewImageColumn";
+            this.effectGetOriginalImageDataGridViewImageColumn.ReadOnly = true;
+            this.effectGetOriginalImageDataGridViewImageColumn.Width = 22;
             // 
-            // typeDataGridViewTextBoxColumn
+            // effectTypeDataGridViewTextBoxColumn
             // 
-            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.effectTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.effectTypeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.effectTypeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.effectTypeDataGridViewTextBoxColumn.Name = "effectTypeDataGridViewTextBoxColumn";
+            this.effectTypeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // damageEffectsBindingSource
             // 
@@ -1043,6 +1016,33 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
+            // typeGetOriginalImageDataGridViewImageColumn
+            // 
+            this.typeGetOriginalImageDataGridViewImageColumn.DataPropertyName = "GetOriginalImage";
+            this.typeGetOriginalImageDataGridViewImageColumn.HeaderText = "";
+            this.typeGetOriginalImageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.typeGetOriginalImageDataGridViewImageColumn.Name = "typeGetOriginalImageDataGridViewImageColumn";
+            this.typeGetOriginalImageDataGridViewImageColumn.ReadOnly = true;
+            this.typeGetOriginalImageDataGridViewImageColumn.Width = 22;
+            // 
+            // typeTypeDataGridViewTextBoxColumn
+            // 
+            this.typeTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.typeTypeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeTypeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeTypeDataGridViewTextBoxColumn.Name = "typeTypeDataGridViewTextBoxColumn";
+            this.typeTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeLevelDataGridViewComboBoxColumn
+            // 
+            this.typeLevelDataGridViewComboBoxColumn.DataPropertyName = "Level";
+            this.typeLevelDataGridViewComboBoxColumn.DataSource = this.eLevelBindingSource;
+            this.typeLevelDataGridViewComboBoxColumn.HeaderText = "Level";
+            this.typeLevelDataGridViewComboBoxColumn.Name = "typeLevelDataGridViewComboBoxColumn";
+            this.typeLevelDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.typeLevelDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.typeLevelDataGridViewComboBoxColumn.Width = 60;
+            // 
             // ArmorEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1206,11 +1206,11 @@
         private System.Windows.Forms.ComboBox comboBoxCamouflage;
         private System.Windows.Forms.NumericUpDown numericUpDownCamouflageLevel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewImageColumn GetOriginalBitmap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn levelDataGridViewComboBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
+        private System.Windows.Forms.DataGridViewImageColumn effectGetOriginalImageDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn effectTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn typeGetOriginalImageDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn typeLevelDataGridViewComboBoxColumn;
     }
 }

@@ -263,7 +263,7 @@ namespace Tesserakt
 
         private void dataGridViewDamageTypes_CurrentCellDirtyStateChanged( object sender, EventArgs e )
         {
-            if( dataGridViewDamageTypes.CurrentCell.ColumnIndex == levelDataGridViewComboBoxColumn.Index )
+            if( dataGridViewDamageTypes.CurrentCell.ColumnIndex == typeLevelDataGridViewComboBoxColumn.Index )
             {
                 dataGridViewDamageTypes.CommitEdit( DataGridViewDataErrorContexts.Commit );
 

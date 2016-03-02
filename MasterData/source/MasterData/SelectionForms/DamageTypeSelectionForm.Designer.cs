@@ -34,7 +34,7 @@
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.dataGridViewDamageTypes = new System.Windows.Forms.DataGridView();
-            this.getOriginalBitmapDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.getOriginalImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damageTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
@@ -92,7 +92,7 @@
             this.dataGridViewDamageTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageTypes.ColumnHeadersVisible = false;
             this.dataGridViewDamageTypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.getOriginalBitmapDataGridViewImageColumn,
+            this.getOriginalImageDataGridViewImageColumn,
             this.typeDataGridViewTextBoxColumn});
             this.dataGridViewDamageTypes.DataSource = this.damageTypeBindingSource;
             this.dataGridViewDamageTypes.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -104,14 +104,14 @@
             this.dataGridViewDamageTypes.TabIndex = 1;
             this.dataGridViewDamageTypes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDamageTypes_CellDoubleClick);
             // 
-            // getOriginalBitmapDataGridViewImageColumn
+            // getOriginalImageDataGridViewImageColumn
             // 
-            this.getOriginalBitmapDataGridViewImageColumn.DataPropertyName = "GetOriginalBitmap";
-            this.getOriginalBitmapDataGridViewImageColumn.HeaderText = "GetOriginalBitmap";
-            this.getOriginalBitmapDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.getOriginalBitmapDataGridViewImageColumn.Name = "getOriginalBitmapDataGridViewImageColumn";
-            this.getOriginalBitmapDataGridViewImageColumn.ReadOnly = true;
-            this.getOriginalBitmapDataGridViewImageColumn.Width = 22;
+            this.getOriginalImageDataGridViewImageColumn.DataPropertyName = "GetOriginalImage";
+            this.getOriginalImageDataGridViewImageColumn.HeaderText = "GetOriginalImage";
+            this.getOriginalImageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.getOriginalImageDataGridViewImageColumn.Name = "getOriginalImageDataGridViewImageColumn";
+            this.getOriginalImageDataGridViewImageColumn.ReadOnly = true;
+            this.getOriginalImageDataGridViewImageColumn.Width = 22;
             // 
             // typeDataGridViewTextBoxColumn
             // 
@@ -152,7 +152,7 @@
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.DataGridView dataGridViewDamageTypes;
         private System.Windows.Forms.BindingSource damageTypeBindingSource;
-        private System.Windows.Forms.DataGridViewImageColumn getOriginalBitmapDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewImageColumn getOriginalImageDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
     }
 }

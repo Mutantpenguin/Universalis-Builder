@@ -75,8 +75,6 @@
             this.toolStripButtonRemoveEffect = new System.Windows.Forms.ToolStripButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridViewDamageEffects = new System.Windows.Forms.DataGridView();
-            this.GetOriginalBitmap = new System.Windows.Forms.DataGridViewImageColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damageEffectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -87,6 +85,8 @@
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.getOriginalImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
@@ -600,7 +600,7 @@
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
             this.dataGridViewDamageEffects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.GetOriginalBitmap,
+            this.getOriginalImageDataGridViewImageColumn,
             this.typeDataGridViewTextBoxColumn});
             this.dataGridViewDamageEffects.DataSource = this.damageEffectsBindingSource;
             this.dataGridViewDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -611,22 +611,6 @@
             this.dataGridViewDamageEffects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDamageEffects.Size = new System.Drawing.Size(188, 155);
             this.dataGridViewDamageEffects.TabIndex = 28;
-            // 
-            // GetOriginalBitmap
-            // 
-            this.GetOriginalBitmap.DataPropertyName = "GetOriginalBitmap";
-            this.GetOriginalBitmap.HeaderText = "";
-            this.GetOriginalBitmap.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.GetOriginalBitmap.Name = "GetOriginalBitmap";
-            this.GetOriginalBitmap.ReadOnly = true;
-            this.GetOriginalBitmap.Width = 22;
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             // 
             // damageEffectsBindingSource
             // 
@@ -729,6 +713,22 @@
             this.toolStripButtonSave.Size = new System.Drawing.Size(79, 22);
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
+            // 
+            // getOriginalImageDataGridViewImageColumn
+            // 
+            this.getOriginalImageDataGridViewImageColumn.DataPropertyName = "GetOriginalImage";
+            this.getOriginalImageDataGridViewImageColumn.HeaderText = "";
+            this.getOriginalImageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.getOriginalImageDataGridViewImageColumn.Name = "getOriginalImageDataGridViewImageColumn";
+            this.getOriginalImageDataGridViewImageColumn.ReadOnly = true;
+            this.getOriginalImageDataGridViewImageColumn.Width = 22;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             // 
             // WeaponEditorForm
             // 
@@ -842,9 +842,9 @@
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.NumericUpDown numericUpDownWeight;
         private System.Windows.Forms.CheckBox checkBoxUseOnce;
-        private System.Windows.Forms.DataGridViewImageColumn GetOriginalBitmap;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox checkBoxUnwieldy;
         private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
+        private System.Windows.Forms.DataGridViewImageColumn getOriginalImageDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
     }
 }
