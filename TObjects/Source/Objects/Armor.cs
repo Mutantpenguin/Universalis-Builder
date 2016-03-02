@@ -375,20 +375,20 @@ namespace Tesserakt
         #endregion Attributes
 
         [JsonIgnore]
-        public Bitmap TypesImage
+        public Image TypesImage
         {
             get
             {
-                return ( DamageType.GetTypeListBitmap( DamageTypeList, DamageColor.EType.Green ) );
+                return ( DamageType.GetTypeListImage( DamageTypeList, DamageColor.EType.Green ) );
             }
         }
 
         [JsonIgnore]
-        public Bitmap EffectsImage
+        public Image EffectsImage
         {
             get
             {
-                return ( DamageEffect.GetEffectListBitmap( DamageEffectList, DamageColor.EType.Green ) );
+                return ( DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Green ) );
             }
         }
 

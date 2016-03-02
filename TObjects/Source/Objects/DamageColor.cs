@@ -13,21 +13,13 @@ namespace Tesserakt
             Green
         }
 
-        private static float[][] s_colorMatrixRed = { 
-                            new float[] { 0.2f,  0,  0,  0,  0 },
-                            new float[] { 0,     1,  0,  0,  0 },
-                            new float[] { 0,     0,  1,  0,  0 },
-                            new float[] { 0,     0,  0,  1,  0 },
-                            new float[] { 0.8f,  0,  0,  0,  1 } };
+        public static readonly Color red = Color.FromArgb( 204, 0, 0 );
+        public static readonly Color green = Color.FromArgb( 0, 127, 0 );
 
-        private static float[][] s_colorMatrixGreen = { 
-                            new float[] { 1,  0,     0,  0,  0 },
-                            new float[] { 0,  0.5f,  0,  0,  0 },
-                            new float[] { 0,  0,     1,  0,  0 },
-                            new float[] { 0,  0,     0,  1,  0 },
-                            new float[] { 0,  0.5f,  0,  0,  1 } };
+        private static readonly ColorMatrix s_colorMatrixRed = ColorHelper.ColorToColorMatrix( red );
+        private static readonly ColorMatrix s_colorMatrixGreen = ColorHelper.ColorToColorMatrix( green );
 
-        public static Bitmap Colorize( Image image, DamageColor.EType color )
+        public static Image Colorize( Image image, DamageColor.EType color )
         {
             if( null == image )
             {
@@ -39,11 +31,11 @@ namespace Tesserakt
                 switch( color )
                 {
                     case DamageColor.EType.Green:
-                        imageAttributes.SetColorMatrix( new ColorMatrix( s_colorMatrixGreen ) );
+                        imageAttributes.SetColorMatrix( s_colorMatrixGreen );
                         break;
 
                     case DamageColor.EType.Red:
-                        imageAttributes.SetColorMatrix( new ColorMatrix( s_colorMatrixRed ) );
+                        imageAttributes.SetColorMatrix( s_colorMatrixRed );
                         break;
 
                     default:

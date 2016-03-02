@@ -11,7 +11,7 @@ namespace Tesserakt
 {
     public class CardPainter : IDisposable
     {
-#region members
+        #region members
         public const int dpi = 500;
 
         public const int cardWidthCm = 12;
@@ -48,8 +48,11 @@ namespace Tesserakt
         private Font fontEquipment;
         private Font fontTraits;
 
-        private Brush substanceCritBrush = new SolidBrush( Color.Orange );
-        private Brush substanceNormalBrush = new SolidBrush( Color.White );
+        private readonly Brush substanceCritBrush = new SolidBrush( Color.Orange );
+        private readonly Brush substanceNormalBrush = new SolidBrush( Color.White );
+
+        private readonly Brush weaponFontBrush = new SolidBrush( DamageColor.red );
+        private readonly Brush armorFontBrush = new SolidBrush( DamageColor.green );
 
         private static int s_lineHeight = CmToPixel( 0.5 );
         private static int s_lineHeightDouble = s_lineHeight * 2;
@@ -168,6 +171,9 @@ namespace Tesserakt
 
                 substanceCritBrush.Dispose();
                 substanceNormalBrush.Dispose();
+
+                weaponFontBrush.Dispose();
+                armorFontBrush.Dispose();
             }
         }
 
@@ -633,8 +639,6 @@ namespace Tesserakt
                 int substanceStart = potentialStart + potentialWidth;
                 int rangeStart = substanceStart + substanceWidth;
 
-                Brush weaponFontBrush = Brushes.Red;
-
                 g.DrawLine( linePen, posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
 
                 // Title-Background
@@ -800,7 +804,7 @@ namespace Tesserakt
             }
         }
 
-        private void drawDamageEffects( Graphics g, int posX, int posY, Bitmap effectImage )
+        private void drawDamageEffects( Graphics g, int posX, int posY, Image effectImage )
         {
             int effectImageHeightDraw = s_lineHeight - s_imageMarginDouble;
             int effectImageWidthDraw = (int)( ( (float)effectImageHeightDraw / (float)effectImage.Height ) * effectImage.Width );
@@ -808,7 +812,7 @@ namespace Tesserakt
             g.DrawImage( effectImage, new Rectangle( posX + s_imageMargin, posY + s_imageMargin, effectImageWidthDraw, effectImageHeightDraw ) );
         }
 
-        private void drawDamageType( Graphics g, int endPosX, int posY, Bitmap typeImage )
+        private void drawDamageType( Graphics g, int endPosX, int posY, Image typeImage )
         {
             int typeImageHeightDraw = s_lineHeight - s_imageMarginDouble;
             int typeImageWidthDraw = (int)( ( (float)typeImageHeightDraw / (float)typeImage.Height ) * typeImage.Width );
@@ -831,8 +835,6 @@ namespace Tesserakt
                 int potentialStart = typesStart + typesWidth;
                 int effectsStart = potentialStart + potentialWidth;
                 int camouflageStart = s_cardWidth - s_lineHeight;
-
-                Brush armorFontBrush = Brushes.Green;
 
                 g.DrawLine( linePen, posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
 

@@ -12,9 +12,6 @@ GroupPDFExport:
 		- Falls ja: "usedBy" auch auf CustomName und Outfit verweisen lassen?
 	- Übersichtsseite aller genutzen Waffeneffekte
 
-CardPainter:
-	- use the same "red" for text which is used to color the icons in red
-
 ActorType mit auf Karte ausgeben?
 
 Icons für Waffen, Rüstung, Ausrüstung und Eigenschaften?

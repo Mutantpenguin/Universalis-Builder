@@ -46,28 +46,28 @@ namespace Tesserakt
         }
 
         [JsonIgnore]
-        public Bitmap GetOriginalBitmap
+        public Image GetOriginalImage
         {
             get
             {
-                return ( getTypeBitmap( DamageColor.EType.Original ) );
+                return ( getTypeImage( DamageColor.EType.Original ) );
             }
         }
 
-        private static Bitmap s_typ_kinetik_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Green );
-        private static Bitmap s_typ_schlag_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Green );
-        private static Bitmap s_typ_schnitt_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schnitt, DamageColor.EType.Green );
-        private static Bitmap s_typ_strahl_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_strahl, DamageColor.EType.Green );
+        private static Image s_typ_kinetik_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Green );
+        private static Image s_typ_schlag_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Green );
+        private static Image s_typ_schnitt_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schnitt, DamageColor.EType.Green );
+        private static Image s_typ_strahl_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_strahl, DamageColor.EType.Green );
         
-        private static Bitmap s_typ_kinetik_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Red );
-        private static Bitmap s_typ_schlag_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Red );
-        private static Bitmap s_typ_schnitt_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_schnitt, DamageColor.EType.Red );
-        private static Bitmap s_typ_strahl_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_strahl, DamageColor.EType.Red );
+        private static Image s_typ_kinetik_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Red );
+        private static Image s_typ_schlag_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Red );
+        private static Image s_typ_schnitt_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_schnitt, DamageColor.EType.Red );
+        private static Image s_typ_strahl_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_strahl, DamageColor.EType.Red );
 
-        private static Bitmap s_type_plus_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_plus, DamageColor.EType.Green );
-        private static Bitmap s_type_plus_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_plus, DamageColor.EType.Red );
+        private static Image s_type_plus_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_plus, DamageColor.EType.Green );
+        private static Image s_type_plus_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_plus, DamageColor.EType.Red );
 
-        private Bitmap getTypeBitmap( DamageColor.EType color )
+        private Image getTypeImage( DamageColor.EType color )
         {
             switch( color )
             {
@@ -134,7 +134,7 @@ namespace Tesserakt
 
         }
 
-        public Bitmap GetBitmap( DamageColor.EType color )
+        public Image GetImage( DamageColor.EType color )
         {
             Bitmap tempImage = new Bitmap( s_typeImageWidth, s_typeImageHeight );
 
@@ -142,9 +142,9 @@ namespace Tesserakt
             {
                 Rectangle typeRect = new Rectangle( Point.Empty, new Size( s_typeImageWidth - s_levelWidth, s_typeImageHeight ) );
 
-                drawing.DrawImage( getTypeBitmap( color ), typeRect );
+                drawing.DrawImage( getTypeImage( color ), typeRect );
 
-                Bitmap img_plus = null;
+                Image img_plus = null;
                 switch( color )
                 {
                     case DamageColor.EType.Original:
@@ -184,7 +184,7 @@ namespace Tesserakt
         private const int s_typeImageWidth = 100 + s_levelWidth;
         private const int s_typeImageHeight = 100;
 
-        public static Bitmap GetTypeListBitmap( IList<DamageType> damageTypeList, DamageColor.EType color )
+        public static Image GetTypeListImage( IList<DamageType> damageTypeList, DamageColor.EType color )
         {
             if( ( null != damageTypeList ) && ( damageTypeList.Count > 0 ) )
             {
@@ -195,7 +195,7 @@ namespace Tesserakt
                     int i = 0;
                     foreach( DamageType damageType in damageTypeList.OrderBy( x => x.Type.ToString() ) )
                     {
-                        drawing.DrawImageUnscaled( damageType.GetBitmap( color ), i * s_typeImageWidth, 0 );
+                        drawing.DrawImageUnscaled( damageType.GetImage( color ), i * s_typeImageWidth, 0 );
                         i++;
                     }
                 }

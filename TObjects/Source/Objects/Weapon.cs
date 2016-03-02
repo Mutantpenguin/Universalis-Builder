@@ -290,20 +290,20 @@ namespace Tesserakt
         } = false;
 
         [ JsonIgnore]
-        public Bitmap DamageTypeImage
+        public Image DamageTypeImage
         {
             get
             {
-                return ( DamageType.GetBitmap( DamageColor.EType.Red ) );
+                return ( DamageType.GetImage( DamageColor.EType.Red ) );
             }
         }
 
         [JsonIgnore]
-        public Bitmap EffectsImage
+        public Image EffectsImage
         {
             get
             {
-                return ( DamageEffect.GetEffectListBitmap( DamageEffectList, DamageColor.EType.Red ) );
+                return ( DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Red ) );
             }
         }
 

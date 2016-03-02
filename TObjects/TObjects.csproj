@@ -86,6 +86,7 @@
       <DependentUpon>SelectOutfitForActorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Globals\Presets.cs" />
+    <Compile Include="Source\Helper\ColorHelper.cs" />
     <Compile Include="Source\Helper\DataGridViewHelper.cs" />
     <Compile Include="Source\Helper\ImageHelper.cs" />
     <Compile Include="Source\Helper\TLock.cs" />
