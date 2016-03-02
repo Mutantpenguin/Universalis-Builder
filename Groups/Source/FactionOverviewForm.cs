@@ -180,7 +180,7 @@ namespace Tesserakt
                     }
                     catch( Exception ex )
                     {
-                        MessageBox.Show( $"Problem beim Lesen der Datei '{Path.GetFileName( fileName )}':\n{ex.Message}" );
+                        MessageBox.Show( $"Problem beim Lesen der Gruppen-Datei '{Path.GetFileName( fileName )}':\n{ex.Message}" );
                     }
                 }
             }

@@ -48,14 +48,14 @@ namespace Tesserakt
                         Armor armorSearch = m_armorList.Find( x => x.ID == armor.ID );
                         if( armorSearch != null )
                         {
-                            MessageBox.Show( $"ACHTUNG, das Modell '{armor.Name}' hat die gleiche ID wie das Modell '{armorSearch.Name}'!" + Environment.NewLine + Environment.NewLine + armor.ID );
+                            MessageBox.Show( $"ACHTUNG, die Rüstung '{armor.Name}' hat die gleiche ID wie die Rüstung '{armorSearch.Name}'!" + Environment.NewLine + Environment.NewLine + armor.ID );
                         }
 #endif
                         m_armorList.Add( armor );
                     }
                     catch( Exception ex )
                     {
-                        MessageBox.Show( $"Problem beim Lesen der Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
+                        MessageBox.Show( $"Problem beim Lesen der Rüstungs-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
                     backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Rüstung {i}/{files.Count()} wird geladen..." );

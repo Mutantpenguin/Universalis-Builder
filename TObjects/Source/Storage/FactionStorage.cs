@@ -48,14 +48,14 @@ namespace Tesserakt
                         Faction factionSearch = m_factionList.Find( x => x.ID == faction.ID );
                         if( factionSearch != null )
                         {
-                            MessageBox.Show( $"ACHTUNG, das Modell '{faction.Name}' hat die gleiche ID wie das Modell '{factionSearch.Name}'!" + Environment.NewLine + Environment.NewLine + faction.ID );
+                            MessageBox.Show( $"ACHTUNG, die Fraktion '{faction.Name}' hat die gleiche ID wie die Fraktion '{factionSearch.Name}'!" + Environment.NewLine + Environment.NewLine + faction.ID );
                         }
 #endif
                         m_factionList.Add( faction );
                     }
                     catch( Exception ex )
                     {
-                        MessageBox.Show( $"Problem beim Lesen der Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
+                        MessageBox.Show( $"Problem beim Lesen der Fraktions-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
                     backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Fraktion {i}/{files.Count()} wird geladen..." );

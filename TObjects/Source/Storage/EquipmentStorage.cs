@@ -48,14 +48,14 @@ namespace Tesserakt
                         Equipment equipmentSearch = m_equipmentList.Find( x => x.ID == equipment.ID );
                         if( equipmentSearch != null )
                         {
-                            MessageBox.Show( $"ACHTUNG, das Modell '{equipment.Name}' hat die gleiche ID wie das Modell '{equipmentSearch.Name}'!" + Environment.NewLine + Environment.NewLine + equipment.ID );
+                            MessageBox.Show( $"ACHTUNG, die Ausrüstung '{equipment.Name}' hat die gleiche ID wie die Ausrüstung '{equipmentSearch.Name}'!" + Environment.NewLine + Environment.NewLine + equipment.ID );
                         }
 #endif
                         m_equipmentList.Add( equipment );
                     }
                     catch( Exception ex )
                     {
-                        MessageBox.Show( $"Problem beim Lesen der Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
+                        MessageBox.Show( $"Problem beim Lesen der Ausrüstungs-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
                     backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Ausrüstung {i}/{files.Count()} wird geladen..." );

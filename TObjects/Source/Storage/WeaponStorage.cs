@@ -48,14 +48,14 @@ namespace Tesserakt
                         Weapon weaponSearch = m_weaponList.Find( x => x.ID == weapon.ID );
                         if( weaponSearch != null )
                         {
-                            MessageBox.Show( $"ACHTUNG, das Modell '{weapon.Name}' hat die gleiche ID wie das Modell '{weaponSearch.Name}'!" + Environment.NewLine + Environment.NewLine + weapon.ID );
+                            MessageBox.Show( $"ACHTUNG, die Waffe '{weapon.Name}' hat die gleiche ID wie die Waffe '{weaponSearch.Name}'!" + Environment.NewLine + Environment.NewLine + weapon.ID );
                         }
 #endif
                         m_weaponList.Add( weapon );
                     }
                     catch( Exception ex )
                     {
-                        MessageBox.Show( $"Problem beim Lesen der Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
+                        MessageBox.Show( $"Problem beim Lesen der Waffen-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
                     backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Waffe {i}/{files.Count()} wird geladen..." );

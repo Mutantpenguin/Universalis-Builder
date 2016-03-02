@@ -48,14 +48,14 @@ namespace Tesserakt
                         Group groupSearch = m_groupList.Find( x => x.ID == group.ID );
                         if( groupSearch != null )
                         {
-                            MessageBox.Show( $"ACHTUNG, das Modell '{group.Name}' hat die gleiche ID wie das Modell '{groupSearch.Name}'!" + Environment.NewLine + Environment.NewLine + group.ID );
+                            MessageBox.Show( $"ACHTUNG, die Gruppe '{group.Name}' hat die gleiche ID wie die Gruppe '{groupSearch.Name}'!" + Environment.NewLine + Environment.NewLine + group.ID );
                         }
 #endif
                         m_groupList.Add( group );
                     }
                     catch( Exception ex )
                     {
-                        MessageBox.Show( $"Problem beim Lesen der Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
+                        MessageBox.Show( $"Problem beim Lesen der Gruppen-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
                     backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Gruppe {i}/{files.Count()} wird geladen..." );
