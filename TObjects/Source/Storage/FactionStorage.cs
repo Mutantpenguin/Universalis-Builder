@@ -10,19 +10,11 @@ namespace Tesserakt
 {
     public class FactionStorage
     {
-        private static FactionStorage s_instance = new FactionStorage();
-
         private FactionStorage() { }
 
-        public static FactionStorage Instance
-        {
-            get
-            {
-                return( s_instance );
-            }
-        }
+        public static readonly FactionStorage Instance = new FactionStorage();
 
-        private static string s_path = Path.Combine( StorageSettings.DataPath, "Factions" );
+        private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Factions" );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {

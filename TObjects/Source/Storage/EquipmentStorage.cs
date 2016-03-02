@@ -10,19 +10,11 @@ namespace Tesserakt
 {
     public class EquipmentStorage
     {
-        private static EquipmentStorage s_instance = new EquipmentStorage();
-
         private EquipmentStorage() { }
 
-        public static EquipmentStorage Instance
-        {
-            get
-            {
-                return( s_instance );
-            }
-        }
+        public static readonly EquipmentStorage Instance = new EquipmentStorage();
 
-        private static string s_path = Path.Combine( StorageSettings.DataPath, "Equipment" );
+        private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Equipment" );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {

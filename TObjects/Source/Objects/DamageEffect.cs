@@ -23,41 +23,41 @@ namespace Tesserakt
             }
         }
 
-        private static Image s_effekt_desintegrator_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_desintegrator, DamageColor.EType.Green );
-        private static Image s_effekt_durchschlag_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_durchschlag, DamageColor.EType.Green );
-        private static Image s_effekt_elektro_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_elektro, DamageColor.EType.Green );
-        private static Image s_effekt_emp_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_emp, DamageColor.EType.Green );
-        private static Image s_effekt_explosiv_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_explosiv, DamageColor.EType.Green );
-        private static Image s_effekt_fusion_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_fusion, DamageColor.EType.Green );
-        private static Image s_effekt_hitze_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_hitze, DamageColor.EType.Green );
-        private static Image s_effekt_paralyse_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_paralyse, DamageColor.EType.Green );
-        private static Image s_effekt_kälte_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_kälte, DamageColor.EType.Green );
-        private static Image s_effekt_mikrowelle_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_mikrowelle, DamageColor.EType.Green );
-        private static Image s_effekt_monomolekular_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_monomolekular, DamageColor.EType.Green );
-        private static Image s_effekt_panzerbrechend_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_panzerbrechend, DamageColor.EType.Green );
-        private static Image s_effekt_rail_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_rail, DamageColor.EType.Green );
-        private static Image s_effekt_schrapnell_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_schrapnell, DamageColor.EType.Green );
-        private static Image s_effekt_vibro_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_vibro, DamageColor.EType.Green );
-        private static Image s_effekt_komposit_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_komposit, DamageColor.EType.Green );
-        private static Image s_effekt_struktur_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_struktur, DamageColor.EType.Green );
+        private static readonly Image s_effekt_desintegrator_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_desintegrator, DamageColor.EType.Green );
+        private static readonly Image s_effekt_durchschlag_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_durchschlag, DamageColor.EType.Green );
+        private static readonly Image s_effekt_elektro_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_elektro, DamageColor.EType.Green );
+        private static readonly Image s_effekt_emp_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_emp, DamageColor.EType.Green );
+        private static readonly Image s_effekt_explosiv_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_explosiv, DamageColor.EType.Green );
+        private static readonly Image s_effekt_fusion_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_fusion, DamageColor.EType.Green );
+        private static readonly Image s_effekt_hitze_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_hitze, DamageColor.EType.Green );
+        private static readonly Image s_effekt_paralyse_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_paralyse, DamageColor.EType.Green );
+        private static readonly Image s_effekt_kälte_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_kälte, DamageColor.EType.Green );
+        private static readonly Image s_effekt_mikrowelle_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_mikrowelle, DamageColor.EType.Green );
+        private static readonly Image s_effekt_monomolekular_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_monomolekular, DamageColor.EType.Green );
+        private static readonly Image s_effekt_panzerbrechend_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_panzerbrechend, DamageColor.EType.Green );
+        private static readonly Image s_effekt_rail_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_rail, DamageColor.EType.Green );
+        private static readonly Image s_effekt_schrapnell_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_schrapnell, DamageColor.EType.Green );
+        private static readonly Image s_effekt_vibro_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_vibro, DamageColor.EType.Green );
+        private static readonly Image s_effekt_komposit_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_komposit, DamageColor.EType.Green );
+        private static readonly Image s_effekt_struktur_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_struktur, DamageColor.EType.Green );
 
-        private static Image s_effekt_desintegrator_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_desintegrator, DamageColor.EType.Red );
-        private static Image s_effekt_durchschlag_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_durchschlag, DamageColor.EType.Red );
-        private static Image s_effekt_elektro_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_elektro, DamageColor.EType.Red );
-        private static Image s_effekt_emp_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_emp, DamageColor.EType.Red );
-        private static Image s_effekt_explosiv_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_explosiv, DamageColor.EType.Red );
-        private static Image s_effekt_fusion_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_fusion, DamageColor.EType.Red );
-        private static Image s_effekt_hitze_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_hitze, DamageColor.EType.Red );
-        private static Image s_effekt_paralyse_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_paralyse, DamageColor.EType.Red );
-        private static Image s_effekt_kälte_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_kälte, DamageColor.EType.Red );
-        private static Image s_effekt_mikrowelle_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_mikrowelle, DamageColor.EType.Red );
-        private static Image s_effekt_monomolekular_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_monomolekular, DamageColor.EType.Red );
-        private static Image s_effekt_panzerbrechend_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_panzerbrechend, DamageColor.EType.Red );
-        private static Image s_effekt_rail_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_rail, DamageColor.EType.Red );
-        private static Image s_effekt_schrapnell_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_schrapnell, DamageColor.EType.Red );
-        private static Image s_effekt_vibro_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_vibro, DamageColor.EType.Red );
-        private static Image s_effekt_komposit_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_komposit, DamageColor.EType.Red );
-        private static Image s_effekt_struktur_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_struktur, DamageColor.EType.Red );
+        private static readonly Image s_effekt_desintegrator_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_desintegrator, DamageColor.EType.Red );
+        private static readonly Image s_effekt_durchschlag_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_durchschlag, DamageColor.EType.Red );
+        private static readonly Image s_effekt_elektro_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_elektro, DamageColor.EType.Red );
+        private static readonly Image s_effekt_emp_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_emp, DamageColor.EType.Red );
+        private static readonly Image s_effekt_explosiv_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_explosiv, DamageColor.EType.Red );
+        private static readonly Image s_effekt_fusion_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_fusion, DamageColor.EType.Red );
+        private static readonly Image s_effekt_hitze_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_hitze, DamageColor.EType.Red );
+        private static readonly Image s_effekt_paralyse_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_paralyse, DamageColor.EType.Red );
+        private static readonly Image s_effekt_kälte_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_kälte, DamageColor.EType.Red );
+        private static readonly Image s_effekt_mikrowelle_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_mikrowelle, DamageColor.EType.Red );
+        private static readonly Image s_effekt_monomolekular_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_monomolekular, DamageColor.EType.Red );
+        private static readonly Image s_effekt_panzerbrechend_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_panzerbrechend, DamageColor.EType.Red );
+        private static readonly Image s_effekt_rail_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_rail, DamageColor.EType.Red );
+        private static readonly Image s_effekt_schrapnell_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_schrapnell, DamageColor.EType.Red );
+        private static readonly Image s_effekt_vibro_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_vibro, DamageColor.EType.Red );
+        private static readonly Image s_effekt_komposit_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_komposit, DamageColor.EType.Red );
+        private static readonly Image s_effekt_struktur_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_struktur, DamageColor.EType.Red );
 
         public Image GetImage( DamageColor.EType color )
         {
@@ -263,13 +263,7 @@ namespace Tesserakt
             Struktur = 17
         }
 
-        public static IList<EType> ETypelList
-        {
-            get
-            {
-                return ( Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly() );
-            }
-        }
+        public static readonly IList<EType> ETypelList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
 
         private const int s_effectImageSize = 100;
 

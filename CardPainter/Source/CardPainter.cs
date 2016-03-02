@@ -17,96 +17,91 @@ namespace Tesserakt
         public const int cardWidthCm = 12;
         public const int cardHeightCm = 8;
 
-        private static int s_cardWidth = CmToPixel( cardWidthCm );
-        private static int s_cardHeight = CmToPixel( cardHeightCm );
+        private static readonly int s_cardWidth = CmToPixel( cardWidthCm );
+        private static readonly int s_cardHeight = CmToPixel( cardHeightCm );
 
-        private static Rectangle s_pictureRect = new Rectangle( 0, CmToPixel( 0.5 ), CmToPixel( 4 ), CmToPixel( 7 ) );
+        private static readonly Rectangle s_pictureRect = new Rectangle( 0, CmToPixel( 0.5 ), CmToPixel( 4 ), CmToPixel( 7 ) );
 
-        private static int s_substancePointSize = CmToPixel( 0.3 );
+        private static readonly int s_substancePointSize = CmToPixel( 0.3 );
 
-        private Pen linePen = Pens.Black;
-        private Pen structureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
-        private Pen structureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
-        private Pen substanceBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
-        private Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
+        private static readonly Pen linePen = Pens.Black;
+        private static readonly Pen structureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
+        private static readonly Pen structureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
+        private static readonly Pen substanceBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
+        private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
 
-        private Font font0dot2;
-        private Font font0dot3;
-        private Font font0dot35;
+        // TODO readonly
+        private readonly Font font0dot2;
+        private readonly Font font0dot3;
+        private readonly Font font0dot35;
 
-        private Font fontStandard;
-        private Font fontStandardSmall;
-        private Font fontName;
-        private Font fontNameSmall;
-        private Font fontPoints;
-        private Font fontWeapon;
-        private Font fontWeaponSmall;
-        private Font fontWeaponName;
-        private Font fontWK;
-        private Font fontArmor;
-        private Font fontArmorName;
-        private Font fontEquipment;
-        private Font fontTraits;
+        private readonly Font fontStandard;
+        private readonly Font fontStandardSmall;
+        private readonly Font fontName;
+        private readonly Font fontNameSmall;
+        private readonly Font fontPoints;
+        private readonly Font fontWeapon;
+        private readonly Font fontWeaponSmall;
+        private readonly Font fontWeaponName;
+        private readonly Font fontWK;
+        private readonly Font fontArmor;
+        private readonly Font fontArmorName;
+        private readonly Font fontEquipment;
+        private readonly Font fontTraits;
 
-        private readonly Brush substanceCritBrush = new SolidBrush( Color.Orange );
-        private readonly Brush substanceNormalBrush = new SolidBrush( Color.White );
+        private static readonly Brush substanceCritBrush = new SolidBrush( Color.Orange );
+        private static readonly Brush substanceNormalBrush = new SolidBrush( Color.White );
 
-        private readonly Brush weaponFontBrush = new SolidBrush( DamageColor.red );
-        private readonly Brush armorFontBrush = new SolidBrush( DamageColor.green );
+        private static readonly Brush weaponFontBrush = new SolidBrush( DamageColor.red );
+        private static readonly Brush armorFontBrush = new SolidBrush( DamageColor.green );
 
-        private static int s_lineHeight = CmToPixel( 0.5 );
-        private static int s_lineHeightDouble = s_lineHeight * 2;
+        private static readonly int s_lineHeight = CmToPixel( 0.5 );
+        private static readonly int s_lineHeightDouble = s_lineHeight * 2;
 
-        private static int s_imageMargin = s_lineHeight / 10;
-        private static int s_imageMarginDouble = s_imageMargin * 2;
+        private static readonly int s_imageMargin = s_lineHeight / 10;
+        private static readonly int s_imageMarginDouble = s_imageMargin * 2;
 
-        private Brush titleBackgroundBrush = Brushes.Gray;
+        private static readonly Brush titleBackgroundBrush = Brushes.Gray;
 
-        private StringFormat stringFormatHCenterVCenter = new StringFormat()
+        private static readonly StringFormat stringFormatHCenterVCenter = new StringFormat()
         {
             Alignment = StringAlignment.Center,
             LineAlignment = StringAlignment.Center
         };
 
-        private StringFormat stringFormatHRightVCenter = new StringFormat()
+        private static readonly StringFormat stringFormatHRightVCenter = new StringFormat()
         {
             Alignment = StringAlignment.Far,
             LineAlignment = StringAlignment.Center
         };
 
-        private StringFormat stringFormatHLeftVCenter = new StringFormat()
+        private static readonly StringFormat stringFormatHLeftVCenter = new StringFormat()
         {
             Alignment = StringAlignment.Near,
             LineAlignment = StringAlignment.Center
         };
 
-        private StringFormat stringFormatHLeftVTop = new StringFormat()
+        private static readonly StringFormat stringFormatHLeftVTop = new StringFormat()
         {
             Alignment = StringAlignment.Near,
             LineAlignment = StringAlignment.Near
         };
 
-        private int xAttFirstColumn = CmToPixel( 4 );
-        private int xAttSecondColumn = CmToPixel( 6.1 );
-        private int xAttThirdColumn = CmToPixel( 8.5 );
+        private static readonly int xAttFirstColumn = CmToPixel( 4 );
+        private static readonly int xAttSecondColumn = CmToPixel( 6.1 );
+        private static readonly int xAttThirdColumn = CmToPixel( 8.5 );
 
-        private PrivateFontCollection m_pfc = new PrivateFontCollection();
+        private static readonly PrivateFontCollection m_pfc = new PrivateFontCollection();
         #endregion members
 
         public CardPainter()
         {
             // load Font from Resource
-            {
-                byte[] fontData = TObjects.Properties.Resources.NovaSquare;
-
-                IntPtr fontPtr = Marshal.AllocCoTaskMem( fontData.Length );
-
-                Marshal.Copy( fontData, 0, fontPtr, fontData.Length );
-
-                m_pfc.AddMemoryFont( fontPtr, fontData.Length );
-
-                Marshal.FreeCoTaskMem( fontPtr );
-            }
+            byte[] fontData = TObjects.Properties.Resources.NovaSquare;
+            IntPtr fontPtr = Marshal.AllocCoTaskMem( fontData.Length );
+            Marshal.Copy( fontData, 0, fontPtr, fontData.Length );
+            m_pfc.AddMemoryFont( fontPtr, fontData.Length );
+            Marshal.FreeCoTaskMem( fontPtr );
 
             FontFamily fontFamilyNovaSquare = m_pfc.Families.First( s => s.Name.Equals( TesseraktFonts.NovaSquareName ) );
 
@@ -139,18 +134,6 @@ namespace Tesserakt
         {
             if( disposing )
             {
-                structureBlackPen.Dispose();
-                structureRedPen.Dispose();
-                substanceBorderPen.Dispose();
-                unwieldyCirclePen.Dispose();
-
-                stringFormatHCenterVCenter.Dispose();
-                stringFormatHRightVCenter.Dispose();
-                stringFormatHLeftVCenter.Dispose();
-                stringFormatHLeftVTop.Dispose();
-
-                m_pfc.Dispose();
-
                 font0dot2.Dispose();
                 font0dot3.Dispose();
                 font0dot35.Dispose();
@@ -168,12 +151,6 @@ namespace Tesserakt
                 fontArmorName.Dispose();
                 fontEquipment.Dispose();
                 fontTraits.Dispose();
-
-                substanceCritBrush.Dispose();
-                substanceNormalBrush.Dispose();
-
-                weaponFontBrush.Dispose();
-                armorFontBrush.Dispose();
             }
         }
 

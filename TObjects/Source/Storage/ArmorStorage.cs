@@ -10,19 +10,11 @@ namespace Tesserakt
 {
     public class ArmorStorage
     {
-        private static ArmorStorage s_instance = new ArmorStorage();
-
         private ArmorStorage() { }
 
-        public static ArmorStorage Instance
-        {
-            get
-            {
-                return( s_instance );
-            }
-        }
+        public static readonly ArmorStorage Instance = new ArmorStorage();
 
-        private static string s_path = Path.Combine( StorageSettings.DataPath, "Armor" );
+        private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Armor" );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {

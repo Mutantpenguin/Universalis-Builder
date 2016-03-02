@@ -10,19 +10,11 @@ namespace Tesserakt
 {
     public class ActorStorage
     {
-        private static ActorStorage s_instance = new ActorStorage();
-
         private ActorStorage() { }
 
-        public static ActorStorage Instance
-        {
-            get
-            {
-                return( s_instance );
-            }
-        }
+        public static readonly ActorStorage Instance = new ActorStorage();
 
-        private static string s_path = Path.Combine( StorageSettings.DataPath, "Actors" );
+        private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Actors" );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {

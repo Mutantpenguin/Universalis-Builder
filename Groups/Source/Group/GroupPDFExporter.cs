@@ -26,16 +26,16 @@ namespace Tesserakt
             return ( Convert.ToInt32( cm / 2.54f * dpi ) );
         }
 
-        private static BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( TesseraktFonts.NovaSquareFileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaSquare, null );
+        private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( TesseraktFonts.NovaSquareFileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaSquare, null );
 
-        private static Font s_pageTitleFont = new Font( s_baseFontNovaSquare, CmToPixel( 1 ), Font.BOLD );
-        private static Font s_nameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5 ) );
-        private static Font s_rulesFont = new Font( Font.HELVETICA, CmToPixel( 0.4 ) );
-        private static Font s_usedByFont = new Font( Font.HELVETICA,CmToPixel( 0.25 ), Font.NORMAL, Color.GRAY );
-        private static Font s_versionInfo = new Font( Font.HELVETICA,CmToPixel( 0.25 ), Font.NORMAL, Color.GRAY );
+        private static readonly Font s_pageTitleFont = new Font( s_baseFontNovaSquare, CmToPixel( 1 ), Font.BOLD );
+        private static readonly Font s_nameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5 ) );
+        private static readonly Font s_rulesFont = new Font( Font.HELVETICA, CmToPixel( 0.4 ) );
+        private static readonly Font s_usedByFont = new Font( Font.HELVETICA,CmToPixel( 0.25 ), Font.NORMAL, Color.GRAY );
+        private static readonly Font s_versionInfo = new Font( Font.HELVETICA,CmToPixel( 0.25 ), Font.NORMAL, Color.GRAY );
 
-        private static Font s_nameFlipsideFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2 ), Font.BOLD );
-        private static Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2 ) );
+        private static readonly Font s_nameFlipsideFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2 ), Font.BOLD );
+        private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2 ) );
 
         public static void Export( Group p_group, CardPainter p_cardPainter, string p_fileName, bool exportTraits, bool exportWeapons, bool exportArmor, bool exportEquipment )
         {

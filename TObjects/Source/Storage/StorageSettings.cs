@@ -9,24 +9,12 @@ namespace Tesserakt
 
         public const Formatting formatting = Formatting.Indented;
 
-        public static string DataPath
-        {
-            get
-            {
-                return ( Path.Combine( Directory.GetCurrentDirectory(), "Data" ) );
-            }
-        }
+        public static readonly string DataPath = Path.Combine( Directory.GetCurrentDirectory(), "Data" );
 
         public const string fileExtension = "json";
 
         public const string backupFileExtension = "json.bak";
 
-        public static string filePattern
-        {
-            get
-            {
-                return ( Path.ChangeExtension( "*.", StorageSettings.fileExtension ) );
-            }
-        }
+        public static readonly string filePattern = Path.ChangeExtension( "*.", StorageSettings.fileExtension );
     }
 }

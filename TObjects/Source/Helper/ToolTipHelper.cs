@@ -5,7 +5,7 @@ namespace Tesserakt
 {
     public static class ToolTipHelper
     {
-        private static int s_toolTipMaxCharsPerLine = 50;
+        private const int s_toolTipMaxCharsPerLine = 50;
 
         public static string FormatMaxWidth( string text )
         {

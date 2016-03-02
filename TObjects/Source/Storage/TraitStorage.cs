@@ -10,19 +10,11 @@ namespace Tesserakt
 {
     public class TraitStorage
     {
-        private static TraitStorage s_instance = new TraitStorage();
-
         private TraitStorage() { }
 
-        public static TraitStorage Instance
-        {
-            get
-            {
-                return( s_instance );
-            }
-        }
+        public static readonly TraitStorage Instance = new TraitStorage();
 
-        private static string s_path = Path.Combine( StorageSettings.DataPath, "Traits" );
+        private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Traits" );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {

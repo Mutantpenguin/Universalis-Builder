@@ -10,19 +10,11 @@ namespace Tesserakt
 {
     public class GroupStorage
     {
-        private static GroupStorage s_instance = new GroupStorage();
-
         private GroupStorage() { }
 
-        public static GroupStorage Instance
-        {
-            get
-            {
-                return( s_instance );
-            }
-        }
+        public static readonly GroupStorage Instance = new GroupStorage();
 
-        private static string s_path = Path.Combine( StorageSettings.DataPath, "Groups" );
+        private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Groups" );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {

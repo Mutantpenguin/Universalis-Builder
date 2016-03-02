@@ -10,19 +10,11 @@ namespace Tesserakt
 {
     public class WeaponStorage
     {
-        private static WeaponStorage s_instance = new WeaponStorage();
-
         private WeaponStorage() { }
 
-        public static WeaponStorage Instance
-        {
-            get
-            {
-                return( s_instance );
-            }
-        }
+        public static readonly WeaponStorage Instance = new WeaponStorage();
 
-        private static string s_path = Path.Combine( StorageSettings.DataPath, "Weapons" );
+        private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Weapons" );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {

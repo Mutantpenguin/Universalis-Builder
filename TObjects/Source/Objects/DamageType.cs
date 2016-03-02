@@ -54,18 +54,18 @@ namespace Tesserakt
             }
         }
 
-        private static Image s_typ_kinetik_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Green );
-        private static Image s_typ_schlag_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Green );
-        private static Image s_typ_schnitt_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schnitt, DamageColor.EType.Green );
-        private static Image s_typ_strahl_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_strahl, DamageColor.EType.Green );
+        private static readonly Image s_typ_kinetik_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Green );
+        private static readonly Image s_typ_schlag_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Green );
+        private static readonly Image s_typ_schnitt_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schnitt, DamageColor.EType.Green );
+        private static readonly Image s_typ_strahl_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_strahl, DamageColor.EType.Green );
         
-        private static Image s_typ_kinetik_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Red );
-        private static Image s_typ_schlag_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Red );
-        private static Image s_typ_schnitt_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_schnitt, DamageColor.EType.Red );
-        private static Image s_typ_strahl_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_strahl, DamageColor.EType.Red );
+        private static readonly Image s_typ_kinetik_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Red );
+        private static readonly Image s_typ_schlag_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Red );
+        private static readonly Image s_typ_schnitt_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_schnitt, DamageColor.EType.Red );
+        private static readonly Image s_typ_strahl_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_strahl, DamageColor.EType.Red );
 
-        private static Image s_type_plus_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_plus, DamageColor.EType.Green );
-        private static Image s_type_plus_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_plus, DamageColor.EType.Red );
+        private static readonly Image s_type_plus_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_plus, DamageColor.EType.Green );
+        private static readonly Image s_type_plus_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_plus, DamageColor.EType.Red );
 
         private Image getTypeImage( DamageColor.EType color )
         {
@@ -239,6 +239,6 @@ namespace Tesserakt
             }
         }
 
-        private static Bitmap s_emptyImage = new Bitmap( 1, 1 );
+        private static readonly Bitmap s_emptyImage = new Bitmap( 1, 1 );
     }
 }
