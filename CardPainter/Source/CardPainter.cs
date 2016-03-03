@@ -273,19 +273,23 @@ namespace Tesserakt
 
         private void drawType( Graphics g, Actor.EType type )
         {
+            Rectangle rect = new Rectangle( new Point( CmToPixel( 3.5 ), 0 ), new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) );
+
             switch( type )
             {
                 case Actor.EType.Infanterie:
-                    g.DrawImage( Properties.Resources.infantry, new Rectangle( new Point( CmToPixel( 3.5 ), 0 ), new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) ) );
+                    g.DrawImage( Properties.Resources.infantry, rect );
                     break;
 
                 case Actor.EType.MIKe:
-                    g.DrawImage( Properties.Resources.mike, new Rectangle( new Point( CmToPixel( 3.5 ), 0 ), new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) ) );
+                    g.DrawImage( Properties.Resources.mike, rect );
                     break;
 
                 default:
                     throw new InvalidOperationException( "unkown Actor.EType" );
             }
+
+            g.DrawRectangle( linePen, rect );
         }
 
         private void drawPicture( Graphics g, Bitmap image )
