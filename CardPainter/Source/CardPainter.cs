@@ -722,7 +722,7 @@ namespace Tesserakt
                         // TODO only for EMP
                         // if( actor.ModKK( actorOutfit ) == actor.BaseKK() )
                         // {
-                        g.DrawString( Actor.ThrowRange( actor.ModKK( actorOutfit ) ), fontWeapon, Brushes.Red, new Rectangle( rangeStart, posY + ( i * s_lineHeight ), rangeWidth, s_lineHeight ), stringFormatHCenterVCenter );
+                        g.DrawString( Actor.ThrowRange( actor.ModKK( actorOutfit ) ), fontWeapon, weaponFontBrush, new Rectangle( rangeStart, posY + ( i * s_lineHeight ), rangeWidth, s_lineHeight ), stringFormatHCenterVCenter );
                         // }
                         // else
                         // {
