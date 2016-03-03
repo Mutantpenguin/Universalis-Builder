@@ -180,6 +180,7 @@ namespace Tesserakt
 
                 drawName( g, actor.Name, customName );
                 drawFaction( g, actor.Faction );
+                drawType( g, actor.Type );
                 drawPicture( g, actor.Img );
                 drawAttributes( g, actor, actorOutfit );
                 drawCalculatedAttributes( g, actor, actorOutfit );
@@ -247,7 +248,7 @@ namespace Tesserakt
 
             string name = actorName + ( String.IsNullOrEmpty( customName ) ? String.Empty : ( Environment.NewLine + customName ) );
 
-            Size textSize = new Size( CmToPixel( 4 ) - posX, CmToPixel( 0.5 ) );
+            Size textSize = new Size( CmToPixel( 3.5 ) - posX, CmToPixel( 0.5 ) );
 
             int charsFitted, linesFilled;
             g.MeasureString( name, fontName, textSize, stringFormatHCenterVCenter, out charsFitted, out linesFilled );
@@ -267,6 +268,23 @@ namespace Tesserakt
             if( null != faction )
             {
                 g.DrawImage( faction.Icon, new Rectangle( Point.Empty, new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) ) );
+            }
+        }
+
+        private void drawType( Graphics g, Actor.EType type )
+        {
+            switch( type )
+            {
+                case Actor.EType.Infanterie:
+                    g.DrawImage( Properties.Resources.infantry, new Rectangle( new Point( CmToPixel( 3.5 ), 0 ), new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) ) );
+                    break;
+
+                case Actor.EType.MIKe:
+                    g.DrawImage( Properties.Resources.mike, new Rectangle( new Point( CmToPixel( 3.5 ), 0 ), new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) ) );
+                    break;
+
+                default:
+                    throw new InvalidOperationException( "unkown Actor.EType" );
             }
         }
 

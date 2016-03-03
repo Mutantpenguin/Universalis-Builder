@@ -12,8 +12,6 @@ GroupPDFExport:
 		- Falls ja: "usedBy" auch auf CustomName und Outfit verweisen lassen?
 	- Übersichtsseite aller genutzen Waffeneffekte
 
-ActorType mit auf Karte ausgeben?
-
 Icons für Waffen, Rüstung, Ausrüstung und Eigenschaften?
 	- Falls ja:
 		- dann im Regelbuch einbauen
