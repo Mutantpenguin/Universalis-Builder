@@ -40,17 +40,14 @@ namespace Tesserakt
 
         public BackgroundWorker CreateBackgroundWorker()
         {
-            ProgressorPanel progressorPanel = new ProgressorPanel();
-
-            this.Controls.Add( progressorPanel );
-
             BackgroundWorker progressorBackgroundWorker = new BackgroundWorker();
 
             progressorBackgroundWorker.WorkerReportsProgress = true;
 
             progressorBackgroundWorker.ProgressChanged += ( sender, e ) =>
             {
-                progressorPanel.SetValues( e.ProgressPercentage, (string)e.UserState );
+                progressBar.Value = e.ProgressPercentage;
+                textBoxMessage.Text = (string)e.UserState;
             };
 
             progressorBackgroundWorker.RunWorkerCompleted += ( sender, e ) =>

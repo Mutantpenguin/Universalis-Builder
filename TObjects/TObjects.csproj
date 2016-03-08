@@ -73,12 +73,6 @@
     <Compile Include="Source\Forms\ImageSelectionForm.Designer.cs">
       <DependentUpon>ImageSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Forms\ProgressorPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\ProgressorPanel.Designer.cs">
-      <DependentUpon>ProgressorPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\Forms\SelectOutfitForActorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,9 +139,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\ProgressForm.resx">
       <DependentUpon>ProgressForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\ProgressorPanel.resx">
-      <DependentUpon>ProgressorPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\SelectOutfitForActorForm.resx">
       <DependentUpon>SelectOutfitForActorForm.cs</DependentUpon>
