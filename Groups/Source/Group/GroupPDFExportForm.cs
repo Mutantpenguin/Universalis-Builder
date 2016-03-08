@@ -24,10 +24,7 @@ namespace Tesserakt
 
         private void buttonExport_Click( object sender, EventArgs e )
         {
-            using( CardPainter cardPainter = new CardPainter() )
-            {
-                GroupPDFExporter.Export( m_group, cardPainter, Path.ChangeExtension( Path.GetTempFileName(), "pdf" ), checkBoxTraits.Checked, checkBoxWeapons.Checked, checkBoxArmor.Checked, checkBoxEquipment.Checked );
-            }
+            GroupPDFExporter.Export( m_group, Path.ChangeExtension( Path.GetTempFileName(), "pdf" ), checkBoxTraits.Checked, checkBoxWeapons.Checked, checkBoxArmor.Checked, checkBoxEquipment.Checked );
 
             this.Close();
         }

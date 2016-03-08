@@ -15,6 +15,12 @@ namespace Tesserakt
             }
 
             InitializeComponent();
+
+            labelTitel.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 20 );
+
+            labelVersion.Text = $"Version {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+
+            textBoxMessage.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 10 );
         }
 
         private bool m_automaticClose = false;

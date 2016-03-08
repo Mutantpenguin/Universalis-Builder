@@ -37,16 +37,11 @@ namespace Tesserakt
         private static readonly Font s_nameFlipsideFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2 ), Font.BOLD );
         private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2 ) );
 
-        public static void Export( Group p_group, CardPainter p_cardPainter, string p_fileName, bool exportTraits, bool exportWeapons, bool exportArmor, bool exportEquipment )
+        public static void Export( Group p_group, string p_fileName, bool exportTraits, bool exportWeapons, bool exportArmor, bool exportEquipment )
         {
             if( null == p_group )
             {
                 throw new ArgumentNullException( nameof( p_group ) );
-            }
-
-            if( null == p_cardPainter )
-            {
-                throw new ArgumentNullException( nameof( p_cardPainter ) );
             }
 
             Cursor.Current = Cursors.WaitCursor;
@@ -69,7 +64,7 @@ namespace Tesserakt
                 document.Open();
 
                 CreateMainPage( document, p_group );
-                CreateCardsPage( document, pdfWriter, p_group, p_cardPainter );
+                CreateCardsPage( document, pdfWriter, p_group );
 
                 if( exportTraits )
                 {
@@ -414,7 +409,7 @@ namespace Tesserakt
             }
         }
 
-        private static void CreateCardsPage( Document document, PdfWriter pdfWriter, Group group, CardPainter cardPainter )
+        private static void CreateCardsPage( Document document, PdfWriter pdfWriter, Group group )
         {
             document.SetPageSize( PageSize.A4.Rotate() );
 
@@ -454,7 +449,7 @@ namespace Tesserakt
 
                 Group.GroupActor groupActor = sortedGroupActorList[ i ];
 
-                Image img = Image.GetInstance( cardPainter.getBitmap( groupActor ), System.Drawing.Imaging.ImageFormat.Jpeg );
+                Image img = Image.GetInstance( CardPainter.getBitmap( groupActor ), System.Drawing.Imaging.ImageFormat.Jpeg );
                 img.ScaleToFit( cardWidth, cardHeight );
                 img.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y );
 

@@ -65,8 +65,8 @@ namespace Tesserakt
             updateGridViewArmor();
             updateGridViewTraits();
 
-            // don't create it until here, since it would get used way too often to create a bitmap
-            m_cardPainter = new CardPainter();
+            // we are now completely initialized. if we would set it ealier, the bitmap for the card would get created way too often
+            m_initialized = true;
 
             updateFields();
         }
@@ -82,25 +82,10 @@ namespace Tesserakt
             toolStripLabelOutfitCount.Text = index.ToString() + "/" + m_actorModified.ActorOutfitsList.Count().ToString();
         }
 
-        protected override void Dispose( bool disposing )
-        {
-            if( disposing && ( components != null ) )
-            {
-                components.Dispose();
-            }
-
-            if( disposing && ( m_cardPainter != null ) )
-            {
-                m_cardPainter.Dispose();
-            }
-
-            base.Dispose( disposing );
-        }
+        private readonly bool m_initialized = false;
 
         private Actor m_actorModified;
         private Actor m_actorOriginal;
-
-        private CardPainter m_cardPainter = null;
 
 #region values changed
         private void AttribAGI_ValueChanged( object sender, EventArgs e )
@@ -224,9 +209,9 @@ namespace Tesserakt
             textBoxBaseCost.Text = m_actorModified.Points( actorOutfit: null ).ToString();
             textBoxOutfitCost.Text = m_actorModified.Points( CurrentOutfit() ).ToString();
 
-            if( null != m_cardPainter )
+            if( m_initialized )
             {
-                pictureBoxCard.Image = m_cardPainter.getBitmap( m_actorModified, CurrentOutfit() );
+                pictureBoxCard.Image = CardPainter.getBitmap( m_actorModified, CurrentOutfit() );
             }
         }
 #endregion update

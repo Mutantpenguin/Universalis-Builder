@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Text;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Tesserakt
 {
-    public class CardPainter : IDisposable
+    public static class CardPainter
     {
         #region members
         public const int dpi = 500;
@@ -30,24 +28,23 @@ namespace Tesserakt
         private static readonly Pen substanceBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
         private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
 
-        // TODO readonly
-        private readonly Font font0dot2;
-        private readonly Font font0dot3;
-        private readonly Font font0dot35;
+        private static readonly Font font0dot2 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font font0dot3 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font font0dot35 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
-        private readonly Font fontStandard;
-        private readonly Font fontStandardSmall;
-        private readonly Font fontName;
-        private readonly Font fontNameSmall;
-        private readonly Font fontPoints;
-        private readonly Font fontWeapon;
-        private readonly Font fontWeaponSmall;
-        private readonly Font fontWeaponName;
-        private readonly Font fontWK;
-        private readonly Font fontArmor;
-        private readonly Font fontArmorName;
-        private readonly Font fontEquipment;
-        private readonly Font fontTraits;
+        private static readonly Font fontStandard = font0dot35;
+        private static readonly Font fontStandardSmall = font0dot2;
+        private static readonly Font fontName = font0dot3;
+        private static readonly Font fontNameSmall = font0dot2;
+        private static readonly Font fontPoints = font0dot2;
+        private static readonly Font fontWeapon = font0dot3;
+        private static readonly Font fontWeaponSmall = font0dot2;
+        private static readonly Font fontWeaponName = font0dot2;
+        private static readonly Font fontWK = font0dot3;
+        private static readonly Font fontArmor = font0dot3;
+        private static readonly Font fontArmorName = font0dot2;
+        private static readonly Font fontEquipment = font0dot3;
+        private static readonly Font fontTraits = font0dot3;
 
         private static readonly Brush substanceCritBrush = new SolidBrush( Color.Orange );
         private static readonly Brush substanceNormalBrush = new SolidBrush( Color.White );
@@ -90,81 +87,19 @@ namespace Tesserakt
         private static readonly int xAttFirstColumn = CmToPixel( 4 );
         private static readonly int xAttSecondColumn = CmToPixel( 6.1 );
         private static readonly int xAttThirdColumn = CmToPixel( 8.5 );
-
-        private static readonly PrivateFontCollection m_pfc = new PrivateFontCollection();
         #endregion members
 
-        public CardPainter()
-        {
-            // load Font from Resource
-            byte[] fontData = TObjects.Properties.Resources.NovaSquare;
-            IntPtr fontPtr = Marshal.AllocCoTaskMem( fontData.Length );
-            Marshal.Copy( fontData, 0, fontPtr, fontData.Length );
-            m_pfc.AddMemoryFont( fontPtr, fontData.Length );
-            Marshal.FreeCoTaskMem( fontPtr );
-
-            FontFamily fontFamilyNovaSquare = m_pfc.Families.First( s => s.Name.Equals( TesseraktFonts.NovaSquareName ) );
-
-            font0dot2 = new Font( fontFamilyNovaSquare, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
-            font0dot3 = new Font( fontFamilyNovaSquare, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
-            font0dot35 = new Font( fontFamilyNovaSquare, CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
-
-            fontStandard = font0dot35;
-            fontStandardSmall = font0dot2;
-            fontName = font0dot3;
-            fontNameSmall = font0dot2;
-            fontPoints = font0dot2;
-            fontWeapon = font0dot3;
-            fontWeaponSmall = font0dot2;
-            fontWeaponName = font0dot2;
-            fontWK = font0dot3;
-            fontArmor = font0dot3;
-            fontArmorName = font0dot2;
-            fontEquipment = font0dot3;
-            fontTraits = font0dot3;
-        }
-
-        public void Dispose()
-        {
-            Dispose( true );
-            GC.SuppressFinalize( this );
-        }
-
-        protected virtual void Dispose( bool disposing )
-        {
-            if( disposing )
-            {
-                font0dot2.Dispose();
-                font0dot3.Dispose();
-                font0dot35.Dispose();
-
-                fontStandard.Dispose();
-                fontStandardSmall.Dispose();
-                fontName.Dispose();
-                fontNameSmall.Dispose();
-                fontPoints.Dispose();
-                fontWeapon.Dispose();
-                fontWeaponSmall.Dispose();
-                fontWeaponName.Dispose();
-                fontWK.Dispose();
-                fontArmor.Dispose();
-                fontArmorName.Dispose();
-                fontEquipment.Dispose();
-                fontTraits.Dispose();
-            }
-        }
-
-        public Bitmap getBitmap( Group.GroupActor groupActor )
+        public static Bitmap getBitmap( Group.GroupActor groupActor )
         {
             return( getBitmap( groupActor.Actor, groupActor.ActorOutfit, groupActor.CustomName ) );
         }
 
-        public Bitmap getBitmap( Actor actor, Actor.ActorOutfit actorOutfit )
+        public static Bitmap getBitmap( Actor actor, Actor.ActorOutfit actorOutfit )
         {
             return ( getBitmap( actor, actorOutfit, String.Empty ) );
         }
 
-        private Bitmap getBitmap( Actor actor, Actor.ActorOutfit actorOutfit, string customName )
+        private static Bitmap getBitmap( Actor actor, Actor.ActorOutfit actorOutfit, string customName )
         {
             if( null == actor )
             {
@@ -216,7 +151,7 @@ namespace Tesserakt
             return ( Convert.ToInt32( cm / 2.54f * dpi ) );
         }
 
-        private void drawStructure( Graphics g, int equipmentEndY )
+        private static void drawStructure( Graphics g, int equipmentEndY )
         {
             // line right of image
             g.DrawLine( structureBlackPen, CmToPixel( 4 ), 0, CmToPixel( 4 ), CmToPixel( s_cardHeight ) );
@@ -241,7 +176,7 @@ namespace Tesserakt
             }
         }
 
-        private void drawName( Graphics g, String actorName, string customName )
+        private static void drawName( Graphics g, String actorName, string customName )
         {
             int posX = CmToPixel( 0.5 );
             int posY = 0;
@@ -263,7 +198,7 @@ namespace Tesserakt
             }
         }
 
-        private void drawFaction( Graphics g, Faction faction )
+        private static void drawFaction( Graphics g, Faction faction )
         {
             if( null != faction )
             {
@@ -271,7 +206,7 @@ namespace Tesserakt
             }
         }
 
-        private void drawType( Graphics g, Actor.EType type )
+        private static void drawType( Graphics g, Actor.EType type )
         {
             Rectangle rect = new Rectangle( new Point( CmToPixel( 3.5 ), 0 ), new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) );
 
@@ -292,7 +227,7 @@ namespace Tesserakt
             g.DrawRectangle( linePen, rect );
         }
 
-        private void drawPicture( Graphics g, Bitmap image )
+        private static void drawPicture( Graphics g, Bitmap image )
         {
             if( image != null )
             {
@@ -300,7 +235,7 @@ namespace Tesserakt
             }
         }
 
-        private void drawAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void drawAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             drawAttribute( g, xAttFirstColumn, 0, "AGI", actor.ModAGI( actorOutfit ) );// TODO only for EMP, actor.BaseAGI( actorOutfit ) );
             drawAttribute( g, xAttFirstColumn, CmToPixel( 0.5 ), "BW", actor.ModBW( actorOutfit ) );// TODO only for EMP, actor.BaseBW( actorOutfit ) );
@@ -311,7 +246,7 @@ namespace Tesserakt
             drawAttribute( g, xAttSecondColumn, CmToPixel( 1 ), "SH", actor.ModSH( actorOutfit ) );// TODO only for EMP, actor.BaseSH() );
         }
 
-        private void drawAttribute( Graphics g, int posX, int posY, string name, int attribModValue ) // TODO only for EMP, int attribBaseValue )
+        private static void drawAttribute( Graphics g, int posX, int posY, string name, int attribModValue ) // TODO only for EMP, int attribBaseValue )
         {
             int widthName = CmToPixel( 0.9 );
             int widthAtt = CmToPixel( 0.6 );
@@ -344,7 +279,7 @@ namespace Tesserakt
             */
         }
 
-        private void drawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void drawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             // PGB - Persönlicher Gefahrenbereich
             g.DrawImage( Properties.Resources.danger, new Rectangle( xAttThirdColumn, CmToPixel( 0.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
@@ -369,7 +304,7 @@ namespace Tesserakt
             */
         }
 
-        private void drawSubstance( Graphics g, Actor actor )
+        private static void drawSubstance( Graphics g, Actor actor )
         {
             int margin = CmToPixel( 0.1 );
 
@@ -415,7 +350,7 @@ namespace Tesserakt
             }            
         }
 
-        private void drawSubstanceCirclesHorizonzal( Graphics g, int count, int x, int y, int width, bool down )
+        private static void drawSubstanceCirclesHorizonzal( Graphics g, int count, int x, int y, int width, bool down )
         {
             int maxColumns = Math.Min( Convert.ToInt32( Math.Floor( (float)width / (float)s_substancePointSize ) ), count );
             int maxRows = Convert.ToInt32( Math.Ceiling( (float)count / (float)maxColumns ) );
@@ -453,7 +388,7 @@ namespace Tesserakt
             }
         }
 
-        private void drawSubstanceCirclesVertical( Graphics g, int count, int x, int y, int width )
+        private static void drawSubstanceCirclesVertical( Graphics g, int count, int x, int y, int width )
         {
             int maxColumns = Convert.ToInt32( Math.Floor( (float)width / s_substancePointSize ) );
             int maxRows = Convert.ToInt32( Math.Ceiling( (float)count / (float)maxColumns ) );
@@ -493,7 +428,7 @@ namespace Tesserakt
             }
         }
 
-        private void drawPoints( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit  )
+        private static void drawPoints( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit  )
         {
             string points = $"{actor.Points( actorOutfit )}pkt";
 
@@ -505,7 +440,7 @@ namespace Tesserakt
             g.DrawString( points, fontPoints, Brushes.Black, new Rectangle( 0, CmToPixel( 7.5 ), CmToPixel( 4 ), CmToPixel( 0.5 ) ), stringFormatHCenterVCenter );
         }
 
-        private void drawSize( Graphics g, Actor.ESize size )
+        private static void drawSize( Graphics g, Actor.ESize size )
         {
             Bitmap img = null;
 
@@ -529,7 +464,7 @@ namespace Tesserakt
             g.DrawImage( img, new Rectangle( xAttThirdColumn, CmToPixel( 1.05 ), sizeInPixel, sizeInPixel ) );
         }
 
-        private void drawMovement( Graphics g, EMovementType movementType )
+        private static void drawMovement( Graphics g, EMovementType movementType )
         {
             Bitmap img = null;
 
@@ -563,7 +498,7 @@ namespace Tesserakt
             g.DrawImage( img, new Rectangle( xAttThirdColumn + CmToPixel( 0.5 ), CmToPixel( 1.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
         }
 
-        private void drawWeight( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void drawWeight( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             int x1 = xAttThirdColumn + CmToPixel( 1 );
 
@@ -572,7 +507,7 @@ namespace Tesserakt
             g.DrawString( $"{actor.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n1}", fontStandardSmall, Brushes.Black, new Rectangle( x1 + CmToPixel( 0.4 ), CmToPixel( 1 ), CmToPixel( 2 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
         }
 
-        private int drawTraits( Graphics g, List<Actor.ActorTrait> actorTraitList )
+        private static int drawTraits( Graphics g, List<Actor.ActorTrait> actorTraitList )
         {
             int posY = CmToPixel( 1.5 );
 
@@ -614,7 +549,7 @@ namespace Tesserakt
             return ( posY );
         }
 
-        private int drawWeapons( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, int posY )
+        private static int drawWeapons( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, int posY )
         {
             if( actorOutfit == null )
             {
@@ -803,7 +738,7 @@ namespace Tesserakt
             }
         }
 
-        private void drawDamageEffects( Graphics g, int posX, int posY, Image effectImage )
+        private static void drawDamageEffects( Graphics g, int posX, int posY, Image effectImage )
         {
             int effectImageHeightDraw = s_lineHeight - s_imageMarginDouble;
             int effectImageWidthDraw = (int)( ( (float)effectImageHeightDraw / (float)effectImage.Height ) * effectImage.Width );
@@ -811,7 +746,7 @@ namespace Tesserakt
             g.DrawImage( effectImage, new Rectangle( posX + s_imageMargin, posY + s_imageMargin, effectImageWidthDraw, effectImageHeightDraw ) );
         }
 
-        private void drawDamageType( Graphics g, int endPosX, int posY, Image typeImage )
+        private static void drawDamageType( Graphics g, int endPosX, int posY, Image typeImage )
         {
             int typeImageHeightDraw = s_lineHeight - s_imageMarginDouble;
             int typeImageWidthDraw = (int)( ( (float)typeImageHeightDraw / (float)typeImage.Height ) * typeImage.Width );
@@ -819,7 +754,7 @@ namespace Tesserakt
             g.DrawImage( typeImage, new Rectangle( endPosX - s_imageMargin - typeImageWidthDraw, posY + s_imageMargin, typeImageWidthDraw, typeImageHeightDraw ) );
         }
 
-        private void drawArmor( Graphics g, Armor armor, int posY )
+        private static void drawArmor( Graphics g, Armor armor, int posY )
         {
             if( armor != null )
             {
@@ -870,7 +805,7 @@ namespace Tesserakt
             }
         }
 
-        private int drawEquipment( Graphics g, List<Actor.ActorEquipment> actorEquipmentList, int posY )
+        private static int drawEquipment( Graphics g, List<Actor.ActorEquipment> actorEquipmentList, int posY )
         {
             var equipList = actorEquipmentList.GroupBy( x => x.Equipment.ID )
                                               .Select( x => new { equipment = EquipmentStorage.Instance.Get( x.Key ), count = x.Count() } )

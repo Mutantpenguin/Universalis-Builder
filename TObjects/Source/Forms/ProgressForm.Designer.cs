@@ -30,10 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.timerProgress = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelTitel = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.textBoxMessage = new System.Windows.Forms.TextBox();
+            this.labelVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,23 +42,23 @@
             // 
             this.timerProgress.Tick += new System.EventHandler(this.timerProgress_Tick);
             // 
-            // label1
+            // labelTitel
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(370, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Projekt Tesserakt wird geladen";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTitel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitel.Location = new System.Drawing.Point(0, 0);
+            this.labelTitel.Name = "labelTitel";
+            this.labelTitel.Size = new System.Drawing.Size(370, 30);
+            this.labelTitel.TabIndex = 0;
+            this.labelTitel.Text = "Projekt Tesserakt";
+            this.labelTitel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.White;
             this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxLogo.Image = global::TObjects.Properties.Resources.logo;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 30);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 45);
             this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBoxLogo.MinimumSize = new System.Drawing.Size(256, 256);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
@@ -69,7 +70,7 @@
             // progressBar
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBar.Location = new System.Drawing.Point(0, 350);
+            this.progressBar.Location = new System.Drawing.Point(0, 365);
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(370, 23);
             this.progressBar.Step = 1;
@@ -80,11 +81,22 @@
             this.textBoxMessage.BackColor = System.Drawing.Color.White;
             this.textBoxMessage.Dock = System.Windows.Forms.DockStyle.Top;
             this.textBoxMessage.Enabled = false;
-            this.textBoxMessage.Location = new System.Drawing.Point(0, 330);
+            this.textBoxMessage.Location = new System.Drawing.Point(0, 345);
             this.textBoxMessage.Name = "textBoxMessage";
             this.textBoxMessage.Size = new System.Drawing.Size(370, 20);
             this.textBoxMessage.TabIndex = 3;
             this.textBoxMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVersion.Location = new System.Drawing.Point(0, 30);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(370, 15);
+            this.labelVersion.TabIndex = 4;
+            this.labelVersion.Text = "Platzhalter für Version";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProgressForm
             // 
@@ -92,12 +104,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(370, 366);
+            this.ClientSize = new System.Drawing.Size(370, 381);
             this.ControlBox = false;
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.textBoxMessage);
             this.Controls.Add(this.pictureBoxLogo);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelVersion);
+            this.Controls.Add(this.labelTitel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProgressForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -112,9 +125,10 @@
         #endregion
 
         private System.Windows.Forms.Timer timerProgress;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelTitel;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.TextBox textBoxMessage;
+        private System.Windows.Forms.Label labelVersion;
     }
 }

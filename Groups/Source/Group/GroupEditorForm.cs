@@ -32,25 +32,8 @@ namespace Tesserakt
             update();
         }
 
-        protected override void Dispose( bool disposing )
-        {
-            if( disposing && ( components != null ) )
-            {
-                components.Dispose();
-            }
-
-            if( disposing && ( m_cardPainter != null ) )
-            {
-                m_cardPainter.Dispose();
-            }
-
-            base.Dispose( disposing );
-        }
-
         private Group m_groupModified;
         private Group m_groupOriginal;
-
-        private CardPainter m_cardPainter = new CardPainter();
 
         private void updateGridViewActors()
         {
@@ -154,16 +137,13 @@ namespace Tesserakt
 
         private void UpdateCard()
         {
-            if( null != m_cardPainter )
+            if( dataGridViewActors.SelectedRows.Count > 0 )
             {
-                if( dataGridViewActors.SelectedRows.Count > 0 )
-                {
-                    pictureBoxCard.Image = m_cardPainter.getBitmap( (Group.GroupActor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem );
-                }
-                else
-                {
-                    pictureBoxCard.Image = null;
-                }
+                pictureBoxCard.Image = CardPainter.getBitmap( (Group.GroupActor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem );
+            }
+            else
+            {
+                pictureBoxCard.Image = null;
             }
         }
 
@@ -308,11 +288,6 @@ namespace Tesserakt
             }
         }
 
-        private void dataGridViewActors_CellValidated( object sender, DataGridViewCellEventArgs e )
-        {
-            UpdateCard();
-        }
-
         protected override bool ProcessCmdKey( ref Message msg, Keys keyData )
         {
             if( ( keyData == Keys.Escape ) && ( dataGridViewActors.IsCurrentCellInEditMode ) )
@@ -353,6 +328,11 @@ namespace Tesserakt
                     e.Handled = true;
                 }
             }
+        }
+
+        private void dataGridViewActors_CurrentCellDirtyStateChanged( object sender, EventArgs e )
+        {
+            UpdateCard();
         }
     }
 }

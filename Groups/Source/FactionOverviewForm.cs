@@ -36,6 +36,8 @@ namespace Tesserakt
 
             InitializeComponent();
 
+            listViewFactions.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 10 );
+
             this.Icon = Properties.Resources.icon;
 
             imageListFactions.ImageSize = new System.Drawing.Size( 150, 150 );
@@ -51,7 +53,7 @@ namespace Tesserakt
             foreach( Faction.EType type in Faction.ETypeList.OrderBy( x => x.ToString() ) )
             {
                 ListViewGroup group = new ListViewGroup( type.ToString() );
-
+                
                 listViewFactions.Groups.Add( group );
 
                 foreach( Faction faction in FactionStorage.Instance.Factions.Where( x => x.Active )
