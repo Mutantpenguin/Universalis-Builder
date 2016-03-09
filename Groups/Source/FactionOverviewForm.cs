@@ -19,8 +19,8 @@ namespace Tesserakt
             using( ProgressForm progressForm = new ProgressForm() )
             {
                 // load the masterdata
-                TraitStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
                 FactionStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
+                TraitStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
                 ArmorStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
                 WeaponStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
                 EquipmentStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );

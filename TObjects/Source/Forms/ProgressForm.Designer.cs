@@ -33,8 +33,8 @@
             this.labelTitel = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.textBoxMessage = new System.Windows.Forms.TextBox();
             this.labelVersion = new System.Windows.Forms.Label();
+            this.labelMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +44,7 @@
             // 
             // labelTitel
             // 
+            this.labelTitel.BackColor = System.Drawing.Color.SteelBlue;
             this.labelTitel.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitel.Location = new System.Drawing.Point(0, 0);
@@ -55,7 +56,7 @@
             // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.White;
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.SteelBlue;
             this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBoxLogo.Image = global::TObjects.Properties.Resources.logo;
             this.pictureBoxLogo.Location = new System.Drawing.Point(0, 45);
@@ -70,25 +71,16 @@
             // progressBar
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBar.Location = new System.Drawing.Point(0, 365);
+            this.progressBar.Location = new System.Drawing.Point(0, 360);
+            this.progressBar.Maximum = 0;
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(370, 23);
             this.progressBar.Step = 1;
             this.progressBar.TabIndex = 2;
             // 
-            // textBoxMessage
-            // 
-            this.textBoxMessage.BackColor = System.Drawing.Color.White;
-            this.textBoxMessage.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxMessage.Enabled = false;
-            this.textBoxMessage.Location = new System.Drawing.Point(0, 345);
-            this.textBoxMessage.Name = "textBoxMessage";
-            this.textBoxMessage.Size = new System.Drawing.Size(370, 20);
-            this.textBoxMessage.TabIndex = 3;
-            this.textBoxMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // labelVersion
             // 
+            this.labelVersion.BackColor = System.Drawing.Color.SteelBlue;
             this.labelVersion.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelVersion.Location = new System.Drawing.Point(0, 30);
@@ -97,6 +89,18 @@
             this.labelVersion.TabIndex = 4;
             this.labelVersion.Text = "Platzhalter für Version";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelMessage
+            // 
+            this.labelMessage.BackColor = System.Drawing.Color.SteelBlue;
+            this.labelMessage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMessage.Location = new System.Drawing.Point(0, 345);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(370, 15);
+            this.labelMessage.TabIndex = 5;
+            this.labelMessage.Text = "Platzhalter für Message";
+            this.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProgressForm
             // 
@@ -107,7 +111,7 @@
             this.ClientSize = new System.Drawing.Size(370, 381);
             this.ControlBox = false;
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.textBoxMessage);
+            this.Controls.Add(this.labelMessage);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.labelTitel);
@@ -118,7 +122,6 @@
             this.Load += new System.EventHandler(this.ProgressForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -128,7 +131,7 @@
         private System.Windows.Forms.Label labelTitel;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.ProgressBar progressBar;
-        private System.Windows.Forms.TextBox textBoxMessage;
         private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Label labelMessage;
     }
 }

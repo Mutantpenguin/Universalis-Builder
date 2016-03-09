@@ -19,8 +19,9 @@ namespace Tesserakt
             labelTitel.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 20 );
 
             labelVersion.Text = $"Version {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+            labelVersion.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 8 );
 
-            textBoxMessage.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 10 );
+            labelMessage.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 10 );
         }
 
         private bool m_automaticClose = false;
@@ -46,14 +47,17 @@ namespace Tesserakt
 
         public BackgroundWorker CreateBackgroundWorker()
         {
+            int maximumOld = progressBar.Maximum;
+            progressBar.Maximum += 100;
+
             BackgroundWorker progressorBackgroundWorker = new BackgroundWorker();
 
             progressorBackgroundWorker.WorkerReportsProgress = true;
 
             progressorBackgroundWorker.ProgressChanged += ( sender, e ) =>
             {
-                progressBar.Value = e.ProgressPercentage;
-                textBoxMessage.Text = (string)e.UserState;
+                progressBar.Value = maximumOld + e.ProgressPercentage;
+                labelMessage.Text = (string)e.UserState;
             };
 
             progressorBackgroundWorker.RunWorkerCompleted += ( sender, e ) =>

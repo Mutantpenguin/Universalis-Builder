@@ -23,8 +23,6 @@ namespace Tesserakt
                 Directory.CreateDirectory( s_path );
             }
 
-            backgroundWorker.ReportProgress( 0, "Fraktionen" );
-
             backgroundWorker.DoWork += ( sender, e ) =>
             {
                 string[] files = Directory.GetFiles( s_path, StorageSettings.filePattern, SearchOption.TopDirectoryOnly );
@@ -33,6 +31,8 @@ namespace Tesserakt
 
                 foreach( string file in files )
                 {
+                    System.Threading.Thread.Sleep( StorageSettings.delayLoadingMs );
+
                     try
                     {
                         Faction faction = JsonConvert.DeserializeObject<Faction>( File.ReadAllText( file ) );
@@ -55,7 +55,7 @@ namespace Tesserakt
                         MessageBox.Show( $"Problem beim Lesen der Fraktions-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
-                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Fraktion {i}/{files.Count()} wird geladen..." );
+                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Fraktion {i}/{files.Count()}" );
 
                     i++;
                 }

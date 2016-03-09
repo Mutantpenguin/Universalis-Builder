@@ -3,10 +3,8 @@ using System.IO;
 
 namespace Tesserakt
 {
-    class StorageSettings
+    static class StorageSettings
     {
-        private StorageSettings() { }
-
         public const Formatting formatting = Formatting.Indented;
 
         public static readonly string DataPath = Path.Combine( Directory.GetCurrentDirectory(), "Data" );
@@ -16,5 +14,7 @@ namespace Tesserakt
         public const string backupFileExtension = "json.bak";
 
         public static readonly string filePattern = Path.ChangeExtension( "*.", StorageSettings.fileExtension );
+
+        public const int delayLoadingMs = 0;
     }
 }
