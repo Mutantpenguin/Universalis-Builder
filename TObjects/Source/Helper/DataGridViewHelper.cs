@@ -6,6 +6,11 @@ namespace Tesserakt
     {
         public static bool HandleArrowUpDown( DataGridView dataGridView, Keys pressedKey )
         {
+            if( dataGridView == null )
+            {
+                throw new System.ArgumentNullException( nameof( dataGridView ) );
+            }
+
             if( dataGridView.CurrentRow != null )
             {
                 int currentRowIndex = dataGridView.CurrentRow.Index;

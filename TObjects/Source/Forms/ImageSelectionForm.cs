@@ -75,7 +75,10 @@ namespace Tesserakt
 
         private void pictureBoxImage_Paint( object sender, PaintEventArgs e )
         {
-            e.Graphics.DrawRectangle( new Pen( Color.Red, 1 ), GetRectangleForSelection() );
+            using( Pen pen = new Pen( Color.Red, 1 ) )
+            {
+                e.Graphics.DrawRectangle( pen, GetRectangleForSelection() );
+            }
         }
 
         private Rectangle GetRectangleForSelection()

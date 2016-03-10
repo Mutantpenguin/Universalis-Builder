@@ -11,20 +11,21 @@ namespace Tesserakt
     {
         static TesseraktFonts()
         {
-            // load Font from Resource
-            byte[] fontData = TObjects.Properties.Resources.NovaSquare;
-            IntPtr fontPtr = Marshal.AllocCoTaskMem( fontData.Length );
-            Marshal.Copy( fontData, 0, fontPtr, fontData.Length );
-            m_pfc.AddMemoryFont( fontPtr, fontData.Length );
-            Marshal.FreeCoTaskMem( fontPtr );
+            using( PrivateFontCollection pfc = new PrivateFontCollection() )
+            {
+                // load Font from Resource
+                byte[] fontData = TObjects.Properties.Resources.NovaSquare;
+                IntPtr fontPtr = Marshal.AllocCoTaskMem( fontData.Length );
+                Marshal.Copy( fontData, 0, fontPtr, fontData.Length );
+                pfc.AddMemoryFont( fontPtr, fontData.Length );
+                Marshal.FreeCoTaskMem( fontPtr );
 
-            FontFamilyNovaSquare = m_pfc.Families.First( s => s.Name.Equals( NovaSquareName ) );
+                FontFamilyNovaSquare = pfc.Families.First( s => s.Name.Equals( NovaSquareName ) );
+            }
         }
 
         private const string NovaSquareName = "Nova Square";
         public const string NovaSquareFileName = "NovaSquare.ttf";
-
-        private static PrivateFontCollection m_pfc = new PrivateFontCollection();
 
         public static readonly FontFamily FontFamilyNovaSquare;
     }

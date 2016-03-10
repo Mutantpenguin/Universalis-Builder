@@ -62,7 +62,6 @@ namespace Tesserakt
                 using( FileStream fs = new FileStream( path, FileMode.Open, FileAccess.Read ) )
                 {
                     Bitmap original = new Bitmap( fs );
-
                     Bitmap converted = new Bitmap( original.Width, original.Height );
 
                     using( Graphics gr = Graphics.FromImage( converted ) )
