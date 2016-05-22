@@ -89,6 +89,25 @@ namespace Tesserakt
         private static readonly int xAttThirdColumn = CmToPixel( 8.5 );
         #endregion members
 
+        #region armorMembers
+        private static readonly int weapon_posX = CmToPixel( 4 );
+
+        private static readonly int weapon_wkWidth = CmToPixel( 0.5 );
+        private static readonly int weapon_nameWidth = CmToPixel( 3.3 ) - s_lineHeight;
+        private static readonly int weapon_potentialWidth = CmToPixel( 0.5 );
+        private static readonly int weapon_substanceWidth = CmToPixel( 0.5 );
+        private static readonly int weapon_rangeWidth = CmToPixel( 0.9 );
+
+        private static readonly int weapon_wkStart = weapon_posX;
+        private static readonly int weapon_nameStart = weapon_wkStart + weapon_wkWidth;
+        private static readonly int weapon_typeStart = weapon_nameStart + weapon_nameWidth;
+        private static readonly int weapon_potentialStart = weapon_typeStart + s_lineHeight;
+        private static readonly int weapon_substanceStart = weapon_potentialStart + weapon_potentialWidth;
+        private static readonly int weapon_rangeStart = weapon_substanceStart + weapon_substanceWidth;
+
+        private static readonly int weapon_radiusMargin = s_imageMargin + CmToPixel( 0.015f );
+        #endregion
+
         public static Bitmap getBitmap( Group.GroupActor groupActor )
         {
             return( getBitmap( groupActor.Actor, groupActor.ActorOutfit, groupActor.CustomName ) );
@@ -154,7 +173,7 @@ namespace Tesserakt
         private static void drawStructure( Graphics g, int equipmentEndY )
         {
             // line right of image
-            g.DrawLine( structureBlackPen, CmToPixel( 4 ), 0, CmToPixel( 4 ), CmToPixel( s_cardHeight ) );
+            g.DrawLine( structureBlackPen, CmToPixel( 4 ), 0, CmToPixel( 4 ), s_cardHeight );
 
             // line under "Name"
             g.DrawLine( structureBlackPen, 0, CmToPixel( 0.5 ), CmToPixel( 4 ), CmToPixel( 0.5 ) );
@@ -558,184 +577,173 @@ namespace Tesserakt
 
             if( actorOutfit.ActorWeaponsList.Count > 0 )
             {
-                int posX = CmToPixel( 4 );
-
-                int wkWidth = CmToPixel( 0.5 );
-                int nameWidth = CmToPixel( 3.3 ) - s_lineHeight;
-                int potentialWidth = CmToPixel( 0.5 );
-                int substanceWidth = CmToPixel( 0.5 );
-                int rangeWidth = CmToPixel( 0.9 );
-
-                int wkStart = posX;
-                int nameStart = wkStart + wkWidth;
-                int typeStart = nameStart + nameWidth;
-                int potentialStart = typeStart + s_lineHeight;
-                int substanceStart = potentialStart + potentialWidth;
-                int rangeStart = substanceStart + substanceWidth;
-
-                g.DrawLine( linePen, posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
+                g.DrawLine( linePen, weapon_posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
 
                 // Title-Background
-                g.FillRectangle( titleBackgroundBrush, new Rectangle( posX, posY, s_cardWidth, s_lineHeight ) );
+                g.FillRectangle( titleBackgroundBrush, new Rectangle( weapon_posX, posY, s_cardWidth, s_lineHeight ) );
 
                 // Title
-                g.DrawString( "Waffen", fontStandard, Brushes.White, new Rectangle( wkStart, posY, wkWidth + nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
+                g.DrawString( "Waffen", fontStandard, Brushes.White, new Rectangle( weapon_wkStart, posY, weapon_wkWidth + weapon_nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
 
                 // Captions
-                g.DrawImage( Properties.Resources.potential_white, new Rectangle( potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-                g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( substanceStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-                g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( rangeStart + ( rangeWidth / 2 ) - ( s_lineHeight / 2 ) + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+                g.DrawImage( Properties.Resources.potential_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+                g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( weapon_substanceStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+                g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( weapon_rangeStart + ( weapon_rangeWidth / 2 ) - ( s_lineHeight / 2 ) + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
 
-                int i = 1;
-                foreach( var entry in actorOutfit.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
-                                                                  .Select( x => new { weapon = WeaponStorage.Instance.Get( x.Key ), count = x.Count() } )
-                                                                  .OrderBy( x => x.weapon.WK )
-                                                                  .ThenBy( x => x.weapon.RangeSort )
-                                                                  .ThenBy( x => x.weapon.Name ) )
+                int lineNumber = 1;
+
+                foreach( var weaponEntry in actorOutfit.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
+                                                                        .Select( x => new { weapon = WeaponStorage.Instance.Get( x.Key ), count = x.Count() } )
+                                                                        .OrderBy( x => x.weapon.WK )
+                                                                        .ThenBy( x => x.weapon.RangeSort )
+                                                                        .ThenBy( x => x.weapon.Name ) )
                 {
-                    g.DrawLine( linePen, posX, posY + ( ( i + 1 ) * s_lineHeight ), s_cardWidth, posY + ( ( i + 1 ) * s_lineHeight ) );
+                    drawWeapon( g, actor, actorOutfit, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * s_lineHeight ) );
 
-                    Weapon weapon = entry.weapon;
-
-                    Rectangle wkRect = new Rectangle( wkStart, posY + ( i * s_lineHeight ), wkWidth, s_lineHeight );
-                    g.FillRectangle( Brushes.Black, wkRect );
-                    g.DrawString( weapon.WK.ToString(), fontWK, Brushes.White, wkRect, stringFormatHCenterVCenter );
-
-                    if( weapon.Unwieldy )
-                    {
-                        /* TODO which is nicer? THe circle or the triangles?
-                        Rectangle circleRect = new Rectangle( wkRect.Location, wkRect.Size );
-                        circleRect.Inflate( CmToPixel( -0.05 ), CmToPixel( -0.05 ) );
-                        g.DrawEllipse( unwieldyCirclePen, circleRect );
-                        */
-                        Point[] pointsLeft = new Point[ 3 ] { new Point( wkRect.Location.X, wkRect.Location.Y + ( wkRect.Size.Height / 2 ) ),
-                                                              new Point( wkRect.Location.X + CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 ) ),
-                                                              new Point( wkRect.Location.X + CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 * 2 ) ) };
-                        Point[] pointsRight = new Point[ 3 ] { new Point( wkRect.Location.X + wkRect.Size.Width, wkRect.Location.Y + ( wkRect.Size.Height / 2 ) ),
-                                                               new Point( wkRect.Location.X + wkRect.Size.Width - CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 ) ),
-                                                               new Point( wkRect.Location.X + wkRect.Size.Width - CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 * 2 ) ) };
-                        g.FillPolygon( Brushes.White, pointsLeft );
-                        g.FillPolygon( Brushes.White, pointsRight );
-                    }
-
-                    string weaponName = weapon.Name;
-
-                    if( entry.weapon.UseOnce )
-                    {
-                        weaponName += Environment.NewLine;
-                        for( int j = 0; j < entry.count; j++ )
-                        {
-                            weaponName += "○";
-                        }
-                    }
-                    else
-                    {
-                        if( entry.count > 1 )
-                        {
-                            weaponName = $"{entry.count}x {weapon.Name}";
-                        }
-                    }
-
-                    Size nameSize = new Size( nameWidth, s_lineHeight );
-                    int charsFitted, linesFilled;
-                    g.MeasureString( weaponName, fontWeaponName, nameSize, stringFormatHLeftVCenter, out charsFitted, out linesFilled );
-                    if( charsFitted < weaponName.Length )
-                    {
-                        weaponName = "NAME IST ZU LANG!";
-                    }
-
-                    g.DrawString( weaponName, fontWeaponName, Brushes.Black, new Rectangle( new Point( nameStart, posY + ( i * s_lineHeight ) ), nameSize ), stringFormatHLeftVCenter );
-
-                    drawDamageType( g, potentialStart, posY + ( i * s_lineHeight ), weapon.DamageTypeImage );
-
-                    g.DrawString( weapon.Potential.ToString(), fontWeapon, weaponFontBrush, new Rectangle( potentialStart, posY + ( i * s_lineHeight ), potentialWidth, s_lineHeight ), stringFormatHCenterVCenter );
-
-                    g.DrawString( weapon.FormattedSubstance, fontWeapon, weaponFontBrush, new Rectangle( substanceStart, posY + ( i * s_lineHeight ), substanceWidth, s_lineHeight ), stringFormatHCenterVCenter );
-
-                    if( Weapon.EType.Wurf == weapon.Type )
-                    {
-                        // TODO only for EMP
-                        // if( actor.ModKK( actorOutfit ) == actor.BaseKK() )
-                        // {
-                        g.DrawString( Actor.ThrowRange( actor.ModKK( actorOutfit ) ), fontWeapon, weaponFontBrush, new Rectangle( rangeStart, posY + ( i * s_lineHeight ), rangeWidth, s_lineHeight ), stringFormatHCenterVCenter );
-                        // }
-                        // else
-                        // {
-                        // g.DrawString( Actor.ThrowRange( actor.ModKK( actorOutfit ) ), fontWeaponSmall, Brushes.Red, new Rectangle( rangeStart, posY + ( i * s_lineHeight ), rangeWidth, s_lineHeight / 2 ), stringFormatHCenterVCenter );
-                        // g.DrawString( Actor.ThrowRange( actor.BaseKK() ), fontWeaponSmall, Brushes.Orange, new Rectangle( rangeStart, posY + ( i * s_lineHeight ) + ( s_lineHeight / 2 ), rangeWidth, s_lineHeight / 2 ), stringFormatHCenterVCenter );
-                        // }
-                    }
-                    else
-                    {
-                        g.DrawString( weapon.FormattedRange, fontWeapon, weaponFontBrush, new Rectangle( rangeStart, posY + ( i * s_lineHeight ), rangeWidth, s_lineHeight ), stringFormatHCenterVCenter );
-                    }
-
-                    int remainderPosX = rangeStart + rangeWidth;
-
-                    if( weapon.AF > 0 )
-                    {
-                        remainderPosX += s_imageMargin;
-
-                        int width = ( s_lineHeight - s_imageMarginDouble ) / 3;
-
-                        for( int j = 0; j < weapon.AF; j++ )
-                        {
-                            g.DrawImage( Properties.Resources.patrone, new Rectangle( remainderPosX, posY + ( i * s_lineHeight ) + s_imageMargin, width, s_lineHeight - s_imageMarginDouble ) );
-
-                            remainderPosX += width;
-                        }
-                    }
-
-                    if( weapon.Radius > 0 )
-                    {
-                        int margin = s_imageMargin + CmToPixel( 0.015f );
-
-                        Rectangle rect = new Rectangle( remainderPosX + margin, posY + ( i * s_lineHeight ) + margin, s_lineHeight - ( 2 * margin ), s_lineHeight - ( 2 * margin ) );
-                        g.FillEllipse( Brushes.Black, rect );
-
-                        GraphicsPath path = new GraphicsPath();
-                        path.AddString( weapon.FormattedRadius, fontWeapon.FontFamily, (int)fontWeapon.Style, fontWeapon.Size, new Point( 0, 0 ), StringFormat.GenericTypographic );
-
-                        // Determine physical size of the character when rendered
-                        Rectangle area = Rectangle.Round( path.GetBounds() );
-
-                        // Slide it to be centered in the specified bounds
-                        Point offset = new Point( rect.Left + ( rect.Width / 2 - area.Width / 2) - area.Left, rect.Top + ( rect.Height / 2 - area.Height / 2 ) - area.Top );
-
-                        Matrix translate = new Matrix();
-                        translate.Translate( offset.X, offset.Y );
-
-                        path.Transform( translate );
-
-                        // Now render it however desired
-                        g.FillPath( Brushes.White, path );
-
-
-                        remainderPosX += s_lineHeight;
-                    }
-
-                    drawDamageEffects( g, remainderPosX, posY + ( i * s_lineHeight ), weapon.EffectsImage );
-
-                    i++;
+                    lineNumber++;
                 }
 
-                // right of name
-                g.DrawLine( linePen, wkStart, posY, wkStart, posY + ( i * s_lineHeight ) );
-                // right of wk
-                g.DrawLine( linePen, potentialStart, posY, potentialStart, posY + ( i * s_lineHeight ) );
-                // right of potential
-                g.DrawLine( linePen, substanceStart, posY, substanceStart, posY + ( i * s_lineHeight ) );
-                // right of substance
-                g.DrawLine( linePen, rangeStart, posY, rangeStart, posY + ( i * s_lineHeight ) );
-                // right of range
-                g.DrawLine( linePen, rangeStart + rangeWidth, posY, rangeStart + rangeWidth, posY + ( i * s_lineHeight ) );
+                int lineVertEnd = posY + ( lineNumber * s_lineHeight );
 
-                return( i );
+                // right of name
+                g.DrawLine( linePen, weapon_wkStart, posY, weapon_wkStart, lineVertEnd );
+                // right of wk
+                g.DrawLine( linePen, weapon_potentialStart, posY, weapon_potentialStart, lineVertEnd );
+                // right of potential
+                g.DrawLine( linePen, weapon_substanceStart, posY, weapon_substanceStart, lineVertEnd );
+                // right of substance
+                g.DrawLine( linePen, weapon_rangeStart, posY, weapon_rangeStart, lineVertEnd );
+                // right of range
+                g.DrawLine( linePen, weapon_rangeStart + weapon_rangeWidth, posY, weapon_rangeStart + weapon_rangeWidth, lineVertEnd );
+
+                return( lineNumber );
             }
             else
             {
                 return( 0 );
             }
+        }
+
+        private static void drawWeapon( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Weapon weapon, int count, int posY )
+        {
+            g.DrawLine( linePen, weapon_posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
+
+            Rectangle wkRect = new Rectangle( weapon_wkStart, posY, weapon_wkWidth, s_lineHeight );
+            g.FillRectangle( Brushes.Black, wkRect );
+            g.DrawString( weapon.WK.ToString(), fontWK, Brushes.White, wkRect, stringFormatHCenterVCenter );
+
+            if( weapon.Unwieldy )
+            {
+                /* TODO which is nicer? THe circle or the triangles?
+                Rectangle circleRect = new Rectangle( wkRect.Location, wkRect.Size );
+                circleRect.Inflate( CmToPixel( -0.05 ), CmToPixel( -0.05 ) );
+                g.DrawEllipse( unwieldyCirclePen, circleRect );
+                */
+                Point[] pointsLeft = new Point[ 3 ] { new Point( wkRect.Location.X, wkRect.Location.Y + ( wkRect.Size.Height / 2 ) ),
+                                                              new Point( wkRect.Location.X + CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 ) ),
+                                                              new Point( wkRect.Location.X + CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 * 2 ) ) };
+                Point[] pointsRight = new Point[ 3 ] { new Point( wkRect.Location.X + wkRect.Size.Width, wkRect.Location.Y + ( wkRect.Size.Height / 2 ) ),
+                                                               new Point( wkRect.Location.X + wkRect.Size.Width - CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 ) ),
+                                                               new Point( wkRect.Location.X + wkRect.Size.Width - CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 * 2 ) ) };
+                g.FillPolygon( Brushes.White, pointsLeft );
+                g.FillPolygon( Brushes.White, pointsRight );
+            }
+
+            string weaponName = weapon.Name;
+
+            if( weapon.UseOnce )
+            {
+                weaponName += Environment.NewLine;
+                for( int j = 0; j < count; j++ )
+                {
+                    weaponName += "○";
+                }
+            }
+            else
+            {
+                if( count > 1 )
+                {
+                    weaponName = $"{count}x {weapon.Name}";
+                }
+            }
+
+            Size nameSize = new Size( weapon_nameWidth, s_lineHeight );
+            int charsFitted, linesFilled;
+            g.MeasureString( weaponName, fontWeaponName, nameSize, stringFormatHLeftVCenter, out charsFitted, out linesFilled );
+            if( charsFitted < weaponName.Length )
+            {
+                weaponName = "NAME IST ZU LANG!";
+            }
+
+            g.DrawString( weaponName, fontWeaponName, Brushes.Black, new Rectangle( new Point( weapon_nameStart, posY ), nameSize ), stringFormatHLeftVCenter );
+
+            drawDamageType( g, weapon_potentialStart, posY, weapon.DamageTypeImage );
+
+            g.DrawString( weapon.Potential.ToString(), fontWeapon, weaponFontBrush, new Rectangle( weapon_potentialStart, posY, weapon_potentialWidth, s_lineHeight ), stringFormatHCenterVCenter );
+
+            g.DrawString( weapon.FormattedSubstance, fontWeapon, weaponFontBrush, new Rectangle( weapon_substanceStart, posY, weapon_substanceWidth, s_lineHeight ), stringFormatHCenterVCenter );
+
+            if( Weapon.EType.Wurf == weapon.Type )
+            {
+                // TODO only for EMP
+                // if( actor.ModKK( actorOutfit ) == actor.BaseKK() )
+                // {
+                g.DrawString( Actor.ThrowRange( actor.ModKK( actorOutfit ) ), fontWeapon, weaponFontBrush, new Rectangle( weapon_rangeStart, posY, weapon_rangeWidth, s_lineHeight ), stringFormatHCenterVCenter );
+                // }
+                // else
+                // {
+                // g.DrawString( Actor.ThrowRange( actor.ModKK( actorOutfit ) ), fontWeaponSmall, Brushes.Red, new Rectangle( rangeStart, gnah, rangeWidth, s_lineHeight / 2 ), stringFormatHCenterVCenter );
+                // g.DrawString( Actor.ThrowRange( actor.BaseKK() ), fontWeaponSmall, Brushes.Orange, new Rectangle( rangeStart, gnah + ( s_lineHeight / 2 ), rangeWidth, s_lineHeight / 2 ), stringFormatHCenterVCenter );
+                // }
+            }
+            else
+            {
+                g.DrawString( weapon.FormattedRange, fontWeapon, weaponFontBrush, new Rectangle( weapon_rangeStart, posY, weapon_rangeWidth, s_lineHeight ), stringFormatHCenterVCenter );
+            }
+
+            int remainderPosX = weapon_rangeStart + weapon_rangeWidth;
+
+            if( weapon.AF > 0 )
+            {
+                remainderPosX += s_imageMargin;
+
+                int width = ( s_lineHeight - s_imageMarginDouble ) / 3;
+
+                for( int j = 0; j < weapon.AF; j++ )
+                {
+                    g.DrawImage( Properties.Resources.patrone, new Rectangle( remainderPosX, posY + s_imageMargin, width, s_lineHeight - s_imageMarginDouble ) );
+
+                    remainderPosX += width;
+                }
+            }
+
+            if( weapon.Radius > 0 )
+            {
+                Rectangle rect = new Rectangle( remainderPosX + weapon_radiusMargin, posY + weapon_radiusMargin, s_lineHeight - ( 2 * weapon_radiusMargin ), s_lineHeight - ( 2 * weapon_radiusMargin ) );
+                g.FillEllipse( Brushes.Black, rect );
+
+                GraphicsPath path = new GraphicsPath();
+                path.AddString( weapon.FormattedRadius, fontWeapon.FontFamily, (int)fontWeapon.Style, fontWeapon.Size, new Point( 0, 0 ), StringFormat.GenericTypographic );
+
+                // Determine physical size of the character when rendered
+                Rectangle area = Rectangle.Round( path.GetBounds() );
+
+                // Slide it to be centered in the specified bounds
+                Point offset = new Point( rect.Left + ( rect.Width / 2 - area.Width / 2) - area.Left, rect.Top + ( rect.Height / 2 - area.Height / 2 ) - area.Top );
+
+                Matrix translate = new Matrix();
+                translate.Translate( offset.X, offset.Y );
+
+                path.Transform( translate );
+
+                // Now render it however desired
+                g.FillPath( Brushes.White, path );
+
+
+                remainderPosX += s_lineHeight;
+            }
+
+            drawDamageEffects( g, remainderPosX, posY, weapon.EffectsImage );
         }
 
         private static void drawDamageEffects( Graphics g, int posX, int posY, Image effectImage )
