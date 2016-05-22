@@ -189,6 +189,29 @@ namespace Tesserakt
             }
         }
 
+        private void toolStripButtonChangeFaction_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewActors.SelectedRows.Count > 0 )
+            {
+                Actor actor = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
+
+                using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm( actor.Faction ) )
+                {
+                    if( factionSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                    {
+                        if( factionSelectionForm.SelectedFaction != null )
+                        {
+                            actor.Faction = factionSelectionForm.SelectedFaction;
+
+                            ActorStorage.Save( actor );
+
+                            RefreshActorsGridView();
+                        }
+                    }
+                }
+            }
+        }
+
         private void toolStripButtonExportImage_Click( object sender, EventArgs e )
         {
             if( dataGridViewActors.SelectedRows.Count > 0 )

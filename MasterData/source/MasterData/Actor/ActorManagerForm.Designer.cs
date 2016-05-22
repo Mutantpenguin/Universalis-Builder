@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
             this.factionIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
@@ -50,6 +50,7 @@
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripButtonChangeFaction = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).BeginInit();
             this.toolStripCardManager.SuspendLayout();
@@ -61,8 +62,8 @@
             this.dataGridViewActors.AllowUserToAddRows = false;
             this.dataGridViewActors.AllowUserToDeleteRows = false;
             this.dataGridViewActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewActors.AutoGenerateColumns = false;
             this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -79,7 +80,7 @@
             this.dataGridViewActors.RowHeadersVisible = false;
             this.dataGridViewActors.RowTemplate.Height = 40;
             this.dataGridViewActors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewActors.Size = new System.Drawing.Size(474, 548);
+            this.dataGridViewActors.Size = new System.Drawing.Size(505, 548);
             this.dataGridViewActors.TabIndex = 0;
             this.dataGridViewActors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewActors_CellDoubleClick);
             this.dataGridViewActors.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewActors_CellToolTipTextNeeded);
@@ -115,8 +116,8 @@
             // pointsRangeDataGridViewTextBoxColumn
             // 
             this.pointsRangeDataGridViewTextBoxColumn.DataPropertyName = "PointsRange";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.pointsRangeDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsRangeDataGridViewTextBoxColumn.Name = "pointsRangeDataGridViewTextBoxColumn";
             this.pointsRangeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -138,10 +139,11 @@
             this.filterType,
             this.toolStripButtonCopy,
             this.toolStripButtonExportImage,
-            this.checkBoxFilterType});
+            this.checkBoxFilterType,
+            this.toolStripButtonChangeFaction});
             this.toolStripCardManager.Location = new System.Drawing.Point(0, 0);
             this.toolStripCardManager.Name = "toolStripCardManager";
-            this.toolStripCardManager.Size = new System.Drawing.Size(474, 25);
+            this.toolStripCardManager.Size = new System.Drawing.Size(505, 25);
             this.toolStripCardManager.TabIndex = 1;
             // 
             // toolStripTextBoxSearch
@@ -231,7 +233,6 @@
             this.toolStripButtonExportImage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonExportImage.Name = "toolStripButtonExportImage";
             this.toolStripButtonExportImage.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonExportImage.Text = "Als Bild exportieren";
             this.toolStripButtonExportImage.Click += new System.EventHandler(this.toolStripButtonExportImage_Click);
             // 
             // checkBoxFilterType
@@ -251,7 +252,7 @@
             this.toolStripStatusLabelCount});
             this.statusStrip1.Location = new System.Drawing.Point(0, 573);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(474, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(505, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -260,11 +261,22 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
+            // toolStripButtonChangeFaction
+            // 
+            this.toolStripButtonChangeFaction.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonChangeFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonChangeFaction.Image = global::Tesserakt.Properties.Resources.arrow_step_over;
+            this.toolStripButtonChangeFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonChangeFaction.Name = "toolStripButtonChangeFaction";
+            this.toolStripButtonChangeFaction.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonChangeFaction.Text = "in andere Fraktion verschieben";
+            this.toolStripButtonChangeFaction.Click += new System.EventHandler(this.toolStripButtonChangeFaction_Click);
+            // 
             // ActorManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 595);
+            this.ClientSize = new System.Drawing.Size(505, 595);
             this.Controls.Add(this.dataGridViewActors);
             this.Controls.Add(this.toolStripCardManager);
             this.Controls.Add(this.statusStrip1);
@@ -305,5 +317,6 @@
         private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsRangeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton toolStripButtonChangeFaction;
     }
 }

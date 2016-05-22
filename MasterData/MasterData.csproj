@@ -328,6 +328,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\arrow-step-over.png" />
     <None Include="Resources\script-text.png" />
     <None Include="Resources\pencil.png" />
     <None Include="Resources\clear.png" />

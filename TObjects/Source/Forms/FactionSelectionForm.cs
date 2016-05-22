@@ -6,8 +6,10 @@ namespace Tesserakt
 {
     public partial class FactionSelectionForm : Form
     {
-        public FactionSelectionForm()
+        public FactionSelectionForm( Faction excludeFaction = null )
         {
+            m_excludeFaction = excludeFaction;
+
             InitializeComponent();
 
             updateDataGridViewFactions();
@@ -17,9 +19,12 @@ namespace Tesserakt
         {
             factionBindingSource.DataSource = FactionStorage.Instance.Factions.Where( s => s.Active )
                                                                               .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                              .Where( s => ( m_excludeFaction != null ) ? s.ID != m_excludeFaction.ID : true )
                                                                               .OrderBy( x => x.Name )
                                                                               .ToList();
         }
+
+        private readonly Faction m_excludeFaction;
 
         public Faction SelectedFaction
         {
