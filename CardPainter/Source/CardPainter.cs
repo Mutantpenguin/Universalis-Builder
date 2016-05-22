@@ -575,53 +575,66 @@ namespace Tesserakt
                 return ( 0 );
             }
 
-            if( actorOutfit.ActorWeaponsList.Count > 0 )
+            g.DrawLine( linePen, weapon_posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
+
+            // Title-Background
+            g.FillRectangle( titleBackgroundBrush, new Rectangle( weapon_posX, posY, s_cardWidth, s_lineHeight ) );
+
+            // Title
+            g.DrawString( "Waffen", fontStandard, Brushes.White, new Rectangle( weapon_wkStart, posY, weapon_wkWidth + weapon_nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
+
+            // Captions
+            g.DrawImage( Properties.Resources.potential_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+            g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( weapon_substanceStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+            g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( weapon_rangeStart + ( weapon_rangeWidth / 2 ) - ( s_lineHeight / 2 ) + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+
+            int lineNumber = 1;
+
+            if( actorOutfit.ActorWeaponsList.FirstOrDefault( s => s.Weapon.Type == Weapon.EType.Nahkampf ) == null )
             {
-                g.DrawLine( linePen, weapon_posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
-
-                // Title-Background
-                g.FillRectangle( titleBackgroundBrush, new Rectangle( weapon_posX, posY, s_cardWidth, s_lineHeight ) );
-
-                // Title
-                g.DrawString( "Waffen", fontStandard, Brushes.White, new Rectangle( weapon_wkStart, posY, weapon_wkWidth + weapon_nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
-
-                // Captions
-                g.DrawImage( Properties.Resources.potential_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-                g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( weapon_substanceStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-                g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( weapon_rangeStart + ( weapon_rangeWidth / 2 ) - ( s_lineHeight / 2 ) + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-
-                int lineNumber = 1;
-
-                foreach( var weaponEntry in actorOutfit.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
-                                                                        .Select( x => new { weapon = WeaponStorage.Instance.Get( x.Key ), count = x.Count() } )
-                                                                        .OrderBy( x => x.weapon.WK )
-                                                                        .ThenBy( x => x.weapon.RangeSort )
-                                                                        .ThenBy( x => x.weapon.Name ) )
+                Weapon weaponCC = new Weapon()
                 {
-                    drawWeapon( g, actor, actorOutfit, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * s_lineHeight ) );
+                    Type = Weapon.EType.Nahkampf,
+                    Name = "Unbewaffnet",
+                    DamageType = new DamageType()
+                    {
+                        Type = DamageType.EType.Schlag,
+                        Level = DamageType.ELevel.I
+                    },
+                    Potential = actor.ModKK( actorOutfit ),
+                    Substance = Convert.ToInt32( Math.Round( actor.ModKK( actorOutfit ) / 3.0f, 0 ) )
+                };
 
-                    lineNumber++;
-                }
+                drawWeapon( g, actor, actorOutfit, weaponCC, 1, posY + ( lineNumber * s_lineHeight ) );
 
-                int lineVertEnd = posY + ( lineNumber * s_lineHeight );
-
-                // right of name
-                g.DrawLine( linePen, weapon_wkStart, posY, weapon_wkStart, lineVertEnd );
-                // right of wk
-                g.DrawLine( linePen, weapon_potentialStart, posY, weapon_potentialStart, lineVertEnd );
-                // right of potential
-                g.DrawLine( linePen, weapon_substanceStart, posY, weapon_substanceStart, lineVertEnd );
-                // right of substance
-                g.DrawLine( linePen, weapon_rangeStart, posY, weapon_rangeStart, lineVertEnd );
-                // right of range
-                g.DrawLine( linePen, weapon_rangeStart + weapon_rangeWidth, posY, weapon_rangeStart + weapon_rangeWidth, lineVertEnd );
-
-                return( lineNumber );
+                lineNumber++;
             }
-            else
+
+            foreach( var weaponEntry in actorOutfit.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
+                                                                    .Select( x => new { weapon = WeaponStorage.Instance.Get( x.Key ), count = x.Count() } )
+                                                                    .OrderBy( x => x.weapon.WK )
+                                                                    .ThenBy( x => x.weapon.RangeSort )
+                                                                    .ThenBy( x => x.weapon.Name ) )
             {
-                return( 0 );
+                drawWeapon( g, actor, actorOutfit, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * s_lineHeight ) );
+
+                lineNumber++;
             }
+
+            int lineVertEnd = posY + ( lineNumber * s_lineHeight );
+
+            // right of name
+            g.DrawLine( linePen, weapon_wkStart, posY, weapon_wkStart, lineVertEnd );
+            // right of wk
+            g.DrawLine( linePen, weapon_potentialStart, posY, weapon_potentialStart, lineVertEnd );
+            // right of potential
+            g.DrawLine( linePen, weapon_substanceStart, posY, weapon_substanceStart, lineVertEnd );
+            // right of substance
+            g.DrawLine( linePen, weapon_rangeStart, posY, weapon_rangeStart, lineVertEnd );
+            // right of range
+            g.DrawLine( linePen, weapon_rangeStart + weapon_rangeWidth, posY, weapon_rangeStart + weapon_rangeWidth, lineVertEnd );
+
+            return( lineNumber );
         }
 
         private static void drawWeapon( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Weapon weapon, int count, int posY )
