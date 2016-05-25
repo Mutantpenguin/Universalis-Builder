@@ -24,6 +24,8 @@ namespace Tesserakt
             Rules = equipment.Rules;
             Points = equipment.Points;
             Weight = equipment.Weight;
+            Type = equipment.Type;
+            AP = equipment.AP;
 
             UseOnce = equipment.UseOnce;
 
@@ -62,7 +64,11 @@ namespace Tesserakt
                 ||
                 Weight != equipment.Weight
                 ||
-                UseOnce  != equipment.UseOnce )
+                UseOnce != equipment.UseOnce
+                ||
+                Type != equipment.Type
+                ||
+                AP != equipment.AP )
             {
                 return ( false );
             }
@@ -86,6 +92,12 @@ namespace Tesserakt
             }
 
             return ( true );
+        }
+
+        public enum EType
+        {
+            Active = 1,
+            Passive = 2,
         }
 
         public Guid ID
@@ -135,6 +147,18 @@ namespace Tesserakt
             get;
             set;
         } = false;
+
+        public EType Type
+        {
+            get;
+            set;
+        } = EType.Passive;
+
+        public uint AP
+        {
+            get;
+            set;
+        } = 0;
 
         public AttributeModifier AttributeModifier
         {
