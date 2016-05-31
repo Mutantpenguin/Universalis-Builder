@@ -592,20 +592,7 @@ namespace Tesserakt
 
             if( actorOutfit.ActorWeaponsList.FirstOrDefault( s => s.Weapon.Type == Weapon.EType.Nahkampf ) == null )
             {
-                Weapon weaponCC = new Weapon()
-                {
-                    Type = Weapon.EType.Nahkampf,
-                    Name = "Unbewaffnet",
-                    DamageType = new DamageType()
-                    {
-                        Type = DamageType.EType.Schlag,
-                        Level = DamageType.ELevel.I
-                    },
-                    Potential = actor.ModKK( actorOutfit ),
-                    Substance = Convert.ToInt32( Math.Round( actor.ModKK( actorOutfit ) / 3.0f, 0 ) )
-                };
-
-                drawWeapon( g, actor, actorOutfit, weaponCC, 1, posY + ( lineNumber * s_lineHeight ) );
+                drawWeapon( g, actor, actorOutfit, actor.unarmedCC( actorOutfit ), 1, posY + ( lineNumber * s_lineHeight ) );
 
                 lineNumber++;
             }

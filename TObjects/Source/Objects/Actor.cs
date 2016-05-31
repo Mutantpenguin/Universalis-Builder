@@ -840,6 +840,40 @@ namespace Tesserakt
             }
         }
 
+        public Weapon unarmedCC( Actor.ActorOutfit actorOutfit )
+        {
+            Weapon weaponCC = new Weapon()
+            {
+                Type = Weapon.EType.Nahkampf,
+                Name = "Unbewaffnet",
+                Potential = ModKK( actorOutfit ),
+                Substance = Convert.ToInt32( Math.Round( ModKK( actorOutfit ) / 3.0f, 0 ) )
+            };
+
+            switch( this.Type )
+            {
+                case EType.Infanterie:
+                    weaponCC.WK = Weapon.EClass.I;
+                    weaponCC.DamageType = new DamageType()
+                    {
+                        Type = DamageType.EType.Schlag,
+                        Level = DamageType.ELevel.I
+                    };
+                    break;
+
+                case EType.MIKe:
+                    weaponCC.WK = Weapon.EClass.II;
+                    weaponCC.DamageType = new DamageType()
+                    {
+                        Type = DamageType.EType.Schlag,
+                        Level = DamageType.ELevel.II
+                    };
+                    break;
+            }
+
+            return( weaponCC );
+        }
+
         [JsonIgnore]
         public string PointsRange
         {
