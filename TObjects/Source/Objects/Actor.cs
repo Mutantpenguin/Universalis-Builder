@@ -719,7 +719,7 @@ namespace Tesserakt
 #endregion attributes
 
 #region calculated values
-        public int PGB( Actor.ActorOutfit actorOutfit )
+        public int GB( Actor.ActorOutfit actorOutfit )
         {
             int calcVal = 12 - Attributes.ModSH( CurrentAttributeModifier( actorOutfit ) );
 

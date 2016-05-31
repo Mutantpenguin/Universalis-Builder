@@ -300,9 +300,9 @@ namespace Tesserakt
 
         private static void drawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            // PGB - Persönlicher Gefahrenbereich
+            // GB - Gefahrenbereich
             g.DrawImage( Properties.Resources.danger, new Rectangle( xAttThirdColumn, CmToPixel( 0.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
-            g.DrawString( $"{actor.PGB( actorOutfit )}cm", fontStandard, Brushes.Black, new Rectangle( xAttThirdColumn + CmToPixel( 0.5 ), 0, CmToPixel( 1 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
+            g.DrawString( $"{actor.GB( actorOutfit )}cm", fontStandard, Brushes.Black, new Rectangle( xAttThirdColumn + CmToPixel( 0.5 ), 0, CmToPixel( 1 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
 
             // WB - Wahrnehmungsbereich
             g.DrawImage( Properties.Resources.eye, new Rectangle( xAttThirdColumn, CmToPixel( 0.55 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );

@@ -202,7 +202,7 @@ namespace Tesserakt
                 textBoxBelastung.BackColor = SystemColors.Control;
             }
 
-            CalcAttribPGB.Text = $"{m_actorModified.PGB( CurrentOutfit() )}cm";
+            CalcAttribGB.Text = $"{m_actorModified.GB( CurrentOutfit() )}cm";
 
             CalcAttribWB.Text = $"{m_actorModified.ModWB( CurrentOutfit() )}cm";
 

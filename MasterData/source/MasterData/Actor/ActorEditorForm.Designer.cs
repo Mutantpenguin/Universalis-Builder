@@ -63,7 +63,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
-            this.CalcAttribPGB = new System.Windows.Forms.TextBox();
+            this.CalcAttribGB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SZ = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
@@ -485,7 +485,7 @@
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.comboBoxSize);
-            this.panel2.Controls.Add(this.CalcAttribPGB);
+            this.panel2.Controls.Add(this.CalcAttribGB);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.SZ);
             this.panel2.Controls.Add(this.label8);
@@ -586,15 +586,15 @@
             this.comboBoxSize.TabIndex = 40;
             this.comboBoxSize.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSize_SelectionChangeCommitted);
             // 
-            // CalcAttribPGB
+            // CalcAttribGB
             // 
-            this.CalcAttribPGB.Location = new System.Drawing.Point(34, 81);
-            this.CalcAttribPGB.Name = "CalcAttribPGB";
-            this.CalcAttribPGB.ReadOnly = true;
-            this.CalcAttribPGB.Size = new System.Drawing.Size(50, 20);
-            this.CalcAttribPGB.TabIndex = 37;
-            this.CalcAttribPGB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip.SetToolTip(this.CalcAttribPGB, "Persönlicher Gefahrenbereich");
+            this.CalcAttribGB.Location = new System.Drawing.Point(34, 81);
+            this.CalcAttribGB.Name = "CalcAttribGB";
+            this.CalcAttribGB.ReadOnly = true;
+            this.CalcAttribGB.Size = new System.Drawing.Size(50, 20);
+            this.CalcAttribGB.TabIndex = 37;
+            this.CalcAttribGB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip.SetToolTip(this.CalcAttribGB, "Gefahrenbereich");
             // 
             // label1
             // 
@@ -603,7 +603,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 36;
-            this.label1.Text = "PGB";
+            this.label1.Text = "GB";
             // 
             // SZ
             // 
@@ -1618,7 +1618,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxTragkraft;
-        private System.Windows.Forms.TextBox CalcAttribPGB;
+        private System.Windows.Forms.TextBox CalcAttribGB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonImages;
         private System.Windows.Forms.Panel panel3;
