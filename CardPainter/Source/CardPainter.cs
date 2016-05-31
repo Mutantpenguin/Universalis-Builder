@@ -239,8 +239,16 @@ namespace Tesserakt
                     g.DrawImage( Properties.Resources.mike, rect );
                     break;
 
+                case Actor.EType.Drohne:
+                    g.DrawImage( Properties.Resources.drohne, rect );
+                    break;
+
+                case Actor.EType.Fahrzeug:
+                    g.DrawImage( Properties.Resources.fahrzeug, rect );
+                    break;
+
                 default:
-                    throw new InvalidOperationException( "unkown Actor.EType" );
+                    throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
             }
 
             g.DrawRectangle( linePen, rect );
@@ -330,6 +338,8 @@ namespace Tesserakt
             switch( actor.Type )
             {
                 case Actor.EType.Infanterie:
+                case Actor.EType.Drohne:
+                case Actor.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
                     int posX = s_pictureRect.X + margin;
                     int posY = s_pictureRect.Y + margin;
 
@@ -365,7 +375,7 @@ namespace Tesserakt
                     break;
 
                 default:
-                    throw new InvalidOperationException( "unkown Actor.EType" );
+                    throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
             }            
         }
 
@@ -592,9 +602,14 @@ namespace Tesserakt
 
             if( actorOutfit.ActorWeaponsList.FirstOrDefault( s => s.Weapon.Type == Weapon.EType.Nahkampf ) == null )
             {
-                drawWeapon( g, actor, actorOutfit, actor.unarmedCC( actorOutfit ), 1, posY + ( lineNumber * s_lineHeight ) );
+                Weapon weaponCC = actor.unarmedCC( actorOutfit );
 
-                lineNumber++;
+                if( weaponCC != null )
+                {
+                    drawWeapon( g, actor, actorOutfit, actor.unarmedCC( actorOutfit ), 1, posY + ( lineNumber * s_lineHeight ) );
+
+                    lineNumber++;
+                }
             }
 
             foreach( var weaponEntry in actorOutfit.ActorWeaponsList.GroupBy( x => x.Weapon.ID )

@@ -205,6 +205,8 @@ namespace Tesserakt
         {
             Infanterie = 1,
             MIKe = 2,
+            Drohne = 3,
+            Fahrzeug = 4
         }
 
         public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
@@ -769,16 +771,20 @@ namespace Tesserakt
 
         public float ModMaxLoadCapacity( Actor.ActorOutfit actorOutfit )
         {
-            switch( Type )
+            switch( this.Type )
             {
                 case EType.Infanterie:
+                case EType.Drohne:
                     return ( Convert.ToSingle( Math.Pow( Attributes.ModKK( CurrentAttributeModifier( actorOutfit ) ), 2 ) ) );
 
                 case EType.MIKe:
                     return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKK( CurrentAttributeModifier( actorOutfit ) ) * Presets.MIKELoadCapacityMultiplier ), 2 ) ) );
 
+                case EType.Fahrzeug:
+                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKK( CurrentAttributeModifier( actorOutfit ) ) * Presets.FahrzeugLoadCapacityMultiplier ), 2 ) ) );
+
                 default:
-                    throw new InvalidOperationException( "unkown Actor.EType" );
+                    throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
             }
         }
 
@@ -842,36 +848,48 @@ namespace Tesserakt
 
         public Weapon unarmedCC( Actor.ActorOutfit actorOutfit )
         {
-            Weapon weaponCC = new Weapon()
+            if( ( this.Type == EType.Drohne )
+                ||
+                ( this.Type == EType.Fahrzeug ) )
             {
-                Type = Weapon.EType.Nahkampf,
-                Name = "Unbewaffnet",
-                Potential = ModKK( actorOutfit ),
-                Substance = Convert.ToInt32( Math.Round( ModKK( actorOutfit ) / 3.0f, 0 ) )
-            };
-
-            switch( this.Type )
-            {
-                case EType.Infanterie:
-                    weaponCC.WK = Weapon.EClass.I;
-                    weaponCC.DamageType = new DamageType()
-                    {
-                        Type = DamageType.EType.Schlag,
-                        Level = DamageType.ELevel.I
-                    };
-                    break;
-
-                case EType.MIKe:
-                    weaponCC.WK = Weapon.EClass.II;
-                    weaponCC.DamageType = new DamageType()
-                    {
-                        Type = DamageType.EType.Schlag,
-                        Level = DamageType.ELevel.II
-                    };
-                    break;
+                return ( null );
             }
+            else
+            {
+                Weapon weaponCC = new Weapon()
+                {
+                    Type = Weapon.EType.Nahkampf,
+                    Name = "Unbewaffnet",
+                    Potential = ModKK( actorOutfit ),
+                    Substance = Convert.ToInt32( Math.Round( ModKK( actorOutfit ) / 3.0f, 0 ) )
+                };
 
-            return( weaponCC );
+                switch( this.Type )
+                {
+                    case EType.Infanterie:
+                        weaponCC.WK = Weapon.EClass.I;
+                        weaponCC.DamageType = new DamageType()
+                        {
+                            Type = DamageType.EType.Schlag,
+                            Level = DamageType.ELevel.I
+                        };
+                        break;
+
+                    case EType.MIKe:
+                        weaponCC.WK = Weapon.EClass.II;
+                        weaponCC.DamageType = new DamageType()
+                        {
+                            Type = DamageType.EType.Schlag,
+                            Level = DamageType.ELevel.II
+                        };
+                        break;
+
+                    default:
+                        throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
+                }
+
+                return ( weaponCC );
+            }
         }
 
         [JsonIgnore]
@@ -911,9 +929,11 @@ namespace Tesserakt
             points += Attributes.ModAFG( CurrentAttributeModifier( actorOutfit ) ) * Costs.AFG;
             points += Attributes.ModSH( CurrentAttributeModifier( actorOutfit ) ) * Costs.SH;
 
-            switch( Type )
+            switch( this.Type )
             {
                 case EType.Infanterie:
+                case EType.Drohne:
+                case Actor.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
                     points += SZ * Costs.SZ;
                     break;
 
@@ -922,7 +942,7 @@ namespace Tesserakt
                     break;
 
                 default:
-                    throw new InvalidOperationException( "unkown Actor.EType" );
+                    throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
             }
 
             points += (int)Fov * Costs.FOV;

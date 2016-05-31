@@ -138,6 +138,12 @@
   <ItemGroup>
     <None Include="Resources\mike.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drohne.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fahrzeug.png" />
+  </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
