@@ -486,6 +486,9 @@ namespace Tesserakt
                 case Actor.ESize.Groß :
                     img = Properties.Resources.size_big;
                     break;
+
+                default:
+                    throw new InvalidOperationException( "unkown " + nameof( Actor.ESize ) );
             }
 
             int sizeInPixel = CmToPixel( 0.4 );
@@ -522,6 +525,9 @@ namespace Tesserakt
                 case EMovementType.Rad:
                     img = Properties.ResourcesBewegung.bewegung_rad;
                     break;
+
+                default:
+                    throw new InvalidOperationException( "unkown " + nameof( EMovementType ) );
             }
 
             g.DrawImage( img, new Rectangle( xAttThirdColumn + CmToPixel( 0.5 ), CmToPixel( 1.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
