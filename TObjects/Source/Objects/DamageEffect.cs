@@ -118,7 +118,7 @@ namespace Tesserakt
                             return ( TObjects.Properties.Resources.effekt_struktur );
 
                         default:
-                            throw new InvalidOperationException( "unkown DamageEffect.EType" );
+                            throw new InvalidOperationException( "unkown " + nameof( DamageEffect.EType ) );
                     }
 
                 case DamageColor.EType.Green:
@@ -176,7 +176,7 @@ namespace Tesserakt
                             return ( s_effekt_struktur_green );
 
                         default:
-                            throw new InvalidOperationException( "unkown DamageEffect.EType" );
+                            throw new InvalidOperationException( "unkown " + nameof( DamageEffect.EType ) );
                     }
 
                 case DamageColor.EType.Red:
@@ -234,11 +234,11 @@ namespace Tesserakt
                             return ( s_effekt_struktur_red );
 
                         default:
-                            throw new InvalidOperationException( "unkown DamageEffect.EType" );
+                            throw new InvalidOperationException( "unkown " + nameof( DamageEffect.EType ) );
                     }
 
                 default:
-                    throw new ArgumentException( "unkown DamageColor.EType", nameof( color ) );
+                    throw new ArgumentException( "unkown " + nameof( DamageColor.EType ), nameof( color ) );
             }
         }
 
@@ -305,6 +305,6 @@ namespace Tesserakt
             }
         }
 
-        private static Bitmap s_emptyImage = new Bitmap( 1, 1 );
+        private static readonly Bitmap s_emptyImage = new Bitmap( 1, 1 );
     }
 }
