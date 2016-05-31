@@ -17,11 +17,6 @@ namespace Tesserakt
 
             equipmentBindingSource.DataSource = modifiedEquipment;
 
-            if( !modifiedEquipment.Usable )
-            {
-                panelUsable.Enabled = false;
-            }
-
             if( null != modifiedEquipment.AttributeModifier )
             {
                 toolStripButtonAttribMod.Checked = true;
@@ -148,20 +143,6 @@ namespace Tesserakt
             using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithEquipment( m_originalEquipment ) ) )
             {
                 actorDisplay.ShowDialog( this );
-            }
-        }
-
-        private void checkBoxUsable_CheckedChanged( object sender, EventArgs e )
-        {
-            if( checkBoxUsable.Checked )
-            {
-                panelUsable.Enabled = true;
-            }
-            else
-            {
-                panelUsable.Enabled = false;
-                checkBoxUseOnce.Checked = false;
-                numericUpDownAP.Value = numericUpDownAP.Minimum;
             }
         }
     }

@@ -24,7 +24,7 @@ namespace Tesserakt
             Rules = equipment.Rules;
             Points = equipment.Points;
             Weight = equipment.Weight;
-            Usable = equipment.Usable;
+
             AP = equipment.AP;
 
             UseOnce = equipment.UseOnce;
@@ -65,8 +65,6 @@ namespace Tesserakt
                 Weight != equipment.Weight
                 ||
                 UseOnce != equipment.UseOnce
-                ||
-                Usable != equipment.Usable
                 ||
                 AP != equipment.AP )
             {
@@ -137,12 +135,6 @@ namespace Tesserakt
         } = 0;
 
         public bool UseOnce
-        {
-            get;
-            set;
-        } = false;
-
-        public bool Usable
         {
             get;
             set;

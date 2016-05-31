@@ -39,6 +39,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonEquipmentAdd = new System.Windows.Forms.ToolStripButton();
@@ -61,6 +62,7 @@
             this.ModAFG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModSH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.apDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
@@ -80,7 +82,7 @@
             this.toolStripButtonClearSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(676, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(714, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -165,6 +167,7 @@
             this.ModAFG,
             this.ModSH,
             this.UseOnce,
+            this.apDataGridViewTextBoxColumn,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewEquipment.DataSource = this.equipmentBindingSource;
@@ -174,7 +177,7 @@
             this.dataGridViewEquipment.ReadOnly = true;
             this.dataGridViewEquipment.RowHeadersVisible = false;
             this.dataGridViewEquipment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEquipment.Size = new System.Drawing.Size(676, 301);
+            this.dataGridViewEquipment.Size = new System.Drawing.Size(714, 301);
             this.dataGridViewEquipment.TabIndex = 0;
             this.dataGridViewEquipment.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEquipment_CellDoubleClick);
             this.dataGridViewEquipment.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewEquipment_CellToolTipTextNeeded);
@@ -208,7 +211,7 @@
             this.toolStripStatusLabelCount});
             this.statusStrip1.Location = new System.Drawing.Point(0, 326);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(676, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(714, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -294,12 +297,23 @@
             this.UseOnce.ToolTipText = "Einmalnutzung";
             this.UseOnce.Width = 30;
             // 
+            // apDataGridViewTextBoxColumn
+            // 
+            this.apDataGridViewTextBoxColumn.DataPropertyName = "AP";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.apDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.apDataGridViewTextBoxColumn.HeaderText = "AP";
+            this.apDataGridViewTextBoxColumn.Name = "apDataGridViewTextBoxColumn";
+            this.apDataGridViewTextBoxColumn.ReadOnly = true;
+            this.apDataGridViewTextBoxColumn.ToolTipText = "Aktionspunkte";
+            this.apDataGridViewTextBoxColumn.Width = 35;
+            // 
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N1";
-            this.weightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "N1";
+            this.weightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.weightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
             this.weightDataGridViewTextBoxColumn.ReadOnly = true;
@@ -308,8 +322,8 @@
             // pointsDataGridViewTextBoxColumn
             // 
             this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -319,7 +333,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(676, 348);
+            this.ClientSize = new System.Drawing.Size(714, 348);
             this.Controls.Add(this.dataGridViewEquipment);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -363,6 +377,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ModAFG;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModSH;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }

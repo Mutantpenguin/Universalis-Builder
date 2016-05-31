@@ -138,6 +138,9 @@
   <metadata name="UseOnce.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="apDataGridViewTextBoxColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="equipmentBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -148,11 +151,11 @@
   <data name="toolStripButtonClearSearch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADSSURBVDhP3ZJNDoIwEIW78ApeRO+jafnfwQlYkZiwY8lV
-        jB4AAmcohDO4YNGxA0xtiAuiK33JS2Y6+V7SadmfyvO8s+/71y1ekFlpmu40fNEDIOd5DnEcmz6KIiiK
-        wvQLyhjnfO+67p0G6CzLYBxHkFJOIQi3bQtKKSjL8hWgwaMQorNhdBiGUFUVoPq+n2CqkySZA4IgODmO
-        81jDZDsENQyDgdGbAuq6XvA3ASi9uINuJB2S11domsbU5gokXKI+uNkBm5dI+uoZbX38kX5RjD0BhV1P
-        aibZmwUAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADRSURBVDhP3ZJNCoMwEIWz6BV6kfY+LRJ/d3oCV4GCO5de
+        pbQHUPQMUTxDFy6czqiTBulC2lX74MFMhu9BJhF/Ks/zzr7vX7d4QWalabpD+IIDYGdZBnEcmz6KIsjz
+        3PQLKoTjOHvXde88ICulYBgG0FpPIQQ3TQPjOEJRFK8ABI8Y0NowOQxDKMsSSF3XTTDXSZLMAUEQnKSU
+        jzXMtkNIfd8bmLwpoKqqBX8TQMLFHbDRfMheX6Gua1ObK7BoiXhwswM2L5H11TPa+vgj/aKEeAJ93U9n
+        4RdfgwAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

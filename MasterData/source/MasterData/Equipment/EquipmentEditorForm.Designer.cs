@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxUseOnce = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.numericUpDownAP = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.numericUpDownPoints = new System.Windows.Forms.NumericUpDown();
@@ -74,11 +76,8 @@
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.equipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.attributeModifierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.checkBoxUsable = new System.Windows.Forms.CheckBox();
-            this.numericUpDownAP = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panelUsable = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPoints)).BeginInit();
             this.panel3.SuspendLayout();
@@ -104,15 +103,14 @@
             this.toolStrip4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributeModifierBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
-            this.panelUsable.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.panelUsable);
-            this.panel1.Controls.Add(this.checkBoxUsable);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.checkBoxUseOnce);
+            this.panel1.Controls.Add(this.numericUpDownAP);
             this.panel1.Controls.Add(this.numericUpDownWeight);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.numericUpDownPoints);
@@ -122,7 +120,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 62);
+            this.panel1.Size = new System.Drawing.Size(343, 65);
             this.panel1.TabIndex = 0;
             // 
             // checkBoxUseOnce
@@ -130,12 +128,35 @@
             this.checkBoxUseOnce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxUseOnce.AutoSize = true;
             this.checkBoxUseOnce.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.equipmentBindingSource, "UseOnce", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxUseOnce.Location = new System.Drawing.Point(173, 3);
+            this.checkBoxUseOnce.Location = new System.Drawing.Point(117, 42);
             this.checkBoxUseOnce.Name = "checkBoxUseOnce";
             this.checkBoxUseOnce.Size = new System.Drawing.Size(95, 17);
             this.checkBoxUseOnce.TabIndex = 3;
             this.checkBoxUseOnce.Text = "Einmalnutzung";
             this.checkBoxUseOnce.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(48, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(21, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "AP";
+            // 
+            // numericUpDownAP
+            // 
+            this.numericUpDownAP.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.equipmentBindingSource, "AP", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownAP.Location = new System.Drawing.Point(3, 42);
+            this.numericUpDownAP.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownAP.Name = "numericUpDownAP";
+            this.numericUpDownAP.Size = new System.Drawing.Size(39, 20);
+            this.numericUpDownAP.TabIndex = 13;
+            this.numericUpDownAP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // numericUpDownWeight
             // 
@@ -217,7 +238,7 @@
             this.panel3.Controls.Add(this.tableLayoutPanelAttribMods);
             this.panel3.Controls.Add(this.toolStrip2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 87);
+            this.panel3.Location = new System.Drawing.Point(0, 90);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(343, 74);
             this.panel3.TabIndex = 2;
@@ -525,9 +546,9 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 148);
+            this.panel4.Location = new System.Drawing.Point(3, 147);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(337, 140);
+            this.panel4.Size = new System.Drawing.Size(337, 138);
             this.panel4.TabIndex = 3;
             // 
             // textBoxDescription
@@ -538,7 +559,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(337, 115);
+            this.textBoxDescription.Size = new System.Drawing.Size(337, 113);
             this.textBoxDescription.TabIndex = 1;
             // 
             // toolStrip1
@@ -564,7 +585,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(3, 3);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(337, 139);
+            this.panel11.Size = new System.Drawing.Size(337, 138);
             this.panel11.TabIndex = 4;
             // 
             // textBoxRules
@@ -575,7 +596,7 @@
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRules.Size = new System.Drawing.Size(337, 114);
+            this.textBoxRules.Size = new System.Drawing.Size(337, 113);
             this.textBoxRules.TabIndex = 1;
             // 
             // toolStrip3
@@ -601,12 +622,12 @@
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 161);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 164);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(343, 291);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(343, 288);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // toolStrip4
@@ -647,55 +668,6 @@
             // 
             this.attributeModifierBindingSource.DataSource = typeof(Tesserakt.AttributeModifier);
             // 
-            // checkBoxUsable
-            // 
-            this.checkBoxUsable.AutoSize = true;
-            this.checkBoxUsable.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.equipmentBindingSource, "Usable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxUsable.Location = new System.Drawing.Point(3, 42);
-            this.checkBoxUsable.Name = "checkBoxUsable";
-            this.checkBoxUsable.Size = new System.Drawing.Size(63, 17);
-            this.checkBoxUsable.TabIndex = 12;
-            this.checkBoxUsable.Text = "Nutzbar";
-            this.checkBoxUsable.UseVisualStyleBackColor = true;
-            this.checkBoxUsable.CheckedChanged += new System.EventHandler(this.checkBoxUsable_CheckedChanged);
-            // 
-            // numericUpDownAP
-            // 
-            this.numericUpDownAP.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.equipmentBindingSource, "AP", true));
-            this.numericUpDownAP.Location = new System.Drawing.Point(30, 0);
-            this.numericUpDownAP.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownAP.Name = "numericUpDownAP";
-            this.numericUpDownAP.Size = new System.Drawing.Size(39, 20);
-            this.numericUpDownAP.TabIndex = 13;
-            this.numericUpDownAP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 4);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(21, 13);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "AP";
-            // 
-            // panelUsable
-            // 
-            this.panelUsable.AutoSize = true;
-            this.panelUsable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelUsable.Controls.Add(this.checkBoxUseOnce);
-            this.panelUsable.Controls.Add(this.label10);
-            this.panelUsable.Controls.Add(this.numericUpDownAP);
-            this.panelUsable.Enabled = false;
-            this.panelUsable.Location = new System.Drawing.Point(72, 39);
-            this.panelUsable.Margin = new System.Windows.Forms.Padding(0);
-            this.panelUsable.Name = "panelUsable";
-            this.panelUsable.Size = new System.Drawing.Size(271, 23);
-            this.panelUsable.TabIndex = 15;
-            // 
             // EquipmentEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -713,6 +685,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EquipmentEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPoints)).EndInit();
             this.panel3.ResumeLayout(false);
@@ -752,9 +725,6 @@
             this.toolStrip4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributeModifierBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).EndInit();
-            this.panelUsable.ResumeLayout(false);
-            this.panelUsable.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -809,7 +779,5 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown numericUpDownAP;
-        private System.Windows.Forms.CheckBox checkBoxUsable;
-        private System.Windows.Forms.Panel panelUsable;
     }
 }
