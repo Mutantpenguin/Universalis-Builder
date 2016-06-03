@@ -661,7 +661,7 @@ namespace Tesserakt
 
                 if( null != armor.AttributeModifier )
                 {
-                    string attributeModifierString = armor.AttributeModifier.ToToolTipString();
+                    string attributeModifierString = armor.AttributeModifier.ToString();
 
                     if( !String.IsNullOrEmpty( attributeModifierString ) )
                     {
@@ -679,16 +679,13 @@ namespace Tesserakt
             {
                 Actor.ActorEquipment actorEquipment = (Actor.ActorEquipment)dataGridViewEquipment.Rows[ e.RowIndex ].DataBoundItem;
 
-                string text = actorEquipment.Name + ":" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( actorEquipment.Equipment.Rules );
+                string text = actorEquipment.Equipment.Name + ":";
 
-                if( null != actorEquipment.Equipment.AttributeModifier )
+                string equipmentString = actorEquipment.Equipment.ToString();
+
+                if( !String.IsNullOrEmpty( equipmentString ) )
                 {
-                    string attributeModifierString = actorEquipment.Equipment.AttributeModifier.ToToolTipString();
-
-                    if( !String.IsNullOrEmpty( attributeModifierString ) )
-                    {
-                        text += Environment.NewLine + attributeModifierString;
-                    }
+                    text += Environment.NewLine + equipmentString;
                 }
 
                 e.ToolTipText = text;

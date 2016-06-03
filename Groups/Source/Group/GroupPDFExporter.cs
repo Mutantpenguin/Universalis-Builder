@@ -379,7 +379,9 @@ namespace Tesserakt
             var equipmentList = groupActorList.SelectMany( groupActor => groupActor.ActorOutfit.ActorEquipmentList )
                                               .Select( x => x.Equipment )
                                               .Distinct()
-                                              .Where( x => !String.IsNullOrEmpty( x.Rules )  )
+                                              .Where( x => ( !String.IsNullOrEmpty( x.Rules ) )
+                                                           ||
+                                                           ( x.UseOnce && ( !String.IsNullOrEmpty( x.AttributeModifier.ToString() ) ) ) )
                                               .OrderBy( x => x.Name );
 
             if( equipmentList.Count() > 0 )
@@ -402,7 +404,7 @@ namespace Tesserakt
                                                                      .OrderBy( x => x.Name )
                                                                      .Select( x => x.Name ) );
 
-                    multiColumnText.AddElement( NewEntryBlock( equipment.Name, equipment.Rules, usedBy ) );
+                    multiColumnText.AddElement( NewEntryBlock( equipment.Name, equipment.ToString(), usedBy ) );
                 }
 
                 document.Add( multiColumnText );
@@ -505,10 +507,12 @@ namespace Tesserakt
 
                 foreach( Equipment equipment in groupActor.ActorOutfit.ActorEquipmentList.Select( x => x.Equipment )
                                                                                          .Distinct()
-                                                                                         .Where( x => !String.IsNullOrEmpty( x.Rules ) )
+                                                                                         .Where( x => ( !String.IsNullOrEmpty( x.Rules ) )
+                                                                                                      ||
+                                                                                                      ( x.UseOnce && ( !String.IsNullOrEmpty( x.AttributeModifier.ToString() ) ) ) )
                                                                                          .OrderBy( x => x.Name ) )
                 {
-                    NewFlipsideEntryBlock( columnText, ref column, columns, equipment.Name, equipment.Rules );
+                    NewFlipsideEntryBlock( columnText, ref column, columns, equipment.Name, equipment.ToString() );
                 }
 
 

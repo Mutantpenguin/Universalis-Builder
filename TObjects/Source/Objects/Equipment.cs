@@ -152,6 +152,56 @@ namespace Tesserakt
             set;
         } = null;
 
+        [JsonIgnore]
+        public string FormattedAP
+        {
+            get
+            {
+                if( 0 == AP )
+                {
+                    return ( "" );
+                }
+                else
+                {
+                    return ( AP.ToString() );
+                }
+            }
+        }
+
+        public override string ToString()
+        {
+            string text = String.Empty;
+
+            if( null != this.AttributeModifier )
+            {
+                string attributeModifierString = this.AttributeModifier.ToString();
+
+                if( !String.IsNullOrEmpty( attributeModifierString ) )
+                {
+                    if( this.UseOnce )
+                    {
+                        text += "Bei Verwendung: " + attributeModifierString;
+                    }
+                    else
+                    {
+                        text += "Dauerhaft: " + attributeModifierString;
+                    }
+                }
+            }
+
+            if( !String.IsNullOrEmpty( this.Rules ) )
+            {
+                if( !String.IsNullOrEmpty( text  ) )
+                { 
+                    text += Environment.NewLine;
+                }
+
+                text += ToolTipHelper.FormatMaxWidth( this.Rules );
+            }
+
+            return ( text );
+        }
+
         #region Attributes
         [JsonIgnore]
         public string ModAGI

@@ -45,38 +45,38 @@ namespace Tesserakt
             return ( true );
         }
 
-        public string ToToolTipString()
+        public override string ToString()
         {
             string text = String.Empty;
 
             if( AGI != 0 )
             {
-                text += $"AGI: {Format( AGI )}{Environment.NewLine}";
+                text += $"AGI {Format( AGI )}";
             }
 
             if( BW != 0 )
             {
-                text += $"BW: {Format( BW )}{Environment.NewLine}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"BW {Format( BW )}";
             }
 
             if( KK != 0 )
             {
-                text += $"KK: {Format( KK )}{Environment.NewLine}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KK {Format( KK )}";
             }
 
             if( HAK != 0 )
             {
-                text += $"HAK: {Format( HAK )}{Environment.NewLine}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"HAK {Format( HAK )}";
             }
 
             if( AFG != 0 )
             {
-                text += $"AFG: {Format( AFG )}{Environment.NewLine}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"AFG {Format( AFG )}";
             }
 
             if( SH != 0 )
             {
-                text += $"SH: {Format( SH )}{Environment.NewLine}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"SH {Format( SH )}";
             }
 
             return ( text );
@@ -95,6 +95,7 @@ namespace Tesserakt
             }
         }
 
+        #region attributes
         public int AGI
         {
             get;
@@ -130,5 +131,6 @@ namespace Tesserakt
             get;
             set;
         }
+        #endregion attributes
     }
 }

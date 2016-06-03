@@ -723,15 +723,15 @@ namespace Tesserakt
 #region calculated values
         public int GB( Actor.ActorOutfit actorOutfit )
         {
-            int calcVal = 12 - Attributes.ModSH( CurrentAttributeModifier( actorOutfit ) );
+            int lengthGB = Presets.MaxLengthGB - Attributes.ModSH( CurrentAttributeModifier( actorOutfit ) );
 
-            if( calcVal < 0 )
+            if( lengthGB < 0 )
             {
                 return ( 0 );
             }
             else
             {
-                return ( calcVal );
+                return ( lengthGB );
             }
         }
 
@@ -979,7 +979,7 @@ namespace Tesserakt
 
             if( actorOutfit != null )
             {
-                foreach( Actor.ActorEquipment actorEquipment in actorOutfit.ActorEquipmentList )
+                foreach( Actor.ActorEquipment actorEquipment in actorOutfit.ActorEquipmentList.Where( x => !x.Equipment.UseOnce ) )
                 {
                     modifier.Add( actorEquipment.Equipment.AttributeModifier );
                 }

@@ -838,7 +838,11 @@ namespace Tesserakt
         {
             var equipList = actorEquipmentList.GroupBy( x => x.Equipment.ID )
                                               .Select( x => new { equipment = EquipmentStorage.Instance.Get( x.Key ), count = x.Count() } )
-                                              .Where( x => ( x.equipment.AP > 0 ) || ( !String.IsNullOrEmpty( x.equipment.Rules ) ) )
+                                              .Where( x => ( x.equipment.AP > 0 )
+                                                           ||
+                                                           ( x.equipment.UseOnce )
+                                                           ||
+                                                           ( !String.IsNullOrEmpty( x.equipment.Rules ) ) )
                                               .OrderBy( x => x.equipment.Name )
                                               .ToList();
 
@@ -854,7 +858,7 @@ namespace Tesserakt
 
                     if( entry.equipment.AP > 0 )
                     {
-                        builder.Append( " " + entry.equipment.AP + "⊙" );
+                        builder.Append( " ⊙" + entry.equipment.AP );
                     }
 
                     if( entry.equipment.UseOnce )
