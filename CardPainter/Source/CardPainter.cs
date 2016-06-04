@@ -161,6 +161,11 @@ namespace Tesserakt
                 // draw the structure last, otherwise "lower" elements could paint over it
                 drawStructure( g, equipmentEndY );
 
+                // show black lines between sections on the right side of the card
+                g.DrawLine( structureBlackPen, CmToPixel( 4 ), traitsEndY,    s_cardWidth, traitsEndY );
+                g.DrawLine( structureBlackPen, CmToPixel( 4 ), armorPosY,     s_cardWidth, armorPosY );
+                g.DrawLine( structureBlackPen, CmToPixel( 4 ), equipmentYPos, s_cardWidth, equipmentYPos );
+
                 return ( img );
             }
         }
@@ -178,7 +183,7 @@ namespace Tesserakt
             // line under "Name"
             g.DrawLine( structureBlackPen, 0, CmToPixel( 0.5 ), CmToPixel( 4 ), CmToPixel( 0.5 ) );
 
-            // line above "Schock"
+            // line above "Points"
             g.DrawLine( structureBlackPen, 0, CmToPixel( 7.5 ), CmToPixel( 4 ), CmToPixel( 7.5 ) );
             
             // line under "Attribute"
@@ -187,6 +192,7 @@ namespace Tesserakt
             // surrounding rectangle
             if( equipmentEndY > s_cardHeight )
             {
+                // draw in red to know that not everything fits on the card
                 g.DrawRectangle( structureRedPen, 0, 0, s_cardWidth - 1, s_cardHeight - 1 );
             }
             else
