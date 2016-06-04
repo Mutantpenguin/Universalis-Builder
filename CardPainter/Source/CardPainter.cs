@@ -608,11 +608,11 @@ namespace Tesserakt
 
             if( actorOutfit.ActorWeaponsList.FirstOrDefault( s => s.Weapon.Type == Weapon.EType.Nahkampf ) == null )
             {
-                Weapon weaponCC = actor.unarmedCC( actorOutfit );
+                Weapon weaponCC = actor.WeaponUnarmed( actorOutfit );
 
                 if( weaponCC != null )
                 {
-                    drawWeapon( g, actor, actorOutfit, actor.unarmedCC( actorOutfit ), 1, posY + ( lineNumber * s_lineHeight ) );
+                    drawWeapon( g, actor, actorOutfit, weaponCC, 1, posY + ( lineNumber * s_lineHeight ) );
 
                     lineNumber++;
                 }
@@ -625,6 +625,14 @@ namespace Tesserakt
                                                                     .ThenBy( x => x.weapon.Name ) )
             {
                 drawWeapon( g, actor, actorOutfit, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * s_lineHeight ) );
+
+                lineNumber++;
+            }
+
+            Weapon weaponDetonation = actor.WeaponDetonation( actorOutfit );
+            if( weaponDetonation != null )
+            {
+                drawWeapon( g, actor, actorOutfit, weaponDetonation, 1, posY + ( lineNumber * s_lineHeight ) );
 
                 lineNumber++;
             }

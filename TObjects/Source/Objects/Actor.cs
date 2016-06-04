@@ -846,7 +846,7 @@ namespace Tesserakt
             }
         }
 
-        public Weapon unarmedCC( Actor.ActorOutfit actorOutfit )
+        public Weapon WeaponUnarmed( Actor.ActorOutfit actorOutfit )
         {
             if( ( this.Type == EType.Drohne )
                 ||
@@ -856,7 +856,7 @@ namespace Tesserakt
             }
             else
             {
-                Weapon weaponCC = new Weapon()
+                Weapon weaponUnarmed = new Weapon()
                 {
                     Type = Weapon.EType.Nahkampf,
                     Name = "Unbewaffnet",
@@ -867,8 +867,8 @@ namespace Tesserakt
                 switch( this.Type )
                 {
                     case EType.Infanterie:
-                        weaponCC.WK = Weapon.EClass.I;
-                        weaponCC.DamageType = new DamageType()
+                        weaponUnarmed.WK = Weapon.EClass.I;
+                        weaponUnarmed.DamageType = new DamageType()
                         {
                             Type = DamageType.EType.Schlag,
                             Level = DamageType.ELevel.I
@@ -876,8 +876,8 @@ namespace Tesserakt
                         break;
 
                     case EType.MIKe:
-                        weaponCC.WK = Weapon.EClass.II;
-                        weaponCC.DamageType = new DamageType()
+                        weaponUnarmed.WK = Weapon.EClass.II;
+                        weaponUnarmed.DamageType = new DamageType()
                         {
                             Type = DamageType.EType.Schlag,
                             Level = DamageType.ELevel.II
@@ -888,11 +888,43 @@ namespace Tesserakt
                         throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
                 }
 
-                return ( weaponCC );
+                return ( weaponUnarmed );
             }
         }
 
-        [JsonIgnore]
+        public Weapon WeaponDetonation( Actor.ActorOutfit actorOutfit )
+        {
+            if( this.Type != EType.MIKe )
+            {
+                return ( null );
+            }
+            else
+            {
+                Weapon weaponDetonation = new Weapon()
+                {
+                    WK = Weapon.EClass.V,
+                    Type = Weapon.EType.Fernkampf,
+                    WeaponRange = new WeaponRange()
+                    {
+                        Amount = 0,
+                        Length = 0
+                    },
+                    Name = "Bei Detonation",
+                    DamageType = new DamageType()
+                    {
+                        Type = DamageType.EType.Schlag,
+                        Level = DamageType.ELevel.II
+                    },
+                    Radius = ModKK( actorOutfit ),
+                    Potential = ModKK( actorOutfit ),
+                    Substance = Convert.ToInt32( Math.Round( ModKK( actorOutfit ) / 2.0f, 0 ) )
+                };
+
+                return ( weaponDetonation );
+            }
+        }
+
+        [ JsonIgnore]
         public string PointsRange
         {
             get
