@@ -219,7 +219,7 @@ namespace Tesserakt
 #region buttons
         private void buttonSave_Click( object sender, EventArgs e )
         {
-            if( mandatoryFieldsFilled() )
+            if( checkValidity() )
             {
                 if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
@@ -579,7 +579,7 @@ namespace Tesserakt
                 switch( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3 ) )
                 {
                     case DialogResult.Yes:
-                        if( mandatoryFieldsFilled() )
+                        if( checkValidity() )
                         {
                             m_actorOriginal.SetWithOutfitID( m_actorModified );
                             ActorStorage.Save( m_actorOriginal );
@@ -592,8 +592,10 @@ namespace Tesserakt
                             }
                         }
                         break;
+
                     case DialogResult.No:
                         break;
+
                     case DialogResult.Cancel:
                         e.Cancel = true;
                         break;
@@ -602,30 +604,98 @@ namespace Tesserakt
         }
 #endregion events
 
-        private bool mandatoryFieldsFilled()
+        private bool checkValidity()
         {
+            string caption = "Fehlende oder falsche Angaben";
+
             if( String.IsNullOrEmpty( m_actorModified.Name ) )
             {
-                MessageBox.Show( "Name ist leer, bitte angeben!" );
+                MessageBox.Show( "Name ist leer, bitte angeben!",
+                                 caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
                 return ( false );
             }
 
             if( null == m_actorModified.Faction )
             {
-                MessageBox.Show( "Fraktion ist leer, bitte angeben!" );
+                MessageBox.Show( "Fraktion ist leer, bitte angeben!",
+                                 caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
                 return ( false );
             }
 
             if( ( m_actorModified.ModBW( CurrentOutfit() ) > 0 ) && ( EMovementType.Stationär == m_actorModified.MovementType ) )
             {
-                MessageBox.Show( "BW ist größer als 0. Daher bitte eine andere Bewegungsart als " + EMovementType.Stationär.ToString() + " auswählen!" );
+                MessageBox.Show( "BW ist größer als 0. Daher bitte eine andere Bewegungsart als " + EMovementType.Stationär.ToString() + " auswählen!",
+                                 caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
                 return ( false );
             }
 
             if( ( m_actorModified.ModBW( CurrentOutfit() ) <= 0 ) && ( EMovementType.Stationär != m_actorModified.MovementType ) )
             {
-                MessageBox.Show( "BW ist kleiner/gleich 0. Daher bitte die Bewegungsart " + EMovementType.Stationär.ToString() + " auswählen!" );
+                MessageBox.Show( "BW ist kleiner/gleich 0. Daher bitte die Bewegungsart " + EMovementType.Stationär.ToString() + " auswählen!",
+                                 caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
                 return ( false );
+            }
+
+            {
+                Actor.ESize size = (Actor.ESize)comboBoxSize.SelectedItem;
+
+                switch( (Actor.EType)comboBoxType.SelectedItem )
+                {
+                    case Actor.EType.Infanterie:
+                        if( size == Actor.ESize.Groß )
+                        {
+                            MessageBox.Show( "Infanterie darf nicht groß sein!",
+                                             caption,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Stop );
+                            return ( false );
+                        }
+                        break;
+
+                    case Actor.EType.Drohne:
+                        if( size == Actor.ESize.Groß )
+                        {
+                            MessageBox.Show( "Drohnen dürfen nicht groß sein!",
+                                             caption,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Stop );
+                            return ( false );
+                        }
+                        break;
+
+                    case Actor.EType.MIKe:
+                        if( size != Actor.ESize.Groß )
+                        {
+                            MessageBox.Show( "MIKe müssen immer groß sein!",
+                                             caption,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Stop );
+                            return ( false );
+                        }
+                        break;
+
+                    case Actor.EType.Fahrzeug:
+                        if( size == Actor.ESize.Klein )
+                        {
+                            MessageBox.Show( "Fahrzeuge dürfen nicht klein sein!",
+                                             caption,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Stop );
+                            return ( false );
+                        }
+                        break;
+
+                    default:
+                        throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
+                }
             }
 
             return ( true );
