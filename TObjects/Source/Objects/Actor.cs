@@ -915,6 +915,10 @@ namespace Tesserakt
                         Type = DamageType.EType.Schlag,
                         Level = DamageType.ELevel.II
                     },
+                    DamageEffectList = new List<DamageEffect>() { new DamageEffect()
+                                                                      {
+                                                                          Type = DamageEffect.EType.Explosiv
+                                                                      } },
                     Radius = ModKK( actorOutfit ),
                     Potential = ModKK( actorOutfit ),
                     Substance = Convert.ToInt32( Math.Round( ModKK( actorOutfit ) / 2.0f, 0 ) )
