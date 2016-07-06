@@ -153,9 +153,19 @@ namespace Tesserakt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap potential_white {
+        internal static System.Drawing.Bitmap potential_damage_white {
             get {
-                object obj = ResourceManager.GetObject("potential_white", resourceCulture);
+                object obj = ResourceManager.GetObject("potential_damage_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap potential_defence_white {
+            get {
+                object obj = ResourceManager.GetObject("potential_defence_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

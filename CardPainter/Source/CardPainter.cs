@@ -606,7 +606,7 @@ namespace Tesserakt
             g.DrawString( "Waffen", fontStandard, Brushes.White, new Rectangle( weapon_wkStart, posY, weapon_wkWidth + weapon_nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
 
             // Captions
-            g.DrawImage( Properties.Resources.potential_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+            g.DrawImage( Properties.Resources.potential_damage_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
             g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( weapon_substanceStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
             g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( weapon_rangeStart + ( weapon_rangeWidth / 2 ) - ( s_lineHeight / 2 ) + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
 
@@ -822,7 +822,7 @@ namespace Tesserakt
                 g.DrawString( "Rüstung", fontStandard, Brushes.White, new Rectangle( posX, posY, nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
 
                 // Potential
-                g.DrawImage( Properties.Resources.potential_white, new Rectangle( potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+                g.DrawImage( Properties.Resources.potential_defence_white, new Rectangle( potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
                 g.DrawLine( linePen, effectsStart, posY, effectsStart, posY + s_lineHeightDouble );
                 g.DrawString( armor.Potential.ToString(), fontWeapon, armorFontBrush, new Rectangle( potentialStart, posY + s_lineHeight, potentialWidth, s_lineHeight ), stringFormatHCenterVCenter );
 
