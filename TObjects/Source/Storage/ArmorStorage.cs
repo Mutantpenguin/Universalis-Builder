@@ -15,6 +15,7 @@ namespace Tesserakt
         public static readonly ArmorStorage Instance = new ArmorStorage();
 
         private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Armor" );
+        private static readonly string s_pathTrash = Path.Combine( s_path, StorageSettings.trashSubfolderName );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {
@@ -68,8 +69,7 @@ namespace Tesserakt
             {
                 throw new ArgumentNullException( nameof( armor ) );
             }
-
-            string filename = Path.ChangeExtension( Path.Combine( s_path, armor.ID.ToString() ), StorageSettings.fileExtension );
+            string filename = GetFilename( armor );
             string filenameBackup = Path.ChangeExtension( filename, StorageSettings.backupFileExtension );
 
             if( File.Exists( filename ) )
@@ -86,6 +86,16 @@ namespace Tesserakt
             {
                 MessageBox.Show( $"Fehler beim Schreiben der Datei '{filename}':\n{ex.Message}" );
             }
+        }
+
+        private static string GetFilename( Armor armor )
+        {
+            return Path.ChangeExtension( Path.Combine( s_path, armor.ID.ToString() ), StorageSettings.fileExtension );
+        }
+
+        private static string GetFilenameTrash( Armor armor )
+        {
+            return Path.ChangeExtension( Path.Combine( s_pathTrash, armor.ID.ToString() ), StorageSettings.fileExtension );
         }
 
         public Armor Get( Guid id )
@@ -111,15 +121,21 @@ namespace Tesserakt
             return ( armor );
         }
 
-        public static void Delete( Armor armor )
+        public void Delete( Armor armor )
         {
             if( null == armor )
             {
                 throw new ArgumentNullException( nameof( armor ) );
             }
 
-            armor.Active = false;
-            Save( armor );
+            m_armorList.Remove( armor );
+
+            if( !Directory.Exists( s_pathTrash ) )
+            {
+                Directory.CreateDirectory( s_pathTrash );
+            }
+
+            File.Move( GetFilename( armor ), GetFilenameTrash( armor ) );
         }
 
         public IList<Armor> Armors

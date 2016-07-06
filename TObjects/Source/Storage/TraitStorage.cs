@@ -15,6 +15,7 @@ namespace Tesserakt
         public static readonly TraitStorage Instance = new TraitStorage();
 
         private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Traits" );
+        private static readonly string s_pathTrash = Path.Combine( s_path, StorageSettings.trashSubfolderName );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {
@@ -68,8 +69,7 @@ namespace Tesserakt
             {
                 throw new ArgumentNullException( nameof( trait ) );
             }
-
-            string filename = Path.ChangeExtension( Path.Combine( s_path, trait.ID.ToString() ), StorageSettings.fileExtension );
+            string filename = GetFilename( trait );
             string filenameBackup = Path.ChangeExtension( filename, StorageSettings.backupFileExtension );
 
             if( File.Exists( filename ) )
@@ -86,6 +86,16 @@ namespace Tesserakt
             {
                 MessageBox.Show( $"Fehler beim Schreiben der Datei '{filename}':\n{ex.Message}" );
             }
+        }
+
+        private static string GetFilename( Trait trait )
+        {
+            return Path.ChangeExtension( Path.Combine( s_path, trait.ID.ToString() ), StorageSettings.fileExtension );
+        }
+
+        private static string GetFilenameTrash( Trait trait )
+        {
+            return Path.ChangeExtension( Path.Combine( s_pathTrash, trait.ID.ToString() ), StorageSettings.fileExtension );
         }
 
         public Trait Get( Guid id )
@@ -112,15 +122,21 @@ namespace Tesserakt
             return ( trait );
         }
 
-        public static void Delete( Trait trait )
+        public void Delete( Trait trait )
         {
             if( null == trait )
             {
                 throw new ArgumentNullException( nameof( trait ) );
             }
 
-            trait.Active = false;
-            Save( trait );
+            m_traitsList.Remove( trait );
+
+            if( !Directory.Exists( s_pathTrash ) )
+            {
+                Directory.CreateDirectory( s_pathTrash );
+            }
+
+            File.Move( GetFilename( trait ), GetFilenameTrash( trait ) );
         }
 
         public IList<Trait> Traits

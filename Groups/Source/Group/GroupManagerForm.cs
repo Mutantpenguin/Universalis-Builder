@@ -77,7 +77,7 @@ namespace Tesserakt
 
                 if( MessageBox.Show( $"Gruppe '{group.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    GroupStorage.Delete( group );
+                    GroupStorage.Instance.Delete( group );
 
                     RefreshGroupsGridView();
                 }

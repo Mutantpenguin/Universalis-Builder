@@ -15,6 +15,7 @@ namespace Tesserakt
         public static readonly WeaponStorage Instance = new WeaponStorage();
 
         private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Weapons" );
+        private static readonly string s_pathTrash = Path.Combine( s_path, StorageSettings.trashSubfolderName );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {
@@ -68,8 +69,7 @@ namespace Tesserakt
             {
                 throw new ArgumentNullException( nameof( weapon ) );
             }
-
-            string filename = Path.ChangeExtension( Path.Combine( s_path, weapon.ID.ToString() ), StorageSettings.fileExtension );
+            string filename = GetFilename( weapon );
             string filenameBackup = Path.ChangeExtension( filename, StorageSettings.backupFileExtension );
 
             if( File.Exists( filename ) )
@@ -86,6 +86,16 @@ namespace Tesserakt
             {
                 MessageBox.Show( $"Fehler beim Schreiben der Datei '{filename}':\n{ex.Message}" );
             }
+        }
+
+        private static string GetFilename( Weapon weapon )
+        {
+            return Path.ChangeExtension( Path.Combine( s_path, weapon.ID.ToString() ), StorageSettings.fileExtension );
+        }
+
+        private static string GetFilenameTrash( Weapon weapon )
+        {
+            return Path.ChangeExtension( Path.Combine( s_pathTrash, weapon.ID.ToString() ), StorageSettings.fileExtension );
         }
 
         public Weapon Get( Guid id )
@@ -111,15 +121,21 @@ namespace Tesserakt
             return ( weapon );
         }
 
-        public static void Delete( Weapon weapon )
+        public void Delete( Weapon weapon )
         {
             if( null == weapon )
             {
                 throw new ArgumentNullException( nameof( weapon ) );
             }
 
-            weapon.Active = false;
-            Save( weapon );
+            m_weaponList.Remove( weapon );
+
+            if( !Directory.Exists( s_pathTrash ) )
+            {
+                Directory.CreateDirectory( s_pathTrash );
+            }
+
+            File.Move( GetFilename( weapon ), GetFilenameTrash( weapon ) );
         }
 
         public IList<Weapon> Weapons

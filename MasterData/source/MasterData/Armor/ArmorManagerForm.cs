@@ -82,7 +82,7 @@ namespace Tesserakt
                 }
                 else if( MessageBox.Show( $"Rüstung '{armor.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    ArmorStorage.Delete( armor );
+                    ArmorStorage.Instance.Delete( armor );
 
                     refreshGridView();
                 }

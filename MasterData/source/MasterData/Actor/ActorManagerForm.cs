@@ -87,7 +87,7 @@ namespace Tesserakt
 
                 if( MessageBox.Show( $"Modell '{actor.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    ActorStorage.Delete( actor );
+                    ActorStorage.Instance.Delete( actor );
 
                     RefreshActorsGridView();
                 }

@@ -141,7 +141,7 @@ namespace Tesserakt
                 }
                 else if( MessageBox.Show( $"Waffe '{weapon.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    WeaponStorage.Delete( weapon );
+                    WeaponStorage.Instance.Delete( weapon );
 
                     refreshGridView();
                 }

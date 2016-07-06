@@ -91,7 +91,7 @@ namespace Tesserakt
                 }
                 else if( MessageBox.Show( $"Eigenschaft '{trait.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    TraitStorage.Delete( trait );
+                    TraitStorage.Instance.Delete( trait );
 
                     refreshGridView();
                 }

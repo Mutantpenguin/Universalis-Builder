@@ -73,7 +73,7 @@ namespace Tesserakt
                 }
                 else if( MessageBox.Show( $"Ausrüstung '{equipment.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    EquipmentStorage.Delete( equipment );
+                    EquipmentStorage.Instance.Delete( equipment );
 
                     refreshGridView();
                 }

@@ -73,7 +73,7 @@ namespace Tesserakt
                 }
                 else if( MessageBox.Show( $"Fraktion '{faction.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    FactionStorage.Delete( faction );
+                    FactionStorage.Instance.Delete( faction );
 
                     refreshGridView();
                 }

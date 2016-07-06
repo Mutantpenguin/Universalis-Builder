@@ -13,6 +13,8 @@ namespace Tesserakt
 
         public const string backupFileExtension = "json.bak";
 
+        public const string trashSubfolderName = "Trash";
+
         public static readonly string filePattern = Path.ChangeExtension( "*.", StorageSettings.fileExtension );
 
         public const int delayLoadingMs = 0;

@@ -15,6 +15,7 @@ namespace Tesserakt
         public static readonly ActorStorage Instance = new ActorStorage();
 
         private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Actors" );
+        private static readonly string s_pathTrash = Path.Combine( s_path, StorageSettings.trashSubfolderName );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {
@@ -69,7 +70,7 @@ namespace Tesserakt
                 throw new ArgumentNullException( nameof( actor ) );
             }
 
-            string filename = Path.ChangeExtension( Path.Combine( s_path, actor.ID.ToString() ), StorageSettings.fileExtension );
+            string filename = GetFilename( actor );
             string filenameBackup = Path.ChangeExtension( filename, StorageSettings.backupFileExtension );
 
             if( File.Exists( filename ) )
@@ -86,6 +87,16 @@ namespace Tesserakt
             {
                 MessageBox.Show( $"Fehler beim Schreiben der Datei '{filename}':\n{ex.Message}" );
             }
+        }
+
+        private static string GetFilename( Actor actor )
+        {
+            return( Path.ChangeExtension( Path.Combine( s_path, actor.ID.ToString() ), StorageSettings.fileExtension ) );
+        }
+
+        private static string GetFilenameTrash( Actor actor )
+        {
+            return ( Path.ChangeExtension( Path.Combine( s_pathTrash, actor.ID.ToString() ), StorageSettings.fileExtension ) );
         }
 
         public Actor Get( Guid id )
@@ -124,15 +135,21 @@ namespace Tesserakt
             return ( actor );
         }
 
-        public static void Delete( Actor actor )
+        public void Delete( Actor actor )
         {
             if( null == actor )
             {
                 throw new ArgumentNullException( nameof( actor ) );
             }
 
-            actor.Active = false;
-            Save( actor );
+            m_actorList.Remove( actor );
+
+            if( !Directory.Exists( s_pathTrash ) )
+            {
+                Directory.CreateDirectory( s_pathTrash );
+            }
+
+            File.Move( GetFilename( actor ), GetFilenameTrash( actor ) );
         }
 
         public IList<Actor> Actors

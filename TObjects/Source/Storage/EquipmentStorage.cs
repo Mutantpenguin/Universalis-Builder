@@ -15,6 +15,7 @@ namespace Tesserakt
         public static readonly EquipmentStorage Instance = new EquipmentStorage();
 
         private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Equipment" );
+        private static readonly string s_pathTrash = Path.Combine( s_path, StorageSettings.trashSubfolderName );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {
@@ -68,8 +69,7 @@ namespace Tesserakt
             {
                 throw new ArgumentNullException( nameof( equipment ) );
             }
-
-            string filename = Path.ChangeExtension( Path.Combine( s_path, equipment.ID.ToString() ), StorageSettings.fileExtension );
+            string filename = GetFilename( equipment );
             string filenameBackup = Path.ChangeExtension( filename, StorageSettings.backupFileExtension );
 
             if( File.Exists( filename ) )
@@ -86,6 +86,16 @@ namespace Tesserakt
             {
                 MessageBox.Show( $"Fehler beim Schreiben der Datei '{filename}':\n{ex.Message}" );
             }
+        }
+
+        private static string GetFilename( Equipment equipment )
+        {
+            return Path.ChangeExtension( Path.Combine( s_path, equipment.ID.ToString() ), StorageSettings.fileExtension );
+        }
+
+        private static string GetFilenameTrash( Equipment equipment )
+        {
+            return Path.ChangeExtension( Path.Combine( s_pathTrash, equipment.ID.ToString() ), StorageSettings.fileExtension );
         }
 
         public Equipment Get( Guid id )
@@ -111,15 +121,21 @@ namespace Tesserakt
             return ( equipment );
         }
 
-        public static void Delete( Equipment equipment )
+        public void Delete( Equipment equipment )
         {
             if( null == equipment )
             {
                 throw new ArgumentNullException( nameof( equipment ) );
             }
 
-            equipment.Active = false;
-            Save( equipment );
+            m_equipmentList.Remove( equipment );
+
+            if( !Directory.Exists( s_pathTrash ) )
+            {
+                Directory.CreateDirectory( s_pathTrash );
+            }
+
+            File.Move( GetFilename( equipment ), GetFilenameTrash( equipment ) );
         }
 
         public IList<Equipment> Equipments

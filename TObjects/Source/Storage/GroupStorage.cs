@@ -15,6 +15,7 @@ namespace Tesserakt
         public static readonly GroupStorage Instance = new GroupStorage();
 
         private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Groups" );
+        private static readonly string s_pathTrash = Path.Combine( s_path, StorageSettings.trashSubfolderName );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {
@@ -74,9 +75,19 @@ namespace Tesserakt
 
         public static void Save( Group group )
         {
-            string filename = Path.ChangeExtension( Path.Combine( s_path, group.ID.ToString() ), StorageSettings.fileExtension );
+            string filename = GetFilename( group );
 
             SaveAs( group, filename );
+        }
+
+        private static string GetFilename( Group group )
+        {
+            return Path.ChangeExtension( Path.Combine( s_path, group.ID.ToString() ), StorageSettings.fileExtension );
+        }
+
+        private static string GetFilenameTrash( Group group )
+        {
+            return Path.ChangeExtension( Path.Combine( s_pathTrash, group.ID.ToString() ), StorageSettings.fileExtension );
         }
 
         public static void SaveAs( Group group, string filename )
@@ -129,15 +140,21 @@ namespace Tesserakt
             Save( group );
         }
 
-        public static void Delete( Group group )
+        public void Delete( Group group )
         {
             if( null == group )
             {
                 throw new ArgumentNullException( nameof( group ) );
             }
 
-            group.Active = false;
-            Save( group );
+            m_groupList.Remove( group );
+
+            if( !Directory.Exists( s_pathTrash ) )
+            {
+                Directory.CreateDirectory( s_pathTrash );
+            }
+
+            File.Move( GetFilename( group ), GetFilenameTrash( group ) );
         }
 
         public IList<Group> Groups
