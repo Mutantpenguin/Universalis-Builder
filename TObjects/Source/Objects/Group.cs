@@ -83,12 +83,6 @@ namespace Tesserakt
             set;
         } = Guid.NewGuid();
 
-        public bool Active
-        {
-            get;
-            set;
-        } = true;
-
         public string Name
         {
             get;
@@ -242,7 +236,14 @@ namespace Tesserakt
             {
                 get
                 {
-                    return ( Actor.Icon );
+                    if( Actor != null )
+                    {
+                        return ( Actor.Icon );
+                    }
+                    else
+                    {
+                        return ( TObjects.Properties.Resources.empty );
+                    }
                 }
             }
 
@@ -251,19 +252,26 @@ namespace Tesserakt
             {
                 get
                 {
-                    string name = Actor.Name;
-
-                    if( !String.IsNullOrEmpty( CustomName ) )
+                    if( Actor != null )
                     {
-                        name += " - " + CustomName;
-                    }
+                        string name = Actor.Name;
 
-                    if( ActorOutfit != null )
+                        if( !String.IsNullOrEmpty( CustomName ) )
+                        {
+                            name += " - " + CustomName;
+                        }
+
+                        if( ActorOutfit != null )
+                        {
+                            name += Environment.NewLine + ActorOutfit.Name;
+                        }
+
+                        return ( name );
+                    }
+                    else
                     {
-                        name += Environment.NewLine + ActorOutfit.Name;
+                        return( "Modell nicht mehr vorhanden" );
                     }
-
-                    return ( name );
                 }
                 set
                 {
@@ -276,7 +284,14 @@ namespace Tesserakt
             {
                 get
                 {
-                    return ( Actor.Points( ActorOutfit ) );
+                    if( Actor != null )
+                    {
+                        return ( Actor.Points( ActorOutfit ) );
+                    }
+                    else
+                    {
+                        return ( 0 );
+                    }
                 }
             }
         }
@@ -288,17 +303,17 @@ namespace Tesserakt
                 return ( true );
             }
 
-            return ( false );
+            return( false );
         }
 
-        public bool HasInactiveActors()
+        public bool HasMissingActors()
         {
-            if( GroupActorList.Exists( x => !x.Actor.Active ) )
+            if( GroupActorList.Exists( x => x.Actor == null ) )
             {
                 return ( true );
             }
 
-            return ( false );
+            return( false );
         }
     }
 }

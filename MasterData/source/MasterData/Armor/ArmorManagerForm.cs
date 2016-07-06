@@ -33,11 +33,10 @@ namespace Tesserakt
 
         private void refreshGridView()
         {
-            List<Armor> armor = ArmorStorage.Instance.Armors.Where( s => s.Active )
-                                                               .Where( s => filterCamouflage.Enabled ? s.Camouflage == ( (Armor.ECamouflage)filterCamouflage.ComboBox.SelectedValue ) : true )
-                                                               .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                               .OrderBy( x => x.Name )
-                                                               .ToList();
+            List<Armor> armor = ArmorStorage.Instance.Armors.Where( s => filterCamouflage.Enabled ? s.Camouflage == ( (Armor.ECamouflage)filterCamouflage.ComboBox.SelectedValue ) : true )
+                                                            .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                            .OrderBy( x => x.Name )
+                                                            .ToList();
 
             armorBindingSource.DataSource = armor;
             dataGridViewArmor.ClearSelection();

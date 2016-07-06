@@ -20,8 +20,7 @@ namespace Tesserakt
 
         private void refreshGridView()
         {
-            List<Faction> factions = FactionStorage.Instance.Factions.Where( s => s.Active )
-                                                                     .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            List<Faction> factions = FactionStorage.Instance.Factions.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                      .OrderBy( x => x.Name )
                                                                      .ToList();
 

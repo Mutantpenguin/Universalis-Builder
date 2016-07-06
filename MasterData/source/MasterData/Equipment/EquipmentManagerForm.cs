@@ -20,10 +20,9 @@ namespace Tesserakt
 
         private void refreshGridView()
         {
-            List<Equipment> equipment = EquipmentStorage.Instance.Equipments.Where( s => s.Active )
-                                                                           .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                           .OrderBy( x => x.Name )
-                                                                           .ToList();
+            List<Equipment> equipment = EquipmentStorage.Instance.Equipments.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                            .OrderBy( x => x.Name )
+                                                                            .ToList();
 
             equipmentBindingSource.DataSource = equipment;
             dataGridViewEquipment.ClearSelection();

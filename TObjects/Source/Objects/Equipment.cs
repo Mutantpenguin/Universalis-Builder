@@ -98,12 +98,6 @@ namespace Tesserakt
             set;
         } = Guid.NewGuid();
 
-        public bool Active
-        {
-            get;
-            set;
-        } = true;
-
         public string Name
         {
             get;

@@ -17,8 +17,7 @@ namespace Tesserakt
 
         private void updateDataGridViewFactions()
         {
-            factionBindingSource.DataSource = FactionStorage.Instance.Factions.Where( s => s.Active )
-                                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            factionBindingSource.DataSource = FactionStorage.Instance.Factions.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                               .Where( s => ( m_excludeFaction != null ) ? s.ID != m_excludeFaction.ID : true )
                                                                               .OrderBy( x => x.Name )
                                                                               .ToList();

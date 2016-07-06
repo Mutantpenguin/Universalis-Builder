@@ -28,8 +28,7 @@ namespace Tesserakt
 
         private void updateDataGridViewTraits()
         {
-            traitBindingSource.DataSource = TraitStorage.Instance.Traits.Where( s => s.Active )
-                                                                        .Where( s => m_TraitsList.Find( x => x.ID == s.ID ) == null )
+            traitBindingSource.DataSource = TraitStorage.Instance.Traits.Where( s => m_TraitsList.Find( x => x.ID == s.ID ) == null )
                                                                         .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                         .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.Type != "+" ) )
                                                                         .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.Type != "-" ) )

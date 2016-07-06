@@ -56,15 +56,14 @@ namespace Tesserakt
                 
                 listViewFactions.Groups.Add( group );
 
-                foreach( Faction faction in FactionStorage.Instance.Factions.Where( x => x.Active )
-                                                                            .Where( x => x.Type == type )
+                foreach( Faction faction in FactionStorage.Instance.Factions.Where( x => x.Type == type )
                                                                             .OrderBy( x => x.Name ) )
                 {
                     imageListFactions.Images.Add( faction.ID.ToString(), faction.Icon );
 
                     ListViewItem lvi = new ListViewItem()
                     {
-                        Text = faction.Name + " ( " + GroupStorage.Instance.Groups.Where( s => s.Active ).Where( x => x.Faction == faction ).Count() + " )",
+                        Text = faction.Name + " ( " + GroupStorage.Instance.Groups.Where( x => x.Faction == faction ).Count() + " )",
                         ImageKey = faction.ID.ToString(),
                         ToolTipText = faction.Description,
                         Group = group

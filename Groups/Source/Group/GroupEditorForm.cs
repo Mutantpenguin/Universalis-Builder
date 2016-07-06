@@ -139,7 +139,16 @@ namespace Tesserakt
         {
             if( dataGridViewActors.SelectedRows.Count > 0 )
             {
-                pictureBoxCard.Image = CardPainter.getBitmap( (Group.GroupActor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem );
+                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
+
+                if( groupActor.Actor != null )
+                {
+                    pictureBoxCard.Image = CardPainter.getBitmap( groupActor );
+                }
+                else
+                {
+                    pictureBoxCard.Image = TObjects.Properties.Resources.empty;
+                }
             }
             else
             {
@@ -208,7 +217,7 @@ namespace Tesserakt
             {
                 Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.Rows[ dataGridViewActors.SelectedRows[ 0 ].Index ].DataBoundItem;
 
-                if( !groupActor.Actor.Active )
+                if( groupActor.Actor == null )
                 {
                     MessageBox.Show( "Dieses Modell wurde gelöscht und kann daher nicht mehr geändert werden!" );
                 }
@@ -239,18 +248,21 @@ namespace Tesserakt
                 string toolTipText = String.Empty;
 
                 // show only inactive, if both inactive and missing outfit
-                if( !groupActor.Actor.Active )
+                if( groupActor.Actor == null )
                 {
                     toolTipText += "Wurde gelöscht und darf nicht mehr verwendet werden!";
                 }
-                else if( groupActor.ActorOutfit == null )
+                else
                 {
-                    toolTipText += "Fehlendes Outfit!";
-                }
+                    if( groupActor.ActorOutfit == null )
+                    {
+                        toolTipText += "Fehlendes Outfit!";
+                    }
 
-                if( !String.IsNullOrEmpty( groupActor.Actor.Description ) )
-                {
-                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + ToolTipHelper.FormatMaxWidth( groupActor.Actor.Description );
+                    if( !String.IsNullOrEmpty( groupActor.Actor.Description ) )
+                    {
+                        toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + ToolTipHelper.FormatMaxWidth( groupActor.Actor.Description );
+                    }
                 }
 
                 e.ToolTipText = toolTipText;
@@ -307,14 +319,14 @@ namespace Tesserakt
             {
                 Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 
-                if( !groupActor.Actor.Active
+                if( groupActor.Actor == null
                     ||
                     groupActor.ActorOutfit == null )
                 {
                     e.PaintBackground( e.CellBounds, true );
                     e.PaintContent( e.CellBounds );
 
-                    if( !groupActor.Actor.Active )
+                    if( groupActor.Actor == null )
                     {
                         Image imgInactiveActors = Properties.Resources.exclamation_red;
                         e.Graphics.DrawImageUnscaled( imgInactiveActors, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveActors.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveActors.Height ) / 2 ) );

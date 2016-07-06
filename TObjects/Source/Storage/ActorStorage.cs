@@ -101,14 +101,7 @@ namespace Tesserakt
 
         public Actor Get( Guid id )
         {
-            Actor actor = m_actorList.Find( x => x.ID == id );
-
-            if( null == actor )
-            {
-                throw new InvalidOperationException( $"Das Modell mit der ID {id} konnte nicht gefunden werden!" );
-            }
-
-            return ( actor );
+            return ( m_actorList.Find( x => x.ID == id ) );
         }
 
         public Actor Create( Faction faction )
@@ -162,8 +155,7 @@ namespace Tesserakt
 
         public IList<Actor> ActorsWithWeapon( Weapon weapon )
         {
-            return ( m_actorList.Where( x => x.Active )
-                                .Where( x => x.ActorOutfitsList.Exists( y => y.ActorWeaponsList.Exists( z => z.Weapon.ID == weapon.ID ) ) )
+            return ( m_actorList.Where( x => x.ActorOutfitsList.Exists( y => y.ActorWeaponsList.Exists( z => z.Weapon.ID == weapon.ID ) ) )
                                 .OrderBy( x => x.Name )
                                 .ToList()
                                 .AsReadOnly() );
@@ -171,8 +163,7 @@ namespace Tesserakt
 
         public IList<Actor> ActorsWithArmor( Armor armor )
         {
-            return ( m_actorList.Where( x => x.Active )
-                                .Where( x => x.Armor != null && x.Armor.ID == armor.ID )
+            return ( m_actorList.Where( x => x.Armor != null && x.Armor.ID == armor.ID )
                                 .OrderBy( x => x.Name )
                                 .ToList()
                                 .AsReadOnly() );
@@ -180,8 +171,7 @@ namespace Tesserakt
 
         public IList<Actor> ActorsWithEquipment( Equipment equipment )
         {
-            return ( m_actorList.Where( x => x.Active )
-                                .Where( x => x.ActorOutfitsList.Exists( y => y.ActorEquipmentList.Exists( z => z.Equipment.ID == equipment.ID ) ) )
+            return ( m_actorList.Where( x => x.ActorOutfitsList.Exists( y => y.ActorEquipmentList.Exists( z => z.Equipment.ID == equipment.ID ) ) )
                                 .OrderBy( x => x.Name )
                                 .ToList()
                                 .AsReadOnly() );
@@ -189,8 +179,7 @@ namespace Tesserakt
 
         public IList<Actor> ActorsWithTrait( Trait trait )
         {
-            return ( m_actorList.Where( x => x.Active )
-                                .Where( x => x.ActorTraitsList.Exists( y => y.Trait.ID == trait.ID ) )
+            return ( m_actorList.Where( x => x.ActorTraitsList.Exists( y => y.Trait.ID == trait.ID ) )
                                 .OrderBy( x => x.Name )
                                 .ToList()
                                 .AsReadOnly() );
@@ -198,8 +187,7 @@ namespace Tesserakt
 
         public IList<Actor> ActorsWithTraitLevel( Trait trait, TraitLevel traitLevel )
         {
-            return ( m_actorList.Where( x => x.Active )
-                                .Where( x => x.ActorTraitsList.Exists( y => y.Trait.ID == trait.ID && y.Level == traitLevel.Level ) )
+            return ( m_actorList.Where( x => x.ActorTraitsList.Exists( y => y.Trait.ID == trait.ID && y.Level == traitLevel.Level ) )
                                 .OrderBy( x => x.Name )
                                 .ToList()
                                 .AsReadOnly() );
@@ -207,8 +195,7 @@ namespace Tesserakt
 
         public IList<Actor> ActorsWithFaction( Faction faction )
         {
-            return ( m_actorList.Where( x => x.Active )
-                                .Where( x => x.Faction.ID == faction.ID )
+            return ( m_actorList.Where( x => x.Faction.ID == faction.ID )
                                 .OrderBy( x => x.Name )
                                 .ToList()
                                 .AsReadOnly() );

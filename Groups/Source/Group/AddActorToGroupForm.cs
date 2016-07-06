@@ -25,12 +25,11 @@ namespace Tesserakt
 
         private void updateDataGridViewActors()
         {
-            actorBindingSource.DataSource = ActorStorage.Instance.Actors.Where( s => s.Active )
-                                                                           .Where( x => x.Faction.ID == m_factionID )
-                                                                           .Where( s => filterType.Enabled ? s.Type == ( (Actor.EType)filterType.ComboBox.SelectedValue ) : true )
-                                                                           .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                           .OrderBy( x => x.Name )
-                                                                           .ToList();
+            actorBindingSource.DataSource = ActorStorage.Instance.Actors.Where( x => x.Faction.ID == m_factionID )
+                                                                        .Where( s => filterType.Enabled ? s.Type == ( (Actor.EType)filterType.ComboBox.SelectedValue ) : true )
+                                                                        .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                        .OrderBy( x => x.Name )
+                                                                        .ToList();
         }
 
         private void buttonCancel_Click( object sender, EventArgs e )

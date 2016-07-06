@@ -20,8 +20,7 @@ namespace Tesserakt
 
         private void refreshGridView()
         {
-            List<Trait> traits = TraitStorage.Instance.Traits.Where( s => s.Active )
-                                                             .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            List<Trait> traits = TraitStorage.Instance.Traits.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                              .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.Type != "+" ) )
                                                              .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.Type != "-" ) )
                                                              .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.Type != "=" ) )

@@ -124,12 +124,11 @@ namespace Tesserakt
 
         private void RefreshActorsGridView()
         {
-            List<Actor> actors = ActorStorage.Instance.Actors.Where( s => s.Active )
-                                                                .Where( s => filterFaction.Enabled ? s.Faction.ID == ( (Faction)filterFaction.ComboBox.SelectedValue ).ID : true )
-                                                                .Where( s => filterType.Enabled ? s.Type == ( (Actor.EType)filterType.ComboBox.SelectedValue ) : true )
-                                                                .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                .OrderBy( x => x.Name )
-                                                                .ToList();
+            List<Actor> actors = ActorStorage.Instance.Actors.Where( s => filterFaction.Enabled ? s.Faction.ID == ( (Faction)filterFaction.ComboBox.SelectedValue ).ID : true )
+                                                             .Where( s => filterType.Enabled ? s.Type == ( (Actor.EType)filterType.ComboBox.SelectedValue ) : true )
+                                                             .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                             .OrderBy( x => x.Name )
+                                                             .ToList();
 
             actorBindingSource.DataSource = actors;
             dataGridViewActors.ClearSelection();

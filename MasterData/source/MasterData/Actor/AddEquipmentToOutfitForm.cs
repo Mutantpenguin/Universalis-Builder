@@ -18,10 +18,9 @@ namespace Tesserakt
 
         private void updateDataGridViewEquipment()
         {
-            equipmentBindingSource.DataSource = EquipmentStorage.Instance.Equipments.Where( s => s.Active )
-                                                                                   .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                                   .OrderBy( x => x.Name )
-                                                                                   .ToList();
+            equipmentBindingSource.DataSource = EquipmentStorage.Instance.Equipments.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                                    .OrderBy( x => x.Name )
+                                                                                    .ToList();
         }
 
         public List<Equipment> SelectedEquipment

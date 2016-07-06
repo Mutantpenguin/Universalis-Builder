@@ -107,11 +107,10 @@ namespace Tesserakt
 
         private void RefreshGroupsGridView()
         {
-            List<Group> groups = GroupStorage.Instance.Groups.Where( s => s.Active )
-                                                                .Where( s => s.Faction.ID == m_faction.ID )
-                                                                .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                .OrderBy( x => x.Name ).ThenBy( x => x.Points )
-                                                                .ToList();
+            List<Group> groups = GroupStorage.Instance.Groups.Where( s => s.Faction.ID == m_faction.ID )
+                                                             .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                             .OrderBy( x => x.Name ).ThenBy( x => x.Points )
+                                                             .ToList();
 
             groupBindingSource.DataSource = groups;
             dataGridViewGroups.ClearSelection();
@@ -132,7 +131,7 @@ namespace Tesserakt
 
                 string toolTipText = String.Empty;
 
-                if( group.HasInactiveActors() )
+                if( group.HasMissingActors() )
                 {
                     toolTipText += "Gelöschte Modelle vorhanden!";
                 }
@@ -205,9 +204,9 @@ namespace Tesserakt
 
                 return ( false );
             }
-            else if( group.GroupActorList.Exists( x => !x.Actor.Active ) )
+            else if( group.GroupActorList.Exists( x => x == null ) )
             {
-                MessageBox.Show( "Mindestens ein Modell wurde deaktiviert!" );
+                MessageBox.Show( "Mindestens ein Modell wurde gelöscht!" );
 
                 return ( false );
             }
@@ -237,7 +236,7 @@ namespace Tesserakt
                 Image imgInactiveActors = null;
                 Image imgMissingActorOutfits = null;
 
-                if( group.HasInactiveActors() )
+                if( group.HasMissingActors() )
                 {
                     imgInactiveActors = Properties.Resources.exclamation_red;
                 }
