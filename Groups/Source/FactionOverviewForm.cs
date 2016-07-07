@@ -16,6 +16,8 @@ namespace Tesserakt
                 Properties.Settings.Default.Save();
             }
 
+            Storage.Setup();
+
             using( ProgressForm progressForm = new ProgressForm() )
             {
                 // load the masterdata

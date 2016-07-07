@@ -14,8 +14,10 @@ namespace Tesserakt
 
         public static readonly EquipmentStorage Instance = new EquipmentStorage();
 
-        private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Equipment" );
-        private static readonly string s_pathTrash = Path.Combine( s_path, StorageSettings.trashSubfolderName );
+        private const string s_folderName = "Equipment";
+
+        private static readonly string s_path = Path.Combine( Storage.DataPath, s_folderName );
+        private static readonly string s_pathTrash = Path.Combine( Storage.TrashPath, s_folderName );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {
@@ -26,13 +28,13 @@ namespace Tesserakt
 
             backgroundWorker.DoWork += ( sender, e ) =>
             {
-                string[] files = Directory.GetFiles( s_path, StorageSettings.filePattern, SearchOption.TopDirectoryOnly );
+                string[] files = Directory.GetFiles( s_path, Storage.filePattern, SearchOption.TopDirectoryOnly );
 
                 int i = 1;
 
                 foreach( string file in files )
                 {
-                    System.Threading.Thread.Sleep( StorageSettings.delayLoadingMs );
+                    System.Threading.Thread.Sleep( Storage.delayLoadingMs );
 
                     try
                     {
@@ -70,7 +72,7 @@ namespace Tesserakt
                 throw new ArgumentNullException( nameof( equipment ) );
             }
             string filename = GetFilename( equipment );
-            string filenameBackup = Path.ChangeExtension( filename, StorageSettings.backupFileExtension );
+            string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
             if( File.Exists( filename ) )
             {
@@ -79,7 +81,7 @@ namespace Tesserakt
 
             try
             {
-                File.WriteAllText( filename, JsonConvert.SerializeObject( equipment, StorageSettings.formatting ) );
+                File.WriteAllText( filename, JsonConvert.SerializeObject( equipment, Storage.formatting ) );
                 File.Delete( filenameBackup );
             }
             catch( Exception ex )
@@ -90,12 +92,12 @@ namespace Tesserakt
 
         private static string GetFilename( Equipment equipment )
         {
-            return Path.ChangeExtension( Path.Combine( s_path, equipment.ID.ToString() ), StorageSettings.fileExtension );
+            return Path.ChangeExtension( Path.Combine( s_path, equipment.ID.ToString() ), Storage.fileExtension );
         }
 
         private static string GetFilenameTrash( Equipment equipment )
         {
-            return Path.ChangeExtension( Path.Combine( s_pathTrash, equipment.ID.ToString() ), StorageSettings.fileExtension );
+            return Path.ChangeExtension( Path.Combine( s_pathTrash, equipment.ID.ToString() ), Storage.fileExtension );
         }
 
         public Equipment Get( Guid id )

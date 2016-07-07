@@ -14,8 +14,10 @@ namespace Tesserakt
 
         public static readonly ActorStorage Instance = new ActorStorage();
 
-        private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Actors" );
-        private static readonly string s_pathTrash = Path.Combine( s_path, StorageSettings.trashSubfolderName );
+        private const string s_folderName = "Models";
+
+        private static readonly string s_path = Path.Combine( Storage.DataPath, s_folderName );
+        private static readonly string s_pathTrash = Path.Combine( Storage.TrashPath, s_folderName );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {
@@ -26,13 +28,13 @@ namespace Tesserakt
 
             backgroundWorker.DoWork += ( sender, e ) =>
             {
-                string[] files = Directory.GetFiles( s_path, StorageSettings.filePattern, SearchOption.TopDirectoryOnly );
+                string[] files = Directory.GetFiles( s_path, Storage.filePattern, SearchOption.TopDirectoryOnly );
 
                 int i = 1;
 
                 foreach( string file in files )
                 {
-                    System.Threading.Thread.Sleep( StorageSettings.delayLoadingMs );
+                    System.Threading.Thread.Sleep( Storage.delayLoadingMs );
 
                     try
                     {
@@ -71,7 +73,7 @@ namespace Tesserakt
             }
 
             string filename = GetFilename( actor );
-            string filenameBackup = Path.ChangeExtension( filename, StorageSettings.backupFileExtension );
+            string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
             if( File.Exists( filename ) )
             {
@@ -80,7 +82,7 @@ namespace Tesserakt
 
             try
             {
-                File.WriteAllText( filename, JsonConvert.SerializeObject( actor, StorageSettings.formatting ) );
+                File.WriteAllText( filename, JsonConvert.SerializeObject( actor, Storage.formatting ) );
                 File.Delete( filenameBackup );
             }
             catch( Exception ex )
@@ -91,12 +93,12 @@ namespace Tesserakt
 
         private static string GetFilename( Actor actor )
         {
-            return( Path.ChangeExtension( Path.Combine( s_path, actor.ID.ToString() ), StorageSettings.fileExtension ) );
+            return( Path.ChangeExtension( Path.Combine( s_path, actor.ID.ToString() ), Storage.fileExtension ) );
         }
 
         private static string GetFilenameTrash( Actor actor )
         {
-            return ( Path.ChangeExtension( Path.Combine( s_pathTrash, actor.ID.ToString() ), StorageSettings.fileExtension ) );
+            return ( Path.ChangeExtension( Path.Combine( s_pathTrash, actor.ID.ToString() ), Storage.fileExtension ) );
         }
 
         public Actor Get( Guid id )

@@ -14,8 +14,10 @@ namespace Tesserakt
 
         public static readonly GroupStorage Instance = new GroupStorage();
 
-        private static readonly string s_path = Path.Combine( StorageSettings.DataPath, "Groups" );
-        private static readonly string s_pathTrash = Path.Combine( s_path, StorageSettings.trashSubfolderName );
+        private const string s_folderName = "Groups";
+
+        private static readonly string s_path = Path.Combine( Storage.DataPath, s_folderName );
+        private static readonly string s_pathTrash = Path.Combine( Storage.TrashPath, s_folderName );
 
         public void LoadAll( BackgroundWorker backgroundWorker )
         {
@@ -26,13 +28,13 @@ namespace Tesserakt
 
             backgroundWorker.DoWork += delegate
             {
-                string[] files = Directory.GetFiles( s_path, StorageSettings.filePattern, SearchOption.TopDirectoryOnly );
+                string[] files = Directory.GetFiles( s_path, Storage.filePattern, SearchOption.TopDirectoryOnly );
 
                 int i = 1;
 
                 foreach( string file in files )
                 {
-                    System.Threading.Thread.Sleep( StorageSettings.delayLoadingMs );
+                    System.Threading.Thread.Sleep( Storage.delayLoadingMs );
 
                     try
                     {
@@ -82,12 +84,12 @@ namespace Tesserakt
 
         private static string GetFilename( Group group )
         {
-            return Path.ChangeExtension( Path.Combine( s_path, group.ID.ToString() ), StorageSettings.fileExtension );
+            return Path.ChangeExtension( Path.Combine( s_path, group.ID.ToString() ), Storage.fileExtension );
         }
 
         private static string GetFilenameTrash( Group group )
         {
-            return Path.ChangeExtension( Path.Combine( s_pathTrash, group.ID.ToString() ), StorageSettings.fileExtension );
+            return Path.ChangeExtension( Path.Combine( s_pathTrash, group.ID.ToString() ), Storage.fileExtension );
         }
 
         public static void SaveAs( Group group, string filename )
@@ -97,7 +99,7 @@ namespace Tesserakt
                 throw new ArgumentNullException( nameof( group ) );
             }
 
-            string filenameBackup = Path.ChangeExtension( filename, StorageSettings.backupFileExtension );
+            string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
             if( File.Exists( filename ) )
             {
@@ -106,7 +108,7 @@ namespace Tesserakt
 
             try
             {
-                File.WriteAllText( filename, JsonConvert.SerializeObject( group, StorageSettings.formatting ) );
+                File.WriteAllText( filename, JsonConvert.SerializeObject( group, Storage.formatting ) );
                 File.Delete( filenameBackup );
             }
             catch( Exception ex )

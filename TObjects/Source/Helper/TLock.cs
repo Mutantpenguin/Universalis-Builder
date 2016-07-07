@@ -107,7 +107,7 @@ namespace Tesserakt
                 PID = Process.GetCurrentProcess().Id
             };
 
-            File.WriteAllText( m_fileName, JsonConvert.SerializeObject( lockFile, StorageSettings.formatting ) );
+            File.WriteAllText( m_fileName, JsonConvert.SerializeObject( lockFile, Storage.formatting ) );
 
             File.SetAttributes( m_fileName, FileAttributes.Hidden );
         }

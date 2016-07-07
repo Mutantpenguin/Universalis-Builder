@@ -123,7 +123,7 @@
       <DependentUpon>ProgressForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Storage\TraitStorage.cs" />
-    <Compile Include="Source\Storage\StorageSettings.cs" />
+    <Compile Include="Source\Storage\Storage.cs" />
     <Compile Include="Source\Storage\WeaponStorage.cs" />
   </ItemGroup>
   <ItemGroup>
