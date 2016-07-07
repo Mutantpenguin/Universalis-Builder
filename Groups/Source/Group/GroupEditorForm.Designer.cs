@@ -162,7 +162,6 @@
             // 
             // textBoxCost
             // 
-            this.textBoxCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxCost.Location = new System.Drawing.Point(135, 29);
             this.textBoxCost.Name = "textBoxCost";
             this.textBoxCost.ReadOnly = true;
