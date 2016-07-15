@@ -14,5 +14,8 @@
     <Setting Name="groupSavePath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">c:\\</Value>
     </Setting>
+    <Setting Name="imageFilePath" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

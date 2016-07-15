@@ -53,6 +53,7 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.eigenesBildEntfernenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -293,9 +294,10 @@
             this.contextMenuStripActors.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.outfitWechselnToolStripMenuItem,
             this.umbenennenToolStripMenuItem,
-            this.eigenesBildHochladenToolStripMenuItem});
+            this.eigenesBildHochladenToolStripMenuItem,
+            this.eigenesBildEntfernenToolStripMenuItem});
             this.contextMenuStripActors.Name = "contextMenuStripActors";
-            this.contextMenuStripActors.Size = new System.Drawing.Size(197, 92);
+            this.contextMenuStripActors.Size = new System.Drawing.Size(197, 114);
             // 
             // outfitWechselnToolStripMenuItem
             // 
@@ -436,6 +438,14 @@
             // 
             this.factionBindingSource.DataSource = typeof(Tesserakt.Faction);
             // 
+            // eigenesBildEntfernenToolStripMenuItem
+            // 
+            this.eigenesBildEntfernenToolStripMenuItem.Image = global::Tesserakt.Properties.Resources.cross_circle;
+            this.eigenesBildEntfernenToolStripMenuItem.Name = "eigenesBildEntfernenToolStripMenuItem";
+            this.eigenesBildEntfernenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.eigenesBildEntfernenToolStripMenuItem.Text = "Eigenes Bild entfernen";
+            this.eigenesBildEntfernenToolStripMenuItem.Click += new System.EventHandler(this.eigenesBildEntfernenToolStripMenuItem_Click);
+            // 
             // GroupEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -513,5 +523,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripMenuItem outfitWechselnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eigenesBildEntfernenToolStripMenuItem;
     }
 }

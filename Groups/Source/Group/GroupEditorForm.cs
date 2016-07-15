@@ -316,7 +316,6 @@ namespace Tesserakt
             {
                 e.ContextMenuStrip = contextMenuStripActors;
 
-                // TODO ins ContextMenu einbauen
                 if( groupActor.Actor.ActorOutfitsList.Count > 0 )
                 {
                     outfitWechselnToolStripMenuItem.DropDownItems.Clear();
@@ -336,6 +335,17 @@ namespace Tesserakt
                 else
                 {
                     outfitWechselnToolStripMenuItem.DropDownItems.Add( "Keine Outfits vorhanden" );
+                }
+
+                if( groupActor.CustomImg == null )
+                {
+                    eigenesBildHochladenToolStripMenuItem.Visible = true;
+                    eigenesBildEntfernenToolStripMenuItem.Visible = false;
+                }
+                else
+                {
+                    eigenesBildHochladenToolStripMenuItem.Visible = false;
+                    eigenesBildEntfernenToolStripMenuItem.Visible = true;
                 }
             }
         }
@@ -359,7 +369,38 @@ namespace Tesserakt
 
         private void eigenesBildHochladenToolStripMenuItem_Click( object sender, EventArgs e )
         {
-            // TODO eigenes Bild einbauen implementieren
+            using( OpenFileDialog iconFileDialog = new OpenFileDialog() )
+            {
+                iconFileDialog.InitialDirectory = Properties.Settings.Default.imageFilePath;
+
+                if( iconFileDialog.ShowDialog( this ) == DialogResult.OK )
+                {
+                    Properties.Settings.Default.imageFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
+                    Properties.Settings.Default.Save();
+
+                    Image img = ImageHelper.LoadImage( iconFileDialog.FileName );
+
+                    if( null != img )
+                    {
+                        using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Bild auswählen", img, ImageHelper.imageSize ) )
+                        {
+                            if( imageSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                            {
+                                ( (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem ).CustomImg = new Bitmap( imageSelectionForm.Image );
+
+                                groupActorBindingSource.ResetBindings( false );
+
+                                UpdateCard();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void eigenesBildEntfernenToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            ( (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem ).CustomImg = null;
 
             groupActorBindingSource.ResetBindings( false );
 
