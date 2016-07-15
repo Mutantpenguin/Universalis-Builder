@@ -310,17 +310,17 @@ namespace Tesserakt
         {
             Actor.ActorOutfit actorOutfit = (Actor.ActorOutfit)comboBoxOutfits.SelectedItem;
 
-            using( RenameOutfitForm renameOutfitForm = new RenameOutfitForm( actorOutfit.Name ) )
+            using( EnterNameForm enterNameForm = new EnterNameForm( actorOutfit.Name, emptyNameAllowed: false ) )
             {
-                if( renameOutfitForm.ShowDialog( this ) == DialogResult.OK )
+                if( enterNameForm.ShowDialog( this ) == DialogResult.OK )
                 {
-                    if( m_actorModified.ActorOutfitsList.Exists( x => x.Name == renameOutfitForm.NameNew ) )
+                    if( m_actorModified.ActorOutfitsList.Exists( x => x.Name == enterNameForm.NewName ) )
                     {
-                        MessageBox.Show( $"Ein Outfit mit dem Namen '{renameOutfitForm.NameNew}' existiert bereits!" );
+                        MessageBox.Show( $"Ein Outfit mit dem Namen '{enterNameForm.NewName}' existiert bereits!" );
                     }
                     else
                     {
-                        actorOutfit.Name = renameOutfitForm.NameNew;
+                        actorOutfit.Name = enterNameForm.NewName;
 
                         outfitsBindingSource.ResetBindings( false );
 
@@ -334,17 +334,17 @@ namespace Tesserakt
         {
             Actor.ActorOutfit actorOutfit = new Actor.ActorOutfit();
 
-            using( RenameOutfitForm renameOutfitForm = new RenameOutfitForm( actorOutfit.Name ) )
+            using( EnterNameForm enterNameForm = new EnterNameForm( actorOutfit.Name, emptyNameAllowed: false ) )
             {
-                if( renameOutfitForm.ShowDialog( this ) == DialogResult.OK )
+                if( enterNameForm.ShowDialog( this ) == DialogResult.OK )
                 {
-                    if( m_actorModified.ActorOutfitsList.Exists( x => x.Name == renameOutfitForm.NameNew ) )
+                    if( m_actorModified.ActorOutfitsList.Exists( x => x.Name == enterNameForm.NewName ) )
                     {
-                        MessageBox.Show( $"Ein Outfit mit dem Namen '{renameOutfitForm.NameNew}' existiert bereits!" );
+                        MessageBox.Show( $"Ein Outfit mit dem Namen '{enterNameForm.NewName}' existiert bereits!" );
                     }
                     else
                     {
-                        actorOutfit.Name = renameOutfitForm.NameNew;
+                        actorOutfit.Name = enterNameForm.NewName;
 
                         m_actorModified.ActorOutfitsList.Add( actorOutfit );
 

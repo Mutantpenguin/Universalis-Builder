@@ -188,6 +188,11 @@ namespace Tesserakt
                     return ( false );
                 }
 
+                if( CustomImg != groupActor.CustomImg )
+                {
+                    return ( false );
+                }
+
                 return ( true );
             }
 
@@ -203,6 +208,8 @@ namespace Tesserakt
                 CustomName = groupActor.CustomName;
                 Actor = groupActor.Actor;
                 ActorOutfit = groupActor.ActorOutfit;
+
+                CustomImg = groupActor.CustomImg;
             }
 
             public Guid ID
@@ -230,6 +237,13 @@ namespace Tesserakt
                 get;
                 set;
             }
+
+            [JsonConverter( typeof( JsonImageConverter ) )]
+            public Bitmap CustomImg
+            {
+                get;
+                set;
+            } = null;
 
             [JsonIgnore]
             public Bitmap Icon
@@ -272,10 +286,6 @@ namespace Tesserakt
                     {
                         return( "Modell nicht mehr vorhanden" );
                     }
-                }
-                set
-                {
-                    CustomName = value;
                 }
             }
 

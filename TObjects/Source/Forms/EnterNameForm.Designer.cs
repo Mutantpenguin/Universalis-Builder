@@ -1,6 +1,6 @@
 ﻿namespace Tesserakt
 {
-    partial class RenameOutfitForm
+    partial class EnterNameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -50,7 +50,7 @@
             // buttonOk
             // 
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Image = global::Tesserakt.Properties.Resources.tick;
+            this.buttonOk.Image = global::TObjects.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(120, 29);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 23);
@@ -59,12 +59,11 @@
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonOk.UseVisualStyleBackColor = true;
-            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Image = global::Tesserakt.Properties.Resources.cross_circle;
+            this.buttonCancel.Image = global::TObjects.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 29);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 23);
@@ -81,7 +80,7 @@
             this.textBoxName.Size = new System.Drawing.Size(217, 20);
             this.textBoxName.TabIndex = 0;
             // 
-            // RenameOutfitForm
+            // EnterNameForm
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,9 +92,10 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "RenameOutfitForm";
+            this.Name = "EnterNameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Bitte neuen Namen eingeben";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EnterNameForm_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

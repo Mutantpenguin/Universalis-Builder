@@ -110,7 +110,7 @@ namespace Tesserakt
 
         public static Bitmap getBitmap( Group.GroupActor groupActor )
         {
-            return( getBitmap( groupActor.Actor, groupActor.ActorOutfit, groupActor.CustomName ) );
+            return( getBitmap( groupActor.Actor, groupActor.ActorOutfit, groupActor.CustomName, groupActor.CustomImg ) );
         }
 
         public static Bitmap getBitmap( Actor actor, Actor.ActorOutfit actorOutfit )
@@ -118,7 +118,7 @@ namespace Tesserakt
             return ( getBitmap( actor, actorOutfit, String.Empty ) );
         }
 
-        private static Bitmap getBitmap( Actor actor, Actor.ActorOutfit actorOutfit, string customName )
+        private static Bitmap getBitmap( Actor actor, Actor.ActorOutfit actorOutfit, string customName, Bitmap customImage = null )
         {
             if( null == actor )
             {
@@ -135,7 +135,15 @@ namespace Tesserakt
                 drawName( g, actor.Name, customName );
                 drawFaction( g, actor.Faction );
                 drawType( g, actor.Type );
-                drawPicture( g, actor.Img );
+
+                if( customImage != null )
+                {
+                    drawPicture( g, customImage );
+                }
+                else
+                {
+                    drawPicture( g, actor.Img );
+                }
                 drawAttributes( g, actor, actorOutfit );
                 drawCalculatedAttributes( g, actor, actorOutfit );
                 drawSize( g, actor.Size );

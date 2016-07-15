@@ -37,8 +37,8 @@ namespace Tesserakt
 
         private void updateGridViewActors()
         {
-            groupActorBindingSource.DataSource = m_groupModified.GroupActorList.OrderBy( x => x.Name )
-                                                                               .OrderByDescending( x => x.Points )
+            groupActorBindingSource.DataSource = m_groupModified.GroupActorList.OrderByDescending( x => ( x.Actor != null ) ? x.ActorOutfit.Name : "zzzzzzzzzzzzzz" )
+                                                                               .OrderBy( x => ( x.Actor != null ) ? x.Name : "zzzzzzzzzzzzzz" )
                                                                                .ToList();
 
             dataGridViewActors.ClearSelection();
@@ -71,12 +71,6 @@ namespace Tesserakt
             if( String.IsNullOrEmpty( m_groupModified.Name ) )
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!" );
-                return ( false );
-            }
-
-            if( null == m_groupModified.Faction )
-            {
-                MessageBox.Show( "Fraktion ist leer, bitte angeben!" );
                 return ( false );
             }
 
@@ -210,33 +204,6 @@ namespace Tesserakt
                 update();
             }
         }
-
-        private void toolStripButtonActorOutfit_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewActors.SelectedRows.Count > 0 )
-            {
-                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.Rows[ dataGridViewActors.SelectedRows[ 0 ].Index ].DataBoundItem;
-
-                if( groupActor.Actor == null )
-                {
-                    MessageBox.Show( "Dieses Modell wurde gelöscht und kann daher nicht mehr geändert werden!" );
-                }
-                else
-                {
-                    using( SelectOutfitForActorForm selectOutfitForActorForm = new SelectOutfitForActorForm( groupActor.Actor ) )
-                    {
-                        if( selectOutfitForActorForm.ShowDialog( this ) == DialogResult.OK )
-                        {
-                            groupActor.ActorOutfit = selectOutfitForActorForm.SelectedOutfit;
-
-                            groupActorBindingSource.ResetBindings( false );
-
-                            UpdateCard();
-                        }
-                    }
-                }
-            }
-        }
         #endregion actors
 
         private void dataGridViewActors_CellToolTipTextNeeded( object sender, DataGridViewCellToolTipTextNeededEventArgs e )
@@ -291,28 +258,6 @@ namespace Tesserakt
             }
         }
 
-        private void dataGridViewActors_EditingControlShowing( object sender, DataGridViewEditingControlShowingEventArgs e )
-        {
-            if( dataGridViewActors.CurrentCell.ColumnIndex == nameDataGridViewTextBoxColumn.Index )
-            {
-                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem;
-                dataGridViewActors.EditingControl.Text = groupActor.CustomName;
-            }
-        }
-
-        protected override bool ProcessCmdKey( ref Message msg, Keys keyData )
-        {
-            if( ( keyData == Keys.Escape ) && ( dataGridViewActors.IsCurrentCellInEditMode ) )
-            {
-                dataGridViewActors.CancelEdit();
-                dataGridViewActors.EndEdit();
-
-                return ( true );
-            }
-
-            return( base.ProcessCmdKey( ref msg, keyData ) );
-        }
-
         private void dataGridViewActors_CellPainting( object sender, DataGridViewCellPaintingEventArgs e )
         {
             if( e.ColumnIndex == nameDataGridViewTextBoxColumn.Index && e.RowIndex != -1 )
@@ -342,9 +287,83 @@ namespace Tesserakt
             }
         }
 
-        private void dataGridViewActors_CurrentCellDirtyStateChanged( object sender, EventArgs e )
+        private void dataGridViewActors_CellMouseDown( object sender, DataGridViewCellMouseEventArgs e )
         {
-            UpdateCard();
+            if( e.Button == MouseButtons.Right )
+            {
+                if( ( e.ColumnIndex != -1 ) && ( e.RowIndex != -1 ) )
+                {
+                    DataGridViewRow row = dataGridViewActors.Rows[ e.RowIndex ];
+                    if( !row.Selected )
+                    {
+                        dataGridViewActors.ClearSelection();
+                        dataGridViewActors.CurrentCell = row.Cells[ e.ColumnIndex ];
+                        row.Selected = true;
+                    }
+                }
+            }
+        }
+
+        private void dataGridViewActors_RowContextMenuStripNeeded( object sender, DataGridViewRowContextMenuStripNeededEventArgs e )
+        {
+            Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem;
+
+            if( groupActor.Actor == null )
+            {
+                e.ContextMenuStrip = new ContextMenuStrip();
+            }
+            else
+            {
+                // TODO ins ContextMenu einbauen
+                //outfitWechselnToolStripMenuItem.
+            }
+        }
+
+        private void umbenennenToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem;
+
+            using( EnterNameForm enterNameForm = new EnterNameForm( groupActor.CustomName, emptyNameAllowed: true ) )
+            {
+                if( enterNameForm.ShowDialog( this ) == DialogResult.OK )
+                {
+                    groupActor.CustomName = enterNameForm.NewName;
+
+                    groupActorBindingSource.ResetBindings( false );
+
+                    UpdateCard();
+                }
+            }
+        }
+
+        private void outfitWechselnToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            // TODO ins ContextMenu einbauen
+            Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem;
+
+            if( groupActor.Actor == null )
+            {
+                MessageBox.Show( "Dieses Modell wurde gelöscht und kann daher nicht mehr geändert werden!" );
+            }
+            else
+            {
+                using( SelectOutfitForActorForm selectOutfitForActorForm = new SelectOutfitForActorForm( groupActor.Actor ) )
+                {
+                    if( selectOutfitForActorForm.ShowDialog( this ) == DialogResult.OK )
+                    {
+                        groupActor.ActorOutfit = selectOutfitForActorForm.SelectedOutfit;
+
+                        groupActorBindingSource.ResetBindings( false );
+
+                        UpdateCard();
+                    }
+                }
+            }
+        }
+
+        private void eigenesBildHochladenToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            // TODO eigenes Bild einbauen implementieren
         }
     }
 }
