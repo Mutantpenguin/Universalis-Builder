@@ -33,10 +33,14 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
+            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupActorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStripActors = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.outfitWechselnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.umbenennenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eigenesBildHochladenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupActorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonActorsAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonActorsRemove = new System.Windows.Forms.ToolStripButton();
@@ -48,11 +52,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.outfitWechselnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -65,8 +65,8 @@
             this.toolStrip2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
-            this.contextMenuStripActors.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupActorBindingSource)).BeginInit();
+            this.contextMenuStripActors.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
             this.panel3.SuspendLayout();
@@ -255,6 +255,39 @@
             this.dataGridViewActors.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridViewActors_RowContextMenuStripNeeded);
             this.dataGridViewActors.SelectionChanged += new System.EventHandler(this.dataGridViewActors_SelectionChanged);
             // 
+            // iconDataGridViewImageColumn
+            // 
+            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
+            this.iconDataGridViewImageColumn.HeaderText = "";
+            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
+            this.iconDataGridViewImageColumn.ReadOnly = true;
+            this.iconDataGridViewImageColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pointsDataGridViewTextBoxColumn
+            // 
+            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
+            this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pointsDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // groupActorBindingSource
+            // 
+            this.groupActorBindingSource.DataSource = typeof(Tesserakt.Group.GroupActor);
+            // 
             // contextMenuStripActors
             // 
             this.contextMenuStripActors.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -263,6 +296,13 @@
             this.eigenesBildHochladenToolStripMenuItem});
             this.contextMenuStripActors.Name = "contextMenuStripActors";
             this.contextMenuStripActors.Size = new System.Drawing.Size(197, 92);
+            // 
+            // outfitWechselnToolStripMenuItem
+            // 
+            this.outfitWechselnToolStripMenuItem.Image = global::Tesserakt.Properties.Resources.application_list;
+            this.outfitWechselnToolStripMenuItem.Name = "outfitWechselnToolStripMenuItem";
+            this.outfitWechselnToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.outfitWechselnToolStripMenuItem.Text = "&Outfit wechseln";
             // 
             // umbenennenToolStripMenuItem
             // 
@@ -279,10 +319,6 @@
             this.eigenesBildHochladenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.eigenesBildHochladenToolStripMenuItem.Text = "&Eigenes Bild hochladen";
             this.eigenesBildHochladenToolStripMenuItem.Click += new System.EventHandler(this.eigenesBildHochladenToolStripMenuItem_Click);
-            // 
-            // groupActorBindingSource
-            // 
-            this.groupActorBindingSource.DataSource = typeof(Tesserakt.Group.GroupActor);
             // 
             // toolStrip1
             // 
@@ -396,46 +432,9 @@
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
             // 
-            // iconDataGridViewImageColumn
-            // 
-            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
-            this.iconDataGridViewImageColumn.HeaderText = "";
-            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
-            this.iconDataGridViewImageColumn.ReadOnly = true;
-            this.iconDataGridViewImageColumn.Width = 40;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pointsDataGridViewTextBoxColumn
-            // 
-            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
-            this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pointsDataGridViewTextBoxColumn.Width = 50;
-            // 
             // factionBindingSource
             // 
             this.factionBindingSource.DataSource = typeof(Tesserakt.Faction);
-            // 
-            // outfitWechselnToolStripMenuItem
-            // 
-            this.outfitWechselnToolStripMenuItem.Image = global::Tesserakt.Properties.Resources.application_list;
-            this.outfitWechselnToolStripMenuItem.Name = "outfitWechselnToolStripMenuItem";
-            this.outfitWechselnToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.outfitWechselnToolStripMenuItem.Text = "&Outfit wechseln";
-            this.outfitWechselnToolStripMenuItem.Click += new System.EventHandler(this.outfitWechselnToolStripMenuItem_Click);
             // 
             // GroupEditorForm
             // 
@@ -466,8 +465,8 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
-            this.contextMenuStripActors.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupActorBindingSource)).EndInit();
+            this.contextMenuStripActors.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();

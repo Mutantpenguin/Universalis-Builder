@@ -314,8 +314,29 @@ namespace Tesserakt
             }
             else
             {
+                e.ContextMenuStrip = contextMenuStripActors;
+
                 // TODO ins ContextMenu einbauen
-                //outfitWechselnToolStripMenuItem.
+                if( groupActor.Actor.ActorOutfitsList.Count > 0 )
+                {
+                    outfitWechselnToolStripMenuItem.DropDownItems.Clear();
+
+                    foreach( Actor.ActorOutfit outfit in groupActor.Actor.ActorOutfitsList.OrderBy( x => x.Name ) )
+                    {
+                        outfitWechselnToolStripMenuItem.DropDownItems.Add( $"{outfit.Name} - {outfit.Points}pkt", null, delegate
+                                                                                                                        {
+                                                                                                                            groupActor.ActorOutfit = outfit;
+
+                                                                                                                            groupActorBindingSource.ResetBindings( false );
+
+                                                                                                                            UpdateCard();
+                                                                                                                        } );
+                    }
+                }
+                else
+                {
+                    outfitWechselnToolStripMenuItem.DropDownItems.Add( "Keine Outfits vorhanden" );
+                }
             }
         }
 
@@ -336,34 +357,13 @@ namespace Tesserakt
             }
         }
 
-        private void outfitWechselnToolStripMenuItem_Click( object sender, EventArgs e )
-        {
-            // TODO ins ContextMenu einbauen
-            Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem;
-
-            if( groupActor.Actor == null )
-            {
-                MessageBox.Show( "Dieses Modell wurde gelöscht und kann daher nicht mehr geändert werden!" );
-            }
-            else
-            {
-                using( SelectOutfitForActorForm selectOutfitForActorForm = new SelectOutfitForActorForm( groupActor.Actor ) )
-                {
-                    if( selectOutfitForActorForm.ShowDialog( this ) == DialogResult.OK )
-                    {
-                        groupActor.ActorOutfit = selectOutfitForActorForm.SelectedOutfit;
-
-                        groupActorBindingSource.ResetBindings( false );
-
-                        UpdateCard();
-                    }
-                }
-            }
-        }
-
         private void eigenesBildHochladenToolStripMenuItem_Click( object sender, EventArgs e )
         {
             // TODO eigenes Bild einbauen implementieren
+
+            groupActorBindingSource.ResetBindings( false );
+
+            UpdateCard();
         }
     }
 }
