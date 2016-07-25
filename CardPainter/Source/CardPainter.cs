@@ -217,17 +217,18 @@ namespace Tesserakt
             string name = actorName + ( String.IsNullOrEmpty( customName ) ? String.Empty : ( Environment.NewLine + customName ) );
 
             Size textSize = new Size( CmToPixel( 3.5 ) - posX, CmToPixel( 0.5 ) );
+            Rectangle textRect = new Rectangle( new Point( posX, posY ), textSize );
 
             int charsFitted, linesFilled;
             g.MeasureString( name, fontName, textSize, stringFormatHCenterVCenter, out charsFitted, out linesFilled );
 
             if( linesFilled > 1 )
             {
-                g.DrawString( name, fontNameSmall, Brushes.Black, new Rectangle( new Point( posX, posY ), textSize ), stringFormatHCenterVCenter );
+                g.DrawString( name, fontNameSmall, Brushes.Black, textRect, stringFormatHCenterVCenter );
             }
             else
             {
-                g.DrawString( name, fontName, Brushes.Black, new Rectangle( new Point( posX, posY ), textSize ), stringFormatHCenterVCenter );
+                g.DrawString( name, fontName, Brushes.Black, textRect, stringFormatHCenterVCenter );
             }
         }
 
