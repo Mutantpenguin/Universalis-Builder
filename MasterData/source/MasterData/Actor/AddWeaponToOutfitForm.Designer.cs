@@ -69,6 +69,7 @@
             this.effectsImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Unwieldy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IndirectFire = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
@@ -129,6 +130,7 @@
             this.effectsImageDataGridViewImageColumn,
             this.UseOnce,
             this.Unwieldy,
+            this.IndirectFire,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewWeapons.DataSource = this.weaponBindingSource;
@@ -390,6 +392,15 @@
             this.Unwieldy.ToolTipText = "Schwerfällig";
             this.Unwieldy.Width = 30;
             // 
+            // IndirectFire
+            // 
+            this.IndirectFire.DataPropertyName = "IndirectFire";
+            this.IndirectFire.HeaderText = "I";
+            this.IndirectFire.Name = "IndirectFire";
+            this.IndirectFire.ReadOnly = true;
+            this.IndirectFire.ToolTipText = "Indirektes Feuer";
+            this.IndirectFire.Width = 30;
+            // 
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
@@ -411,7 +422,7 @@
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.pointsDataGridViewTextBoxColumn.Width = 50;
             // 
-            // AddWeaponToActorForm
+            // AddWeaponToOutfitForm
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,7 +433,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel3);
-            this.Name = "AddWeaponToActorForm";
+            this.Name = "AddWeaponToOutfitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Waffenauswahl";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).EndInit();
@@ -454,19 +465,20 @@
         private System.Windows.Forms.ToolStripComboBox filterType;
         private System.Windows.Forms.ToolStripButton checkBoxFilterType;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
-        private System.Windows.Forms.DataGridViewImageColumn effectsImageDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRadius;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaxRange;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WeaponRange;
-        private System.Windows.Forms.DataGridViewTextBoxColumn substanceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn potentialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn typeImageDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn typeImageDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn potentialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn substanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WeaponRange;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaxRange;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRadius;
+        private System.Windows.Forms.DataGridViewImageColumn effectsImageDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IndirectFire;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }
 }

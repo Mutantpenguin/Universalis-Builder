@@ -761,6 +761,13 @@ namespace Tesserakt
                 }
             }
 
+            if( weapon.IndirectFire )
+            {
+                g.DrawImage( Properties.Resources.indirect, new Rectangle( remainderPosX + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+
+                remainderPosX += s_lineHeight;
+            }
+
             if( weapon.Radius > 0 )
             {
                 Rectangle rect = new Rectangle( remainderPosX + weapon_radiusMargin, posY + weapon_radiusMargin, s_lineHeight - ( 2 * weapon_radiusMargin ), s_lineHeight - ( 2 * weapon_radiusMargin ) );

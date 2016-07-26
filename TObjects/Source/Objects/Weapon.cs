@@ -57,6 +57,8 @@ namespace Tesserakt
 
             UseOnce = weapon.UseOnce;
 
+            IndirectFire = weapon.IndirectFire;
+
             AF = weapon.AF;
             Radius = weapon.Radius;
 
@@ -138,7 +140,12 @@ namespace Tesserakt
                 return( false );
             }
 
-            return( true );
+            if( IndirectFire != weapon.IndirectFire )
+            {
+                return ( false );
+            }
+
+            return ( true );
         }
 
         public enum EClass
@@ -234,6 +241,12 @@ namespace Tesserakt
         } = 0;
 
         public bool Unwieldy
+        {
+            get;
+            set;
+        } = false;
+
+        public bool IndirectFire
         {
             get;
             set;

@@ -69,6 +69,7 @@
             this.EffectsImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Unwieldy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IndirectFire = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
@@ -94,7 +95,7 @@
             this.toolStripButtonUsage});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(741, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(754, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -238,6 +239,7 @@
             this.EffectsImage,
             this.UseOnce,
             this.Unwieldy,
+            this.IndirectFire,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewWeapons.DataSource = this.weaponBindingSource;
@@ -247,7 +249,7 @@
             this.dataGridViewWeapons.ReadOnly = true;
             this.dataGridViewWeapons.RowHeadersVisible = false;
             this.dataGridViewWeapons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewWeapons.Size = new System.Drawing.Size(741, 379);
+            this.dataGridViewWeapons.Size = new System.Drawing.Size(754, 379);
             this.dataGridViewWeapons.TabIndex = 0;
             this.dataGridViewWeapons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWeapons_CellDoubleClick);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
@@ -263,7 +265,7 @@
             this.toolStripStatusLabelCount});
             this.statusStrip1.Location = new System.Drawing.Point(0, 404);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(741, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(754, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -391,6 +393,15 @@
             this.Unwieldy.ToolTipText = "Schwerfällig";
             this.Unwieldy.Width = 30;
             // 
+            // IndirectFire
+            // 
+            this.IndirectFire.DataPropertyName = "IndirectFire";
+            this.IndirectFire.HeaderText = "I";
+            this.IndirectFire.Name = "IndirectFire";
+            this.IndirectFire.ReadOnly = true;
+            this.IndirectFire.ToolTipText = "Indirektes Feuer";
+            this.IndirectFire.Width = 30;
+            // 
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
@@ -400,7 +411,7 @@
             this.weightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
             this.weightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.weightDataGridViewTextBoxColumn.Width = 60;
+            this.weightDataGridViewTextBoxColumn.Width = 50;
             // 
             // pointsDataGridViewTextBoxColumn
             // 
@@ -410,13 +421,13 @@
             this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pointsDataGridViewTextBoxColumn.Width = 60;
+            this.pointsDataGridViewTextBoxColumn.Width = 50;
             // 
             // WeaponManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 426);
+            this.ClientSize = new System.Drawing.Size(754, 426);
             this.Controls.Add(this.dataGridViewWeapons);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -455,19 +466,20 @@
         private System.Windows.Forms.ToolStripButton checkBoxFilterType;
         private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
-        private System.Windows.Forms.DataGridViewImageColumn EffectsImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRadius;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaxRange;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRange;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Substance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Potential;
-        private System.Windows.Forms.DataGridViewImageColumn DamageTypeImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn WK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn DamageTypeImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Potential;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Substance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRange;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaxRange;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRadius;
+        private System.Windows.Forms.DataGridViewImageColumn EffectsImage;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IndirectFire;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }
 }
