@@ -234,10 +234,11 @@ namespace Tesserakt
 
         private static void drawFaction( Graphics g, Faction faction )
         {
-            if( null != faction )
-            {
-                g.DrawImage( faction.Icon, new Rectangle( Point.Empty, new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) ) );
-            }
+            Rectangle rect = new Rectangle( Point.Empty, new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) );
+
+            g.DrawImage( faction.Icon, rect );
+
+            g.DrawRectangle( linePen, rect );
         }
 
         private static void drawType( Graphics g, Actor.EType type )
