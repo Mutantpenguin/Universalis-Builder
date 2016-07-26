@@ -211,16 +211,20 @@ namespace Tesserakt
                 case Weapon.EType.Fernkampf:
                     numericUpDownWeaponRangeLength.Enabled = true;
                     numericUpDownWeaponRangeAmount.Enabled = true;
+                    checkBoxIndirectFire.Enabled = true;
                     break;
 
                 case Weapon.EType.Nahkampf:
                     numericUpDownWeaponRangeLength.Enabled = false;
                     numericUpDownWeaponRangeAmount.Enabled = false;
+                    checkBoxIndirectFire.Enabled = false;
+                    checkBoxIndirectFire.Checked = false;
                     break;
 
                 case Weapon.EType.Wurf:
                     numericUpDownWeaponRangeLength.Enabled = false;
                     numericUpDownWeaponRangeAmount.Enabled = false;
+                    checkBoxIndirectFire.Enabled = true;
                     break;
 
                 default:
