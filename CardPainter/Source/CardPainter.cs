@@ -13,29 +13,31 @@ namespace Tesserakt
         {
             Color backgroundColor = Color.SteelBlue;
 
-            LinearGradientBrush sectionTitleBackgroundBrushGradient = new LinearGradientBrush( new Point( 0, 0 ),
-                                                                                               new Point( s_sectionWidth, 0 ),
-                                                                                               Color.FromArgb( 255, backgroundColor ),
-                                                                                               Color.FromArgb( 0, backgroundColor ) );
-
             sectionHeader = new Bitmap( s_sectionWidth, s_lineHeight );
 
-            Graphics g = Graphics.FromImage( sectionHeader );
-
-            g.Clear( backgroundColor );
-
-            Rectangle sectionRectangle = new Rectangle( 0, 0, sectionHeader.Width, sectionHeader.Height );
-
-            using( TextureBrush patternBrush = new TextureBrush( Properties.Resources.section_pattern, WrapMode.Tile ) )
+            using( Graphics g = Graphics.FromImage( sectionHeader ) )
             {
-                patternBrush.ScaleTransform( 0.4f, 0.4f );
-                g.FillRectangle( patternBrush, sectionRectangle );
-            }
+                g.Clear( backgroundColor );
 
-            g.FillRectangle( sectionTitleBackgroundBrushGradient, sectionRectangle );
+                Rectangle sectionRectangle = new Rectangle( 0, 0, sectionHeader.Width, sectionHeader.Height );
+
+                using( TextureBrush patternBrush = new TextureBrush( Properties.Resources.section_pattern, WrapMode.Tile ) )
+                {
+                    patternBrush.ScaleTransform( 0.4f, 0.4f );
+                    g.FillRectangle( patternBrush, sectionRectangle );
+                }
+
+                using( LinearGradientBrush sectionTitleBackgroundBrushGradient = new LinearGradientBrush( new Point( 0, 0 ),
+                                                                                                          new Point( s_sectionWidth, 0 ),
+                                                                                                          Color.FromArgb( 255, backgroundColor ),
+                                                                                                          Color.FromArgb( 0, backgroundColor ) ) )
+                {
+                    g.FillRectangle( sectionTitleBackgroundBrushGradient, sectionRectangle );
+                }
+            }
         }
 
-        private static Image sectionHeader;
+        private static Image sectionHeader = null;
 
         #region members
         public const int dpi = 500;
