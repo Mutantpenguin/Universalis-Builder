@@ -183,6 +183,16 @@ namespace Tesserakt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap section_pattern {
+            get {
+                object obj = ResourceManager.GetObject("section_pattern", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap size_big {
             get {
                 object obj = ResourceManager.GetObject("size_big", resourceCulture);

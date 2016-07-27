@@ -9,14 +9,44 @@ namespace Tesserakt
 {
     public static class CardPainter
     {
+        static CardPainter()
+        {
+            Color backgroundColor = Color.SteelBlue;
+
+            LinearGradientBrush sectionTitleBackgroundBrushGradient = new LinearGradientBrush( new Point( 0, 0 ),
+                                                                                               new Point( s_sectionWidth, 0 ),
+                                                                                               Color.FromArgb( 255, backgroundColor ),
+                                                                                               Color.FromArgb( 0, backgroundColor ) );
+
+            sectionHeader = new Bitmap( s_sectionWidth, s_lineHeight );
+
+            Graphics g = Graphics.FromImage( sectionHeader );
+
+            g.Clear( backgroundColor );
+
+            Rectangle sectionRectangle = new Rectangle( 0, 0, sectionHeader.Width, sectionHeader.Height );
+
+            using( TextureBrush patternBrush = new TextureBrush( Properties.Resources.section_pattern, WrapMode.Tile ) )
+            {
+                patternBrush.ScaleTransform( 0.4f, 0.4f );
+                g.FillRectangle( patternBrush, sectionRectangle );
+            }
+
+            g.FillRectangle( sectionTitleBackgroundBrushGradient, sectionRectangle );
+        }
+
+        private static Image sectionHeader;
+
         #region members
         public const int dpi = 500;
 
         public const int cardWidthCm = 12;
         public const int cardHeightCm = 8;
+        public const int sectionWidthCm = 8;
 
         private static readonly int s_cardWidth = CmToPixel( cardWidthCm );
         private static readonly int s_cardHeight = CmToPixel( cardHeightCm );
+        private static readonly int s_sectionWidth = CmToPixel( sectionWidthCm );
 
         private static readonly Rectangle s_pictureRect = new Rectangle( 0, CmToPixel( 0.5 ), CmToPixel( 4 ), CmToPixel( 7 ) );
 
@@ -58,8 +88,6 @@ namespace Tesserakt
         private static readonly int s_imageMargin = s_lineHeight / 10;
         private static readonly int s_imageMarginDouble = s_imageMargin * 2;
 
-        private static readonly Brush titleBackgroundBrush = Brushes.Gray;
-
         private static readonly StringFormat stringFormatHCenterVCenter = new StringFormat()
         {
             Alignment = StringAlignment.Center,
@@ -89,16 +117,16 @@ namespace Tesserakt
         private static readonly int xAttThirdColumn = CmToPixel( 8.5 );
         #endregion members
 
-        #region armorMembers
-        private static readonly int weapon_posX = CmToPixel( 4 );
+        private static readonly int section_posX = CmToPixel( 4 );
 
+        #region weaponMembers
         private static readonly int weapon_wkWidth = CmToPixel( 0.5 );
         private static readonly int weapon_nameWidth = CmToPixel( 3.3 ) - s_lineHeight;
         private static readonly int weapon_potentialWidth = CmToPixel( 0.5 );
         private static readonly int weapon_substanceWidth = CmToPixel( 0.5 );
         private static readonly int weapon_rangeWidth = CmToPixel( 0.9 );
 
-        private static readonly int weapon_wkStart = weapon_posX;
+        private static readonly int weapon_wkStart = section_posX;
         private static readonly int weapon_nameStart = weapon_wkStart + weapon_wkWidth;
         private static readonly int weapon_typeStart = weapon_nameStart + weapon_nameWidth;
         private static readonly int weapon_potentialStart = weapon_typeStart + s_lineHeight;
@@ -558,14 +586,21 @@ namespace Tesserakt
             g.DrawString( $"{actor.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n1}", fontStandardSmall, Brushes.Black, new Rectangle( x1 + CmToPixel( 0.4 ), CmToPixel( 1 ), CmToPixel( 2 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
         }
 
+        private static void SectionHeader( Graphics g, string name, int posY )
+        {
+            Rectangle sectionRectangle = new Rectangle( section_posX, posY, sectionHeader.Width, sectionHeader.Height );
+
+            g.DrawImageUnscaled( sectionHeader, sectionRectangle );
+
+            g.DrawString( name, fontStandard, Brushes.White, sectionRectangle, stringFormatHLeftVCenter );
+        }
+
         private static int drawTraits( Graphics g, List<Actor.ActorTrait> actorTraitList )
         {
             int posY = CmToPixel( 1.5 );
 
             if( actorTraitList.Count > 0 )
             {
-                int posX = CmToPixel( 4 );
-                int width = CmToPixel( 8 );
                 string delimiter = ", ";
 
                 StringBuilder builder = new StringBuilder();
@@ -583,16 +618,12 @@ namespace Tesserakt
 
                 string traitsString = builder.Remove( builder.Length - delimiter.Length, delimiter.Length ).ToString();
 
-                // Title-Background
-                g.FillRectangle( titleBackgroundBrush, new Rectangle( posX, posY, s_cardWidth, s_lineHeight ) );
-
-                // Title
-                g.DrawString( "Eigenschaften", fontStandard, Brushes.White, new Rectangle( posX, posY, s_cardWidth, s_lineHeight ), stringFormatHLeftVCenter );
+                SectionHeader( g, "Eigenschaften", posY );
                 posY += s_lineHeight;
 
-                Size size = g.MeasureString( traitsString, fontTraits, width, stringFormatHLeftVTop ).ToSize();
+                Size size = g.MeasureString( traitsString, fontTraits, s_sectionWidth, stringFormatHLeftVTop ).ToSize();
 
-                g.DrawString( traitsString, fontTraits, Brushes.Black, new Rectangle( posX, posY, width, s_cardHeight - posY ), stringFormatHLeftVTop );
+                g.DrawString( traitsString, fontTraits, Brushes.Black, new Rectangle( section_posX, posY, s_sectionWidth, s_cardHeight - posY ), stringFormatHLeftVTop );
 
                 return ( posY + size.Height );
             }
@@ -607,13 +638,7 @@ namespace Tesserakt
                 return ( 0 );
             }
 
-            g.DrawLine( linePen, weapon_posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
-
-            // Title-Background
-            g.FillRectangle( titleBackgroundBrush, new Rectangle( weapon_posX, posY, s_cardWidth, s_lineHeight ) );
-
-            // Title
-            g.DrawString( "Waffen", fontStandard, Brushes.White, new Rectangle( weapon_wkStart, posY, weapon_wkWidth + weapon_nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
+            SectionHeader( g, "Waffen", posY );
 
             // Captions
             g.DrawImage( Properties.Resources.potential_damage_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
@@ -671,7 +696,7 @@ namespace Tesserakt
 
         private static void drawWeapon( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Weapon weapon, int count, int posY )
         {
-            g.DrawLine( linePen, weapon_posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
+            g.DrawLine( linePen, section_posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
 
             Rectangle wkRect = new Rectangle( weapon_wkStart, posY, weapon_wkWidth, s_lineHeight );
             g.FillRectangle( Brushes.Black, wkRect );
@@ -818,25 +843,17 @@ namespace Tesserakt
         {
             if( armor != null )
             {
-                int posX = CmToPixel( 4 );
-
                 int nameWidth = CmToPixel( 3.3 );
                 int typesWidth = s_lineHeight * 4;
                 int potentialWidth = CmToPixel( 0.5 );
                 int camouflageWidth = CmToPixel( 0.5 );
 
-                int typesStart = posX + nameWidth;
+                int typesStart = section_posX + nameWidth;
                 int potentialStart = typesStart + typesWidth;
                 int effectsStart = potentialStart + potentialWidth;
                 int camouflageStart = s_cardWidth - s_lineHeight;
 
-                g.DrawLine( linePen, posX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
-
-                // Title-Background
-                g.FillRectangle( titleBackgroundBrush, new Rectangle( posX, posY, s_cardWidth, s_lineHeight ) );
-
-                // Title
-                g.DrawString( "Rüstung", fontStandard, Brushes.White, new Rectangle( posX, posY, nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
+                SectionHeader( g, "Rüstung", posY );
 
                 // Potential
                 g.DrawImage( Properties.Resources.potential_defence_white, new Rectangle( potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
@@ -853,9 +870,9 @@ namespace Tesserakt
                     g.DrawString( armor.CamouflageLevel.ToString(), fontWeapon, armorFontBrush, new Rectangle( camouflageStart, posY + s_lineHeight, camouflageWidth, s_lineHeight ), stringFormatHCenterVCenter );
                 }
 
-                g.DrawLine( linePen, posX, posY + s_lineHeightDouble, s_cardWidth, posY + s_lineHeightDouble );
+                g.DrawLine( linePen, section_posX, posY + s_lineHeightDouble, s_cardWidth, posY + s_lineHeightDouble );
 
-                g.DrawString( armor.Name, fontArmorName, Brushes.Black, new Rectangle( posX, posY + s_lineHeight, nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
+                g.DrawString( armor.Name, fontArmorName, Brushes.Black, new Rectangle( section_posX, posY + s_lineHeight, nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
 
                 drawDamageType( g, potentialStart, posY + s_lineHeight, armor.TypesImage );
 
@@ -879,7 +896,6 @@ namespace Tesserakt
 
             if( equipList.Count > 0 )
             {
-                int posX = CmToPixel( 4 );
                 const string delimiter = ", ";
 
                 StringBuilder builder = new StringBuilder();
@@ -911,20 +927,14 @@ namespace Tesserakt
                     builder.Append( delimiter );
                 }
 
-                // Title-Background
-                g.FillRectangle( titleBackgroundBrush, new Rectangle( posX, posY, s_cardWidth, s_lineHeight ) );
-
-                // Title
-                g.DrawString( "Ausrüstung", fontStandard, Brushes.White, new Rectangle( posX, posY, s_cardWidth, s_lineHeight ), stringFormatHLeftVCenter );
+                SectionHeader( g, "Ausrüstung", posY );
                 posY += s_lineHeight;
 
                 string equipmentString = builder.Remove( builder.Length - delimiter.Length, delimiter.Length ).ToString();
 
-                int width = CmToPixel( 8 );
+                Size size = g.MeasureString( equipmentString, fontTraits, s_sectionWidth, stringFormatHLeftVTop ).ToSize();
 
-                Size size = g.MeasureString( equipmentString, fontTraits, width, stringFormatHLeftVTop ).ToSize();
-
-                g.DrawString( equipmentString, fontEquipment, Brushes.Black, new Rectangle( posX, posY, width, s_cardHeight - posY ), stringFormatHLeftVTop );
+                g.DrawString( equipmentString, fontEquipment, Brushes.Black, new Rectangle( section_posX, posY, s_sectionWidth, s_cardHeight - posY ), stringFormatHLeftVTop );
 
                 return ( posY + size.Height );
             }
