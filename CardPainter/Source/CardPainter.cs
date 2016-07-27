@@ -638,22 +638,31 @@ namespace Tesserakt
                 return ( 0 );
             }
 
-            SectionHeader( g, "Waffen", posY );
-
-            // Captions
-            g.DrawImage( Properties.Resources.potential_damage_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-            g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( weapon_substanceStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-            g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( weapon_rangeStart + ( weapon_rangeWidth / 2 ) - ( s_lineHeight / 2 ) + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-
             int lineNumber = 1;
+
+            Weapon weaponUnarmed = null;
 
             if( actorOutfit.ActorWeaponsList.FirstOrDefault( s => s.Weapon.Type == Weapon.EType.Nahkampf ) == null )
             {
-                Weapon weaponCC = actor.WeaponUnarmed( actorOutfit );
+                weaponUnarmed = actor.WeaponUnarmed( actorOutfit );
+            }
 
-                if( weaponCC != null )
+            if( ( actorOutfit.ActorWeaponsList.Count == 0 ) && ( weaponUnarmed == null ) )
+            {
+                return ( 0 );
+            }
+            else
+            {
+                SectionHeader( g, "Waffen", posY );
+
+                // Captions
+                g.DrawImage( Properties.Resources.potential_damage_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+                g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( weapon_substanceStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+                g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( weapon_rangeStart + ( weapon_rangeWidth / 2 ) - ( s_lineHeight / 2 ) + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+
+                if( weaponUnarmed != null )
                 {
-                    drawWeapon( g, actor, actorOutfit, weaponCC, 1, posY + ( lineNumber * s_lineHeight ) );
+                    drawWeapon( g, actor, actorOutfit, weaponUnarmed, 1, posY + ( lineNumber * s_lineHeight ) );
 
                     lineNumber++;
                 }
@@ -691,7 +700,7 @@ namespace Tesserakt
             // right of range
             g.DrawLine( linePen, weapon_rangeStart + weapon_rangeWidth, posY, weapon_rangeStart + weapon_rangeWidth, lineVertEnd );
 
-            return( lineNumber );
+            return ( lineNumber );
         }
 
         private static void drawWeapon( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Weapon weapon, int count, int posY )
