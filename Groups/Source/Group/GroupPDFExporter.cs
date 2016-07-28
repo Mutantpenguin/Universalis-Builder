@@ -13,6 +13,39 @@ namespace Tesserakt
     {
         private const int dpi = 72;
 
+        static GroupPDFExporter()
+        {
+            System.Drawing.Color backgroundColor = System.Drawing.Color.SteelBlue;
+
+            flipsideHeader = new System.Drawing.Bitmap( CardPainter.CmToPixel( CardPainter.cardWidthCm ), CardPainter.CmToPixel( 0.5 ) );
+
+            using( System.Drawing.Graphics g = System.Drawing.Graphics.FromImage( flipsideHeader ) )
+            {
+                g.Clear( backgroundColor );
+
+                System.Drawing.Rectangle sectionRectangle = new System.Drawing.Rectangle( 0, 0, flipsideHeader.Width, flipsideHeader.Height );
+
+                using( System.Drawing.TextureBrush patternBrush = new System.Drawing.TextureBrush( Properties.Resources.section_pattern, System.Drawing.Drawing2D.WrapMode.Tile ) )
+                {
+                    patternBrush.ScaleTransform( 0.4f, 0.4f );
+                    g.FillRectangle( patternBrush, sectionRectangle );
+                }
+
+                using( System.Drawing.Drawing2D.LinearGradientBrush sectionTitleBackgroundBrushGradient = new System.Drawing.Drawing2D.LinearGradientBrush( new System.Drawing.Point( 0, 0 ),
+                                                                                                                                                            new System.Drawing.Point( flipsideHeader.Width, 0 ),
+                                                                                                                                                            System.Drawing.Color.FromArgb( 255, backgroundColor ),
+                                                                                                                                                            System.Drawing.Color.FromArgb( 0, backgroundColor ) ) )
+                {
+                    g.FillRectangle( sectionTitleBackgroundBrushGradient, sectionRectangle );
+                }
+            }
+        }
+
+        private static float s_cardWidth = CmToPixel( CardPainter.cardWidthCm );
+        private static float s_cardHeight = CmToPixel( CardPainter.cardHeightCm );
+
+        private static System.Drawing.Image flipsideHeader = null;
+
         private static string m_versionInfo
         {
             get
@@ -21,21 +54,21 @@ namespace Tesserakt
             }
         }
 
-        private static int CmToPixel( double cm )
+        private static float CmToPixel( float cm )
         {
-            return ( Convert.ToInt32( cm / 2.54f * dpi ) );
+            return( cm / 2.54f * dpi );
         }
 
         private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( TesseraktFonts.NovaSquareFileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaSquare, null );
 
         private static readonly Font s_pageTitleFont = new Font( s_baseFontNovaSquare, CmToPixel( 1 ), Font.BOLD );
-        private static readonly Font s_nameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5 ) );
-        private static readonly Font s_rulesFont = new Font( Font.HELVETICA, CmToPixel( 0.4 ) );
-        private static readonly Font s_usedByFont = new Font( Font.HELVETICA,CmToPixel( 0.25 ), Font.NORMAL, Color.GRAY );
-        private static readonly Font s_versionInfo = new Font( Font.HELVETICA,CmToPixel( 0.25 ), Font.NORMAL, Color.GRAY );
+        private static readonly Font s_nameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ) );
+        private static readonly Font s_rulesFont = new Font( Font.HELVETICA, CmToPixel( 0.4f ) );
+        private static readonly Font s_usedByFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
+        private static readonly Font s_versionInfo = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
 
-        private static readonly Font s_nameFlipsideFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2 ), Font.BOLD );
-        private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2 ) );
+        private static readonly Font s_nameFlipsideFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2f ), Font.BOLD );
+        private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2f ) );
 
         public static void Export( Group p_group, string p_fileName, bool exportTraits, bool exportWeapons, bool exportArmor, bool exportEquipment )
         {
@@ -46,7 +79,7 @@ namespace Tesserakt
 
             Cursor.Current = Cursors.WaitCursor;
 
-            int margin = CmToPixel( 1 );
+            float margin = CmToPixel( 1 );
 
             Document document = new Document( PageSize.A4, margin, margin, margin, margin );
 
@@ -101,9 +134,9 @@ namespace Tesserakt
             document.NewPage();
 
             float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
-            float spacerWidth = CmToPixel( 0.1 );
-            float factionImgWidth = CmToPixel( 1.2 );
-            float groupImgWidth = CmToPixel( 1.2 );
+            float spacerWidth = CmToPixel( 0.1f );
+            float factionImgWidth = CmToPixel( 1.2f );
+            float groupImgWidth = CmToPixel( 1.2f );
             float pointsWidth = CmToPixel( 2 );
             float nameWidth = printableWidth - ( factionImgWidth + spacerWidth+ groupImgWidth + spacerWidth + pointsWidth );
 
@@ -171,8 +204,8 @@ namespace Tesserakt
             float outfitWidth = CmToPixel( 5 );
             float nameWidth = printableWidth - ( actorImgWidth + pointsWidth + totalPointsWidth + outfitWidth );
 
-            Font actorFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5 ) );
-            Font actorCustomNameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2 ), Font.NORMAL, Color.GRAY );
+            Font actorFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ) );
+            Font actorCustomNameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2f ), Font.NORMAL, Color.GRAY );
 
             const int columnCount = 5;
 
@@ -287,7 +320,7 @@ namespace Tesserakt
 
                 MultiColumnText multiColumnText = new MultiColumnText();
 
-                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5 ), 3 );
+                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5f ), 3 );
 
                 foreach( Trait trait in traitList )
                 {
@@ -322,7 +355,7 @@ namespace Tesserakt
 
                 MultiColumnText multiColumnText = new MultiColumnText();
 
-                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5 ), 3 );
+                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5f ), 3 );
 
                 foreach( Weapon weapon in weaponList )
                 {
@@ -357,7 +390,7 @@ namespace Tesserakt
 
                 MultiColumnText multiColumnText = new MultiColumnText();
 
-                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5 ), 3 );
+                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5f ), 3 );
 
                 foreach( Armor armor in armorList )
                 {
@@ -394,7 +427,7 @@ namespace Tesserakt
 
                 MultiColumnText multiColumnText = new MultiColumnText();
 
-                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5 ), 3 );
+                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5f ), 3 );
 
                 foreach( Equipment equipment in equipmentList )
                 {
@@ -415,27 +448,24 @@ namespace Tesserakt
         {
             document.SetPageSize( PageSize.A4.Rotate() );
 
-            int cardWidth = CmToPixel( CardPainter.cardWidthCm );
-            int cardHeight = CmToPixel( CardPainter.cardHeightCm );
-
             float margin = CmToPixel( 0.2f );
-            float columnWidth = ( cardWidth - ( 4 * margin ) ) / 3;
+            float columnWidth = ( s_cardWidth - ( 4 * margin ) ) / 3;
 
             float[][] columns = new float[][]
                 {
-                    new float[] { margin,                               margin, margin + columnWidth,                 cardHeight - margin },
-                    new float[] { ( 2 * margin ) + columnWidth,         margin, ( 2 * margin ) + ( 2 * columnWidth ), cardHeight - margin },
-                    new float[] { ( 3 * margin ) + ( 2 * columnWidth ), margin, ( 3 * margin ) + ( 3 * columnWidth ), cardHeight - margin }
+                    new float[] { margin,                               margin, margin + columnWidth,                 s_cardHeight - margin },
+                    new float[] { ( 2 * margin ) + columnWidth,         margin, ( 2 * margin ) + ( 2 * columnWidth ), s_cardHeight - margin },
+                    new float[] { ( 3 * margin ) + ( 2 * columnWidth ), margin, ( 3 * margin ) + ( 3 * columnWidth ), s_cardHeight - margin }
                 };
 
-            float distanceX = ( document.PageSize.Width - ( 2 * cardWidth ) ) / 3;
-            float distanceY = ( document.PageSize.Height - ( 2 * cardHeight ) ) / 2;
+            float distanceX = ( document.PageSize.Width - ( 2 * s_cardWidth ) ) / 3;
+            float distanceY = ( document.PageSize.Height - ( 2 * s_cardHeight ) ) / 2;
 
             System.Drawing.PointF[] positions = new System.Drawing.PointF[ 2 ];
             positions[ 0 ].X = distanceX;
-            positions[ 0 ].Y = distanceY + cardHeight;
-            positions[ 1 ].X = ( 2 * distanceX ) + cardWidth;
-            positions[ 1 ].Y = distanceY + cardHeight;
+            positions[ 0 ].Y = distanceY + s_cardHeight;
+            positions[ 1 ].X = ( 2 * distanceX ) + s_cardWidth;
+            positions[ 1 ].Y = distanceY + s_cardHeight;
 
             List<Group.GroupActor> sortedGroupActorList = group.GroupActorList.OrderBy( x => x.Name )
                                                                               .OrderBy( x => x.ActorOutfit.Name )
@@ -451,29 +481,55 @@ namespace Tesserakt
 
                 Group.GroupActor groupActor = sortedGroupActorList[ i ];
 
-                Image img = Image.GetInstance( CardPainter.getBitmap( groupActor ), System.Drawing.Imaging.ImageFormat.Jpeg );
-                img.ScaleToFit( cardWidth, cardHeight );
-                img.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y );
+                {
+                    Image imgCard = Image.GetInstance( CardPainter.getBitmap( groupActor ), System.Drawing.Imaging.ImageFormat.Jpeg );
+                    imgCard.ScaleToFit( s_cardWidth, s_cardHeight );
+                    imgCard.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y );
 
-                document.Add( img );
+                    document.Add( imgCard );
+                }
 
                 PdfContentByte cb = pdfWriter.DirectContent;
 
-                // draw a bounding-rectangle over the card and for the information on the back
-                cb.SaveState();
-                cb.SetColorStroke( Color.BLACK );
-                cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y, cardWidth, cardHeight );
-                cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y - cardHeight, cardWidth, cardHeight );
-                cb.Stroke();
-                cb.RestoreState();
-
-
                 // create the information for the back of the card
-                PdfTemplate textTemplate = cb.CreateTemplate( cardWidth, cardHeight );
+                PdfTemplate flipsideTemplate = cb.CreateTemplate( s_cardWidth, s_cardHeight );
+
+                {
+                    PdfPTable table = new PdfPTable( 1 )
+                    {
+                        WidthPercentage = 100,
+                        SpacingBefore = 0f,
+                        SpacingAfter = 0f,
+                        KeepTogether = true,
+                        TotalWidth = s_cardWidth
+                    };
+
+                    /*
+                    PdfPCell cell = new PdfPCell()
+                    {
+                        Border = Rectangle.NO_BORDER
+                    };
+                    */
+
+                    {
+                        Image imgFlipsideHeader = Image.GetInstance( flipsideHeader, System.Drawing.Imaging.ImageFormat.Jpeg );
+                        imgFlipsideHeader.ScaleToFit( s_cardWidth, CmToPixel( 0.5f ) );
+                        imgFlipsideHeader.SetAbsolutePosition( 0, s_cardHeight - CmToPixel( 0.5f ) );
+
+                        //flipsideTemplate.AddImage( imgFlipsideHeader );
+
+                        PdfPCell cell = new PdfPCell( imgFlipsideHeader );
+                        table.AddCell( cell );
+                    }
+
+                    table.WriteSelectedRows( 0, 1, 0, s_cardHeight, flipsideTemplate );
+                }
 
                 int column = 0;
 
-                ColumnText columnText = new ColumnText( textTemplate );
+                //flipsideTemplate.add
+
+                ColumnText columnText = new ColumnText( flipsideTemplate );
                 columnText.SetSimpleColumn( columns[ column ][ 0 ], columns[ column ][ 1 ], columns[ column ][ 2 ], columns[ column ][ 3 ] );
 
                 foreach( Actor.ActorTrait actorTrait in groupActor.Actor.ActorTraitsList.Select( x => x )
@@ -518,13 +574,21 @@ namespace Tesserakt
 
 
                 // image-wrapper for the template which we can rotate
-                Image flipsideImg = Image.GetInstance( textTemplate );
+                Image flipsideImg = Image.GetInstance( flipsideTemplate );
                 flipsideImg.Interpolation = true;
-                flipsideImg.ScaleAbsolute( cardWidth, cardHeight );
+                flipsideImg.ScaleAbsolute( s_cardWidth, s_cardHeight );
                 flipsideImg.RotationDegrees = 180;
-                flipsideImg.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y - cardHeight );
+                flipsideImg.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight );
 
                 document.Add( flipsideImg );
+
+                // draw a bounding-rectangle over the card and for the information on the back
+                cb.SaveState();
+                cb.SetColorStroke( Color.BLACK );
+                cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y, s_cardWidth, s_cardHeight );
+                cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight, s_cardWidth, s_cardHeight );
+                cb.Stroke();
+                cb.RestoreState();
             }
         }
 

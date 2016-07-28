@@ -209,7 +209,7 @@ namespace Tesserakt
             }
         }
 
-        private static int CmToPixel( double cm )
+        public static int CmToPixel( double cm )
         {
             return ( Convert.ToInt32( cm / 2.54f * dpi ) );
         }
