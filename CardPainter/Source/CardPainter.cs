@@ -668,41 +668,41 @@ namespace Tesserakt
 
                     lineNumber++;
                 }
-            }
 
-            foreach( var weaponEntry in actorOutfit.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
+                foreach( var weaponEntry in actorOutfit.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
                                                                     .Select( x => new { weapon = WeaponStorage.Instance.Get( x.Key ), count = x.Count() } )
                                                                     .OrderBy( x => x.weapon.WK )
                                                                     .ThenBy( x => x.weapon.RangeSort )
                                                                     .ThenBy( x => x.weapon.Name ) )
-            {
-                drawWeapon( g, actor, actorOutfit, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * s_lineHeight ) );
+                {
+                    drawWeapon( g, actor, actorOutfit, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * s_lineHeight ) );
 
-                lineNumber++;
+                    lineNumber++;
+                }
+
+                Weapon weaponDetonation = actor.WeaponDetonation( actorOutfit );
+                if( weaponDetonation != null )
+                {
+                    drawWeapon( g, actor, actorOutfit, weaponDetonation, 1, posY + ( lineNumber * s_lineHeight ) );
+
+                    lineNumber++;
+                }
+
+                int lineVertEnd = posY + ( lineNumber * s_lineHeight );
+
+                // right of name
+                g.DrawLine( linePen, weapon_wkStart, posY, weapon_wkStart, lineVertEnd );
+                // right of wk
+                g.DrawLine( linePen, weapon_potentialStart, posY, weapon_potentialStart, lineVertEnd );
+                // right of potential
+                g.DrawLine( linePen, weapon_substanceStart, posY, weapon_substanceStart, lineVertEnd );
+                // right of substance
+                g.DrawLine( linePen, weapon_rangeStart, posY, weapon_rangeStart, lineVertEnd );
+                // right of range
+                g.DrawLine( linePen, weapon_rangeStart + weapon_rangeWidth, posY, weapon_rangeStart + weapon_rangeWidth, lineVertEnd );
+
+                return( lineNumber );
             }
-
-            Weapon weaponDetonation = actor.WeaponDetonation( actorOutfit );
-            if( weaponDetonation != null )
-            {
-                drawWeapon( g, actor, actorOutfit, weaponDetonation, 1, posY + ( lineNumber * s_lineHeight ) );
-
-                lineNumber++;
-            }
-
-            int lineVertEnd = posY + ( lineNumber * s_lineHeight );
-
-            // right of name
-            g.DrawLine( linePen, weapon_wkStart, posY, weapon_wkStart, lineVertEnd );
-            // right of wk
-            g.DrawLine( linePen, weapon_potentialStart, posY, weapon_potentialStart, lineVertEnd );
-            // right of potential
-            g.DrawLine( linePen, weapon_substanceStart, posY, weapon_substanceStart, lineVertEnd );
-            // right of substance
-            g.DrawLine( linePen, weapon_rangeStart, posY, weapon_rangeStart, lineVertEnd );
-            // right of range
-            g.DrawLine( linePen, weapon_rangeStart + weapon_rangeWidth, posY, weapon_rangeStart + weapon_rangeWidth, lineVertEnd );
-
-            return ( lineNumber );
         }
 
         private static void drawWeapon( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Weapon weapon, int count, int posY )
@@ -827,19 +827,25 @@ namespace Tesserakt
                 // Now render it however desired
                 g.FillPath( Brushes.White, path );
 
-
                 remainderPosX += s_lineHeight;
             }
 
-            drawDamageEffects( g, remainderPosX, posY, weapon.EffectsImage );
+            int damageEffectsPosX = drawDamageEffects( g, remainderPosX, posY, weapon.EffectsImage );
+
+            if( ( remainderPosX + damageEffectsPosX ) > s_cardWidth )
+            {
+                g.FillRectangle( Brushes.Purple, new Rectangle( remainderPosX, posY, s_cardWidth, s_lineHeight ) );
+            }
         }
 
-        private static void drawDamageEffects( Graphics g, int posX, int posY, Image effectImage )
+        private static int drawDamageEffects( Graphics g, int posX, int posY, Image effectImage )
         {
             int effectImageHeightDraw = s_lineHeight - s_imageMarginDouble;
             int effectImageWidthDraw = (int)( ( (float)effectImageHeightDraw / (float)effectImage.Height ) * effectImage.Width );
 
             g.DrawImage( effectImage, new Rectangle( posX + s_imageMargin, posY + s_imageMargin, effectImageWidthDraw, effectImageHeightDraw ) );
+
+            return ( s_imageMargin + effectImageWidthDraw );
         }
 
         private static void drawDamageType( Graphics g, int endPosX, int posY, Image typeImage )
@@ -887,7 +893,12 @@ namespace Tesserakt
 
                 drawDamageType( g, potentialStart, posY + s_lineHeight, armor.TypesImage );
 
-                drawDamageEffects( g, effectsStart, posY + s_lineHeight, armor.EffectsImage );
+                int damageEffectsPosX = drawDamageEffects( g, effectsStart, posY + s_lineHeight, armor.EffectsImage );
+
+                if( ( effectsStart + damageEffectsPosX ) > s_cardWidth )
+                {
+                    g.FillRectangle( Brushes.Purple, new Rectangle( effectsStart, posY + s_lineHeight, s_cardWidth, s_lineHeight ) );
+                }
 
                 g.DrawLine( linePen, potentialStart, posY, potentialStart, posY + s_lineHeightDouble );
             }
