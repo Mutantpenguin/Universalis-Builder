@@ -13,7 +13,7 @@ namespace Tesserakt
         {
             Color backgroundColor = Color.SteelBlue;
 
-            sectionHeader = new Bitmap( s_sectionWidth, s_lineHeight );
+            sectionHeader = new Bitmap( s_sectionsWidth, s_lineHeight );
 
             using( Graphics g = Graphics.FromImage( sectionHeader ) )
             {
@@ -28,7 +28,7 @@ namespace Tesserakt
                 }
 
                 using( LinearGradientBrush sectionTitleBackgroundBrushGradient = new LinearGradientBrush( new Point( 0, 0 ),
-                                                                                                          new Point( s_sectionWidth, 0 ),
+                                                                                                          new Point( s_sectionsWidth, 0 ),
                                                                                                           Color.FromArgb( 255, backgroundColor ),
                                                                                                           Color.FromArgb( 0, backgroundColor ) ) )
                 {
@@ -48,7 +48,7 @@ namespace Tesserakt
 
         private static readonly int s_cardWidth = CmToPixel( cardWidthCm );
         private static readonly int s_cardHeight = CmToPixel( cardHeightCm );
-        private static readonly int s_sectionWidth = CmToPixel( sectionWidthCm );
+        private static readonly int s_sectionsWidth = CmToPixel( sectionWidthCm );
 
         private static readonly int sectionsPosX = CmToPixel( 4 );
 
@@ -56,7 +56,8 @@ namespace Tesserakt
 
         private static readonly int s_substancePointSize = CmToPixel( 0.3 );
 
-        private static readonly Pen linePen = Pens.Black;
+        private static readonly Pen linePenBlack = Pens.Black;
+        private static readonly Pen linePenWhite = Pens.White;
         private static readonly Pen structureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
         private static readonly Pen structureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
         private static readonly Pen substanceBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
@@ -268,7 +269,7 @@ namespace Tesserakt
 
             g.DrawImage( faction.Icon, rect );
 
-            g.DrawRectangle( linePen, rect );
+            g.DrawRectangle( linePenBlack, rect );
         }
 
         private static void drawType( Graphics g, Actor.EType type )
@@ -297,7 +298,7 @@ namespace Tesserakt
                     throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
             }
 
-            g.DrawRectangle( linePen, rect );
+            g.DrawRectangle( linePenBlack, rect );
         }
 
         private static void drawPicture( Graphics g, Bitmap image )
@@ -330,7 +331,7 @@ namespace Tesserakt
             // TODO only for EMP
             //Rectangle rect_normal = new Rectangle( posX + widthName + widthAtt, posY, widthAtt, height );
 
-            g.DrawRectangle( linePen, new Rectangle( posX, posY, widthName + widthAtt + widthAtt, height ) );
+            g.DrawRectangle( linePenBlack, new Rectangle( posX, posY, widthName + widthAtt + widthAtt, height ) );
 
             g.FillRectangle( Brushes.Black, rect_name );
 
@@ -623,9 +624,9 @@ namespace Tesserakt
                 SectionHeader( g, "Eigenschaften", posY );
                 posY += s_lineHeight;
 
-                Size size = g.MeasureString( traitsString, fontTraits, s_sectionWidth, stringFormatHLeftVTop ).ToSize();
+                Size size = g.MeasureString( traitsString, fontTraits, s_sectionsWidth, stringFormatHLeftVTop ).ToSize();
 
-                g.DrawString( traitsString, fontTraits, Brushes.Black, new Rectangle( sectionsPosX, posY, s_sectionWidth, s_cardHeight - posY ), stringFormatHLeftVTop );
+                g.DrawString( traitsString, fontTraits, Brushes.Black, new Rectangle( sectionsPosX, posY, s_sectionsWidth, s_cardHeight - posY ), stringFormatHLeftVTop );
 
                 return ( posY + size.Height );
             }
@@ -691,15 +692,15 @@ namespace Tesserakt
                 int lineVertEnd = posY + ( lineNumber * s_lineHeight );
 
                 // right of name
-                g.DrawLine( linePen, weapon_wkStart, posY, weapon_wkStart, lineVertEnd );
+                g.DrawLine( linePenBlack, weapon_wkStart, posY + s_lineHeight, weapon_wkStart, lineVertEnd );
                 // right of wk
-                g.DrawLine( linePen, weapon_potentialStart, posY, weapon_potentialStart, lineVertEnd );
+                g.DrawLine( linePenBlack, weapon_potentialStart, posY + s_lineHeight, weapon_potentialStart, lineVertEnd );
                 // right of potential
-                g.DrawLine( linePen, weapon_substanceStart, posY, weapon_substanceStart, lineVertEnd );
+                g.DrawLine( linePenBlack, weapon_substanceStart, posY + s_lineHeight, weapon_substanceStart, lineVertEnd );
                 // right of substance
-                g.DrawLine( linePen, weapon_rangeStart, posY, weapon_rangeStart, lineVertEnd );
+                g.DrawLine( linePenBlack, weapon_rangeStart, posY + s_lineHeight, weapon_rangeStart, lineVertEnd );
                 // right of range
-                g.DrawLine( linePen, weapon_rangeStart + weapon_rangeWidth, posY, weapon_rangeStart + weapon_rangeWidth, lineVertEnd );
+                g.DrawLine( linePenBlack, weapon_rangeStart + weapon_rangeWidth, posY + s_lineHeight, weapon_rangeStart + weapon_rangeWidth, lineVertEnd );
 
                 return( lineNumber );
             }
@@ -707,7 +708,7 @@ namespace Tesserakt
 
         private static void drawWeapon( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Weapon weapon, int count, int posY )
         {
-            g.DrawLine( linePen, sectionsPosX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
+            g.DrawLine( linePenBlack, sectionsPosX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
 
             Rectangle wkRect = new Rectangle( weapon_wkStart, posY, weapon_wkWidth, s_lineHeight );
             g.FillRectangle( Brushes.Black, wkRect );
@@ -873,9 +874,12 @@ namespace Tesserakt
                 SectionHeader( g, "Rüstung", posY );
 
                 // Potential
+                g.DrawLine( linePenBlack, potentialStart, posY + s_lineHeight, potentialStart, posY + s_lineHeightDouble );
                 g.DrawImage( Properties.Resources.potential_defence_white, new Rectangle( potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-                g.DrawLine( linePen, effectsStart, posY, effectsStart, posY + s_lineHeightDouble );
+                
                 g.DrawString( armor.Potential.ToString(), fontWeapon, armorFontBrush, new Rectangle( potentialStart, posY + s_lineHeight, potentialWidth, s_lineHeight ), stringFormatHCenterVCenter );
+
+                g.DrawLine( linePenBlack, effectsStart, posY + s_lineHeight, effectsStart, posY + s_lineHeightDouble );
 
                 // Camouflage
                 if( armor.Camouflage != Armor.ECamouflage.Keine )
@@ -883,11 +887,11 @@ namespace Tesserakt
                     Image img = ( armor.Camouflage == Armor.ECamouflage.Passiv ) ? Properties.Resources.camo_passive_white : Properties.Resources.camo_active_white;
 
                     g.DrawImage( img, new Rectangle( camouflageStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-                    g.DrawLine( linePen, camouflageStart, posY, camouflageStart, posY + s_lineHeightDouble );
+                    g.DrawLine( linePenBlack, camouflageStart, posY + s_lineHeight, camouflageStart, posY + s_lineHeightDouble );
                     g.DrawString( armor.CamouflageLevel.ToString(), fontWeapon, armorFontBrush, new Rectangle( camouflageStart, posY + s_lineHeight, camouflageWidth, s_lineHeight ), stringFormatHCenterVCenter );
                 }
 
-                g.DrawLine( linePen, sectionsPosX, posY + s_lineHeightDouble, s_cardWidth, posY + s_lineHeightDouble );
+                g.DrawLine( linePenBlack, sectionsPosX, posY + s_lineHeightDouble, s_sectionsWidth, posY + s_lineHeightDouble );
 
                 g.DrawString( armor.Name, fontArmorName, Brushes.Black, new Rectangle( sectionsPosX, posY + s_lineHeight, nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
 
@@ -899,8 +903,6 @@ namespace Tesserakt
                 {
                     g.FillRectangle( Brushes.Purple, new Rectangle( effectsStart, posY + s_lineHeight, s_cardWidth, s_lineHeight ) );
                 }
-
-                g.DrawLine( linePen, potentialStart, posY, potentialStart, posY + s_lineHeightDouble );
             }
         }
 
@@ -954,9 +956,9 @@ namespace Tesserakt
 
                 string equipmentString = builder.Remove( builder.Length - delimiter.Length, delimiter.Length ).ToString();
 
-                Size size = g.MeasureString( equipmentString, fontTraits, s_sectionWidth, stringFormatHLeftVTop ).ToSize();
+                Size size = g.MeasureString( equipmentString, fontTraits, s_sectionsWidth, stringFormatHLeftVTop ).ToSize();
 
-                g.DrawString( equipmentString, fontEquipment, Brushes.Black, new Rectangle( sectionsPosX, posY, s_sectionWidth, s_cardHeight - posY ), stringFormatHLeftVTop );
+                g.DrawString( equipmentString, fontEquipment, Brushes.Black, new Rectangle( sectionsPosX, posY, s_sectionsWidth, s_cardHeight - posY ), stringFormatHLeftVTop );
 
                 return ( posY + size.Height );
             }
