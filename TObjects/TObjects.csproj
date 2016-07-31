@@ -86,6 +86,7 @@
       <DependentUpon>SelectOutfitForActorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Globals\Presets.cs" />
+    <Compile Include="Source\Graphics\SectionHeader.cs" />
     <Compile Include="Source\Helper\ColorHelper.cs" />
     <Compile Include="Source\Helper\DataGridViewHelper.cs" />
     <Compile Include="Source\Helper\ImageHelper.cs" />
@@ -239,6 +240,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\effekt_komposit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section_pattern.png" />
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -13,44 +13,27 @@ namespace Tesserakt
     {
         private const int dpi = 72;
 
-        static GroupPDFExporter()
-        {
-            s_ascent = s_baseFontNovaSquare.GetAscentPoint( s_headerTitle, s_flipsideHeaderFont.Size );
-            s_descent = s_baseFontNovaSquare.GetDescentPoint( s_headerTitle, s_flipsideHeaderFont.Size );
-
-        System.Drawing.Color backgroundColor = System.Drawing.Color.SteelBlue;
-
-            s_flipsideHeader = new System.Drawing.Bitmap( CardPainter.CmToPixel( CardPainter.cardWidthCm ), CardPainter.CmToPixel( 0.5 ) );
-
-            using( System.Drawing.Graphics g = System.Drawing.Graphics.FromImage( s_flipsideHeader ) )
-            {
-                g.Clear( backgroundColor );
-
-                System.Drawing.Rectangle sectionRectangle = new System.Drawing.Rectangle( 0, 0, s_flipsideHeader.Width, s_flipsideHeader.Height );
-
-                using( System.Drawing.TextureBrush patternBrush = new System.Drawing.TextureBrush( Properties.Resources.section_pattern, System.Drawing.Drawing2D.WrapMode.Tile ) )
-                {
-                    patternBrush.ScaleTransform( 0.4f, 0.4f );
-                    g.FillRectangle( patternBrush, sectionRectangle );
-                }
-
-                using( System.Drawing.Drawing2D.LinearGradientBrush sectionTitleBackgroundBrushGradient = new System.Drawing.Drawing2D.LinearGradientBrush( new System.Drawing.Point( 0, 0 ),
-                                                                                                                                                            new System.Drawing.Point( s_flipsideHeader.Width, 0 ),
-                                                                                                                                                            System.Drawing.Color.FromArgb( 255, backgroundColor ),
-                                                                                                                                                            System.Drawing.Color.FromArgb( 0, backgroundColor ) ) )
-                {
-                    g.FillRectangle( sectionTitleBackgroundBrushGradient, sectionRectangle );
-                }
-            }
-        }
-
         private static float s_cardWidth = CmToPixel( CardPainter.cardWidthCm );
         private static float s_cardHeight = CmToPixel( CardPainter.cardHeightCm );
+
+        #region fonts
+        private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( TesseraktFonts.NovaSquareFileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaSquare, null );
+
+        private static readonly Font s_pageTitleFont = new Font( s_baseFontNovaSquare, CmToPixel( 1 ), Font.BOLD );
+        private static readonly Font s_nameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ) );
+        private static readonly Font s_rulesFont = new Font( Font.HELVETICA, CmToPixel( 0.4f ) );
+        private static readonly Font s_usedByFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
+        private static readonly Font s_versionInfo = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
+
+        private static readonly Font s_flipsideHeaderFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.35f ), Font.NORMAL, Color.WHITE );
+        private static readonly Font s_nameFlipsideFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2f ), Font.BOLD );
+        private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2f ) );
+        #endregion
 
         #region flipside
         private static readonly float s_flipsideHeaderHeight = CmToPixel( 0.5f );
 
-        private static System.Drawing.Image s_flipsideHeader = null;
+        private static readonly System.Drawing.Image s_flipsideHeader = SectionHeader.Create( CardPainter.CmToPixel( CardPainter.cardWidthCm ), CardPainter.CmToPixel( 0.5 ) );
 
         private static readonly float s_flipsideMargin = CmToPixel( 0.1f );
         private static readonly float s_flipsideColumnWidth = ( s_cardWidth - ( 4 * s_flipsideMargin ) ) / 3;
@@ -66,8 +49,8 @@ namespace Tesserakt
 
         private const string s_headerTitle = "Sonderregeln";
 
-        private static readonly float s_ascent;
-        private static readonly float s_descent;
+        private static readonly float s_ascent = s_baseFontNovaSquare.GetAscentPoint( s_headerTitle, s_flipsideHeaderFont.Size );
+        private static readonly float s_descent = s_baseFontNovaSquare.GetDescentPoint( s_headerTitle, s_flipsideHeaderFont.Size );
         #endregion
 
         private static string m_versionInfo
@@ -82,18 +65,6 @@ namespace Tesserakt
         {
             return( cm / 2.54f * dpi );
         }
-
-        private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( TesseraktFonts.NovaSquareFileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaSquare, null );
-
-        private static readonly Font s_pageTitleFont = new Font( s_baseFontNovaSquare, CmToPixel( 1 ), Font.BOLD );
-        private static readonly Font s_nameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ) );
-        private static readonly Font s_rulesFont = new Font( Font.HELVETICA, CmToPixel( 0.4f ) );
-        private static readonly Font s_usedByFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
-        private static readonly Font s_versionInfo = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
-
-        private static readonly Font s_flipsideHeaderFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.35f ), Font.NORMAL, Color.WHITE );
-        private static readonly Font s_nameFlipsideFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2f ), Font.BOLD );
-        private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2f ) );
 
         public static void Export( Group p_group, string p_fileName, bool exportTraits, bool exportWeapons, bool exportArmor, bool exportEquipment )
         {

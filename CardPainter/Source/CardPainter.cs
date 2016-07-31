@@ -9,36 +9,6 @@ namespace Tesserakt
 {
     public static class CardPainter
     {
-        static CardPainter()
-        {
-            Color backgroundColor = Color.SteelBlue;
-
-            sectionHeader = new Bitmap( s_sectionsWidth, s_lineHeight );
-
-            using( Graphics g = Graphics.FromImage( sectionHeader ) )
-            {
-                g.Clear( backgroundColor );
-
-                Rectangle sectionRectangle = new Rectangle( 0, 0, sectionHeader.Width, sectionHeader.Height );
-
-                using( TextureBrush patternBrush = new TextureBrush( Properties.Resources.section_pattern, WrapMode.Tile ) )
-                {
-                    patternBrush.ScaleTransform( 0.4f, 0.4f );
-                    g.FillRectangle( patternBrush, sectionRectangle );
-                }
-
-                using( LinearGradientBrush sectionTitleBackgroundBrushGradient = new LinearGradientBrush( new Point( 0, 0 ),
-                                                                                                          new Point( s_sectionsWidth, 0 ),
-                                                                                                          Color.FromArgb( 255, backgroundColor ),
-                                                                                                          Color.FromArgb( 0, backgroundColor ) ) )
-                {
-                    g.FillRectangle( sectionTitleBackgroundBrushGradient, sectionRectangle );
-                }
-            }
-        }
-
-        private static Image sectionHeader = null;
-
         #region members
         public const int dpi = 500;
 
@@ -92,6 +62,8 @@ namespace Tesserakt
 
         private static readonly int s_imageMargin = s_lineHeight / 10;
         private static readonly int s_imageMarginDouble = s_imageMargin * 2;
+
+        private static readonly Image sectionHeader = SectionHeader.Create( s_sectionsWidth, s_lineHeight );
 
         private static readonly StringFormat stringFormatHCenterVCenter = new StringFormat()
         {
@@ -589,7 +561,7 @@ namespace Tesserakt
             g.DrawString( $"{actor.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n1}", fontStandardSmall, Brushes.Black, new Rectangle( x1 + CmToPixel( 0.4 ), CmToPixel( 1 ), CmToPixel( 2 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
         }
 
-        private static void SectionHeader( Graphics g, string name, int posY )
+        private static void drawSectionHeader( Graphics g, string name, int posY )
         {
             Rectangle sectionRectangle = new Rectangle( sectionsPosX, posY, sectionHeader.Width, sectionHeader.Height );
 
@@ -621,7 +593,7 @@ namespace Tesserakt
 
                 string traitsString = builder.Remove( builder.Length - delimiter.Length, delimiter.Length ).ToString();
 
-                SectionHeader( g, "Eigenschaften", posY );
+                drawSectionHeader( g, "Eigenschaften", posY );
                 posY += s_lineHeight;
 
                 Size size = g.MeasureString( traitsString, fontTraits, s_sectionsWidth, stringFormatHLeftVTop ).ToSize();
@@ -656,7 +628,7 @@ namespace Tesserakt
             }
             else
             {
-                SectionHeader( g, "Waffen", posY );
+                drawSectionHeader( g, "Waffen", posY );
 
                 // Captions
                 g.DrawImage( Properties.Resources.potential_damage_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
@@ -871,7 +843,7 @@ namespace Tesserakt
                 int effectsStart = potentialStart + potentialWidth;
                 int camouflageStart = s_cardWidth - s_lineHeight;
 
-                SectionHeader( g, "Rüstung", posY );
+                drawSectionHeader( g, "Rüstung", posY );
 
                 // Potential
                 g.DrawLine( linePenBlack, potentialStart, posY + s_lineHeight, potentialStart, posY + s_lineHeightDouble );
@@ -951,7 +923,7 @@ namespace Tesserakt
                     builder.Append( delimiter );
                 }
 
-                SectionHeader( g, "Ausrüstung", posY );
+                drawSectionHeader( g, "Ausrüstung", posY );
                 posY += s_lineHeight;
 
                 string equipmentString = builder.Remove( builder.Length - delimiter.Length, delimiter.Length ).ToString();
