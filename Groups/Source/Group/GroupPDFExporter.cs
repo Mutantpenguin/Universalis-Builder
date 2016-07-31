@@ -15,7 +15,10 @@ namespace Tesserakt
 
         static GroupPDFExporter()
         {
-            System.Drawing.Color backgroundColor = System.Drawing.Color.SteelBlue;
+            s_ascent = s_baseFontNovaSquare.GetAscentPoint( s_headerTitle, s_flipsideHeaderFont.Size );
+            s_descent = s_baseFontNovaSquare.GetDescentPoint( s_headerTitle, s_flipsideHeaderFont.Size );
+
+        System.Drawing.Color backgroundColor = System.Drawing.Color.SteelBlue;
 
             s_flipsideHeader = new System.Drawing.Bitmap( CardPainter.CmToPixel( CardPainter.cardWidthCm ), CardPainter.CmToPixel( 0.5 ) );
 
@@ -45,21 +48,26 @@ namespace Tesserakt
         private static float s_cardHeight = CmToPixel( CardPainter.cardHeightCm );
 
         #region flipside
-        private static float s_flipsideHeaderHeight = CmToPixel( 0.5f );
+        private static readonly float s_flipsideHeaderHeight = CmToPixel( 0.5f );
 
         private static System.Drawing.Image s_flipsideHeader = null;
 
-        private static float s_slipsideMargin = CmToPixel( 0.1f );
-        private static float s_flipsideColumnWidth = ( s_cardWidth - ( 4 * s_slipsideMargin ) ) / 3;
+        private static readonly float s_flipsideMargin = CmToPixel( 0.1f );
+        private static readonly float s_flipsideColumnWidth = ( s_cardWidth - ( 4 * s_flipsideMargin ) ) / 3;
 
-        private static float s_flipsideHeight = s_cardHeight - s_flipsideHeaderHeight;
+        private static readonly float s_flipsideHeight = s_cardHeight - s_flipsideHeaderHeight;
 
-        private static float[][] s_flipsideColumns = new float[][]
+        private static readonly float[][] s_flipsideColumns = new float[][]
                 {
-                    new float[] { s_slipsideMargin,                                         s_slipsideMargin, s_slipsideMargin + s_flipsideColumnWidth,                 s_flipsideHeight - s_slipsideMargin },
-                    new float[] { ( 2 * s_slipsideMargin ) + s_flipsideColumnWidth,         s_slipsideMargin, ( 2 * s_slipsideMargin ) + ( 2 * s_flipsideColumnWidth ), s_flipsideHeight - s_slipsideMargin },
-                    new float[] { ( 3 * s_slipsideMargin ) + ( 2 * s_flipsideColumnWidth ), s_slipsideMargin, ( 3 * s_slipsideMargin ) + ( 3 * s_flipsideColumnWidth ), s_flipsideHeight - s_slipsideMargin }
+                    new float[] { s_flipsideMargin,                                         s_flipsideMargin, s_flipsideMargin + s_flipsideColumnWidth,                 s_flipsideHeight - s_flipsideMargin },
+                    new float[] { ( 2 * s_flipsideMargin ) + s_flipsideColumnWidth,         s_flipsideMargin, ( 2 * s_flipsideMargin ) + ( 2 * s_flipsideColumnWidth ), s_flipsideHeight - s_flipsideMargin },
+                    new float[] { ( 3 * s_flipsideMargin ) + ( 2 * s_flipsideColumnWidth ), s_flipsideMargin, ( 3 * s_flipsideMargin ) + ( 3 * s_flipsideColumnWidth ), s_flipsideHeight - s_flipsideMargin }
                 };
+
+        private const string s_headerTitle = "Sonderregeln";
+
+        private static readonly float s_ascent;
+        private static readonly float s_descent;
         #endregion
 
         private static string m_versionInfo
@@ -83,7 +91,7 @@ namespace Tesserakt
         private static readonly Font s_usedByFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
         private static readonly Font s_versionInfo = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
 
-        private static readonly Font s_flipsideHeaderFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ), Font.NORMAL, Color.WHITE );
+        private static readonly Font s_flipsideHeaderFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.35f ), Font.NORMAL, Color.WHITE );
         private static readonly Font s_nameFlipsideFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2f ), Font.BOLD );
         private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2f ) );
 
@@ -96,9 +104,9 @@ namespace Tesserakt
 
             Cursor.Current = Cursors.WaitCursor;
 
-            float margin = CmToPixel( 1 );
+            float marginDocument = CmToPixel( 1 );
 
-            Document document = new Document( PageSize.A4, margin, margin, margin, margin );
+            Document document = new Document( PageSize.A4, marginDocument, marginDocument, marginDocument, marginDocument );
 
             using( FileStream fs = new FileStream( p_fileName, FileMode.Create, FileAccess.Write ) )
             {
@@ -506,13 +514,9 @@ namespace Tesserakt
 
                     imgFlipsideHeaderImg.SetAbsolutePosition( 0, 0 );
 
-                    flipsideHeaderTemplate.AddImage( imgFlipsideHeaderImg );//, width, 0, 0, height, 0, 0 );
+                    flipsideHeaderTemplate.AddImage( imgFlipsideHeaderImg );
                     
-                    // TODO smaller fontsize
-                    // TODO align vertically in Header
-                    // TODO what caption to use?
-                    ColumnText.ShowTextAligned( flipsideHeaderTemplate, Element.ALIGN_LEFT,
-                            new Phrase( "MUAHAHAHA", s_flipsideHeaderFont ), 0, 0, 0 );
+                    ColumnText.ShowTextAligned( flipsideHeaderTemplate, Element.ALIGN_LEFT, new Phrase( s_headerTitle, s_flipsideHeaderFont ), s_flipsideMargin, ( s_flipsideHeaderHeight - s_ascent - s_descent ) / 2, 0 );
                 
                     Image flipsideHeaderImg = Image.GetInstance( flipsideHeaderTemplate );
                     flipsideHeaderImg.Interpolation = true;
@@ -522,8 +526,6 @@ namespace Tesserakt
 
                     document.Add( flipsideHeaderImg );
                 }
-
-                
                 
                 
                 // create the Template for the information for the back of the card
