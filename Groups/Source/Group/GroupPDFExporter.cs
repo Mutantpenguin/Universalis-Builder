@@ -469,6 +469,12 @@ namespace Tesserakt
             }
         }
 
+        private struct flipsideBlock
+        {
+            public string Name;
+            public string Rules;
+        };
+
         private static void CreateCardsPage( Document document, PdfWriter pdfWriter, Group group )
         {
             document.SetPageSize( PageSize.A4.Rotate() );
@@ -504,38 +510,7 @@ namespace Tesserakt
                     document.Add( imgCard );
                 }
 
-                PdfContentByte cb = pdfWriter.DirectContent;
-
-                {
-                    PdfTemplate flipsideHeaderTemplate = cb.CreateTemplate( s_cardWidth, s_flipsideHeaderHeight );
-
-                    Image imgFlipsideHeaderImg = Image.GetInstance( s_flipsideHeader, System.Drawing.Imaging.ImageFormat.Jpeg );
-                    imgFlipsideHeaderImg.ScaleToFit( s_cardWidth, s_flipsideHeaderHeight );
-
-                    imgFlipsideHeaderImg.SetAbsolutePosition( 0, 0 );
-
-                    flipsideHeaderTemplate.AddImage( imgFlipsideHeaderImg );
-                    
-                    ColumnText.ShowTextAligned( flipsideHeaderTemplate, Element.ALIGN_LEFT, new Phrase( s_headerTitle, s_flipsideHeaderFont ), s_flipsideMargin, ( s_flipsideHeaderHeight - s_ascent - s_descent ) / 2, 0 );
-                
-                    Image flipsideHeaderImg = Image.GetInstance( flipsideHeaderTemplate );
-                    flipsideHeaderImg.Interpolation = true;
-
-                    flipsideHeaderImg.RotationDegrees = 180;
-                    flipsideHeaderImg.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight );
-
-                    document.Add( flipsideHeaderImg );
-                }
-                
-                
-                // create the Template for the information for the back of the card
-                PdfTemplate flipsideTemplate = cb.CreateTemplate( s_cardWidth, s_cardHeight - s_flipsideHeaderHeight );
-                
-
-                int columnIndex = 0;
-
-                ColumnText columnText = new ColumnText( flipsideTemplate );
-                columnText.SetSimpleColumn( s_flipsideColumns[ columnIndex ][ 0 ], s_flipsideColumns[ columnIndex ][ 1 ], s_flipsideColumns[ columnIndex ][ 2 ], s_flipsideColumns[ columnIndex ][ 3 ] );
+                List<flipsideBlock> flipsideBlocks = new List<flipsideBlock>();
 
                 foreach( Actor.ActorTrait actorTrait in groupActor.Actor.ActorTraitsList.Select( x => x )
                                                                                         .Where( x => !String.IsNullOrEmpty( x.Trait.Rules ) )
@@ -543,11 +518,11 @@ namespace Tesserakt
                 {
                     if( actorTrait.Level != TraitLevel.ELevel.Kein )
                     {
-                        NewFlipsideEntryBlock( columnText, ref columnIndex, s_flipsideColumns, actorTrait.Name + " " + actorTrait.Level, actorTrait.Trait.RulesWithLevel( actorTrait.Level ) );
+                        flipsideBlocks.Add( new flipsideBlock() { Name = actorTrait.Name + " " + actorTrait.Level, Rules = actorTrait.Trait.RulesWithLevel( actorTrait.Level ) } );
                     }
                     else
                     {
-                        NewFlipsideEntryBlock( columnText, ref columnIndex, s_flipsideColumns, actorTrait.Name, actorTrait.Trait.RulesWithLevel( actorTrait.Level ) );
+                        flipsideBlocks.Add( new flipsideBlock() { Name = actorTrait.Name, Rules = actorTrait.Trait.RulesWithLevel( actorTrait.Level ) } );
                     }
                 }
 
@@ -555,7 +530,7 @@ namespace Tesserakt
                     &&
                     ( !String.IsNullOrEmpty( groupActor.Actor.Armor.Rules ) ) )
                 {
-                    NewFlipsideEntryBlock( columnText, ref columnIndex, s_flipsideColumns, groupActor.Actor.Armor.Name, groupActor.Actor.Armor.Rules );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = groupActor.Actor.Armor.Name, Rules = groupActor.Actor.Armor.Rules } );
                 }
 
                 foreach( Weapon weapon in groupActor.ActorOutfit.ActorWeaponsList.Select( x => x.Weapon )
@@ -563,7 +538,7 @@ namespace Tesserakt
                                                                                  .Where( x => !String.IsNullOrEmpty( x.Rules ) )
                                                                                  .OrderBy( x => x.Name ) )
                 {
-                    NewFlipsideEntryBlock( columnText, ref columnIndex, s_flipsideColumns, weapon.Name, weapon.Rules );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = weapon.Name, Rules = weapon.Rules } );
                 }
 
                 foreach( Equipment equipment in groupActor.ActorOutfit.ActorEquipmentList.Select( x => x.Equipment )
@@ -573,27 +548,69 @@ namespace Tesserakt
                                                                                                       ( x.UseOnce && ( !String.IsNullOrEmpty( x.AttributeModifier.ToString() ) ) ) )
                                                                                          .OrderBy( x => x.Name ) )
                 {
-                    NewFlipsideEntryBlock( columnText, ref columnIndex, s_flipsideColumns, equipment.Name, equipment.ToString() );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.ToString() } );
                 }
 
+                if( flipsideBlocks.Count > 0 )
+                {
+                    PdfContentByte cb = pdfWriter.DirectContent;
 
+                    {
+                        PdfTemplate flipsideHeaderTemplate = cb.CreateTemplate( s_cardWidth, s_flipsideHeaderHeight );
 
-                // image-wrapper for the template which we can rotate
-                Image flipsideImg = Image.GetInstance( flipsideTemplate );
-                flipsideImg.Interpolation = true;
-                flipsideImg.ScaleAbsolute( s_cardWidth, s_cardHeight - s_flipsideHeaderHeight );
-                flipsideImg.RotationDegrees = 180;
-                flipsideImg.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight + s_flipsideHeaderHeight );
+                        Image imgFlipsideHeaderImg = Image.GetInstance( s_flipsideHeader, System.Drawing.Imaging.ImageFormat.Jpeg );
+                        imgFlipsideHeaderImg.ScaleToFit( s_cardWidth, s_flipsideHeaderHeight );
 
-                document.Add( flipsideImg );
+                        imgFlipsideHeaderImg.SetAbsolutePosition( 0, 0 );
 
-                // draw a bounding-rectangle over the card and for the information on the back
-                cb.SaveState();
-                cb.SetColorStroke( Color.BLACK );
-                cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y, s_cardWidth, s_cardHeight );
-                cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight, s_cardWidth, s_cardHeight );
-                cb.Stroke();
-                cb.RestoreState();
+                        flipsideHeaderTemplate.AddImage( imgFlipsideHeaderImg );
+
+                        ColumnText.ShowTextAligned( flipsideHeaderTemplate, Element.ALIGN_LEFT, new Phrase( s_headerTitle, s_flipsideHeaderFont ), s_flipsideMargin, ( s_flipsideHeaderHeight - s_ascent - s_descent ) / 2, 0 );
+
+                        Image flipsideHeaderImg = Image.GetInstance( flipsideHeaderTemplate );
+                        flipsideHeaderImg.Interpolation = true;
+                        flipsideHeaderImg.RotationDegrees = 180;
+                        flipsideHeaderImg.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight );
+
+                        document.Add( flipsideHeaderImg );
+                    }
+
+                    {
+                        // create the Template for the information for the back of the card
+                        PdfTemplate flipsideTemplate = cb.CreateTemplate( s_cardWidth, s_cardHeight - s_flipsideHeaderHeight );
+
+                        {
+                            int columnIndex = 0;
+
+                            ColumnText columnText = new ColumnText( flipsideTemplate );
+                            columnText.SetSimpleColumn( s_flipsideColumns[ columnIndex ][ 0 ], s_flipsideColumns[ columnIndex ][ 1 ], s_flipsideColumns[ columnIndex ][ 2 ], s_flipsideColumns[ columnIndex ][ 3 ] );
+
+                            foreach( var block in flipsideBlocks )
+                            {
+                                NewFlipsideEntryBlock( columnText, ref columnIndex, s_flipsideColumns, block.Name, block.Rules );
+                            }
+                        }
+
+                        {
+                            // image-wrapper for the template which we can rotate
+                            Image flipsideImg = Image.GetInstance( flipsideTemplate );
+                            flipsideImg.Interpolation = true;
+                            flipsideImg.ScaleAbsolute( s_cardWidth, s_cardHeight - s_flipsideHeaderHeight );
+                            flipsideImg.RotationDegrees = 180;
+                            flipsideImg.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight + s_flipsideHeaderHeight );
+
+                            document.Add( flipsideImg );
+                        }
+                    }
+
+                    // draw a bounding-rectangle over the card and for the information on the back
+                    cb.SaveState();
+                    cb.SetColorStroke( Color.BLACK );
+                    cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y, s_cardWidth, s_cardHeight );
+                    cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight, s_cardWidth, s_cardHeight );
+                    cb.Stroke();
+                    cb.RestoreState();
+                }
             }
         }
 
