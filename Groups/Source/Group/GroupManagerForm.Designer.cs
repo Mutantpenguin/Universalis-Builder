@@ -43,7 +43,7 @@
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExportFile = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonExportPDF = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonPrint = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -125,7 +125,7 @@
             this.toolStripButtonClearSearch,
             this.toolStripButtonCopy,
             this.toolStripButtonExportFile,
-            this.toolStripButtonExportPDF});
+            this.toolStripButtonPrint});
             this.toolStripCardManager.Location = new System.Drawing.Point(0, 156);
             this.toolStripCardManager.Name = "toolStripCardManager";
             this.toolStripCardManager.Size = new System.Drawing.Size(521, 25);
@@ -195,16 +195,16 @@
             this.toolStripButtonExportFile.Text = "Als Datei exportieren";
             this.toolStripButtonExportFile.Click += new System.EventHandler(this.toolStripButtonExportFile_Click);
             // 
-            // toolStripButtonExportPDF
+            // toolStripButtonPrint
             // 
-            this.toolStripButtonExportPDF.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonExportPDF.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonExportPDF.Image = global::Tesserakt.Properties.Resources.document_pdf;
-            this.toolStripButtonExportPDF.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonExportPDF.Name = "toolStripButtonExportPDF";
-            this.toolStripButtonExportPDF.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonExportPDF.Text = "Als PDF exportieren";
-            this.toolStripButtonExportPDF.Click += new System.EventHandler(this.toolStripButtonExportPDF_Click);
+            this.toolStripButtonPrint.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonPrint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPrint.Image = global::Tesserakt.Properties.Resources.printer;
+            this.toolStripButtonPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPrint.Name = "toolStripButtonPrint";
+            this.toolStripButtonPrint.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonPrint.Text = "Als PDF exportieren";
+            this.toolStripButtonPrint.Click += new System.EventHandler(this.toolStripButtonPrint_Click);
             // 
             // statusStrip1
             // 
@@ -289,7 +289,7 @@
         private System.Windows.Forms.BindingSource groupBindingSource;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearch;
         private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
-        private System.Windows.Forms.ToolStripButton toolStripButtonExportPDF;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPrint;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCount;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;

@@ -147,7 +147,7 @@ namespace Tesserakt
             }
         }
 
-        private void toolStripButtonExportPDF_Click( object sender, EventArgs e )
+        private void toolStripButtonPrint_Click( object sender, EventArgs e )
         {
             if( dataGridViewGroups.SelectedRows.Count > 0 )
             {
@@ -155,10 +155,7 @@ namespace Tesserakt
 
                 if( IsValid( group ) )
                 {
-                    using( GroupPDFExportForm groupPDFExportForm = new GroupPDFExportForm( group ) )
-                    {
-                        groupPDFExportForm.ShowDialog( this );
-                    }
+                    GroupPDFExporter.Export( group, Path.ChangeExtension( Path.GetTempFileName(), "pdf" ) );
                 }
             }
         }

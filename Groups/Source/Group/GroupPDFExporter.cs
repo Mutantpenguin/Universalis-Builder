@@ -66,7 +66,7 @@ namespace Tesserakt
             return( cm / 2.54f * dpi );
         }
 
-        public static void Export( Group p_group, string p_fileName, bool exportTraits, bool exportWeapons, bool exportArmor, bool exportEquipment )
+        public static void Export( Group p_group, string p_fileName )
         {
             if( null == p_group )
             {
@@ -94,26 +94,6 @@ namespace Tesserakt
 
                 CreateMainPage( document, p_group );
                 CreateCardsPage( document, pdfWriter, p_group );
-
-                if( exportTraits )
-                {
-                    CreateTraitsPage( document, p_group.GroupActorList );
-                }
-
-                if( exportWeapons )
-                {
-                    CreateWeaponsPage( document, p_group.GroupActorList );
-                }
-
-                if( exportArmor )
-                {
-                    CreateArmorPage( document, p_group.GroupActorList );
-                }
-
-                if( exportEquipment )
-                {
-                    CreateEquipmentPage( document, p_group.GroupActorList );
-                }
 
                 document.Close();
             }
@@ -296,148 +276,6 @@ namespace Tesserakt
             }
 
             document.Add( actorTable );
-        }
-
-        private static void CreateTraitsPage( Document document, List<Group.GroupActor> groupActorList )
-        {
-            var traitList = groupActorList.SelectMany( groupActor => groupActor.Actor.ActorTraitsList )
-                                          .Select( x => x.Trait )
-                                          .Distinct()
-                                          .Where( x => !String.IsNullOrEmpty( x.Rules )  )
-                                          .OrderBy( x => x.Name );
-
-            if( traitList.Count() > 0 )
-            {
-                document.SetPageSize( PageSize.A4.Rotate() );
-
-                document.NewPage();
-
-                AddPageTitle( document, "Eigenschaften" );
-
-                MultiColumnText multiColumnText = new MultiColumnText();
-
-                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5f ), 3 );
-
-                foreach( Trait trait in traitList )
-                {
-                    string usedBy = String.Join( ", ", groupActorList.Select( x => x.Actor )
-                                                                     .Distinct()
-                                                                     .Where( x => x.ActorTraitsList.Find( f => f.Trait.ID == trait.ID ) != null )
-                                                                     .OrderBy( x => x.Name )
-                                                                     .Select( x => x.Name ) );
-
-                    multiColumnText.AddElement( NewEntryBlock( trait.Name, trait.RulesWithLevel( TraitLevel.ELevel.Kein ), usedBy ) );
-                }
-
-                document.Add( multiColumnText );
-            }
-        }
-
-        private static void CreateWeaponsPage( Document document, List<Group.GroupActor> groupActorList )
-        {
-            var weaponList = groupActorList.SelectMany( groupActor => groupActor.ActorOutfit.ActorWeaponsList )
-                                           .Distinct()
-                                           .Select( x => x.Weapon )
-                                           .Where( x => !String.IsNullOrEmpty( x.Rules )  )
-                                           .OrderBy( x => x.Name );
-
-            if( weaponList.Count() > 0 )
-            {
-                document.SetPageSize( PageSize.A4.Rotate() );
-
-                document.NewPage();
-
-                AddPageTitle( document, "Waffen" );
-
-                MultiColumnText multiColumnText = new MultiColumnText();
-
-                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5f ), 3 );
-
-                foreach( Weapon weapon in weaponList )
-                {
-                    string usedBy = String.Join( ", ", groupActorList.Select( x => x.Actor )
-                                                                     .Distinct()
-                                                                     .Where( x => x.ActorOutfitsList.Exists( y => y.ActorWeaponsList.Exists( f => f.Weapon.ID == weapon.ID ) ) )
-                                                                     .OrderBy( x => x.Name )
-                                                                     .Select( x => x.Name ) );
-
-                    multiColumnText.AddElement( NewEntryBlock( weapon.Name, weapon.Rules, usedBy ) );
-                }
-
-                document.Add( multiColumnText );
-            }
-        }
-
-        private static void CreateArmorPage( Document document, List<Group.GroupActor> groupActorList )
-        {
-            var armorList = groupActorList.Select( groupActor => groupActor.Actor.Armor )
-                                          .Distinct()
-                                          .Where( x => x != null )
-                                          .Where( x => !String.IsNullOrEmpty( x.Rules )  )
-                                          .OrderBy( x => x.Name );
-
-            if( armorList.Count() > 0 )
-            {
-                document.SetPageSize( PageSize.A4.Rotate() );
-
-                document.NewPage();
-
-                AddPageTitle( document, "Rüstungen" );
-
-                MultiColumnText multiColumnText = new MultiColumnText();
-
-                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5f ), 3 );
-
-                foreach( Armor armor in armorList )
-                {
-                    string usedBy = String.Join( ", ", groupActorList.Select( x => x.Actor )
-                                                                     .Distinct()
-                                                                     .Where( x => x.Armor.ID == armor.ID )
-                                                                     .OrderBy( x => x.Name )
-                                                                     .Select( x => x.Name ) );
-
-                    multiColumnText.AddElement( NewEntryBlock( armor.Name, armor.Rules, usedBy ) );
-                }
-
-                document.Add( multiColumnText );
-            }
-        }
-
-        private static void CreateEquipmentPage( Document document, List<Group.GroupActor> groupActorList )
-        {
-            var equipmentList = groupActorList.SelectMany( groupActor => groupActor.ActorOutfit.ActorEquipmentList )
-                                              .Select( x => x.Equipment )
-                                              .Distinct()
-                                              .Where( x => ( !String.IsNullOrEmpty( x.Rules ) )
-                                                           ||
-                                                           ( x.UseOnce && ( !String.IsNullOrEmpty( x.AttributeModifier.ToString() ) ) ) )
-                                              .OrderBy( x => x.Name );
-
-            if( equipmentList.Count() > 0 )
-            {
-                document.SetPageSize( PageSize.A4.Rotate() );
-
-                document.NewPage();
-
-                AddPageTitle( document, "Ausrüstung" );
-
-                MultiColumnText multiColumnText = new MultiColumnText();
-
-                multiColumnText.AddRegularColumns( document.LeftMargin, document.PageSize.Width - document.RightMargin, CmToPixel( 0.5f ), 3 );
-
-                foreach( Equipment equipment in equipmentList )
-                {
-                    string usedBy = String.Join( ", ", groupActorList.Select( x => x.Actor )
-                                                                     .Distinct()
-                                                                     .Where( x => x.ActorOutfitsList.Exists( y => y.ActorEquipmentList.Exists( f => f.Equipment.ID == equipment.ID ) ) )
-                                                                     .OrderBy( x => x.Name )
-                                                                     .Select( x => x.Name ) );
-
-                    multiColumnText.AddElement( NewEntryBlock( equipment.Name, equipment.ToString(), usedBy ) );
-                }
-
-                document.Add( multiColumnText );
-            }
         }
 
         private struct flipsideBlock
