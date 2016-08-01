@@ -147,6 +147,7 @@ namespace Tesserakt
                 {
                     drawPicture( g, actor.Img );
                 }
+
                 drawAttributes( g, actor, actorOutfit );
                 drawCalculatedAttributes( g, actor, actorOutfit );
                 drawSize( g, actor.Size );
