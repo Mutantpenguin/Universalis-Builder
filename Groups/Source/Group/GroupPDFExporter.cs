@@ -66,7 +66,12 @@ namespace Tesserakt
             return( cm / 2.54f * dpi );
         }
 
-        public static void Export( Group p_group, string p_fileName )
+        private static float PixelToCm( float pixel )
+        {
+            return ( pixel * 2.54f / dpi );
+        }
+
+        public static void GeneratePDF( Group p_group, string p_fileName )
         {
             if( null == p_group )
             {
@@ -93,7 +98,7 @@ namespace Tesserakt
                 document.Open();
 
                 CreateMainPage( document, p_group );
-                CreateCardsPage( document, pdfWriter, p_group );
+                CreateCardPages( document, pdfWriter, p_group );
 
                 document.Close();
             }
@@ -110,6 +115,19 @@ namespace Tesserakt
             document.NewPage();
 
             float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+
+            int headerBarWidthPx = CardPainter.CmToPixel( 20 );
+            int headerBarHeightPx = CardPainter.CmToPixel( 2 );
+
+            Image headerBarImage = Image.GetInstance( SectionHeader.Create( headerBarWidthPx, headerBarHeightPx ), System.Drawing.Imaging.ImageFormat.Jpeg );
+
+            headerBarImage.ScaleToFit( printableWidth, CmToPixel( 1.0f ) );
+            headerBarImage.SetAbsolutePosition( 0, 0 );
+            headerBarImage.SetAbsolutePosition( document.LeftMargin, document.Top - document.TopMargin );
+
+            document.Add( headerBarImage );
+
+
             float spacerWidth = CmToPixel( 0.1f );
             float factionImgWidth = CmToPixel( 1.2f );
             float groupImgWidth = CmToPixel( 1.2f );
@@ -284,7 +302,7 @@ namespace Tesserakt
             public string Rules;
         };
 
-        private static void CreateCardsPage( Document document, PdfWriter pdfWriter, Group group )
+        private static void CreateCardPages( Document document, PdfWriter pdfWriter, Group group )
         {
             document.SetPageSize( PageSize.A4.Rotate() );
 

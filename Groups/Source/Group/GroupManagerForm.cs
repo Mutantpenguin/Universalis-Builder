@@ -155,7 +155,7 @@ namespace Tesserakt
 
                 if( IsValid( group ) )
                 {
-                    GroupPDFExporter.Export( group, Path.ChangeExtension( Path.GetTempFileName(), "pdf" ) );
+                    GroupPDFExporter.GeneratePDF( group, Path.ChangeExtension( Path.GetTempFileName(), "pdf" ) );
                 }
             }
         }
