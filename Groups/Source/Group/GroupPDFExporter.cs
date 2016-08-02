@@ -476,7 +476,7 @@ namespace Tesserakt
             return ( table );
         }
 
-        private static void NewFlipsideEntryBlock( ColumnText columnText, ref int column, float[][] columns, string Name, string Rules )
+        private static void NewFlipsideEntryBlock( ColumnText columnText, ref int columnIndex, float[][] columns, string Name, string Rules )
         {
             PdfPTable table = new PdfPTable( 1 )
             {
@@ -505,10 +505,10 @@ namespace Tesserakt
 
             if( ColumnText.HasMoreText( status ) )
             {
-                column += 1;
+                columnIndex += 1;
 
-                columnText.SetSimpleColumn( columns[ column ][ 0 ], columns[ column ][ 1 ], columns[ column ][ 2 ], columns[ column ][ 3 ] );
-                yLine = columns[ column ][ 3 ];
+                columnText.SetSimpleColumn( columns[ columnIndex ][ 0 ], columns[ columnIndex ][ 1 ], columns[ columnIndex ][ 2 ], columns[ columnIndex ][ 3 ] );
+                yLine = columns[ columnIndex ][ 3 ];
             }
 
             columnText.YLine = yLine;
