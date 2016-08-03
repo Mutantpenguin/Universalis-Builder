@@ -28,7 +28,10 @@ namespace Tesserakt
                                                                                                           Color.FromArgb( 255, backgroundColor ),
                                                                                                           Color.FromArgb( 0, backgroundColor ) ) )
                 {
+                    TODO a Problem here. somehow with the current settings, a blue vertical bar gets drawn at the end
                     g.FillRectangle( sectionTitleBackgroundBrushGradient, sectionRectangle );
+
+                    temp.Save( "C:\\Users\\lobedama\\Desktop\\gnah.bmp", System.Drawing.Imaging.ImageFormat.Bmp );
                 }
 
                 return( temp );

@@ -19,11 +19,15 @@ namespace Tesserakt
         #region fonts
         private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( TesseraktFonts.NovaSquareFileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaSquare, null );
 
-        private static readonly Font s_pageTitleFont = new Font( s_baseFontNovaSquare, CmToPixel( 1 ), Font.BOLD );
+        private static readonly Font s_pageTitleFont = new Font( s_baseFontNovaSquare, CmToPixel( 1 ), Font.BOLD, Color.WHITE );
         private static readonly Font s_nameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ) );
         private static readonly Font s_rulesFont = new Font( Font.HELVETICA, CmToPixel( 0.4f ) );
         private static readonly Font s_usedByFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
         private static readonly Font s_versionInfo = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
+
+        private static readonly Font s_actorFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ) );
+        private static readonly Font s_actorFontHeader = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ), Font.BOLD );
+        private static readonly Font s_actorCustomNameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2f ), Font.NORMAL, Color.GRAY );
 
         private static readonly Font s_flipsideHeaderFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.35f ), Font.NORMAL, Color.WHITE );
         private static readonly Font s_nameFlipsideFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2f ), Font.BOLD );
@@ -47,10 +51,10 @@ namespace Tesserakt
                     new float[] { ( 3 * s_flipsideMargin ) + ( 2 * s_flipsideColumnWidth ), s_flipsideMargin, ( 3 * s_flipsideMargin ) + ( 3 * s_flipsideColumnWidth ), s_flipsideHeight - s_flipsideMargin }
                 };
 
-        private const string s_headerTitle = "Sonderregeln";
+        private const string s_flipsideHeaderTitle = "Sonderregeln";
 
-        private static readonly float s_ascent = s_baseFontNovaSquare.GetAscentPoint( s_headerTitle, s_flipsideHeaderFont.Size );
-        private static readonly float s_descent = s_baseFontNovaSquare.GetDescentPoint( s_headerTitle, s_flipsideHeaderFont.Size );
+        private static readonly float s_flipsideHeaderTitleAscent = s_baseFontNovaSquare.GetAscentPoint( s_flipsideHeaderTitle, s_flipsideHeaderFont.Size );
+        private static readonly float s_flipsideHeaderTitleDescent = s_baseFontNovaSquare.GetDescentPoint( s_flipsideHeaderTitle, s_flipsideHeaderFont.Size );
         #endregion
 
         private static string m_versionInfo
@@ -97,7 +101,7 @@ namespace Tesserakt
 
                 document.Open();
 
-                CreateMainPage( document, p_group );
+                CreateMainPage( document, pdfWriter, p_group );
                 CreateCardPages( document, pdfWriter, p_group );
 
                 document.Close();
@@ -108,7 +112,7 @@ namespace Tesserakt
             Cursor.Current = Cursors.Arrow;
         }
 
-        private static void CreateMainPage( Document document, Group group )
+        private static void CreateMainPage( Document document, PdfWriter pdfWriter, Group group )
         {
             document.SetPageSize( PageSize.A4 );
 
@@ -116,73 +120,58 @@ namespace Tesserakt
 
             float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
 
-            int headerBarWidthPx = CardPainter.CmToPixel( 20 );
-            int headerBarHeightPx = CardPainter.CmToPixel( 2 );
+            float headerBarHeightCm = 1.2f;
 
-            Image headerBarImage = Image.GetInstance( SectionHeader.Create( headerBarWidthPx, headerBarHeightPx ), System.Drawing.Imaging.ImageFormat.Jpeg );
+            float headerBarHeight = CmToPixel( headerBarHeightCm );
 
-            headerBarImage.ScaleToFit( printableWidth, CmToPixel( 1.0f ) );
+            PdfContentByte cb = pdfWriter.DirectContent;
+
+            PdfTemplate headerBarTemplate = cb.CreateTemplate( printableWidth, headerBarHeight );
+
+            Image headerBarImage = Image.GetInstance( SectionHeader.Create( CardPainter.CmToPixel( PixelToCm( printableWidth + 196 ) ), CardPainter.CmToPixel( headerBarHeightCm ) ), System.Drawing.Imaging.ImageFormat.Jpeg );
+            headerBarImage.ScaleToFit( printableWidth, headerBarHeight );
             headerBarImage.SetAbsolutePosition( 0, 0 );
-            headerBarImage.SetAbsolutePosition( document.LeftMargin, document.Top - document.TopMargin );
+            headerBarTemplate.AddImage( headerBarImage );
 
-            document.Add( headerBarImage );
+            float margin = CmToPixel( 0.1f );
+            float factionImgWidth = CmToPixel( 1.0f );
+            float groupImgWidth = CmToPixel( 1.0f );
 
 
-            float spacerWidth = CmToPixel( 0.1f );
-            float factionImgWidth = CmToPixel( 1.2f );
-            float groupImgWidth = CmToPixel( 1.2f );
-            float pointsWidth = CmToPixel( 2 );
-            float nameWidth = printableWidth - ( factionImgWidth + spacerWidth+ groupImgWidth + spacerWidth + pointsWidth );
-
-            PdfPTable headerTable = new PdfPTable( new float[ 6 ] { factionImgWidth, spacerWidth, groupImgWidth, spacerWidth, nameWidth, pointsWidth } )
-            {
-                WidthPercentage = 100
-            };
+            float s_headerTitleAscent = s_baseFontNovaSquare.GetAscentPoint( group.Name, s_pageTitleFont.Size );
+            float s_headerTitleDescent = s_baseFontNovaSquare.GetDescentPoint( group.Name, s_pageTitleFont.Size );
+            ColumnText.ShowTextAligned( headerBarTemplate, Element.ALIGN_LEFT, new Phrase( group.Name, s_pageTitleFont ), 3 * margin + factionImgWidth + groupImgWidth, ( headerBarHeight - s_headerTitleAscent - s_headerTitleDescent ) / 2, 0 );
 
             Image factionImg = Image.GetInstance( group.FactionIcon, System.Drawing.Imaging.ImageFormat.Png );
             factionImg.ScaleToFit( factionImgWidth, factionImgWidth );
-            headerTable.AddCell( new PdfPCell( factionImg )
-            {
-                Border = Rectangle.NO_BORDER,
-                VerticalAlignment = Element.ALIGN_MIDDLE
-            } );
-
-            headerTable.AddCell( new PdfPCell()
-            {
-                Border = Rectangle.NO_BORDER,
-            } );
+            factionImg.SetAbsolutePosition( margin, margin );
+            headerBarTemplate.AddImage( factionImg );
 
             Image groupImg = Image.GetInstance( group.Icon, System.Drawing.Imaging.ImageFormat.Png );
             groupImg.ScaleToFit( groupImgWidth, groupImgWidth );
-            headerTable.AddCell( new PdfPCell( groupImg )
-            {
-                Border = Rectangle.NO_BORDER,
-                VerticalAlignment = Element.ALIGN_MIDDLE
-            } );
+            groupImg.SetAbsolutePosition( 2 * margin + factionImgWidth, margin );
+            headerBarTemplate.AddImage( groupImg );
 
-            headerTable.AddCell( new PdfPCell()
-            {
-                Border = Rectangle.NO_BORDER,
-            } );
+            document.Add( Image.GetInstance( headerBarTemplate ) );
 
-            headerTable.AddCell( new PdfPCell( new Phrase( group.Name, s_pageTitleFont ) )
-            {
-                HorizontalAlignment = Element.ALIGN_LEFT,
-                VerticalAlignment = Element.ALIGN_MIDDLE,
-                Border = Rectangle.BOTTOM_BORDER
-            } );
+            // TODO show the points again
 
+            /*
             headerTable.AddCell( new PdfPCell( new Phrase( $"{group.Points}pkt" ) )
             {
                 HorizontalAlignment = Element.ALIGN_RIGHT,
-                Border = Rectangle.BOTTOM_BORDER
+                //Border = Rectangle.BOTTOM_BORDER,
+                Border = Rectangle.NO_BORDER,
+                FixedHeight = headerBarHeight
             } );
-
-            document.Add( headerTable );
+            */
 
             document.Add( new Paragraph( m_versionInfo, s_versionInfo ) );
 
-            document.Add( new Paragraph( group.Description ) );
+            if( !String.IsNullOrEmpty( group.Description ) )
+            {
+                document.Add( new Paragraph( group.Description ) );
+            }
 
             document.Add( Chunk.NEWLINE );
 
@@ -193,17 +182,15 @@ namespace Tesserakt
         {
             float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
             float actorImgWidth = CmToPixel( 1 );
+            float countWidth = CmToPixel( 1 );
             float pointsWidth = CmToPixel( 2 );
             float totalPointsWidth = CmToPixel( 2 );
             float outfitWidth = CmToPixel( 5 );
-            float nameWidth = printableWidth - ( actorImgWidth + pointsWidth + totalPointsWidth + outfitWidth );
+            float modelNameWidth = printableWidth - ( actorImgWidth + pointsWidth + totalPointsWidth + outfitWidth );
 
-            Font actorFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ) );
-            Font actorCustomNameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2f ), Font.NORMAL, Color.GRAY );
+            const int columnCount = 6;
 
-            const int columnCount = 5;
-
-            PdfPTable actorTable = new PdfPTable( new float[ columnCount ] { actorImgWidth, nameWidth, outfitWidth, pointsWidth, totalPointsWidth } )
+            PdfPTable actorTable = new PdfPTable( new float[ columnCount ] { actorImgWidth, countWidth, modelNameWidth, outfitWidth, pointsWidth, totalPointsWidth } )
             {
                 WidthPercentage = 100,
                 SpacingBefore = 0f,
@@ -211,24 +198,25 @@ namespace Tesserakt
             };
 
             // TableHeader
+            actorTable.AddCell( new PdfPCell( new Phrase( "Modell", s_actorFontHeader ) )
+            {
+                Border = Rectangle.NO_BORDER,
+                Colspan = 2
+            } );
             actorTable.AddCell( new PdfPCell()
             {
                 Border = Rectangle.NO_BORDER
             } );
-            actorTable.AddCell( new PdfPCell( new Phrase( "Name", actorFont ) )
+            actorTable.AddCell( new PdfPCell( new Phrase( "Outfit", s_actorFontHeader ) )
             {
                 Border = Rectangle.NO_BORDER
             } );
-            actorTable.AddCell( new PdfPCell( new Phrase( "Outfit", actorFont ) )
-            {
-                Border = Rectangle.NO_BORDER
-            } );
-            actorTable.AddCell( new PdfPCell( new Phrase( "Punkte", actorFont ) )
+            actorTable.AddCell( new PdfPCell( new Phrase( "Punkte", s_actorFontHeader ) )
             {
                 Border = Rectangle.NO_BORDER,
                 HorizontalAlignment = Element.ALIGN_RIGHT
             } );
-            actorTable.AddCell( new PdfPCell( new Phrase( "Gesamt", actorFont ) )
+            actorTable.AddCell( new PdfPCell( new Phrase( "Gesamt", s_actorFontHeader ) )
             {
                 Border = Rectangle.NO_BORDER,
                 HorizontalAlignment = Element.ALIGN_RIGHT
@@ -246,13 +234,20 @@ namespace Tesserakt
                     Border = Rectangle.TOP_BORDER
                 } );
 
-                actorTable.AddCell( new PdfPCell( new Phrase( entry.actor.Name, actorFont ) )
+                actorTable.AddCell( new PdfPCell( new Phrase( $"{entry.count}x", s_actorFont ) )
+                {
+                    Border = Rectangle.TOP_BORDER,
+                    HorizontalAlignment = Element.ALIGN_RIGHT,
+                    VerticalAlignment = Element.ALIGN_MIDDLE
+                } );
+
+                actorTable.AddCell( new PdfPCell( new Phrase( entry.actor.Name, s_actorFont ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE
                 } );
 
-                actorTable.AddCell( new PdfPCell( new Phrase( entry.count.ToString() + "x " + entry.actorOutfit.Name, actorFont ) )
+                actorTable.AddCell( new PdfPCell( new Phrase( entry.actorOutfit.Name, s_actorFont ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE
@@ -284,7 +279,7 @@ namespace Tesserakt
 
                     string models = String.Join( ", ", groupActorsWithCustomNames.Select( x => x.CustomName ) );
                     
-                    actorTable.AddCell( new PdfPCell( new Phrase( "Modelle: " + models, actorCustomNameFont ) )
+                    actorTable.AddCell( new PdfPCell( new Phrase( "Modelle: " + models, s_actorCustomNameFont ) )
                     {
                         Colspan = columnCount - 1,
                         Border = Rectangle.NO_BORDER,
@@ -392,10 +387,9 @@ namespace Tesserakt
 
                         flipsideHeaderTemplate.AddImage( imgFlipsideHeaderImg );
 
-                        ColumnText.ShowTextAligned( flipsideHeaderTemplate, Element.ALIGN_LEFT, new Phrase( s_headerTitle, s_flipsideHeaderFont ), s_flipsideMargin, ( s_flipsideHeaderHeight - s_ascent - s_descent ) / 2, 0 );
+                        ColumnText.ShowTextAligned( flipsideHeaderTemplate, Element.ALIGN_LEFT, new Phrase( s_flipsideHeaderTitle, s_flipsideHeaderFont ), s_flipsideMargin, ( s_flipsideHeaderHeight - s_flipsideHeaderTitleAscent - s_flipsideHeaderTitleDescent ) / 2, 0 );
 
                         Image flipsideHeaderImg = Image.GetInstance( flipsideHeaderTemplate );
-                        flipsideHeaderImg.Interpolation = true;
                         flipsideHeaderImg.RotationDegrees = 180;
                         flipsideHeaderImg.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight );
 
@@ -421,7 +415,6 @@ namespace Tesserakt
                         {
                             // image-wrapper for the template which we can rotate
                             Image flipsideImg = Image.GetInstance( flipsideTemplate );
-                            flipsideImg.Interpolation = true;
                             flipsideImg.ScaleAbsolute( s_cardWidth, s_cardHeight - s_flipsideHeaderHeight );
                             flipsideImg.RotationDegrees = 180;
                             flipsideImg.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight + s_flipsideHeaderHeight );
@@ -439,41 +432,6 @@ namespace Tesserakt
                     cb.RestoreState();
                 }
             }
-        }
-
-        private static void AddPageTitle( Document document, string title )
-        {
-            Paragraph p = new Paragraph();
-            p.Add( new Phrase( title, s_pageTitleFont ) );
-            p.Add( new LineSeparator( 0.3f, 100, Color.BLACK, Element.ALIGN_LEFT, -2 ) );
-
-            document.Add( p );
-        }
-
-        private static PdfPTable NewEntryBlock( string Name, string Rules, string usedBy )
-        {
-            PdfPTable table = new PdfPTable( 1 )
-            {
-                WidthPercentage = 100,
-                SpacingBefore = 0f,
-                SpacingAfter = 0f,
-                KeepTogether = true
-            };
-
-            PdfPCell cell = new PdfPCell()
-            {
-                Border = Rectangle.NO_BORDER
-            };
-
-            cell.AddElement( new Phrase( Name, s_nameFont ) );
-            cell.AddElement( new LineSeparator( 0.3f, 100, Color.BLACK, Element.ALIGN_LEFT, -2 ) );
-            cell.AddElement( new Phrase( Rules, s_rulesFont ) );
-
-            cell.AddElement( new Phrase( $"Verwendet von: {usedBy}", s_usedByFont ) );
-
-            table.AddCell( cell );
-
-            return ( table );
         }
 
         private static void NewFlipsideEntryBlock( ColumnText columnText, ref int columnIndex, float[][] columns, string Name, string Rules )
