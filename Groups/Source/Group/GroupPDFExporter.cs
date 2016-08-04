@@ -220,10 +220,12 @@ namespace Tesserakt
                                                       .OrderBy( x => x.actor.Name ) )
             {
                 Image actorImg = Image.GetInstance( ( null != entry.actor.Icon ) ? entry.actor.Icon : group.FactionIcon, System.Drawing.Imaging.ImageFormat.Png );
-                actorImg.ScaleToFit( CmToPixel( 1 ), CmToPixel( 1 ) );
+                actorImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
                 actorTable.AddCell( new PdfPCell( actorImg )
                 {
-                    Border = Rectangle.TOP_BORDER
+                    Border = Rectangle.TOP_BORDER,
+                    VerticalAlignment = Element.ALIGN_MIDDLE,
+                    MinimumHeight = CmToPixel( 1 )
                 } );
 
                 actorTable.AddCell( new PdfPCell( new Phrase( $"{entry.count}x", s_actorFont ) )
