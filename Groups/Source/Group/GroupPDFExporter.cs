@@ -128,7 +128,7 @@ namespace Tesserakt
 
             PdfTemplate headerBarTemplate = cb.CreateTemplate( printableWidth, headerBarHeight );
 
-            Image headerBarImage = Image.GetInstance( SectionHeader.Create( CardPainter.CmToPixel( PixelToCm( printableWidth + 196 ) ), CardPainter.CmToPixel( headerBarHeightCm ) ), System.Drawing.Imaging.ImageFormat.Jpeg );
+            Image headerBarImage = Image.GetInstance( SectionHeader.Create( CardPainter.CmToPixel( PixelToCm( printableWidth ) ), CardPainter.CmToPixel( headerBarHeightCm ) ), System.Drawing.Imaging.ImageFormat.Jpeg );
             headerBarImage.ScaleToFit( printableWidth, headerBarHeight );
             headerBarImage.SetAbsolutePosition( 0, 0 );
             headerBarTemplate.AddImage( headerBarImage );

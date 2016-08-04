@@ -23,15 +23,16 @@ namespace Tesserakt
                     g.FillRectangle( patternBrush, sectionRectangle );
                 }
 
-                using( LinearGradientBrush sectionTitleBackgroundBrushGradient = new LinearGradientBrush( new Point( 0, 0 ),
-                                                                                                          new Point( width, 0 ),
+                // WrapMode.TileFlipX is needed here, because LinearGradientBrush has a bug which may lead to wrongly colored pixels at the end of the gradient 
+                using( LinearGradientBrush sectionTitleBackgroundBrushGradient = new LinearGradientBrush( sectionRectangle,
                                                                                                           Color.FromArgb( 255, backgroundColor ),
-                                                                                                          Color.FromArgb( 0, backgroundColor ) ) )
+                                                                                                          Color.FromArgb( 0, backgroundColor ),
+                                                                                                          LinearGradientMode.Horizontal )
+                                                                                     {
+                                                                                        WrapMode = WrapMode.TileFlipX
+                                                                                     }  )
                 {
-                    TODO a Problem here. somehow with the current settings, a blue vertical bar gets drawn at the end
                     g.FillRectangle( sectionTitleBackgroundBrushGradient, sectionRectangle );
-
-                    temp.Save( "C:\\Users\\lobedama\\Desktop\\gnah.bmp", System.Drawing.Imaging.ImageFormat.Bmp );
                 }
 
                 return( temp );
