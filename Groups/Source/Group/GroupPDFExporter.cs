@@ -128,10 +128,13 @@ namespace Tesserakt
 
             PdfTemplate headerBarTemplate = cb.CreateTemplate( printableWidth, headerBarHeight );
 
-            Image headerBarImage = Image.GetInstance( SectionHeader.Create( CardPainter.CmToPixel( PixelToCm( printableWidth ) ), CardPainter.CmToPixel( headerBarHeightCm ) ), System.Drawing.Imaging.ImageFormat.Jpeg );
-            headerBarImage.ScaleToFit( printableWidth, headerBarHeight );
-            headerBarImage.SetAbsolutePosition( 0, 0 );
-            headerBarTemplate.AddImage( headerBarImage );
+            using( System.Drawing.Image img = SectionHeader.Create( CardPainter.CmToPixel( PixelToCm( printableWidth ) ), CardPainter.CmToPixel( headerBarHeightCm ) ) )
+            {
+                Image headerBarImage = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
+                headerBarImage.ScaleToFit( printableWidth, headerBarHeight );
+                headerBarImage.SetAbsolutePosition( 0, 0 );
+                headerBarTemplate.AddImage( headerBarImage );
+            }
 
             float margin = CmToPixel( 0.1f );
             float factionImgWidth = CmToPixel( 1.0f );
@@ -324,8 +327,9 @@ namespace Tesserakt
 
                 Group.GroupActor groupActor = sortedGroupActorList[ i ];
 
+                using( System.Drawing.Image img = CardPainter.getBitmap( groupActor ) )
                 {
-                    Image imgCard = Image.GetInstance( CardPainter.getBitmap( groupActor ), System.Drawing.Imaging.ImageFormat.Jpeg );
+                    Image imgCard = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
                     imgCard.ScaleToFit( s_cardWidth, s_cardHeight );
                     imgCard.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y );
 
