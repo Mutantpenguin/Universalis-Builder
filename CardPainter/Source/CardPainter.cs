@@ -808,7 +808,9 @@ namespace Tesserakt
 
             if( ( remainderPosX + damageEffectsPosX ) > s_cardWidth )
             {
-                g.FillRectangle( Brushes.Purple, new Rectangle( remainderPosX, posY, s_cardWidth, s_lineHeight ) );
+                Rectangle rect = new Rectangle( remainderPosX, posY, s_cardWidth - remainderPosX, s_lineHeight );
+                g.FillRectangle( Brushes.Purple, rect );
+                g.DrawString( "KEIN PLATZ", fontWeapon, Brushes.White, rect, stringFormatHCenterVCenter );
             }
         }
 
@@ -874,7 +876,9 @@ namespace Tesserakt
 
                 if( ( effectsStart + damageEffectsPosX ) > s_cardWidth )
                 {
-                    g.FillRectangle( Brushes.Purple, new Rectangle( effectsStart, posY + s_lineHeight, s_cardWidth, s_lineHeight ) );
+                    Rectangle rect = new Rectangle( effectsStart, posY + s_lineHeight, s_cardWidth - effectsStart, s_lineHeight );
+                    g.FillRectangle( Brushes.Purple, rect );
+                    g.DrawString( "KEIN PLATZ", fontWeapon, Brushes.White, rect, stringFormatHCenterVCenter );
                 }
             }
         }
