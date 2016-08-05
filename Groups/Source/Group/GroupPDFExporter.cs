@@ -412,7 +412,7 @@ namespace Tesserakt
 
                             foreach( var block in flipsideBlocks )
                             {
-                                NewFlipsideEntryBlock( columnText, ref columnIndex, block.Name, block.Rules );
+                                NewFlipsideEntryBlock( columnText, ref columnIndex, block );
                             }
                         }
 
@@ -438,7 +438,7 @@ namespace Tesserakt
             }
         }
 
-        private static void NewFlipsideEntryBlock( ColumnText columnText, ref int columnIndex, string Name, string Rules )
+        private static void NewFlipsideEntryBlock( ColumnText columnText, ref int columnIndex, flipsideBlock block )
         {
             PdfPTable table = new PdfPTable( 1 )
             {
@@ -453,9 +453,9 @@ namespace Tesserakt
                 Border = Rectangle.NO_BORDER
             };
 
-            cell.AddElement( new Phrase( Name, s_nameFlipsideFont ) );
+            cell.AddElement( new Phrase( block.Name, s_nameFlipsideFont ) );
             cell.AddElement( new LineSeparator( 0.3f, 100, Color.BLACK, Element.ALIGN_LEFT, -2 ) );
-            cell.AddElement( new Phrase( Rules, s_rulesFlipsideFont ) );
+            cell.AddElement( new Phrase( block.Rules, s_rulesFlipsideFont ) );
 
             table.AddCell( cell );
 
