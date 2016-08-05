@@ -20,10 +20,7 @@ namespace Tesserakt
         private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( TesseraktFonts.NovaSquareFileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaSquare, null );
 
         private static readonly Font s_pageTitleFont = new Font( s_baseFontNovaSquare, CmToPixel( 1 ), Font.BOLD, Color.WHITE );
-        private static readonly Font s_nameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ) );
-        private static readonly Font s_rulesFont = new Font( Font.HELVETICA, CmToPixel( 0.4f ) );
-        private static readonly Font s_usedByFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
-        private static readonly Font s_versionInfo = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
+        private static readonly Font s_versionInfoFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
 
         private static readonly Font s_actorFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ) );
         private static readonly Font s_actorFontHeader = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ), Font.BOLD );
@@ -156,7 +153,7 @@ namespace Tesserakt
             
             document.Add( Image.GetInstance( headerBarTemplate ) );
             
-            document.Add( new Paragraph( m_versionInfo, s_versionInfo ) );
+            document.Add( new Paragraph( m_versionInfo, s_versionInfoFont ) );
 
             if( !String.IsNullOrEmpty( group.Description ) )
             {
