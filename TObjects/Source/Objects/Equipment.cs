@@ -161,7 +161,7 @@ namespace Tesserakt
                 }
             }
         }
-
+        
         public override string ToString()
         {
             string text = String.Empty;
@@ -190,7 +190,7 @@ namespace Tesserakt
                     text += Environment.NewLine;
                 }
 
-                text += ToolTipHelper.FormatMaxWidth( this.Rules );
+                text += this.Rules;
             }
 
             return ( text );

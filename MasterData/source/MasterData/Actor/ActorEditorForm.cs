@@ -759,7 +759,7 @@ namespace Tesserakt
 
                 if( !String.IsNullOrEmpty( equipmentString ) )
                 {
-                    text += Environment.NewLine + equipmentString;
+                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( equipmentString );
                 }
 
                 e.ToolTipText = text;
