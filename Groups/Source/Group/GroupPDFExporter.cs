@@ -374,7 +374,14 @@ namespace Tesserakt
                                                                                                       ( x.UseOnce && ( !String.IsNullOrEmpty( x.AttributeModifier.ToString() ) ) ) )
                                                                                          .OrderBy( x => x.Name ) )
                 {
-                    flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.ToString() } );
+                    if( equipment.AP == 0 )
+                    {
+                        flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.ToString() } );
+                    }
+                    else
+                    {
+                        flipsideBlocks.Add( new flipsideBlock() { Name = $"{equipment.Name} - {equipment.AP}AP", Rules = equipment.ToString() } );
+                    }
                 }
 
                 if( flipsideBlocks.Count > 0 )
