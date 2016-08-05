@@ -4,6 +4,4 @@ Aktivierungsreihenfolge in allen Masken
   - AddXToY fehlen noch
 
 GroupPDFExport:
-	- Werden die Übersichtsseiten noch benötigt?
-		- Falls ja: "usedBy" auch auf CustomName und Outfit verweisen lassen?
 	- Übersichtsseite aller genutzen Waffeneffekte
