@@ -58,7 +58,7 @@ namespace Tesserakt
                         MessageBox.Show( $"Problem beim Lesen der Modell-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
-                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Modell {i}/{files.Count()}" );
+                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Length * 100 ), $"Modell {i}/{files.Length}" );
 
                     i++;
                 }
@@ -147,13 +147,7 @@ namespace Tesserakt
             File.Move( GetFilename( actor ), GetFilenameTrash( actor ) );
         }
 
-        public IList<Actor> Actors
-        {
-            get
-            {
-                return ( m_actorList.AsReadOnly() );
-            }
-        }
+        public IList<Actor> Actors => ( m_actorList.AsReadOnly() );
 
         public IList<Actor> ActorsWithWeapon( Weapon weapon )
         {
@@ -203,6 +197,6 @@ namespace Tesserakt
                                 .AsReadOnly() );
         }
 
-        private List<Actor> m_actorList = new List<Actor>();
+        private readonly List<Actor> m_actorList = new List<Actor>();
     }
 }

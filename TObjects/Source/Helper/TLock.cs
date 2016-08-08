@@ -40,9 +40,6 @@ namespace Tesserakt
 
         public class TLockNotSuccessfullException : Exception
         {
-            public TLockNotSuccessfullException()
-            {
-            }
         }
 
         public TLock()
@@ -79,7 +76,7 @@ namespace Tesserakt
             }
         }
 
-        string m_fileName = null;
+        readonly string m_fileName = null;
 
         private void CreateLockFile()
         {

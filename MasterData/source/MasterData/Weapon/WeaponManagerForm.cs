@@ -47,21 +47,14 @@ namespace Tesserakt
             weaponBindingSource.DataSource = weapons;
             dataGridViewWeapons.ClearSelection();
 
-            toolStripStatusLabelCount.Text = $"Anzahl: {weapons.Count()}";
+            toolStripStatusLabelCount.Text = $"Anzahl: {weapons.Count}";
         }
 
         private void checkBoxFilterWK_Click( object sender, EventArgs e )
         {
             filterWK.Enabled = !filterWK.Enabled;
 
-            if( checkBoxFilterWK.Checked )
-            {
-                checkBoxFilterWK.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterWK.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterWK.Image = checkBoxFilterWK.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             refreshGridView();
         }
@@ -70,14 +63,7 @@ namespace Tesserakt
         {
             filterDamageType.Enabled = !filterDamageType.Enabled;
 
-            if( checkBoxFilterDamageType.Checked )
-            {
-                checkBoxFilterDamageType.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterDamageType.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterDamageType.Image = checkBoxFilterDamageType.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             refreshGridView();
         }
@@ -86,14 +72,7 @@ namespace Tesserakt
         {
             filterType.Enabled = !filterType.Enabled;
 
-            if( checkBoxFilterType.Checked )
-            {
-                checkBoxFilterType.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterType.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterType.Image = checkBoxFilterType.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             refreshGridView();
         }
@@ -131,7 +110,7 @@ namespace Tesserakt
 
                 var actorsWithWeapon = ActorStorage.Instance.ActorsWithWeapon( weapon );
 
-                if( actorsWithWeapon.Count() > 0 )
+                if( actorsWithWeapon.Any() )
                 {
                     using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithWeapon ) )
                     {

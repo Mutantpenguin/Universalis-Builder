@@ -81,7 +81,7 @@ namespace Tesserakt
 
                 var actorsWithTrait = ActorStorage.Instance.ActorsWithTrait( trait );
 
-                if( actorsWithTrait.Count() > 0 )
+                if( actorsWithTrait.Any() )
                 {
                     using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithTrait ) )
                     {

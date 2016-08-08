@@ -14,7 +14,7 @@ namespace Tesserakt
             this.Icon = Properties.Resources.icon;
 
             filterCamouflage.ComboBox.DataSource = Armor.ECamouflageList;
-            filterCamouflage.ComboBox.SelectionChangeCommitted += new EventHandler( ComboBox_SelectionChangeCommitted );
+            filterCamouflage.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
 
             refreshGridView();
 
@@ -72,7 +72,7 @@ namespace Tesserakt
 
                 var actorsWithArmor = ActorStorage.Instance.ActorsWithArmor( armor );
 
-                if( actorsWithArmor.Count() > 0 )
+                if( actorsWithArmor.Any() )
                 {
                     using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithArmor ) )
                     {
@@ -166,14 +166,7 @@ namespace Tesserakt
         {
             filterCamouflage.Enabled = !filterCamouflage.Enabled;
 
-            if( checkBoxFilterCamouflage.Checked )
-            {
-                checkBoxFilterCamouflage.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterCamouflage.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterCamouflage.Image = checkBoxFilterCamouflage.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             refreshGridView();
         }

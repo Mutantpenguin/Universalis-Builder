@@ -5,24 +5,18 @@ namespace Tesserakt
 {
     public partial class EnterNameForm : Form
     {
-        public EnterNameForm( string outfitName, bool emptyNameAllowed )
+        public EnterNameForm( string name, bool emptyNameAllowed )
         {
             InitializeComponent();
 
-            textBoxName.Text = outfitName;
+            textBoxName.Text = name;
 
             m_emptyNameAllowed = emptyNameAllowed;
         }
 
-        private bool m_emptyNameAllowed;
+        private readonly bool m_emptyNameAllowed;
 
-        public string NewName
-        {
-            get
-            {
-                return ( textBoxName.Text );
-            }
-        }
+        public string NewName => ( textBoxName.Text );
 
         private void EnterNameForm_FormClosing( object sender, FormClosingEventArgs e )
         {

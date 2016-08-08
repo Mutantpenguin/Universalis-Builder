@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Tesserakt
@@ -58,7 +57,7 @@ namespace Tesserakt
                         MessageBox.Show( $"Problem beim Lesen der Fraktions-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
-                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Fraktion {i}/{files.Count()}" );
+                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Length * 100 ), $"Fraktion {i}/{files.Length}" );
 
                     i++;
                 }
@@ -140,14 +139,8 @@ namespace Tesserakt
             File.Move( GetFilename( faction ), GetFilenameTrash( faction ) );
         }
 
-        public IList<Faction> Factions
-        {
-            get
-            {
-                return ( m_factionList.AsReadOnly() );
-            }
-        }
+        public IList<Faction> Factions => ( m_factionList.AsReadOnly() );
 
-        private List<Faction> m_factionList = new List<Faction>();
+        private readonly List<Faction> m_factionList = new List<Faction>();
     }
 }

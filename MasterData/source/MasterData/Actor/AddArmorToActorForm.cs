@@ -11,7 +11,7 @@ namespace Tesserakt
             InitializeComponent();
 
             filterCamouflage.ComboBox.DataSource = Armor.ECamouflageList;
-            filterCamouflage.ComboBox.SelectionChangeCommitted += new EventHandler( ComboBox_SelectionChangeCommitted );
+            filterCamouflage.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
 
             updateDataGridViewArmor();
 
@@ -95,14 +95,7 @@ namespace Tesserakt
         {
             filterCamouflage.Enabled = !filterCamouflage.Enabled;
 
-            if( checkBoxFilterCamouflage.Checked )
-            {
-                checkBoxFilterCamouflage.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterCamouflage.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterCamouflage.Image = checkBoxFilterCamouflage.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             updateDataGridViewArmor();
         }

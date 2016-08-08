@@ -33,8 +33,10 @@ namespace Tesserakt
         {
             if( -1 != e.RowIndex )
             {
-                SelectedEquipment = new List<Equipment>();
-                SelectedEquipment.Add( (Equipment)dataGridViewEquipment.Rows[ e.RowIndex ].DataBoundItem );
+                SelectedEquipment = new List<Equipment>
+                {
+                    (Equipment)dataGridViewEquipment.Rows[ e.RowIndex ].DataBoundItem
+                };
 
                 this.DialogResult = DialogResult.OK;
                 Close();

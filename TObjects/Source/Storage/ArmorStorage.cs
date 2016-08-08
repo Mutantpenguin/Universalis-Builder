@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Tesserakt
@@ -58,7 +57,7 @@ namespace Tesserakt
                         MessageBox.Show( $"Problem beim Lesen der Rüstungs-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
-                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Rüstung {i}/{files.Count()}" );
+                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Length * 100 ), $"Rüstung {i}/{files.Length}" );
 
                     i++;
                 }
@@ -140,14 +139,8 @@ namespace Tesserakt
             File.Move( GetFilename( armor ), GetFilenameTrash( armor ) );
         }
 
-        public IList<Armor> Armors
-        {
-            get
-            {
-                return ( m_armorList.AsReadOnly() );
-            }
-        }
+        public IList<Armor> Armors => ( m_armorList.AsReadOnly() );
 
-        private List<Armor> m_armorList = new List<Armor>();
+        private readonly List<Armor> m_armorList = new List<Armor>();
     }
 }

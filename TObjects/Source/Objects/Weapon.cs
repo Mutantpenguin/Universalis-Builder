@@ -285,31 +285,13 @@ namespace Tesserakt
         } = false;
 
         [ JsonIgnore]
-        public Image DamageTypeImage
-        {
-            get
-            {
-                return ( DamageType.GetImage( DamageColor.EType.Red ) );
-            }
-        }
+        public Image DamageTypeImage => ( DamageType.GetImage( DamageColor.EType.Red ) );
 
         [JsonIgnore]
-        public Image EffectsImage
-        {
-            get
-            {
-                return ( DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Red ) );
-            }
-        }
+        public Image EffectsImage => ( DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Red ) );
 
         [JsonIgnore]
-        public string EffectsString
-        {
-            get
-            {
-                return ( DamageEffect.GetEffectListString( DamageEffectList ) );
-            }
-        }
+        public string EffectsString => ( DamageEffect.GetEffectListString( DamageEffectList ) );
 
         [JsonIgnore]
         public string FormattedSubstance

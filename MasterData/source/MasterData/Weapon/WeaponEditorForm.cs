@@ -41,7 +41,7 @@ namespace Tesserakt
             updateEffects();
         }
 
-        Weapon m_originalWeapon;
+        private readonly Weapon m_originalWeapon;
 
         private bool mandatoryFieldsFilled()
         {

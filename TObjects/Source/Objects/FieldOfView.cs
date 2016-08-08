@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Tesserakt
+﻿namespace Tesserakt
 {
     public enum EFieldOfView
     {

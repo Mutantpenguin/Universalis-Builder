@@ -46,7 +46,7 @@ namespace Tesserakt
         {
             get;
             set;
-        } = TraitLevel.ELevel.Kein;
+        } = ELevel.Kein;
 
         public int Points
         {

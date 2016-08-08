@@ -46,13 +46,7 @@ namespace Tesserakt
         }
 
         [JsonIgnore]
-        public Image GetOriginalImage
-        {
-            get
-            {
-                return ( getTypeImage( DamageColor.EType.Original ) );
-            }
-        }
+        public Image GetOriginalImage => ( getTypeImage( DamageColor.EType.Original ) );
 
         private static readonly Image s_typ_kinetik_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Green );
         private static readonly Image s_typ_schlag_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Green );
@@ -144,7 +138,7 @@ namespace Tesserakt
 
                 drawing.DrawImage( getTypeImage( color ), typeRect );
 
-                Image img_plus = null;
+                Image img_plus;
                 switch( color )
                 {
                     case DamageColor.EType.Original:

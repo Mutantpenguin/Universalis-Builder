@@ -32,13 +32,13 @@ namespace Tesserakt
             update();
         }
 
-        private Group m_groupModified;
-        private Group m_groupOriginal;
+        private readonly Group m_groupModified;
+        private readonly Group m_groupOriginal;
 
         private void updateGridViewActors()
         {
             groupActorBindingSource.DataSource = m_groupModified.GroupActorList.OrderByDescending( x => ( x.Actor != null ) ? x.ActorOutfit.Name : "zzzzzzzzzzzzzz" )
-                                                                               .OrderBy( x => ( x.Actor != null ) ? x.Name : "zzzzzzzzzzzzzz" )
+                                                                               .ThenBy( x => ( x.Actor != null ) ? x.Name : "zzzzzzzzzzzzzz" )
                                                                                .ToList();
 
             dataGridViewActors.ClearSelection();
@@ -135,14 +135,7 @@ namespace Tesserakt
             {
                 Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                if( groupActor.Actor != null )
-                {
-                    pictureBoxCard.Image = CardPainter.getBitmap( groupActor );
-                }
-                else
-                {
-                    pictureBoxCard.Image = TObjects.Properties.Resources.empty;
-                }
+                pictureBoxCard.Image = groupActor.Actor != null ? CardPainter.getBitmap( groupActor ) : TObjects.Properties.Resources.empty;
             }
             else
             {

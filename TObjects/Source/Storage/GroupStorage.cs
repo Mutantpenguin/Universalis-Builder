@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Tesserakt
@@ -58,7 +57,7 @@ namespace Tesserakt
                         MessageBox.Show( $"Problem beim Lesen der Gruppen-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
-                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Gruppe {i}/{files.Count()}" );
+                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Length * 100 ), $"Gruppe {i}/{files.Length}" );
 
                     i++;
                 }
@@ -159,14 +158,8 @@ namespace Tesserakt
             File.Move( GetFilename( group ), GetFilenameTrash( group ) );
         }
 
-        public IList<Group> Groups
-        {
-            get
-            {
-                return ( m_groupList.AsReadOnly() );
-            }
-        }
+        public IList<Group> Groups => ( m_groupList.AsReadOnly() );
 
-        private List<Group> m_groupList = new List<Group>();
+        private readonly List<Group> m_groupList = new List<Group>();
     }
 }

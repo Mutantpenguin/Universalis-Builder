@@ -41,7 +41,7 @@ namespace Tesserakt
             updateDamageTypes();
         }
 
-        Armor m_originalArmor;
+        private readonly Armor m_originalArmor;
 
         private bool mandatoryFieldsFilled()
         {

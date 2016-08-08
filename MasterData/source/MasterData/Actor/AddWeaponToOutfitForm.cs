@@ -75,8 +75,10 @@ namespace Tesserakt
         {
             if( -1 != e.RowIndex )
             {
-                SelectedWeapons = new List<Weapon>();
-                SelectedWeapons.Add( (Weapon)dataGridViewWeapons.Rows[ e.RowIndex ].DataBoundItem );
+                SelectedWeapons = new List<Weapon>
+                {
+                    (Weapon)dataGridViewWeapons.Rows[ e.RowIndex ].DataBoundItem
+                };
 
                 this.DialogResult = DialogResult.OK;
                 Close();
@@ -87,14 +89,7 @@ namespace Tesserakt
         {
             filterWK.Enabled = !filterWK.Enabled;
 
-            if( checkBoxFilterWK.Checked )
-            {
-                checkBoxFilterWK.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterWK.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterWK.Image = checkBoxFilterWK.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             updateDataGridViewWeapons();
         }
@@ -103,14 +98,7 @@ namespace Tesserakt
         {
             filterType.Enabled = !filterType.Enabled;
 
-            if( checkBoxFilterType.Checked )
-            {
-                checkBoxFilterType.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterType.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterType.Image = checkBoxFilterType.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             updateDataGridViewWeapons();
         }
@@ -119,14 +107,7 @@ namespace Tesserakt
         {
             filterDamageType.Enabled = !filterDamageType.Enabled;
 
-            if( checkBoxFilterDamageType.Checked )
-            {
-                checkBoxFilterDamageType.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterDamageType.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterDamageType.Image = checkBoxFilterDamageType.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             updateDataGridViewWeapons();
         }

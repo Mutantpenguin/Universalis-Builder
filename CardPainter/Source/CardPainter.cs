@@ -27,11 +27,11 @@ namespace Tesserakt
         private static readonly int s_substancePointSize = CmToPixel( 0.3 );
 
         private static readonly Pen linePenBlack = Pens.Black;
-        private static readonly Pen linePenWhite = Pens.White;
         private static readonly Pen structureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
         private static readonly Pen structureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
         private static readonly Pen substanceBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
-        private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
+        // TODO maybe still needed later
+        // private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
 
         private static readonly Font font0dot2 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
         private static readonly Font font0dot3 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
@@ -43,7 +43,6 @@ namespace Tesserakt
         private static readonly Font fontNameSmall = font0dot2;
         private static readonly Font fontPoints = font0dot2;
         private static readonly Font fontWeapon = font0dot3;
-        private static readonly Font fontWeaponSmall = font0dot2;
         private static readonly Font fontWeaponName = font0dot2;
         private static readonly Font fontWK = font0dot3;
         private static readonly Font fontArmor = font0dot3;
@@ -68,12 +67,6 @@ namespace Tesserakt
         private static readonly StringFormat stringFormatHCenterVCenter = new StringFormat()
         {
             Alignment = StringAlignment.Center,
-            LineAlignment = StringAlignment.Center
-        };
-
-        private static readonly StringFormat stringFormatHRightVCenter = new StringFormat()
-        {
-            Alignment = StringAlignment.Far,
             LineAlignment = StringAlignment.Center
         };
 
@@ -139,14 +132,7 @@ namespace Tesserakt
                 drawFaction( g, actor.Faction );
                 drawType( g, actor.Type );
 
-                if( customImage != null )
-                {
-                    drawPicture( g, customImage );
-                }
-                else
-                {
-                    drawPicture( g, actor.Img );
-                }
+                drawPicture( g, customImage ?? actor.Img );
 
                 drawAttributes( g, actor, actorOutfit );
                 drawCalculatedAttributes( g, actor, actorOutfit );
@@ -226,14 +212,7 @@ namespace Tesserakt
             int charsFitted, linesFilled;
             g.MeasureString( name, fontName, textSize, stringFormatHCenterVCenter, out charsFitted, out linesFilled );
 
-            if( linesFilled > 1 )
-            {
-                g.DrawString( name, fontNameSmall, Brushes.Black, textRect, stringFormatHCenterVCenter );
-            }
-            else
-            {
-                g.DrawString( name, fontName, Brushes.Black, textRect, stringFormatHCenterVCenter );
-            }
+            g.DrawString( name, linesFilled > 1 ? fontNameSmall : fontName, Brushes.Black, textRect, stringFormatHCenterVCenter );
         }
 
         private static void drawFaction( Graphics g, Faction faction )
@@ -416,14 +395,7 @@ namespace Tesserakt
             {
                 Rectangle rect = new Rectangle( posX + ( s_substancePointSize * col ), posY + ( s_substancePointSize * row ), s_substancePointSize, s_substancePointSize );
 
-                if( i > crit )
-                {
-                    g.FillEllipse( substanceCritBrush, rect );
-                }
-                else
-                {
-                    g.FillEllipse( substanceNormalBrush, rect );
-                }
+                g.FillEllipse( i > crit ? substanceCritBrush : substanceNormalBrush, rect );
 
                 g.DrawEllipse( substanceBorderPen, rect );
 
@@ -451,14 +423,7 @@ namespace Tesserakt
             {
                 Rectangle rect = new Rectangle( x + ( s_substancePointSize * col ), y + ( s_substancePointSize * row ), s_substancePointSize, s_substancePointSize );
 
-                if( i > crit )
-                {
-                    g.FillEllipse( substanceCritBrush, rect );
-                }
-                else
-                {
-                    g.FillEllipse( substanceNormalBrush, rect );
-                }
+                g.FillEllipse( i > crit ? substanceCritBrush : substanceNormalBrush, rect );
 
                 g.DrawEllipse( substanceBorderPen, rect );
 
@@ -491,7 +456,7 @@ namespace Tesserakt
 
         private static void drawSize( Graphics g, Actor.ESize size )
         {
-            Bitmap img = null;
+            Bitmap img;
 
             switch( size )
             {
@@ -518,7 +483,7 @@ namespace Tesserakt
 
         private static void drawMovement( Graphics g, EMovementType movementType )
         {
-            Bitmap img = null;
+            Bitmap img;
 
             switch( movementType )
             {
@@ -695,11 +660,11 @@ namespace Tesserakt
                 g.DrawEllipse( unwieldyCirclePen, circleRect );
                 */
                 Point[] pointsLeft = new Point[ 3 ] { new Point( wkRect.Location.X, wkRect.Location.Y + ( wkRect.Size.Height / 2 ) ),
-                                                              new Point( wkRect.Location.X + CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 ) ),
-                                                              new Point( wkRect.Location.X + CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 * 2 ) ) };
+                                                      new Point( wkRect.Location.X + CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 ) ),
+                                                      new Point( wkRect.Location.X + CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 * 2 ) ) };
                 Point[] pointsRight = new Point[ 3 ] { new Point( wkRect.Location.X + wkRect.Size.Width, wkRect.Location.Y + ( wkRect.Size.Height / 2 ) ),
-                                                               new Point( wkRect.Location.X + wkRect.Size.Width - CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 ) ),
-                                                               new Point( wkRect.Location.X + wkRect.Size.Width - CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 * 2 ) ) };
+                                                       new Point( wkRect.Location.X + wkRect.Size.Width - CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 ) ),
+                                                       new Point( wkRect.Location.X + wkRect.Size.Width - CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 * 2 ) ) };
                 g.FillPolygon( Brushes.White, pointsLeft );
                 g.FillPolygon( Brushes.White, pointsRight );
             }
@@ -852,7 +817,7 @@ namespace Tesserakt
                 g.DrawLine( linePenBlack, potentialStart, posY + s_lineHeight, potentialStart, posY + s_lineHeightDouble );
                 g.DrawImage( Properties.Resources.potential_defence_white, new Rectangle( potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
                 
-                g.DrawString( armor.Potential.ToString(), fontWeapon, armorFontBrush, new Rectangle( potentialStart, posY + s_lineHeight, potentialWidth, s_lineHeight ), stringFormatHCenterVCenter );
+                g.DrawString( armor.Potential.ToString(), fontArmor, armorFontBrush, new Rectangle( potentialStart, posY + s_lineHeight, potentialWidth, s_lineHeight ), stringFormatHCenterVCenter );
 
                 g.DrawLine( linePenBlack, effectsStart, posY + s_lineHeight, effectsStart, posY + s_lineHeightDouble );
 
@@ -863,7 +828,7 @@ namespace Tesserakt
 
                     g.DrawImage( img, new Rectangle( camouflageStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
                     g.DrawLine( linePenBlack, camouflageStart, posY + s_lineHeight, camouflageStart, posY + s_lineHeightDouble );
-                    g.DrawString( armor.CamouflageLevel.ToString(), fontWeapon, armorFontBrush, new Rectangle( camouflageStart, posY + s_lineHeight, camouflageWidth, s_lineHeight ), stringFormatHCenterVCenter );
+                    g.DrawString( armor.CamouflageLevel.ToString(), fontArmor, armorFontBrush, new Rectangle( camouflageStart, posY + s_lineHeight, camouflageWidth, s_lineHeight ), stringFormatHCenterVCenter );
                 }
 
                 g.DrawLine( linePenBlack, sectionsPosX, posY + s_lineHeightDouble, s_sectionsWidth, posY + s_lineHeightDouble );
@@ -878,7 +843,7 @@ namespace Tesserakt
                 {
                     Rectangle rect = new Rectangle( effectsStart, posY + s_lineHeight, s_cardWidth - effectsStart, s_lineHeight );
                     g.FillRectangle( Brushes.Purple, rect );
-                    g.DrawString( "KEIN PLATZ", fontWeapon, Brushes.White, rect, stringFormatHCenterVCenter );
+                    g.DrawString( "KEIN PLATZ", fontArmor, Brushes.White, rect, stringFormatHCenterVCenter );
                 }
             }
         }

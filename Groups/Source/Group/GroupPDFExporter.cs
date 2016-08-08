@@ -13,8 +13,8 @@ namespace Tesserakt
     {
         private const int dpi = 72;
 
-        private static float s_cardWidth = CmToPixel( CardPainter.cardWidthCm );
-        private static float s_cardHeight = CmToPixel( CardPainter.cardHeightCm );
+        private static readonly float s_cardWidth = CmToPixel( CardPainter.cardWidthCm );
+        private static readonly float s_cardHeight = CmToPixel( CardPainter.cardHeightCm );
 
         #region fonts
         private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( TesseraktFonts.NovaSquareFileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaSquare, null );
@@ -43,9 +43,9 @@ namespace Tesserakt
 
         private static readonly float[][] s_flipsideColumns = new float[][]
                 {
-                    new float[] { s_flipsideMargin,                                         s_flipsideMargin, s_flipsideMargin + s_flipsideColumnWidth,                 s_flipsideHeight - s_flipsideMargin },
-                    new float[] { ( 2 * s_flipsideMargin ) + s_flipsideColumnWidth,         s_flipsideMargin, ( 2 * s_flipsideMargin ) + ( 2 * s_flipsideColumnWidth ), s_flipsideHeight - s_flipsideMargin },
-                    new float[] { ( 3 * s_flipsideMargin ) + ( 2 * s_flipsideColumnWidth ), s_flipsideMargin, ( 3 * s_flipsideMargin ) + ( 3 * s_flipsideColumnWidth ), s_flipsideHeight - s_flipsideMargin }
+                    new [] { s_flipsideMargin,                                         s_flipsideMargin, s_flipsideMargin + s_flipsideColumnWidth,                 s_flipsideHeight - s_flipsideMargin },
+                    new [] { ( 2 * s_flipsideMargin ) + s_flipsideColumnWidth,         s_flipsideMargin, ( 2 * s_flipsideMargin ) + ( 2 * s_flipsideColumnWidth ), s_flipsideHeight - s_flipsideMargin },
+                    new [] { ( 3 * s_flipsideMargin ) + ( 2 * s_flipsideColumnWidth ), s_flipsideMargin, ( 3 * s_flipsideMargin ) + ( 3 * s_flipsideColumnWidth ), s_flipsideHeight - s_flipsideMargin }
                 };
 
         private const string s_flipsideHeaderTitle = "Sonderregeln";
@@ -54,13 +54,7 @@ namespace Tesserakt
         private static readonly float s_flipsideHeaderTitleDescent = s_baseFontNovaSquare.GetDescentPoint( s_flipsideHeaderTitle, s_flipsideHeaderFont.Size );
         #endregion
 
-        private static string m_versionInfo
-        {
-            get
-            {
-                return( "Am " + DateTime.Now.ToString() + " mit der \"Tesserakt Program Suite\" Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + " erzeugt" );
-            }
-        }
+        private static readonly string m_versionInfo = "Am " + DateTime.Now.ToString() + " mit der \"Tesserakt Program Suite\" Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + " erzeugt";
 
         private static float CmToPixel( float cm )
         {
@@ -214,9 +208,9 @@ namespace Tesserakt
             foreach( var entry in group.GroupActorList.GroupBy( x => x.ActorOutfit.ID )
                                                       .Select( x => new { actor = ActorStorage.Instance.Actors.First( y => y.ActorOutfitsList.Exists( z => z.ID == x.Key ) ), actorOutfit = ActorStorage.Instance.Actors.SelectMany( y => y.ActorOutfitsList ).First( z => z.ID == x.Key ), count = x.Count() } )
                                                       .OrderBy( x => x.actorOutfit.Name )
-                                                      .OrderBy( x => x.actor.Name ) )
+                                                      .ThenBy( x => x.actor.Name ) )
             {
-                Image actorImg = Image.GetInstance( ( null != entry.actor.Icon ) ? entry.actor.Icon : group.FactionIcon, System.Drawing.Imaging.ImageFormat.Png );
+                Image actorImg = Image.GetInstance( entry.actor.Icon ?? group.FactionIcon, System.Drawing.Imaging.ImageFormat.Png );
                 actorImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
                 actorTable.AddCell( new PdfPCell( actorImg )
                 {
@@ -261,7 +255,7 @@ namespace Tesserakt
                 var groupActorsWithCustomNames = group.GroupActorList.Where( x => x.Actor == entry.actor && x.ActorOutfit == entry.actorOutfit )
                                                                      .Where( x => !String.IsNullOrEmpty( x.CustomName ) )
                                                                      .OrderBy( x => x.CustomName );
-                if( groupActorsWithCustomNames.Count() > 0 )
+                if( groupActorsWithCustomNames.Any() )
                 {
                     actorTable.AddCell( new PdfPCell()
                     {
@@ -314,8 +308,8 @@ namespace Tesserakt
             positions[ 1 ].Y = distanceY + s_cardHeight;
 
             List<Group.GroupActor> sortedGroupActorList = group.GroupActorList.OrderBy( x => x.Name )
-                                                                              .OrderBy( x => x.ActorOutfit.Name )
-                                                                              .OrderBy( x => x.CustomName )
+                                                                              .ThenBy( x => x.ActorOutfit.Name )
+                                                                              .ThenBy( x => x.CustomName )
                                                                               .ToList();
 
             for( int i = 0; i < sortedGroupActorList.Count; i++ )

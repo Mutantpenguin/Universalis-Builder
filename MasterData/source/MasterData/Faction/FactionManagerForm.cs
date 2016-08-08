@@ -63,7 +63,7 @@ namespace Tesserakt
 
                 var actorsWithFaction = ActorStorage.Instance.ActorsWithFaction( faction );
 
-                if( actorsWithFaction.Count() > 0 )
+                if( actorsWithFaction.Any() )
                 {
                     using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithFaction ) )
                     {

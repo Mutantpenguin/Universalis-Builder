@@ -19,7 +19,7 @@ namespace Tesserakt
         private static readonly ColorMatrix s_colorMatrixRed = ColorHelper.ColorToColorMatrix( red );
         private static readonly ColorMatrix s_colorMatrixGreen = ColorHelper.ColorToColorMatrix( green );
 
-        public static Image Colorize( Image image, DamageColor.EType color )
+        public static Image Colorize( Image image, EType color )
         {
             if( null == image )
             {
@@ -30,11 +30,11 @@ namespace Tesserakt
             {
                 switch( color )
                 {
-                    case DamageColor.EType.Green:
+                    case EType.Green:
                         imageAttributes.SetColorMatrix( s_colorMatrixGreen );
                         break;
 
-                    case DamageColor.EType.Red:
+                    case EType.Red:
                         imageAttributes.SetColorMatrix( s_colorMatrixRed );
                         break;
 

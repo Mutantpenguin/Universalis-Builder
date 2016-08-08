@@ -15,13 +15,7 @@ namespace Tesserakt
         }
 
         [JsonIgnore]
-        public Image GetOriginalImage
-        {
-            get
-            {
-                return ( GetImage( DamageColor.EType.Original ) );
-            }
-        }
+        public Image GetOriginalImage => ( GetImage( DamageColor.EType.Original ) );
 
         private static readonly Image s_effekt_desintegrator_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_desintegrator, DamageColor.EType.Green );
         private static readonly Image s_effekt_durchschlag_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_durchschlag, DamageColor.EType.Green );
@@ -118,7 +112,7 @@ namespace Tesserakt
                             return ( TObjects.Properties.Resources.effekt_struktur );
 
                         default:
-                            throw new InvalidOperationException( "unkown " + nameof( DamageEffect.EType ) );
+                            throw new InvalidOperationException( "unkown " + nameof( EType ) );
                     }
 
                 case DamageColor.EType.Green:
@@ -176,7 +170,7 @@ namespace Tesserakt
                             return ( s_effekt_struktur_green );
 
                         default:
-                            throw new InvalidOperationException( "unkown " + nameof( DamageEffect.EType ) );
+                            throw new InvalidOperationException( "unkown " + nameof( EType ) );
                     }
 
                 case DamageColor.EType.Red:
@@ -234,7 +228,7 @@ namespace Tesserakt
                             return ( s_effekt_struktur_red );
 
                         default:
-                            throw new InvalidOperationException( "unkown " + nameof( DamageEffect.EType ) );
+                            throw new InvalidOperationException( "unkown " + nameof( EType ) );
                     }
 
                 default:

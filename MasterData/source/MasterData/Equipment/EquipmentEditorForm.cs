@@ -30,7 +30,7 @@ namespace Tesserakt
             }
         }
 
-        Equipment m_originalEquipment;
+        private readonly Equipment m_originalEquipment;
 
         private bool mandatoryFieldsFilled()
         {

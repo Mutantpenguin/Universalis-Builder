@@ -150,7 +150,7 @@ namespace Tesserakt
 
         public void AddActor( Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            GroupActorList.Add( new Group.GroupActor
+            GroupActorList.Add( new GroupActor
             {
                 Actor = actor,
                 ActorOutfit = actorOutfit

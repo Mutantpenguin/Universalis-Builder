@@ -183,13 +183,7 @@ namespace Tesserakt
             Aktiv = 2
         }
 
-        public static List<ECamouflage> ECamouflageList
-        {
-            get
-            {
-                return ( Enum.GetValues( typeof( ECamouflage ) ).Cast<ECamouflage>().ToList() );
-            }
-        }
+        public static List<ECamouflage> ECamouflageList => ( Enum.GetValues( typeof( ECamouflage ) ).Cast<ECamouflage>().ToList() );
 
         public Guid ID
         {
@@ -243,7 +237,7 @@ namespace Tesserakt
         {
             get;
             set;
-        } = Armor.ECamouflage.Keine;
+        } = ECamouflage.Keine;
 
         public int CamouflageLevel
         {
@@ -369,30 +363,12 @@ namespace Tesserakt
         #endregion Attributes
 
         [JsonIgnore]
-        public Image TypesImage
-        {
-            get
-            {
-                return ( DamageType.GetTypeListImage( DamageTypeList, DamageColor.EType.Green ) );
-            }
-        }
+        public Image TypesImage => ( DamageType.GetTypeListImage( DamageTypeList, DamageColor.EType.Green ) );
 
         [JsonIgnore]
-        public Image EffectsImage
-        {
-            get
-            {
-                return ( DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Green ) );
-            }
-        }
+        public Image EffectsImage => ( DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Green ) );
 
         [JsonIgnore]
-        public string EffectsString
-        {
-            get
-            {
-                return ( DamageEffect.GetEffectListString( DamageEffectList ) );
-            }
-        }
+        public string EffectsString => ( DamageEffect.GetEffectListString( DamageEffectList ) );
     }
 }

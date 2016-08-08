@@ -21,7 +21,7 @@ namespace Tesserakt
             comboBoxType.SelectedItem = faction.Type;
         }
 
-        Faction m_originalFaction;
+        private readonly Faction m_originalFaction;
 
         private bool mandatoryFieldsFilled()
         {

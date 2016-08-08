@@ -18,7 +18,7 @@ namespace Tesserakt
             toolStripTextBoxSearch.TextBox.Select();
         }
 
-        private List<Trait> m_TraitsList;
+        private readonly List<Trait> m_TraitsList;
 
         public List<Trait> SelectedTraits
         {
@@ -78,8 +78,10 @@ namespace Tesserakt
         {
             if( -1 != e.RowIndex )
             {
-                SelectedTraits = new List<Trait>();
-                SelectedTraits.Add( (Trait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem );
+                SelectedTraits = new List<Trait>
+                {
+                    (Trait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem
+                };
 
                 this.DialogResult = DialogResult.OK;
                 Close();

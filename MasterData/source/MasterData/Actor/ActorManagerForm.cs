@@ -18,10 +18,10 @@ namespace Tesserakt
             filterFaction.ComboBox.DataSource = FactionStorage.Instance.Factions.OrderBy( x => x.Name )
                                                                                 .ToList();
             filterFaction.ComboBox.DisplayMember = nameof( Faction.Name );
-            filterFaction.ComboBox.SelectionChangeCommitted += new EventHandler( FilterFaction_SelectionChangeCommitted );
+            filterFaction.ComboBox.SelectionChangeCommitted += FilterFaction_SelectionChangeCommitted;
 
             filterType.ComboBox.DataSource = Actor.ETypeList;
-            filterType.ComboBox.SelectionChangeCommitted += new EventHandler( FilterType_SelectionChangeCommitted );
+            filterType.ComboBox.SelectionChangeCommitted += FilterType_SelectionChangeCommitted;
 
             RefreshActorsGridView();
 
@@ -133,21 +133,14 @@ namespace Tesserakt
             actorBindingSource.DataSource = actors;
             dataGridViewActors.ClearSelection();
 
-            toolStripStatusLabelCount.Text = $"Anzahl: {actors.Count()}";
+            toolStripStatusLabelCount.Text = $"Anzahl: {actors.Count}";
         }
 
         private void checkBoxFilterFaction_Click( object sender, EventArgs e )
         {
             filterFaction.Enabled = !filterFaction.Enabled;
 
-            if( checkBoxFilterFaction.Checked )
-            {
-                checkBoxFilterFaction.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterFaction.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterFaction.Image = checkBoxFilterFaction.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             RefreshActorsGridView();
         }
@@ -156,14 +149,7 @@ namespace Tesserakt
         {
             filterType.Enabled = !filterType.Enabled;
 
-            if( checkBoxFilterType.Checked )
-            {
-                checkBoxFilterType.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterType.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterType.Image = checkBoxFilterType.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             RefreshActorsGridView();
         }

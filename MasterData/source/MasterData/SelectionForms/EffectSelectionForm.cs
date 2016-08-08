@@ -46,8 +46,10 @@ namespace Tesserakt
         {
             if( -1 != e.RowIndex )
             {
-                SelectedDamageEffects = new List<DamageEffect>();
-                SelectedDamageEffects.Add( (DamageEffect)dataGridViewDamageEffects.Rows[ e.RowIndex ].DataBoundItem );
+                SelectedDamageEffects = new List<DamageEffect>
+                {
+                    (DamageEffect)dataGridViewDamageEffects.Rows[e.RowIndex].DataBoundItem
+                };
 
                 this.DialogResult = DialogResult.OK;
                 Close();

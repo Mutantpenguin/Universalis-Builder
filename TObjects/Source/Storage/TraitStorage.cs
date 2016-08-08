@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Tesserakt
@@ -58,7 +57,7 @@ namespace Tesserakt
                         MessageBox.Show( $"Problem beim Lesen der Eigenschaft-Datei '{Path.GetFileName( file )}':\n{ex.Message}" );
                     }
 
-                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Count() * 100 ), $"Eigenschaft {i}/{files.Count()}" );
+                    backgroundWorker.ReportProgress( Convert.ToInt32( (float)i / files.Length * 100 ), $"Eigenschaft {i}/{files.Length}" );
 
                     i++;
                 }
@@ -141,14 +140,8 @@ namespace Tesserakt
             File.Move( GetFilename( trait ), GetFilenameTrash( trait ) );
         }
 
-        public IList<Trait> Traits
-        {
-            get
-            {
-                return ( m_traitsList.AsReadOnly() );
-            }
-        }
+        public IList<Trait> Traits => ( m_traitsList.AsReadOnly() );
 
-        private List<Trait> m_traitsList = new List<Trait>();
+        private readonly List<Trait> m_traitsList = new List<Trait>();
     }
 }

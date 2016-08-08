@@ -71,7 +71,7 @@ namespace Tesserakt
                 return ( false );
             }
 
-            foreach( Actor.ActorOutfit actorOutfit in ActorOutfitsList )
+            foreach( ActorOutfit actorOutfit in ActorOutfitsList )
             {
                 if( actor.ActorOutfitsList.Find( x => x.Equals( actorOutfit ) ) == null )
                 {
@@ -79,7 +79,7 @@ namespace Tesserakt
                 }
             }
 
-            foreach( Actor.ActorOutfit actorOutfit in actor.ActorOutfitsList )
+            foreach( ActorOutfit actorOutfit in actor.ActorOutfitsList )
             {
                 if( ActorOutfitsList.Find( x => x.Equals( actorOutfit ) ) == null )
                 {
@@ -87,7 +87,7 @@ namespace Tesserakt
                 }
             }
 
-            foreach( Actor.ActorTrait actorTrait in ActorTraitsList )
+            foreach( ActorTrait actorTrait in ActorTraitsList )
             {
                 if( actor.ActorTraitsList.Find( x => x.Equals( actorTrait ) ) == null )
                 {
@@ -95,7 +95,7 @@ namespace Tesserakt
                 }
             }
 
-            foreach( Actor.ActorTrait actorTrait in actor.ActorTraitsList )
+            foreach( ActorTrait actorTrait in actor.ActorTraitsList )
             {
                 if( ActorTraitsList.Find( x => x.Equals( actorTrait ) ) == null )
                 {
@@ -166,9 +166,9 @@ namespace Tesserakt
 
             if( null != actor.ActorOutfitsList )
             {
-                foreach( Actor.ActorOutfit actorOutfit in actor.ActorOutfitsList )
+                foreach( ActorOutfit actorOutfit in actor.ActorOutfitsList )
                 {
-                    ActorOutfitsList.Add( new Actor.ActorOutfit( actorOutfit, withOutfitID ) );
+                    ActorOutfitsList.Add( new ActorOutfit( actorOutfit, withOutfitID ) );
                 }
             }
 
@@ -180,14 +180,14 @@ namespace Tesserakt
             }
             else
             {
-                ActorTraitsList = new List<Actor.ActorTrait>();
+                ActorTraitsList = new List<ActorTrait>();
             }
 
             if( null != actor.ActorTraitsList )
             {
-                foreach( Actor.ActorTrait actorTrait in actor.ActorTraitsList )
+                foreach( ActorTrait actorTrait in actor.ActorTraitsList )
                 {
-                    ActorTraitsList.Add( new Actor.ActorTrait( actorTrait ) );
+                    ActorTraitsList.Add( new ActorTrait( actorTrait ) );
                 }
             }
         }
@@ -242,13 +242,7 @@ namespace Tesserakt
         } = 5;
 
         [JsonIgnore]
-        public int HitZoneSZ
-        {
-            get
-            {
-                return ( Convert.ToInt32( Math.Ceiling( SZ * Presets.MIKEHitZoneSZMultiplier ) ) );
-            }
-        }
+        public int HitZoneSZ => ( Convert.ToInt32( Math.Ceiling( SZ * Presets.MIKEHitZoneSZMultiplier ) ) );
 
         [JsonConverter( typeof( JsonImageConverter ) )]
         public Bitmap Icon
@@ -283,11 +277,6 @@ namespace Tesserakt
                 Set( actorOutfit, withOutfitID );
             }
 
-            private void Set( ActorOutfit actorOutfit )
-            {
-                Set( actorOutfit, withOutfitID: false );
-            }
-
             private void Set( ActorOutfit actorOutfit, bool withOutfitID )
             {
                 if( null == actorOutfit )
@@ -313,7 +302,7 @@ namespace Tesserakt
 
                 if( null != actorOutfit.ActorWeaponsList )
                 {
-                    foreach( Actor.ActorWeapon actorWeapon in actorOutfit.ActorWeaponsList )
+                    foreach( ActorWeapon actorWeapon in actorOutfit.ActorWeaponsList )
                     {
                         ActorWeaponsList.Add( actorWeapon );
                     }
@@ -330,7 +319,7 @@ namespace Tesserakt
 
                 if( null != actorOutfit.ActorEquipmentList )
                 {
-                    foreach( Actor.ActorEquipment actorEquipment in actorOutfit.ActorEquipmentList )
+                    foreach( ActorEquipment actorEquipment in actorOutfit.ActorEquipmentList )
                     {
                         ActorEquipmentList.Add( actorEquipment );
                     }
@@ -403,13 +392,13 @@ namespace Tesserakt
             {
                 get;
                 set;
-            } = new List<Actor.ActorWeapon>();
+            } = new List<ActorWeapon>();
 
             public List<ActorEquipment> ActorEquipmentList
             {
                 get;
                 set;
-            } = new List<Actor.ActorEquipment>();
+            } = new List<ActorEquipment>();
         }
 
         public class ActorTrait
@@ -464,31 +453,13 @@ namespace Tesserakt
             }
 
             [JsonIgnore]
-            public string Name
-            {
-                get
-                {
-                    return ( Trait.Name );
-                }
-            }
+            public string Name => ( Trait.Name );
 
             [JsonIgnore]
-            public int Points
-            {
-                get
-                {
-                    return ( Trait.Points( Level ) );
-                }
-            }
+            public int Points => ( Trait.Points( Level ) );
 
             [JsonIgnore]
-            public string Type
-            {
-                get
-                {
-                    return ( Trait.Type );
-                }
-            }
+            public string Type => ( Trait.Type );
         }
 
         public class ActorWeapon
@@ -507,31 +478,13 @@ namespace Tesserakt
             }
 
             [JsonIgnore]
-            public string Name
-            {
-                get
-                {
-                    return ( Weapon.Name );
-                }
-            }
+            public string Name => ( Weapon.Name );
 
             [JsonIgnore]
-            public float Weight
-            {
-                get
-                {
-                    return ( Weapon.Weight );
-                }
-            }
+            public float Weight => ( Weapon.Weight );
 
             [JsonIgnore]
-            public int Points
-            {
-                get
-                {
-                    return ( Weapon.Points );
-                }
-            }
+            public int Points => ( Weapon.Points );
         }
 
         public class ActorEquipment
@@ -550,31 +503,13 @@ namespace Tesserakt
             }
 
             [JsonIgnore]
-            public string Name
-            {
-                get
-                {
-                    return ( Equipment.Name );
-                }
-            }
+            public string Name => ( Equipment.Name );
 
             [JsonIgnore]
-            public float Weight
-            {
-                get
-                {
-                    return ( Equipment.Weight );
-                }
-            }
+            public float Weight => ( Equipment.Weight );
 
             [JsonIgnore]
-            public int Points
-            {
-                get
-                {
-                    return ( Equipment.Points );
-                }
-            }
+            public int Points => ( Equipment.Points );
         }
 
         #region members
@@ -582,7 +517,7 @@ namespace Tesserakt
         {
             get;
             set;
-        } = Actor.ESize.Mittel;
+        } = ESize.Mittel;
 
         public EType Type
         {
@@ -609,11 +544,11 @@ namespace Tesserakt
             set;
         } = EFieldOfView._90;
 
-        public List<Actor.ActorOutfit> ActorOutfitsList
+        public List<ActorOutfit> ActorOutfitsList
         {
             get;
             set;
-        } = new List<Actor.ActorOutfit>();
+        } = new List<ActorOutfit>();
 
         [JsonConverter( typeof( JsonArmorConverter ) )]
         public Armor Armor
@@ -626,7 +561,7 @@ namespace Tesserakt
         {
             get;
             set;
-        } = new List<Actor.ActorTrait>();
+        } = new List<ActorTrait>();
 
         public Attributes Attributes
         {
@@ -683,39 +618,39 @@ namespace Tesserakt
         }
         */
 
-        public int ModAGI( Actor.ActorOutfit actorOutfit )
+        public int ModAGI( ActorOutfit actorOutfit )
         {
             return ( Attributes.ModAGI( CurrentAttributeModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
         }
 
-        public int ModBW( Actor.ActorOutfit actorOutfit )
+        public int ModBW( ActorOutfit actorOutfit )
         {
             return ( Attributes.ModBW( CurrentAttributeModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
         }
 
-        public int ModKK( Actor.ActorOutfit actorOutfit )
+        public int ModKK( ActorOutfit actorOutfit )
         {
             return ( Attributes.ModKK( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
-        public int ModHAK( Actor.ActorOutfit actorOutfit )
+        public int ModHAK( ActorOutfit actorOutfit )
         {
             return ( Attributes.ModHAK( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
-        public int ModAFG( Actor.ActorOutfit actorOutfit )
+        public int ModAFG( ActorOutfit actorOutfit )
         {
             return ( Attributes.ModAFG( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
-        public int ModSH( Actor.ActorOutfit actorOutfit )
+        public int ModSH( ActorOutfit actorOutfit )
         {
             return ( Attributes.ModSH( CurrentAttributeModifier( actorOutfit ) ) );
         }
 #endregion attributes
 
 #region calculated values
-        public int GB( Actor.ActorOutfit actorOutfit )
+        public int GB( ActorOutfit actorOutfit )
         {
             int lengthGB = Presets.MaxLengthGB - Attributes.ModSH( CurrentAttributeModifier( actorOutfit ) );
 
@@ -736,7 +671,7 @@ namespace Tesserakt
         }
         */
 
-        public int ModWB( Actor.ActorOutfit actorOutfit )
+        public int ModWB( ActorOutfit actorOutfit )
         {
             return ( Presets.WBMultiplier * Attributes.ModAFG( CurrentAttributeModifier( actorOutfit ) ) );
         }
@@ -763,7 +698,7 @@ namespace Tesserakt
         }
         */
 
-        public float ModMaxLoadCapacity( Actor.ActorOutfit actorOutfit )
+        public float ModMaxLoadCapacity( ActorOutfit actorOutfit )
         {
             switch( this.Type )
             {
@@ -778,11 +713,11 @@ namespace Tesserakt
                     return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKK( CurrentAttributeModifier( actorOutfit ) ) * Presets.FahrzeugLoadCapacityMultiplier ), 2 ) ) );
 
                 default:
-                    throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
+                    throw new InvalidOperationException( "unkown " + nameof( EType ) );
             }
         }
 
-        public float LoadoutWeight( Actor.ActorOutfit actorOutfit, bool withSelfSustaining )
+        public float LoadoutWeight( ActorOutfit actorOutfit, bool withSelfSustaining )
         {
             float loadoutWeight = 0.0f;
 
@@ -826,7 +761,7 @@ namespace Tesserakt
         }
         */
 
-        private int ModLoadModifier( Actor.ActorOutfit actorOutfit )
+        private int ModLoadModifier( ActorOutfit actorOutfit )
         {
             int loadModifier = Convert.ToInt32( Math.Ceiling( LoadoutWeight( actorOutfit, withSelfSustaining: false ) / ModMaxLoadCapacity( actorOutfit ) ) );
 
@@ -840,7 +775,7 @@ namespace Tesserakt
             }
         }
 
-        public Weapon WeaponUnarmed( Actor.ActorOutfit actorOutfit )
+        public Weapon WeaponUnarmed( ActorOutfit actorOutfit )
         {
             if( ( this.Type == EType.Drohne )
                 ||
@@ -879,14 +814,14 @@ namespace Tesserakt
                         break;
 
                     default:
-                        throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
+                        throw new InvalidOperationException( "unkown " + nameof( EType ) );
                 }
 
                 return ( weaponUnarmed );
             }
         }
 
-        public Weapon WeaponDetonation( Actor.ActorOutfit actorOutfit )
+        public Weapon WeaponDetonation( ActorOutfit actorOutfit )
         {
             if( this.Type != EType.MIKe )
             {
@@ -929,8 +864,8 @@ namespace Tesserakt
             {
                 if( ActorOutfitsList.Count > 0 )
                 {
-                    int minPoints = ActorOutfitsList.Min( x => this.Points( x ) );
-                    int maxPoints = ActorOutfitsList.Max( x => this.Points( x ) );
+                    int minPoints = ActorOutfitsList.Min( this.Points );
+                    int maxPoints = ActorOutfitsList.Max( this.Points );
 
                     if( minPoints == maxPoints )
                     {
@@ -948,7 +883,7 @@ namespace Tesserakt
             }
         }
 
-        public int Points( Actor.ActorOutfit actorOutfit )
+        public int Points( ActorOutfit actorOutfit )
         {
             int points = 0;
 
@@ -963,7 +898,7 @@ namespace Tesserakt
             {
                 case EType.Infanterie:
                 case EType.Drohne:
-                case Actor.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
+                case EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
                     points += SZ * Costs.SZ;
                     break;
 
@@ -972,7 +907,7 @@ namespace Tesserakt
                     break;
 
                 default:
-                    throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
+                    throw new InvalidOperationException( "unkown " + nameof( EType ) );
             }
 
             points += (int)Fov * Costs.FOV;
@@ -998,7 +933,7 @@ namespace Tesserakt
         }
 #endregion calculated values
 
-        private AttributeModifier CurrentAttributeModifier( Actor.ActorOutfit actorOutfit )
+        private AttributeModifier CurrentAttributeModifier( ActorOutfit actorOutfit )
         {
             AttributeModifier modifier = new AttributeModifier();
 
@@ -1009,7 +944,7 @@ namespace Tesserakt
 
             if( actorOutfit != null )
             {
-                foreach( Actor.ActorEquipment actorEquipment in actorOutfit.ActorEquipmentList.Where( x => !x.Equipment.UseOnce ) )
+                foreach( ActorEquipment actorEquipment in actorOutfit.ActorEquipmentList.Where( x => !x.Equipment.UseOnce ) )
                 {
                     modifier.Add( actorEquipment.Equipment.AttributeModifier );
                 }

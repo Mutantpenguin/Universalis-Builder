@@ -63,7 +63,7 @@ namespace Tesserakt
 
                 var actorsWithEquipment = ActorStorage.Instance.ActorsWithEquipment( equipment );
 
-                if( actorsWithEquipment.Count() > 0 )
+                if( actorsWithEquipment.Any() )
                 {
                     using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithEquipment ) )
                     {

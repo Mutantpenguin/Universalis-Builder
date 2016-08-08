@@ -25,7 +25,7 @@ namespace Tesserakt
             updateLevels();
         }
 
-        Trait m_originalTrait;
+        private readonly Trait m_originalTrait;
 
         private bool mandatoryFieldsFilled()
         {
@@ -70,7 +70,7 @@ namespace Tesserakt
             {
                 foreach( TraitLevel.ELevel eLevel in TraitLevel.ELevelList )
                 {
-                    if( traitModified.TraitLevelList.Where( x => x.Level == eLevel ).Count() > 1 )
+                    if( traitModified.TraitLevelList.Count( x => x.Level == eLevel ) > 1 )
                     {
                         MessageBox.Show( $"Achtung, Sie haben die Stufe '{eLevel.ToString()}' mehr als 1 Mal verwendet!" );
                         return ( false );
@@ -166,7 +166,7 @@ namespace Tesserakt
 
                 var actorsWithTraitLevel = ActorStorage.Instance.ActorsWithTraitLevel( m_originalTrait, traitLevel );
 
-                if( actorsWithTraitLevel.Count() > 0 )
+                if( actorsWithTraitLevel.Any() )
                 {
                     using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithTraitLevel ) )
                     {

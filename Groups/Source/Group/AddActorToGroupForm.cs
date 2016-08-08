@@ -14,14 +14,14 @@ namespace Tesserakt
             m_factionID = factionID;
 
             filterType.ComboBox.DataSource = Actor.ETypeList;
-            filterType.ComboBox.SelectionChangeCommitted += new EventHandler( FilterType_SelectionChangeCommitted );
+            filterType.ComboBox.SelectionChangeCommitted += FilterType_SelectionChangeCommitted;
 
             updateDataGridViewActors();
 
             toolStripTextBoxSearch.TextBox.Select();
         }
 
-        private Guid m_factionID;
+        private readonly Guid m_factionID;
 
         private void updateDataGridViewActors()
         {
@@ -74,9 +74,10 @@ namespace Tesserakt
         {
             if( -1 != e.RowIndex )
             {
-                SelectedActors = new List<Actor>();
-
-                SelectedActors.Add( (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem );
+                SelectedActors = new List<Actor>
+                {
+                    (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem
+                };
 
                 this.DialogResult = DialogResult.OK;
                 Close();
@@ -97,14 +98,7 @@ namespace Tesserakt
         {
             filterType.Enabled = !filterType.Enabled;
 
-            if( checkBoxFilterType.Checked )
-            {
-                checkBoxFilterType.Image = Properties.Resources.ui_check_box;
-            }
-            else
-            {
-                checkBoxFilterType.Image = Properties.Resources.ui_check_box_uncheck;
-            }
+            checkBoxFilterType.Image = checkBoxFilterType.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             updateDataGridViewActors();
         }

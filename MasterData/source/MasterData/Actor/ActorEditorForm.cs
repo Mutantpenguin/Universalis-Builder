@@ -79,13 +79,13 @@ namespace Tesserakt
 
             int index = sortedActorOutfitsList.FindIndex( a => a == CurrentOutfit() ) + 1;
 
-            toolStripLabelOutfitCount.Text = index.ToString() + "/" + m_actorModified.ActorOutfitsList.Count().ToString();
+            toolStripLabelOutfitCount.Text = index.ToString() + "/" + m_actorModified.ActorOutfitsList.Count.ToString();
         }
 
         private readonly bool m_initialized = false;
 
-        private Actor m_actorModified;
-        private Actor m_actorOriginal;
+        private readonly Actor m_actorModified;
+        private readonly Actor m_actorOriginal;
 
 #region values changed
         private void AttribAGI_ValueChanged( object sender, EventArgs e )

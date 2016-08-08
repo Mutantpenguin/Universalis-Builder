@@ -65,7 +65,7 @@ namespace Tesserakt
 
                     ListViewItem lvi = new ListViewItem()
                     {
-                        Text = faction.Name + " ( " + GroupStorage.Instance.Groups.Where( x => x.Faction == faction ).Count() + " )",
+                        Text = faction.Name + " ( " + GroupStorage.Instance.Groups.Count( x => x.Faction == faction ) + " )",
                         ImageKey = faction.ID.ToString(),
                         ToolTipText = faction.Description,
                         Group = group

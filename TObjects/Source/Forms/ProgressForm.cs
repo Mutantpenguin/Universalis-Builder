@@ -25,7 +25,7 @@ namespace Tesserakt
         }
 
         private bool m_automaticClose = false;
-        private List<BackgroundWorker> m_backgroundWorker = new List<BackgroundWorker>();
+        private readonly List<BackgroundWorker> m_backgroundWorker = new List<BackgroundWorker>();
 
         private void ProgressForm_Load( object sender, System.EventArgs e )
         {
@@ -50,9 +50,10 @@ namespace Tesserakt
             int maximumOld = progressBar.Maximum;
             progressBar.Maximum += 100;
 
-            BackgroundWorker progressorBackgroundWorker = new BackgroundWorker();
-
-            progressorBackgroundWorker.WorkerReportsProgress = true;
+            BackgroundWorker progressorBackgroundWorker = new BackgroundWorker
+            {
+                WorkerReportsProgress = true
+            };
 
             progressorBackgroundWorker.ProgressChanged += ( sender, e ) =>
             {

@@ -46,8 +46,10 @@ namespace Tesserakt
         {
             if( -1 != e.RowIndex )
             {
-                SelectedDamageTypes = new List<DamageType>();
-                SelectedDamageTypes.Add( (DamageType)dataGridViewDamageTypes.Rows[ e.RowIndex ].DataBoundItem );
+                SelectedDamageTypes = new List<DamageType>
+                {
+                    (DamageType)dataGridViewDamageTypes.Rows[ e.RowIndex ].DataBoundItem
+                };
 
                 this.DialogResult = DialogResult.OK;
                 Close();
