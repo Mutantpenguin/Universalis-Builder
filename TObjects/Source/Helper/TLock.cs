@@ -83,25 +83,9 @@ namespace Tesserakt
 
         private void CreateLockFile()
         {
-            string userName = String.Empty;
-
-            try
-            {
-                userName = System.DirectoryServices.AccountManagement.UserPrincipal.Current.DisplayName;
-            }
-            catch( Exception )
-            {
-                // do nothing, since this just crashes on linux
-            }
-
-            if( String.IsNullOrEmpty( userName ) )
-            {
-                userName = Environment.UserName;
-            }         
-
             LockFileContents lockFile = new LockFileContents()
             {
-                UserName = userName,
+                UserName = Environment.UserName,
                 Machine = SystemInformation.ComputerName,
                 LockDate = DateTime.Now,
                 PID = Process.GetCurrentProcess().Id
