@@ -54,7 +54,7 @@ namespace Tesserakt
         private static readonly float s_flipsideHeaderTitleDescent = s_baseFontNovaSquare.GetDescentPoint( s_flipsideHeaderTitle, s_flipsideHeaderFont.Size );
         #endregion
 
-        private static readonly string m_versionInfo = "Am " + DateTime.Now.ToString() + " mit der \"Tesserakt Program Suite\" Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + " erzeugt";
+        private static readonly string s_versionInfo = "Am " + DateTime.Now.ToShortDateString() + " mit der \"Tesserakt Program Suite\" Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + " erzeugt";
 
         private static float CmToPixel( float cm )
         {
@@ -85,7 +85,7 @@ namespace Tesserakt
 
                 document.AddTitle( p_group.Name );
                 document.AddAuthor( "Markus Lobedann & Sandro Sapienza" );
-                document.AddCreator( m_versionInfo );
+                document.AddCreator( s_versionInfo );
                 document.AddKeywords( "Einheitenkarten für das Tesserakt Tabletop Spiel" );
                 document.AddSubject( p_group.Description );
                 document.AddCreationDate();
@@ -147,7 +147,7 @@ namespace Tesserakt
             
             document.Add( Image.GetInstance( headerBarTemplate ) );
             
-            document.Add( new Paragraph( m_versionInfo, s_versionInfoFont ) );
+            document.Add( new Paragraph( s_versionInfo, s_versionInfoFont ) );
 
             if( !String.IsNullOrEmpty( group.Description ) )
             {
