@@ -276,14 +276,13 @@ namespace Tesserakt
         {
             int widthName = CmToPixel( 0.9 );
             int widthAtt = CmToPixel( 0.6 );
-            int height = CmToPixel( 0.5 );
 
-            Rectangle rect_name = new Rectangle( posX, posY, widthName, height );
-            Rectangle rect_modified = new Rectangle( posX + widthName, posY, 2 * widthAtt, height );
+            Rectangle rect_name = new Rectangle( posX, posY, widthName, s_lineHeight );
+            Rectangle rect_modified = new Rectangle( posX + widthName, posY, 2 * widthAtt, s_lineHeight );
             // TODO only for EMP
             //Rectangle rect_normal = new Rectangle( posX + widthName + widthAtt, posY, widthAtt, height );
 
-            g.DrawRectangle( linePenBlack, new Rectangle( posX, posY, widthName + widthAtt + widthAtt, height ) );
+            g.DrawRectangle( linePenBlack, new Rectangle( posX, posY, widthName + widthAtt + widthAtt, s_lineHeight ) );
 
             g.FillRectangle( Brushes.Black, rect_name );
 
@@ -307,19 +306,15 @@ namespace Tesserakt
 
         private static void drawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            // GB - Gefahrenbereich
-            g.DrawImage( Properties.Resources.danger, new Rectangle( xAttrThirdColumn, CmToPixel( 0.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
-            g.DrawString( $"{actor.GB( actorOutfit )}cm", fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), 0, CmToPixel( 1 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
-
             // WB - Wahrnehmungsbereich
-            g.DrawImage( Properties.Resources.eye, new Rectangle( xAttrThirdColumn, CmToPixel( 0.55 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
+            g.DrawImage( Properties.Resources.eye, new Rectangle( xAttrThirdColumn, CmToPixel( 0.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
 
             string fovAndModWbString = $"{(int)actor.Fov}°/{actor.ModWB( actorOutfit )}cm";
 
             // TODO only for EMP
             Size fovAndModWbSize = g.MeasureString( fovAndModWbString, fontStandard ).ToSize();
 
-            g.DrawString( fovAndModWbString, fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), CmToPixel( 0.5 ), fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
+            g.DrawString( fovAndModWbString, fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
 
             /* TODO only for EMP
             if( actor.WB( actorOutfit ) != actor.ModWB( actorOutfit ) )
@@ -328,6 +323,10 @@ namespace Tesserakt
                 g.DrawString( wbString, fontStandardSmall, Brushes.Gray, new Rectangle( xAttThirdColumn + CmToPixel( 0.5 ) + fovAndModWbSize.Width, CmToPixel( 0.5 ), CmToPixel( 1 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
             }
             */
+
+            // GB - Gefahrenbereich
+            g.DrawImage( Properties.Resources.danger, new Rectangle( xAttrThirdColumn, s_lineHeight + CmToPixel( 0.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
+            g.DrawString( $"{actor.GB( actorOutfit )}cm", fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), s_lineHeight, CmToPixel( 1 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
         }
 
         private static void drawSubstance( Graphics g, Actor actor )
