@@ -307,7 +307,7 @@ namespace Tesserakt
         private static void drawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             // WB - Wahrnehmungsbereich
-            g.DrawImage( Properties.Resources.eye, new Rectangle( xAttrThirdColumn, CmToPixel( 0.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
+            g.DrawImage( Properties.Resources.eye, new Rectangle( xAttrThirdColumn, s_imageMargin, s_lineHeight - 2 * s_imageMargin, s_lineHeight - 2 * s_imageMargin ) );
 
             string fovAndModWbString = $"{(int)actor.Fov}°/{actor.ModWB( actorOutfit )}cm";
 
@@ -325,8 +325,8 @@ namespace Tesserakt
             */
 
             // GB - Gefahrenbereich
-            g.DrawImage( Properties.Resources.danger, new Rectangle( xAttrThirdColumn, s_lineHeight + CmToPixel( 0.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
-            g.DrawString( $"{actor.GB( actorOutfit )}cm", fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), s_lineHeight, CmToPixel( 1 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
+            g.DrawImage( Properties.Resources.danger, new Rectangle( xAttrThirdColumn, s_lineHeight + s_imageMargin, s_lineHeight - 2 * s_imageMargin, s_lineHeight - 2 * s_imageMargin ) );
+            g.DrawString( $"{actor.GB( actorOutfit )}cm", fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), s_lineHeight, CmToPixel( 1 ), s_lineHeight ), stringFormatHLeftVCenter );
         }
 
         private static void drawSubstance( Graphics g, Actor actor )
