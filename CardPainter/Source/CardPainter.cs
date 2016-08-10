@@ -131,7 +131,6 @@ namespace Tesserakt
 
                 drawName( g, actor.Name, customName );
                 drawFaction( g, actor.Faction );
-                drawType( g, actor.Type );
 
                 drawPicture( g, customImage ?? actor.Img );
 
@@ -206,7 +205,7 @@ namespace Tesserakt
 
             string name = actorName + ( String.IsNullOrEmpty( customName ) ? String.Empty : ( Environment.NewLine + customName ) );
 
-            Size textSize = new Size( CmToPixel( 3.5 ) - posX, CmToPixel( 0.5 ) );
+            Size textSize = new Size( CmToPixel( 4 ) - posX, CmToPixel( 0.5 ) );
             Rectangle textRect = new Rectangle( new Point( posX, posY ), textSize );
 
             int charsFitted, linesFilled;
@@ -220,35 +219,6 @@ namespace Tesserakt
             Rectangle rect = new Rectangle( Point.Empty, new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) );
 
             g.DrawImage( faction.Icon, rect );
-
-            g.DrawRectangle( linePenBlack, rect );
-        }
-
-        private static void drawType( Graphics g, Actor.EType type )
-        {
-            Rectangle rect = new Rectangle( new Point( CmToPixel( 3.5 ), 0 ), new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) );
-
-            switch( type )
-            {
-                case Actor.EType.Infanterie:
-                    g.DrawImage( Properties.Resources.infantry, rect );
-                    break;
-
-                case Actor.EType.MIKe:
-                    g.DrawImage( Properties.Resources.mike, rect );
-                    break;
-
-                case Actor.EType.Drohne:
-                    g.DrawImage( Properties.Resources.drohne, rect );
-                    break;
-
-                case Actor.EType.Fahrzeug:
-                    g.DrawImage( Properties.Resources.fahrzeug, rect );
-                    break;
-
-                default:
-                    throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
-            }
 
             g.DrawRectangle( linePenBlack, rect );
         }
@@ -455,9 +425,39 @@ namespace Tesserakt
 
         private static void drawMisc( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
+            drawType( g, actor.Type );
             drawSize( g, actor.Size );
             drawMovement( g, actor.MovementType );
             drawWeight( g, actor, actorOutfit );
+        }
+
+        private static void drawType( Graphics g, Actor.EType type )
+        {
+            Rectangle rect = new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize );
+
+            switch( type )
+            {
+                case Actor.EType.Infanterie:
+                    g.DrawImage( Properties.Resources.infantry, rect );
+                    break;
+
+                case Actor.EType.MIKe:
+                    g.DrawImage( Properties.Resources.mike, rect );
+                    break;
+
+                case Actor.EType.Drohne:
+                    g.DrawImage( Properties.Resources.drohne, rect );
+                    break;
+
+                case Actor.EType.Fahrzeug:
+                    g.DrawImage( Properties.Resources.fahrzeug, rect );
+                    break;
+
+                default:
+                    throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
+            }
+
+            g.DrawRectangle( linePenBlack, rect );
         }
 
         private static void drawSize( Graphics g, Actor.ESize size )
@@ -489,10 +489,11 @@ namespace Tesserakt
             }
 
             // TODO g.DrawImage( img, new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
-            Rectangle rect = new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize );
-            g.FillRectangle( Brushes.Black, rect );
+            Rectangle rect = new Rectangle( xAttrThirdColumn + s_lineHeight, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize );
+            //g.FillRectangle( Brushes.Black, rect );
+            g.DrawRectangle( linePenBlack, rect );
             //g.DrawString( sizeString, fontSize, Brushes.White, rect, );
-            Helpers.DrawStringCentered( g, sizeString, fontSize, Brushes.White, rect );
+            Helpers.DrawStringCentered( g, sizeString, fontSize, Brushes.Black, rect );
         }
 
         private static void drawMovement( Graphics g, EMovementType movementType )
@@ -529,12 +530,16 @@ namespace Tesserakt
                     throw new InvalidOperationException( "unkown " + nameof( EMovementType ) );
             }
 
-            g.DrawImage( img, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
+            Rectangle rect = new Rectangle( xAttrThirdColumn + 2 * s_lineHeight, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize );
+
+            g.DrawImage( img, rect );
+
+            g.DrawRectangle( linePenBlack, rect );
         }
 
         private static void drawWeight( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            int x1 = xAttrThirdColumn + CmToPixel( 1 );
+            int x1 = xAttrThirdColumn + 3 * s_lineHeight;
 
             g.DrawImage( Properties.Resources.weight, new Rectangle( x1, CmToPixel( 1.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
 
