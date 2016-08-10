@@ -57,6 +57,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Source\Helpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TObjects\TObjects.csproj">

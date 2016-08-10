@@ -41,6 +41,7 @@ namespace Tesserakt
         private static readonly Font fontStandardSmall = font0dot2;
         private static readonly Font fontName = font0dot3;
         private static readonly Font fontNameSmall = font0dot2;
+        private static readonly Font fontSize = font0dot3;
         private static readonly Font fontPoints = font0dot2;
         private static readonly Font fontWeapon = font0dot3;
         private static readonly Font fontWeaponName = font0dot2;
@@ -461,27 +462,37 @@ namespace Tesserakt
 
         private static void drawSize( Graphics g, Actor.ESize size )
         {
-            Bitmap img;
+            // TODO really only show as character?
+            // Bitmap img;
+
+            String sizeString;
 
             switch( size )
             {
                 case Actor.ESize.Klein :
-                    img = Properties.Resources.size_small;
+                    // TODO img = Properties.Resources.size_small;
+                    sizeString = "S";
                     break;
 
                 case Actor.ESize.Mittel :
-                    img = Properties.Resources.size_medium;
+                    // TODO img = Properties.Resources.size_medium;
+                    sizeString = "M";
                     break;
 
                 case Actor.ESize.Groß :
-                    img = Properties.Resources.size_big;
+                    //img = Properties.Resources.size_big;
+                    sizeString = "L";
                     break;
 
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( Actor.ESize ) );
             }
 
-            g.DrawImage( img, new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
+            // TODO g.DrawImage( img, new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
+            Rectangle rect = new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize );
+            g.FillRectangle( Brushes.Black, rect );
+            //g.DrawString( sizeString, fontSize, Brushes.White, rect, );
+            Helpers.DrawStringCentered( g, sizeString, fontSize, Brushes.White, rect );
         }
 
         private static void drawMovement( Graphics g, EMovementType movementType )
@@ -751,23 +762,7 @@ namespace Tesserakt
             {
                 Rectangle rect = new Rectangle( remainderPosX + weapon_radiusMargin, posY + weapon_radiusMargin, s_lineHeight - ( 2 * weapon_radiusMargin ), s_lineHeight - ( 2 * weapon_radiusMargin ) );
                 g.FillEllipse( Brushes.Black, rect );
-
-                GraphicsPath path = new GraphicsPath();
-                path.AddString( weapon.FormattedRadius, fontWeapon.FontFamily, (int)fontWeapon.Style, fontWeapon.Size, new Point( 0, 0 ), StringFormat.GenericTypographic );
-
-                // Determine physical size of the character when rendered
-                Rectangle area = Rectangle.Round( path.GetBounds() );
-
-                // Slide it to be centered in the specified bounds
-                Point offset = new Point( rect.Left + ( rect.Width / 2 - area.Width / 2) - area.Left, rect.Top + ( rect.Height / 2 - area.Height / 2 ) - area.Top );
-
-                Matrix translate = new Matrix();
-                translate.Translate( offset.X, offset.Y );
-
-                path.Transform( translate );
-
-                // Now render it however desired
-                g.FillPath( Brushes.White, path );
+                Helpers.DrawStringCentered( g, weapon.FormattedRadius, fontWeapon, Brushes.White, rect );
 
                 remainderPosX += s_lineHeight;
             }
