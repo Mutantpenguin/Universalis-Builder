@@ -57,10 +57,10 @@ namespace Tesserakt
         private static readonly Brush armorFontBrush = new SolidBrush( DamageColor.green );
 
         private static readonly int s_lineHeight = CmToPixel( 0.5 );
-        private static readonly int s_lineHeightDouble = s_lineHeight * 2;
+        private static readonly int s_lineHeightDouble = ( s_lineHeight * 2 );
 
         private static readonly int s_imageMargin = s_lineHeight / 10;
-        private static readonly int s_imageMarginDouble = s_imageMargin * 2;
+        private static readonly int s_imageSize = s_lineHeight - ( s_imageMargin * 2 );
 
         private static readonly Image sectionHeader = SectionHeader.Create( s_sectionsWidth, s_lineHeight );
 
@@ -136,9 +136,8 @@ namespace Tesserakt
 
                 drawAttributes( g, actor, actorOutfit );
                 drawCalculatedAttributes( g, actor, actorOutfit );
-                drawSize( g, actor.Size );
-                drawMovement( g, actor.MovementType );
-                drawWeight( g, actor, actorOutfit );
+                drawMisc( g, actor, actorOutfit );
+
                 drawSubstance( g, actor );
                 drawPoints( g, actor, actorOutfit );
 
@@ -307,7 +306,7 @@ namespace Tesserakt
         private static void drawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             // WB - Wahrnehmungsbereich
-            g.DrawImage( Properties.Resources.eye, new Rectangle( xAttrThirdColumn, s_imageMargin, s_lineHeight - 2 * s_imageMargin, s_lineHeight - 2 * s_imageMargin ) );
+            g.DrawImage( Properties.Resources.eye, new Rectangle( xAttrThirdColumn, s_imageMargin, s_imageSize, s_imageSize ) );
 
             string fovAndModWbString = $"{(int)actor.Fov}°/{actor.ModWB( actorOutfit )}cm";
 
@@ -325,7 +324,7 @@ namespace Tesserakt
             */
 
             // GB - Gefahrenbereich
-            g.DrawImage( Properties.Resources.danger, new Rectangle( xAttrThirdColumn, s_lineHeight + s_imageMargin, s_lineHeight - 2 * s_imageMargin, s_lineHeight - 2 * s_imageMargin ) );
+            g.DrawImage( Properties.Resources.danger, new Rectangle( xAttrThirdColumn, s_lineHeight + s_imageMargin, s_imageSize, s_imageSize ) );
             g.DrawString( $"{actor.GB( actorOutfit )}cm", fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), s_lineHeight, CmToPixel( 1 ), s_lineHeight ), stringFormatHLeftVCenter );
         }
 
@@ -453,6 +452,13 @@ namespace Tesserakt
             g.DrawString( points, fontPoints, Brushes.Black, new Rectangle( 0, CmToPixel( 7.5 ), sectionsPosX, CmToPixel( 0.5 ) ), stringFormatHCenterVCenter );
         }
 
+        private static void drawMisc( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        {
+            drawSize( g, actor.Size );
+            drawMovement( g, actor.MovementType );
+            drawWeight( g, actor, actorOutfit );
+        }
+
         private static void drawSize( Graphics g, Actor.ESize size )
         {
             Bitmap img;
@@ -475,9 +481,7 @@ namespace Tesserakt
                     throw new InvalidOperationException( "unkown " + nameof( Actor.ESize ) );
             }
 
-            int sizeInPixel = CmToPixel( 0.4 );
-
-            g.DrawImage( img, new Rectangle( xAttrThirdColumn, CmToPixel( 1.05 ), sizeInPixel, sizeInPixel ) );
+            g.DrawImage( img, new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
         }
 
         private static void drawMovement( Graphics g, EMovementType movementType )
@@ -514,7 +518,7 @@ namespace Tesserakt
                     throw new InvalidOperationException( "unkown " + nameof( EMovementType ) );
             }
 
-            g.DrawImage( img, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), CmToPixel( 1.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
+            g.DrawImage( img, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
         }
 
         private static void drawWeight( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
@@ -596,9 +600,9 @@ namespace Tesserakt
                 drawSectionHeader( g, "Waffen", posY );
 
                 // Captions
-                g.DrawImage( Properties.Resources.potential_damage_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-                g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( weapon_substanceStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
-                g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( weapon_rangeStart + ( weapon_rangeWidth / 2 ) - ( s_lineHeight / 2 ) + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+                g.DrawImage( Properties.Resources.potential_damage_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
+                g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( weapon_substanceStart + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
+                g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( weapon_rangeStart + ( weapon_rangeWidth / 2 ) - ( s_lineHeight / 2 ) + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
 
                 if( weaponUnarmed != null )
                 {
@@ -726,11 +730,11 @@ namespace Tesserakt
             {
                 remainderPosX += s_imageMargin;
 
-                int width = ( s_lineHeight - s_imageMarginDouble ) / 3;
+                int width = ( s_imageSize ) / 3;
 
                 for( int j = 0; j < weapon.AF; j++ )
                 {
-                    g.DrawImage( Properties.Resources.patrone, new Rectangle( remainderPosX, posY + s_imageMargin, width, s_lineHeight - s_imageMarginDouble ) );
+                    g.DrawImage( Properties.Resources.patrone, new Rectangle( remainderPosX, posY + s_imageMargin, width, s_imageSize ) );
 
                     remainderPosX += width;
                 }
@@ -738,7 +742,7 @@ namespace Tesserakt
 
             if( weapon.IndirectFire )
             {
-                g.DrawImage( Properties.Resources.indirect, new Rectangle( remainderPosX + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+                g.DrawImage( Properties.Resources.indirect, new Rectangle( remainderPosX + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
 
                 remainderPosX += s_lineHeight;
             }
@@ -780,20 +784,18 @@ namespace Tesserakt
 
         private static int drawDamageEffects( Graphics g, int posX, int posY, Image effectImage )
         {
-            int effectImageHeightDraw = s_lineHeight - s_imageMarginDouble;
-            int effectImageWidthDraw = (int)( ( (float)effectImageHeightDraw / (float)effectImage.Height ) * effectImage.Width );
+            int effectImageWidthDraw = (int)( ( (float)s_imageSize / (float)effectImage.Height ) * effectImage.Width );
 
-            g.DrawImage( effectImage, new Rectangle( posX + s_imageMargin, posY + s_imageMargin, effectImageWidthDraw, effectImageHeightDraw ) );
+            g.DrawImage( effectImage, new Rectangle( posX + s_imageMargin, posY + s_imageMargin, effectImageWidthDraw, s_imageSize ) );
 
             return ( s_imageMargin + effectImageWidthDraw );
         }
 
         private static void drawDamageType( Graphics g, int endPosX, int posY, Image typeImage )
         {
-            int typeImageHeightDraw = s_lineHeight - s_imageMarginDouble;
-            int typeImageWidthDraw = (int)( ( (float)typeImageHeightDraw / (float)typeImage.Height ) * typeImage.Width );
+            int typeImageWidthDraw = (int)( ( (float)s_imageSize / (float)typeImage.Height ) * typeImage.Width );
 
-            g.DrawImage( typeImage, new Rectangle( endPosX - s_imageMargin - typeImageWidthDraw, posY + s_imageMargin, typeImageWidthDraw, typeImageHeightDraw ) );
+            g.DrawImage( typeImage, new Rectangle( endPosX - s_imageMargin - typeImageWidthDraw, posY + s_imageMargin, typeImageWidthDraw, s_imageSize ) );
         }
 
         private static void drawArmor( Graphics g, Armor armor, int posY )
@@ -814,7 +816,7 @@ namespace Tesserakt
 
                 // Potential
                 g.DrawLine( linePenBlack, potentialStart, posY + s_lineHeight, potentialStart, posY + s_lineHeightDouble );
-                g.DrawImage( Properties.Resources.potential_defence_white, new Rectangle( potentialStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+                g.DrawImage( Properties.Resources.potential_defence_white, new Rectangle( potentialStart + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
                 
                 g.DrawString( armor.Potential.ToString(), fontArmor, armorFontBrush, new Rectangle( potentialStart, posY + s_lineHeight, potentialWidth, s_lineHeight ), stringFormatHCenterVCenter );
 
@@ -825,7 +827,7 @@ namespace Tesserakt
                 {
                     Image img = ( armor.Camouflage == Armor.ECamouflage.Passiv ) ? Properties.Resources.camo_passive_white : Properties.Resources.camo_active_white;
 
-                    g.DrawImage( img, new Rectangle( camouflageStart + s_imageMargin, posY + s_imageMargin, s_lineHeight - s_imageMarginDouble, s_lineHeight - s_imageMarginDouble ) );
+                    g.DrawImage( img, new Rectangle( camouflageStart + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
                     g.DrawLine( linePenBlack, camouflageStart, posY + s_lineHeight, camouflageStart, posY + s_lineHeightDouble );
                     g.DrawString( armor.CamouflageLevel.ToString(), fontArmor, armorFontBrush, new Rectangle( camouflageStart, posY + s_lineHeight, camouflageWidth, s_lineHeight ), stringFormatHCenterVCenter );
                 }
