@@ -889,7 +889,7 @@ namespace Tesserakt
                     {
                         if( entry.count > 1 )
                         {
-                            builder.Append( $" [x{entry.count}]" );
+                            builder.Append( nonBreakingSpace + $"[x{entry.count}]" );
                         }
                     }
 
