@@ -435,7 +435,7 @@ namespace Tesserakt
 
         private static void drawType( Graphics g, Actor.EType type )
         {
-            Rectangle rect = new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize );
+            Rectangle rect = new Rectangle( xAttrThirdColumn, s_lineHeightDouble, s_lineHeight, s_lineHeight );
 
             switch( type )
             {
@@ -491,7 +491,7 @@ namespace Tesserakt
             }
 
             // TODO g.DrawImage( img, new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
-            Rectangle rect = new Rectangle( xAttrThirdColumn + s_lineHeight, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize );
+            Rectangle rect = new Rectangle( xAttrThirdColumn + s_lineHeight, s_lineHeightDouble, s_lineHeight, s_lineHeight );
             //g.FillRectangle( Brushes.Black, rect );
             g.DrawRectangle( linePenBlack, rect );
             //g.DrawString( sizeString, fontSize, Brushes.White, rect, );
@@ -532,23 +532,25 @@ namespace Tesserakt
                     throw new InvalidOperationException( "unkown " + nameof( EMovementType ) );
             }
 
-            Rectangle rect = new Rectangle( xAttrThirdColumn + 2 * s_lineHeight, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize );
+            g.DrawImage( img, new Rectangle( xAttrThirdColumn + s_lineHeightDouble + s_imageMargin, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
 
-            g.DrawImage( img, rect );
-
-            g.DrawRectangle( linePenBlack, rect );
+            g.DrawRectangle( linePenBlack, new Rectangle( xAttrThirdColumn + s_lineHeightDouble, s_lineHeightDouble, s_lineHeight, s_lineHeight ) );
         }
 
         private static void drawWeight( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             int x1 = xAttrThirdColumn + 3 * s_lineHeight;
 
-            g.DrawImage( Properties.Resources.weight, new Rectangle( x1, CmToPixel( 1.05 ), CmToPixel( 0.4 ), CmToPixel( 0.4 ) ) );
+            int weightStringWidth = CmToPixel( 0.8 );
 
-            g.DrawString( $"{actor.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n1}", fontStandardSmall, Brushes.Black, new Rectangle( x1 + CmToPixel( 0.4 ), CmToPixel( 1 ), CmToPixel( 2 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
+            g.DrawImage( Properties.Resources.weight, new Rectangle( x1 + s_imageMargin, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
+
+            Helpers.DrawStringCentered( g, $"{actor.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n1}", fontStandardSmall, Brushes.Black, new Rectangle( x1 + 2 * s_imageMargin + s_imageSize, s_lineHeightDouble, weightStringWidth, s_lineHeight ) );
+
+            g.DrawRectangle( linePenBlack, new Rectangle( x1, s_lineHeightDouble, weightStringWidth + 3 * s_imageMargin + s_imageSize, s_lineHeight ) );
         }
 
-        private static void drawSectionHeader( Graphics g, string name, int posY )
+        private static void drawSectionHeader( Graphics g, String name, int posY )
         {
             Rectangle sectionRectangle = new Rectangle( sectionsPosX, posY, sectionHeader.Width, sectionHeader.Height );
 
@@ -563,7 +565,7 @@ namespace Tesserakt
 
             if( actorTraitList.Count > 0 )
             {
-                string delimiter = ", ";
+                const String delimiter = ", ";
 
                 StringBuilder builder = new StringBuilder();
                 foreach( Actor.ActorTrait trait in actorTraitList.OrderBy( x => x.Name ) )
@@ -578,7 +580,7 @@ namespace Tesserakt
                     builder.Append( delimiter );
                 }
 
-                string traitsString = builder.Remove( builder.Length - delimiter.Length, delimiter.Length ).ToString();
+                String traitsString = builder.Remove( builder.Length - delimiter.Length, delimiter.Length ).ToString();
 
                 drawSectionHeader( g, "Eigenschaften", posY );
                 posY += s_lineHeight;
