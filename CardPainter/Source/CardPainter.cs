@@ -86,6 +86,8 @@ namespace Tesserakt
         private static readonly int xAttrFirstColumn = sectionsPosX;
         private static readonly int xAttrSecondColumn = CmToPixel( 6.1 );
         private static readonly int xAttrThirdColumn = CmToPixel( 8.5 );
+
+        private const String nonBreakingSpace = "\u00a0";
         #endregion members
 
         #region weaponMembers
@@ -570,7 +572,7 @@ namespace Tesserakt
 
                     if( trait.Level > 0 )
                     {
-                        builder.Append( " " + trait.Level );
+                        builder.Append( nonBreakingSpace + trait.Level );
                     }
 
                     builder.Append( delimiter );
@@ -877,7 +879,7 @@ namespace Tesserakt
 
                     if( entry.equipment.UseOnce )
                     {
-                        builder.Append( " " );
+                        builder.Append( nonBreakingSpace );
                         for( int i = 0; i < entry.count; i++ )
                         {
                             builder.Append( "○" );
