@@ -258,7 +258,7 @@ namespace Tesserakt
 
             g.FillRectangle( Brushes.Black, rect_name );
 
-            g.DrawString( name, fontStandard, Brushes.White, rect_name, stringFormatHCenterVCenter );
+            Helpers.DrawStringCentered( g, name, fontStandard, Brushes.White, rect_name );
 
             int printModValue = attribModValue < 0 ? 0 : attribModValue;
             // TODO only for EMP
@@ -266,7 +266,7 @@ namespace Tesserakt
 
             // TODO only for EMP
             //g.DrawString( printModValue.ToString(), fontStandard, attribModValue < 0 ? Brushes.Red : Brushes.Black, rect_modified, stringFormatHRightVCenter );
-            g.DrawString( printModValue.ToString(), fontStandard, attribModValue < 0 ? Brushes.Red : Brushes.Black, rect_modified, stringFormatHCenterVCenter );
+            Helpers.DrawStringCentered( g, printModValue.ToString(), fontStandard, attribModValue < 0 ? Brushes.Red : Brushes.Black, rect_modified );
 
             /* TODO only for EMP
             if( printModValue != printBaseValue )
@@ -286,7 +286,7 @@ namespace Tesserakt
             // TODO only for EMP
             Size fovAndModWbSize = g.MeasureString( fovAndModWbString, fontStandard ).ToSize();
 
-            g.DrawString( fovAndModWbString, fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
+            Helpers.DrawStringCentered( g, fovAndModWbString, fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
 
             /* TODO only for EMP
             if( actor.WB( actorOutfit ) != actor.ModWB( actorOutfit ) )
@@ -298,7 +298,7 @@ namespace Tesserakt
 
             // GB - Gefahrenbereich
             g.DrawImage( Properties.Resources.danger, new Rectangle( xAttrThirdColumn, s_lineHeight + s_imageMargin, s_imageSize, s_imageSize ) );
-            g.DrawString( $"{actor.GB( actorOutfit )}cm", fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), s_lineHeight, CmToPixel( 1 ), s_lineHeight ), stringFormatHLeftVCenter );
+            Helpers.DrawStringCentered( g, $"{actor.GB( actorOutfit )}cm", fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), s_lineHeight, CmToPixel( 1 ), s_lineHeight ) );
         }
 
         private static void drawSubstance( Graphics g, Actor actor )
@@ -673,7 +673,7 @@ namespace Tesserakt
 
             Rectangle wkRect = new Rectangle( weapon_wkStart, posY, weapon_wkWidth, s_lineHeight );
             g.FillRectangle( Brushes.Black, wkRect );
-            g.DrawString( weapon.WK.ToString(), fontWK, Brushes.White, wkRect, stringFormatHCenterVCenter );
+            Helpers.DrawStringCentered( g, weapon.WK.ToString(), fontWK, Brushes.White, wkRect );
 
             if( weapon.Unwieldy )
             {
@@ -722,16 +722,16 @@ namespace Tesserakt
 
             drawDamageType( g, weapon_potentialStart, posY, weapon.DamageTypeImage );
 
-            g.DrawString( weapon.Potential.ToString(), fontWeapon, weaponFontBrush, new Rectangle( weapon_potentialStart, posY, weapon_potentialWidth, s_lineHeight ), stringFormatHCenterVCenter );
+            Helpers.DrawStringCentered( g, weapon.Potential.ToString(), fontWeapon, weaponFontBrush, new Rectangle( weapon_potentialStart, posY, weapon_potentialWidth, s_lineHeight ) );
 
-            g.DrawString( weapon.FormattedSubstance, fontWeapon, weaponFontBrush, new Rectangle( weapon_substanceStart, posY, weapon_substanceWidth, s_lineHeight ), stringFormatHCenterVCenter );
+            Helpers.DrawStringCentered( g, weapon.FormattedSubstance, fontWeapon, weaponFontBrush, new Rectangle( weapon_substanceStart, posY, weapon_substanceWidth, s_lineHeight ) );
 
             if( Weapon.EType.Wurf == weapon.Type )
             {
                 // TODO only for EMP
                 // if( actor.ModKK( actorOutfit ) == actor.BaseKK() )
                 // {
-                g.DrawString( Actor.ThrowRange( actor.ModKK( actorOutfit ) ), fontWeapon, weaponFontBrush, new Rectangle( weapon_rangeStart, posY, weapon_rangeWidth, s_lineHeight ), stringFormatHCenterVCenter );
+                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModKK( actorOutfit ) ), fontWeapon, weaponFontBrush, new Rectangle( weapon_rangeStart, posY, weapon_rangeWidth, s_lineHeight ) );
                 // }
                 // else
                 // {
@@ -741,7 +741,7 @@ namespace Tesserakt
             }
             else
             {
-                g.DrawString( weapon.FormattedRange, fontWeapon, weaponFontBrush, new Rectangle( weapon_rangeStart, posY, weapon_rangeWidth, s_lineHeight ), stringFormatHCenterVCenter );
+                Helpers.DrawStringCentered( g, weapon.FormattedRange, fontWeapon, weaponFontBrush, new Rectangle( weapon_rangeStart, posY, weapon_rangeWidth, s_lineHeight ) );
             }
 
             int remainderPosX = weapon_rangeStart + weapon_rangeWidth;
@@ -818,11 +818,15 @@ namespace Tesserakt
 
                 drawSectionHeader( g, "Rüstung", posY );
 
+                g.DrawLine( linePenBlack, sectionsPosX, posY + s_lineHeightDouble, s_sectionsWidth, posY + s_lineHeightDouble );
+
+                g.DrawString( armor.Name, fontArmorName, Brushes.Black, new Rectangle( sectionsPosX, posY + s_lineHeight, nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
+
                 // Potential
                 g.DrawLine( linePenBlack, potentialStart, posY + s_lineHeight, potentialStart, posY + s_lineHeightDouble );
                 g.DrawImage( Properties.Resources.potential_defence_white, new Rectangle( potentialStart + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
-                
-                g.DrawString( armor.Potential.ToString(), fontArmor, armorFontBrush, new Rectangle( potentialStart, posY + s_lineHeight, potentialWidth, s_lineHeight ), stringFormatHCenterVCenter );
+
+                Helpers.DrawStringCentered( g, armor.Potential.ToString(), fontArmor, armorFontBrush, new Rectangle( potentialStart, posY + s_lineHeight, potentialWidth, s_lineHeight ) );
 
                 g.DrawLine( linePenBlack, effectsStart, posY + s_lineHeight, effectsStart, posY + s_lineHeightDouble );
 
@@ -833,12 +837,8 @@ namespace Tesserakt
 
                     g.DrawImage( img, new Rectangle( camouflageStart + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
                     g.DrawLine( linePenBlack, camouflageStart, posY + s_lineHeight, camouflageStart, posY + s_lineHeightDouble );
-                    g.DrawString( armor.CamouflageLevel.ToString(), fontArmor, armorFontBrush, new Rectangle( camouflageStart, posY + s_lineHeight, camouflageWidth, s_lineHeight ), stringFormatHCenterVCenter );
+                    Helpers.DrawStringCentered( g, armor.CamouflageLevel.ToString(), fontArmor, armorFontBrush, new Rectangle( camouflageStart, posY + s_lineHeight, camouflageWidth, s_lineHeight ) );
                 }
-
-                g.DrawLine( linePenBlack, sectionsPosX, posY + s_lineHeightDouble, s_sectionsWidth, posY + s_lineHeightDouble );
-
-                g.DrawString( armor.Name, fontArmorName, Brushes.Black, new Rectangle( sectionsPosX, posY + s_lineHeight, nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
 
                 drawDamageType( g, potentialStart, posY + s_lineHeight, armor.TypesImage );
 
