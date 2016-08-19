@@ -244,7 +244,7 @@ namespace Tesserakt
                             {
                                 encoderParameters.Param[ 0 ] = new EncoderParameter( Encoder.Quality, 90L );
 
-                                CardPainter.getBitmap( actor, actorOutfit ).Save( fs, jgpEncoder, encoderParameters );
+                                CardPainter.GetBitmap( actor, actorOutfit ).Save( fs, jgpEncoder, encoderParameters );
                                 System.Diagnostics.Process.Start( cardSaveFileDialog.FileName );
                             }
                         }

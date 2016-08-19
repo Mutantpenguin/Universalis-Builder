@@ -211,7 +211,7 @@ namespace Tesserakt
 
             if( m_initialized )
             {
-                pictureBoxCard.Image = CardPainter.getBitmap( m_actorModified, CurrentOutfit() );
+                pictureBoxCard.Image = CardPainter.GetBitmap( m_actorModified, CurrentOutfit() );
             }
         }
 #endregion update

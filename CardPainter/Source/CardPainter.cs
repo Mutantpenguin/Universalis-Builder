@@ -10,160 +10,160 @@ namespace Tesserakt
     public static class CardPainter
     {
         #region members
-        public const int dpi = 500;
+        public const int Dpi = 500;
 
-        public const int cardWidthCm = 12;
-        public const int cardHeightCm = 8;
-        public const int sectionWidthCm = 8;
+        public const int CardWidthCm = 12;
+        public const int CardHeightCm = 8;
+        public const int SectionWidthCm = 8;
 
-        private static readonly int s_cardWidth = CmToPixel( cardWidthCm );
-        private static readonly int s_cardHeight = CmToPixel( cardHeightCm );
-        private static readonly int s_sectionsWidth = CmToPixel( sectionWidthCm );
+        private static readonly int SCardWidth = CmToPixel( CardWidthCm );
+        private static readonly int SCardHeight = CmToPixel( CardHeightCm );
+        private static readonly int SSectionsWidth = CmToPixel( SectionWidthCm );
 
-        private static readonly int sectionsPosX = CmToPixel( 4 );
+        private static readonly int SSectionsPosX = CmToPixel( 4 );
 
-        private static readonly Rectangle s_pictureRect = new Rectangle( 0, CmToPixel( 0.5 ), sectionsPosX, CmToPixel( 7 ) );
+        private static readonly Rectangle SPictureRect = new Rectangle( 0, CmToPixel( 0.5 ), SSectionsPosX, CmToPixel( 7 ) );
 
-        private static readonly int s_substancePointSize = CmToPixel( 0.3 );
+        private static readonly int SSubstancePointSize = CmToPixel( 0.3 );
 
-        private static readonly Pen linePenBlack = Pens.Black;
-        private static readonly Pen structureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
-        private static readonly Pen structureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
-        private static readonly Pen substanceBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
+        private static readonly Pen SLinePenBlack = Pens.Black;
+        private static readonly Pen SStructureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
+        private static readonly Pen SStructureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
+        private static readonly Pen SSubstanceBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
         // TODO maybe still needed later
         // private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
 
-        private static readonly Font font0dot2 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
-        private static readonly Font font0dot3 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
-        private static readonly Font font0dot35 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot2 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot3 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot35 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
-        private static readonly Font fontStandard = font0dot35;
-        private static readonly Font fontStandardSmall = font0dot2;
-        private static readonly Font fontName = font0dot3;
-        private static readonly Font fontNameSmall = font0dot2;
-        private static readonly Font fontSize = font0dot3;
-        private static readonly Font fontPoints = font0dot2;
-        private static readonly Font fontWeapon = font0dot3;
-        private static readonly Font fontWeaponName = font0dot2;
-        private static readonly Font fontWK = font0dot3;
-        private static readonly Font fontArmor = font0dot3;
-        private static readonly Font fontArmorName = font0dot2;
-        private static readonly Font fontEquipment = font0dot3;
-        private static readonly Font fontTraits = font0dot3;
+        private static readonly Font FontStandard = Font0Dot35;
+        private static readonly Font FontStandardSmall = Font0Dot2;
+        private static readonly Font FontName = Font0Dot3;
+        private static readonly Font FontNameSmall = Font0Dot2;
+        private static readonly Font FontSize = Font0Dot3;
+        private static readonly Font FontPoints = Font0Dot2;
+        private static readonly Font FontWeapon = Font0Dot3;
+        private static readonly Font FontWeaponName = Font0Dot2;
+        private static readonly Font FontWk = Font0Dot3;
+        private static readonly Font FontArmor = Font0Dot3;
+        private static readonly Font FontArmorName = Font0Dot2;
+        private static readonly Font FontEquipment = Font0Dot3;
+        private static readonly Font FontTraits = Font0Dot3;
 
-        private static readonly Brush substanceCritBrush = new SolidBrush( Color.Orange );
-        private static readonly Brush substanceNormalBrush = new SolidBrush( Color.White );
+        private static readonly Brush SubstanceCritBrush = new SolidBrush( Color.Orange );
+        private static readonly Brush SubstanceNormalBrush = new SolidBrush( Color.White );
 
-        private static readonly Brush weaponFontBrush = new SolidBrush( DamageColor.red );
-        private static readonly Brush armorFontBrush = new SolidBrush( DamageColor.green );
+        private static readonly Brush WeaponFontBrush = new SolidBrush( DamageColor.red );
+        private static readonly Brush ArmorFontBrush = new SolidBrush( DamageColor.green );
 
-        private static readonly int s_lineHeight = CmToPixel( 0.5 );
-        private static readonly int s_lineHeightDouble = ( s_lineHeight * 2 );
+        private static readonly int SLineHeight = CmToPixel( 0.5 );
+        private static readonly int SLineHeightDouble = ( SLineHeight * 2 );
 
-        private static readonly int s_imageMargin = s_lineHeight / 10;
-        private static readonly int s_imageSize = s_lineHeight - ( s_imageMargin * 2 );
+        private static readonly int SImageMargin = SLineHeight / 10;
+        private static readonly int SImageSize = SLineHeight - ( SImageMargin * 2 );
 
-        private static readonly Image sectionHeader = SectionHeader.Create( s_sectionsWidth, s_lineHeight );
+        private static readonly Image SectionHeader = Tesserakt.SectionHeader.Create( SSectionsWidth, SLineHeight );
 
-        private static readonly StringFormat stringFormatHCenterVCenter = new StringFormat()
+        private static readonly StringFormat StringFormatHCenterVCenter = new StringFormat()
         {
             Alignment = StringAlignment.Center,
             LineAlignment = StringAlignment.Center
         };
 
-        private static readonly StringFormat stringFormatHLeftVCenter = new StringFormat()
+        private static readonly StringFormat StringFormatHLeftVCenter = new StringFormat()
         {
             Alignment = StringAlignment.Near,
             LineAlignment = StringAlignment.Center
         };
 
-        private static readonly StringFormat stringFormatHLeftVTop = new StringFormat()
+        private static readonly StringFormat StringFormatHLeftVTop = new StringFormat()
         {
             Alignment = StringAlignment.Near,
             LineAlignment = StringAlignment.Near
         };
 
-        private static readonly int xAttrFirstColumn = sectionsPosX;
-        private static readonly int xAttrSecondColumn = CmToPixel( 6.1 );
-        private static readonly int xAttrThirdColumn = CmToPixel( 8.5 );
+        private static readonly int XAttrFirstColumn = SSectionsPosX;
+        private static readonly int XAttrSecondColumn = CmToPixel( 6.1 );
+        private static readonly int XAttrThirdColumn = CmToPixel( 8.5 );
 
-        private const String nonBreakingSpace = "\u00a0";
+        private const String NonBreakingSpace = "\u00a0";
         #endregion members
 
         #region weaponMembers
-        private static readonly int weapon_wkWidth = CmToPixel( 0.5 );
-        private static readonly int weapon_nameWidth = CmToPixel( 3.3 ) - s_lineHeight;
-        private static readonly int weapon_potentialWidth = CmToPixel( 0.5 );
-        private static readonly int weapon_substanceWidth = CmToPixel( 0.5 );
-        private static readonly int weapon_rangeWidth = CmToPixel( 0.9 );
+        private static readonly int WeaponWkWidth = CmToPixel( 0.5 );
+        private static readonly int WeaponNameWidth = CmToPixel( 3.3 ) - SLineHeight;
+        private static readonly int WeaponPotentialWidth = CmToPixel( 0.5 );
+        private static readonly int WeaponSubstanceWidth = CmToPixel( 0.5 );
+        private static readonly int WeaponRangeWidth = CmToPixel( 0.9 );
 
-        private static readonly int weapon_wkStart = sectionsPosX;
-        private static readonly int weapon_nameStart = weapon_wkStart + weapon_wkWidth;
-        private static readonly int weapon_typeStart = weapon_nameStart + weapon_nameWidth;
-        private static readonly int weapon_potentialStart = weapon_typeStart + s_lineHeight;
-        private static readonly int weapon_substanceStart = weapon_potentialStart + weapon_potentialWidth;
-        private static readonly int weapon_rangeStart = weapon_substanceStart + weapon_substanceWidth;
+        private static readonly int WeaponWkStart = SSectionsPosX;
+        private static readonly int WeaponNameStart = WeaponWkStart + WeaponWkWidth;
+        private static readonly int WeaponTypeStart = WeaponNameStart + WeaponNameWidth;
+        private static readonly int WeaponPotentialStart = WeaponTypeStart + SLineHeight;
+        private static readonly int WeaponSubstanceStart = WeaponPotentialStart + WeaponPotentialWidth;
+        private static readonly int WeaponRangeStart = WeaponSubstanceStart + WeaponSubstanceWidth;
 
-        private static readonly int weapon_radiusMargin = s_imageMargin + CmToPixel( 0.015f );
+        private static readonly int WeaponRadiusMargin = SImageMargin + CmToPixel( 0.015f );
         #endregion
 
-        public static Bitmap getBitmap( Group.GroupActor groupActor )
+        public static Bitmap GetBitmap( Group.GroupActor groupActor )
         {
-            return( getBitmap( groupActor.Actor, groupActor.ActorOutfit, groupActor.CustomName, groupActor.CustomImg ) );
+            return( GetBitmap( groupActor.Actor, groupActor.ActorOutfit, groupActor.CustomName, groupActor.CustomImg ) );
         }
 
-        public static Bitmap getBitmap( Actor actor, Actor.ActorOutfit actorOutfit )
+        public static Bitmap GetBitmap( Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            return ( getBitmap( actor, actorOutfit, String.Empty ) );
+            return ( GetBitmap( actor, actorOutfit, String.Empty ) );
         }
 
-        private static Bitmap getBitmap( Actor actor, Actor.ActorOutfit actorOutfit, string customName, Bitmap customImage = null )
+        private static Bitmap GetBitmap( Actor actor, Actor.ActorOutfit actorOutfit, string customName, Bitmap customImage = null )
         {
             if( null == actor )
             {
                 throw new ArgumentNullException( nameof( actor ) );
             }
 
-            Bitmap img = new Bitmap( s_cardWidth, s_cardHeight );
+            Bitmap img = new Bitmap( SCardWidth, SCardHeight );
             using( Graphics g = Graphics.FromImage( img ) )
             {
                 g.SmoothingMode = SmoothingMode.AntiAlias;
 
                 g.Clear( Color.White );
 
-                drawName( g, actor.Name, customName );
-                drawFaction( g, actor.Faction );
+                DrawName( g, actor.Name, customName );
+                DrawFaction( g, actor.Faction );
 
-                drawPicture( g, customImage ?? actor.Img );
+                DrawPicture( g, customImage ?? actor.Img );
 
-                drawAttributes( g, actor, actorOutfit );
-                drawCalculatedAttributes( g, actor, actorOutfit );
-                drawMisc( g, actor, actorOutfit );
+                DrawAttributes( g, actor, actorOutfit );
+                DrawCalculatedAttributes( g, actor, actorOutfit );
+                DrawMisc( g, actor, actorOutfit );
 
-                drawSubstance( g, actor );
-                drawPoints( g, actor, actorOutfit );
+                DrawSubstance( g, actor );
+                DrawPoints( g, actor, actorOutfit );
 
-                int traitsEndY = drawTraits( g, actor.ActorTraitsList );
+                int traitsEndY = DrawTraits( g, actor.ActorTraitsList );
 
-                int weaponsCount = drawWeapons( g, actor, actorOutfit, traitsEndY );
+                int weaponsCount = DrawWeapons( g, actor, actorOutfit, traitsEndY );
 
-                int armorPosY = traitsEndY + ( s_lineHeight * weaponsCount );
-                drawArmor( g, actor.Armor, armorPosY );
+                int armorPosY = traitsEndY + ( SLineHeight * weaponsCount );
+                DrawArmor( g, actor.Armor, armorPosY );
 
-                int equipmentYPos = armorPosY + s_lineHeight * ( ( null == actor.Armor ? 0 : 2 ) );
+                int equipmentYPos = armorPosY + SLineHeight * ( ( null == actor.Armor ? 0 : 2 ) );
                 int equipmentEndY = equipmentYPos;
                 if( actorOutfit != null )
                 {
-                    equipmentEndY = drawEquipment( g, actorOutfit.ActorEquipmentList, equipmentYPos );
+                    equipmentEndY = DrawEquipment( g, actorOutfit.ActorEquipmentList, equipmentYPos );
                 }
 
                 // draw the structure last, otherwise "lower" elements could paint over it
-                drawStructure( g, equipmentEndY );
+                DrawStructure( g, equipmentEndY );
 
                 // show black lines between sections on the right side of the card
-                g.DrawLine( structureBlackPen, sectionsPosX, traitsEndY,    s_cardWidth, traitsEndY );
-                g.DrawLine( structureBlackPen, sectionsPosX, armorPosY,     s_cardWidth, armorPosY );
-                g.DrawLine( structureBlackPen, sectionsPosX, equipmentYPos, s_cardWidth, equipmentYPos );
+                g.DrawLine( SStructureBlackPen, SSectionsPosX, traitsEndY,    SCardWidth, traitsEndY );
+                g.DrawLine( SStructureBlackPen, SSectionsPosX, armorPosY,     SCardWidth, armorPosY );
+                g.DrawLine( SStructureBlackPen, SSectionsPosX, equipmentYPos, SCardWidth, equipmentYPos );
 
                 return ( img );
             }
@@ -171,36 +171,36 @@ namespace Tesserakt
 
         public static int CmToPixel( double cm )
         {
-            return ( Convert.ToInt32( cm / 2.54f * dpi ) );
+            return ( Convert.ToInt32( cm / 2.54f * Dpi ) );
         }
 
-        private static void drawStructure( Graphics g, int equipmentEndY )
+        private static void DrawStructure( Graphics g, int equipmentEndY )
         {
             // line right of image
-            g.DrawLine( structureBlackPen, sectionsPosX, 0, sectionsPosX, s_cardHeight );
+            g.DrawLine( SStructureBlackPen, SSectionsPosX, 0, SSectionsPosX, SCardHeight );
 
             // line under "Name"
-            g.DrawLine( structureBlackPen, 0, CmToPixel( 0.5 ), sectionsPosX, CmToPixel( 0.5 ) );
+            g.DrawLine( SStructureBlackPen, 0, CmToPixel( 0.5 ), SSectionsPosX, CmToPixel( 0.5 ) );
 
             // line above "Points"
-            g.DrawLine( structureBlackPen, 0, CmToPixel( 7.5 ), sectionsPosX, CmToPixel( 7.5 ) );
+            g.DrawLine( SStructureBlackPen, 0, CmToPixel( 7.5 ), SSectionsPosX, CmToPixel( 7.5 ) );
             
             // line under "Attribute"
-            g.DrawLine( structureBlackPen, sectionsPosX, CmToPixel( 1.5 ), s_cardWidth, CmToPixel( 1.5 ) );
+            g.DrawLine( SStructureBlackPen, SSectionsPosX, CmToPixel( 1.5 ), SCardWidth, CmToPixel( 1.5 ) );
 
             // surrounding rectangle
-            if( equipmentEndY > s_cardHeight )
+            if( equipmentEndY > SCardHeight )
             {
                 // draw in red to know that not everything fits on the card
-                g.DrawRectangle( structureRedPen, 0, 0, s_cardWidth - 1, s_cardHeight - 1 );
+                g.DrawRectangle( SStructureRedPen, 0, 0, SCardWidth - 1, SCardHeight - 1 );
             }
             else
             {
-                g.DrawRectangle( structureBlackPen, 0, 0, s_cardWidth - 1, s_cardHeight - 1 );
+                g.DrawRectangle( SStructureBlackPen, 0, 0, SCardWidth - 1, SCardHeight - 1 );
             }
         }
 
-        private static void drawName( Graphics g, String actorName, string customName )
+        private static void DrawName( Graphics g, String actorName, string customName )
         {
             int posX = CmToPixel( 0.5 );
             int posY = 0;
@@ -211,54 +211,54 @@ namespace Tesserakt
             Rectangle textRect = new Rectangle( new Point( posX, posY ), textSize );
 
             int charsFitted, linesFilled;
-            g.MeasureString( name, fontName, textSize, stringFormatHCenterVCenter, out charsFitted, out linesFilled );
+            g.MeasureString( name, FontName, textSize, StringFormatHCenterVCenter, out charsFitted, out linesFilled );
 
-            g.DrawString( name, linesFilled > 1 ? fontNameSmall : fontName, Brushes.Black, textRect, stringFormatHCenterVCenter );
+            g.DrawString( name, linesFilled > 1 ? FontNameSmall : FontName, Brushes.Black, textRect, StringFormatHCenterVCenter );
         }
 
-        private static void drawFaction( Graphics g, Faction faction )
+        private static void DrawFaction( Graphics g, Faction faction )
         {
             Rectangle rect = new Rectangle( Point.Empty, new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) );
 
             g.DrawImage( faction.Icon, rect );
 
-            g.DrawRectangle( linePenBlack, rect );
+            g.DrawRectangle( SLinePenBlack, rect );
         }
 
-        private static void drawPicture( Graphics g, Bitmap image )
+        private static void DrawPicture( Graphics g, Bitmap image )
         {
             if( image != null )
             {
-                g.DrawImage( image, s_pictureRect );
+                g.DrawImage( image, SPictureRect );
             }
         }
 
-        private static void drawAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void DrawAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            drawAttribute( g, xAttrFirstColumn, 0, "AGI", actor.ModAGI( actorOutfit ) );// TODO only for EMP, actor.BaseAGI( actorOutfit ) );
-            drawAttribute( g, xAttrFirstColumn, CmToPixel( 0.5 ), "BW", actor.ModBW( actorOutfit ) );// TODO only for EMP, actor.BaseBW( actorOutfit ) );
-            drawAttribute( g, xAttrFirstColumn, CmToPixel( 1 ), "KK", actor.ModKK( actorOutfit ) );// TODO only for EMP, actor.BaseKK() );
+            DrawAttribute( g, XAttrFirstColumn, 0, "AGI", actor.ModAGI( actorOutfit ) );// TODO only for EMP, actor.BaseAGI( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "BW", actor.ModBW( actorOutfit ) );// TODO only for EMP, actor.BaseBW( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ), "KK", actor.ModKK( actorOutfit ) );// TODO only for EMP, actor.BaseKK() );
 
-            drawAttribute( g, xAttrSecondColumn, 0, "HAK", actor.ModHAK( actorOutfit ) );// TODO only for EMP, actor.BaseHAK() );
-            drawAttribute( g, xAttrSecondColumn, CmToPixel( 0.5 ), "AFG", actor.ModAFG( actorOutfit ) );// TODO only for EMP, actor.BaseAFG() );
-            drawAttribute( g, xAttrSecondColumn, CmToPixel( 1 ), "SH", actor.ModSH( actorOutfit ) );// TODO only for EMP, actor.BaseSH() );
+            DrawAttribute( g, XAttrSecondColumn, 0, "HAK", actor.ModHAK( actorOutfit ) );// TODO only for EMP, actor.BaseHAK() );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ), "AFG", actor.ModAFG( actorOutfit ) );// TODO only for EMP, actor.BaseAFG() );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ), "SH", actor.ModSH( actorOutfit ) );// TODO only for EMP, actor.BaseSH() );
         }
 
-        private static void drawAttribute( Graphics g, int posX, int posY, string name, int attribModValue ) // TODO only for EMP, int attribBaseValue )
+        private static void DrawAttribute( Graphics g, int posX, int posY, string name, int attribModValue ) // TODO only for EMP, int attribBaseValue )
         {
             int widthName = CmToPixel( 0.9 );
             int widthAtt = CmToPixel( 0.6 );
 
-            Rectangle rect_name = new Rectangle( posX, posY, widthName, s_lineHeight );
-            Rectangle rect_modified = new Rectangle( posX + widthName, posY, 2 * widthAtt, s_lineHeight );
+            Rectangle rectName = new Rectangle( posX, posY, widthName, SLineHeight );
+            Rectangle rectModified = new Rectangle( posX + widthName, posY, 2 * widthAtt, SLineHeight );
             // TODO only for EMP
             //Rectangle rect_normal = new Rectangle( posX + widthName + widthAtt, posY, widthAtt, height );
 
-            g.DrawRectangle( linePenBlack, new Rectangle( posX, posY, widthName + widthAtt + widthAtt, s_lineHeight ) );
+            g.DrawRectangle( SLinePenBlack, new Rectangle( posX, posY, widthName + widthAtt + widthAtt, SLineHeight ) );
 
-            g.FillRectangle( Brushes.Black, rect_name );
+            g.FillRectangle( Brushes.Black, rectName );
 
-            Helpers.DrawStringCentered( g, name, fontStandard, Brushes.White, rect_name );
+            Helpers.DrawStringCentered( g, name, FontStandard, Brushes.White, rectName );
 
             int printModValue = attribModValue < 0 ? 0 : attribModValue;
             // TODO only for EMP
@@ -266,7 +266,7 @@ namespace Tesserakt
 
             // TODO only for EMP
             //g.DrawString( printModValue.ToString(), fontStandard, attribModValue < 0 ? Brushes.Red : Brushes.Black, rect_modified, stringFormatHRightVCenter );
-            Helpers.DrawStringCentered( g, printModValue.ToString(), fontStandard, attribModValue < 0 ? Brushes.Red : Brushes.Black, rect_modified );
+            Helpers.DrawStringCentered( g, printModValue.ToString(), FontStandard, attribModValue < 0 ? Brushes.Red : Brushes.Black, rectModified );
 
             /* TODO only for EMP
             if( printModValue != printBaseValue )
@@ -276,17 +276,17 @@ namespace Tesserakt
             */
         }
 
-        private static void drawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void DrawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             // WB - Wahrnehmungsbereich
-            g.DrawImage( Properties.Resources.eye, new Rectangle( xAttrThirdColumn, s_imageMargin, s_imageSize, s_imageSize ) );
+            g.DrawImage( Properties.Resources.eye, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
 
             string fovAndModWbString = $"{(int)actor.Fov}°/{actor.ModWB( actorOutfit )}cm";
 
             // TODO only for EMP
-            Size fovAndModWbSize = g.MeasureString( fovAndModWbString, fontStandard ).ToSize();
+            Size fovAndModWbSize = g.MeasureString( fovAndModWbString, FontStandard ).ToSize();
 
-            Helpers.DrawStringCentered( g, fovAndModWbString, fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
+            Helpers.DrawStringCentered( g, fovAndModWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
 
             /* TODO only for EMP
             if( actor.WB( actorOutfit ) != actor.ModWB( actorOutfit ) )
@@ -297,11 +297,11 @@ namespace Tesserakt
             */
 
             // GB - Gefahrenbereich
-            g.DrawImage( Properties.Resources.danger, new Rectangle( xAttrThirdColumn, s_lineHeight + s_imageMargin, s_imageSize, s_imageSize ) );
-            Helpers.DrawStringCentered( g, $"{actor.GB( actorOutfit )}cm", fontStandard, Brushes.Black, new Rectangle( xAttrThirdColumn + CmToPixel( 0.5 ), s_lineHeight, CmToPixel( 1 ), s_lineHeight ) );
+            g.DrawImage( Properties.Resources.danger, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
+            Helpers.DrawStringCentered( g, $"{actor.GB( actorOutfit )}cm", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
         }
 
-        private static void drawSubstance( Graphics g, Actor actor )
+        private static void DrawSubstance( Graphics g, Actor actor )
         {
             int margin = CmToPixel( 0.1 );
 
@@ -310,38 +310,38 @@ namespace Tesserakt
                 case Actor.EType.Infanterie:
                 case Actor.EType.Drohne:
                 case Actor.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
-                    int posX = s_pictureRect.X + margin;
-                    int posY = s_pictureRect.Y + margin;
+                    int posX = SPictureRect.X + margin;
+                    int posY = SPictureRect.Y + margin;
 
-                    drawSubstanceCirclesVertical( g, actor.SZ, posX, posY, s_substancePointSize );
+                    DrawSubstanceCirclesVertical( g, actor.SZ, posX, posY, SSubstancePointSize );
                     break;
 
                 case Actor.EType.MIKe:
-                    int posXArmLeft = s_pictureRect.X + margin;
-                    int posYArmLeft = s_pictureRect.Y + margin;
+                    int posXArmLeft = SPictureRect.X + margin;
+                    int posYArmLeft = SPictureRect.Y + margin;
 
-                    int posXArmRight = s_pictureRect.Width - s_substancePointSize - margin;
-                    int posYArmRight = s_pictureRect.Y + margin;
+                    int posXArmRight = SPictureRect.Width - SSubstancePointSize - margin;
+                    int posYArmRight = SPictureRect.Y + margin;
 
-                    int posXMain = posXArmLeft + s_substancePointSize + margin;
-                    int posYMain = s_pictureRect.Y + margin;
+                    int posXMain = posXArmLeft + SSubstancePointSize + margin;
+                    int posYMain = SPictureRect.Y + margin;
                     int widthMain = posXArmRight - margin - posXMain;
 
                     int posXLegs = posXMain;
-                    int posYLegs = s_pictureRect.Y + s_pictureRect.Height - margin;
+                    int posYLegs = SPictureRect.Y + SPictureRect.Height - margin;
                     int widthLegs = widthMain;
 
                     // main
-                    drawSubstanceCirclesHorizonzal( g, actor.SZ, posXMain, posYMain, widthMain, down: true );
+                    DrawSubstanceCirclesHorizonzal( g, actor.SZ, posXMain, posYMain, widthMain, down: true );
 
                     // left arm
-                    drawSubstanceCirclesVertical( g, actor.HitZoneSZ, posXArmLeft, posYArmLeft, s_substancePointSize );
+                    DrawSubstanceCirclesVertical( g, actor.HitZoneSZ, posXArmLeft, posYArmLeft, SSubstancePointSize );
 
                     // right arm
-                    drawSubstanceCirclesVertical( g, actor.HitZoneSZ, posXArmRight, posYArmRight, s_substancePointSize );
+                    DrawSubstanceCirclesVertical( g, actor.HitZoneSZ, posXArmRight, posYArmRight, SSubstancePointSize );
 
                     // legs
-                    drawSubstanceCirclesHorizonzal( g, actor.HitZoneSZ, posXLegs, posYLegs, widthLegs, down: false );
+                    DrawSubstanceCirclesHorizonzal( g, actor.HitZoneSZ, posXLegs, posYLegs, widthLegs, down: false );
                     break;
 
                 default:
@@ -349,13 +349,13 @@ namespace Tesserakt
             }            
         }
 
-        private static void drawSubstanceCirclesHorizonzal( Graphics g, int count, int x, int y, int width, bool down )
+        private static void DrawSubstanceCirclesHorizonzal( Graphics g, int count, int x, int y, int width, bool down )
         {
-            int maxColumns = Math.Min( Convert.ToInt32( Math.Floor( (float)width / (float)s_substancePointSize ) ), count );
+            int maxColumns = Math.Min( Convert.ToInt32( Math.Floor( (float)width / (float)SSubstancePointSize ) ), count );
             int maxRows = Convert.ToInt32( Math.Ceiling( (float)count / (float)maxColumns ) );
 
-            int posX = x + ( ( width - ( maxColumns * s_substancePointSize ) ) / 2 );
-            int posY = y - ( down ? 0 : maxRows * s_substancePointSize );
+            int posX = x + ( ( width - ( maxColumns * SSubstancePointSize ) ) / 2 );
+            int posY = y - ( down ? 0 : maxRows * SSubstancePointSize );
 
             int row = 0;
             int col = 0;
@@ -364,11 +364,11 @@ namespace Tesserakt
 
             for( int i = 1; i <= count; i++ )
             {
-                Rectangle rect = new Rectangle( posX + ( s_substancePointSize * col ), posY + ( s_substancePointSize * row ), s_substancePointSize, s_substancePointSize );
+                Rectangle rect = new Rectangle( posX + ( SSubstancePointSize * col ), posY + ( SSubstancePointSize * row ), SSubstancePointSize, SSubstancePointSize );
 
-                g.FillEllipse( i > crit ? substanceCritBrush : substanceNormalBrush, rect );
+                g.FillEllipse( i > crit ? SubstanceCritBrush : SubstanceNormalBrush, rect );
 
-                g.DrawEllipse( substanceBorderPen, rect );
+                g.DrawEllipse( SSubstanceBorderPen, rect );
 
                 ++col;
 
@@ -380,9 +380,9 @@ namespace Tesserakt
             }
         }
 
-        private static void drawSubstanceCirclesVertical( Graphics g, int count, int x, int y, int width )
+        private static void DrawSubstanceCirclesVertical( Graphics g, int count, int x, int y, int width )
         {
-            int maxColumns = Convert.ToInt32( Math.Floor( (float)width / s_substancePointSize ) );
+            int maxColumns = Convert.ToInt32( Math.Floor( (float)width / SSubstancePointSize ) );
             int maxRows = Convert.ToInt32( Math.Ceiling( (float)count / (float)maxColumns ) );
 
             int row = 0;
@@ -392,11 +392,11 @@ namespace Tesserakt
 
             for( int i = 1; i <= count; i++ )
             {
-                Rectangle rect = new Rectangle( x + ( s_substancePointSize * col ), y + ( s_substancePointSize * row ), s_substancePointSize, s_substancePointSize );
+                Rectangle rect = new Rectangle( x + ( SSubstancePointSize * col ), y + ( SSubstancePointSize * row ), SSubstancePointSize, SSubstancePointSize );
 
-                g.FillEllipse( i > crit ? substanceCritBrush : substanceNormalBrush, rect );
+                g.FillEllipse( i > crit ? SubstanceCritBrush : SubstanceNormalBrush, rect );
 
-                g.DrawEllipse( substanceBorderPen, rect );
+                g.DrawEllipse( SSubstanceBorderPen, rect );
 
                 ++row;
 
@@ -413,7 +413,7 @@ namespace Tesserakt
             }
         }
 
-        private static void drawPoints( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit  )
+        private static void DrawPoints( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit  )
         {
             string points = $"{actor.Points( actorOutfit )}pkt";
 
@@ -422,20 +422,20 @@ namespace Tesserakt
                 points = actorOutfit.Name + " - " + points;
             }
 
-            g.DrawString( points, fontPoints, Brushes.Black, new Rectangle( 0, CmToPixel( 7.5 ), sectionsPosX, CmToPixel( 0.5 ) ), stringFormatHCenterVCenter );
+            g.DrawString( points, FontPoints, Brushes.Black, new Rectangle( 0, CmToPixel( 7.5 ), SSectionsPosX, CmToPixel( 0.5 ) ), StringFormatHCenterVCenter );
         }
 
-        private static void drawMisc( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void DrawMisc( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            drawType( g, actor.Type );
-            drawSize( g, actor.Size );
-            drawMovement( g, actor.MovementType );
-            drawWeight( g, actor, actorOutfit );
+            DrawType( g, actor.Type );
+            DrawSize( g, actor.Size );
+            DrawMovement( g, actor.MovementType );
+            DrawWeight( g, actor, actorOutfit );
         }
 
-        private static void drawType( Graphics g, Actor.EType type )
+        private static void DrawType( Graphics g, Actor.EType type )
         {
-            Rectangle rect = new Rectangle( xAttrThirdColumn, s_lineHeightDouble, s_lineHeight, s_lineHeight );
+            Rectangle rect = new Rectangle( XAttrThirdColumn, SLineHeightDouble, SLineHeight, SLineHeight );
 
             switch( type )
             {
@@ -459,10 +459,10 @@ namespace Tesserakt
                     throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
             }
 
-            g.DrawRectangle( linePenBlack, rect );
+            g.DrawRectangle( SLinePenBlack, rect );
         }
 
-        private static void drawSize( Graphics g, Actor.ESize size )
+        private static void DrawSize( Graphics g, Actor.ESize size )
         {
             // TODO really only show as character?
             // Bitmap img;
@@ -491,14 +491,14 @@ namespace Tesserakt
             }
 
             // TODO g.DrawImage( img, new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
-            Rectangle rect = new Rectangle( xAttrThirdColumn + s_lineHeight, s_lineHeightDouble, s_lineHeight, s_lineHeight );
+            Rectangle rect = new Rectangle( XAttrThirdColumn + SLineHeight, SLineHeightDouble, SLineHeight, SLineHeight );
             //g.FillRectangle( Brushes.Black, rect );
-            g.DrawRectangle( linePenBlack, rect );
+            g.DrawRectangle( SLinePenBlack, rect );
             //g.DrawString( sizeString, fontSize, Brushes.White, rect, );
-            Helpers.DrawStringCentered( g, sizeString, fontSize, Brushes.Black, rect );
+            Helpers.DrawStringCentered( g, sizeString, FontSize, Brushes.Black, rect );
         }
 
-        private static void drawMovement( Graphics g, EMovementType movementType )
+        private static void DrawMovement( Graphics g, EMovementType movementType )
         {
             Bitmap img;
 
@@ -532,34 +532,34 @@ namespace Tesserakt
                     throw new InvalidOperationException( "unkown " + nameof( EMovementType ) );
             }
 
-            g.DrawImage( img, new Rectangle( xAttrThirdColumn + s_lineHeightDouble + s_imageMargin, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
+            g.DrawImage( img, new Rectangle( XAttrThirdColumn + SLineHeightDouble + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
 
-            g.DrawRectangle( linePenBlack, new Rectangle( xAttrThirdColumn + s_lineHeightDouble, s_lineHeightDouble, s_lineHeight, s_lineHeight ) );
+            g.DrawRectangle( SLinePenBlack, new Rectangle( XAttrThirdColumn + SLineHeightDouble, SLineHeightDouble, SLineHeight, SLineHeight ) );
         }
 
-        private static void drawWeight( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void DrawWeight( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            int x1 = xAttrThirdColumn + 3 * s_lineHeight;
+            int x1 = XAttrThirdColumn + 3 * SLineHeight;
 
             int weightStringWidth = CmToPixel( 0.8 );
 
-            g.DrawImage( Properties.Resources.weight, new Rectangle( x1 + s_imageMargin, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
+            g.DrawImage( Properties.Resources.weight, new Rectangle( x1 + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
 
-            Helpers.DrawStringCentered( g, $"{actor.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n1}", fontStandardSmall, Brushes.Black, new Rectangle( x1 + 2 * s_imageMargin + s_imageSize, s_lineHeightDouble, weightStringWidth, s_lineHeight ) );
+            Helpers.DrawStringCentered( g, $"{actor.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n1}", FontStandardSmall, Brushes.Black, new Rectangle( x1 + 2 * SImageMargin + SImageSize, SLineHeightDouble, weightStringWidth, SLineHeight ) );
 
-            g.DrawRectangle( linePenBlack, new Rectangle( x1, s_lineHeightDouble, weightStringWidth + 3 * s_imageMargin + s_imageSize, s_lineHeight ) );
+            g.DrawRectangle( SLinePenBlack, new Rectangle( x1, SLineHeightDouble, weightStringWidth + 3 * SImageMargin + SImageSize, SLineHeight ) );
         }
 
-        private static void drawSectionHeader( Graphics g, String name, int posY )
+        private static void DrawSectionHeader( Graphics g, String name, int posY )
         {
-            Rectangle sectionRectangle = new Rectangle( sectionsPosX, posY, sectionHeader.Width, sectionHeader.Height );
+            Rectangle sectionRectangle = new Rectangle( SSectionsPosX, posY, SectionHeader.Width, SectionHeader.Height );
 
-            g.DrawImageUnscaled( sectionHeader, sectionRectangle );
+            g.DrawImageUnscaled( SectionHeader, sectionRectangle );
 
-            g.DrawString( name, fontStandard, Brushes.White, sectionRectangle, stringFormatHLeftVCenter );
+            g.DrawString( name, FontStandard, Brushes.White, sectionRectangle, StringFormatHLeftVCenter );
         }
 
-        private static int drawTraits( Graphics g, List<Actor.ActorTrait> actorTraitList )
+        private static int DrawTraits( Graphics g, List<Actor.ActorTrait> actorTraitList )
         {
             int posY = CmToPixel( 1.5 );
 
@@ -574,7 +574,7 @@ namespace Tesserakt
 
                     if( trait.Level > 0 )
                     {
-                        builder.Append( nonBreakingSpace + trait.Level );
+                        builder.Append( NonBreakingSpace + trait.Level );
                     }
 
                     builder.Append( delimiter );
@@ -582,12 +582,12 @@ namespace Tesserakt
 
                 String traitsString = builder.Remove( builder.Length - delimiter.Length, delimiter.Length ).ToString();
 
-                drawSectionHeader( g, "Eigenschaften", posY );
-                posY += s_lineHeight;
+                DrawSectionHeader( g, "Eigenschaften", posY );
+                posY += SLineHeight;
 
-                Size size = g.MeasureString( traitsString, fontTraits, s_sectionsWidth, stringFormatHLeftVTop ).ToSize();
+                Size size = g.MeasureString( traitsString, FontTraits, SSectionsWidth, StringFormatHLeftVTop ).ToSize();
 
-                g.DrawString( traitsString, fontTraits, Brushes.Black, new Rectangle( sectionsPosX, posY, s_sectionsWidth, s_cardHeight - posY ), stringFormatHLeftVTop );
+                g.DrawString( traitsString, FontTraits, Brushes.Black, new Rectangle( SSectionsPosX, posY, SSectionsWidth, SCardHeight - posY ), StringFormatHLeftVTop );
 
                 return ( posY + size.Height );
             }
@@ -595,7 +595,7 @@ namespace Tesserakt
             return ( posY );
         }
 
-        private static int drawWeapons( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, int posY )
+        private static int DrawWeapons( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, int posY )
         {
             if( actorOutfit == null )
             {
@@ -617,16 +617,16 @@ namespace Tesserakt
             }
             else
             {
-                drawSectionHeader( g, "Waffen", posY );
+                DrawSectionHeader( g, "Waffen", posY );
 
                 // Captions
-                g.DrawImage( Properties.Resources.potential_damage_white, new Rectangle( weapon_potentialStart + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
-                g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( weapon_substanceStart + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
-                g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( weapon_rangeStart + ( weapon_rangeWidth / 2 ) - ( s_lineHeight / 2 ) + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
+                g.DrawImage( Properties.Resources.potential_damage_white, new Rectangle( WeaponPotentialStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( WeaponSubstanceStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( WeaponRangeStart + ( WeaponRangeWidth / 2 ) - ( SLineHeight / 2 ) + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
                 if( weaponUnarmed != null )
                 {
-                    drawWeapon( g, actor, actorOutfit, weaponUnarmed, 1, posY + ( lineNumber * s_lineHeight ) );
+                    DrawWeapon( g, actor, actorOutfit, weaponUnarmed, 1, posY + ( lineNumber * SLineHeight ) );
 
                     lineNumber++;
                 }
@@ -637,7 +637,7 @@ namespace Tesserakt
                                                                     .ThenBy( x => x.weapon.RangeSort )
                                                                     .ThenBy( x => x.weapon.Name ) )
                 {
-                    drawWeapon( g, actor, actorOutfit, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * s_lineHeight ) );
+                    DrawWeapon( g, actor, actorOutfit, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * SLineHeight ) );
 
                     lineNumber++;
                 }
@@ -645,35 +645,35 @@ namespace Tesserakt
                 Weapon weaponDetonation = actor.WeaponDetonation( actorOutfit );
                 if( weaponDetonation != null )
                 {
-                    drawWeapon( g, actor, actorOutfit, weaponDetonation, 1, posY + ( lineNumber * s_lineHeight ) );
+                    DrawWeapon( g, actor, actorOutfit, weaponDetonation, 1, posY + ( lineNumber * SLineHeight ) );
 
                     lineNumber++;
                 }
 
-                int lineVertEnd = posY + ( lineNumber * s_lineHeight );
+                int lineVertEnd = posY + ( lineNumber * SLineHeight );
 
                 // right of name
-                g.DrawLine( linePenBlack, weapon_wkStart, posY + s_lineHeight, weapon_wkStart, lineVertEnd );
+                g.DrawLine( SLinePenBlack, WeaponWkStart, posY + SLineHeight, WeaponWkStart, lineVertEnd );
                 // right of wk
-                g.DrawLine( linePenBlack, weapon_potentialStart, posY + s_lineHeight, weapon_potentialStart, lineVertEnd );
+                g.DrawLine( SLinePenBlack, WeaponPotentialStart, posY + SLineHeight, WeaponPotentialStart, lineVertEnd );
                 // right of potential
-                g.DrawLine( linePenBlack, weapon_substanceStart, posY + s_lineHeight, weapon_substanceStart, lineVertEnd );
+                g.DrawLine( SLinePenBlack, WeaponSubstanceStart, posY + SLineHeight, WeaponSubstanceStart, lineVertEnd );
                 // right of substance
-                g.DrawLine( linePenBlack, weapon_rangeStart, posY + s_lineHeight, weapon_rangeStart, lineVertEnd );
+                g.DrawLine( SLinePenBlack, WeaponRangeStart, posY + SLineHeight, WeaponRangeStart, lineVertEnd );
                 // right of range
-                g.DrawLine( linePenBlack, weapon_rangeStart + weapon_rangeWidth, posY + s_lineHeight, weapon_rangeStart + weapon_rangeWidth, lineVertEnd );
+                g.DrawLine( SLinePenBlack, WeaponRangeStart + WeaponRangeWidth, posY + SLineHeight, WeaponRangeStart + WeaponRangeWidth, lineVertEnd );
 
                 return( lineNumber );
             }
         }
 
-        private static void drawWeapon( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Weapon weapon, int count, int posY )
+        private static void DrawWeapon( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Weapon weapon, int count, int posY )
         {
-            g.DrawLine( linePenBlack, sectionsPosX, posY + s_lineHeight, s_cardWidth, posY + s_lineHeight );
+            g.DrawLine( SLinePenBlack, SSectionsPosX, posY + SLineHeight, SCardWidth, posY + SLineHeight );
 
-            Rectangle wkRect = new Rectangle( weapon_wkStart, posY, weapon_wkWidth, s_lineHeight );
+            Rectangle wkRect = new Rectangle( WeaponWkStart, posY, WeaponWkWidth, SLineHeight );
             g.FillRectangle( Brushes.Black, wkRect );
-            Helpers.DrawStringCentered( g, weapon.WK.ToString(), fontWK, Brushes.White, wkRect );
+            Helpers.DrawStringCentered( g, weapon.WK.ToString(), FontWk, Brushes.White, wkRect );
 
             if( weapon.Unwieldy )
             {
@@ -710,28 +710,28 @@ namespace Tesserakt
                 }
             }
 
-            Size nameSize = new Size( weapon_nameWidth, s_lineHeight );
+            Size nameSize = new Size( WeaponNameWidth, SLineHeight );
             int charsFitted, linesFilled;
-            g.MeasureString( weaponName, fontWeaponName, nameSize, stringFormatHLeftVCenter, out charsFitted, out linesFilled );
+            g.MeasureString( weaponName, FontWeaponName, nameSize, StringFormatHLeftVCenter, out charsFitted, out linesFilled );
             if( charsFitted < weaponName.Length )
             {
                 weaponName = "NAME IST ZU LANG!";
             }
 
-            g.DrawString( weaponName, fontWeaponName, Brushes.Black, new Rectangle( new Point( weapon_nameStart, posY ), nameSize ), stringFormatHLeftVCenter );
+            g.DrawString( weaponName, FontWeaponName, Brushes.Black, new Rectangle( new Point( WeaponNameStart, posY ), nameSize ), StringFormatHLeftVCenter );
 
-            drawDamageType( g, weapon_potentialStart, posY, weapon.DamageTypeImage );
+            DrawDamageType( g, WeaponPotentialStart, posY, weapon.DamageTypeImage );
 
-            Helpers.DrawStringCentered( g, weapon.Potential.ToString(), fontWeapon, weaponFontBrush, new Rectangle( weapon_potentialStart, posY, weapon_potentialWidth, s_lineHeight ) );
+            Helpers.DrawStringCentered( g, weapon.Potential.ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponPotentialStart, posY, WeaponPotentialWidth, SLineHeight ) );
 
-            Helpers.DrawStringCentered( g, weapon.FormattedSubstance, fontWeapon, weaponFontBrush, new Rectangle( weapon_substanceStart, posY, weapon_substanceWidth, s_lineHeight ) );
+            Helpers.DrawStringCentered( g, weapon.FormattedSubstance, FontWeapon, WeaponFontBrush, new Rectangle( WeaponSubstanceStart, posY, WeaponSubstanceWidth, SLineHeight ) );
 
             if( Weapon.EType.Wurf == weapon.Type )
             {
                 // TODO only for EMP
                 // if( actor.ModKK( actorOutfit ) == actor.BaseKK() )
                 // {
-                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModKK( actorOutfit ) ), fontWeapon, weaponFontBrush, new Rectangle( weapon_rangeStart, posY, weapon_rangeWidth, s_lineHeight ) );
+                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModKK( actorOutfit ) ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
                 // }
                 // else
                 // {
@@ -741,20 +741,20 @@ namespace Tesserakt
             }
             else
             {
-                Helpers.DrawStringCentered( g, weapon.FormattedRange, fontWeapon, weaponFontBrush, new Rectangle( weapon_rangeStart, posY, weapon_rangeWidth, s_lineHeight ) );
+                Helpers.DrawStringCentered( g, weapon.FormattedRange, FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
             }
 
-            int remainderPosX = weapon_rangeStart + weapon_rangeWidth;
+            int remainderPosX = WeaponRangeStart + WeaponRangeWidth;
 
             if( weapon.AF > 0 )
             {
-                remainderPosX += s_imageMargin;
+                remainderPosX += SImageMargin;
 
-                int width = ( s_imageSize ) / 3;
+                int width = ( SImageSize ) / 3;
 
                 for( int j = 0; j < weapon.AF; j++ )
                 {
-                    g.DrawImage( Properties.Resources.patrone, new Rectangle( remainderPosX, posY + s_imageMargin, width, s_imageSize ) );
+                    g.DrawImage( Properties.Resources.patrone, new Rectangle( remainderPosX, posY + SImageMargin, width, SImageSize ) );
 
                     remainderPosX += width;
                 }
@@ -762,98 +762,98 @@ namespace Tesserakt
 
             if( weapon.IndirectFire )
             {
-                g.DrawImage( Properties.Resources.indirect, new Rectangle( remainderPosX + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
+                g.DrawImage( Properties.Resources.indirect, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
-                remainderPosX += s_lineHeight;
+                remainderPosX += SLineHeight;
             }
 
             if( weapon.Radius > 0 )
             {
-                Rectangle rect = new Rectangle( remainderPosX + weapon_radiusMargin, posY + weapon_radiusMargin, s_lineHeight - ( 2 * weapon_radiusMargin ), s_lineHeight - ( 2 * weapon_radiusMargin ) );
+                Rectangle rect = new Rectangle( remainderPosX + WeaponRadiusMargin, posY + WeaponRadiusMargin, SLineHeight - ( 2 * WeaponRadiusMargin ), SLineHeight - ( 2 * WeaponRadiusMargin ) );
                 g.FillEllipse( Brushes.Black, rect );
-                Helpers.DrawStringCentered( g, weapon.FormattedRadius, fontWeapon, Brushes.White, rect );
+                Helpers.DrawStringCentered( g, weapon.FormattedRadius, FontWeapon, Brushes.White, rect );
 
-                remainderPosX += s_lineHeight;
+                remainderPosX += SLineHeight;
             }
 
-            int damageEffectsPosX = drawDamageEffects( g, remainderPosX, posY, weapon.EffectsImage );
+            int damageEffectsPosX = DrawDamageEffects( g, remainderPosX, posY, weapon.EffectsImage );
 
-            if( ( remainderPosX + damageEffectsPosX ) > s_cardWidth )
+            if( ( remainderPosX + damageEffectsPosX ) > SCardWidth )
             {
-                Rectangle rect = new Rectangle( remainderPosX, posY, s_cardWidth - remainderPosX, s_lineHeight );
+                Rectangle rect = new Rectangle( remainderPosX, posY, SCardWidth - remainderPosX, SLineHeight );
                 g.FillRectangle( Brushes.Purple, rect );
-                g.DrawString( "KEIN PLATZ", fontWeapon, Brushes.White, rect, stringFormatHCenterVCenter );
+                g.DrawString( "KEIN PLATZ", FontWeapon, Brushes.White, rect, StringFormatHCenterVCenter );
             }
         }
 
-        private static int drawDamageEffects( Graphics g, int posX, int posY, Image effectImage )
+        private static int DrawDamageEffects( Graphics g, int posX, int posY, Image effectImage )
         {
-            int effectImageWidthDraw = (int)( ( (float)s_imageSize / (float)effectImage.Height ) * effectImage.Width );
+            int effectImageWidthDraw = (int)( ( (float)SImageSize / (float)effectImage.Height ) * effectImage.Width );
 
-            g.DrawImage( effectImage, new Rectangle( posX + s_imageMargin, posY + s_imageMargin, effectImageWidthDraw, s_imageSize ) );
+            g.DrawImage( effectImage, new Rectangle( posX + SImageMargin, posY + SImageMargin, effectImageWidthDraw, SImageSize ) );
 
-            return ( s_imageMargin + effectImageWidthDraw );
+            return ( SImageMargin + effectImageWidthDraw );
         }
 
-        private static void drawDamageType( Graphics g, int endPosX, int posY, Image typeImage )
+        private static void DrawDamageType( Graphics g, int endPosX, int posY, Image typeImage )
         {
-            int typeImageWidthDraw = (int)( ( (float)s_imageSize / (float)typeImage.Height ) * typeImage.Width );
+            int typeImageWidthDraw = (int)( ( (float)SImageSize / (float)typeImage.Height ) * typeImage.Width );
 
-            g.DrawImage( typeImage, new Rectangle( endPosX - s_imageMargin - typeImageWidthDraw, posY + s_imageMargin, typeImageWidthDraw, s_imageSize ) );
+            g.DrawImage( typeImage, new Rectangle( endPosX - SImageMargin - typeImageWidthDraw, posY + SImageMargin, typeImageWidthDraw, SImageSize ) );
         }
 
-        private static void drawArmor( Graphics g, Armor armor, int posY )
+        private static void DrawArmor( Graphics g, Armor armor, int posY )
         {
             if( armor != null )
             {
                 int nameWidth = CmToPixel( 3.3 );
-                int typesWidth = s_lineHeight * 4;
+                int typesWidth = SLineHeight * 4;
                 int potentialWidth = CmToPixel( 0.5 );
                 int camouflageWidth = CmToPixel( 0.5 );
 
-                int typesStart = sectionsPosX + nameWidth;
+                int typesStart = SSectionsPosX + nameWidth;
                 int potentialStart = typesStart + typesWidth;
                 int effectsStart = potentialStart + potentialWidth;
-                int camouflageStart = s_cardWidth - s_lineHeight;
+                int camouflageStart = SCardWidth - SLineHeight;
 
-                drawSectionHeader( g, "Rüstung", posY );
+                DrawSectionHeader( g, "Rüstung", posY );
 
-                g.DrawLine( linePenBlack, sectionsPosX, posY + s_lineHeightDouble, s_sectionsWidth, posY + s_lineHeightDouble );
+                g.DrawLine( SLinePenBlack, SSectionsPosX, posY + SLineHeightDouble, SSectionsWidth, posY + SLineHeightDouble );
 
-                g.DrawString( armor.Name, fontArmorName, Brushes.Black, new Rectangle( sectionsPosX, posY + s_lineHeight, nameWidth, s_lineHeight ), stringFormatHLeftVCenter );
+                g.DrawString( armor.Name, FontArmorName, Brushes.Black, new Rectangle( SSectionsPosX, posY + SLineHeight, nameWidth, SLineHeight ), StringFormatHLeftVCenter );
 
                 // Potential
-                g.DrawLine( linePenBlack, potentialStart, posY + s_lineHeight, potentialStart, posY + s_lineHeightDouble );
-                g.DrawImage( Properties.Resources.potential_defence_white, new Rectangle( potentialStart + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
+                g.DrawLine( SLinePenBlack, potentialStart, posY + SLineHeight, potentialStart, posY + SLineHeightDouble );
+                g.DrawImage( Properties.Resources.potential_defence_white, new Rectangle( potentialStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
-                Helpers.DrawStringCentered( g, armor.Potential.ToString(), fontArmor, armorFontBrush, new Rectangle( potentialStart, posY + s_lineHeight, potentialWidth, s_lineHeight ) );
+                Helpers.DrawStringCentered( g, armor.Potential.ToString(), FontArmor, ArmorFontBrush, new Rectangle( potentialStart, posY + SLineHeight, potentialWidth, SLineHeight ) );
 
-                g.DrawLine( linePenBlack, effectsStart, posY + s_lineHeight, effectsStart, posY + s_lineHeightDouble );
+                g.DrawLine( SLinePenBlack, effectsStart, posY + SLineHeight, effectsStart, posY + SLineHeightDouble );
 
                 // Camouflage
                 if( armor.Camouflage != Armor.ECamouflage.Keine )
                 {
                     Image img = ( armor.Camouflage == Armor.ECamouflage.Passiv ) ? Properties.Resources.camo_passive_white : Properties.Resources.camo_active_white;
 
-                    g.DrawImage( img, new Rectangle( camouflageStart + s_imageMargin, posY + s_imageMargin, s_imageSize, s_imageSize ) );
-                    g.DrawLine( linePenBlack, camouflageStart, posY + s_lineHeight, camouflageStart, posY + s_lineHeightDouble );
-                    Helpers.DrawStringCentered( g, armor.CamouflageLevel.ToString(), fontArmor, armorFontBrush, new Rectangle( camouflageStart, posY + s_lineHeight, camouflageWidth, s_lineHeight ) );
+                    g.DrawImage( img, new Rectangle( camouflageStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                    g.DrawLine( SLinePenBlack, camouflageStart, posY + SLineHeight, camouflageStart, posY + SLineHeightDouble );
+                    Helpers.DrawStringCentered( g, armor.CamouflageLevel.ToString(), FontArmor, ArmorFontBrush, new Rectangle( camouflageStart, posY + SLineHeight, camouflageWidth, SLineHeight ) );
                 }
 
-                drawDamageType( g, potentialStart, posY + s_lineHeight, armor.TypesImage );
+                DrawDamageType( g, potentialStart, posY + SLineHeight, armor.TypesImage );
 
-                int damageEffectsPosX = drawDamageEffects( g, effectsStart, posY + s_lineHeight, armor.EffectsImage );
+                int damageEffectsPosX = DrawDamageEffects( g, effectsStart, posY + SLineHeight, armor.EffectsImage );
 
-                if( ( effectsStart + damageEffectsPosX ) > s_cardWidth )
+                if( ( effectsStart + damageEffectsPosX ) > SCardWidth )
                 {
-                    Rectangle rect = new Rectangle( effectsStart, posY + s_lineHeight, s_cardWidth - effectsStart, s_lineHeight );
+                    Rectangle rect = new Rectangle( effectsStart, posY + SLineHeight, SCardWidth - effectsStart, SLineHeight );
                     g.FillRectangle( Brushes.Purple, rect );
-                    g.DrawString( "KEIN PLATZ", fontArmor, Brushes.White, rect, stringFormatHCenterVCenter );
+                    g.DrawString( "KEIN PLATZ", FontArmor, Brushes.White, rect, StringFormatHCenterVCenter );
                 }
             }
         }
 
-        private static int drawEquipment( Graphics g, List<Actor.ActorEquipment> actorEquipmentList, int posY )
+        private static int DrawEquipment( Graphics g, List<Actor.ActorEquipment> actorEquipmentList, int posY )
         {
             var equipList = actorEquipmentList.GroupBy( x => x.Equipment.ID )
                                               .Select( x => new { equipment = EquipmentStorage.Instance.Get( x.Key ), count = x.Count() } )
@@ -881,7 +881,7 @@ namespace Tesserakt
 
                     if( entry.equipment.UseOnce )
                     {
-                        builder.Append( nonBreakingSpace );
+                        builder.Append( NonBreakingSpace );
                         for( int i = 0; i < entry.count; i++ )
                         {
                             builder.Append( "○" );
@@ -891,21 +891,21 @@ namespace Tesserakt
                     {
                         if( entry.count > 1 )
                         {
-                            builder.Append( nonBreakingSpace + $"[x{entry.count}]" );
+                            builder.Append( NonBreakingSpace + $"[x{entry.count}]" );
                         }
                     }
 
                     builder.Append( delimiter );
                 }
 
-                drawSectionHeader( g, "Ausrüstung", posY );
-                posY += s_lineHeight;
+                DrawSectionHeader( g, "Ausrüstung", posY );
+                posY += SLineHeight;
 
                 string equipmentString = builder.Remove( builder.Length - delimiter.Length, delimiter.Length ).ToString();
 
-                Size size = g.MeasureString( equipmentString, fontTraits, s_sectionsWidth, stringFormatHLeftVTop ).ToSize();
+                Size size = g.MeasureString( equipmentString, FontTraits, SSectionsWidth, StringFormatHLeftVTop ).ToSize();
 
-                g.DrawString( equipmentString, fontEquipment, Brushes.Black, new Rectangle( sectionsPosX, posY, s_sectionsWidth, s_cardHeight - posY ), stringFormatHLeftVTop );
+                g.DrawString( equipmentString, FontEquipment, Brushes.Black, new Rectangle( SSectionsPosX, posY, SSectionsWidth, SCardHeight - posY ), StringFormatHLeftVTop );
 
                 return ( posY + size.Height );
             }

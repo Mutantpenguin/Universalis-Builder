@@ -13,8 +13,8 @@ namespace Tesserakt
     {
         private const int dpi = 72;
 
-        private static readonly float s_cardWidth = CmToPixel( CardPainter.cardWidthCm );
-        private static readonly float s_cardHeight = CmToPixel( CardPainter.cardHeightCm );
+        private static readonly float s_cardWidth = CmToPixel( CardPainter.CardWidthCm );
+        private static readonly float s_cardHeight = CmToPixel( CardPainter.CardHeightCm );
 
         #region fonts
         private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( TesseraktFonts.NovaSquareFileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaSquare, null );
@@ -34,7 +34,7 @@ namespace Tesserakt
         #region flipside
         private static readonly float s_flipsideHeaderHeight = CmToPixel( 0.5f );
 
-        private static readonly System.Drawing.Image s_flipsideHeader = SectionHeader.Create( CardPainter.CmToPixel( CardPainter.cardWidthCm ), CardPainter.CmToPixel( 0.5 ) );
+        private static readonly System.Drawing.Image s_flipsideHeader = SectionHeader.Create( CardPainter.CmToPixel( CardPainter.CardWidthCm ), CardPainter.CmToPixel( 0.5 ) );
 
         private static readonly float s_flipsideMargin = CmToPixel( 0.1f );
         private static readonly float s_flipsideColumnWidth = ( s_cardWidth - ( 4 * s_flipsideMargin ) ) / 3;
@@ -321,7 +321,7 @@ namespace Tesserakt
 
                 Group.GroupActor groupActor = sortedGroupActorList[ i ];
 
-                using( System.Drawing.Image img = CardPainter.getBitmap( groupActor ) )
+                using( System.Drawing.Image img = CardPainter.GetBitmap( groupActor ) )
                 {
                     Image imgCard = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
                     imgCard.ScaleToFit( s_cardWidth, s_cardHeight );
