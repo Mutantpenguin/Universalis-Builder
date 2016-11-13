@@ -13,6 +13,8 @@ namespace Tesserakt
         {
             InitializeComponent();
 
+            textBoxFactionDescription.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 10 );
+
             this.Icon = Properties.Resources.icon;
 
             m_faction = faction;
