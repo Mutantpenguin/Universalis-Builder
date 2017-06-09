@@ -5,3 +5,6 @@ Aktivierungsreihenfolge in allen Masken
 
 GroupPDFExport:
 	- Übersichtsseite aller genutzen Waffeneffekte?
+
+Nahkampfwaffen
+	- Möglichkeit schaffen, die Stärke als Modifikator auf die KK anzurechnen

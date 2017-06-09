@@ -211,12 +211,15 @@ namespace Tesserakt
                 case Weapon.EType.Fernkampf:
                     numericUpDownWeaponRangeLength.Enabled = true;
                     numericUpDownWeaponRangeAmount.Enabled = true;
+                    numericUpDownAF.Enabled = true;
                     checkBoxIndirectFire.Enabled = true;
                     break;
 
                 case Weapon.EType.Nahkampf:
                     numericUpDownWeaponRangeLength.Enabled = false;
                     numericUpDownWeaponRangeAmount.Enabled = false;
+                    numericUpDownAF.Enabled = false;
+                    numericUpDownAF.Value = 0;
                     checkBoxIndirectFire.Enabled = false;
                     checkBoxIndirectFire.Checked = false;
                     break;
@@ -224,6 +227,8 @@ namespace Tesserakt
                 case Weapon.EType.Wurf:
                     numericUpDownWeaponRangeLength.Enabled = false;
                     numericUpDownWeaponRangeAmount.Enabled = false;
+                    numericUpDownAF.Enabled = false;
+                    numericUpDownAF.Value = 0;
                     checkBoxIndirectFire.Enabled = true;
                     break;
 
