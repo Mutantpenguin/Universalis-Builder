@@ -4,4 +4,11 @@ Aktivierungsreihenfolge in allen Masken
   - AddXToY fehlen noch
 
 GroupPDFExport:
-	- Übersichtsseite aller genutzen Waffeneffekte
+	- Übersichtsseite aller genutzen Waffeneffekte?
+
+Auf der Karte:
+	- Die verschiedenen Abschnitte mit andersfarbigen "Balken" ausstatten?
+		- blau für Eigenschaften
+		- rot für Waffen
+		- grün für Rüstung
+		- ? für Ausrüstung

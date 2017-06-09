@@ -40,9 +40,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -67,6 +66,12 @@
     </Compile>
     <Compile Include="Source\Forms\FactionSelectionForm.Designer.cs">
       <DependentUpon>FactionSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\ImageSelectionForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\ImageSelectionForm2.Designer.cs">
+      <DependentUpon>ImageSelectionForm2.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\ImageSelectionForm.cs">
       <SubType>Form</SubType>
@@ -138,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\FactionSelectionForm.resx">
       <DependentUpon>FactionSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\ImageSelectionForm2.resx">
+      <DependentUpon>ImageSelectionForm2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\ImageSelectionForm.resx">
       <DependentUpon>ImageSelectionForm.cs</DependentUpon>
