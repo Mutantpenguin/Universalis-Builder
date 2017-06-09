@@ -238,24 +238,22 @@ namespace Tesserakt
 
         private static void DrawAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            DrawAttribute( g, XAttrFirstColumn, 0, "AGI", actor.ModAGI( actorOutfit ) );// TODO only for EMP, actor.BaseAGI( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "BW", actor.ModBW( actorOutfit ) );// TODO only for EMP, actor.BaseBW( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ), "KK", actor.ModKK( actorOutfit ) );// TODO only for EMP, actor.BaseKK() );
+            DrawAttribute( g, XAttrFirstColumn, 0, "AGI", actor.ModAGI( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "BW", actor.ModBW( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ), "KK", actor.ModKK( actorOutfit ) );
 
-            DrawAttribute( g, XAttrSecondColumn, 0, "HAK", actor.ModHAK( actorOutfit ) );// TODO only for EMP, actor.BaseHAK() );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ), "AFG", actor.ModAFG( actorOutfit ) );// TODO only for EMP, actor.BaseAFG() );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ), "SH", actor.ModSH( actorOutfit ) );// TODO only for EMP, actor.BaseSH() );
+            DrawAttribute( g, XAttrSecondColumn, 0, "HAK", actor.ModHAK( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ), "AFG", actor.ModAFG( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ), "SH", actor.ModSH( actorOutfit ) );
         }
 
-        private static void DrawAttribute( Graphics g, int posX, int posY, string name, int attribModValue ) // TODO only for EMP, int attribBaseValue )
+        private static void DrawAttribute( Graphics g, int posX, int posY, string name, int attribModValue )
         {
             int widthName = CmToPixel( 0.9 );
             int widthAtt = CmToPixel( 0.6 );
 
             Rectangle rectName = new Rectangle( posX, posY, widthName, SLineHeight );
             Rectangle rectModified = new Rectangle( posX + widthName, posY, 2 * widthAtt, SLineHeight );
-            // TODO only for EMP
-            //Rectangle rect_normal = new Rectangle( posX + widthName + widthAtt, posY, widthAtt, height );
 
             g.DrawRectangle( SLinePenBlack, new Rectangle( posX, posY, widthName + widthAtt + widthAtt, SLineHeight ) );
 
@@ -264,19 +262,7 @@ namespace Tesserakt
             Helpers.DrawStringCentered( g, name, FontStandard, Brushes.White, rectName );
 
             int printModValue = attribModValue < 0 ? 0 : attribModValue;
-            // TODO only for EMP
-            // int printBaseValue = attribBaseValue < 0 ? 0 : attribBaseValue;
-
-            // TODO only for EMP
-            //g.DrawString( printModValue.ToString(), fontStandard, attribModValue < 0 ? Brushes.Red : Brushes.Black, rect_modified, stringFormatHRightVCenter );
             Helpers.DrawStringCentered( g, printModValue.ToString(), FontStandard, attribModValue < 0 ? Brushes.Red : Brushes.Black, rectModified );
-
-            /* TODO only for EMP
-            if( printModValue != printBaseValue )
-            {
-                g.DrawString( "(" + printBaseValue.ToString() + ")", fontStandardSmall, attribBaseValue < 0 ? Brushes.Orange : Brushes.Gray, rect_normal, stringFormatHLeftVCenter );
-            }
-            */
         }
 
         private static void DrawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
@@ -285,19 +271,8 @@ namespace Tesserakt
             g.DrawImage( Properties.Resources.eye, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
 
             string fovAndModWbString = $"{(int)actor.Fov}°/{actor.ModWB( actorOutfit )}cm";
-
-            // TODO only for EMP
             Size fovAndModWbSize = g.MeasureString( fovAndModWbString, FontStandard ).ToSize();
-
             Helpers.DrawStringCentered( g, fovAndModWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
-
-            /* TODO only for EMP
-            if( actor.WB( actorOutfit ) != actor.ModWB( actorOutfit ) )
-            {
-                string wbString = $"({actor.WB( actorOutfit )}cm)";
-                g.DrawString( wbString, fontStandardSmall, Brushes.Gray, new Rectangle( xAttThirdColumn + CmToPixel( 0.5 ) + fovAndModWbSize.Width, CmToPixel( 0.5 ), CmToPixel( 1 ), CmToPixel( 0.5 ) ), stringFormatHLeftVCenter );
-            }
-            */
 
             // GB - Gefahrenbereich
             g.DrawImage( Properties.Resources.danger, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
@@ -731,16 +706,7 @@ namespace Tesserakt
 
             if( Weapon.EType.Wurf == weapon.Type )
             {
-                // TODO only for EMP
-                // if( actor.ModKK( actorOutfit ) == actor.BaseKK() )
-                // {
                 Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModKK( actorOutfit ) ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
-                // }
-                // else
-                // {
-                // g.DrawString( Actor.ThrowRange( actor.ModKK( actorOutfit ) ), fontWeaponSmall, Brushes.Red, new Rectangle( rangeStart, gnah, rangeWidth, s_lineHeight / 2 ), stringFormatHCenterVCenter );
-                // g.DrawString( Actor.ThrowRange( actor.BaseKK() ), fontWeaponSmall, Brushes.Orange, new Rectangle( rangeStart, gnah + ( s_lineHeight / 2 ), rangeWidth, s_lineHeight / 2 ), stringFormatHCenterVCenter );
-                // }
             }
             else
             {

@@ -188,12 +188,10 @@ namespace Tesserakt
 #region update
         private void updateFields()
         {
-            textBoxTragkraft.Text = $"{m_actorModified.ModMaxLoadCapacity( CurrentOutfit() ):n1}kg"; // TODO only for EMP  / {m_actorModified.BaseMaxLoadCapacity():n1}kg";
+            textBoxTragkraft.Text = $"{m_actorModified.ModMaxLoadCapacity( CurrentOutfit() ):n1}kg";
 
-            textBoxBelastung.Text = $"{m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: false ):n1}kg"; // TODO only for EMP  / {m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: true ):n1}kg";
+            textBoxBelastung.Text = $"{m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: false ):n1}kg";
             if( m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: false ) > m_actorModified.ModMaxLoadCapacity( CurrentOutfit() ) )
-            //||
-            // TODO only for EMP ( m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: true ) > m_actorModified.BaseMaxLoadCapacity() ) )
             {
                 textBoxBelastung.BackColor = Color.OrangeRed;
             }

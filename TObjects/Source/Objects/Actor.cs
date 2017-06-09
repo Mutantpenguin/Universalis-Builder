@@ -586,38 +586,6 @@ namespace Tesserakt
 #endregion members
 
 #region attributes
-        /* TODO only for EMP
-        public int BaseAGI( Actor.ActorOutfit actorOutfit )
-        {
-            return ( Attributes.AGI - BaseLoadModifier( actorOutfit ) );
-        }
-
-        public int BaseBW( Actor.ActorOutfit actorOutfit )
-        {
-            return ( Attributes.BW - BaseLoadModifier( actorOutfit ) );
-        }
-
-        public int BaseKK()
-        {
-            return ( Attributes.KK );
-        }
-
-        public int BaseHAK()
-        {
-            return ( Attributes.HAK );
-        }
-
-        public int BaseAFG()
-        {
-            return ( Attributes.AFG );
-        }
-
-        public int BaseSH()
-        {
-            return ( Attributes.SH );
-        }
-        */
-
         public int ModAGI( ActorOutfit actorOutfit )
         {
             return ( Attributes.ModAGI( CurrentAttributeModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
@@ -664,13 +632,6 @@ namespace Tesserakt
             }
         }
 
-        /* TODO only for EMP
-        public int WB( Actor.ActorOutfit actorOutfit )
-        {
-            return ( Presets.WBMultiplier * Attributes.AFG( CurrentAttributeModifier( actorOutfit ) ) );
-        }
-        */
-
         public int ModWB( ActorOutfit actorOutfit )
         {
             return ( Presets.WBMultiplier * Attributes.ModAFG( CurrentAttributeModifier( actorOutfit ) ) );
@@ -680,23 +641,6 @@ namespace Tesserakt
         {
             return( $"{attributeKK * Presets.throwRangeLengthMultiplier}/{Presets.throwRangeAmount}" );
         }
-
-        /* TODO only for EMP 
-        public float BaseMaxLoadCapacity()
-        {
-            switch( Type )
-            {
-                case EType.Infanterie:
-                    return ( Convert.ToSingle( Math.Pow( Attributes.KK, 2 ) ) );
-
-                case EType.MIKe:
-                    return ( Convert.ToSingle( Math.Pow( ( Attributes.KK * 2 ), 2 ) ) );
-
-                default:
-                    throw new InvalidOperationException( "unkown Actor.EType" );
-            }
-        }
-        */
 
         public float ModMaxLoadCapacity( ActorOutfit actorOutfit )
         {
@@ -744,22 +688,6 @@ namespace Tesserakt
 
             return ( loadoutWeight );
         }
-
-        /* TODO only for EMP 
-        private int BaseLoadModifier( Actor.ActorOutfit actorOutfit )
-        {
-            int loadModifier = Convert.ToInt32( Math.Ceiling( LoadoutWeight( actorOutfit, withSelfSustaining: true ) / BaseMaxLoadCapacity() ) );
-
-            if( loadModifier > 0 )
-            {
-                return ( loadModifier - 1 );
-            }
-            else
-            {
-                return ( 0 );
-            }
-        }
-        */
 
         private int ModLoadModifier( ActorOutfit actorOutfit )
         {
