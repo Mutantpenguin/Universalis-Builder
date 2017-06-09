@@ -5,9 +5,7 @@ namespace Tesserakt
 {
     public static class SectionHeader
     {
-        private static readonly Color backgroundColor = Color.SteelBlue;
-
-        public static Image Create( int width, int height )
+        public static Image Create( int width, int height, Color backgroundColor)
         {
             Image temp = new Bitmap( width, height );
 

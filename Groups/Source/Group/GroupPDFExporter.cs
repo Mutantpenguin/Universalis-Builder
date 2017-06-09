@@ -34,7 +34,7 @@ namespace Tesserakt
         #region flipside
         private static readonly float s_flipsideHeaderHeight = CmToPixel( 0.5f );
 
-        private static readonly System.Drawing.Image s_flipsideHeader = SectionHeader.Create( CardPainter.CmToPixel( CardPainter.CardWidthCm ), CardPainter.CmToPixel( 0.5 ) );
+        private static readonly System.Drawing.Image s_flipsideHeader = SectionHeader.Create( CardPainter.CmToPixel( CardPainter.CardWidthCm ), CardPainter.CmToPixel( 0.5 ), System.Drawing.Color.Gray );
 
         private static readonly float s_flipsideMargin = CmToPixel( 0.1f );
         private static readonly float s_flipsideColumnWidth = ( s_cardWidth - ( 4 * s_flipsideMargin ) ) / 3;
@@ -119,7 +119,7 @@ namespace Tesserakt
             
             PdfTemplate headerBarTemplate = cb.CreateTemplate( printableWidth, headerBarHeight );
 
-            using( System.Drawing.Image img = SectionHeader.Create( CardPainter.CmToPixel( PixelToCm( printableWidth ) ), CardPainter.CmToPixel( headerBarHeightCm ) ) )
+            using( System.Drawing.Image img = SectionHeader.Create( CardPainter.CmToPixel( PixelToCm( printableWidth ) ), CardPainter.CmToPixel( headerBarHeightCm ), System.Drawing.Color.Gray ) )
             {
                 Image headerBarImage = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
                 headerBarImage.ScaleToFit( printableWidth, headerBarHeight );
