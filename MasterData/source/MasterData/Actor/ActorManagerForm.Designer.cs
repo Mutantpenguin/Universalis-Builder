@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
             this.factionIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
@@ -48,9 +48,9 @@
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonExportImage = new System.Windows.Forms.ToolStripButton();
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonChangeFaction = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripButtonChangeFaction = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).BeginInit();
             this.toolStripCardManager.SuspendLayout();
@@ -62,8 +62,8 @@
             this.dataGridViewActors.AllowUserToAddRows = false;
             this.dataGridViewActors.AllowUserToDeleteRows = false;
             this.dataGridViewActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewActors.AutoGenerateColumns = false;
             this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -116,8 +116,8 @@
             // pointsRangeDataGridViewTextBoxColumn
             // 
             this.pointsRangeDataGridViewTextBoxColumn.DataPropertyName = "PointsRange";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.pointsRangeDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsRangeDataGridViewTextBoxColumn.Name = "pointsRangeDataGridViewTextBoxColumn";
             this.pointsRangeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -246,6 +246,17 @@
             this.checkBoxFilterType.ToolTipText = "nach Typ filtern";
             this.checkBoxFilterType.Click += new System.EventHandler(this.checkBoxFilterType_Click);
             // 
+            // toolStripButtonChangeFaction
+            // 
+            this.toolStripButtonChangeFaction.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonChangeFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonChangeFaction.Image = global::Tesserakt.Properties.Resources.arrow_step_over;
+            this.toolStripButtonChangeFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonChangeFaction.Name = "toolStripButtonChangeFaction";
+            this.toolStripButtonChangeFaction.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonChangeFaction.Text = "in andere Fraktion verschieben";
+            this.toolStripButtonChangeFaction.Click += new System.EventHandler(this.toolStripButtonChangeFaction_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -261,17 +272,6 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
-            // toolStripButtonChangeFaction
-            // 
-            this.toolStripButtonChangeFaction.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonChangeFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonChangeFaction.Image = global::Tesserakt.Properties.Resources.arrow_step_over;
-            this.toolStripButtonChangeFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonChangeFaction.Name = "toolStripButtonChangeFaction";
-            this.toolStripButtonChangeFaction.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonChangeFaction.Text = "in andere Fraktion verschieben";
-            this.toolStripButtonChangeFaction.Click += new System.EventHandler(this.toolStripButtonChangeFaction_Click);
-            // 
             // ActorManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,7 +283,7 @@
             this.KeyPreview = true;
             this.Name = "ActorManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Modell Manager";
+            this.Text = "Modelle";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ActorManagerForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).EndInit();
