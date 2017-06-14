@@ -8,3 +8,6 @@ GroupPDFExport:
 
 Nahkampfwaffen
 	- Möglichkeit schaffen, die Stärke als Modifikator auf die KK anzurechnen
+
+Neue Icons als FensterIcon verwendet?
+	Eventuell kleinere Varianten benötigt.
