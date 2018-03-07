@@ -44,6 +44,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.checkBoxIndirectFire = new System.Windows.Forms.CheckBox();
             this.checkBoxUnwieldy = new System.Windows.Forms.CheckBox();
             this.checkBoxUseOnce = new System.Windows.Forms.CheckBox();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
@@ -87,7 +88,7 @@
             this.getOriginalImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damageEffectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.checkBoxIndirectFire = new System.Windows.Forms.CheckBox();
+            this.checkBoxAdditivePotential = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageEffects)).BeginInit();
@@ -130,7 +131,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(423, 93);
+            this.panel1.Size = new System.Drawing.Size(481, 93);
             this.panel1.TabIndex = 1;
             // 
             // numericUpDownWeight
@@ -152,7 +153,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(302, 0);
+            this.label3.Location = new System.Drawing.Point(360, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 9;
@@ -168,7 +169,7 @@
             this.pictureBoxDamageEffects.MaximumSize = new System.Drawing.Size(1000, 48);
             this.pictureBoxDamageEffects.MinimumSize = new System.Drawing.Size(2, 48);
             this.pictureBoxDamageEffects.Name = "pictureBoxDamageEffects";
-            this.pictureBoxDamageEffects.Size = new System.Drawing.Size(339, 48);
+            this.pictureBoxDamageEffects.Size = new System.Drawing.Size(397, 48);
             this.pictureBoxDamageEffects.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDamageEffects.TabIndex = 21;
             this.pictureBoxDamageEffects.TabStop = false;
@@ -177,7 +178,7 @@
             // 
             this.numericUpDownPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownPoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponBindingSource, "Points", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownPoints.Location = new System.Drawing.Point(364, 16);
+            this.numericUpDownPoints.Location = new System.Drawing.Point(422, 16);
             this.numericUpDownPoints.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -204,7 +205,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(364, 0);
+            this.label2.Location = new System.Drawing.Point(422, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 7;
@@ -226,7 +227,7 @@
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.weaponBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxName.Location = new System.Drawing.Point(3, 16);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(293, 20);
+            this.textBoxName.Size = new System.Drawing.Size(351, 20);
             this.textBoxName.TabIndex = 6;
             // 
             // panel4
@@ -236,7 +237,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 95);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(417, 86);
+            this.panel4.Size = new System.Drawing.Size(475, 86);
             this.panel4.TabIndex = 5;
             // 
             // textBoxDescription
@@ -247,7 +248,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(417, 61);
+            this.textBoxDescription.Size = new System.Drawing.Size(475, 61);
             this.textBoxDescription.TabIndex = 1;
             // 
             // toolStrip1
@@ -256,7 +257,7 @@
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(417, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(475, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -269,6 +270,7 @@
             // panel3
             // 
             this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.checkBoxAdditivePotential);
             this.panel3.Controls.Add(this.checkBoxIndirectFire);
             this.panel3.Controls.Add(this.checkBoxUnwieldy);
             this.panel3.Controls.Add(this.checkBoxUseOnce);
@@ -294,8 +296,19 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(223, 203);
+            this.panel3.Size = new System.Drawing.Size(254, 203);
             this.panel3.TabIndex = 6;
+            // 
+            // checkBoxIndirectFire
+            // 
+            this.checkBoxIndirectFire.AutoSize = true;
+            this.checkBoxIndirectFire.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.weaponBindingSource, "IndirectFire", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxIndirectFire.Location = new System.Drawing.Point(6, 183);
+            this.checkBoxIndirectFire.Name = "checkBoxIndirectFire";
+            this.checkBoxIndirectFire.Size = new System.Drawing.Size(102, 17);
+            this.checkBoxIndirectFire.TabIndex = 34;
+            this.checkBoxIndirectFire.Text = "Indirektes Feuer";
+            this.checkBoxIndirectFire.UseVisualStyleBackColor = true;
             // 
             // checkBoxUnwieldy
             // 
@@ -325,7 +338,7 @@
             this.comboBoxType.FormattingEnabled = true;
             this.comboBoxType.Location = new System.Drawing.Point(122, 28);
             this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(95, 21);
+            this.comboBoxType.Size = new System.Drawing.Size(129, 21);
             this.comboBoxType.TabIndex = 31;
             this.toolTip.SetToolTip(this.comboBoxType, "Waffentyp");
             this.comboBoxType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxType_SelectionChangeCommitted);
@@ -392,7 +405,7 @@
             this.toolStripLabel2});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(223, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(254, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -458,7 +471,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(122, 84);
+            this.label6.Location = new System.Drawing.Point(159, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 6;
@@ -476,7 +489,7 @@
             // numericUpDownAF
             // 
             this.numericUpDownAF.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponBindingSource, "AF", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownAF.Location = new System.Drawing.Point(179, 82);
+            this.numericUpDownAF.Location = new System.Drawing.Point(216, 82);
             this.numericUpDownAF.Maximum = new decimal(new int[] {
             4,
             0,
@@ -491,16 +504,16 @@
             // 
             this.comboBoxDamageTypeLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDamageTypeLevel.FormattingEnabled = true;
-            this.comboBoxDamageTypeLevel.Location = new System.Drawing.Point(174, 55);
+            this.comboBoxDamageTypeLevel.Location = new System.Drawing.Point(198, 55);
             this.comboBoxDamageTypeLevel.Name = "comboBoxDamageTypeLevel";
-            this.comboBoxDamageTypeLevel.Size = new System.Drawing.Size(43, 21);
+            this.comboBoxDamageTypeLevel.Size = new System.Drawing.Size(53, 21);
             this.comboBoxDamageTypeLevel.TabIndex = 14;
             this.comboBoxDamageTypeLevel.SelectionChangeCommitted += new System.EventHandler(this.comboBoxDamageTypeLevel_SelectionChangeCommitted);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(122, 110);
+            this.label7.Location = new System.Drawing.Point(159, 110);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 11;
@@ -512,14 +525,14 @@
             this.comboBoxDamageTypeType.FormattingEnabled = true;
             this.comboBoxDamageTypeType.Location = new System.Drawing.Point(81, 55);
             this.comboBoxDamageTypeType.Name = "comboBoxDamageTypeType";
-            this.comboBoxDamageTypeType.Size = new System.Drawing.Size(87, 21);
+            this.comboBoxDamageTypeType.Size = new System.Drawing.Size(111, 21);
             this.comboBoxDamageTypeType.TabIndex = 13;
             this.comboBoxDamageTypeType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxDamageTypeType_SelectionChangeCommitted);
             // 
             // numericUpDownRadius
             // 
             this.numericUpDownRadius.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponBindingSource, "Radius", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownRadius.Location = new System.Drawing.Point(179, 108);
+            this.numericUpDownRadius.Location = new System.Drawing.Point(216, 108);
             this.numericUpDownRadius.Maximum = new decimal(new int[] {
             10,
             0,
@@ -538,7 +551,7 @@
             this.toolStripButtonRemoveEffect});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(188, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(215, 25);
             this.toolStrip3.TabIndex = 28;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -576,10 +589,10 @@
             this.panel6.Controls.Add(this.dataGridViewDamageEffects);
             this.panel6.Controls.Add(this.toolStrip3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(232, 3);
+            this.panel6.Location = new System.Drawing.Point(263, 3);
             this.panel6.MinimumSize = new System.Drawing.Size(0, 100);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(188, 203);
+            this.panel6.Size = new System.Drawing.Size(215, 203);
             this.panel6.TabIndex = 29;
             // 
             // dataGridViewDamageEffects
@@ -602,7 +615,7 @@
             this.dataGridViewDamageEffects.Name = "dataGridViewDamageEffects";
             this.dataGridViewDamageEffects.RowHeadersVisible = false;
             this.dataGridViewDamageEffects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDamageEffects.Size = new System.Drawing.Size(188, 178);
+            this.dataGridViewDamageEffects.Size = new System.Drawing.Size(215, 178);
             this.dataGridViewDamageEffects.TabIndex = 28;
             // 
             // tableLayoutPanel1
@@ -618,7 +631,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(423, 209);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(481, 209);
             this.tableLayoutPanel1.TabIndex = 26;
             // 
             // panel5
@@ -628,7 +641,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(417, 86);
+            this.panel5.Size = new System.Drawing.Size(475, 86);
             this.panel5.TabIndex = 6;
             // 
             // textBoxRules
@@ -639,7 +652,7 @@
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRules.Size = new System.Drawing.Size(417, 61);
+            this.textBoxRules.Size = new System.Drawing.Size(475, 61);
             this.textBoxRules.TabIndex = 1;
             // 
             // toolStrip4
@@ -648,7 +661,7 @@
             this.toolStripLabel4});
             this.toolStrip4.Location = new System.Drawing.Point(0, 0);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(417, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(475, 25);
             this.toolStrip4.TabIndex = 0;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -670,7 +683,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(423, 184);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(481, 184);
             this.tableLayoutPanel2.TabIndex = 31;
             // 
             // toolStrip5
@@ -680,7 +693,7 @@
             this.toolStripButtonSave});
             this.toolStrip5.Location = new System.Drawing.Point(0, 0);
             this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(423, 25);
+            this.toolStrip5.Size = new System.Drawing.Size(481, 25);
             this.toolStrip5.TabIndex = 26;
             this.toolStrip5.Text = "toolStrip5";
             // 
@@ -732,22 +745,21 @@
             // 
             this.damageEffectsBindingSource.DataSource = typeof(Tesserakt.DamageEffect);
             // 
-            // checkBoxIndirectFire
+            // checkBoxAdditivePotential
             // 
-            this.checkBoxIndirectFire.AutoSize = true;
-            this.checkBoxIndirectFire.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.weaponBindingSource, "IndirectFire", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxIndirectFire.Location = new System.Drawing.Point(6, 183);
-            this.checkBoxIndirectFire.Name = "checkBoxIndirectFire";
-            this.checkBoxIndirectFire.Size = new System.Drawing.Size(102, 17);
-            this.checkBoxIndirectFire.TabIndex = 34;
-            this.checkBoxIndirectFire.Text = "Indirektes Feuer";
-            this.checkBoxIndirectFire.UseVisualStyleBackColor = true;
+            this.checkBoxAdditivePotential.AutoSize = true;
+            this.checkBoxAdditivePotential.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.weaponBindingSource, "AdditivePotential", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxAdditivePotential.Location = new System.Drawing.Point(122, 84);
+            this.checkBoxAdditivePotential.Name = "checkBoxAdditivePotential";
+            this.checkBoxAdditivePotential.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxAdditivePotential.TabIndex = 35;
+            this.toolTip.SetToolTip(this.checkBoxAdditivePotential, "Additives Potential");
             // 
             // WeaponEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 511);
+            this.ClientSize = new System.Drawing.Size(481, 511);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
@@ -860,5 +872,6 @@
         private System.Windows.Forms.DataGridViewImageColumn getOriginalImageDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.CheckBox checkBoxIndirectFire;
+        private System.Windows.Forms.CheckBox checkBoxAdditivePotential;
     }
 }

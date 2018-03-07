@@ -61,6 +61,16 @@ namespace Tesserakt
                 MessageBox.Show( "Achtung, das Gewicht steht auf '0'!" );
             }
 
+            var weapon = ( weaponBindingSource.DataSource as Weapon );
+
+            if( ( weapon.Type != Weapon.EType.Nahkampf )
+                &&
+                ( weapon.AdditivePotential ) )
+            {
+                MessageBox.Show( "Achtung, nur Nahkampfwaffen dürfen über ein additives Potential verfügen!" );
+                return ( false );
+            }
+
             return ( true );
         }
 

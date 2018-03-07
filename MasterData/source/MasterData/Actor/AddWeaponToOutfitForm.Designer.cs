@@ -301,7 +301,7 @@
             // 
             // potentialDataGridViewTextBoxColumn
             // 
-            this.potentialDataGridViewTextBoxColumn.DataPropertyName = "Potential";
+            this.potentialDataGridViewTextBoxColumn.DataPropertyName = "FormattedPotential";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.potentialDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.potentialDataGridViewTextBoxColumn.HeaderText = "P";

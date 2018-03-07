@@ -30,6 +30,7 @@ namespace Tesserakt
             WK = weapon.WK;
             Type = weapon.Type;
             Potential = weapon.Potential;
+            AdditivePotential = weapon.AdditivePotential;
             Substance = weapon.Substance;
             DamageType = new DamageType( weapon.DamageType );
 
@@ -90,6 +91,8 @@ namespace Tesserakt
                 Type != weapon.Type
                 ||
                 Potential != weapon.Potential
+                ||
+                AdditivePotential != weapon.AdditivePotential
                 ||
                 Substance != weapon.Substance
                 ||
@@ -222,6 +225,12 @@ namespace Tesserakt
             set;
         } = 1;
 
+        public bool AdditivePotential
+        {
+            get;
+            set;
+        } = false;
+
         public int Substance
         {
             get;
@@ -292,6 +301,29 @@ namespace Tesserakt
 
         [JsonIgnore]
         public string EffectsString => ( DamageEffect.GetEffectListString( DamageEffectList ) );
+
+        [JsonIgnore]
+        public string FormattedPotential
+        {
+            get
+            {
+                if( 0 == Potential )
+                {
+                    return ( "-" );
+                }
+                else
+                {
+                    if( AdditivePotential )
+                    {
+                        return ( "+" + Potential.ToString() );
+                    }
+                    else
+                    {
+                        return ( Potential.ToString() );
+                    }
+                }
+            }
+        }
 
         [JsonIgnore]
         public string FormattedSubstance
