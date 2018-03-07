@@ -6,8 +6,5 @@ Aktivierungsreihenfolge in allen Masken
 GroupPDFExport:
 	- Übersichtsseite aller genutzen Waffeneffekte?
 
-Nahkampfwaffen
-	- Möglichkeit schaffen, die Stärke als Modifikator auf die KK anzurechnen
-
 Neue Icons als FensterIcon verwendet?
 	Eventuell kleinere Varianten benötigt.

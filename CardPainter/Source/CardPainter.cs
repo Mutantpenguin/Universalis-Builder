@@ -700,7 +700,14 @@ namespace Tesserakt
 
             DrawDamageType( g, WeaponPotentialStart, posY, weapon.DamageTypeImage );
 
-            Helpers.DrawStringCentered( g, weapon.Potential.ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponPotentialStart, posY, WeaponPotentialWidth, SLineHeight ) );
+            if( weapon.AdditivePotential )
+            {
+                Helpers.DrawStringCentered( g, ( weapon.Potential + actor.ModKK( actorOutfit ) ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponPotentialStart, posY, WeaponPotentialWidth, SLineHeight ) );
+            }
+            else
+            {
+                Helpers.DrawStringCentered( g, weapon.FormattedPotential, FontWeapon, WeaponFontBrush, new Rectangle( WeaponPotentialStart, posY, WeaponPotentialWidth, SLineHeight ) );
+            }
 
             Helpers.DrawStringCentered( g, weapon.FormattedSubstance, FontWeapon, WeaponFontBrush, new Rectangle( WeaponSubstanceStart, posY, WeaponSubstanceWidth, SLineHeight ) );
 

@@ -67,7 +67,13 @@ namespace Tesserakt
                 &&
                 ( weapon.AdditivePotential ) )
             {
-                MessageBox.Show( "Achtung, nur Nahkampfwaffen dürfen über ein additives Potential verfügen!" );
+                MessageBox.Show( "Nur Nahkampfwaffen dürfen über ein additives Potential verfügen!" );
+                return ( false );
+            }
+
+            if( weapon.AdditivePotential && weapon.Potential == 0 )
+            {
+                MessageBox.Show( "Bei additivem Potential muss das Potential größer 0 sein!" );
                 return ( false );
             }
 
