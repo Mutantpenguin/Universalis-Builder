@@ -39,10 +39,10 @@ namespace Universalis
                 {
                     AGI = armor.AttributeModifier.AGI,
                     BW = armor.AttributeModifier.BW,
-                    KK = armor.AttributeModifier.KK,
-                    HAK = armor.AttributeModifier.HAK,
-                    AFG = armor.AttributeModifier.AFG,
-                    SH = armor.AttributeModifier.SH
+                    KO = armor.AttributeModifier.KO,
+                    FK = armor.AttributeModifier.FK,
+                    WN = armor.AttributeModifier.WN,
+                    EH = armor.AttributeModifier.EH
                 };
             }
             else
@@ -297,13 +297,13 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string ModKK
+        public string ModKO
         {
             get
             {
                 if( null != AttributeModifier )
                 {
-                    return ( AttributeModifier.Format( AttributeModifier.KK ) );
+                    return ( AttributeModifier.Format( AttributeModifier.KO ) );
                 }
                 else
                 {
@@ -313,13 +313,13 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string ModHAK
+        public string ModFK
         {
             get
             {
                 if( null != AttributeModifier )
                 {
-                    return ( AttributeModifier.Format( AttributeModifier.HAK ) );
+                    return ( AttributeModifier.Format( AttributeModifier.FK ) );
                 }
                 else
                 {
@@ -329,13 +329,13 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string ModAFG
+        public string ModWN
         {
             get
             {
                 if( null != AttributeModifier )
                 {
-                    return ( AttributeModifier.Format( AttributeModifier.AFG ) );
+                    return ( AttributeModifier.Format( AttributeModifier.WN ) );
                 }
                 else
                 {
@@ -345,13 +345,13 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string ModSH
+        public string ModEH
         {
             get
             {
                 if( null != AttributeModifier )
                 {
-                    return ( AttributeModifier.Format( AttributeModifier.SH ) );
+                    return ( AttributeModifier.Format( AttributeModifier.EH ) );
                 }
                 else
                 {

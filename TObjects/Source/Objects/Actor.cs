@@ -48,13 +48,13 @@ namespace Universalis
                 ||
                 Attributes.BW != actor.Attributes.BW
                 ||
-                Attributes.KK != actor.Attributes.KK
+                Attributes.KO != actor.Attributes.KO
                 ||
-                Attributes.HAK != actor.Attributes.HAK
+                Attributes.FK != actor.Attributes.FK
                 ||
-                Attributes.AFG != actor.Attributes.AFG
+                Attributes.WN != actor.Attributes.WN
                 ||
-                Attributes.SH != actor.Attributes.SH )
+                Attributes.EH != actor.Attributes.EH )
             {
                 return ( false );
             }
@@ -133,10 +133,10 @@ namespace Universalis
             {
                 AGI = actor.Attributes.AGI,
                 BW = actor.Attributes.BW,
-                KK = actor.Attributes.KK,
-                HAK = actor.Attributes.HAK,
-                AFG = actor.Attributes.AFG,
-                SH = actor.Attributes.SH
+                KO = actor.Attributes.KO,
+                FK = actor.Attributes.FK,
+                WN = actor.Attributes.WN,
+                EH = actor.Attributes.EH
             };
 
             Weight = actor.Weight;
@@ -196,7 +196,8 @@ namespace Universalis
         {
             Klein = 1,
             Mittel = 2,
-            Groß = 3
+            Groß = 3,
+            Riesig = 4
         }
 
         public static readonly IList<ESize> ESizeList = Enum.GetValues( typeof( ESize ) ).Cast<ESize>().ToList().AsReadOnly();
@@ -204,8 +205,8 @@ namespace Universalis
         public enum EType
         {
             Infanterie = 1,
-            MIKe = 2,
-            Drohne = 3,
+            Mech = 2,
+            Koloss = 3,
             Fahrzeug = 4
         }
 
@@ -571,10 +572,10 @@ namespace Universalis
         {
             AGI = 4,
             BW = 4,
-            KK = 4,
-            HAK = 4,
-            AFG = 4,
-            SH = 4
+            KO = 4,
+            FK = 4,
+            WN = 4,
+            EH = 4
         };
 
         [ JsonConverter( typeof( JsonImageConverter ) )]
@@ -596,31 +597,31 @@ namespace Universalis
             return ( Attributes.ModBW( CurrentAttributeModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
         }
 
-        public int ModKK( ActorOutfit actorOutfit )
+        public int ModKO( ActorOutfit actorOutfit )
         {
-            return ( Attributes.ModKK( CurrentAttributeModifier( actorOutfit ) ) );
+            return ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
-        public int ModHAK( ActorOutfit actorOutfit )
+        public int ModFK( ActorOutfit actorOutfit )
         {
-            return ( Attributes.ModHAK( CurrentAttributeModifier( actorOutfit ) ) );
+            return ( Attributes.ModFK( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
-        public int ModAFG( ActorOutfit actorOutfit )
+        public int ModWN( ActorOutfit actorOutfit )
         {
-            return ( Attributes.ModAFG( CurrentAttributeModifier( actorOutfit ) ) );
+            return ( Attributes.ModWN( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
-        public int ModSH( ActorOutfit actorOutfit )
+        public int ModEH( ActorOutfit actorOutfit )
         {
-            return ( Attributes.ModSH( CurrentAttributeModifier( actorOutfit ) ) );
+            return ( Attributes.ModEH( CurrentAttributeModifier( actorOutfit ) ) );
         }
 #endregion attributes
 
 #region calculated values
         public int GB( ActorOutfit actorOutfit )
         {
-            int lengthGB = Presets.MaxLengthGB - Attributes.ModSH( CurrentAttributeModifier( actorOutfit ) );
+            int lengthGB = Presets.MaxLengthGB - Attributes.ModEH( CurrentAttributeModifier( actorOutfit ) );
 
             if( lengthGB < 0 )
             {
@@ -634,12 +635,12 @@ namespace Universalis
 
         public int ModWB( ActorOutfit actorOutfit )
         {
-            return ( Presets.WBMultiplier * Attributes.ModAFG( CurrentAttributeModifier( actorOutfit ) ) );
+            return ( Presets.WBMultiplier * Attributes.ModWN( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
-        public static string ThrowRange( int attributeKK )
+        public static string ThrowRange( int attributeKO )
         {
-            return( $"{attributeKK * Presets.throwRangeLengthMultiplier}/{Presets.throwRangeAmount}" );
+            return( $"{attributeKO * Presets.throwRangeLengthMultiplier}/{Presets.throwRangeAmount}" );
         }
 
         public float ModMaxLoadCapacity( ActorOutfit actorOutfit )
@@ -647,14 +648,14 @@ namespace Universalis
             switch( this.Type )
             {
                 case EType.Infanterie:
-                case EType.Drohne:
-                    return ( Convert.ToSingle( Math.Pow( Attributes.ModKK( CurrentAttributeModifier( actorOutfit ) ), 2 ) ) );
+                    return ( Convert.ToSingle( Math.Pow( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ), 2 ) ) );
 
-                case EType.MIKe:
-                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKK( CurrentAttributeModifier( actorOutfit ) ) * Presets.MIKELoadCapacityMultiplier ), 2 ) ) );
+                case EType.Mech:
+                case EType.Koloss:
+                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Presets.MIKELoadCapacityMultiplier ), 2 ) ) );
 
                 case EType.Fahrzeug:
-                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKK( CurrentAttributeModifier( actorOutfit ) ) * Presets.FahrzeugLoadCapacityMultiplier ), 2 ) ) );
+                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Presets.FahrzeugLoadCapacityMultiplier ), 2 ) ) );
 
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( EType ) );
@@ -705,9 +706,7 @@ namespace Universalis
 
         public Weapon WeaponUnarmed( ActorOutfit actorOutfit )
         {
-            if( ( this.Type == EType.Drohne )
-                ||
-                ( this.Type == EType.Fahrzeug ) )
+            if( this.Type == EType.Fahrzeug )
             {
                 return ( null );
             }
@@ -717,8 +716,8 @@ namespace Universalis
                 {
                     Type = Weapon.EType.Nahkampf,
                     Name = "Unbewaffnet",
-                    Potential = ModKK( actorOutfit ),
-                    Substance = Convert.ToInt32( Math.Round( ModKK( actorOutfit ) / 3.0f, 0 ) )
+                    Potential = ModKO( actorOutfit ),
+                    Substance = Convert.ToInt32( Math.Round( ModKO( actorOutfit ) / 3.0f, 0 ) )
                 };
 
                 switch( this.Type )
@@ -732,7 +731,8 @@ namespace Universalis
                         };
                         break;
 
-                    case EType.MIKe:
+                    case EType.Mech:
+                    case EType.Koloss:
                         weaponUnarmed.WK = Weapon.EClass.II;
                         weaponUnarmed.DamageType = new DamageType()
                         {
@@ -751,7 +751,7 @@ namespace Universalis
 
         public Weapon WeaponDetonation( ActorOutfit actorOutfit )
         {
-            if( this.Type != EType.MIKe )
+            if( this.Type != EType.Mech )
             {
                 return ( null );
             }
@@ -776,9 +776,9 @@ namespace Universalis
                                                                       {
                                                                           Type = DamageEffect.EType.Explosiv
                                                                       } },
-                    Radius = ModKK( actorOutfit ),
-                    Potential = ModKK( actorOutfit ),
-                    Substance = Convert.ToInt32( Math.Round( ModKK( actorOutfit ) / 2.0f, 0 ) )
+                    Radius = ModKO( actorOutfit ),
+                    Potential = ModKO( actorOutfit ),
+                    Substance = Convert.ToInt32( Math.Round( ModKO( actorOutfit ) / 2.0f, 0 ) )
                 };
 
                 return ( weaponDetonation );
@@ -817,20 +817,20 @@ namespace Universalis
 
             points += Attributes.ModAGI( CurrentAttributeModifier( actorOutfit ) ) * Costs.AGI;
             points += Attributes.ModBW( CurrentAttributeModifier( actorOutfit ) ) * Costs.BW;
-            points += Attributes.ModKK( CurrentAttributeModifier( actorOutfit ) ) * Costs.KK;
-            points += Attributes.ModHAK( CurrentAttributeModifier( actorOutfit ) ) * Costs.HAK;
-            points += Attributes.ModAFG( CurrentAttributeModifier( actorOutfit ) ) * Costs.AFG;
-            points += Attributes.ModSH( CurrentAttributeModifier( actorOutfit ) ) * Costs.SH;
+            points += Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Costs.KO;
+            points += Attributes.ModFK( CurrentAttributeModifier( actorOutfit ) ) * Costs.FK;
+            points += Attributes.ModWN( CurrentAttributeModifier( actorOutfit ) ) * Costs.WN;
+            points += Attributes.ModEH( CurrentAttributeModifier( actorOutfit ) ) * Costs.EH;
 
             switch( this.Type )
             {
                 case EType.Infanterie:
-                case EType.Drohne:
                 case EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
                     points += SZ * Costs.SZ;
                     break;
 
-                case EType.MIKe:
+                case EType.Mech:
+                case EType.Koloss:
                     points += ( SZ * Costs.SZ ) + ( 3 * HitZoneSZ * Costs.SZ );
                     break;
 

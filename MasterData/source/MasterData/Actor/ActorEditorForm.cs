@@ -51,10 +51,10 @@ namespace Universalis
 
             AttribAGI.Value = m_actorModified.Attributes.AGI;
             AttribBW.Value = m_actorModified.Attributes.BW;
-            AttribKK.Value = m_actorModified.Attributes.KK;
-            AttribHAK.Value = m_actorModified.Attributes.HAK;
-            AttribAFG.Value = m_actorModified.Attributes.AFG;
-            AttribSH.Value = m_actorModified.Attributes.SH;
+            AttribKO.Value = m_actorModified.Attributes.KO;
+            AttribFK.Value = m_actorModified.Attributes.FK;
+            AttribWN.Value = m_actorModified.Attributes.WN;
+            AttribEH.Value = m_actorModified.Attributes.EH;
 
             SZ.Value = m_actorModified.SZ;
 
@@ -102,30 +102,30 @@ namespace Universalis
             updateFields();
         }
 
-        private void AttribKK_ValueChanged( object sender, EventArgs e )
+        private void AttribKO_ValueChanged( object sender, EventArgs e )
         {
-            m_actorModified.Attributes.KK = Convert.ToInt32( AttribKK.Value );
+            m_actorModified.Attributes.KO = Convert.ToInt32( AttribKO.Value );
 
             updateFields();
         }
 
-        private void AttribHAK_ValueChanged( object sender, EventArgs e )
+        private void AttribFK_ValueChanged( object sender, EventArgs e )
         {
-            m_actorModified.Attributes.HAK = Convert.ToInt32( AttribHAK.Value );
+            m_actorModified.Attributes.FK = Convert.ToInt32( AttribFK.Value );
 
             updateFields();
         }
 
-        private void AttribAFG_ValueChanged( object sender, EventArgs e )
+        private void AttribWN_ValueChanged( object sender, EventArgs e )
         {
-            m_actorModified.Attributes.AFG = Convert.ToInt32( AttribAFG.Value );
+            m_actorModified.Attributes.WN = Convert.ToInt32( AttribWN.Value );
 
             updateFields();
         }
 
-        private void AttribSH_ValueChanged( object sender, EventArgs e )
+        private void AttribEH_ValueChanged( object sender, EventArgs e )
         {
-            m_actorModified.Attributes.SH = Convert.ToInt32( AttribSH.Value );
+            m_actorModified.Attributes.EH = Convert.ToInt32( AttribEH.Value );
 
             updateFields();
         }
@@ -652,9 +652,11 @@ namespace Universalis
                 switch( (Actor.EType)comboBoxType.SelectedItem )
                 {
                     case Actor.EType.Infanterie:
-                        if( size == Actor.ESize.Groß )
+                        if( ( size != Actor.ESize.Klein )
+                            &&
+                            ( size != Actor.ESize.Mittel ) )
                         {
-                            MessageBox.Show( "Infanterie darf nicht groß sein!",
+                            MessageBox.Show( "Infanterie darf nur klein oder mittel!",
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );
@@ -662,21 +664,13 @@ namespace Universalis
                         }
                         break;
 
-                    case Actor.EType.Drohne:
-                        if( size == Actor.ESize.Groß )
+                    case Actor.EType.Mech:
+                    case Actor.EType.Koloss:
+                        if( ( size != Actor.ESize.Groß )
+                            &&
+                            ( size != Actor.ESize.Riesig ) )
                         {
-                            MessageBox.Show( "Drohnen dürfen nicht groß sein!",
-                                             caption,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Stop );
-                            return ( false );
-                        }
-                        break;
-
-                    case Actor.EType.MIKe:
-                        if( size != Actor.ESize.Groß )
-                        {
-                            MessageBox.Show( "MIKe müssen immer groß sein!",
+                            MessageBox.Show( "Mechs und Kolosse müssen immer groß oder riesig sein!",
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );

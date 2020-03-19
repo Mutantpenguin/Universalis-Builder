@@ -240,11 +240,11 @@ namespace Universalis
         {
             DrawAttribute( g, XAttrFirstColumn, 0, "AGI", actor.ModAGI( actorOutfit ) );
             DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "BW", actor.ModBW( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ), "KK", actor.ModKK( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ), "KO", actor.ModKO( actorOutfit ) );
 
-            DrawAttribute( g, XAttrSecondColumn, 0, "HAK", actor.ModHAK( actorOutfit ) );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ), "AFG", actor.ModAFG( actorOutfit ) );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ), "SH", actor.ModSH( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, 0, "FK", actor.ModFK( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ), "WN", actor.ModWN( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ), "EH", actor.ModEH( actorOutfit ) );
         }
 
         private static void DrawAttribute( Graphics g, int posX, int posY, string name, int attribModValue )
@@ -286,7 +286,6 @@ namespace Universalis
             switch( actor.Type )
             {
                 case Actor.EType.Infanterie:
-                case Actor.EType.Drohne:
                 case Actor.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
@@ -294,7 +293,8 @@ namespace Universalis
                     DrawSubstanceCirclesVertical( g, actor.SZ, posX, posY, SSubstancePointSize );
                     break;
 
-                case Actor.EType.MIKe:
+                case Actor.EType.Mech:
+                case Actor.EType.Koloss:
                     int posXArmLeft = SPictureRect.X + margin;
                     int posYArmLeft = SPictureRect.Y + margin;
 
@@ -421,12 +421,13 @@ namespace Universalis
                     g.DrawImage( Properties.Resources.infantry, rect );
                     break;
 
-                case Actor.EType.MIKe:
+                case Actor.EType.Mech:
                     g.DrawImage( Properties.Resources.mike, rect );
                     break;
 
-                case Actor.EType.Drohne:
-                    g.DrawImage( Properties.Resources.drohne, rect );
+                case Actor.EType.Koloss:
+                    // TODO korrektes symbol einfügen
+                    g.DrawImage( Properties.Resources.mike, rect );
                     break;
 
                 case Actor.EType.Fahrzeug:
@@ -702,7 +703,7 @@ namespace Universalis
 
             if( weapon.AdditivePotential )
             {
-                Helpers.DrawStringCentered( g, ( weapon.Potential + actor.ModKK( actorOutfit ) ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponPotentialStart, posY, WeaponPotentialWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, ( weapon.Potential + actor.ModKO( actorOutfit ) ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponPotentialStart, posY, WeaponPotentialWidth, SLineHeight ) );
             }
             else
             {
@@ -713,7 +714,7 @@ namespace Universalis
 
             if( Weapon.EType.Wurf == weapon.Type )
             {
-                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModKK( actorOutfit ) ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModKO( actorOutfit ) ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
             }
             else
             {

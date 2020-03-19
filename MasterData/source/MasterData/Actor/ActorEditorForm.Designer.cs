@@ -16,18 +16,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
@@ -67,10 +67,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SZ = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.AttribSH = new System.Windows.Forms.NumericUpDown();
-            this.AttribAFG = new System.Windows.Forms.NumericUpDown();
-            this.AttribHAK = new System.Windows.Forms.NumericUpDown();
-            this.AttribKK = new System.Windows.Forms.NumericUpDown();
+            this.AttribEH = new System.Windows.Forms.NumericUpDown();
+            this.AttribWN = new System.Windows.Forms.NumericUpDown();
+            this.AttribFK = new System.Windows.Forms.NumericUpDown();
+            this.AttribKO = new System.Windows.Forms.NumericUpDown();
             this.AttribBW = new System.Windows.Forms.NumericUpDown();
             this.AttribAGI = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
@@ -154,10 +154,10 @@
             this.toolStripDescription.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SZ)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribSH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribAFG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribHAK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribKK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttribEH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttribWN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttribFK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttribKO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttribBW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttribAGI)).BeginInit();
             this.panel9.SuspendLayout();
@@ -323,8 +323,8 @@
             this.dataGridViewTraits.AllowUserToDeleteRows = false;
             this.dataGridViewTraits.AllowUserToOrderColumns = true;
             this.dataGridViewTraits.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTraits.AutoGenerateColumns = false;
             this.dataGridViewTraits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -348,9 +348,9 @@
             // Type
             // 
             this.Type.DataPropertyName = "Type";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Type.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Type.DefaultCellStyle = dataGridViewCellStyle2;
             this.Type.HeaderText = "";
             this.Type.Name = "Type";
             this.Type.ReadOnly = true;
@@ -369,8 +369,8 @@
             // 
             this.levelDataGridViewComboBoxColumn.DataPropertyName = "Level";
             this.levelDataGridViewComboBoxColumn.DataSource = this.eTraitLevelBindingSource;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.levelDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.levelDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.levelDataGridViewComboBoxColumn.HeaderText = "Stufe";
             this.levelDataGridViewComboBoxColumn.Name = "levelDataGridViewComboBoxColumn";
             this.levelDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -384,8 +384,8 @@
             // pointsDataGridViewTextBoxColumn3
             // 
             this.pointsDataGridViewTextBoxColumn3.DataPropertyName = "Points";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle4;
             this.pointsDataGridViewTextBoxColumn3.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn3.Name = "pointsDataGridViewTextBoxColumn3";
             this.pointsDataGridViewTextBoxColumn3.ReadOnly = true;
@@ -489,10 +489,10 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.SZ);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.AttribSH);
-            this.panel2.Controls.Add(this.AttribAFG);
-            this.panel2.Controls.Add(this.AttribHAK);
-            this.panel2.Controls.Add(this.AttribKK);
+            this.panel2.Controls.Add(this.AttribEH);
+            this.panel2.Controls.Add(this.AttribWN);
+            this.panel2.Controls.Add(this.AttribFK);
+            this.panel2.Controls.Add(this.AttribKO);
             this.panel2.Controls.Add(this.AttribBW);
             this.panel2.Controls.Add(this.AttribAGI);
             this.panel2.Controls.Add(this.label7);
@@ -515,6 +515,7 @@
             this.label13.Size = new System.Drawing.Size(28, 13);
             this.label13.TabIndex = 53;
             this.label13.Text = "FOV";
+            this.toolTip.SetToolTip(this.label13, "Sichtfeld");
             // 
             // comboBoxFOV
             // 
@@ -524,7 +525,7 @@
             this.comboBoxFOV.Name = "comboBoxFOV";
             this.comboBoxFOV.Size = new System.Drawing.Size(50, 21);
             this.comboBoxFOV.TabIndex = 52;
-            this.toolTip.SetToolTip(this.comboBoxFOV, "Bewegungsart");
+            this.toolTip.SetToolTip(this.comboBoxFOV, "Sichtfeld");
             this.comboBoxFOV.SelectionChangeCommitted += new System.EventHandler(this.comboBoxFOV_SelectionChangeCommitted);
             // 
             // label17
@@ -565,7 +566,7 @@
             this.label16.Size = new System.Drawing.Size(25, 13);
             this.label16.TabIndex = 47;
             this.label16.Text = "WB";
-            this.toolTip.SetToolTip(this.label16, "Wahrnehmungsbereich (modifiziert)");
+            this.toolTip.SetToolTip(this.label16, "Wahrnehmungsbereich");
             // 
             // label11
             // 
@@ -604,6 +605,7 @@
             this.label1.Size = new System.Drawing.Size(22, 13);
             this.label1.TabIndex = 36;
             this.label1.Text = "GB";
+            this.toolTip.SetToolTip(this.label1, "Gefahrenbereich");
             // 
             // SZ
             // 
@@ -640,109 +642,109 @@
             this.label8.TabIndex = 29;
             this.label8.Text = "SZ";
             // 
-            // AttribSH
+            // AttribEH
             // 
-            this.AttribSH.Location = new System.Drawing.Point(121, 55);
-            this.AttribSH.Maximum = new decimal(new int[] {
+            this.AttribEH.Location = new System.Drawing.Point(121, 55);
+            this.AttribEH.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.AttribSH.Minimum = new decimal(new int[] {
+            this.AttribEH.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.AttribSH.Name = "AttribSH";
-            this.AttribSH.ReadOnly = true;
-            this.AttribSH.Size = new System.Drawing.Size(50, 20);
-            this.AttribSH.TabIndex = 28;
-            this.AttribSH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribSH, "Standhaftigkeit");
-            this.AttribSH.Value = new decimal(new int[] {
+            this.AttribEH.Name = "AttribEH";
+            this.AttribEH.ReadOnly = true;
+            this.AttribEH.Size = new System.Drawing.Size(50, 20);
+            this.AttribEH.TabIndex = 28;
+            this.AttribEH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip.SetToolTip(this.AttribEH, "Entschlossenheit");
+            this.AttribEH.Value = new decimal(new int[] {
             6,
             0,
             0,
             0});
-            this.AttribSH.ValueChanged += new System.EventHandler(this.AttribSH_ValueChanged);
+            this.AttribEH.ValueChanged += new System.EventHandler(this.AttribEH_ValueChanged);
             // 
-            // AttribAFG
+            // AttribWN
             // 
-            this.AttribAFG.Location = new System.Drawing.Point(121, 29);
-            this.AttribAFG.Maximum = new decimal(new int[] {
+            this.AttribWN.Location = new System.Drawing.Point(121, 29);
+            this.AttribWN.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.AttribAFG.Minimum = new decimal(new int[] {
+            this.AttribWN.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.AttribAFG.Name = "AttribAFG";
-            this.AttribAFG.ReadOnly = true;
-            this.AttribAFG.Size = new System.Drawing.Size(50, 20);
-            this.AttribAFG.TabIndex = 27;
-            this.AttribAFG.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribAFG, "Auffassungsgabe");
-            this.AttribAFG.Value = new decimal(new int[] {
+            this.AttribWN.Name = "AttribWN";
+            this.AttribWN.ReadOnly = true;
+            this.AttribWN.Size = new System.Drawing.Size(50, 20);
+            this.AttribWN.TabIndex = 27;
+            this.AttribWN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip.SetToolTip(this.AttribWN, "Wahrnehmung");
+            this.AttribWN.Value = new decimal(new int[] {
             6,
             0,
             0,
             0});
-            this.AttribAFG.ValueChanged += new System.EventHandler(this.AttribAFG_ValueChanged);
+            this.AttribWN.ValueChanged += new System.EventHandler(this.AttribWN_ValueChanged);
             // 
-            // AttribHAK
+            // AttribFK
             // 
-            this.AttribHAK.Location = new System.Drawing.Point(121, 3);
-            this.AttribHAK.Maximum = new decimal(new int[] {
+            this.AttribFK.Location = new System.Drawing.Point(121, 3);
+            this.AttribFK.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.AttribHAK.Minimum = new decimal(new int[] {
+            this.AttribFK.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.AttribHAK.Name = "AttribHAK";
-            this.AttribHAK.ReadOnly = true;
-            this.AttribHAK.Size = new System.Drawing.Size(50, 20);
-            this.AttribHAK.TabIndex = 26;
-            this.AttribHAK.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribHAK, "Hand-Auge-Koordination");
-            this.AttribHAK.Value = new decimal(new int[] {
+            this.AttribFK.Name = "AttribFK";
+            this.AttribFK.ReadOnly = true;
+            this.AttribFK.Size = new System.Drawing.Size(50, 20);
+            this.AttribFK.TabIndex = 26;
+            this.AttribFK.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip.SetToolTip(this.AttribFK, "Fernkampf");
+            this.AttribFK.Value = new decimal(new int[] {
             6,
             0,
             0,
             0});
-            this.AttribHAK.ValueChanged += new System.EventHandler(this.AttribHAK_ValueChanged);
+            this.AttribFK.ValueChanged += new System.EventHandler(this.AttribFK_ValueChanged);
             // 
-            // AttribKK
+            // AttribKO
             // 
-            this.AttribKK.Location = new System.Drawing.Point(34, 55);
-            this.AttribKK.Maximum = new decimal(new int[] {
+            this.AttribKO.Location = new System.Drawing.Point(34, 55);
+            this.AttribKO.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.AttribKK.Minimum = new decimal(new int[] {
+            this.AttribKO.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.AttribKK.Name = "AttribKK";
-            this.AttribKK.ReadOnly = true;
-            this.AttribKK.Size = new System.Drawing.Size(50, 20);
-            this.AttribKK.TabIndex = 25;
-            this.AttribKK.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribKK, "Körperkraft");
-            this.AttribKK.Value = new decimal(new int[] {
+            this.AttribKO.Name = "AttribKO";
+            this.AttribKO.ReadOnly = true;
+            this.AttribKO.Size = new System.Drawing.Size(50, 20);
+            this.AttribKO.TabIndex = 25;
+            this.AttribKO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip.SetToolTip(this.AttribKO, "Konstitution");
+            this.AttribKO.Value = new decimal(new int[] {
             6,
             0,
             0,
             0});
-            this.AttribKK.ValueChanged += new System.EventHandler(this.AttribKK_ValueChanged);
+            this.AttribKO.ValueChanged += new System.EventHandler(this.AttribKO_ValueChanged);
             // 
             // AttribBW
             // 
@@ -798,34 +800,38 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(22, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "SH";
+            this.label7.Text = "EH";
+            this.toolTip.SetToolTip(this.label7, "Entschlossenheit");
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(90, 31);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 13);
+            this.label6.Size = new System.Drawing.Size(26, 13);
             this.label6.TabIndex = 12;
-            this.label6.Text = "AFG";
+            this.label6.Text = "WN";
+            this.toolTip.SetToolTip(this.label6, "Wahrnehmung");
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(90, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.Size = new System.Drawing.Size(20, 13);
             this.label5.TabIndex = 11;
-            this.label5.Text = "HAK";
+            this.label5.Text = "FK";
+            this.toolTip.SetToolTip(this.label5, "Fernkampf");
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(3, 57);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 13);
+            this.label4.Size = new System.Drawing.Size(22, 13);
             this.label4.TabIndex = 10;
-            this.label4.Text = "KK";
+            this.label4.Text = "KO";
+            this.toolTip.SetToolTip(this.label4, "Konstitution");
             // 
             // label3
             // 
@@ -835,6 +841,7 @@
             this.label3.Size = new System.Drawing.Size(25, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "BW";
+            this.toolTip.SetToolTip(this.label3, "Bewegung");
             // 
             // label2
             // 
@@ -844,6 +851,7 @@
             this.label2.Size = new System.Drawing.Size(25, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "AGI";
+            this.toolTip.SetToolTip(this.label2, "Agilität");
             // 
             // panel9
             // 
@@ -938,8 +946,8 @@
             this.dataGridViewWeapons.AllowUserToDeleteRows = false;
             this.dataGridViewWeapons.AllowUserToOrderColumns = true;
             this.dataGridViewWeapons.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewWeapons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewWeapons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewWeapons.AutoGenerateColumns = false;
             this.dataGridViewWeapons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewWeapons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -969,9 +977,9 @@
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Format = "N1";
-            this.weightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N1";
+            this.weightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.weightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
             this.weightDataGridViewTextBoxColumn.ReadOnly = true;
@@ -980,8 +988,8 @@
             // pointsDataGridViewTextBoxColumn
             // 
             this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1077,9 +1085,9 @@
             // weightDataGridViewTextBoxColumn2
             // 
             this.weightDataGridViewTextBoxColumn2.DataPropertyName = "Weight";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle20.Format = "N1";
-            this.weightDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N1";
+            this.weightDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
             this.weightDataGridViewTextBoxColumn2.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn2.Name = "weightDataGridViewTextBoxColumn2";
             this.weightDataGridViewTextBoxColumn2.ReadOnly = true;
@@ -1088,8 +1096,8 @@
             // pointsDataGridViewTextBoxColumn2
             // 
             this.pointsDataGridViewTextBoxColumn2.DataPropertyName = "Points";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle9;
             this.pointsDataGridViewTextBoxColumn2.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn2.Name = "pointsDataGridViewTextBoxColumn2";
             this.pointsDataGridViewTextBoxColumn2.ReadOnly = true;
@@ -1155,8 +1163,8 @@
             this.dataGridViewEquipment.AllowUserToDeleteRows = false;
             this.dataGridViewEquipment.AllowUserToOrderColumns = true;
             this.dataGridViewEquipment.AllowUserToResizeRows = false;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewEquipment.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewEquipment.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewEquipment.AutoGenerateColumns = false;
             this.dataGridViewEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1187,9 +1195,9 @@
             // weightDataGridViewTextBoxColumn1
             // 
             this.weightDataGridViewTextBoxColumn1.DataPropertyName = "Weight";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.Format = "N1";
-            this.weightDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "N1";
+            this.weightDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
             this.weightDataGridViewTextBoxColumn1.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn1.Name = "weightDataGridViewTextBoxColumn1";
             this.weightDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1198,8 +1206,8 @@
             // pointsDataGridViewTextBoxColumn1
             // 
             this.pointsDataGridViewTextBoxColumn1.DataPropertyName = "Points";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle12;
             this.pointsDataGridViewTextBoxColumn1.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn1.Name = "pointsDataGridViewTextBoxColumn1";
             this.pointsDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1547,10 +1555,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SZ)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribSH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribAFG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribHAK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribKK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttribEH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttribWN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttribFK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AttribKO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttribBW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttribAGI)).EndInit();
             this.panel9.ResumeLayout(false);
@@ -1609,9 +1617,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown AttribSH;
-        private System.Windows.Forms.NumericUpDown AttribAFG;
-        private System.Windows.Forms.NumericUpDown AttribHAK;
+        private System.Windows.Forms.NumericUpDown AttribEH;
+        private System.Windows.Forms.NumericUpDown AttribWN;
+        private System.Windows.Forms.NumericUpDown AttribFK;
         private System.Windows.Forms.TextBox textBoxBaseCost;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.NumericUpDown SZ;
@@ -1658,7 +1666,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripButton toolStripButtonEquipmentAdd;
         private System.Windows.Forms.ToolStripButton toolStripButtonEquipmentRemove;
-        private System.Windows.Forms.NumericUpDown AttribKK;
+        private System.Windows.Forms.NumericUpDown AttribKO;
         private System.Windows.Forms.NumericUpDown AttribBW;
         private System.Windows.Forms.NumericUpDown AttribAGI;
         private System.Windows.Forms.Panel panel1;

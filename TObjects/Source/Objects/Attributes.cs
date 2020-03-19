@@ -17,25 +17,25 @@ namespace Universalis
             set;
         }
 
-        public int KK
+        public int KO
         {
             get;
             set;
         }
 
-        public int HAK
+        public int FK
         {
             get;
             set;
         }
 
-        public int AFG
+        public int WN
         {
             get;
             set;
         }
 
-        public int SH
+        public int EH
         {
             get;
             set;
@@ -61,44 +61,44 @@ namespace Universalis
             return ( BW + modifier.BW );
         }
 
-        public int ModKK( AttributeModifier modifier )
+        public int ModKO( AttributeModifier modifier )
         {
             if( modifier == null )
             {
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( KK + modifier.KK );
+            return ( KO + modifier.KO );
         }
 
-        public int ModHAK( AttributeModifier modifier )
+        public int ModFK( AttributeModifier modifier )
         {
             if( modifier == null )
             {
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( HAK + modifier.HAK );
+            return ( FK + modifier.FK );
         }
 
-        public int ModAFG( AttributeModifier modifier )
+        public int ModWN( AttributeModifier modifier )
         {
             if( modifier == null )
             {
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( AFG + modifier.AFG );
+            return ( WN + modifier.WN );
         }
 
-        public int ModSH( AttributeModifier modifier )
+        public int ModEH( AttributeModifier modifier )
         {
             if( modifier == null )
             {
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( SH + modifier.SH );
+            return ( EH + modifier.EH );
         }
     }
 }

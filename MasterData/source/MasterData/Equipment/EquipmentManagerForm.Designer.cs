@@ -57,10 +57,10 @@
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModAGI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModBW = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModKK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModHAK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModAFG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModSH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModKO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModFK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModWN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModEH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.apDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -162,10 +162,10 @@
             this.nameDataGridViewTextBoxColumn,
             this.ModAGI,
             this.ModBW,
-            this.ModKK,
-            this.ModHAK,
-            this.ModAFG,
-            this.ModSH,
+            this.ModKO,
+            this.ModFK,
+            this.ModWN,
+            this.ModEH,
             this.UseOnce,
             this.apDataGridViewTextBoxColumn,
             this.weightDataGridViewTextBoxColumn,
@@ -248,45 +248,45 @@
             this.ModBW.ReadOnly = true;
             this.ModBW.Width = 35;
             // 
-            // ModKK
+            // ModKO
             // 
-            this.ModKK.DataPropertyName = "ModKK";
+            this.ModKO.DataPropertyName = "ModKO";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModKK.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ModKK.HeaderText = "KK";
-            this.ModKK.Name = "ModKK";
-            this.ModKK.ReadOnly = true;
-            this.ModKK.Width = 35;
+            this.ModKO.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ModKO.HeaderText = "KO";
+            this.ModKO.Name = "ModKO";
+            this.ModKO.ReadOnly = true;
+            this.ModKO.Width = 35;
             // 
-            // ModHAK
+            // ModFK
             // 
-            this.ModHAK.DataPropertyName = "ModHAK";
+            this.ModFK.DataPropertyName = "ModFK";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModHAK.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ModHAK.HeaderText = "HAK";
-            this.ModHAK.Name = "ModHAK";
-            this.ModHAK.ReadOnly = true;
-            this.ModHAK.Width = 35;
+            this.ModFK.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ModFK.HeaderText = "FK";
+            this.ModFK.Name = "ModFK";
+            this.ModFK.ReadOnly = true;
+            this.ModFK.Width = 35;
             // 
-            // ModAFG
+            // ModWN
             // 
-            this.ModAFG.DataPropertyName = "ModAFG";
+            this.ModWN.DataPropertyName = "ModWN";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModAFG.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ModAFG.HeaderText = "AFG";
-            this.ModAFG.Name = "ModAFG";
-            this.ModAFG.ReadOnly = true;
-            this.ModAFG.Width = 35;
+            this.ModWN.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ModWN.HeaderText = "WN";
+            this.ModWN.Name = "ModWN";
+            this.ModWN.ReadOnly = true;
+            this.ModWN.Width = 35;
             // 
-            // ModSH
+            // ModEH
             // 
-            this.ModSH.DataPropertyName = "ModSH";
+            this.ModEH.DataPropertyName = "ModEH";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModSH.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ModSH.HeaderText = "SH";
-            this.ModSH.Name = "ModSH";
-            this.ModSH.ReadOnly = true;
-            this.ModSH.Width = 35;
+            this.ModEH.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ModEH.HeaderText = "EH";
+            this.ModEH.Name = "ModEH";
+            this.ModEH.ReadOnly = true;
+            this.ModEH.Width = 35;
             // 
             // UseOnce
             // 
@@ -372,10 +372,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModAGI;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModBW;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModKK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModHAK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModAFG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModSH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModKO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModFK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModWN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModEH;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
         private System.Windows.Forms.DataGridViewTextBoxColumn apDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;

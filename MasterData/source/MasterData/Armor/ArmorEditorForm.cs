@@ -140,10 +140,10 @@ namespace Universalis
                 {
                     AGI = 0,
                     BW = 0,
-                    KK = 0,
-                    HAK = 0,
-                    AFG = 0,
-                    SH = 0
+                    KO = 0,
+                    FK = 0,
+                    WN = 0,
+                    EH = 0
                 };
 
                 ( (Armor)armorBindingSource.DataSource ).AttributeModifier = attributeModifier;

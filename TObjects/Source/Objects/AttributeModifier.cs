@@ -31,13 +31,13 @@ namespace Universalis
                 ||
                 BW != attributeModifier.BW
                 ||
-                KK != attributeModifier.KK
+                KO != attributeModifier.KO
                 ||
-                HAK != attributeModifier.HAK
+                FK != attributeModifier.FK
                 ||
-                AFG != attributeModifier.AFG
+                WN != attributeModifier.WN
                 ||
-                SH != attributeModifier.SH )
+                EH != attributeModifier.EH )
             {
                 return ( false );
             }
@@ -59,24 +59,24 @@ namespace Universalis
                 text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"BW {Format( BW )}";
             }
 
-            if( KK != 0 )
+            if( KO != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KK {Format( KK )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KO {Format( KO )}";
             }
 
-            if( HAK != 0 )
+            if( FK != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"HAK {Format( HAK )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"FK {Format( FK )}";
             }
 
-            if( AFG != 0 )
+            if( WN != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"AFG {Format( AFG )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"WN {Format( WN )}";
             }
 
-            if( SH != 0 )
+            if( EH != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"SH {Format( SH )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"EH {Format( EH )}";
             }
 
             return ( text );
@@ -88,10 +88,10 @@ namespace Universalis
             {
                 AGI += modifier.AGI;
                 BW += modifier.BW;
-                KK += modifier.KK;
-                HAK += modifier.HAK;
-                AFG += modifier.AFG;
-                SH += modifier.SH;
+                KO += modifier.KO;
+                FK += modifier.FK;
+                WN += modifier.WN;
+                EH += modifier.EH;
             }
         }
 
@@ -108,25 +108,25 @@ namespace Universalis
             set;
         }
 
-        public int KK
+        public int KO
         {
             get;
             set;
         }
 
-        public int HAK
+        public int FK
         {
             get;
             set;
         }
 
-        public int AFG
+        public int WN
         {
             get;
             set;
         }
 
-        public int SH
+        public int EH
         {
             get;
             set;

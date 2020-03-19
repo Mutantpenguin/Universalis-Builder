@@ -6,10 +6,10 @@ namespace Universalis
     {
         public const int AGI = 10;
         public const int BW = 10;
-        public const int KK = 10;
-        public const int HAK = 10;
-        public const int AFG = 10;
-        public const int SH = 10;
+        public const int KO = 10;
+        public const int FK = 10;
+        public const int WN = 10;
+        public const int EH = 10;
 
         public const int SZ = 15;
 

@@ -51,6 +51,9 @@
             this.filterCamouflage = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterCamouflage = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewArmor = new System.Windows.Forms.DataGridView();
+            this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelfSustaining = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TypesImage = new System.Windows.Forms.DataGridViewImageColumn();
@@ -60,15 +63,12 @@
             this.CamouflageLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModAGI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModBW = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModKK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModHAK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModAFG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModSH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModKO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModFK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModWN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ModEH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArmor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).BeginInit();
@@ -193,10 +193,10 @@
             this.CamouflageLevel,
             this.ModAGI,
             this.ModBW,
-            this.ModKK,
-            this.ModHAK,
-            this.ModAFG,
-            this.ModSH,
+            this.ModKO,
+            this.ModFK,
+            this.ModWN,
+            this.ModEH,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewArmor.DataSource = this.armorBindingSource;
@@ -211,6 +211,25 @@
             this.dataGridViewArmor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewArmor_CellDoubleClick);
             this.dataGridViewArmor.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewArmor_CellToolTipTextNeeded);
             this.dataGridViewArmor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewArmor_KeyDown);
+            // 
+            // armorBindingSource
+            // 
+            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelCount});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(796, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelCount
+            // 
+            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
+            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -297,45 +316,45 @@
             this.ModBW.ReadOnly = true;
             this.ModBW.Width = 35;
             // 
-            // ModKK
+            // ModKO
             // 
-            this.ModKK.DataPropertyName = "ModKK";
+            this.ModKO.DataPropertyName = "ModKO";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModKK.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ModKK.HeaderText = "KK";
-            this.ModKK.Name = "ModKK";
-            this.ModKK.ReadOnly = true;
-            this.ModKK.Width = 35;
+            this.ModKO.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ModKO.HeaderText = "KO";
+            this.ModKO.Name = "ModKO";
+            this.ModKO.ReadOnly = true;
+            this.ModKO.Width = 35;
             // 
-            // ModHAK
+            // ModFK
             // 
-            this.ModHAK.DataPropertyName = "ModHAK";
+            this.ModFK.DataPropertyName = "ModFK";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModHAK.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ModHAK.HeaderText = "HAK";
-            this.ModHAK.Name = "ModHAK";
-            this.ModHAK.ReadOnly = true;
-            this.ModHAK.Width = 35;
+            this.ModFK.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ModFK.HeaderText = "FK";
+            this.ModFK.Name = "ModFK";
+            this.ModFK.ReadOnly = true;
+            this.ModFK.Width = 35;
             // 
-            // ModAFG
+            // ModWN
             // 
-            this.ModAFG.DataPropertyName = "ModAFG";
+            this.ModWN.DataPropertyName = "ModWN";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModAFG.DefaultCellStyle = dataGridViewCellStyle8;
-            this.ModAFG.HeaderText = "AFG";
-            this.ModAFG.Name = "ModAFG";
-            this.ModAFG.ReadOnly = true;
-            this.ModAFG.Width = 35;
+            this.ModWN.DefaultCellStyle = dataGridViewCellStyle8;
+            this.ModWN.HeaderText = "WN";
+            this.ModWN.Name = "ModWN";
+            this.ModWN.ReadOnly = true;
+            this.ModWN.Width = 35;
             // 
-            // ModSH
+            // ModEH
             // 
-            this.ModSH.DataPropertyName = "ModSH";
+            this.ModEH.DataPropertyName = "ModEH";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModSH.DefaultCellStyle = dataGridViewCellStyle9;
-            this.ModSH.HeaderText = "SH";
-            this.ModSH.Name = "ModSH";
-            this.ModSH.ReadOnly = true;
-            this.ModSH.Width = 35;
+            this.ModEH.DefaultCellStyle = dataGridViewCellStyle9;
+            this.ModEH.HeaderText = "EH";
+            this.ModEH.Name = "ModEH";
+            this.ModEH.ReadOnly = true;
+            this.ModEH.Width = 35;
             // 
             // weightDataGridViewTextBoxColumn
             // 
@@ -357,25 +376,6 @@
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.pointsDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // armorBindingSource
-            // 
-            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelCount});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(796, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabelCount
-            // 
-            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
-            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
             // ArmorManagerForm
             // 
@@ -414,6 +414,8 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCount;
         private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
+        private System.Windows.Forms.ToolStripComboBox filterCamouflage;
+        private System.Windows.Forms.ToolStripButton checkBoxFilterCamouflage;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelfSustaining;
         private System.Windows.Forms.DataGridViewImageColumn TypesImage;
@@ -423,13 +425,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CamouflageLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModAGI;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModBW;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModKK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModHAK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModAFG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModSH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModKO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModFK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModWN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModEH;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripComboBox filterCamouflage;
-        private System.Windows.Forms.ToolStripButton checkBoxFilterCamouflage;
     }
 }
