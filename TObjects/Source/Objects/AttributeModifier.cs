@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tesserakt
+namespace Universalis
 {
     public class AttributeModifier
     {

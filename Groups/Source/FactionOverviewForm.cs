@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Tesserakt
+namespace Universalis
 {
     public partial class FactionOverviewForm : Form
     {
@@ -38,7 +38,7 @@ namespace Tesserakt
 
             InitializeComponent();
 
-            listViewFactions.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 10 );
+            listViewFactions.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
 
             this.Icon = Properties.Resources.icon;
 

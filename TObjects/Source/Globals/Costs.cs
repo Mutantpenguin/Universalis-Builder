@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tesserakt
+namespace Universalis
 {
     static class Costs
     {

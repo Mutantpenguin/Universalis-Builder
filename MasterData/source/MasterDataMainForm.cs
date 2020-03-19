@@ -3,7 +3,7 @@ using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Tesserakt
+namespace Universalis
 {
     public partial class MasterDataMainForm : Form
     {

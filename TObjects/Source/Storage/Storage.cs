@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
 
-namespace Tesserakt
+namespace Universalis
 {
     public static class Storage
     {

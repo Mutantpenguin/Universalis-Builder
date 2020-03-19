@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class ProgressForm
     {
@@ -51,7 +51,7 @@
             this.labelTitel.Name = "labelTitel";
             this.labelTitel.Size = new System.Drawing.Size(370, 30);
             this.labelTitel.TabIndex = 0;
-            this.labelTitel.Text = "Projekt Tesserakt";
+            this.labelTitel.Text = "Universalis";
             this.labelTitel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxLogo

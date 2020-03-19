@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class ArmorManagerForm
     {
@@ -105,7 +105,7 @@
             // 
             this.toolStripButtonArmorAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonArmorAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonArmorAdd.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonArmorAdd.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonArmorAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArmorAdd.Name = "toolStripButtonArmorAdd";
             this.toolStripButtonArmorAdd.Size = new System.Drawing.Size(23, 22);
@@ -116,7 +116,7 @@
             // 
             this.toolStripButtonArmorDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonArmorDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonArmorDelete.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonArmorDelete.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonArmorDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArmorDelete.Name = "toolStripButtonArmorDelete";
             this.toolStripButtonArmorDelete.Size = new System.Drawing.Size(23, 22);
@@ -127,7 +127,7 @@
             // 
             this.toolStripButtonCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCopy.Image = global::Tesserakt.Properties.Resources.copy;
+            this.toolStripButtonCopy.Image = global::Universalis.Properties.Resources.copy;
             this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCopy.Name = "toolStripButtonCopy";
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
@@ -138,7 +138,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -166,7 +166,7 @@
             // 
             this.checkBoxFilterCamouflage.CheckOnClick = true;
             this.checkBoxFilterCamouflage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterCamouflage.Image = global::Tesserakt.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterCamouflage.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
             this.checkBoxFilterCamouflage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterCamouflage.Name = "checkBoxFilterCamouflage";
             this.checkBoxFilterCamouflage.Size = new System.Drawing.Size(23, 22);
@@ -360,7 +360,7 @@
             // 
             // armorBindingSource
             // 
-            this.armorBindingSource.DataSource = typeof(Tesserakt.Armor);
+            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
             // 
             // statusStrip1
             // 

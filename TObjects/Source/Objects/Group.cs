@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace Tesserakt
+namespace Universalis
 {
     public class Group
     {

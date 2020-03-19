@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class EquipmentManagerForm
     {
@@ -99,7 +99,7 @@
             // 
             this.toolStripButtonEquipmentAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonEquipmentAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonEquipmentAdd.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonEquipmentAdd.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonEquipmentAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEquipmentAdd.Name = "toolStripButtonEquipmentAdd";
             this.toolStripButtonEquipmentAdd.Size = new System.Drawing.Size(23, 22);
@@ -110,7 +110,7 @@
             // 
             this.toolStripButtonEquipmentDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonEquipmentDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonEquipmentDelete.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonEquipmentDelete.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonEquipmentDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEquipmentDelete.Name = "toolStripButtonEquipmentDelete";
             this.toolStripButtonEquipmentDelete.Size = new System.Drawing.Size(23, 22);
@@ -121,7 +121,7 @@
             // 
             this.toolStripButtonCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCopy.Image = global::Tesserakt.Properties.Resources.copy;
+            this.toolStripButtonCopy.Image = global::Universalis.Properties.Resources.copy;
             this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCopy.Name = "toolStripButtonCopy";
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
@@ -132,7 +132,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -185,7 +185,7 @@
             // 
             // equipmentBindingSource
             // 
-            this.equipmentBindingSource.DataSource = typeof(Tesserakt.Equipment);
+            this.equipmentBindingSource.DataSource = typeof(Universalis.Equipment);
             // 
             // dataGridViewTextBoxColumn1
             // 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Newtonsoft.Json;
 
-namespace Tesserakt
+namespace Universalis
 {
     public class DamageEffect
     {

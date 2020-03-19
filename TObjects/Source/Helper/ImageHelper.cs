@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Tesserakt
+namespace Universalis
 {
     public static class ImageHelper
     {

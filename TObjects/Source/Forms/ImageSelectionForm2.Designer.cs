@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class ImageSelectionForm2
     {

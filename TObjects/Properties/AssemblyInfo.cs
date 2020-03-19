@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "TesseraktObjects" )]
+[assembly: AssemblyTitle( "UniversalisObjects" )]
 [assembly: AssemblyDescription( "helper assembly used in the whole suite" )]
 
 

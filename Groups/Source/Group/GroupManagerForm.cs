@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Tesserakt
+namespace Universalis
 {
     public partial class GroupManagerForm : Form    
     {
@@ -13,7 +13,7 @@ namespace Tesserakt
         {
             InitializeComponent();
 
-            textBoxFactionDescription.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 10 );
+            textBoxFactionDescription.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
 
             this.Icon = Properties.Resources.icon;
 

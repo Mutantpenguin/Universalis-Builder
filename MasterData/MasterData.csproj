@@ -7,7 +7,7 @@
     <ProjectGuid>{E1860298-7378-4CFC-9D00-D9B1569C3AC5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tesserakt</RootNamespace>
+    <RootNamespace>Universalis</RootNamespace>
     <AssemblyName>MasterData</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -46,7 +46,7 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Tesserakt.Program</StartupObject>
+    <StartupObject>Universalis.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

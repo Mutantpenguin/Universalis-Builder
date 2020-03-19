@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Tesserakt
+namespace Universalis
 {
     public static class GroupPDFExporter
     {
@@ -17,7 +17,7 @@ namespace Tesserakt
         private static readonly float s_cardHeight = CmToPixel( CardPainter.CardHeightCm );
 
         #region fonts
-        private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( TesseraktFonts.NovaSquareFileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaSquare, null );
+        private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( UniversalisFont.FileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, TObjects.Properties.Resources.NovaRound_Regular, null );
 
         private static readonly Font s_pageTitleFont = new Font( s_baseFontNovaSquare, CmToPixel( 1 ), Font.BOLD, Color.WHITE );
         private static readonly Font s_versionInfoFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
@@ -54,7 +54,7 @@ namespace Tesserakt
         private static readonly float s_flipsideHeaderTitleDescent = s_baseFontNovaSquare.GetDescentPoint( s_flipsideHeaderTitle, s_flipsideHeaderFont.Size );
         #endregion
 
-        private static readonly string s_versionInfo = "Am " + DateTime.Now.ToShortDateString() + " mit der \"Tesserakt Program Suite\" Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + " erzeugt";
+        private static readonly string s_versionInfo = "Am " + DateTime.Now.ToShortDateString() + " mit der \"Universalis Program Suite\" Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + " erzeugt";
 
         private static float CmToPixel( float cm )
         {
@@ -86,7 +86,7 @@ namespace Tesserakt
                 document.AddTitle( p_group.Name );
                 document.AddAuthor( "Markus Lobedann & Sandro Sapienza" );
                 document.AddCreator( s_versionInfo );
-                document.AddKeywords( "Einheitenkarten für das Tesserakt Tabletop Spiel" );
+                document.AddKeywords( "Einheitenkarten für das Universalis Tabletop Spiel" );
                 document.AddSubject( p_group.Description );
                 document.AddCreationDate();
 

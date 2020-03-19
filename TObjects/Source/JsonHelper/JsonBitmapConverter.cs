@@ -2,7 +2,7 @@
 using System;
 using System.Drawing;
 
-namespace Tesserakt
+namespace Universalis
 {
     internal class JsonImageConverter : JsonConverter
     {

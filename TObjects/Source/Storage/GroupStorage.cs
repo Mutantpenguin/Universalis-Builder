@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Tesserakt
+namespace Universalis
 {
     public class GroupStorage
     {

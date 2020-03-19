@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class MasterDataMainForm
     {
@@ -44,7 +44,7 @@
             // buttonWeapons
             // 
             this.buttonWeapons.AutoSize = true;
-            this.buttonWeapons.BackgroundImage = global::Tesserakt.Properties.Resources.weapons;
+            this.buttonWeapons.BackgroundImage = global::Universalis.Properties.Resources.weapons;
             this.buttonWeapons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonWeapons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonWeapons.Location = new System.Drawing.Point(164, 3);
@@ -58,7 +58,7 @@
             // buttonArmor
             // 
             this.buttonArmor.AutoSize = true;
-            this.buttonArmor.BackgroundImage = global::Tesserakt.Properties.Resources.armor;
+            this.buttonArmor.BackgroundImage = global::Universalis.Properties.Resources.armor;
             this.buttonArmor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonArmor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonArmor.Location = new System.Drawing.Point(325, 3);
@@ -73,7 +73,7 @@
             // 
             this.buttonQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonQuit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonQuit.Image = global::Tesserakt.Properties.Resources.cross_circle;
+            this.buttonQuit.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonQuit.Location = new System.Drawing.Point(0, 228);
             this.buttonQuit.Name = "buttonQuit";
             this.buttonQuit.Size = new System.Drawing.Size(485, 34);
@@ -87,7 +87,7 @@
             // buttonTraits
             // 
             this.buttonTraits.AutoSize = true;
-            this.buttonTraits.BackgroundImage = global::Tesserakt.Properties.Resources.traits;
+            this.buttonTraits.BackgroundImage = global::Universalis.Properties.Resources.traits;
             this.buttonTraits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonTraits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonTraits.Location = new System.Drawing.Point(164, 117);
@@ -101,7 +101,7 @@
             // buttonEquipment
             // 
             this.buttonEquipment.AutoSize = true;
-            this.buttonEquipment.BackgroundImage = global::Tesserakt.Properties.Resources.equipment;
+            this.buttonEquipment.BackgroundImage = global::Universalis.Properties.Resources.equipment;
             this.buttonEquipment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonEquipment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonEquipment.Location = new System.Drawing.Point(3, 117);
@@ -115,7 +115,7 @@
             // buttonFactions
             // 
             this.buttonFactions.AutoSize = true;
-            this.buttonFactions.BackgroundImage = global::Tesserakt.Properties.Resources.factions;
+            this.buttonFactions.BackgroundImage = global::Universalis.Properties.Resources.factions;
             this.buttonFactions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonFactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonFactions.Location = new System.Drawing.Point(325, 117);
@@ -129,7 +129,7 @@
             // buttonActors
             // 
             this.buttonActors.AutoSize = true;
-            this.buttonActors.BackgroundImage = global::Tesserakt.Properties.Resources.models;
+            this.buttonActors.BackgroundImage = global::Universalis.Properties.Resources.models;
             this.buttonActors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonActors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonActors.Location = new System.Drawing.Point(3, 3);
@@ -175,7 +175,7 @@
             this.MinimizeBox = false;
             this.Name = "MasterDataMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tesserakt Stammdaten";
+            this.Text = "Universalis Stammdaten";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MasterDataMainForm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

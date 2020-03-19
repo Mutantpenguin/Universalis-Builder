@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace Tesserakt
+namespace Universalis
 {
     internal class JsonActorOutfitConverter : JsonConverter
     {

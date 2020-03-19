@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class AddWeaponToOutfitForm
     {
@@ -83,7 +83,7 @@
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Image = global::Tesserakt.Properties.Resources.tick;
+            this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(651, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 23);
@@ -97,7 +97,7 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Image = global::Tesserakt.Properties.Resources.cross_circle;
+            this.buttonCancel.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 23);
@@ -148,7 +148,7 @@
             // 
             // weaponBindingSource
             // 
-            this.weaponBindingSource.DataSource = typeof(Tesserakt.Weapon);
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
             // 
             // panel2
             // 
@@ -200,7 +200,7 @@
             // 
             this.checkBoxFilterWK.CheckOnClick = true;
             this.checkBoxFilterWK.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterWK.Image = global::Tesserakt.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterWK.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
             this.checkBoxFilterWK.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterWK.Name = "checkBoxFilterWK";
             this.checkBoxFilterWK.Size = new System.Drawing.Size(23, 22);
@@ -218,7 +218,7 @@
             // 
             this.checkBoxFilterDamageType.CheckOnClick = true;
             this.checkBoxFilterDamageType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterDamageType.Image = global::Tesserakt.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterDamageType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
             this.checkBoxFilterDamageType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterDamageType.Name = "checkBoxFilterDamageType";
             this.checkBoxFilterDamageType.Size = new System.Drawing.Size(23, 22);
@@ -263,7 +263,7 @@
             // 
             this.checkBoxFilterType.CheckOnClick = true;
             this.checkBoxFilterType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterType.Image = global::Tesserakt.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
             this.checkBoxFilterType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterType.Name = "checkBoxFilterType";
             this.checkBoxFilterType.Size = new System.Drawing.Size(23, 22);

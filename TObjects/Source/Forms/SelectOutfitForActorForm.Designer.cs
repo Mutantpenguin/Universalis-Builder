@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class SelectOutfitForActorForm
     {
@@ -90,7 +90,7 @@
             // 
             // actorOutfitBindingSource
             // 
-            this.actorOutfitBindingSource.DataSource = typeof(Tesserakt.Actor.ActorOutfit);
+            this.actorOutfitBindingSource.DataSource = typeof(Universalis.Actor.ActorOutfit);
             // 
             // panel1
             // 

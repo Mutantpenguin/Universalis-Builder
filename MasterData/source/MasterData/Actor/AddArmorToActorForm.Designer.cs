@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class AddArmorToActorForm
     {
@@ -76,7 +76,7 @@
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Image = global::Tesserakt.Properties.Resources.tick;
+            this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(693, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 23);
@@ -90,7 +90,7 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Image = global::Tesserakt.Properties.Resources.cross_circle;
+            this.buttonCancel.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 23);
@@ -290,7 +290,7 @@
             // 
             // armorBindingSource
             // 
-            this.armorBindingSource.DataSource = typeof(Tesserakt.Armor);
+            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
             // 
             // toolStrip1
             // 
@@ -335,7 +335,7 @@
             // 
             this.checkBoxFilterCamouflage.CheckOnClick = true;
             this.checkBoxFilterCamouflage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterCamouflage.Image = global::Tesserakt.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterCamouflage.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
             this.checkBoxFilterCamouflage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterCamouflage.Name = "checkBoxFilterCamouflage";
             this.checkBoxFilterCamouflage.Size = new System.Drawing.Size(23, 22);

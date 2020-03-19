@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class TraitEditorForm
     {
@@ -138,7 +138,7 @@
             // 
             // traitBindingSource
             // 
-            this.traitBindingSource.DataSource = typeof(Tesserakt.Trait);
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // panel3
             // 
@@ -219,7 +219,7 @@
             // 
             this.toolStripButtonInsertLevelString.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonInsertLevelString.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonInsertLevelString.Image = global::Tesserakt.Properties.Resources.script_text;
+            this.toolStripButtonInsertLevelString.Image = global::Universalis.Properties.Resources.script_text;
             this.toolStripButtonInsertLevelString.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonInsertLevelString.Name = "toolStripButtonInsertLevelString";
             this.toolStripButtonInsertLevelString.Size = new System.Drawing.Size(23, 22);
@@ -304,7 +304,7 @@
             // 
             // eTraitLevelBindingSource
             // 
-            this.eTraitLevelBindingSource.DataSource = typeof(Tesserakt.TraitLevel.ELevel);
+            this.eTraitLevelBindingSource.DataSource = typeof(Universalis.TraitLevel.ELevel);
             // 
             // pointsDataGridViewTextBoxColumn
             // 
@@ -317,7 +317,7 @@
             // 
             // traitLevelsBindingSource
             // 
-            this.traitLevelsBindingSource.DataSource = typeof(Tesserakt.TraitLevel);
+            this.traitLevelsBindingSource.DataSource = typeof(Universalis.TraitLevel);
             // 
             // toolStrip4
             // 
@@ -342,7 +342,7 @@
             // 
             this.toolStripButtonAddLevel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonAddLevel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddLevel.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonAddLevel.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonAddLevel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAddLevel.Name = "toolStripButtonAddLevel";
             this.toolStripButtonAddLevel.Size = new System.Drawing.Size(23, 22);
@@ -353,7 +353,7 @@
             // 
             this.toolStripButtonRemoveLevel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonRemoveLevel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonRemoveLevel.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonRemoveLevel.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonRemoveLevel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRemoveLevel.Name = "toolStripButtonRemoveLevel";
             this.toolStripButtonRemoveLevel.Size = new System.Drawing.Size(23, 22);
@@ -364,7 +364,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -385,7 +385,7 @@
             // 
             this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButton1.Image = global::Universalis.Properties.Resources.pin;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
@@ -393,7 +393,7 @@
             // 
             // toolStripButtonSave
             // 
-            this.toolStripButtonSave.Image = global::Tesserakt.Properties.Resources.disk;
+            this.toolStripButtonSave.Image = global::Universalis.Properties.Resources.disk;
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
             this.toolStripButtonSave.Size = new System.Drawing.Size(79, 22);

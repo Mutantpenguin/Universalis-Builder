@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="Actor+ActorOutfit" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Tesserakt.Actor+ActorOutfit, TObjects, Version=0.6.5808.16989, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>Universalis.Actor+ActorOutfit, TObjects, Version=0.6.5808.16989, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

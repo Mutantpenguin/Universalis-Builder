@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class WeaponEditorForm
     {
@@ -565,7 +565,7 @@
             // 
             this.toolStripButtonAddEffect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonAddEffect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddEffect.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonAddEffect.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonAddEffect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAddEffect.Name = "toolStripButtonAddEffect";
             this.toolStripButtonAddEffect.Size = new System.Drawing.Size(23, 22);
@@ -576,7 +576,7 @@
             // 
             this.toolStripButtonRemoveEffect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonRemoveEffect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonRemoveEffect.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonRemoveEffect.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonRemoveEffect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRemoveEffect.Name = "toolStripButtonRemoveEffect";
             this.toolStripButtonRemoveEffect.Size = new System.Drawing.Size(23, 22);
@@ -701,7 +701,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -709,7 +709,7 @@
             // 
             // toolStripButtonSave
             // 
-            this.toolStripButtonSave.Image = global::Tesserakt.Properties.Resources.disk;
+            this.toolStripButtonSave.Image = global::Universalis.Properties.Resources.disk;
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
             this.toolStripButtonSave.Size = new System.Drawing.Size(79, 22);
@@ -718,11 +718,11 @@
             // 
             // weaponBindingSource
             // 
-            this.weaponBindingSource.DataSource = typeof(Tesserakt.Weapon);
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
             // 
             // weaponRangeBindingSource
             // 
-            this.weaponRangeBindingSource.DataSource = typeof(Tesserakt.WeaponRange);
+            this.weaponRangeBindingSource.DataSource = typeof(Universalis.WeaponRange);
             this.weaponRangeBindingSource.CurrentItemChanged += new System.EventHandler(this.weaponRangeBindingSource_CurrentItemChanged);
             // 
             // getOriginalImageDataGridViewImageColumn
@@ -743,7 +743,7 @@
             // 
             // damageEffectsBindingSource
             // 
-            this.damageEffectsBindingSource.DataSource = typeof(Tesserakt.DamageEffect);
+            this.damageEffectsBindingSource.DataSource = typeof(Universalis.DamageEffect);
             // 
             // checkBoxAdditivePotential
             // 

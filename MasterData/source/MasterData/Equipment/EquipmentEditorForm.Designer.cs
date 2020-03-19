@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class EquipmentEditorForm
     {
@@ -145,7 +145,7 @@
             // 
             // equipmentBindingSource
             // 
-            this.equipmentBindingSource.DataSource = typeof(Tesserakt.Equipment);
+            this.equipmentBindingSource.DataSource = typeof(Universalis.Equipment);
             // 
             // numericUpDownAP
             // 
@@ -305,7 +305,7 @@
             // 
             // attributeModifierBindingSource
             // 
-            this.attributeModifierBindingSource.DataSource = typeof(Tesserakt.AttributeModifier);
+            this.attributeModifierBindingSource.DataSource = typeof(Universalis.AttributeModifier);
             // 
             // label4
             // 
@@ -543,7 +543,7 @@
             this.toolStripButtonAttribMod.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonAttribMod.CheckOnClick = true;
             this.toolStripButtonAttribMod.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAttribMod.Image = global::Tesserakt.Properties.Resources.ui_check_box_uncheck;
+            this.toolStripButtonAttribMod.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
             this.toolStripButtonAttribMod.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAttribMod.Name = "toolStripButtonAttribMod";
             this.toolStripButtonAttribMod.Size = new System.Drawing.Size(23, 22);
@@ -653,7 +653,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -661,7 +661,7 @@
             // 
             // toolStripButtonSave
             // 
-            this.toolStripButtonSave.Image = global::Tesserakt.Properties.Resources.disk;
+            this.toolStripButtonSave.Image = global::Universalis.Properties.Resources.disk;
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
             this.toolStripButtonSave.Size = new System.Drawing.Size(79, 22);

@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class AddTraitToActorForm
     {
@@ -93,7 +93,7 @@
             this.toolStripMenuItemPositives,
             this.toolStripMenuItemNegatives,
             this.toolStripMenuItemNeutrals});
-            this.toolStripDropDownButtonFilter.Image = global::Tesserakt.Properties.Resources.funnel;
+            this.toolStripDropDownButtonFilter.Image = global::Universalis.Properties.Resources.funnel;
             this.toolStripDropDownButtonFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButtonFilter.Name = "toolStripDropDownButtonFilter";
             this.toolStripDropDownButtonFilter.Size = new System.Drawing.Size(29, 22);
@@ -143,7 +143,7 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Image = global::Tesserakt.Properties.Resources.cross_circle;
+            this.buttonCancel.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 23);
@@ -157,7 +157,7 @@
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Image = global::Tesserakt.Properties.Resources.tick;
+            this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(281, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 23);
@@ -238,7 +238,7 @@
             // 
             // traitBindingSource
             // 
-            this.traitBindingSource.DataSource = typeof(Tesserakt.Trait);
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // AddTraitToActorForm
             // 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Tesserakt
+namespace Universalis
 {
     public partial class EquipmentEditorForm : Form
     {

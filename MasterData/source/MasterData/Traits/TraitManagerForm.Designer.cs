@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class TraitsManagerForm
     {
@@ -88,7 +88,7 @@
             // 
             this.toolStripButtonTraitAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonTraitAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonTraitAdd.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonTraitAdd.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonTraitAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonTraitAdd.Name = "toolStripButtonTraitAdd";
             this.toolStripButtonTraitAdd.Size = new System.Drawing.Size(23, 22);
@@ -99,7 +99,7 @@
             // 
             this.toolStripButtonTraitDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonTraitDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonTraitDelete.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonTraitDelete.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonTraitDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonTraitDelete.Name = "toolStripButtonTraitDelete";
             this.toolStripButtonTraitDelete.Size = new System.Drawing.Size(23, 22);
@@ -110,7 +110,7 @@
             // 
             this.toolStripButtonCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCopy.Image = global::Tesserakt.Properties.Resources.copy;
+            this.toolStripButtonCopy.Image = global::Universalis.Properties.Resources.copy;
             this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCopy.Name = "toolStripButtonCopy";
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
@@ -134,7 +134,7 @@
             this.toolStripMenuItemPositives,
             this.toolStripMenuItemNegatives,
             this.toolStripMenuItemNeutrals});
-            this.toolStripDropDownButtonFilter.Image = global::Tesserakt.Properties.Resources.funnel;
+            this.toolStripDropDownButtonFilter.Image = global::Universalis.Properties.Resources.funnel;
             this.toolStripDropDownButtonFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButtonFilter.Name = "toolStripDropDownButtonFilter";
             this.toolStripDropDownButtonFilter.Size = new System.Drawing.Size(29, 22);
@@ -174,7 +174,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -250,7 +250,7 @@
             // 
             // traitBindingSource
             // 
-            this.traitBindingSource.DataSource = typeof(Tesserakt.Trait);
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // statusStrip1
             // 

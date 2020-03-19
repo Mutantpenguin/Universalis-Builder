@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class WeaponManagerForm
     {
@@ -112,7 +112,7 @@
             // 
             this.toolStripButtonWeaponAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonWeaponAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonWeaponAdd.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonWeaponAdd.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonWeaponAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonWeaponAdd.Name = "toolStripButtonWeaponAdd";
             this.toolStripButtonWeaponAdd.Size = new System.Drawing.Size(23, 22);
@@ -123,7 +123,7 @@
             // 
             this.toolStripButtonWeaponDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonWeaponDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonWeaponDelete.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonWeaponDelete.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonWeaponDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonWeaponDelete.Name = "toolStripButtonWeaponDelete";
             this.toolStripButtonWeaponDelete.Size = new System.Drawing.Size(23, 22);
@@ -152,7 +152,7 @@
             // 
             this.checkBoxFilterWK.CheckOnClick = true;
             this.checkBoxFilterWK.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterWK.Image = global::Tesserakt.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterWK.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
             this.checkBoxFilterWK.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterWK.Name = "checkBoxFilterWK";
             this.checkBoxFilterWK.Size = new System.Drawing.Size(23, 22);
@@ -163,7 +163,7 @@
             // 
             this.toolStripButtonCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCopy.Image = global::Tesserakt.Properties.Resources.copy;
+            this.toolStripButtonCopy.Image = global::Universalis.Properties.Resources.copy;
             this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCopy.Name = "toolStripButtonCopy";
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
@@ -181,7 +181,7 @@
             // 
             this.checkBoxFilterDamageType.CheckOnClick = true;
             this.checkBoxFilterDamageType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterDamageType.Image = global::Tesserakt.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterDamageType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
             this.checkBoxFilterDamageType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterDamageType.Name = "checkBoxFilterDamageType";
             this.checkBoxFilterDamageType.Size = new System.Drawing.Size(23, 22);
@@ -199,7 +199,7 @@
             // 
             this.checkBoxFilterType.CheckOnClick = true;
             this.checkBoxFilterType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterType.Image = global::Tesserakt.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
             this.checkBoxFilterType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterType.Name = "checkBoxFilterType";
             this.checkBoxFilterType.Size = new System.Drawing.Size(23, 22);
@@ -210,7 +210,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -272,7 +272,7 @@
             // 
             // weaponBindingSource
             // 
-            this.weaponBindingSource.DataSource = typeof(Tesserakt.Weapon);
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
             // 
             // WK
             // 

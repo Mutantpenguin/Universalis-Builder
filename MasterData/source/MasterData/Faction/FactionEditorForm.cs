@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Tesserakt
+namespace Universalis
 {
     public partial class FactionEditorForm : Form
     {

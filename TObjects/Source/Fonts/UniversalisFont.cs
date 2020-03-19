@@ -5,28 +5,28 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
 
-namespace Tesserakt
+namespace Universalis
 {
-    public static class TesseraktFonts
+    public static class UniversalisFont
     {
-        static TesseraktFonts()
+        static UniversalisFont()
         {
             using( PrivateFontCollection pfc = new PrivateFontCollection() )
             {
                 // load Font from Resource
-                byte[] fontData = TObjects.Properties.Resources.NovaSquare;
+                byte[] fontData = TObjects.Properties.Resources.NovaRound_Regular;
                 IntPtr fontPtr = Marshal.AllocCoTaskMem( fontData.Length );
                 Marshal.Copy( fontData, 0, fontPtr, fontData.Length );
                 pfc.AddMemoryFont( fontPtr, fontData.Length );
                 Marshal.FreeCoTaskMem( fontPtr );
 
-                FontFamilyNovaSquare = pfc.Families.First( s => s.Name.Equals( NovaSquareName ) );
+                Family = pfc.Families.First( s => s.Name.Equals( Name ) );
             }
         }
 
-        private const string NovaSquareName = "Nova Square";
-        public const string NovaSquareFileName = "NovaSquare.ttf";
+        private const string Name = "Nova Round";
+        public const string FileName = "NovaRound-Regular.ttf";
 
-        public static readonly FontFamily FontFamilyNovaSquare;
+        public static readonly FontFamily Family;
     }
 }

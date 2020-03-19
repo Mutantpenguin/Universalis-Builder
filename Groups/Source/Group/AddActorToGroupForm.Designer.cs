@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class AddActorToGroupForm
     {
@@ -55,7 +55,7 @@
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Image = global::Tesserakt.Properties.Resources.tick;
+            this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(499, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 23);
@@ -69,7 +69,7 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Image = global::Tesserakt.Properties.Resources.cross_circle;
+            this.buttonCancel.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 23);
@@ -137,7 +137,7 @@
             // 
             // actorBindingSource
             // 
-            this.actorBindingSource.DataSource = typeof(Tesserakt.Actor);
+            this.actorBindingSource.DataSource = typeof(Universalis.Actor);
             // 
             // panel2
             // 
@@ -184,7 +184,7 @@
             // 
             this.toolStripButtonCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCopy.Image = global::Tesserakt.Properties.Resources.copy;
+            this.toolStripButtonCopy.Image = global::Universalis.Properties.Resources.copy;
             this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCopy.Name = "toolStripButtonCopy";
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
@@ -203,7 +203,7 @@
             // 
             this.checkBoxFilterType.CheckOnClick = true;
             this.checkBoxFilterType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterType.Image = global::Tesserakt.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
             this.checkBoxFilterType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterType.Name = "checkBoxFilterType";
             this.checkBoxFilterType.Size = new System.Drawing.Size(23, 22);

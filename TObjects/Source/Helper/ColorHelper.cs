@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace Tesserakt
+namespace Universalis
 {
     class ColorHelper
     {

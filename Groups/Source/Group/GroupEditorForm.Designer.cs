@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class GroupEditorForm
     {
@@ -287,7 +287,7 @@
             // 
             // groupActorBindingSource
             // 
-            this.groupActorBindingSource.DataSource = typeof(Tesserakt.Group.GroupActor);
+            this.groupActorBindingSource.DataSource = typeof(Universalis.Group.GroupActor);
             // 
             // contextMenuStripActors
             // 
@@ -301,14 +301,14 @@
             // 
             // outfitWechselnToolStripMenuItem
             // 
-            this.outfitWechselnToolStripMenuItem.Image = global::Tesserakt.Properties.Resources.application_list;
+            this.outfitWechselnToolStripMenuItem.Image = global::Universalis.Properties.Resources.application_list;
             this.outfitWechselnToolStripMenuItem.Name = "outfitWechselnToolStripMenuItem";
             this.outfitWechselnToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.outfitWechselnToolStripMenuItem.Text = "&Outfit wechseln";
             // 
             // umbenennenToolStripMenuItem
             // 
-            this.umbenennenToolStripMenuItem.Image = global::Tesserakt.Properties.Resources.pencil;
+            this.umbenennenToolStripMenuItem.Image = global::Universalis.Properties.Resources.pencil;
             this.umbenennenToolStripMenuItem.Name = "umbenennenToolStripMenuItem";
             this.umbenennenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.umbenennenToolStripMenuItem.Text = "&Umbenennen";
@@ -316,7 +316,7 @@
             // 
             // eigenesBildHochladenToolStripMenuItem
             // 
-            this.eigenesBildHochladenToolStripMenuItem.Image = global::Tesserakt.Properties.Resources.image;
+            this.eigenesBildHochladenToolStripMenuItem.Image = global::Universalis.Properties.Resources.image;
             this.eigenesBildHochladenToolStripMenuItem.Name = "eigenesBildHochladenToolStripMenuItem";
             this.eigenesBildHochladenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.eigenesBildHochladenToolStripMenuItem.Text = "&Eigenes Bild hochladen";
@@ -338,7 +338,7 @@
             // 
             this.toolStripButtonActorsAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonActorsAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonActorsAdd.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonActorsAdd.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonActorsAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonActorsAdd.Name = "toolStripButtonActorsAdd";
             this.toolStripButtonActorsAdd.Size = new System.Drawing.Size(23, 22);
@@ -349,7 +349,7 @@
             // 
             this.toolStripButtonActorsRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonActorsRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonActorsRemove.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonActorsRemove.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonActorsRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonActorsRemove.Name = "toolStripButtonActorsRemove";
             this.toolStripButtonActorsRemove.Size = new System.Drawing.Size(23, 22);
@@ -387,7 +387,7 @@
             // buttonBack
             // 
             this.buttonBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonBack.Image = global::Tesserakt.Properties.Resources.cross_circle;
+            this.buttonBack.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonBack.Location = new System.Drawing.Point(3, 3);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(100, 23);
@@ -400,7 +400,7 @@
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.Image = global::Tesserakt.Properties.Resources.disk;
+            this.buttonSave.Image = global::Universalis.Properties.Resources.disk;
             this.buttonSave.Location = new System.Drawing.Point(1161, 3);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(100, 23);
@@ -436,11 +436,11 @@
             // 
             // factionBindingSource
             // 
-            this.factionBindingSource.DataSource = typeof(Tesserakt.Faction);
+            this.factionBindingSource.DataSource = typeof(Universalis.Faction);
             // 
             // eigenesBildEntfernenToolStripMenuItem
             // 
-            this.eigenesBildEntfernenToolStripMenuItem.Image = global::Tesserakt.Properties.Resources.cross_circle;
+            this.eigenesBildEntfernenToolStripMenuItem.Image = global::Universalis.Properties.Resources.cross_circle;
             this.eigenesBildEntfernenToolStripMenuItem.Name = "eigenesBildEntfernenToolStripMenuItem";
             this.eigenesBildEntfernenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.eigenesBildEntfernenToolStripMenuItem.Text = "Eigenes Bild entfernen";

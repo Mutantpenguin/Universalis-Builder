@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Media;
 using System.Windows.Forms;
 
-namespace Tesserakt
+namespace Universalis
 {
     public partial class ProgressForm : Form
     {
@@ -16,12 +16,12 @@ namespace Tesserakt
 
             InitializeComponent();
 
-            labelTitel.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 20 );
+            labelTitel.Font = new System.Drawing.Font( UniversalisFont.Family, 20 );
 
             labelVersion.Text = $"Version {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
-            labelVersion.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 8 );
+            labelVersion.Font = new System.Drawing.Font( UniversalisFont.Family, 8 );
 
-            labelMessage.Font = new System.Drawing.Font( TesseraktFonts.FontFamilyNovaSquare, 10 );
+            labelMessage.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
         }
 
         private bool m_automaticClose = false;

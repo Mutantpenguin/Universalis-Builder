@@ -4,7 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 
-namespace Tesserakt
+namespace Universalis
 {
     public static class ImageBase64Helper
     {

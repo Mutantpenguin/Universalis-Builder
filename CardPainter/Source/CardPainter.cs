@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 
-namespace Tesserakt
+namespace Universalis
 {
     public static class CardPainter
     {
@@ -33,9 +33,9 @@ namespace Tesserakt
         // TODO maybe still needed later
         // private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
 
-        private static readonly Font Font0Dot2 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
-        private static readonly Font Font0Dot3 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
-        private static readonly Font Font0Dot35 = new Font( TesseraktFonts.FontFamilyNovaSquare, CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot2 = new Font( UniversalisFont.Family, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot3 = new Font( UniversalisFont.Family, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot35 = new Font( UniversalisFont.Family, CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
         private static readonly Font FontStandard = Font0Dot35;
         private static readonly Font FontStandardSmall = Font0Dot2;

@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class FactionEditorForm
     {
@@ -94,7 +94,7 @@
             // 
             // factionBindingSource
             // 
-            this.factionBindingSource.DataSource = typeof(Tesserakt.Faction);
+            this.factionBindingSource.DataSource = typeof(Universalis.Faction);
             // 
             // pictureBoxFactionIcon
             // 
@@ -160,7 +160,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Tesserakt.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -168,7 +168,7 @@
             // 
             // toolStripButtonSave
             // 
-            this.toolStripButtonSave.Image = global::Tesserakt.Properties.Resources.disk;
+            this.toolStripButtonSave.Image = global::Universalis.Properties.Resources.disk;
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
             this.toolStripButtonSave.Size = new System.Drawing.Size(79, 22);

@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class ActorDisplayForm
     {
@@ -95,7 +95,7 @@
             // 
             // actorBindingSource
             // 
-            this.actorBindingSource.DataSource = typeof(Tesserakt.Actor);
+            this.actorBindingSource.DataSource = typeof(Universalis.Actor);
             // 
             // ActorDisplayForm
             // 

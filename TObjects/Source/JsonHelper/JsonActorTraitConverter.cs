@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace Tesserakt
+namespace Universalis
 {
     internal class JsonActorTraitConverter : JsonConverter
     {

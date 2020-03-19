@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Tesserakt
+namespace Universalis
 {
     public static class ToolTipHelper
     {

@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class ActorEditorForm
     {
@@ -379,7 +379,7 @@
             // 
             // eTraitLevelBindingSource
             // 
-            this.eTraitLevelBindingSource.DataSource = typeof(Tesserakt.TraitLevel.ELevel);
+            this.eTraitLevelBindingSource.DataSource = typeof(Universalis.TraitLevel.ELevel);
             // 
             // pointsDataGridViewTextBoxColumn3
             // 
@@ -394,7 +394,7 @@
             // 
             // actorTraitBindingSource
             // 
-            this.actorTraitBindingSource.DataSource = typeof(Tesserakt.Actor.ActorTrait);
+            this.actorTraitBindingSource.DataSource = typeof(Universalis.Actor.ActorTrait);
             // 
             // toolStripTraits
             // 
@@ -418,7 +418,7 @@
             // 
             this.toolStripButtonTraitAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonTraitAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonTraitAdd.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonTraitAdd.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonTraitAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonTraitAdd.Name = "toolStripButtonTraitAdd";
             this.toolStripButtonTraitAdd.Size = new System.Drawing.Size(23, 22);
@@ -429,7 +429,7 @@
             // 
             this.toolStripButtonTraitRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonTraitRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonTraitRemove.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonTraitRemove.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonTraitRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonTraitRemove.Name = "toolStripButtonTraitRemove";
             this.toolStripButtonTraitRemove.Size = new System.Drawing.Size(23, 22);
@@ -989,7 +989,7 @@
             // 
             // actorWeaponBindingSource
             // 
-            this.actorWeaponBindingSource.DataSource = typeof(Tesserakt.Actor.ActorWeapon);
+            this.actorWeaponBindingSource.DataSource = typeof(Universalis.Actor.ActorWeapon);
             // 
             // toolStripWeapons
             // 
@@ -1013,7 +1013,7 @@
             // 
             this.toolStripButtonWeaponAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonWeaponAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonWeaponAdd.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonWeaponAdd.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonWeaponAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonWeaponAdd.Name = "toolStripButtonWeaponAdd";
             this.toolStripButtonWeaponAdd.Size = new System.Drawing.Size(23, 22);
@@ -1024,7 +1024,7 @@
             // 
             this.toolStripButtonWeaponRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonWeaponRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonWeaponRemove.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonWeaponRemove.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonWeaponRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonWeaponRemove.Name = "toolStripButtonWeaponRemove";
             this.toolStripButtonWeaponRemove.Size = new System.Drawing.Size(23, 22);
@@ -1097,7 +1097,7 @@
             // 
             // armorBindingSource
             // 
-            this.armorBindingSource.DataSource = typeof(Tesserakt.Armor);
+            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
             // 
             // toolStripArmor
             // 
@@ -1121,7 +1121,7 @@
             // 
             this.toolStripButtonArmorAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonArmorAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonArmorAdd.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonArmorAdd.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonArmorAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArmorAdd.Name = "toolStripButtonArmorAdd";
             this.toolStripButtonArmorAdd.Size = new System.Drawing.Size(23, 22);
@@ -1132,7 +1132,7 @@
             // 
             this.toolStripButtonArmorRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonArmorRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonArmorRemove.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonArmorRemove.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonArmorRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArmorRemove.Name = "toolStripButtonArmorRemove";
             this.toolStripButtonArmorRemove.Size = new System.Drawing.Size(23, 22);
@@ -1207,7 +1207,7 @@
             // 
             // actorEquipmentBindingSource
             // 
-            this.actorEquipmentBindingSource.DataSource = typeof(Tesserakt.Actor.ActorEquipment);
+            this.actorEquipmentBindingSource.DataSource = typeof(Universalis.Actor.ActorEquipment);
             // 
             // toolStripEquipment
             // 
@@ -1231,7 +1231,7 @@
             // 
             this.toolStripButtonEquipmentAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonEquipmentAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonEquipmentAdd.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonEquipmentAdd.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonEquipmentAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEquipmentAdd.Name = "toolStripButtonEquipmentAdd";
             this.toolStripButtonEquipmentAdd.Size = new System.Drawing.Size(23, 22);
@@ -1242,7 +1242,7 @@
             // 
             this.toolStripButtonEquipmentRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonEquipmentRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonEquipmentRemove.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonEquipmentRemove.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonEquipmentRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEquipmentRemove.Name = "toolStripButtonEquipmentRemove";
             this.toolStripButtonEquipmentRemove.Size = new System.Drawing.Size(23, 22);
@@ -1261,7 +1261,7 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Image = global::Tesserakt.Properties.Resources.cross_circle;
+            this.buttonBack.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonBack.Location = new System.Drawing.Point(3, 3);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(100, 23);
@@ -1287,7 +1287,7 @@
             // buttonRefresh
             // 
             this.buttonRefresh.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonRefresh.Image = global::Tesserakt.Properties.Resources.refresh;
+            this.buttonRefresh.Image = global::Universalis.Properties.Resources.refresh;
             this.buttonRefresh.Location = new System.Drawing.Point(574, 3);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(116, 23);
@@ -1301,7 +1301,7 @@
             // buttonSave
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.Image = global::Tesserakt.Properties.Resources.disk;
+            this.buttonSave.Image = global::Universalis.Properties.Resources.disk;
             this.buttonSave.Location = new System.Drawing.Point(1161, 3);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(100, 23);
@@ -1389,7 +1389,7 @@
             // 
             // outfitsBindingSource
             // 
-            this.outfitsBindingSource.DataSource = typeof(Tesserakt.Actor.ActorOutfit);
+            this.outfitsBindingSource.DataSource = typeof(Universalis.Actor.ActorOutfit);
             // 
             // toolStrip1
             // 
@@ -1415,7 +1415,7 @@
             // 
             this.toolStripButtonOutfitAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonOutfitAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonOutfitAdd.Image = global::Tesserakt.Properties.Resources.plus;
+            this.toolStripButtonOutfitAdd.Image = global::Universalis.Properties.Resources.plus;
             this.toolStripButtonOutfitAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutfitAdd.Name = "toolStripButtonOutfitAdd";
             this.toolStripButtonOutfitAdd.Size = new System.Drawing.Size(23, 22);
@@ -1426,7 +1426,7 @@
             // 
             this.toolStripButtonOutfitRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonOutfitRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonOutfitRemove.Image = global::Tesserakt.Properties.Resources.minus;
+            this.toolStripButtonOutfitRemove.Image = global::Universalis.Properties.Resources.minus;
             this.toolStripButtonOutfitRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutfitRemove.Name = "toolStripButtonOutfitRemove";
             this.toolStripButtonOutfitRemove.Size = new System.Drawing.Size(23, 22);
@@ -1437,7 +1437,7 @@
             // 
             this.toolStripButtonOutfitRename.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonOutfitRename.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonOutfitRename.Image = global::Tesserakt.Properties.Resources.pencil;
+            this.toolStripButtonOutfitRename.Image = global::Universalis.Properties.Resources.pencil;
             this.toolStripButtonOutfitRename.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutfitRename.Name = "toolStripButtonOutfitRename";
             this.toolStripButtonOutfitRename.Size = new System.Drawing.Size(23, 22);
@@ -1512,7 +1512,7 @@
             // 
             // factionBindingSource
             // 
-            this.factionBindingSource.DataSource = typeof(Tesserakt.Faction);
+            this.factionBindingSource.DataSource = typeof(Universalis.Faction);
             // 
             // ActorEditorForm
             // 

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Tesserakt
+namespace Universalis
 {
     public static class DataGridViewHelper
     {

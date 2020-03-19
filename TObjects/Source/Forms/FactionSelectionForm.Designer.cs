@@ -1,4 +1,4 @@
-﻿namespace Tesserakt
+﻿namespace Universalis
 {
     partial class FactionSelectionForm
     {
@@ -146,7 +146,7 @@
             // 
             // factionBindingSource
             // 
-            this.factionBindingSource.DataSource = typeof(Tesserakt.Faction);
+            this.factionBindingSource.DataSource = typeof(Universalis.Faction);
             // 
             // FactionSelectionForm
             // 
