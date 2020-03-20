@@ -96,16 +96,16 @@ namespace Universalis
         #region weaponMembers
         private static readonly int WeaponWkWidth = CmToPixel( 0.5 );
         private static readonly int WeaponNameWidth = CmToPixel( 3.3 ) - SLineHeight;
-        private static readonly int WeaponPotentialWidth = CmToPixel( 0.5 );
-        private static readonly int WeaponSubstanceWidth = CmToPixel( 0.5 );
+        private static readonly int WeaponStrengthWidth = CmToPixel( 0.5 );
+        private static readonly int WeaponDamageWidth = CmToPixel( 0.5 );
         private static readonly int WeaponRangeWidth = CmToPixel( 0.9 );
 
         private static readonly int WeaponWkStart = SSectionsPosX;
         private static readonly int WeaponNameStart = WeaponWkStart + WeaponWkWidth;
         private static readonly int WeaponTypeStart = WeaponNameStart + WeaponNameWidth;
-        private static readonly int WeaponPotentialStart = WeaponTypeStart + SLineHeight;
-        private static readonly int WeaponSubstanceStart = WeaponPotentialStart + WeaponPotentialWidth;
-        private static readonly int WeaponRangeStart = WeaponSubstanceStart + WeaponSubstanceWidth;
+        private static readonly int WeaponStrengthStart = WeaponTypeStart + SLineHeight;
+        private static readonly int WeaponDamageStart = WeaponStrengthStart + WeaponStrengthWidth;
+        private static readonly int WeaponRangeStart = WeaponDamageStart + WeaponDamageWidth;
 
         private static readonly int WeaponRadiusMargin = SImageMargin + CmToPixel( 0.015f );
         #endregion
@@ -593,8 +593,8 @@ namespace Universalis
                 DrawSectionHeader( g, "Waffen", SectionHeaderWeapons, posY );
 
                 // Captions
-                g.DrawImage( Properties.Resources.Stärke_weiss, new Rectangle( WeaponPotentialStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
-                g.DrawImage( Properties.Resources.Schaden_weiss, new Rectangle( WeaponSubstanceStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.Resources.Stärke_weiss, new Rectangle( WeaponStrengthStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.Resources.Schaden_weiss, new Rectangle( WeaponDamageStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
                 g.DrawImage( Properties.Resources.Reichweite_weiss, new Rectangle( WeaponRangeStart + ( WeaponRangeWidth / 2 ) - ( SLineHeight / 2 ) + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
                 if( weaponUnarmed != null )
@@ -628,9 +628,9 @@ namespace Universalis
                 // right of name
                 g.DrawLine( SLinePenBlack, WeaponWkStart, posY + SLineHeight, WeaponWkStart, lineVertEnd );
                 // right of wk
-                g.DrawLine( SLinePenBlack, WeaponPotentialStart, posY + SLineHeight, WeaponPotentialStart, lineVertEnd );
-                // right of potential
-                g.DrawLine( SLinePenBlack, WeaponSubstanceStart, posY + SLineHeight, WeaponSubstanceStart, lineVertEnd );
+                g.DrawLine( SLinePenBlack, WeaponStrengthStart, posY + SLineHeight, WeaponStrengthStart, lineVertEnd );
+                // right of strength
+                g.DrawLine( SLinePenBlack, WeaponDamageStart, posY + SLineHeight, WeaponDamageStart, lineVertEnd );
                 // right of substance
                 g.DrawLine( SLinePenBlack, WeaponRangeStart, posY + SLineHeight, WeaponRangeStart, lineVertEnd );
                 // right of range
@@ -693,18 +693,18 @@ namespace Universalis
 
             g.DrawString( weaponName, FontWeaponName, Brushes.Black, new Rectangle( new Point( WeaponNameStart, posY ), nameSize ), StringFormatHLeftVCenter );
 
-            DrawDamageType( g, WeaponPotentialStart, posY, weapon.DamageTypeImage );
+            DrawDamageType( g, WeaponStrengthStart, posY, weapon.DamageTypeImage );
 
-            if( weapon.AdditivePotential )
+            if( weapon.AdditiveStrength )
             {
-                Helpers.DrawStringCentered( g, ( weapon.Potential + actor.ModKO( actorOutfit ) ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponPotentialStart, posY, WeaponPotentialWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, ( weapon.Strength + actor.ModKO( actorOutfit ) ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponStrengthStart, posY, WeaponStrengthWidth, SLineHeight ) );
             }
             else
             {
-                Helpers.DrawStringCentered( g, weapon.FormattedPotential, FontWeapon, WeaponFontBrush, new Rectangle( WeaponPotentialStart, posY, WeaponPotentialWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, weapon.FormattedStrength, FontWeapon, WeaponFontBrush, new Rectangle( WeaponStrengthStart, posY, WeaponStrengthWidth, SLineHeight ) );
             }
 
-            Helpers.DrawStringCentered( g, weapon.FormattedSubstance, FontWeapon, WeaponFontBrush, new Rectangle( WeaponSubstanceStart, posY, WeaponSubstanceWidth, SLineHeight ) );
+            Helpers.DrawStringCentered( g, weapon.FormattedDamage, FontWeapon, WeaponFontBrush, new Rectangle( WeaponDamageStart, posY, WeaponDamageWidth, SLineHeight ) );
 
             if( Weapon.EType.Wurf == weapon.Type )
             {
@@ -779,12 +779,12 @@ namespace Universalis
             {
                 int nameWidth = CmToPixel( 3.3 );
                 int typesWidth = SLineHeight * 4;
-                int potentialWidth = CmToPixel( 0.5 );
+                int protectionWidth = CmToPixel( 0.5 );
                 int camouflageWidth = CmToPixel( 0.5 );
 
                 int typesStart = SSectionsPosX + nameWidth;
-                int potentialStart = typesStart + typesWidth;
-                int effectsStart = potentialStart + potentialWidth;
+                int protectionStart = typesStart + typesWidth;
+                int effectsStart = protectionStart + protectionWidth;
                 int camouflageStart = SCardWidth - SLineHeight;
 
                 DrawSectionHeader( g, "Rüstung", SectionHeaderArmor, posY );
@@ -793,11 +793,11 @@ namespace Universalis
 
                 g.DrawString( armor.Name, FontArmorName, Brushes.Black, new Rectangle( SSectionsPosX, posY + SLineHeight, nameWidth, SLineHeight ), StringFormatHLeftVCenter );
 
-                // Potential
-                g.DrawLine( SLinePenBlack, potentialStart, posY + SLineHeight, potentialStart, posY + SLineHeightDouble );
-                g.DrawImage( Properties.Resources.Schutz_weiss, new Rectangle( potentialStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                // Protection
+                g.DrawLine( SLinePenBlack, protectionStart, posY + SLineHeight, protectionStart, posY + SLineHeightDouble );
+                g.DrawImage( Properties.Resources.Schutz_weiss, new Rectangle( protectionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
-                Helpers.DrawStringCentered( g, armor.Potential.ToString(), FontArmor, ArmorFontBrush, new Rectangle( potentialStart, posY + SLineHeight, potentialWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, armor.Protection.ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
 
                 g.DrawLine( SLinePenBlack, effectsStart, posY + SLineHeight, effectsStart, posY + SLineHeightDouble );
 
@@ -811,7 +811,7 @@ namespace Universalis
                     Helpers.DrawStringCentered( g, armor.CamouflageLevel.ToString(), FontArmor, ArmorFontBrush, new Rectangle( camouflageStart, posY + SLineHeight, camouflageWidth, SLineHeight ) );
                 }
 
-                DrawDamageType( g, potentialStart, posY + SLineHeight, armor.TypesImage );
+                DrawDamageType( g, protectionStart, posY + SLineHeight, armor.TypesImage );
 
                 int damageEffectsPosX = DrawDamageEffects( g, effectsStart, posY + SLineHeight, armor.EffectsImage );
 

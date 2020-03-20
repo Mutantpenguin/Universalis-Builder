@@ -65,15 +65,15 @@ namespace Universalis
 
             if( ( weapon.Type != Weapon.EType.Nahkampf )
                 &&
-                ( weapon.AdditivePotential ) )
+                ( weapon.AdditiveStrength ) )
             {
-                MessageBox.Show( "Nur Nahkampfwaffen dürfen über ein additives Potential verfügen!" );
+                MessageBox.Show( "Nur Nahkampfwaffen dürfen über additive Stärke verfügen!" );
                 return ( false );
             }
 
-            if( weapon.AdditivePotential && weapon.Potential == 0 )
+            if( weapon.AdditiveStrength && weapon.Strength == 0 )
             {
-                MessageBox.Show( "Bei additivem Potential muss das Potential größer 0 sein!" );
+                MessageBox.Show( "Bei additiver Stärke muss die Stärke größer 0 sein!" );
                 return ( false );
             }
 
@@ -123,7 +123,7 @@ namespace Universalis
             if( null != weapon.DamageEffectList )
             {
                 damageEffectsBindingSource.DataSource = weapon.DamageEffectList.OrderBy( x => x.Type.ToString() )
-                                                                                  .ToList();
+                                                                               .ToList();
             }
 
             dataGridViewDamageEffects.ClearSelection();

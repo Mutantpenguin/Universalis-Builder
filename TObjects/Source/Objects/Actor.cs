@@ -718,8 +718,8 @@ namespace Universalis
                 {
                     Type = Weapon.EType.Nahkampf,
                     Name = "Unbewaffnet",
-                    Potential = ModKO( actorOutfit ),
-                    Substance = Convert.ToInt32( Math.Round( ModKO( actorOutfit ) / 3.0f, 0 ) )
+                    Strength = ModKO( actorOutfit ),
+                    Damage = Convert.ToInt32( Math.Round( ModKO( actorOutfit ) / 3.0f, 0 ) )
                 };
 
                 switch( this.Type )
@@ -779,8 +779,8 @@ namespace Universalis
                                                                           Type = DamageEffect.EType.Explosiv
                                                                       } },
                     Radius = ModKO( actorOutfit ),
-                    Potential = ModKO( actorOutfit ),
-                    Substance = Convert.ToInt32( Math.Round( ModKO( actorOutfit ) / 2.0f, 0 ) )
+                    Strength = ModKO( actorOutfit ),
+                    Damage = Convert.ToInt32( Math.Round( ModKO( actorOutfit ) / 2.0f, 0 ) )
                 };
 
                 return ( weaponDetonation );

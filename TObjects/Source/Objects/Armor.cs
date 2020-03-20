@@ -27,7 +27,7 @@ namespace Universalis
             Rules = armor.Rules;
             Weight = armor.Weight;
             Points = armor.Points;
-            Potential = armor.Potential;
+            Protection = armor.Protection;
             SelfSustaining = armor.SelfSustaining;
 
             Camouflage = armor.Camouflage;
@@ -115,7 +115,7 @@ namespace Universalis
                 }
             }
 
-            if( Potential != armor.Potential
+            if( Protection != armor.Protection
                 ||
                 SelfSustaining != armor.SelfSustaining )
             {
@@ -227,7 +227,7 @@ namespace Universalis
             set;
         }
 
-        public int Potential
+        public int Protection
         {
             get;
             set;

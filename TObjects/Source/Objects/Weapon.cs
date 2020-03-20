@@ -29,9 +29,9 @@ namespace Universalis
             Points = weapon.Points;
             WK = weapon.WK;
             Type = weapon.Type;
-            Potential = weapon.Potential;
-            AdditivePotential = weapon.AdditivePotential;
-            Substance = weapon.Substance;
+            Strength = weapon.Strength;
+            AdditiveStrength = weapon.AdditiveStrength;
+            Damage = weapon.Damage;
             DamageType = new DamageType( weapon.DamageType );
 
             if( null != weapon.DamageEffectList )
@@ -90,11 +90,11 @@ namespace Universalis
                 ||
                 Type != weapon.Type
                 ||
-                Potential != weapon.Potential
+                Strength != weapon.Strength
                 ||
-                AdditivePotential != weapon.AdditivePotential
+                AdditiveStrength != weapon.AdditiveStrength
                 ||
-                Substance != weapon.Substance
+                Damage != weapon.Damage
                 ||
                 AF != weapon.AF
                 ||
@@ -219,19 +219,19 @@ namespace Universalis
             set;
         } = EType.Fernkampf;
 
-        public int Potential
+        public int Strength
         {
             get;
             set;
         } = 1;
 
-        public bool AdditivePotential
+        public bool AdditiveStrength
         {
             get;
             set;
         } = false;
 
-        public int Substance
+        public int Damage
         {
             get;
             set;
@@ -303,40 +303,40 @@ namespace Universalis
         public string EffectsString => ( DamageEffect.GetEffectListString( DamageEffectList ) );
 
         [JsonIgnore]
-        public string FormattedPotential
+        public string FormattedStrength
         {
             get
             {
-                if( 0 == Potential )
+                if( 0 == Strength )
                 {
                     return ( "-" );
                 }
                 else
                 {
-                    if( AdditivePotential )
+                    if( AdditiveStrength )
                     {
-                        return ( "+" + Potential.ToString() );
+                        return ( "+" + Strength.ToString() );
                     }
                     else
                     {
-                        return ( Potential.ToString() );
+                        return ( Strength.ToString() );
                     }
                 }
             }
         }
 
         [JsonIgnore]
-        public string FormattedSubstance
+        public string FormattedDamage
         {
             get
             {
-                if( 0 == Substance )
+                if( 0 == Damage )
                 {
                     return ( "-" );
                 }
                 else
                 {
-                    return ( Substance.ToString() );
+                    return ( Damage.ToString() );
                 }
             }
         }
