@@ -351,7 +351,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 13);
             this.label10.TabIndex = 30;
-            this.label10.Text = "Substanz";
+            this.label10.Text = "Trefferpunkte";
             // 
             // label9
             // 

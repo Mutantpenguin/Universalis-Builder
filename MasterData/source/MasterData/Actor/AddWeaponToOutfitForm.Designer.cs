@@ -318,7 +318,7 @@
             this.substanceDataGridViewTextBoxColumn.HeaderText = "S";
             this.substanceDataGridViewTextBoxColumn.Name = "substanceDataGridViewTextBoxColumn";
             this.substanceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.substanceDataGridViewTextBoxColumn.ToolTipText = "Substanz";
+            this.substanceDataGridViewTextBoxColumn.ToolTipText = "Trefferpunkte";
             this.substanceDataGridViewTextBoxColumn.Width = 30;
             // 
             // WeaponRange

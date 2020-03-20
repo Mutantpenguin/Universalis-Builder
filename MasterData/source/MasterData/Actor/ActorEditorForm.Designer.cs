@@ -65,7 +65,7 @@
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
             this.CalcAttribGB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.SZ = new System.Windows.Forms.NumericUpDown();
+            this.TP = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.AttribEH = new System.Windows.Forms.NumericUpDown();
             this.AttribWN = new System.Windows.Forms.NumericUpDown();
@@ -153,7 +153,7 @@
             this.panel8.SuspendLayout();
             this.toolStripDescription.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SZ)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TP ) ).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttribEH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttribWN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttribFK)).BeginInit();
@@ -487,7 +487,7 @@
             this.panel2.Controls.Add(this.comboBoxSize);
             this.panel2.Controls.Add(this.CalcAttribGB);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.SZ);
+            this.panel2.Controls.Add(this.TP );
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.AttribEH);
             this.panel2.Controls.Add(this.AttribWN);
@@ -607,31 +607,31 @@
             this.label1.Text = "GB";
             this.toolTip.SetToolTip(this.label1, "Gefahrenbereich");
             // 
-            // SZ
+            // TP
             // 
-            this.SZ.Location = new System.Drawing.Point(220, 3);
-            this.SZ.Maximum = new decimal(new int[] {
+            this.TP.Location = new System.Drawing.Point(220, 3);
+            this.TP.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
-            this.SZ.Minimum = new decimal(new int[] {
+            this.TP.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.SZ.Name = "SZ";
-            this.SZ.ReadOnly = true;
-            this.SZ.Size = new System.Drawing.Size(50, 20);
-            this.SZ.TabIndex = 31;
-            this.SZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.SZ, "Substanz");
-            this.SZ.Value = new decimal(new int[] {
+            this.TP.Name = "TP";
+            this.TP.ReadOnly = true;
+            this.TP.Size = new System.Drawing.Size(50, 20);
+            this.TP.TabIndex = 31;
+            this.TP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip.SetToolTip(this.TP, "Trefferpunkte");
+            this.TP.Value = new decimal(new int[] {
             3,
             0,
             0,
             0});
-            this.SZ.ValueChanged += new System.EventHandler(this.SZ_ValueChanged);
+            this.TP.ValueChanged += new System.EventHandler(this.TP_ValueChanged);
             // 
             // label8
             // 
@@ -640,7 +640,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(21, 13);
             this.label8.TabIndex = 29;
-            this.label8.Text = "SZ";
+            this.label8.Text = "TP";
             // 
             // AttribEH
             // 
@@ -1554,7 +1554,7 @@
             this.toolStripDescription.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SZ)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TP ) ).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttribEH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttribWN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AttribFK)).EndInit();
@@ -1622,7 +1622,7 @@
         private System.Windows.Forms.NumericUpDown AttribFK;
         private System.Windows.Forms.TextBox textBoxBaseCost;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.NumericUpDown SZ;
+        private System.Windows.Forms.NumericUpDown TP;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxTragkraft;

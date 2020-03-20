@@ -56,7 +56,7 @@ namespace Universalis
             AttribWN.Value = m_actorModified.Attributes.WN;
             AttribEH.Value = m_actorModified.Attributes.EH;
 
-            SZ.Value = m_actorModified.SZ;
+            TP.Value = m_actorModified.TP;
 
             textBoxDescription.Text = m_actorModified.Description;
 
@@ -130,9 +130,9 @@ namespace Universalis
             updateFields();
         }
 
-        private void SZ_ValueChanged( object sender, EventArgs e )
+        private void TP_ValueChanged( object sender, EventArgs e )
         {
-            m_actorModified.SZ = Convert.ToInt32( SZ.Value );
+            m_actorModified.TP = Convert.ToInt32( TP.Value );
 
             updateFields();
         }

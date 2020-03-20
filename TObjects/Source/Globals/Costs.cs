@@ -11,7 +11,7 @@ namespace Universalis
         public const int WN = 10;
         public const int EH = 10;
 
-        public const int SZ = 15;
+        public const int TP = 15;
 
         public const int FOV = 2;
 

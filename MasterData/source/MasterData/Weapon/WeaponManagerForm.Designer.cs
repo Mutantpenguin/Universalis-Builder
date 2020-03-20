@@ -320,7 +320,7 @@
             this.Substance.HeaderText = "S";
             this.Substance.Name = "Substance";
             this.Substance.ReadOnly = true;
-            this.Substance.ToolTipText = "Substanz";
+            this.Substance.ToolTipText = "Trefferpunkte";
             this.Substance.Width = 30;
             // 
             // FormattedRange

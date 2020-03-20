@@ -290,7 +290,7 @@ namespace Universalis
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
 
-                    DrawSubstanceCirclesVertical( g, actor.SZ, posX, posY, SSubstancePointSize );
+                    DrawSubstanceCirclesVertical( g, actor.TP, posX, posY, SSubstancePointSize );
                     break;
 
                 case Actor.EType.Mech:
@@ -310,16 +310,16 @@ namespace Universalis
                     int widthLegs = widthMain;
 
                     // main
-                    DrawSubstanceCirclesHorizonzal( g, actor.SZ, posXMain, posYMain, widthMain, down: true );
+                    DrawSubstanceCirclesHorizonzal( g, actor.TP, posXMain, posYMain, widthMain, down: true );
 
                     // left arm
-                    DrawSubstanceCirclesVertical( g, actor.HitZoneSZ, posXArmLeft, posYArmLeft, SSubstancePointSize );
+                    DrawSubstanceCirclesVertical( g, actor.HitZoneTP, posXArmLeft, posYArmLeft, SSubstancePointSize );
 
                     // right arm
-                    DrawSubstanceCirclesVertical( g, actor.HitZoneSZ, posXArmRight, posYArmRight, SSubstancePointSize );
+                    DrawSubstanceCirclesVertical( g, actor.HitZoneTP, posXArmRight, posYArmRight, SSubstancePointSize );
 
                     // legs
-                    DrawSubstanceCirclesHorizonzal( g, actor.HitZoneSZ, posXLegs, posYLegs, widthLegs, down: false );
+                    DrawSubstanceCirclesHorizonzal( g, actor.HitZoneTP, posXLegs, posYLegs, widthLegs, down: false );
                     break;
 
                 default:
