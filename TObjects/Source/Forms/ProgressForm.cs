@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Media;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -15,8 +16,6 @@ namespace Universalis
             }
 
             InitializeComponent();
-
-            labelTitel.Font = new System.Drawing.Font( UniversalisFont.Family, 20 );
 
             labelVersion.Text = $"Version {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
             labelVersion.Font = new System.Drawing.Font( UniversalisFont.Family, 8 );

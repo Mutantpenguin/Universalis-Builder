@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgressForm));
             this.timerProgress = new System.Windows.Forms.Timer(this.components);
-            this.labelTitel = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.labelVersion = new System.Windows.Forms.Label();
@@ -42,28 +42,16 @@
             // 
             this.timerProgress.Tick += new System.EventHandler(this.timerProgress_Tick);
             // 
-            // labelTitel
-            // 
-            this.labelTitel.BackColor = System.Drawing.Color.SteelBlue;
-            this.labelTitel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitel.Location = new System.Drawing.Point(0, 0);
-            this.labelTitel.Name = "labelTitel";
-            this.labelTitel.Size = new System.Drawing.Size(370, 30);
-            this.labelTitel.TabIndex = 0;
-            this.labelTitel.Text = "Universalis";
-            this.labelTitel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.SteelBlue;
             this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxLogo.Image = global::TObjects.Properties.Resources.logo;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 45);
+            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
+            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBoxLogo.MinimumSize = new System.Drawing.Size(256, 256);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(370, 300);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(370, 370);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxLogo.TabIndex = 1;
             this.pictureBoxLogo.TabStop = false;
@@ -71,7 +59,7 @@
             // progressBar
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBar.Location = new System.Drawing.Point(0, 360);
+            this.progressBar.Location = new System.Drawing.Point(0, 400);
             this.progressBar.Maximum = 0;
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(370, 23);
@@ -80,10 +68,9 @@
             // 
             // labelVersion
             // 
-            this.labelVersion.BackColor = System.Drawing.Color.SteelBlue;
             this.labelVersion.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVersion.Location = new System.Drawing.Point(0, 30);
+            this.labelVersion.Location = new System.Drawing.Point(0, 370);
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(370, 15);
             this.labelVersion.TabIndex = 4;
@@ -92,10 +79,9 @@
             // 
             // labelMessage
             // 
-            this.labelMessage.BackColor = System.Drawing.Color.SteelBlue;
             this.labelMessage.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMessage.Location = new System.Drawing.Point(0, 345);
+            this.labelMessage.Location = new System.Drawing.Point(0, 385);
             this.labelMessage.Name = "labelMessage";
             this.labelMessage.Size = new System.Drawing.Size(370, 15);
             this.labelMessage.TabIndex = 5;
@@ -108,14 +94,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(370, 381);
+            this.ClientSize = new System.Drawing.Size(370, 423);
             this.ControlBox = false;
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.labelMessage);
-            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.labelVersion);
-            this.Controls.Add(this.labelTitel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Controls.Add(this.pictureBoxLogo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ProgressForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProgressForm_FormClosing);
@@ -128,7 +113,6 @@
         #endregion
 
         private System.Windows.Forms.Timer timerProgress;
-        private System.Windows.Forms.Label labelTitel;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label labelVersion;

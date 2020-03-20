@@ -656,7 +656,7 @@ namespace Universalis
                             &&
                             ( size != Actor.ESize.Mittel ) )
                         {
-                            MessageBox.Show( "Infanterie darf nur klein oder mittel!",
+                            MessageBox.Show( "Infanterie darf nur klein oder mittel sein!",
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );

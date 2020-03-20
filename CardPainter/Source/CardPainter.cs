@@ -268,14 +268,14 @@ namespace Universalis
         private static void DrawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             // WB - Wahrnehmungsbereich
-            g.DrawImage( Properties.Resources.eye, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
+            g.DrawImage( Properties.Resources.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
 
             string fovAndModWbString = $"{(int)actor.Fov}°/{actor.ModWB( actorOutfit )}cm";
             Size fovAndModWbSize = g.MeasureString( fovAndModWbString, FontStandard ).ToSize();
             Helpers.DrawStringCentered( g, fovAndModWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
 
             // GB - Gefahrenbereich
-            g.DrawImage( Properties.Resources.danger, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
+            g.DrawImage( Properties.Resources.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
             Helpers.DrawStringCentered( g, $"{actor.GB( actorOutfit )}cm", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
         }
 
@@ -418,20 +418,19 @@ namespace Universalis
             switch( type )
             {
                 case Actor.EType.Infanterie:
-                    g.DrawImage( Properties.Resources.infantry, rect );
+                    g.DrawImage( Properties.Resources.Infanterie, rect );
                     break;
 
                 case Actor.EType.Mech:
-                    g.DrawImage( Properties.Resources.mike, rect );
+                    g.DrawImage( Properties.Resources.Mech, rect );
                     break;
 
                 case Actor.EType.Koloss:
-                    // TODO korrektes symbol einfügen
-                    g.DrawImage( Properties.Resources.mike, rect );
+                    g.DrawImage( Properties.Resources.Koloss, rect );
                     break;
 
                 case Actor.EType.Fahrzeug:
-                    g.DrawImage( Properties.Resources.fahrzeug, rect );
+                    g.DrawImage( Properties.Resources.Fahrzeug, rect );
                     break;
 
                 default:
@@ -443,38 +442,33 @@ namespace Universalis
 
         private static void DrawSize( Graphics g, Actor.ESize size )
         {
-            // TODO really only show as character?
-            // Bitmap img;
-
-            String sizeString;
+            Bitmap img;
 
             switch( size )
             {
                 case Actor.ESize.Klein :
-                    // TODO img = Properties.Resources.size_small;
-                    sizeString = "S";
+                    img = Properties.Resources.klein;
                     break;
 
                 case Actor.ESize.Mittel :
-                    // TODO img = Properties.Resources.size_medium;
-                    sizeString = "M";
+                    img = Properties.Resources.mittel;
                     break;
 
                 case Actor.ESize.Groß :
-                    //img = Properties.Resources.size_big;
-                    sizeString = "L";
+                    img = Properties.Resources.groß;
+                    break;
+
+                case Actor.ESize.Riesig:
+                    img = Properties.Resources.riesig;
                     break;
 
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( Actor.ESize ) );
             }
 
-            // TODO g.DrawImage( img, new Rectangle( xAttrThirdColumn, s_lineHeightDouble + s_imageMargin, s_imageSize, s_imageSize ) );
-            Rectangle rect = new Rectangle( XAttrThirdColumn + SLineHeight, SLineHeightDouble, SLineHeight, SLineHeight );
-            //g.FillRectangle( Brushes.Black, rect );
-            g.DrawRectangle( SLinePenBlack, rect );
-            //g.DrawString( sizeString, fontSize, Brushes.White, rect, );
-            Helpers.DrawStringCentered( g, sizeString, FontSize, Brushes.Black, rect );
+            g.DrawImage( img, new Rectangle( XAttrThirdColumn + SLineHeight + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
+
+            g.DrawRectangle( SLinePenBlack, new Rectangle( XAttrThirdColumn + SLineHeight, SLineHeightDouble, SLineHeight, SLineHeight ) );
         }
 
         private static void DrawMovement( Graphics g, EMovementType movementType )
@@ -522,7 +516,7 @@ namespace Universalis
 
             int weightStringWidth = CmToPixel( 0.8 );
 
-            g.DrawImage( Properties.Resources.weight, new Rectangle( x1 + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
+            g.DrawImage( Properties.Resources.Gewicht, new Rectangle( x1 + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
 
             Helpers.DrawStringCentered( g, $"{actor.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n1}", FontStandardSmall, Brushes.Black, new Rectangle( x1 + 2 * SImageMargin + SImageSize, SLineHeightDouble, weightStringWidth, SLineHeight ) );
 
@@ -599,9 +593,9 @@ namespace Universalis
                 DrawSectionHeader( g, "Waffen", SectionHeaderWeapons, posY );
 
                 // Captions
-                g.DrawImage( Properties.Resources.potential_damage_white, new Rectangle( WeaponPotentialStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
-                g.DrawImage( Properties.Resources.weapon_substance_white, new Rectangle( WeaponSubstanceStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
-                g.DrawImage( Properties.Resources.weapon_range_white, new Rectangle( WeaponRangeStart + ( WeaponRangeWidth / 2 ) - ( SLineHeight / 2 ) + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.Resources.Stärke_weiss, new Rectangle( WeaponPotentialStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.Resources.Schaden_weiss, new Rectangle( WeaponSubstanceStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.Resources.Reichweite_weiss, new Rectangle( WeaponRangeStart + ( WeaponRangeWidth / 2 ) - ( SLineHeight / 2 ) + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
                 if( weaponUnarmed != null )
                 {
@@ -739,7 +733,7 @@ namespace Universalis
 
             if( weapon.IndirectFire )
             {
-                g.DrawImage( Properties.Resources.indirect, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.Resources.Indirekt, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
                 remainderPosX += SLineHeight;
             }
@@ -801,7 +795,7 @@ namespace Universalis
 
                 // Potential
                 g.DrawLine( SLinePenBlack, potentialStart, posY + SLineHeight, potentialStart, posY + SLineHeightDouble );
-                g.DrawImage( Properties.Resources.potential_defence_white, new Rectangle( potentialStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.Resources.Schutz_weiss, new Rectangle( potentialStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
                 Helpers.DrawStringCentered( g, armor.Potential.ToString(), FontArmor, ArmorFontBrush, new Rectangle( potentialStart, posY + SLineHeight, potentialWidth, SLineHeight ) );
 

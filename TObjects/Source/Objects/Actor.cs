@@ -243,7 +243,7 @@ namespace Universalis
         } = 5;
 
         [JsonIgnore]
-        public int HitZoneTP => ( Convert.ToInt32( Math.Ceiling( TP * Presets.MIKEHitZoneTPMultiplier ) ) );
+        public int HitZoneTP => ( Convert.ToInt32( Math.Ceiling( TP * Presets.HitZoneTPMultiplier ) ) );
 
         [JsonConverter( typeof( JsonImageConverter ) )]
         public Bitmap Icon
@@ -651,8 +651,10 @@ namespace Universalis
                     return ( Convert.ToSingle( Math.Pow( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ), 2 ) ) );
 
                 case EType.Mech:
+                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Presets.MechLoadCapacityMultiplier ), 2 ) ) );
+
                 case EType.Koloss:
-                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Presets.MIKELoadCapacityMultiplier ), 2 ) ) );
+                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Presets.KolossLoadCapacityMultiplier ), 2 ) ) );
 
                 case EType.Fahrzeug:
                     return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Presets.FahrzeugLoadCapacityMultiplier ), 2 ) ) );

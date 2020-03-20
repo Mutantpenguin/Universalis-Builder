@@ -77,22 +77,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\danger.png" />
+    <None Include="Resources\Gefahrenbereich.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\eye.png" />
+    <None Include="Resources\Wahrnehmungsbereich.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\size_big.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\size_medium.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\size_small.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\weight.png" />
+    <None Include="Resources\Gewicht.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bewegung_antigrav.png" />
@@ -110,22 +101,7 @@
     <None Include="Resources\bewegung_rad.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bewegung_stationär.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\patrone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\infantry.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mike.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\drohne.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fahrzeug.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\camo_active_white.png" />
@@ -134,19 +110,46 @@
     <None Include="Resources\camo_passive_white.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\potential_damage_white.png" />
+    <None Include="Resources\Stärke_weiss.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\potential_defence_white.png" />
+    <None Include="Resources\Schutz_weiss.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\weapon_range_white.png" />
+    <None Include="Resources\Reichweite_weiss.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\weapon_substance_white.png" />
+    <None Include="Resources\Schaden_weiss.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\indirect.png" />
+    <None Include="Resources\Indirekt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bewegung_stationär.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\klein.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\groß.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mittel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\riesig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fahrzeug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Infanterie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Koloss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mech.png" />
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -83,9 +83,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap danger {
+        internal static System.Drawing.Bitmap Fahrzeug {
             get {
-                object obj = ResourceManager.GetObject("danger", resourceCulture);
+                object obj = ResourceManager.GetObject("Fahrzeug", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap drohne {
+        internal static System.Drawing.Bitmap Gefahrenbereich {
             get {
-                object obj = ResourceManager.GetObject("drohne", resourceCulture);
+                object obj = ResourceManager.GetObject("Gefahrenbereich", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap eye {
+        internal static System.Drawing.Bitmap Gewicht {
             get {
-                object obj = ResourceManager.GetObject("eye", resourceCulture);
+                object obj = ResourceManager.GetObject("Gewicht", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fahrzeug {
+        internal static System.Drawing.Bitmap groß {
             get {
-                object obj = ResourceManager.GetObject("fahrzeug", resourceCulture);
+                object obj = ResourceManager.GetObject("groß", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap indirect {
+        internal static System.Drawing.Bitmap Indirekt {
             get {
-                object obj = ResourceManager.GetObject("indirect", resourceCulture);
+                object obj = ResourceManager.GetObject("Indirekt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap infantry {
+        internal static System.Drawing.Bitmap Infanterie {
             get {
-                object obj = ResourceManager.GetObject("infantry", resourceCulture);
+                object obj = ResourceManager.GetObject("Infanterie", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,39 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mike {
+        internal static System.Drawing.Bitmap klein {
             get {
-                object obj = ResourceManager.GetObject("mike", resourceCulture);
+                object obj = ResourceManager.GetObject("klein", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Koloss {
+            get {
+                object obj = ResourceManager.GetObject("Koloss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Mech {
+            get {
+                object obj = ResourceManager.GetObject("Mech", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mittel {
+            get {
+                object obj = ResourceManager.GetObject("mittel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +193,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap potential_damage_white {
+        internal static System.Drawing.Bitmap Reichweite_weiss {
             get {
-                object obj = ResourceManager.GetObject("potential_damage_white", resourceCulture);
+                object obj = ResourceManager.GetObject("Reichweite_weiss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +203,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap potential_defence_white {
+        internal static System.Drawing.Bitmap riesig {
             get {
-                object obj = ResourceManager.GetObject("potential_defence_white", resourceCulture);
+                object obj = ResourceManager.GetObject("riesig", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +213,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap size_big {
+        internal static System.Drawing.Bitmap Schaden_weiss {
             get {
-                object obj = ResourceManager.GetObject("size_big", resourceCulture);
+                object obj = ResourceManager.GetObject("Schaden_weiss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +223,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap size_medium {
+        internal static System.Drawing.Bitmap Schutz_weiss {
             get {
-                object obj = ResourceManager.GetObject("size_medium", resourceCulture);
+                object obj = ResourceManager.GetObject("Schutz_weiss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -203,9 +233,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap size_small {
+        internal static System.Drawing.Bitmap Stärke_weiss {
             get {
-                object obj = ResourceManager.GetObject("size_small", resourceCulture);
+                object obj = ResourceManager.GetObject("Stärke_weiss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,29 +243,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap weapon_range_white {
+        internal static System.Drawing.Bitmap Wahrnehmungsbereich {
             get {
-                object obj = ResourceManager.GetObject("weapon_range_white", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap weapon_substance_white {
-            get {
-                object obj = ResourceManager.GetObject("weapon_substance_white", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap weight {
-            get {
-                object obj = ResourceManager.GetObject("weight", resourceCulture);
+                object obj = ResourceManager.GetObject("Wahrnehmungsbereich", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
