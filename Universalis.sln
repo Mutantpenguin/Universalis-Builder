@@ -1,15 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 14 for Windows Desktop
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Groups", "groups\Groups.csproj", "{54ED36DB-0862-4675-BBF8-71F13E31E3B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660} = {7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MasterData", "MasterData\MasterData.csproj", "{E1860298-7378-4CFC-9D00-D9B1569C3AC5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TObjects", "TObjects\TObjects.csproj", "{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660} = {7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardPainter", "CardPainter\CardPainter.csproj", "{50B0689F-459D-4C43-9ED7-B4529B18B153}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660} = {7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}
+	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GlobalAssemblyInfo", "GlobalAssemblyInfo\GlobalAssemblyInfo.shproj", "{E4EE6FBD-3A72-4573-88F6-DAD4D3F01946}"
 EndProject
@@ -19,13 +26,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		GlobalAssemblyInfo\GlobalAssemblyInfo.projitems*{50b0689f-459d-4c43-9ed7-b4529b18b153}*SharedItemsImports = 4
-		GlobalAssemblyInfo\GlobalAssemblyInfo.projitems*{e4ee6fbd-3a72-4573-88f6-dad4d3f01946}*SharedItemsImports = 13
 		GlobalAssemblyInfo\GlobalAssemblyInfo.projitems*{54ed36db-0862-4675-bbf8-71f13e31e3b9}*SharedItemsImports = 4
-		GlobalAssemblyInfo\GlobalAssemblyInfo.projitems*{e1860298-7378-4cfc-9d00-d9b1569c3ac5}*SharedItemsImports = 4
 		GlobalAssemblyInfo\GlobalAssemblyInfo.projitems*{7993deb0-5b56-4ef6-9bd0-507cd6fa6660}*SharedItemsImports = 4
+		GlobalAssemblyInfo\GlobalAssemblyInfo.projitems*{e1860298-7378-4cfc-9d00-d9b1569c3ac5}*SharedItemsImports = 4
+		GlobalAssemblyInfo\GlobalAssemblyInfo.projitems*{e4ee6fbd-3a72-4573-88f6-dad4d3f01946}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,17 +69,6 @@ Global
 		{E1860298-7378-4CFC-9D00-D9B1569C3AC5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E1860298-7378-4CFC-9D00-D9B1569C3AC5}.Release|x86.ActiveCfg = Release|Any CPU
 		{E1860298-7378-4CFC-9D00-D9B1569C3AC5}.Release|x86.Build.0 = Release|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|x86.ActiveCfg = Release|Any CPU
-		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|x86.Build.0 = Release|Any CPU
 		{50B0689F-459D-4C43-9ED7-B4529B18B153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50B0689F-459D-4C43-9ED7-B4529B18B153}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50B0689F-459D-4C43-9ED7-B4529B18B153}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -83,8 +81,23 @@ Global
 		{50B0689F-459D-4C43-9ED7-B4529B18B153}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{50B0689F-459D-4C43-9ED7-B4529B18B153}.Release|x86.ActiveCfg = Release|Any CPU
 		{50B0689F-459D-4C43-9ED7-B4529B18B153}.Release|x86.Build.0 = Release|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Debug|x86.Build.0 = Debug|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|x86.ActiveCfg = Release|Any CPU
+		{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E599B7EA-44AE-4423-82A5-FF49FD062AF9}
 	EndGlobalSection
 EndGlobal

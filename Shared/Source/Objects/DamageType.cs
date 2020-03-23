@@ -48,18 +48,18 @@ namespace Universalis
         [JsonIgnore]
         public Image GetOriginalImage => ( getTypeImage( DamageColor.EType.Original ) );
 
-        private static readonly Image s_typ_kinetik_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Green );
-        private static readonly Image s_typ_schlag_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Green );
-        private static readonly Image s_typ_schnitt_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_schnitt, DamageColor.EType.Green );
-        private static readonly Image s_typ_strahl_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_strahl, DamageColor.EType.Green );
+        private static readonly Image s_typ_kinetik_green = DamageColor.Colorize( Shared.Properties.Resources.typ_kinetik, DamageColor.EType.Green );
+        private static readonly Image s_typ_schlag_green = DamageColor.Colorize( Shared.Properties.Resources.typ_schlag, DamageColor.EType.Green );
+        private static readonly Image s_typ_schnitt_green = DamageColor.Colorize( Shared.Properties.Resources.typ_schnitt, DamageColor.EType.Green );
+        private static readonly Image s_typ_strahl_green = DamageColor.Colorize( Shared.Properties.Resources.typ_strahl, DamageColor.EType.Green );
         
-        private static readonly Image s_typ_kinetik_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_kinetik, DamageColor.EType.Red );
-        private static readonly Image s_typ_schlag_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_schlag, DamageColor.EType.Red );
-        private static readonly Image s_typ_schnitt_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_schnitt, DamageColor.EType.Red );
-        private static readonly Image s_typ_strahl_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_strahl, DamageColor.EType.Red );
+        private static readonly Image s_typ_kinetik_red = DamageColor.Colorize( Shared.Properties.Resources.typ_kinetik, DamageColor.EType.Red );
+        private static readonly Image s_typ_schlag_red = DamageColor.Colorize( Shared.Properties.Resources.typ_schlag, DamageColor.EType.Red );
+        private static readonly Image s_typ_schnitt_red = DamageColor.Colorize( Shared.Properties.Resources.typ_schnitt, DamageColor.EType.Red );
+        private static readonly Image s_typ_strahl_red = DamageColor.Colorize( Shared.Properties.Resources.typ_strahl, DamageColor.EType.Red );
 
-        private static readonly Image s_type_plus_green = DamageColor.Colorize( TObjects.Properties.Resources.typ_plus, DamageColor.EType.Green );
-        private static readonly Image s_type_plus_red = DamageColor.Colorize( TObjects.Properties.Resources.typ_plus, DamageColor.EType.Red );
+        private static readonly Image s_type_plus_green = DamageColor.Colorize( Shared.Properties.Resources.typ_plus, DamageColor.EType.Green );
+        private static readonly Image s_type_plus_red = DamageColor.Colorize( Shared.Properties.Resources.typ_plus, DamageColor.EType.Red );
 
         private Image getTypeImage( DamageColor.EType color )
         {
@@ -69,16 +69,16 @@ namespace Universalis
                     switch( Type )
                     {
                         case EType.Kinetisch:
-                            return ( TObjects.Properties.Resources.typ_kinetik );
+                            return ( Shared.Properties.Resources.typ_kinetik );
 
                         case EType.Schlag:
-                            return ( TObjects.Properties.Resources.typ_schlag );
+                            return ( Shared.Properties.Resources.typ_schlag );
 
                         case EType.Schnitt:
-                            return ( TObjects.Properties.Resources.typ_schnitt );
+                            return ( Shared.Properties.Resources.typ_schnitt );
 
                         case EType.Strahl:
-                            return ( TObjects.Properties.Resources.typ_strahl );
+                            return ( Shared.Properties.Resources.typ_strahl );
 
                         default:
                             throw new InvalidOperationException( "unkown DamageType.EType" );
@@ -142,7 +142,7 @@ namespace Universalis
                 switch( color )
                 {
                     case DamageColor.EType.Original:
-                        img_plus = TObjects.Properties.Resources.typ_plus;
+                        img_plus = Shared.Properties.Resources.typ_plus;
                         break;
 
                     case DamageColor.EType.Green:

@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="TraitLevel+ELevel" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>Universalis.TraitLevel+ELevel, TObjects, Version=0.6.5806.19528, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>Universalis.TraitLevel+ELevel, Shared, Version=0.6.5806.19528, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

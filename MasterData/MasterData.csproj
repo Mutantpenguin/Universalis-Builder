@@ -289,9 +289,9 @@
       <Project>{50b0689f-459d-4c43-9ed7-b4529b18b153}</Project>
       <Name>CardPainter</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TObjects\TObjects.csproj">
+    <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{7993deb0-5b56-4ef6-9bd0-507cd6fa6660}</Project>
-      <Name>TObjects</Name>
+      <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -7,8 +7,8 @@
     <ProjectGuid>{7993DEB0-5B56-4EF6-9BD0-507CD6FA6660}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TObjects</RootNamespace>
-    <AssemblyName>TObjects</AssemblyName>
+    <RootNamespace>Shared</RootNamespace>
+    <AssemblyName>Shared</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>
@@ -159,7 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Universalis.Actor+ActorOutfit.datasource" />
+    <None Include="Properties\DataSources\Universalis.Actor+ActorOutfit.datasource">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\effekt_desintegrator.png" />
   </ItemGroup>
   <ItemGroup>

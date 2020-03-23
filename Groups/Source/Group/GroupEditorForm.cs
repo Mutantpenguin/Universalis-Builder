@@ -135,7 +135,7 @@ namespace Universalis
             {
                 Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                pictureBoxCard.Image = groupActor.Actor != null ? CardPainter.GetBitmap( groupActor ) : TObjects.Properties.Resources.empty;
+                pictureBoxCard.Image = groupActor.Actor != null ? CardPainter.GetBitmap( groupActor ) : Shared.Properties.Resources.empty;
             }
             else
             {

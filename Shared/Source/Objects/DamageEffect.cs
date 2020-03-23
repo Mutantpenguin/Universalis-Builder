@@ -17,41 +17,41 @@ namespace Universalis
         [JsonIgnore]
         public Image GetOriginalImage => ( GetImage( DamageColor.EType.Original ) );
 
-        private static readonly Image s_effekt_desintegrator_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_desintegrator, DamageColor.EType.Green );
-        private static readonly Image s_effekt_durchschlag_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_durchschlag, DamageColor.EType.Green );
-        private static readonly Image s_effekt_elektro_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_elektro, DamageColor.EType.Green );
-        private static readonly Image s_effekt_emp_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_emp, DamageColor.EType.Green );
-        private static readonly Image s_effekt_explosiv_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_explosiv, DamageColor.EType.Green );
-        private static readonly Image s_effekt_fusion_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_fusion, DamageColor.EType.Green );
-        private static readonly Image s_effekt_hitze_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_hitze, DamageColor.EType.Green );
-        private static readonly Image s_effekt_paralyse_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_paralyse, DamageColor.EType.Green );
-        private static readonly Image s_effekt_kälte_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_kälte, DamageColor.EType.Green );
-        private static readonly Image s_effekt_mikrowelle_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_mikrowelle, DamageColor.EType.Green );
-        private static readonly Image s_effekt_monomolekular_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_monomolekular, DamageColor.EType.Green );
-        private static readonly Image s_effekt_panzerbrechend_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_panzerbrechend, DamageColor.EType.Green );
-        private static readonly Image s_effekt_rail_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_rail, DamageColor.EType.Green );
-        private static readonly Image s_effekt_schrapnell_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_schrapnell, DamageColor.EType.Green );
-        private static readonly Image s_effekt_vibro_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_vibro, DamageColor.EType.Green );
-        private static readonly Image s_effekt_komposit_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_komposit, DamageColor.EType.Green );
-        private static readonly Image s_effekt_struktur_green = DamageColor.Colorize( TObjects.Properties.Resources.effekt_struktur, DamageColor.EType.Green );
+        private static readonly Image s_effekt_desintegrator_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_desintegrator, DamageColor.EType.Green );
+        private static readonly Image s_effekt_durchschlag_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_durchschlag, DamageColor.EType.Green );
+        private static readonly Image s_effekt_elektro_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_elektro, DamageColor.EType.Green );
+        private static readonly Image s_effekt_emp_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_emp, DamageColor.EType.Green );
+        private static readonly Image s_effekt_explosiv_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_explosiv, DamageColor.EType.Green );
+        private static readonly Image s_effekt_fusion_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_fusion, DamageColor.EType.Green );
+        private static readonly Image s_effekt_hitze_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_hitze, DamageColor.EType.Green );
+        private static readonly Image s_effekt_paralyse_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_paralyse, DamageColor.EType.Green );
+        private static readonly Image s_effekt_kälte_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_kälte, DamageColor.EType.Green );
+        private static readonly Image s_effekt_mikrowelle_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_mikrowelle, DamageColor.EType.Green );
+        private static readonly Image s_effekt_monomolekular_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_monomolekular, DamageColor.EType.Green );
+        private static readonly Image s_effekt_panzerbrechend_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_panzerbrechend, DamageColor.EType.Green );
+        private static readonly Image s_effekt_rail_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_rail, DamageColor.EType.Green );
+        private static readonly Image s_effekt_schrapnell_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_schrapnell, DamageColor.EType.Green );
+        private static readonly Image s_effekt_vibro_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_vibro, DamageColor.EType.Green );
+        private static readonly Image s_effekt_komposit_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_komposit, DamageColor.EType.Green );
+        private static readonly Image s_effekt_struktur_green = DamageColor.Colorize( Shared.Properties.Resources.effekt_struktur, DamageColor.EType.Green );
 
-        private static readonly Image s_effekt_desintegrator_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_desintegrator, DamageColor.EType.Red );
-        private static readonly Image s_effekt_durchschlag_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_durchschlag, DamageColor.EType.Red );
-        private static readonly Image s_effekt_elektro_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_elektro, DamageColor.EType.Red );
-        private static readonly Image s_effekt_emp_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_emp, DamageColor.EType.Red );
-        private static readonly Image s_effekt_explosiv_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_explosiv, DamageColor.EType.Red );
-        private static readonly Image s_effekt_fusion_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_fusion, DamageColor.EType.Red );
-        private static readonly Image s_effekt_hitze_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_hitze, DamageColor.EType.Red );
-        private static readonly Image s_effekt_paralyse_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_paralyse, DamageColor.EType.Red );
-        private static readonly Image s_effekt_kälte_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_kälte, DamageColor.EType.Red );
-        private static readonly Image s_effekt_mikrowelle_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_mikrowelle, DamageColor.EType.Red );
-        private static readonly Image s_effekt_monomolekular_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_monomolekular, DamageColor.EType.Red );
-        private static readonly Image s_effekt_panzerbrechend_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_panzerbrechend, DamageColor.EType.Red );
-        private static readonly Image s_effekt_rail_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_rail, DamageColor.EType.Red );
-        private static readonly Image s_effekt_schrapnell_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_schrapnell, DamageColor.EType.Red );
-        private static readonly Image s_effekt_vibro_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_vibro, DamageColor.EType.Red );
-        private static readonly Image s_effekt_komposit_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_komposit, DamageColor.EType.Red );
-        private static readonly Image s_effekt_struktur_red = DamageColor.Colorize( TObjects.Properties.Resources.effekt_struktur, DamageColor.EType.Red );
+        private static readonly Image s_effekt_desintegrator_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_desintegrator, DamageColor.EType.Red );
+        private static readonly Image s_effekt_durchschlag_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_durchschlag, DamageColor.EType.Red );
+        private static readonly Image s_effekt_elektro_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_elektro, DamageColor.EType.Red );
+        private static readonly Image s_effekt_emp_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_emp, DamageColor.EType.Red );
+        private static readonly Image s_effekt_explosiv_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_explosiv, DamageColor.EType.Red );
+        private static readonly Image s_effekt_fusion_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_fusion, DamageColor.EType.Red );
+        private static readonly Image s_effekt_hitze_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_hitze, DamageColor.EType.Red );
+        private static readonly Image s_effekt_paralyse_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_paralyse, DamageColor.EType.Red );
+        private static readonly Image s_effekt_kälte_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_kälte, DamageColor.EType.Red );
+        private static readonly Image s_effekt_mikrowelle_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_mikrowelle, DamageColor.EType.Red );
+        private static readonly Image s_effekt_monomolekular_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_monomolekular, DamageColor.EType.Red );
+        private static readonly Image s_effekt_panzerbrechend_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_panzerbrechend, DamageColor.EType.Red );
+        private static readonly Image s_effekt_rail_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_rail, DamageColor.EType.Red );
+        private static readonly Image s_effekt_schrapnell_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_schrapnell, DamageColor.EType.Red );
+        private static readonly Image s_effekt_vibro_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_vibro, DamageColor.EType.Red );
+        private static readonly Image s_effekt_komposit_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_komposit, DamageColor.EType.Red );
+        private static readonly Image s_effekt_struktur_red = DamageColor.Colorize( Shared.Properties.Resources.effekt_struktur, DamageColor.EType.Red );
 
         public Image GetImage( DamageColor.EType color )
         {
@@ -61,55 +61,55 @@ namespace Universalis
                     switch( Type )
                     {
                         case EType.Desintegrator:
-                            return ( TObjects.Properties.Resources.effekt_desintegrator );
+                            return ( Shared.Properties.Resources.effekt_desintegrator );
 
                         case EType.Durchschlag:
-                            return ( TObjects.Properties.Resources.effekt_durchschlag );
+                            return ( Shared.Properties.Resources.effekt_durchschlag );
 
                         case EType.Elektro:
-                            return ( TObjects.Properties.Resources.effekt_elektro );
+                            return ( Shared.Properties.Resources.effekt_elektro );
 
                         case EType.EMP:
-                            return ( TObjects.Properties.Resources.effekt_emp );
+                            return ( Shared.Properties.Resources.effekt_emp );
 
                         case EType.Explosiv:
-                            return ( TObjects.Properties.Resources.effekt_explosiv );
+                            return ( Shared.Properties.Resources.effekt_explosiv );
 
                         case EType.Fusion:
-                            return ( TObjects.Properties.Resources.effekt_fusion );
+                            return ( Shared.Properties.Resources.effekt_fusion );
 
                         case EType.Hitze:
-                            return ( TObjects.Properties.Resources.effekt_hitze );
+                            return ( Shared.Properties.Resources.effekt_hitze );
 
                         case EType.Paralyse:
-                            return ( TObjects.Properties.Resources.effekt_paralyse );
+                            return ( Shared.Properties.Resources.effekt_paralyse );
 
                         case EType.Kälte:
-                            return ( TObjects.Properties.Resources.effekt_kälte );
+                            return ( Shared.Properties.Resources.effekt_kälte );
 
                         case EType.Mikrowelle:
-                            return ( TObjects.Properties.Resources.effekt_mikrowelle );
+                            return ( Shared.Properties.Resources.effekt_mikrowelle );
 
                         case EType.Monomolekular:
-                            return ( TObjects.Properties.Resources.effekt_monomolekular );
+                            return ( Shared.Properties.Resources.effekt_monomolekular );
 
                         case EType.Panzerbrechend:
-                            return ( TObjects.Properties.Resources.effekt_panzerbrechend );
+                            return ( Shared.Properties.Resources.effekt_panzerbrechend );
 
                         case EType.Rail:
-                            return ( TObjects.Properties.Resources.effekt_rail );
+                            return ( Shared.Properties.Resources.effekt_rail );
 
                         case EType.Schrapnell:
-                            return ( TObjects.Properties.Resources.effekt_schrapnell );
+                            return ( Shared.Properties.Resources.effekt_schrapnell );
 
                         case EType.Vibro:
-                            return ( TObjects.Properties.Resources.effekt_vibro );
+                            return ( Shared.Properties.Resources.effekt_vibro );
 
                         case EType.Komposit:
-                            return ( TObjects.Properties.Resources.effekt_komposit );
+                            return ( Shared.Properties.Resources.effekt_komposit );
 
                         case EType.Struktur:
-                            return ( TObjects.Properties.Resources.effekt_struktur );
+                            return ( Shared.Properties.Resources.effekt_struktur );
 
                         default:
                             throw new InvalidOperationException( "unkown " + nameof( EType ) );

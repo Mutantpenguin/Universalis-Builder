@@ -87,6 +87,6 @@ namespace Universalis
         {
             get;
             set;
-        } = TObjects.Properties.Resources.empty;
+        } = Shared.Properties.Resources.empty;
     }
 }

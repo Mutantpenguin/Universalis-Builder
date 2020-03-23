@@ -10,7 +10,7 @@ namespace Universalis
     {
         public ProgressForm()
         {
-            using( var player = new SoundPlayer( TObjects.Properties.Resources.startup_sound ) )
+            using( var player = new SoundPlayer( Shared.Properties.Resources.startup_sound ) )
             {
                 player.Play();
             }

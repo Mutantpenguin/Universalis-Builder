@@ -60,12 +60,6 @@
     <Compile Include="Source\Helpers.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TObjects\TObjects.csproj">
-      <Project>{7993deb0-5b56-4ef6-9bd0-507cd6fa6660}</Project>
-      <Name>TObjects</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -150,6 +144,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Mech.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{7993deb0-5b56-4ef6-9bd0-507cd6fa6660}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

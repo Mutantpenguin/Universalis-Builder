@@ -100,7 +100,7 @@ namespace Universalis
         {
             get;
             set;
-        } = TObjects.Properties.Resources.empty;
+        } = Shared.Properties.Resources.empty;
 
         [ JsonConverter( typeof( JsonFactionConverter ) )]
         public Faction Faction
@@ -256,7 +256,7 @@ namespace Universalis
                     }
                     else
                     {
-                        return ( TObjects.Properties.Resources.empty );
+                        return ( Shared.Properties.Resources.empty );
                     }
                 }
             }
