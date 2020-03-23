@@ -24,12 +24,12 @@ namespace Universalis
 
         private static readonly Rectangle SPictureRect = new Rectangle( 0, CmToPixel( 0.5 ), SSectionsPosX, CmToPixel( 7 ) );
 
-        private static readonly int SSubstancePointSize = CmToPixel( 0.3 );
+        private static readonly int SHitPointSize = CmToPixel( 0.3 );
 
         private static readonly Pen SLinePenBlack = Pens.Black;
         private static readonly Pen SStructureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
         private static readonly Pen SStructureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
-        private static readonly Pen SSubstanceBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
+        private static readonly Pen SHitPointBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
         // TODO maybe still needed later
         // private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
 
@@ -51,8 +51,8 @@ namespace Universalis
         private static readonly Font FontEquipment = Font0Dot3;
         private static readonly Font FontTraits = Font0Dot3;
 
-        private static readonly Brush SubstanceCritBrush = new SolidBrush( Color.Orange );
-        private static readonly Brush SubstanceNormalBrush = new SolidBrush( Color.White );
+        private static readonly Brush HitPointCritBrush = new SolidBrush( Color.Orange );
+        private static readonly Brush HitPointNormalBrush = new SolidBrush( Color.White );
 
         private static readonly Brush WeaponFontBrush = new SolidBrush( DamageColor.red );
         private static readonly Brush ArmorFontBrush = new SolidBrush( DamageColor.green );
@@ -143,7 +143,7 @@ namespace Universalis
                 DrawCalculatedAttributes( g, actor, actorOutfit );
                 DrawMisc( g, actor, actorOutfit );
 
-                DrawSubstance( g, actor );
+                DrawHitPoints( g, actor );
                 DrawPoints( g, actor, actorOutfit );
 
                 int traitsEndY = DrawTraits( g, actor.ActorTraitsList );
@@ -279,7 +279,7 @@ namespace Universalis
             Helpers.DrawStringCentered( g, $"{actor.GB( actorOutfit )}cm", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
         }
 
-        private static void DrawSubstance( Graphics g, Actor actor )
+        private static void DrawHitPoints( Graphics g, Actor actor )
         {
             int margin = CmToPixel( 0.1 );
 
@@ -290,7 +290,7 @@ namespace Universalis
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
 
-                    DrawSubstanceCirclesVertical( g, actor.HitPoints, posX, posY, SSubstancePointSize );
+                    DrawHitPointCirclesVertical( g, actor.HitPoints, posX, posY, SHitPointSize );
                     break;
 
                 case Actor.EType.Mech:
@@ -298,10 +298,10 @@ namespace Universalis
                     int posXArmLeft = SPictureRect.X + margin;
                     int posYArmLeft = SPictureRect.Y + margin;
 
-                    int posXArmRight = SPictureRect.Width - SSubstancePointSize - margin;
+                    int posXArmRight = SPictureRect.Width - SHitPointSize - margin;
                     int posYArmRight = SPictureRect.Y + margin;
 
-                    int posXMain = posXArmLeft + SSubstancePointSize + margin;
+                    int posXMain = posXArmLeft + SHitPointSize + margin;
                     int posYMain = SPictureRect.Y + margin;
                     int widthMain = posXArmRight - margin - posXMain;
 
@@ -310,16 +310,16 @@ namespace Universalis
                     int widthLegs = widthMain;
 
                     // main
-                    DrawSubstanceCirclesHorizonzal( g, actor.HitPoints, posXMain, posYMain, widthMain, down: true );
+                    DrawHitPointCirclesHorizonzal( g, actor.HitPoints, posXMain, posYMain, widthMain, down: true );
 
                     // left arm
-                    DrawSubstanceCirclesVertical( g, actor.HitZoneHitPoints, posXArmLeft, posYArmLeft, SSubstancePointSize );
+                    DrawHitPointCirclesVertical( g, actor.HitZoneHitPoints, posXArmLeft, posYArmLeft, SHitPointSize );
 
                     // right arm
-                    DrawSubstanceCirclesVertical( g, actor.HitZoneHitPoints, posXArmRight, posYArmRight, SSubstancePointSize );
+                    DrawHitPointCirclesVertical( g, actor.HitZoneHitPoints, posXArmRight, posYArmRight, SHitPointSize );
 
                     // legs
-                    DrawSubstanceCirclesHorizonzal( g, actor.HitZoneHitPoints, posXLegs, posYLegs, widthLegs, down: false );
+                    DrawHitPointCirclesHorizonzal( g, actor.HitZoneHitPoints, posXLegs, posYLegs, widthLegs, down: false );
                     break;
 
                 default:
@@ -327,13 +327,13 @@ namespace Universalis
             }            
         }
 
-        private static void DrawSubstanceCirclesHorizonzal( Graphics g, int count, int x, int y, int width, bool down )
+        private static void DrawHitPointCirclesHorizonzal( Graphics g, int count, int x, int y, int width, bool down )
         {
-            int maxColumns = Math.Min( Convert.ToInt32( Math.Floor( (float)width / (float)SSubstancePointSize ) ), count );
+            int maxColumns = Math.Min( Convert.ToInt32( Math.Floor( (float)width / (float)SHitPointSize ) ), count );
             int maxRows = Convert.ToInt32( Math.Ceiling( (float)count / (float)maxColumns ) );
 
-            int posX = x + ( ( width - ( maxColumns * SSubstancePointSize ) ) / 2 );
-            int posY = y - ( down ? 0 : maxRows * SSubstancePointSize );
+            int posX = x + ( ( width - ( maxColumns * SHitPointSize ) ) / 2 );
+            int posY = y - ( down ? 0 : maxRows * SHitPointSize );
 
             int row = 0;
             int col = 0;
@@ -342,11 +342,11 @@ namespace Universalis
 
             for( int i = 1; i <= count; i++ )
             {
-                Rectangle rect = new Rectangle( posX + ( SSubstancePointSize * col ), posY + ( SSubstancePointSize * row ), SSubstancePointSize, SSubstancePointSize );
+                Rectangle rect = new Rectangle( posX + ( SHitPointSize * col ), posY + ( SHitPointSize * row ), SHitPointSize, SHitPointSize );
 
-                g.FillEllipse( i > crit ? SubstanceCritBrush : SubstanceNormalBrush, rect );
+                g.FillEllipse( i > crit ? HitPointCritBrush : HitPointNormalBrush, rect );
 
-                g.DrawEllipse( SSubstanceBorderPen, rect );
+                g.DrawEllipse( SHitPointBorderPen, rect );
 
                 ++col;
 
@@ -358,9 +358,9 @@ namespace Universalis
             }
         }
 
-        private static void DrawSubstanceCirclesVertical( Graphics g, int count, int x, int y, int width )
+        private static void DrawHitPointCirclesVertical( Graphics g, int count, int x, int y, int width )
         {
-            int maxColumns = Convert.ToInt32( Math.Floor( (float)width / SSubstancePointSize ) );
+            int maxColumns = Convert.ToInt32( Math.Floor( (float)width / SHitPointSize ) );
             int maxRows = Convert.ToInt32( Math.Ceiling( (float)count / (float)maxColumns ) );
 
             int row = 0;
@@ -370,11 +370,11 @@ namespace Universalis
 
             for( int i = 1; i <= count; i++ )
             {
-                Rectangle rect = new Rectangle( x + ( SSubstancePointSize * col ), y + ( SSubstancePointSize * row ), SSubstancePointSize, SSubstancePointSize );
+                Rectangle rect = new Rectangle( x + ( SHitPointSize * col ), y + ( SHitPointSize * row ), SHitPointSize, SHitPointSize );
 
-                g.FillEllipse( i > crit ? SubstanceCritBrush : SubstanceNormalBrush, rect );
+                g.FillEllipse( i > crit ? HitPointCritBrush : HitPointNormalBrush, rect );
 
-                g.DrawEllipse( SSubstanceBorderPen, rect );
+                g.DrawEllipse( SHitPointBorderPen, rect );
 
                 ++row;
 
@@ -631,7 +631,7 @@ namespace Universalis
                 g.DrawLine( SLinePenBlack, WeaponStrengthStart, posY + SLineHeight, WeaponStrengthStart, lineVertEnd );
                 // right of strength
                 g.DrawLine( SLinePenBlack, WeaponDamageStart, posY + SLineHeight, WeaponDamageStart, lineVertEnd );
-                // right of substance
+                // right of damage
                 g.DrawLine( SLinePenBlack, WeaponRangeStart, posY + SLineHeight, WeaponRangeStart, lineVertEnd );
                 // right of range
                 g.DrawLine( SLinePenBlack, WeaponRangeStart + WeaponRangeWidth, posY + SLineHeight, WeaponRangeStart + WeaponRangeWidth, lineVertEnd );
