@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddWeaponToOutfitForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,7 +40,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
@@ -60,8 +59,7 @@
             this.wKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.potentialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.substanceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.strengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WeaponRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedAF = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,8 +119,7 @@
             this.wKDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
             this.typeImageDataGridViewImageColumn,
-            this.potentialDataGridViewTextBoxColumn,
-            this.substanceDataGridViewTextBoxColumn,
+            this.strengthDataGridViewTextBoxColumn,
             this.WeaponRange,
             this.MaxRange,
             this.FormattedAF,
@@ -174,8 +171,8 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "WeaponRange";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn1.HeaderText = "R";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ToolTipText = "Reichweite";
@@ -299,33 +296,22 @@
             this.typeImageDataGridViewImageColumn.ReadOnly = true;
             this.typeImageDataGridViewImageColumn.Width = 30;
             // 
-            // potentialDataGridViewTextBoxColumn
+            // strengthDataGridViewTextBoxColumn
             // 
-            this.potentialDataGridViewTextBoxColumn.DataPropertyName = "FormattedPotential";
+            this.strengthDataGridViewTextBoxColumn.DataPropertyName = "FormattedStrength";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.potentialDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.potentialDataGridViewTextBoxColumn.HeaderText = "P";
-            this.potentialDataGridViewTextBoxColumn.Name = "potentialDataGridViewTextBoxColumn";
-            this.potentialDataGridViewTextBoxColumn.ReadOnly = true;
-            this.potentialDataGridViewTextBoxColumn.ToolTipText = "Potential";
-            this.potentialDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // substanceDataGridViewTextBoxColumn
-            // 
-            this.substanceDataGridViewTextBoxColumn.DataPropertyName = "Substance";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.substanceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.substanceDataGridViewTextBoxColumn.HeaderText = "S";
-            this.substanceDataGridViewTextBoxColumn.Name = "substanceDataGridViewTextBoxColumn";
-            this.substanceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.substanceDataGridViewTextBoxColumn.ToolTipText = "Trefferpunkte";
-            this.substanceDataGridViewTextBoxColumn.Width = 30;
+            this.strengthDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.strengthDataGridViewTextBoxColumn.HeaderText = "S";
+            this.strengthDataGridViewTextBoxColumn.Name = "strengthDataGridViewTextBoxColumn";
+            this.strengthDataGridViewTextBoxColumn.ReadOnly = true;
+            this.strengthDataGridViewTextBoxColumn.ToolTipText = "Stärke";
+            this.strengthDataGridViewTextBoxColumn.Width = 30;
             // 
             // WeaponRange
             // 
             this.WeaponRange.DataPropertyName = "FormattedRange";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.WeaponRange.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.WeaponRange.DefaultCellStyle = dataGridViewCellStyle4;
             this.WeaponRange.HeaderText = "R";
             this.WeaponRange.Name = "WeaponRange";
             this.WeaponRange.ReadOnly = true;
@@ -335,8 +321,8 @@
             // MaxRange
             // 
             this.MaxRange.DataPropertyName = "MaxRange";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.MaxRange.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.MaxRange.DefaultCellStyle = dataGridViewCellStyle5;
             this.MaxRange.HeaderText = "MR";
             this.MaxRange.Name = "MaxRange";
             this.MaxRange.ReadOnly = true;
@@ -346,8 +332,8 @@
             // FormattedAF
             // 
             this.FormattedAF.DataPropertyName = "FormattedAF";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FormattedAF.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FormattedAF.DefaultCellStyle = dataGridViewCellStyle6;
             this.FormattedAF.HeaderText = "AF";
             this.FormattedAF.Name = "FormattedAF";
             this.FormattedAF.ReadOnly = true;
@@ -357,8 +343,8 @@
             // FormattedRadius
             // 
             this.FormattedRadius.DataPropertyName = "FormattedRadius";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FormattedRadius.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FormattedRadius.DefaultCellStyle = dataGridViewCellStyle7;
             this.FormattedRadius.HeaderText = "Radius";
             this.FormattedRadius.Name = "FormattedRadius";
             this.FormattedRadius.ReadOnly = true;
@@ -404,9 +390,9 @@
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "N1";
-            this.weightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "N1";
+            this.weightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.weightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
             this.weightDataGridViewTextBoxColumn.ReadOnly = true;
@@ -415,8 +401,8 @@
             // pointsDataGridViewTextBoxColumn
             // 
             this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -465,11 +451,11 @@
         private System.Windows.Forms.ToolStripComboBox filterType;
         private System.Windows.Forms.ToolStripButton checkBoxFilterType;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn substanceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn wKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn typeImageDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn potentialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn substanceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn strengthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn WeaponRange;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxRange;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAF;

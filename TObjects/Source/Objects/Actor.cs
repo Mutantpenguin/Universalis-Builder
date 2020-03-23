@@ -654,7 +654,7 @@ namespace Universalis
                     return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Presets.MechLoadCapacityMultiplier ), 2 ) ) );
 
                 case EType.Koloss:
-                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Presets.KolossLoadCapacityMultiplier ), 2 ) ) );
+                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Presets.ColossusLoadCapacityMultiplier ), 2 ) ) );
 
                 case EType.Fahrzeug:
                     return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Presets.FahrzeugLoadCapacityMultiplier ), 2 ) ) );

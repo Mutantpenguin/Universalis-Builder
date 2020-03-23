@@ -54,14 +54,14 @@
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
+            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.WK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DamageTypeImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Potential = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Substance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Strength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Damage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedAF = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,8 +74,8 @@
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -230,8 +230,8 @@
             this.WK,
             this.nameDataGridViewTextBoxColumn,
             this.DamageTypeImage,
-            this.Potential,
-            this.Substance,
+            this.Strength,
+            this.Damage,
             this.FormattedRange,
             this.MaxRange,
             this.FormattedAF,
@@ -255,6 +255,10 @@
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWeapons_KeyDown);
             // 
+            // weaponBindingSource
+            // 
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -269,10 +273,6 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
-            // 
-            // weaponBindingSource
-            // 
-            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
             // 
             // WK
             // 
@@ -301,27 +301,27 @@
             this.DamageTypeImage.ReadOnly = true;
             this.DamageTypeImage.Width = 30;
             // 
-            // Potential
+            // Strength
             // 
-            this.Potential.DataPropertyName = "FormattedPotential";
+            this.Strength.DataPropertyName = "FormattedStrength";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Potential.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Potential.HeaderText = "P";
-            this.Potential.Name = "Potential";
-            this.Potential.ReadOnly = true;
-            this.Potential.ToolTipText = "Potential";
-            this.Potential.Width = 30;
+            this.Strength.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Strength.HeaderText = "ST";
+            this.Strength.Name = "Strength";
+            this.Strength.ReadOnly = true;
+            this.Strength.ToolTipText = "Stärke";
+            this.Strength.Width = 30;
             // 
-            // Substance
+            // Damage
             // 
-            this.Substance.DataPropertyName = "Substance";
+            this.Damage.DataPropertyName = "FormattedDamage";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Substance.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Substance.HeaderText = "S";
-            this.Substance.Name = "Substance";
-            this.Substance.ReadOnly = true;
-            this.Substance.ToolTipText = "Trefferpunkte";
-            this.Substance.Width = 30;
+            this.Damage.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Damage.HeaderText = "S";
+            this.Damage.Name = "Damage";
+            this.Damage.ReadOnly = true;
+            this.Damage.ToolTipText = "Schaden";
+            this.Damage.Width = 30;
             // 
             // FormattedRange
             // 
@@ -439,9 +439,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,8 +469,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn WK;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn DamageTypeImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Potential;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Substance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Strength;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Damage;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRange;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxRange;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAF;

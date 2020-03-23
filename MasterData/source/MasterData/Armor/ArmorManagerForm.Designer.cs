@@ -57,7 +57,7 @@
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelfSustaining = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TypesImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Potential = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Protection = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EffectsImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.Camouflage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CamouflageLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -187,7 +187,7 @@
             this.nameDataGridViewTextBoxColumn,
             this.SelfSustaining,
             this.TypesImage,
-            this.Potential,
+            this.Protection,
             this.EffectsImage,
             this.Camouflage,
             this.CamouflageLevel,
@@ -256,16 +256,16 @@
             this.TypesImage.Name = "TypesImage";
             this.TypesImage.ReadOnly = true;
             // 
-            // Potential
+            // Protection
             // 
-            this.Potential.DataPropertyName = "Potential";
+            this.Protection.DataPropertyName = "Protection";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Potential.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Potential.HeaderText = "P";
-            this.Potential.Name = "Potential";
-            this.Potential.ReadOnly = true;
-            this.Potential.ToolTipText = "Potential";
-            this.Potential.Width = 30;
+            this.Protection.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Protection.HeaderText = "S";
+            this.Protection.Name = "Protection";
+            this.Protection.ReadOnly = true;
+            this.Protection.ToolTipText = "Schutz";
+            this.Protection.Width = 30;
             // 
             // EffectsImage
             // 
@@ -419,7 +419,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelfSustaining;
         private System.Windows.Forms.DataGridViewImageColumn TypesImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Potential;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Protection;
         private System.Windows.Forms.DataGridViewImageColumn EffectsImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn Camouflage;
         private System.Windows.Forms.DataGridViewTextBoxColumn CamouflageLevel;

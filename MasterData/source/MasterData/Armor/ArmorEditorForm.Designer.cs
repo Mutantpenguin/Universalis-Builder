@@ -51,7 +51,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.checkBoxSelfSustaining = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.numericUpDownPotential = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownProtection = new System.Windows.Forms.NumericUpDown();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.dataGridViewDamageTypes = new System.Windows.Forms.DataGridView();
@@ -119,7 +119,7 @@
             this.toolStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCamouflageLevel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPotential)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProtection)).BeginInit();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eLevelBindingSource)).BeginInit();
@@ -316,7 +316,7 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.checkBoxSelfSustaining);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.numericUpDownPotential);
+            this.panel3.Controls.Add(this.numericUpDownProtection);
             this.panel3.Controls.Add(this.toolStrip2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 118);
@@ -374,23 +374,23 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(3, 30);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 13);
+            this.label11.Size = new System.Drawing.Size(40, 13);
             this.label11.TabIndex = 31;
-            this.label11.Text = "Potential";
+            this.label11.Text = "Schutz";
             // 
-            // numericUpDownPotential
+            // numericUpDownProtection
             // 
-            this.numericUpDownPotential.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.armorBindingSource, "Potential", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownPotential.Location = new System.Drawing.Point(57, 28);
-            this.numericUpDownPotential.Maximum = new decimal(new int[] {
+            this.numericUpDownProtection.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.armorBindingSource, "Protection", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownProtection.Location = new System.Drawing.Point(57, 28);
+            this.numericUpDownProtection.Maximum = new decimal(new int[] {
             12,
             0,
             0,
             0});
-            this.numericUpDownPotential.Name = "numericUpDownPotential";
-            this.numericUpDownPotential.Size = new System.Drawing.Size(35, 20);
-            this.numericUpDownPotential.TabIndex = 30;
-            this.numericUpDownPotential.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownProtection.Name = "numericUpDownProtection";
+            this.numericUpDownProtection.Size = new System.Drawing.Size(35, 20);
+            this.numericUpDownProtection.TabIndex = 30;
+            this.numericUpDownProtection.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // toolStrip2
             // 
@@ -1075,7 +1075,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCamouflageLevel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPotential)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProtection)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageTypes)).EndInit();
@@ -1183,7 +1183,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonAttribMod;
         private System.Windows.Forms.BindingSource attributeModifierBindingSource;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown numericUpDownPotential;
+        private System.Windows.Forms.NumericUpDown numericUpDownProtection;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dataGridViewDamageTypes;
         private System.Windows.Forms.BindingSource damageTypeBindingSource;

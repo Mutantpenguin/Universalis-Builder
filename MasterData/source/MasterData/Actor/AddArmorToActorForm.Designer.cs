@@ -54,7 +54,7 @@
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelfSustaining = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.typesImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.potentialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.protectionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.effectsImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.Camouflage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CamouflageLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,7 +114,7 @@
             this.nameDataGridViewTextBoxColumn,
             this.SelfSustaining,
             this.typesImageDataGridViewImageColumn,
-            this.potentialDataGridViewTextBoxColumn,
+            this.protectionDataGridViewTextBoxColumn,
             this.effectsImageDataGridViewImageColumn,
             this.Camouflage,
             this.CamouflageLevel,
@@ -231,16 +231,16 @@
             this.typesImageDataGridViewImageColumn.Name = "typesImageDataGridViewImageColumn";
             this.typesImageDataGridViewImageColumn.ReadOnly = true;
             // 
-            // potentialDataGridViewTextBoxColumn
+            // protectionDataGridViewTextBoxColumn
             // 
-            this.potentialDataGridViewTextBoxColumn.DataPropertyName = "Potential";
+            this.protectionDataGridViewTextBoxColumn.DataPropertyName = "Protection";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.potentialDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.potentialDataGridViewTextBoxColumn.HeaderText = "P";
-            this.potentialDataGridViewTextBoxColumn.Name = "potentialDataGridViewTextBoxColumn";
-            this.potentialDataGridViewTextBoxColumn.ReadOnly = true;
-            this.potentialDataGridViewTextBoxColumn.ToolTipText = "Potential";
-            this.potentialDataGridViewTextBoxColumn.Width = 30;
+            this.protectionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.protectionDataGridViewTextBoxColumn.HeaderText = "S";
+            this.protectionDataGridViewTextBoxColumn.Name = "protectionDataGridViewTextBoxColumn";
+            this.protectionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.protectionDataGridViewTextBoxColumn.ToolTipText = "Schutz";
+            this.protectionDataGridViewTextBoxColumn.Width = 30;
             // 
             // effectsImageDataGridViewImageColumn
             // 
@@ -392,7 +392,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelfSustaining;
         private System.Windows.Forms.DataGridViewImageColumn typesImageDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn potentialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn protectionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn effectsImageDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Camouflage;
         private System.Windows.Forms.DataGridViewTextBoxColumn CamouflageLevel;
