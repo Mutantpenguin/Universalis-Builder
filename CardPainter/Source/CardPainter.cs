@@ -31,7 +31,7 @@ namespace Universalis
         private static readonly Pen SStructureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
         private static readonly Pen SHitPointBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
         // TODO maybe still needed later
-        // private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
+        private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
 
         private static readonly Font Font0Dot2 = new Font( UniversalisFont.Family, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
         private static readonly Font Font0Dot3 = new Font( UniversalisFont.Family, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
@@ -650,19 +650,9 @@ namespace Universalis
 
             if( weapon.Unwieldy )
             {
-                /* TODO which is nicer? THe circle or the triangles?
                 Rectangle circleRect = new Rectangle( wkRect.Location, wkRect.Size );
                 circleRect.Inflate( CmToPixel( -0.05 ), CmToPixel( -0.05 ) );
                 g.DrawEllipse( unwieldyCirclePen, circleRect );
-                */
-                Point[] pointsLeft = new Point[ 3 ] { new Point( wkRect.Location.X, wkRect.Location.Y + ( wkRect.Size.Height / 2 ) ),
-                                                      new Point( wkRect.Location.X + CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 ) ),
-                                                      new Point( wkRect.Location.X + CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 * 2 ) ) };
-                Point[] pointsRight = new Point[ 3 ] { new Point( wkRect.Location.X + wkRect.Size.Width, wkRect.Location.Y + ( wkRect.Size.Height / 2 ) ),
-                                                       new Point( wkRect.Location.X + wkRect.Size.Width - CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 ) ),
-                                                       new Point( wkRect.Location.X + wkRect.Size.Width - CmToPixel( 0.1 ), wkRect.Location.Y + ( wkRect.Size.Height / 3 * 2 ) ) };
-                g.FillPolygon( Brushes.White, pointsLeft );
-                g.FillPolygon( Brushes.White, pointsRight );
             }
 
             string weaponName = weapon.Name;
