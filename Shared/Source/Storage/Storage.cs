@@ -15,8 +15,6 @@ namespace Universalis
 
         public const string backupFileExtension = "json.bak";
 
-        public const string trashSubfolderName = "Trash";
-
         public static readonly string filePattern = Path.ChangeExtension( "*.", Storage.fileExtension );
 
         public const int delayLoadingMs = 0;
