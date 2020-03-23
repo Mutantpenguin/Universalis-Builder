@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
             this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -306,7 +306,7 @@
             // checkBoxAdditiveStrength
             // 
             this.checkBoxAdditiveStrength.AutoSize = true;
-            this.checkBoxAdditiveStrength.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.weaponBindingSource, "AdditiveStrength", true));
+            this.checkBoxAdditiveStrength.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.weaponBindingSource, "AdditiveStrength", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxAdditiveStrength.Location = new System.Drawing.Point(122, 84);
             this.checkBoxAdditiveStrength.Name = "checkBoxAdditiveStrength";
             this.checkBoxAdditiveStrength.Size = new System.Drawing.Size(15, 14);
@@ -619,8 +619,8 @@
             this.dataGridViewDamageEffects.AllowUserToAddRows = false;
             this.dataGridViewDamageEffects.AllowUserToDeleteRows = false;
             this.dataGridViewDamageEffects.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDamageEffects.AutoGenerateColumns = false;
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
