@@ -5,7 +5,7 @@
         public const int MechLoadCapacityMultiplier = 2;
         public const int ColossusLoadCapacityMultiplier = 2;
 
-        public const float HitZoneTPMultiplier = 2.0f / 3.0f;
+        public const float HitZoneHitPointsMultiplier = 2.0f / 3.0f;
 
         public const int FahrzeugLoadCapacityMultiplier = 3;
 

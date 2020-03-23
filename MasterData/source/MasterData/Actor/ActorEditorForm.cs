@@ -56,7 +56,7 @@ namespace Universalis
             AttribWN.Value = m_actorModified.Attributes.WN;
             AttribEH.Value = m_actorModified.Attributes.EH;
 
-            TP.Value = m_actorModified.TP;
+            HitPoints.Value = m_actorModified.HitPoints;
 
             textBoxDescription.Text = m_actorModified.Description;
 
@@ -130,9 +130,9 @@ namespace Universalis
             updateFields();
         }
 
-        private void TP_ValueChanged( object sender, EventArgs e )
+        private void HitPoints_ValueChanged( object sender, EventArgs e )
         {
-            m_actorModified.TP = Convert.ToInt32( TP.Value );
+            m_actorModified.HitPoints = Convert.ToInt32( HitPoints.Value );
 
             updateFields();
         }

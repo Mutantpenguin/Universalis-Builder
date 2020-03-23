@@ -33,7 +33,7 @@ namespace Universalis
                 ||
                 Weight != actor.Weight
                 ||
-                TP != actor.TP
+                HitPoints != actor.HitPoints
                 ||
                 MovementType != actor.MovementType
                 ||
@@ -141,7 +141,7 @@ namespace Universalis
 
             Weight = actor.Weight;
 
-            TP = actor.TP;
+            HitPoints = actor.HitPoints;
 
             Size = actor.Size;
 
@@ -236,14 +236,14 @@ namespace Universalis
             set;
         } = 75.0f;
 
-        public int TP
+        public int HitPoints
         {
             get;
             set;
         } = 5;
 
         [JsonIgnore]
-        public int HitZoneTP => ( Convert.ToInt32( Math.Ceiling( TP * Presets.HitZoneTPMultiplier ) ) );
+        public int HitZoneHitPoints => ( Convert.ToInt32( Math.Ceiling( HitPoints * Presets.HitZoneHitPointsMultiplier ) ) );
 
         [JsonConverter( typeof( JsonImageConverter ) )]
         public Bitmap Icon
@@ -828,12 +828,12 @@ namespace Universalis
             {
                 case EType.Infanterie:
                 case EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
-                    points += TP * Costs.TP;
+                    points += HitPoints * Costs.Hitpoints;
                     break;
 
                 case EType.Mech:
                 case EType.Koloss:
-                    points += ( TP * Costs.TP ) + ( 3 * HitZoneTP * Costs.TP );
+                    points += ( HitPoints * Costs.Hitpoints ) + ( 3 * HitZoneHitPoints * Costs.Hitpoints );
                     break;
 
                 default:
