@@ -611,7 +611,7 @@
             // 
             this.HitPoints.Location = new System.Drawing.Point(220, 3);
             this.HitPoints.Maximum = new decimal(new int[] {
-            20,
+            27,
             0,
             0,
             0});
