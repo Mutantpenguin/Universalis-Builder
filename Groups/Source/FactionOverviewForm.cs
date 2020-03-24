@@ -40,7 +40,7 @@ namespace Universalis
 
             listViewFactions.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
 
-            this.Icon = Properties.Resources.icon;
+            this.Icon = Shared.Properties.Resources.icon;
 
             imageListFactions.ImageSize = new System.Drawing.Size( 150, 150 );
 

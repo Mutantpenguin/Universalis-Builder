@@ -15,7 +15,7 @@ namespace Universalis
 
             textBoxFactionDescription.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
 
-            this.Icon = Properties.Resources.icon;
+            this.Icon = Shared.Properties.Resources.icon;
 
             m_faction = faction;
 

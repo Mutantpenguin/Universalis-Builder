@@ -11,7 +11,7 @@ namespace Universalis
         {
             InitializeComponent();
 
-            this.Icon = Properties.Resources.icon;
+            this.Icon = Shared.Properties.Resources.icon;
 
             filterCamouflage.ComboBox.DataSource = Armor.ECamouflageList;
             filterCamouflage.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;

@@ -13,7 +13,7 @@ namespace Universalis
         {
             InitializeComponent();
 
-            this.Icon = Properties.Resources.icon;
+            this.Icon = Shared.Properties.Resources.icon;
 
             filterFaction.ComboBox.DataSource = FactionStorage.Instance.Factions.OrderBy( x => x.Name )
                                                                                 .ToList();

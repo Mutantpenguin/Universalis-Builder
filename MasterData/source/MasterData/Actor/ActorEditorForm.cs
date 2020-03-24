@@ -18,7 +18,7 @@ namespace Universalis
 
             this.WindowState = Properties.Settings.Default.ActorEditorWindowState;
 
-            this.Icon = Properties.Resources.icon;
+            this.Icon = Shared.Properties.Resources.icon;
 
             eTraitLevelBindingSource.DataSource = TraitLevel.ELevelList;
 

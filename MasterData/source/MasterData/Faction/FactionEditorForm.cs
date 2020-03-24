@@ -11,7 +11,7 @@ namespace Universalis
         {
             InitializeComponent();
 
-            this.Icon = Properties.Resources.icon;
+            this.Icon = Shared.Properties.Resources.icon;
 
             m_originalFaction = faction;
 
