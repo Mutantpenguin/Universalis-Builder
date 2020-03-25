@@ -200,9 +200,9 @@ namespace Universalis
                 textBoxBelastung.BackColor = SystemColors.Control;
             }
 
-            CalcAttribGB.Text = $"{m_actorModified.GB( CurrentOutfit() )}cm";
+            CalcAttribDangerArea.Text = $"{m_actorModified.ModDangerArea( CurrentOutfit() )}cm";
 
-            CalcAttribWB.Text = $"{m_actorModified.ModWB( CurrentOutfit() )}cm";
+            CalcAreaOfPerception.Text = $"{m_actorModified.ModAreaOfPerception( CurrentOutfit() )}cm";
 
             textBoxBaseCost.Text = m_actorModified.Points( actorOutfit: null ).ToString();
             textBoxOutfitCost.Text = m_actorModified.Points( CurrentOutfit() ).ToString();

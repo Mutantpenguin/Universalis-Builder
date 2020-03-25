@@ -9,10 +9,10 @@
 
         public const int FahrzeugLoadCapacityMultiplier = 3;
 
-        public const int WBMultiplier = 5;
+        public const int AreaOfPerceptionMultiplier = 5;
         public const int throwRangeLengthMultiplier = 2;
         public const int throwRangeAmount = 4;
 
-        public const int MaxLengthGB = 12;
+        public const int MaxLengthDangerArea = 12;
     }
 }

@@ -59,11 +59,11 @@
             this.comboBoxFOV = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.comboBoxMovementType = new System.Windows.Forms.ComboBox();
-            this.CalcAttribWB = new System.Windows.Forms.TextBox();
+            this.CalcAreaOfPerception = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
-            this.CalcAttribGB = new System.Windows.Forms.TextBox();
+            this.CalcAttribDangerArea = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.HitPoints = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
@@ -481,11 +481,11 @@
             this.panel2.Controls.Add(this.comboBoxFOV);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.comboBoxMovementType);
-            this.panel2.Controls.Add(this.CalcAttribWB);
+            this.panel2.Controls.Add(this.CalcAreaOfPerception);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.comboBoxSize);
-            this.panel2.Controls.Add(this.CalcAttribGB);
+            this.panel2.Controls.Add(this.CalcAttribDangerArea);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.HitPoints);
             this.panel2.Controls.Add(this.label8);
@@ -548,15 +548,15 @@
             this.toolTip.SetToolTip(this.comboBoxMovementType, "Bewegungsart");
             this.comboBoxMovementType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxMovementType_SelectionChangeCommitted);
             // 
-            // CalcAttribWB
+            // CalcAreaOfPerception
             // 
-            this.CalcAttribWB.Location = new System.Drawing.Point(121, 81);
-            this.CalcAttribWB.Name = "CalcAttribWB";
-            this.CalcAttribWB.ReadOnly = true;
-            this.CalcAttribWB.Size = new System.Drawing.Size(50, 20);
-            this.CalcAttribWB.TabIndex = 49;
-            this.CalcAttribWB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip.SetToolTip(this.CalcAttribWB, "Wahrnehmungsbereich");
+            this.CalcAreaOfPerception.Location = new System.Drawing.Point(121, 81);
+            this.CalcAreaOfPerception.Name = "CalcAreaOfPerception";
+            this.CalcAreaOfPerception.ReadOnly = true;
+            this.CalcAreaOfPerception.Size = new System.Drawing.Size(50, 20);
+            this.CalcAreaOfPerception.TabIndex = 49;
+            this.CalcAreaOfPerception.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip.SetToolTip(this.CalcAreaOfPerception, "Wahrnehmungsbereich");
             // 
             // label16
             // 
@@ -587,15 +587,15 @@
             this.comboBoxSize.TabIndex = 40;
             this.comboBoxSize.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSize_SelectionChangeCommitted);
             // 
-            // CalcAttribGB
+            // CalcAttribDangerArea
             // 
-            this.CalcAttribGB.Location = new System.Drawing.Point(34, 81);
-            this.CalcAttribGB.Name = "CalcAttribGB";
-            this.CalcAttribGB.ReadOnly = true;
-            this.CalcAttribGB.Size = new System.Drawing.Size(50, 20);
-            this.CalcAttribGB.TabIndex = 37;
-            this.CalcAttribGB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip.SetToolTip(this.CalcAttribGB, "Gefahrenbereich");
+            this.CalcAttribDangerArea.Location = new System.Drawing.Point(34, 81);
+            this.CalcAttribDangerArea.Name = "CalcAttribDangerArea";
+            this.CalcAttribDangerArea.ReadOnly = true;
+            this.CalcAttribDangerArea.Size = new System.Drawing.Size(50, 20);
+            this.CalcAttribDangerArea.TabIndex = 37;
+            this.CalcAttribDangerArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip.SetToolTip(this.CalcAttribDangerArea, "Gefahrenbereich");
             // 
             // label1
             // 
@@ -1626,7 +1626,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxTragkraft;
-        private System.Windows.Forms.TextBox CalcAttribGB;
+        private System.Windows.Forms.TextBox CalcAttribDangerArea;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonImages;
         private System.Windows.Forms.Panel panel3;
@@ -1641,7 +1641,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.DataGridView dataGridViewArmor;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox CalcAttribWB;
+        private System.Windows.Forms.TextBox CalcAreaOfPerception;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox comboBoxMovementType;

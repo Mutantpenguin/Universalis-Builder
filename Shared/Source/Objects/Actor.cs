@@ -619,23 +619,23 @@ namespace Universalis
 #endregion attributes
 
 #region calculated values
-        public int GB( ActorOutfit actorOutfit )
+        public int ModDangerArea( ActorOutfit actorOutfit )
         {
-            int lengthGB = Presets.MaxLengthGB - Attributes.ModEH( CurrentAttributeModifier( actorOutfit ) );
+            int lengthDangerArea = Presets.MaxLengthDangerArea - Attributes.ModEH( CurrentAttributeModifier( actorOutfit ) );
 
-            if( lengthGB < 0 )
+            if( lengthDangerArea < 0 )
             {
                 return ( 0 );
             }
             else
             {
-                return ( lengthGB );
+                return ( lengthDangerArea );
             }
         }
 
-        public int ModWB( ActorOutfit actorOutfit )
+        public int ModAreaOfPerception( ActorOutfit actorOutfit )
         {
-            return ( Presets.WBMultiplier * Attributes.ModWN( CurrentAttributeModifier( actorOutfit ) ) );
+            return ( Presets.AreaOfPerceptionMultiplier * Attributes.ModWN( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
         public static string ThrowRange( int attributeKO )

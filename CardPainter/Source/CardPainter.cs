@@ -270,13 +270,13 @@ namespace Universalis
             // WB - Wahrnehmungsbereich
             g.DrawImage( Properties.Resources.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
 
-            string fovAndModWbString = $"{(int)actor.Fov}°/{actor.ModWB( actorOutfit )}cm";
+            string fovAndModWbString = $"{(int)actor.Fov}°/{actor.ModAreaOfPerception( actorOutfit )}cm";
             Size fovAndModWbSize = g.MeasureString( fovAndModWbString, FontStandard ).ToSize();
             Helpers.DrawStringCentered( g, fovAndModWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
 
             // GB - Gefahrenbereich
             g.DrawImage( Properties.Resources.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
-            Helpers.DrawStringCentered( g, $"{actor.GB( actorOutfit )}cm", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
+            Helpers.DrawStringCentered( g, $"{actor.ModDangerArea( actorOutfit )}cm", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
         }
 
         private static void DrawHitPoints( Graphics g, Actor actor )
