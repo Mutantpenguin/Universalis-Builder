@@ -37,12 +37,12 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Weapon> weapons = WeaponStorage.Instance.Weapons.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                 .Where( s => filterWK.Enabled ? s.WK == (Weapon.EClass)filterWK.ComboBox.SelectedItem : true )
-                                                                 .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
-                                                                 .Where( s => filterDamageType.Enabled ? s.DamageType.Type == (DamageType.EType)filterDamageType.ComboBox.SelectedItem : true )
-                                                                 .OrderBy( x => x.Name )
-                                                                 .ToList();
+            List<Weapon> weapons = MasterDataStorage.Weapon.Weapons.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                   .Where( s => filterWK.Enabled ? s.WK == (Weapon.EClass)filterWK.ComboBox.SelectedItem : true )
+                                                                   .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
+                                                                   .Where( s => filterDamageType.Enabled ? s.DamageType.Type == (DamageType.EType)filterDamageType.ComboBox.SelectedItem : true )
+                                                                   .OrderBy( x => x.Name )
+                                                                   .ToList();
 
             weaponBindingSource.DataSource = weapons;
             dataGridViewWeapons.ClearSelection();
@@ -84,7 +84,7 @@ namespace Universalis
 
         private void toolStripButtonWeaponAdd_Click( object sender, EventArgs e )
         {
-            Weapon weapon = WeaponStorage.Instance.Create();
+            Weapon weapon = MasterDataStorage.Weapon.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
             refreshGridView();
@@ -108,7 +108,7 @@ namespace Universalis
             {
                 Weapon weapon = (Weapon)dataGridViewWeapons.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithWeapon = ActorStorage.Instance.ActorsWithWeapon( weapon );
+                var actorsWithWeapon = MasterDataStorage.Actor.ActorsWithWeapon( weapon );
 
                 if( actorsWithWeapon.Any() )
                 {
@@ -119,7 +119,7 @@ namespace Universalis
                 }
                 else if( MessageBox.Show( $"Waffe '{weapon.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    WeaponStorage.Instance.Delete( weapon );
+                    MasterDataStorage.Weapon.Delete( weapon );
 
                     refreshGridView();
                 }
@@ -132,10 +132,10 @@ namespace Universalis
             {
                 Weapon weaponSource = (Weapon)dataGridViewWeapons.SelectedRows[ 0 ].DataBoundItem;
 
-                Weapon weaponNew = WeaponStorage.Instance.Create();
+                Weapon weaponNew = MasterDataStorage.Weapon.Create();
                 weaponNew.Set( weaponSource );
                 weaponNew.Name = $"(Kopie von) {weaponSource.Name}";
-                WeaponStorage.Save( weaponNew );
+                MasterDataStorage.Weapon.Save( weaponNew );
 
                 toolStripTextBoxSearch.Text = String.Empty;
                 refreshGridView();
@@ -188,7 +188,7 @@ namespace Universalis
         {
             if( dataGridViewWeapons.SelectedRows.Count > 0 )
             {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithWeapon( (Weapon)dataGridViewWeapons.SelectedRows[ 0 ].DataBoundItem ) ) )
+                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithWeapon( (Weapon)dataGridViewWeapons.SelectedRows[ 0 ].DataBoundItem ) ) )
                 {
                     actorDisplay.ShowDialog( this );
                 }

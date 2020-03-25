@@ -53,7 +53,7 @@ namespace Universalis
 
         private void toolStripButtonAddGroups_Click( object sender, EventArgs e )
         {
-            Group group = GroupStorage.Instance.Create( m_faction );
+            Group group = UserDataStorage.Group.Create( m_faction );
 
             toolStripTextBoxSearch.Text = String.Empty;
             RefreshGroupsGridView();
@@ -79,7 +79,7 @@ namespace Universalis
 
                 if( MessageBox.Show( $"Gruppe '{group.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    GroupStorage.Instance.Delete( group );
+                    UserDataStorage.Group.Delete( group );
 
                     RefreshGroupsGridView();
                 }
@@ -94,10 +94,10 @@ namespace Universalis
 
                 if( IsValid( groupSource ) )
                 {
-                    Group groupNew = GroupStorage.Instance.Create( groupSource.Faction );
+                    Group groupNew = UserDataStorage.Group.Create( groupSource.Faction );
                     groupNew.Set( groupSource );
                     groupNew.Name = $"(Kopie von) {groupSource.Name}";
-                    GroupStorage.Save( groupNew );
+                    UserDataStorage.Group.Save( groupNew );
 
                     toolStripTextBoxSearch.Text = String.Empty;
                     RefreshGroupsGridView();
@@ -109,7 +109,7 @@ namespace Universalis
 
         private void RefreshGroupsGridView()
         {
-            List<Group> groups = GroupStorage.Instance.Groups.Where( s => s.Faction.ID == m_faction.ID )
+            List<Group> groups = UserDataStorage.Group.Groups.Where( s => s.Faction.ID == m_faction.ID )
                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                              .OrderBy( x => x.Name ).ThenBy( x => x.Points )
                                                              .ToList();
@@ -183,7 +183,7 @@ namespace Universalis
 
                             try
                             {
-                                GroupStorage.SaveAs( group, cardSaveFileDialog.FileName );
+                                UserDataStorage.Group.SaveAs( group, cardSaveFileDialog.FileName );
                             }
                             catch( Exception ex )
                             {

@@ -20,9 +20,9 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Equipment> equipment = EquipmentStorage.Instance.Equipments.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                            .OrderBy( x => x.Name )
-                                                                            .ToList();
+            List<Equipment> equipment = MasterDataStorage.Equipment.Equipments.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                              .OrderBy( x => x.Name )
+                                                                              .ToList();
 
             equipmentBindingSource.DataSource = equipment;
             dataGridViewEquipment.ClearSelection();
@@ -37,7 +37,7 @@ namespace Universalis
 
         private void toolStripButtonEquipmentAdd_Click( object sender, EventArgs e )
         {
-            Equipment equipment = EquipmentStorage.Instance.Create();
+            Equipment equipment = MasterDataStorage.Equipment.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
             refreshGridView();
@@ -61,7 +61,7 @@ namespace Universalis
             {
                 Equipment equipment = (Equipment)dataGridViewEquipment.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithEquipment = ActorStorage.Instance.ActorsWithEquipment( equipment );
+                var actorsWithEquipment = MasterDataStorage.Actor.ActorsWithEquipment( equipment );
 
                 if( actorsWithEquipment.Any() )
                 {
@@ -72,7 +72,7 @@ namespace Universalis
                 }
                 else if( MessageBox.Show( $"Ausrüstung '{equipment.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    EquipmentStorage.Instance.Delete( equipment );
+                    MasterDataStorage.Equipment.Delete( equipment );
 
                     refreshGridView();
                 }
@@ -85,10 +85,10 @@ namespace Universalis
             {
                 Equipment equipmentSource = (Equipment)dataGridViewEquipment.SelectedRows[ 0 ].DataBoundItem;
 
-                Equipment equipmentNew = EquipmentStorage.Instance.Create();
+                Equipment equipmentNew = MasterDataStorage.Equipment.Create();
                 equipmentNew.Set( equipmentSource );
                 equipmentNew.Name = $"(Kopie von) {equipmentSource.Name}";
-                EquipmentStorage.Save( equipmentNew );
+                MasterDataStorage.Equipment.Save( equipmentNew );
 
                 toolStripTextBoxSearch.Text = String.Empty;
                 refreshGridView();
@@ -141,7 +141,7 @@ namespace Universalis
         {
             if( dataGridViewEquipment.SelectedRows.Count > 0 )
             {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithEquipment( (Equipment)dataGridViewEquipment.SelectedRows[ 0 ].DataBoundItem ) ) )
+                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithEquipment( (Equipment)dataGridViewEquipment.SelectedRows[ 0 ].DataBoundItem ) ) )
                 {
                     actorDisplay.ShowDialog( this );
                 }

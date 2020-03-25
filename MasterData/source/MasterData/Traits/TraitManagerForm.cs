@@ -20,12 +20,12 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Trait> traits = TraitStorage.Instance.Traits.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                             .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.Type != "+" ) )
-                                                             .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.Type != "-" ) )
-                                                             .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.Type != "=" ) )
-                                                             .OrderBy( s => s.Name )
-                                                             .ToList();
+            List<Trait> traits = MasterDataStorage.Trait.Traits.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                               .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.Type != "+" ) )
+                                                               .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.Type != "-" ) )
+                                                               .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.Type != "=" ) )
+                                                               .OrderBy( s => s.Name )
+                                                               .ToList();
 
             traitBindingSource.DataSource = traits;
             dataGridViewTraits.ClearSelection();
@@ -55,7 +55,7 @@ namespace Universalis
 
         private void toolStripButtonTraitAdd_Click( object sender, EventArgs e )
         {
-            Trait trait = TraitStorage.Instance.Create();
+            Trait trait = MasterDataStorage.Trait.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
             refreshGridView();
@@ -79,7 +79,7 @@ namespace Universalis
             {
                 Trait trait = (Trait)dataGridViewTraits.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithTrait = ActorStorage.Instance.ActorsWithTrait( trait );
+                var actorsWithTrait = MasterDataStorage.Actor.ActorsWithTrait( trait );
 
                 if( actorsWithTrait.Any() )
                 {
@@ -90,7 +90,7 @@ namespace Universalis
                 }
                 else if( MessageBox.Show( $"Eigenschaft '{trait.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    TraitStorage.Instance.Delete( trait );
+                    MasterDataStorage.Trait.Delete( trait );
 
                     refreshGridView();
                 }
@@ -103,10 +103,10 @@ namespace Universalis
             {
                 Trait traitSource = (Trait)dataGridViewTraits.SelectedRows[ 0 ].DataBoundItem;
 
-                Trait traitNew = TraitStorage.Instance.Create();
+                Trait traitNew = MasterDataStorage.Trait.Create();
                 traitNew.Set( traitSource );
                 traitNew.Name = $"(Kopie von) {traitSource.Name}";
-                TraitStorage.Save( traitNew );
+                MasterDataStorage.Trait.Save( traitNew );
 
                 toolStripTextBoxSearch.Text = String.Empty;
                 refreshGridView();
@@ -159,7 +159,7 @@ namespace Universalis
         {
             if( dataGridViewTraits.SelectedRows.Count > 0 )
             {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithTrait( (Trait)dataGridViewTraits.SelectedRows[ 0 ].DataBoundItem ) ) )
+                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithTrait( (Trait)dataGridViewTraits.SelectedRows[ 0 ].DataBoundItem ) ) )
                 {
                     actorDisplay.ShowDialog( this );
                 }

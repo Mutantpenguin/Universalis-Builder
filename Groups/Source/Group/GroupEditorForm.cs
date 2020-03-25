@@ -61,7 +61,7 @@ namespace Universalis
                 if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     m_groupOriginal.Set( m_groupModified );
-                    GroupStorage.Save( m_groupOriginal );
+                    UserDataStorage.Group.Save( m_groupOriginal );
                 }
             }
         }
@@ -103,7 +103,7 @@ namespace Universalis
                         if( mandatoryFieldsFilled() )
                         {
                             m_groupOriginal.Set( m_groupModified );
-                            GroupStorage.Save( m_groupOriginal );
+                            UserDataStorage.Group.Save( m_groupOriginal );
                         }
                         else
                         {

@@ -19,7 +19,7 @@ namespace Universalis
 
             if( null != reader.Value )
             {
-                return ( WeaponStorage.Instance.Get( new Guid( (string)reader.Value ) ) );
+                return ( MasterDataStorage.Weapon.Get( new Guid( (string)reader.Value ) ) );
             }
             else
             {

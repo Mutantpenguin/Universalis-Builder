@@ -9,17 +9,16 @@ namespace Universalis
 {
     public class TraitStorage
     {
-        private TraitStorage() { }
-
-        public static readonly TraitStorage Instance = new TraitStorage();
-
         private const string s_folderName = "Traits";
 
-        private static readonly string s_path = Path.Combine( Storage.DataPath, s_folderName );
-        private static readonly string s_pathTrash = Path.Combine( Storage.TrashPath, s_folderName );
+        private readonly string s_path;
+        private readonly string s_pathTrash;
 
-        public void LoadAll( BackgroundWorker backgroundWorker )
+        public TraitStorage( string path, BackgroundWorker backgroundWorker )
         {
+            s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
+            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
+
             if( !Directory.Exists( s_path ) )
             {
                 Directory.CreateDirectory( s_path );
@@ -33,7 +32,9 @@ namespace Universalis
 
                 foreach( string file in files )
                 {
+#if DEBUG
                     System.Threading.Thread.Sleep( Storage.delayLoadingMs );
+#endif
 
                     try
                     {
@@ -64,7 +65,7 @@ namespace Universalis
             };
         }
 
-        public static void Save( Trait trait )
+        public void Save( Trait trait )
         {
             if( null == trait )
             {
@@ -89,12 +90,12 @@ namespace Universalis
             }
         }
 
-        private static string GetFilename( Trait trait )
+        private string GetFilename( Trait trait )
         {
             return Path.ChangeExtension( Path.Combine( s_path, trait.ID.ToString() ), Storage.fileExtension );
         }
 
-        private static string GetFilenameTrash( Trait trait )
+        private string GetFilenameTrash( Trait trait )
         {
             return Path.ChangeExtension( Path.Combine( s_pathTrash, trait.ID.ToString() ), Storage.fileExtension );
         }

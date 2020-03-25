@@ -9,17 +9,16 @@ namespace Universalis
 {
     public class GroupStorage
     {
-        private GroupStorage() { }
-
-        public static readonly GroupStorage Instance = new GroupStorage();
-
         private const string s_folderName = "Groups";
 
-        private static readonly string s_path = Path.Combine( Storage.DataPath, s_folderName );
-        private static readonly string s_pathTrash = Path.Combine( Storage.TrashPath, s_folderName );
+        private readonly string s_path;
+        private readonly string s_pathTrash;
 
-        public void LoadAll( BackgroundWorker backgroundWorker )
+        public GroupStorage( string path, BackgroundWorker backgroundWorker )
         {
+            s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
+            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
+
             if( !Directory.Exists( s_path ) )
             {
                 Directory.CreateDirectory( s_path );
@@ -33,7 +32,9 @@ namespace Universalis
 
                 foreach( string file in files )
                 {
+#if DEBUG
                     System.Threading.Thread.Sleep( Storage.delayLoadingMs );
+#endif
 
                     try
                     {
@@ -64,7 +65,7 @@ namespace Universalis
             };
         }
 
-        public static Group Load( string file )
+        public Group Load( string file )
         {
             return( JsonConvert.DeserializeObject<Group>( File.ReadAllText( file ) ) );
         }
@@ -74,24 +75,24 @@ namespace Universalis
             return ( m_groupList.Find( x => x.ID == id ) );
         }
 
-        public static void Save( Group group )
+        public void Save( Group group )
         {
             string filename = GetFilename( group );
 
             SaveAs( group, filename );
         }
 
-        private static string GetFilename( Group group )
+        private string GetFilename( Group group )
         {
             return Path.ChangeExtension( Path.Combine( s_path, group.ID.ToString() ), Storage.fileExtension );
         }
 
-        private static string GetFilenameTrash( Group group )
+        private string GetFilenameTrash( Group group )
         {
             return Path.ChangeExtension( Path.Combine( s_pathTrash, group.ID.ToString() ), Storage.fileExtension );
         }
 
-        public static void SaveAs( Group group, string filename )
+        public void SaveAs( Group group, string filename )
         {
             if( null == group )
             {

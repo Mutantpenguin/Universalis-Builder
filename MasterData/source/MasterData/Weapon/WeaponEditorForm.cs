@@ -179,7 +179,7 @@ namespace Universalis
                         if( mandatoryFieldsFilled() )
                         {
                             m_originalWeapon.Set( weaponModified );
-                            WeaponStorage.Save( m_originalWeapon );
+                            MasterDataStorage.Weapon.Save( m_originalWeapon );
                         }
                         else
                         {
@@ -205,7 +205,7 @@ namespace Universalis
                 if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     m_originalWeapon.Set( (Weapon)weaponBindingSource.DataSource );
-                    WeaponStorage.Save( m_originalWeapon );
+                    MasterDataStorage.Weapon.Save( m_originalWeapon );
                 }
             }
         }
@@ -255,7 +255,7 @@ namespace Universalis
 
         private void toolStripButtonUsage_Click( object sender, EventArgs e )
         {
-            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithWeapon( m_originalWeapon ) ) )
+            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithWeapon( m_originalWeapon ) ) )
             {
                 actorDisplay.ShowDialog( this );
             }

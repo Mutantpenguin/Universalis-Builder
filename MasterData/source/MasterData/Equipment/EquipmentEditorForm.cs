@@ -99,7 +99,7 @@ namespace Universalis
                         if( mandatoryFieldsFilled() )
                         {
                             m_originalEquipment.Set( equipmentModified );
-                            EquipmentStorage.Save( m_originalEquipment );
+                            MasterDataStorage.Equipment.Save( m_originalEquipment );
                         }
                         else
                         {
@@ -125,7 +125,7 @@ namespace Universalis
                 if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     m_originalEquipment.Set( (Equipment)equipmentBindingSource.DataSource );
-                    EquipmentStorage.Save( m_originalEquipment );
+                    MasterDataStorage.Equipment.Save( m_originalEquipment );
                 }
             }
         }
@@ -140,7 +140,7 @@ namespace Universalis
 
         private void toolStripButtonUsage_Click( object sender, EventArgs e )
         {
-            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithEquipment( m_originalEquipment ) ) )
+            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithEquipment( m_originalEquipment ) ) )
             {
                 actorDisplay.ShowDialog( this );
             }

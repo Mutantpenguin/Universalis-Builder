@@ -605,7 +605,7 @@ namespace Universalis
                 }
 
                 foreach( var weaponEntry in actorOutfit.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
-                                                                    .Select( x => new { weapon = WeaponStorage.Instance.Get( x.Key ), count = x.Count() } )
+                                                                    .Select( x => new { weapon = MasterDataStorage.Weapon.Get( x.Key ), count = x.Count() } )
                                                                     .OrderBy( x => x.weapon.WK )
                                                                     .ThenBy( x => x.weapon.RangeSort )
                                                                     .ThenBy( x => x.weapon.Name ) )
@@ -817,7 +817,7 @@ namespace Universalis
         private static int DrawEquipment( Graphics g, List<Actor.ActorEquipment> actorEquipmentList, int posY )
         {
             var equipList = actorEquipmentList.GroupBy( x => x.Equipment.ID )
-                                              .Select( x => new { equipment = EquipmentStorage.Instance.Get( x.Key ), count = x.Count() } )
+                                              .Select( x => new { equipment = MasterDataStorage.Equipment.Get( x.Key ), count = x.Count() } )
                                               .Where( x => ( x.equipment.AP > 0 )
                                                            ||
                                                            ( x.equipment.UseOnce )

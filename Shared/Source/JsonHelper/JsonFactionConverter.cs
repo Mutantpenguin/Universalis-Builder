@@ -19,7 +19,7 @@ namespace Universalis
 
             if( null != reader.Value )
             {
-                return ( FactionStorage.Instance.Get( new Guid( (string)reader.Value ) ) );
+                return ( MasterDataStorage.Faction.Get( new Guid( (string)reader.Value ) ) );
             }
             else
             {

@@ -206,7 +206,7 @@ namespace Universalis
             } );
 
             foreach( var entry in group.GroupActorList.GroupBy( x => x.ActorOutfit.ID )
-                                                      .Select( x => new { actor = ActorStorage.Instance.Actors.First( y => y.ActorOutfitsList.Exists( z => z.ID == x.Key ) ), actorOutfit = ActorStorage.Instance.Actors.SelectMany( y => y.ActorOutfitsList ).First( z => z.ID == x.Key ), count = x.Count() } )
+                                                      .Select( x => new { actor = MasterDataStorage.Actor.Actors.First( y => y.ActorOutfitsList.Exists( z => z.ID == x.Key ) ), actorOutfit = MasterDataStorage.Actor.Actors.SelectMany( y => y.ActorOutfitsList ).First( z => z.ID == x.Key ), count = x.Count() } )
                                                       .OrderBy( x => x.actorOutfit.Name )
                                                       .ThenBy( x => x.actor.Name ) )
             {

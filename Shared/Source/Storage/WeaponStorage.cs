@@ -9,17 +9,16 @@ namespace Universalis
 {
     public class WeaponStorage
     {
-        private WeaponStorage() { }
-
-        public static readonly WeaponStorage Instance = new WeaponStorage();
-
         private const string s_folderName = "Weapons";
 
-        private static readonly string s_path = Path.Combine( Storage.DataPath, s_folderName );
-        private static readonly string s_pathTrash = Path.Combine( Storage.TrashPath, s_folderName );
+        private readonly string s_path;
+        private readonly string s_pathTrash;
 
-        public void LoadAll( BackgroundWorker backgroundWorker )
+        public WeaponStorage( string path, BackgroundWorker backgroundWorker )
         {
+            s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
+            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
+
             if( !Directory.Exists( s_path ) )
             {
                 Directory.CreateDirectory( s_path );
@@ -33,7 +32,9 @@ namespace Universalis
 
                 foreach( string file in files )
                 {
+#if DEBUG
                     System.Threading.Thread.Sleep( Storage.delayLoadingMs );
+#endif
 
                     try
                     {
@@ -64,7 +65,7 @@ namespace Universalis
             };
         }
 
-        public static void Save( Weapon weapon )
+        public void Save( Weapon weapon )
         {
             if( null == weapon )
             {
@@ -89,12 +90,12 @@ namespace Universalis
             }
         }
 
-        private static string GetFilename( Weapon weapon )
+        private string GetFilename( Weapon weapon )
         {
             return Path.ChangeExtension( Path.Combine( s_path, weapon.ID.ToString() ), Storage.fileExtension );
         }
 
-        private static string GetFilenameTrash( Weapon weapon )
+        private string GetFilenameTrash( Weapon weapon )
         {
             return Path.ChangeExtension( Path.Combine( s_pathTrash, weapon.ID.ToString() ), Storage.fileExtension );
         }

@@ -33,10 +33,10 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Armor> armor = ArmorStorage.Instance.Armors.Where( s => filterCamouflage.Enabled ? s.Camouflage == ( (Armor.ECamouflage)filterCamouflage.ComboBox.SelectedValue ) : true )
-                                                            .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                            .OrderBy( x => x.Name )
-                                                            .ToList();
+            List<Armor> armor = MasterDataStorage.Armor.Armors.Where( s => filterCamouflage.Enabled ? s.Camouflage == ( (Armor.ECamouflage)filterCamouflage.ComboBox.SelectedValue ) : true )
+                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                              .OrderBy( x => x.Name )
+                                                              .ToList();
 
             armorBindingSource.DataSource = armor;
             dataGridViewArmor.ClearSelection();
@@ -46,7 +46,7 @@ namespace Universalis
 
         private void toolStripButtonArmorAdd_Click( object sender, EventArgs e )
         {
-            Armor armor = ArmorStorage.Instance.Create();
+            Armor armor = MasterDataStorage.Armor.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
             refreshGridView();
@@ -70,7 +70,7 @@ namespace Universalis
             {
                 Armor armor = (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithArmor = ActorStorage.Instance.ActorsWithArmor( armor );
+                var actorsWithArmor = MasterDataStorage.Actor.ActorsWithArmor( armor );
 
                 if( actorsWithArmor.Any() )
                 {
@@ -81,7 +81,7 @@ namespace Universalis
                 }
                 else if( MessageBox.Show( $"Rüstung '{armor.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    ArmorStorage.Instance.Delete( armor );
+                    MasterDataStorage.Armor.Delete( armor );
 
                     refreshGridView();
                 }
@@ -94,10 +94,10 @@ namespace Universalis
             {
                 Armor armorSource = (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem;
 
-                Armor armorNew = ArmorStorage.Instance.Create();
+                Armor armorNew = MasterDataStorage.Armor.Create();
                 armorNew.Set( armorSource );
                 armorNew.Name = $"(Kopie von) {armorSource.Name}";
-                ArmorStorage.Save( armorNew );
+                MasterDataStorage.Armor.Save( armorNew );
 
                 toolStripTextBoxSearch.Text = String.Empty;
                 refreshGridView();
@@ -150,7 +150,7 @@ namespace Universalis
         {
             if( dataGridViewArmor.SelectedRows.Count > 0 )
             {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithArmor( (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem ) ) )
+                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithArmor( (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem ) ) )
                 {
                     actorDisplay.ShowDialog( this );
                 }

@@ -25,10 +25,10 @@ namespace Universalis
 
         private void updateDataGridViewArmor()
         {
-            armorBindingSource.DataSource = ArmorStorage.Instance.Armors.Where( s => filterCamouflage.Enabled ? s.Camouflage == ( (Armor.ECamouflage)filterCamouflage.ComboBox.SelectedValue ) : true )
-                                                                        .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                        .OrderBy( x => x.Name )
-                                                                        .ToList();
+            armorBindingSource.DataSource = MasterDataStorage.Armor.Armors.Where( s => filterCamouflage.Enabled ? s.Camouflage == ( (Armor.ECamouflage)filterCamouflage.ComboBox.SelectedValue ) : true )
+                                                                          .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                          .OrderBy( x => x.Name )
+                                                                          .ToList();
         }
 
         private void buttonOk_Click( object sender, EventArgs e )

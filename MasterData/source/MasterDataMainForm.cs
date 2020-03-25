@@ -26,19 +26,11 @@ namespace Universalis
                 Properties.Settings.Default.Reload();
             }
 
-            Storage.Setup();
-
             using( ProgressForm progressForm = new ProgressForm() )
             {
-                // load the masterdata
-                FactionStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
-                TraitStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
-                ArmorStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
-                WeaponStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
-                EquipmentStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
+                Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
 
-                // load Actors after loading the masterdata
-                ActorStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
+                MasterDataStorage.Setup( "TODO", backgroundWorkerProvider );
 
                 progressForm.ShowDialog();
             }

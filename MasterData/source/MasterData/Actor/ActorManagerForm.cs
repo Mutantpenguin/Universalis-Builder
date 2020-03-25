@@ -15,8 +15,8 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
-            filterFaction.ComboBox.DataSource = FactionStorage.Instance.Factions.OrderBy( x => x.Name )
-                                                                                .ToList();
+            filterFaction.ComboBox.DataSource = MasterDataStorage.Faction.Factions.OrderBy( x => x.Name )
+                                                                                  .ToList();
             filterFaction.ComboBox.DisplayMember = nameof( Faction.Name );
             filterFaction.ComboBox.SelectionChangeCommitted += FilterFaction_SelectionChangeCommitted;
 
@@ -58,7 +58,7 @@ namespace Universalis
                 {
                     if( factionSelectionForm.SelectedFaction != null )
                     {
-                        Actor actor = ActorStorage.Instance.Create( factionSelectionForm.SelectedFaction );
+                        Actor actor = MasterDataStorage.Actor.Create( factionSelectionForm.SelectedFaction );
 
                         toolStripTextBoxSearch.Text = String.Empty;
                         RefreshActorsGridView();
@@ -87,7 +87,7 @@ namespace Universalis
 
                 if( MessageBox.Show( $"Modell '{actor.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    ActorStorage.Instance.Delete( actor );
+                    MasterDataStorage.Actor.Delete( actor );
 
                     RefreshActorsGridView();
                 }
@@ -100,10 +100,10 @@ namespace Universalis
             {
                 Actor actorSource = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                Actor actorNew = ActorStorage.Instance.Create( actorSource.Faction );
+                Actor actorNew = MasterDataStorage.Actor.Create( actorSource.Faction );
                 actorNew.Set( actorSource );
                 actorNew.Name = $"(Kopie von) {actorSource.Name}";
-                ActorStorage.Save( actorNew );
+                MasterDataStorage.Actor.Save( actorNew );
 
                 toolStripTextBoxSearch.Text = String.Empty;
                 RefreshActorsGridView();
@@ -124,11 +124,11 @@ namespace Universalis
 
         private void RefreshActorsGridView()
         {
-            List<Actor> actors = ActorStorage.Instance.Actors.Where( s => filterFaction.Enabled ? s.Faction.ID == ( (Faction)filterFaction.ComboBox.SelectedValue ).ID : true )
-                                                             .Where( s => filterType.Enabled ? s.Type == ( (Actor.EType)filterType.ComboBox.SelectedValue ) : true )
-                                                             .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                             .OrderBy( x => x.Name )
-                                                             .ToList();
+            List<Actor> actors = MasterDataStorage.Actor.Actors.Where( s => filterFaction.Enabled ? s.Faction.ID == ( (Faction)filterFaction.ComboBox.SelectedValue ).ID : true )
+                                                               .Where( s => filterType.Enabled ? s.Type == ( (Actor.EType)filterType.ComboBox.SelectedValue ) : true )
+                                                               .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                               .OrderBy( x => x.Name )
+                                                               .ToList();
 
             actorBindingSource.DataSource = actors;
             dataGridViewActors.ClearSelection();
@@ -188,7 +188,7 @@ namespace Universalis
                         {
                             actor.Faction = factionSelectionForm.SelectedFaction;
 
-                            ActorStorage.Save( actor );
+                            MasterDataStorage.Actor.Save( actor );
 
                             RefreshActorsGridView();
                         }

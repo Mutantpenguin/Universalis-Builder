@@ -28,13 +28,13 @@ namespace Universalis
 
         private void updateDataGridViewTraits()
         {
-            traitBindingSource.DataSource = TraitStorage.Instance.Traits.Where( s => m_TraitsList.Find( x => x.ID == s.ID ) == null )
-                                                                        .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                        .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.Type != "+" ) )
-                                                                        .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.Type != "-" ) )
-                                                                        .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.Type != "=" ) )
-                                                                        .OrderBy( x => x.Name )
-                                                                        .ToList();
+            traitBindingSource.DataSource = MasterDataStorage.Trait.Traits.Where( s => m_TraitsList.Find( x => x.ID == s.ID ) == null )
+                                                                          .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                          .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.Type != "+" ) )
+                                                                          .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.Type != "-" ) )
+                                                                          .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.Type != "=" ) )
+                                                                          .OrderBy( x => x.Name )
+                                                                          .ToList();
         }
 
         private void buttonOk_Click( object sender, EventArgs e )

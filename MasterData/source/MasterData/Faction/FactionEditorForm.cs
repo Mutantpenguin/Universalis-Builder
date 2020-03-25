@@ -80,7 +80,7 @@ namespace Universalis
                         if( mandatoryFieldsFilled() )
                         {
                             m_originalFaction.Set( factionModified );
-                            FactionStorage.Save( m_originalFaction );
+                            MasterDataStorage.Faction.Save( m_originalFaction );
                         }
                         else
                         {
@@ -106,7 +106,7 @@ namespace Universalis
                 if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     m_originalFaction.Set( (Faction)factionBindingSource.DataSource );
-                    FactionStorage.Save( m_originalFaction );
+                    MasterDataStorage.Faction.Save( m_originalFaction );
                 }
             }
         }
@@ -126,7 +126,7 @@ namespace Universalis
 
         private void toolStripButtonUsage_Click( object sender, EventArgs e )
         {
-            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithFaction( m_originalFaction ) ) )
+            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithFaction( m_originalFaction ) ) )
             {
                 actorDisplay.ShowDialog( this );
             }

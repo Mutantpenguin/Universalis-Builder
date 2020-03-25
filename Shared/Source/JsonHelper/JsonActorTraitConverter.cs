@@ -19,7 +19,7 @@ namespace Universalis
 
             if( null != reader.Value )
             {
-                return ( TraitStorage.Instance.Get( new Guid( (string)reader.Value ) ) );
+                return ( MasterDataStorage.Trait.Get( new Guid( (string)reader.Value ) ) );
             }
             else
             {

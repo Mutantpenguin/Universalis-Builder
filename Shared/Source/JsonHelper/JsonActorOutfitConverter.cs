@@ -21,7 +21,7 @@ namespace Universalis
             if( null != reader.Value )
             {
                 Guid guid = new Guid( (string)reader.Value );
-                return ( ActorStorage.Instance.Actors.SelectMany( x => x.ActorOutfitsList ).FirstOrDefault( y => y.ID == guid ) );
+                return ( MasterDataStorage.Actor.Actors.SelectMany( x => x.ActorOutfitsList ).FirstOrDefault( y => y.ID == guid ) );
             }
             else
             {

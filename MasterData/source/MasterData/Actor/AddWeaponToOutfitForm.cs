@@ -30,12 +30,12 @@ namespace Universalis
 
         private void updateDataGridViewWeapons()
         {
-            weaponBindingSource.DataSource = WeaponStorage.Instance.Weapons.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                           .Where( s => filterWK.Enabled ? s.WK == (Weapon.EClass)filterWK.ComboBox.SelectedItem : true )
-                                                                           .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
-                                                                           .Where( s => filterDamageType.Enabled ? s.DamageType.Type == (DamageType.EType)filterDamageType.ComboBox.SelectedItem : true )
-                                                                           .OrderBy( x => x.Name )
-                                                                           .ToList();
+            weaponBindingSource.DataSource = MasterDataStorage.Weapon.Weapons.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                             .Where( s => filterWK.Enabled ? s.WK == (Weapon.EClass)filterWK.ComboBox.SelectedItem : true )
+                                                                             .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
+                                                                             .Where( s => filterDamageType.Enabled ? s.DamageType.Type == (DamageType.EType)filterDamageType.ComboBox.SelectedItem : true )
+                                                                             .OrderBy( x => x.Name )
+                                                                             .ToList();
         }
 
         void ComboBox_SelectionChangeCommitted( object sender, EventArgs e )

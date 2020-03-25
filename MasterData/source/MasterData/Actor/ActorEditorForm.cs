@@ -226,7 +226,7 @@ namespace Universalis
                                      MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     m_actorOriginal.SetWithOutfitID( m_actorModified );
-                    ActorStorage.Save( m_actorOriginal );
+                    MasterDataStorage.Actor.Save( m_actorOriginal );
                 }
             }
         }
@@ -584,7 +584,7 @@ namespace Universalis
                         if( checkValidity() )
                         {
                             m_actorOriginal.SetWithOutfitID( m_actorModified );
-                            ActorStorage.Save( m_actorOriginal );
+                            MasterDataStorage.Actor.Save( m_actorOriginal );
                         }
                         else
                         {

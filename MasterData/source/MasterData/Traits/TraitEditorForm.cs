@@ -93,7 +93,7 @@ namespace Universalis
                         if( mandatoryFieldsFilled() )
                         {
                             m_originalTrait.Set( traitModified );
-                            TraitStorage.Save( m_originalTrait );
+                            MasterDataStorage.Trait.Save( m_originalTrait );
                         }
                         else
                         {
@@ -119,7 +119,7 @@ namespace Universalis
                 if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     m_originalTrait.Set( (Trait)traitBindingSource.DataSource );
-                    TraitStorage.Save( m_originalTrait );
+                    MasterDataStorage.Trait.Save( m_originalTrait );
                 }
             }
         }
@@ -164,7 +164,7 @@ namespace Universalis
             {
                 TraitLevel traitLevel = ( (TraitLevel)( dataGridViewLevel.Rows[ dataGridViewLevel.SelectedRows[ 0 ].Index ].DataBoundItem ) );
 
-                var actorsWithTraitLevel = ActorStorage.Instance.ActorsWithTraitLevel( m_originalTrait, traitLevel );
+                var actorsWithTraitLevel = MasterDataStorage.Actor.ActorsWithTraitLevel( m_originalTrait, traitLevel );
 
                 if( actorsWithTraitLevel.Any() )
                 {
@@ -216,7 +216,7 @@ namespace Universalis
         {
             if( dataGridViewLevel.SelectedRows.Count > 0 )
             {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithTraitLevel( m_originalTrait, (TraitLevel)dataGridViewLevel.SelectedRows[ 0 ].DataBoundItem ) ) )
+                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithTraitLevel( m_originalTrait, (TraitLevel)dataGridViewLevel.SelectedRows[ 0 ].DataBoundItem ) ) )
                 {
                     actorDisplay.ShowDialog( this );
                 }
@@ -230,7 +230,7 @@ namespace Universalis
 
         private void toolStripButton1_Click( object sender, EventArgs e )
         {
-            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithTrait( m_originalTrait ) ) )
+            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithTrait( m_originalTrait ) ) )
             {
                 actorDisplay.ShowDialog( this );
             }

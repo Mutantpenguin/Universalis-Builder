@@ -9,17 +9,16 @@ namespace Universalis
 {
     public class FactionStorage
     {
-        private FactionStorage() { }
-
-        public static readonly FactionStorage Instance = new FactionStorage();
-
         private const string s_folderName = "Factions";
 
-        private static readonly string s_path = Path.Combine( Storage.DataPath, s_folderName );
-        private static readonly string s_pathTrash = Path.Combine( Storage.TrashPath, s_folderName );
+        private readonly string s_path;
+        private readonly string s_pathTrash;
 
-        public void LoadAll( BackgroundWorker backgroundWorker )
+        public FactionStorage( string path, BackgroundWorker backgroundWorker )
         {
+            s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
+            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
+
             if( !Directory.Exists( s_path ) )
             {
                 Directory.CreateDirectory( s_path );
@@ -33,8 +32,9 @@ namespace Universalis
 
                 foreach( string file in files )
                 {
+#if DEBUG
                     System.Threading.Thread.Sleep( Storage.delayLoadingMs );
-
+#endif
                     try
                     {
                         Faction faction = JsonConvert.DeserializeObject<Faction>( File.ReadAllText( file ) );
@@ -64,7 +64,7 @@ namespace Universalis
             };
         }
 
-        public static void Save( Faction faction )
+        public void Save( Faction faction )
         {
             if( null == faction )
             {
@@ -89,12 +89,12 @@ namespace Universalis
             }
         }
 
-        private static string GetFilename( Faction faction )
+        private string GetFilename( Faction faction )
         {
             return Path.ChangeExtension( Path.Combine( s_path, faction.ID.ToString() ), Storage.fileExtension );
         }
 
-        private static string GetFilenameTrash( Faction faction )
+        private string GetFilenameTrash( Faction faction )
         {
             return Path.ChangeExtension( Path.Combine( s_pathTrash, faction.ID.ToString() ), Storage.fileExtension );
         }

@@ -20,9 +20,9 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Faction> factions = FactionStorage.Instance.Factions.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                     .OrderBy( x => x.Name )
-                                                                     .ToList();
+            List<Faction> factions = MasterDataStorage.Faction.Factions.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                       .OrderBy( x => x.Name )
+                                                                       .ToList();
 
             factionBindingSource.DataSource = factions;
             dataGridViewFactions.ClearSelection();
@@ -37,7 +37,7 @@ namespace Universalis
 
         private void toolStripButtonAddFaction_Click( object sender, EventArgs e )
         {
-            Faction faction = FactionStorage.Instance.Create();
+            Faction faction = MasterDataStorage.Faction.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
             refreshGridView();
@@ -61,7 +61,7 @@ namespace Universalis
             {
                 Faction faction = (Faction)dataGridViewFactions.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithFaction = ActorStorage.Instance.ActorsWithFaction( faction );
+                var actorsWithFaction = MasterDataStorage.Actor.ActorsWithFaction( faction );
 
                 if( actorsWithFaction.Any() )
                 {
@@ -72,7 +72,7 @@ namespace Universalis
                 }
                 else if( MessageBox.Show( $"Fraktion '{faction.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    FactionStorage.Instance.Delete( faction );
+                    MasterDataStorage.Faction.Delete( faction );
 
                     refreshGridView();
                 }
@@ -150,7 +150,7 @@ namespace Universalis
         {
             if( dataGridViewFactions.SelectedRows.Count > 0 )
             {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithFaction( (Faction)dataGridViewFactions.SelectedRows[ 0 ].DataBoundItem ) ) )
+                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithFaction( (Faction)dataGridViewFactions.SelectedRows[ 0 ].DataBoundItem ) ) )
                 {
                     actorDisplay.ShowDialog( this );
                 }

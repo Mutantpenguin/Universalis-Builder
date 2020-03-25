@@ -19,7 +19,7 @@ namespace Universalis
 
             if( null != reader.Value )
             {
-                return ( EquipmentStorage.Instance.Get( new Guid( (string)reader.Value ) ) );
+                return ( MasterDataStorage.Equipment.Get( new Guid( (string)reader.Value ) ) );
             }
             else
             {

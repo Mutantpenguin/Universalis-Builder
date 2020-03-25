@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel;
 using System.IO;
 
 namespace Universalis
@@ -7,9 +8,8 @@ namespace Universalis
     {
         public const Formatting formatting = Formatting.Indented;
 
-        public static readonly string DataPath = Path.Combine( Directory.GetCurrentDirectory(), "Data" );
-
-        public static readonly string TrashPath = Path.Combine( Directory.GetCurrentDirectory(), "Trash" );
+        public const string dataSubfolderName = "Data";
+        public const string trashSubfolderName = "Trash";
 
         public const string fileExtension = "json";
 
@@ -17,23 +17,10 @@ namespace Universalis
 
         public static readonly string filePattern = Path.ChangeExtension( "*.", Storage.fileExtension );
 
+#if DEBUG
         public const int delayLoadingMs = 0;
+#endif
 
-        public static void Setup()
-        {
-            if( !Directory.Exists( DataPath ) )
-            {
-                Directory.CreateDirectory( DataPath );
-            }
-
-            File.SetAttributes( DataPath, FileAttributes.Hidden );
-
-            if( !Directory.Exists( TrashPath ) )
-            {
-                Directory.CreateDirectory( TrashPath );
-            }
-
-            File.SetAttributes( TrashPath, FileAttributes.Hidden );
-        }
+        public delegate BackgroundWorker BackgroundWorkerProvider();
     }
 }

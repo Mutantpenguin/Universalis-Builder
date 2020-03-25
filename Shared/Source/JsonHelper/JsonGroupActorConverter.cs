@@ -19,7 +19,7 @@ namespace Universalis
 
             if( null != reader.Value )
             {
-                return ( ActorStorage.Instance.Get( new Guid( (string)reader.Value ) ) );
+                return ( MasterDataStorage.Actor.Get( new Guid( (string)reader.Value ) ) );
             }
             else
             {

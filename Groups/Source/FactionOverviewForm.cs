@@ -16,22 +16,13 @@ namespace Universalis
                 Properties.Settings.Default.Save();
             }
 
-            Storage.Setup();
-
             using( ProgressForm progressForm = new ProgressForm() )
             {
-                // load the masterdata
-                FactionStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
-                TraitStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
-                ArmorStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
-                WeaponStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
-                EquipmentStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
+                Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
 
-                // load Actors after loading the masterdata
-                ActorStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
+                MasterDataStorage.Setup( "TODO", backgroundWorkerProvider );
 
-                // load Groups after loading the Actors
-                GroupStorage.Instance.LoadAll( progressForm.CreateBackgroundWorker() );
+                UserDataStorage.Setup( "TODO", backgroundWorkerProvider );
 
                 progressForm.ShowDialog();
             }
@@ -58,14 +49,14 @@ namespace Universalis
                 
                 listViewFactions.Groups.Add( group );
 
-                foreach( Faction faction in FactionStorage.Instance.Factions.Where( x => x.Type == type )
-                                                                            .OrderBy( x => x.Name ) )
+                foreach( Faction faction in MasterDataStorage.Faction.Factions.Where( x => x.Type == type )
+                                                                              .OrderBy( x => x.Name ) )
                 {
                     imageListFactions.Images.Add( faction.ID.ToString(), faction.Icon );
 
                     ListViewItem lvi = new ListViewItem()
                     {
-                        Text = faction.Name + " ( " + GroupStorage.Instance.Groups.Count( x => x.Faction == faction ) + " )",
+                        Text = faction.Name + " ( " + UserDataStorage.Group.Groups.Count( x => x.Faction == faction ) + " )",
                         ImageKey = faction.ID.ToString(),
                         ToolTipText = faction.Description,
                         Group = group
@@ -78,7 +69,7 @@ namespace Universalis
 
         private void listViewFactions_ItemActivate( object sender, EventArgs e )
         {
-            Faction faction = FactionStorage.Instance.Factions.First( x => x.ID.ToString() == listViewFactions.SelectedItems[ 0 ].ImageKey );
+            Faction faction = MasterDataStorage.Faction.Factions.First( x => x.ID.ToString() == listViewFactions.SelectedItems[ 0 ].ImageKey );
 
             using( GroupManagerForm groupManagerForm = new GroupManagerForm( faction ) )
             {
@@ -128,13 +119,13 @@ namespace Universalis
                 {
                     try
                     {
-                        Group groupLoaded = GroupStorage.Load( fileName );
+                        Group groupLoaded = UserDataStorage.Group.Load( fileName );
 
-                        Group group = GroupStorage.Instance.FindByID( groupLoaded.ID );
+                        Group group = UserDataStorage.Group.FindByID( groupLoaded.ID );
 
                         if( group == null )
                         {
-                            GroupStorage.Instance.Add( groupLoaded );
+                            UserDataStorage.Group.Add( groupLoaded );
 
                             MessageBox.Show( $"Die Gruppe '{groupLoaded.Name}' der Fraktion '{groupLoaded.Faction.Name}' wurde importiert" );
 
@@ -158,7 +149,7 @@ namespace Universalis
                                 {
                                     // overwrite
                                     group.Set( groupLoaded );
-                                    GroupStorage.Save( group );
+                                    UserDataStorage.Group.Save( group );
 
                                     RefreshList();
                                 }
@@ -170,10 +161,10 @@ namespace Universalis
                                                          MessageBoxIcon.Question ) == DialogResult.Yes )
                                     {
                                         // create as new Group
-                                        Group groupNew = GroupStorage.Instance.Create( groupLoaded.Faction );
+                                        Group groupNew = UserDataStorage.Group.Create( groupLoaded.Faction );
                                         groupNew.Set( groupLoaded );
                                         groupNew.Name = $"(Neuer Import von) {groupLoaded.Name}";
-                                        GroupStorage.Save( groupNew );
+                                        UserDataStorage.Group.Save( groupNew );
 
                                         RefreshList();
                                     }

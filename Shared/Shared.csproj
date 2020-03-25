@@ -45,8 +45,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -85,6 +87,12 @@
     <Compile Include="Source\Forms\SelectOutfitForActorForm.Designer.cs">
       <DependentUpon>SelectOutfitForActorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Forms\UniverseSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\UniverseSelectionForm.Designer.cs">
+      <DependentUpon>UniverseSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Globals\Presets.cs" />
     <Compile Include="Source\Graphics\SectionHeader.cs" />
     <Compile Include="Source\Helper\ColorHelper.cs" />
@@ -116,6 +124,7 @@
     <Compile Include="Source\Objects\MovementType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Objects\Trait.cs" />
+    <Compile Include="Source\Objects\Universe.cs" />
     <Compile Include="Source\Objects\Weapon.cs" />
     <Compile Include="Source\Objects\WeaponRange.cs" />
     <Compile Include="Source\Storage\ActorStorage.cs" />
@@ -129,8 +138,10 @@
     <Compile Include="Source\Forms\ProgressForm.Designer.cs">
       <DependentUpon>ProgressForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Storage\TraitStorage.cs" />
     <Compile Include="Source\Storage\Storage.cs" />
+    <Compile Include="Source\Storage\UserDataStorage.cs" />
+    <Compile Include="Source\Storage\TraitStorage.cs" />
+    <Compile Include="Source\Storage\MasterDataStorage.cs" />
     <Compile Include="Source\Storage\WeaponStorage.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\SelectOutfitForActorForm.resx">
       <DependentUpon>SelectOutfitForActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\UniverseSelectionForm.resx">
+      <DependentUpon>UniverseSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

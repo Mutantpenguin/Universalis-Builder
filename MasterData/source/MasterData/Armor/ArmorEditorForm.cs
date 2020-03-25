@@ -213,7 +213,7 @@ namespace Universalis
                         if( mandatoryFieldsFilled() )
                         {
                             m_originalArmor.Set( armorModified );
-                            ArmorStorage.Save( m_originalArmor );
+                            MasterDataStorage.Armor.Save( m_originalArmor );
                         }
                         else
                         {
@@ -239,7 +239,7 @@ namespace Universalis
                 if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     m_originalArmor.Set( (Armor)armorBindingSource.DataSource );
-                    ArmorStorage.Save( m_originalArmor );
+                    MasterDataStorage.Armor.Save( m_originalArmor );
                 }
             }
         }
@@ -273,7 +273,7 @@ namespace Universalis
 
         private void toolStripButtonUsage_Click( object sender, EventArgs e )
         {
-            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( ActorStorage.Instance.ActorsWithArmor( m_originalArmor ) ) )
+            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithArmor( m_originalArmor ) ) )
             {
                 actorDisplay.ShowDialog( this );
             }
