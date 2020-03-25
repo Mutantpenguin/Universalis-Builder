@@ -52,7 +52,7 @@
             this.listViewUniverses.MultiSelect = false;
             this.listViewUniverses.Name = "listViewUniverses";
             this.listViewUniverses.ShowItemToolTips = true;
-            this.listViewUniverses.Size = new System.Drawing.Size(714, 388);
+            this.listViewUniverses.Size = new System.Drawing.Size(852, 388);
             this.listViewUniverses.TabIndex = 1;
             this.listViewUniverses.UseCompatibleStateImageBehavior = false;
             this.listViewUniverses.ItemActivate += new System.EventHandler(this.listViewUniverses_ItemActivate);
@@ -63,7 +63,7 @@
             this.panelNoUniverses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNoUniverses.Location = new System.Drawing.Point(0, 0);
             this.panelNoUniverses.Name = "panelNoUniverses";
-            this.panelNoUniverses.Size = new System.Drawing.Size(714, 388);
+            this.panelNoUniverses.Size = new System.Drawing.Size(852, 388);
             this.panelNoUniverses.TabIndex = 2;
             this.panelNoUniverses.Visible = false;
             // 
@@ -71,7 +71,7 @@
             // 
             this.labelNoUniverses.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelNoUniverses.AutoSize = true;
-            this.labelNoUniverses.Location = new System.Drawing.Point(291, 188);
+            this.labelNoUniverses.Location = new System.Drawing.Point(360, 188);
             this.labelNoUniverses.Name = "labelNoUniverses";
             this.labelNoUniverses.Size = new System.Drawing.Size(133, 13);
             this.labelNoUniverses.TabIndex = 0;
@@ -82,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 388);
+            this.ClientSize = new System.Drawing.Size(852, 388);
             this.Controls.Add(this.listViewUniverses);
             this.Controls.Add(this.panelNoUniverses);
             this.KeyPreview = true;
