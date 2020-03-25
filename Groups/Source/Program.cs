@@ -17,7 +17,10 @@ namespace Universalis
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault( false );
-                    Application.Run( new FactionOverviewForm() );
+
+                    UniverseSelectionForm.FormToOpen formToOpen = ( string universePath, string universeName ) => new FactionOverviewForm( universePath, universeName );
+
+                    Application.Run( new UniverseSelectionForm( formToOpen ) );
                 }
             }
             catch( TLock.TLockNotSuccessfullException )

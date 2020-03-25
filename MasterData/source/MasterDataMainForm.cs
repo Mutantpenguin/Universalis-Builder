@@ -7,7 +7,7 @@ namespace Universalis
 {
     public partial class MasterDataMainForm : Form
     {
-        public MasterDataMainForm()
+        public MasterDataMainForm( string universePath, string universeName )
         {
             try
             {
@@ -30,12 +30,14 @@ namespace Universalis
             {
                 Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
 
-                MasterDataStorage.Setup( "TODO", backgroundWorkerProvider );
+                MasterDataStorage.Setup( universePath, backgroundWorkerProvider );
 
                 progressForm.ShowDialog();
             }
 
             InitializeComponent();
+
+            this.Text = universeName + " Stammdaten";
 
             this.Icon = Shared.Properties.Resources.icon;
         }

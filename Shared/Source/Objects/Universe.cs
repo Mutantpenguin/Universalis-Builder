@@ -39,12 +39,6 @@ namespace Universalis
             return ( true );
         }
 
-        public Guid ID
-        {
-            get;
-            set;
-        } = Guid.NewGuid();
-
         public string Name
         {
             get;

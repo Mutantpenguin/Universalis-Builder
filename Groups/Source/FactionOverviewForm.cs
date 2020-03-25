@@ -7,7 +7,7 @@ namespace Universalis
 {
     public partial class FactionOverviewForm : Form
     {
-        public FactionOverviewForm()
+        public FactionOverviewForm( string universePath, string universeName )
         {
             if( Properties.Settings.Default.UpgradeSettings )
             {
@@ -20,14 +20,16 @@ namespace Universalis
             {
                 Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
 
-                MasterDataStorage.Setup( "TODO", backgroundWorkerProvider );
+                MasterDataStorage.Setup( universePath, backgroundWorkerProvider );
 
-                UserDataStorage.Setup( "TODO", backgroundWorkerProvider );
+                UserDataStorage.Setup( universePath, backgroundWorkerProvider );
 
                 progressForm.ShowDialog();
             }
 
             InitializeComponent();
+
+            this.Text = universeName + " - " + this.Text;
 
             listViewFactions.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
 
