@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Universalis
 {
@@ -40,8 +42,20 @@ namespace Universalis
             private set;
         }
 
+        private static bool setupAlreadyCompleted = false;
+
         public static void Setup( string universePath, Storage.BackgroundWorkerProvider backgroundWorkerProvider )
         {
+            if( setupAlreadyCompleted )
+            {
+                MessageBox.Show( "Master data was already loaded once!",
+                                 "Error",
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error );
+
+                throw new InvalidOperationException();
+            }
+
             var universeTrashPath = Path.Combine( universePath, Storage.trashSubfolderName );
 
             if( !Directory.Exists( universeTrashPath ) )
@@ -59,6 +73,8 @@ namespace Universalis
 
             // always load actors after the other stuff was loaded
             Actor = new ActorStorage( universePath, backgroundWorkerProvider() );
+
+            setupAlreadyCompleted = true;
         }
     }
 }
