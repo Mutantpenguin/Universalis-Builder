@@ -201,7 +201,7 @@
     <None Include="Resources\empty.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\printer.png" />
+    <None Include="Resources\document-pdf.png" />
     <None Include="Resources\image.png" />
     <None Include="Resources\pencil.png" />
     <None Include="Resources\exclamation.png" />

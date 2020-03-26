@@ -151,7 +151,7 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonPrint_Click( object sender, EventArgs e )
+        private void toolStripButtonPDF_Click( object sender, EventArgs e )
         {
             if( dataGridViewGroups.SelectedRows.Count > 0 )
             {
