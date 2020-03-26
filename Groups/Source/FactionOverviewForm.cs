@@ -117,7 +117,7 @@ namespace Universalis
 
             foreach( string fileName in fileList )
             {
-                if( Path.GetExtension( fileName ) == ".tesgro" )
+                if( Path.GetExtension( fileName ) == ".unigrp" )
                 {
                     try
                     {

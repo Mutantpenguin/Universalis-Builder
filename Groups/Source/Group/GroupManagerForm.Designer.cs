@@ -264,7 +264,7 @@
             this.KeyPreview = true;
             this.Name = "GroupManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Einsatzgruppen Manager";
+            this.Text = "Gruppen";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GroupManagerForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroups)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).EndInit();

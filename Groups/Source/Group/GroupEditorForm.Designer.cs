@@ -152,7 +152,7 @@
             this.pictureBoxGroupIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxGroupIcon.TabIndex = 7;
             this.pictureBoxGroupIcon.TabStop = false;
-            this.toolTip.SetToolTip(this.pictureBoxGroupIcon, "Icon der Einsatzgruppe");
+            this.toolTip.SetToolTip(this.pictureBoxGroupIcon, "Icon der Gruppe");
             this.pictureBoxGroupIcon.DoubleClick += new System.EventHandler(this.pictureBoxGroupIcon_DoubleClick);
             // 
             // textBoxName
@@ -456,7 +456,7 @@
             this.Controls.Add(this.panel3);
             this.Name = "GroupEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Einsatzgruppen Editor";
+            this.Text = "Gruppe";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GroupEditorForm_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

@@ -13,6 +13,8 @@ namespace Universalis
         {
             InitializeComponent();
 
+            this.Text = faction.Name + " - " + this.Text;
+
             textBoxFactionDescription.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
 
             this.Icon = Shared.Properties.Resources.icon;
@@ -170,20 +172,20 @@ namespace Universalis
 
                 if( IsValid( group ) )
                 {
-                    using( SaveFileDialog cardSaveFileDialog = new SaveFileDialog() )
+                    using( SaveFileDialog groupSaveFileDialog = new SaveFileDialog() )
                     {
-                        cardSaveFileDialog.InitialDirectory = Properties.Settings.Default.groupSavePath;
-                        cardSaveFileDialog.Filter = "Einsatzgruppe (*.tesgro)|*.tesgro";
-                        cardSaveFileDialog.FileName = $"{group.Faction.Name} - {group.Name} - {group.Points}pts";
+                        groupSaveFileDialog.InitialDirectory = Properties.Settings.Default.groupSavePath;
+                        groupSaveFileDialog.Filter = "Gruppe (*.unigrp)|*.unigrp";
+                        groupSaveFileDialog.FileName = $"{group.Faction.Name} - {group.Name} - {group.Points}pts";
 
-                        if( cardSaveFileDialog.ShowDialog() == DialogResult.OK )
+                        if( groupSaveFileDialog.ShowDialog() == DialogResult.OK )
                         {
-                            Properties.Settings.Default.groupSavePath = Path.GetDirectoryName( cardSaveFileDialog.FileName );
+                            Properties.Settings.Default.groupSavePath = Path.GetDirectoryName( groupSaveFileDialog.FileName );
                             Properties.Settings.Default.Save();
 
                             try
                             {
-                                UserDataStorage.Group.SaveAs( group, cardSaveFileDialog.FileName );
+                                UserDataStorage.Group.SaveAs( group, groupSaveFileDialog.FileName );
                             }
                             catch( Exception ex )
                             {
