@@ -17,17 +17,17 @@ namespace Universalis
         private static readonly float s_cardHeight = CmToPixel( CardPainter.CardHeightCm );
 
         #region fonts
-        private static readonly BaseFont s_baseFontNovaSquare = BaseFont.CreateFont( UniversalisFont.FileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, Shared.Properties.Resources.NovaRound_Regular, null );
+        private static readonly BaseFont s_baseFontUniversalis = BaseFont.CreateFont( UniversalisFont.FileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, Shared.Properties.Resources.NovaRound_Regular, null );
 
-        private static readonly Font s_pageTitleFont = new Font( s_baseFontNovaSquare, CmToPixel( 1 ), Font.BOLD, Color.WHITE );
+        private static readonly Font s_pageTitleFont = new Font( s_baseFontUniversalis, CmToPixel( 1 ), Font.BOLD, Color.WHITE );
         private static readonly Font s_versionInfoFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
 
-        private static readonly Font s_actorFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ) );
-        private static readonly Font s_actorFontHeader = new Font( s_baseFontNovaSquare, CmToPixel( 0.5f ), Font.BOLD );
-        private static readonly Font s_actorCustomNameFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2f ), Font.NORMAL, Color.GRAY );
+        private static readonly Font s_actorFont = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ) );
+        private static readonly Font s_actorFontHeader = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ), Font.BOLD );
+        private static readonly Font s_actorCustomNameFont = new Font( s_baseFontUniversalis, CmToPixel( 0.2f ), Font.NORMAL, Color.GRAY );
 
-        private static readonly Font s_flipsideHeaderFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.35f ), Font.NORMAL, Color.WHITE );
-        private static readonly Font s_nameFlipsideFont = new Font( s_baseFontNovaSquare, CmToPixel( 0.2f ), Font.BOLD );
+        private static readonly Font s_flipsideHeaderFont = new Font( s_baseFontUniversalis, CmToPixel( 0.35f ), Font.NORMAL, Color.WHITE );
+        private static readonly Font s_nameFlipsideFont = new Font( s_baseFontUniversalis, CmToPixel( 0.2f ), Font.BOLD );
         private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2f ) );
         #endregion
 
@@ -50,8 +50,8 @@ namespace Universalis
 
         private const string s_flipsideHeaderTitle = "Sonderregeln";
 
-        private static readonly float s_flipsideHeaderTitleAscent = s_baseFontNovaSquare.GetAscentPoint( s_flipsideHeaderTitle, s_flipsideHeaderFont.Size );
-        private static readonly float s_flipsideHeaderTitleDescent = s_baseFontNovaSquare.GetDescentPoint( s_flipsideHeaderTitle, s_flipsideHeaderFont.Size );
+        private static readonly float s_flipsideHeaderTitleAscent = s_baseFontUniversalis.GetAscentPoint( s_flipsideHeaderTitle, s_flipsideHeaderFont.Size );
+        private static readonly float s_flipsideHeaderTitleDescent = s_baseFontUniversalis.GetDescentPoint( s_flipsideHeaderTitle, s_flipsideHeaderFont.Size );
         #endregion
 
         private static readonly string s_versionInfo = "Am " + DateTime.Now.ToShortDateString() + " mit \"Universalis\" Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString( 2 ) + " erzeugt";
@@ -141,8 +141,8 @@ namespace Universalis
             groupImg.SetAbsolutePosition( 2 * margin + factionImgWidth, margin );
             headerBarTemplate.AddImage( groupImg );
             
-            float s_headerTitleAscent = s_baseFontNovaSquare.GetAscentPoint( group.Name, s_pageTitleFont.Size );
-            float s_headerTitleDescent = s_baseFontNovaSquare.GetDescentPoint( group.Name, s_pageTitleFont.Size );
+            float s_headerTitleAscent = s_baseFontUniversalis.GetAscentPoint( group.Name, s_pageTitleFont.Size );
+            float s_headerTitleDescent = s_baseFontUniversalis.GetDescentPoint( group.Name, s_pageTitleFont.Size );
             ColumnText.ShowTextAligned( headerBarTemplate, Element.ALIGN_LEFT, new Phrase( group.Name, s_pageTitleFont ), 3 * margin + factionImgWidth + groupImgWidth, ( headerBarHeight - s_headerTitleAscent - s_headerTitleDescent ) / 2, 0 );
             
             document.Add( Image.GetInstance( headerBarTemplate ) );
