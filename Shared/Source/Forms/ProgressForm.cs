@@ -18,7 +18,7 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
-            labelVersion.Text = $"Version {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()}";
+            labelVersion.Text = $"Version {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString( 2 )}";
             labelVersion.Font = new System.Drawing.Font( UniversalisFont.Family, 8 );
 
             labelMessage.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );

@@ -54,7 +54,7 @@ namespace Universalis
         private static readonly float s_flipsideHeaderTitleDescent = s_baseFontNovaSquare.GetDescentPoint( s_flipsideHeaderTitle, s_flipsideHeaderFont.Size );
         #endregion
 
-        private static readonly string s_versionInfo = "Am " + DateTime.Now.ToShortDateString() + " mit der \"Universalis Program Suite\" Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString() + " erzeugt";
+        private static readonly string s_versionInfo = "Am " + DateTime.Now.ToShortDateString() + " mit \"Universalis\" Version " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString( 2 ) + " erzeugt";
 
         private static float CmToPixel( float cm )
         {
