@@ -45,9 +45,11 @@ namespace Universalis
             imageListFactions.Images.Clear();
             listViewFactions.Clear();
 
-            foreach( Faction.EType type in Faction.ETypeList.OrderBy( x => x.ToString() ) )
+            foreach( string type in MasterDataStorage.Faction.Factions.Select( x => x.Type )
+                                                                      .Distinct()
+                                                                      .OrderBy( x => x ) )
             {
-                ListViewGroup group = new ListViewGroup( type.ToString() );
+                ListViewGroup group = new ListViewGroup( type );
                 
                 listViewFactions.Groups.Add( group );
 

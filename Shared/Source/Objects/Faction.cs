@@ -49,15 +49,6 @@ namespace Universalis
             return ( true );
         }
 
-        public enum EType
-        {
-            Unbekannt = 0,
-            Terrestrisch = 1,
-            Extraterrestrisch = 2
-        }
-
-        public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
-
         public Guid ID
         {
             get;
@@ -76,11 +67,11 @@ namespace Universalis
             set;
         } = "Bitte Beschreibung eingeben";
 
-        public EType Type
+        public string Type
         {
             get;
             set;
-        } = EType.Unbekannt;
+        }
 
         [JsonConverter( typeof( JsonImageConverter ) )]
         public Bitmap Icon

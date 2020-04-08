@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -17,7 +18,10 @@ namespace Universalis
 
             factionBindingSource.DataSource = new Faction( faction );
 
-            comboBoxType.DataSource = Faction.ETypeList;
+            comboBoxType.DataSource = MasterDataStorage.Faction.Factions.Select( x => x.Type )
+                                                                        .Distinct()
+                                                                        .OrderBy( x => x )
+                                                                        .ToList();
             comboBoxType.SelectedItem = faction.Type;
         }
 
@@ -117,11 +121,6 @@ namespace Universalis
             {
                 this.Close();
             }
-        }
-
-        private void comboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            ( (Faction)factionBindingSource.DataSource ).Type = (Faction.EType)comboBoxType.SelectedItem;
         }
 
         private void toolStripButtonUsage_Click( object sender, EventArgs e )
