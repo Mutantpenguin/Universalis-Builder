@@ -64,7 +64,7 @@ namespace Universalis
         private static readonly int SImageSize = SLineHeight - ( SImageMargin * 2 );
 
         private static readonly Image SectionHeaderTraits = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.SteelBlue );
-        private static readonly Image SectionHeaderWeapons = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.OrangeRed );
+        private static readonly Image SectionHeaderWeapons = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.IndianRed );
         private static readonly Image SectionHeaderArmor = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.OliveDrab );
         private static readonly Image SectionHeaderEquipment = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.SlateGray );
 
