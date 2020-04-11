@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -18,7 +19,7 @@ namespace Universalis
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault( false );
 
-                    UniverseSelectionForm.FormToOpen formToOpen = ( string universePath, string universeName ) => new FactionOverviewForm( universePath, universeName );
+                    UniverseSelectionForm.FormToOpen formToOpen = ( Image universeImage, string universePath, string universeName ) => new FactionOverviewForm( universeImage, universePath, universeName );
 
                     Application.Run( new UniverseSelectionForm( formToOpen ) );
                 }

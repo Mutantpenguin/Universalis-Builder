@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -7,7 +8,7 @@ namespace Universalis
 {
     public partial class FactionOverviewForm : Form
     {
-        public FactionOverviewForm( string universePath, string universeName )
+        public FactionOverviewForm( Image universeImage, string universePath, string universeName )
         {
             if( Properties.Settings.Default.UpgradeSettings )
             {
@@ -16,7 +17,7 @@ namespace Universalis
                 Properties.Settings.Default.Save();
             }
 
-            using( ProgressForm progressForm = new ProgressForm() )
+            using( ProgressForm progressForm = new ProgressForm( universeImage ) )
             {
                 Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
 

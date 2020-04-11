@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgressForm));
             this.timerProgress = new System.Windows.Forms.Timer(this.components);
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
@@ -44,25 +43,23 @@
             // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.SteelBlue;
             this.pictureBoxLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
             this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBoxLogo.MinimumSize = new System.Drawing.Size(256, 256);
+            this.pictureBoxLogo.MinimumSize = new System.Drawing.Size(200, 200);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(370, 370);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxLogo.Size = new System.Drawing.Size(200, 200);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 1;
             this.pictureBoxLogo.TabStop = false;
             // 
             // progressBar
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.progressBar.Location = new System.Drawing.Point(0, 400);
+            this.progressBar.Location = new System.Drawing.Point(0, 230);
             this.progressBar.Maximum = 0;
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(370, 23);
+            this.progressBar.Size = new System.Drawing.Size(198, 23);
             this.progressBar.Step = 1;
             this.progressBar.TabIndex = 2;
             // 
@@ -70,9 +67,9 @@
             // 
             this.labelVersion.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVersion.Location = new System.Drawing.Point(0, 370);
+            this.labelVersion.Location = new System.Drawing.Point(0, 200);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(370, 15);
+            this.labelVersion.Size = new System.Drawing.Size(198, 15);
             this.labelVersion.TabIndex = 4;
             this.labelVersion.Text = "Platzhalter für Version";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -81,9 +78,9 @@
             // 
             this.labelMessage.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMessage.Location = new System.Drawing.Point(0, 385);
+            this.labelMessage.Location = new System.Drawing.Point(0, 215);
             this.labelMessage.Name = "labelMessage";
-            this.labelMessage.Size = new System.Drawing.Size(370, 15);
+            this.labelMessage.Size = new System.Drawing.Size(198, 15);
             this.labelMessage.TabIndex = 5;
             this.labelMessage.Text = "Platzhalter für Message";
             this.labelMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -94,7 +91,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(370, 423);
+            this.ClientSize = new System.Drawing.Size(198, 242);
             this.ControlBox = false;
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.labelMessage);

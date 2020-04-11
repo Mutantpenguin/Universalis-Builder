@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -7,7 +8,7 @@ namespace Universalis
 {
     public partial class MasterDataMainForm : Form
     {
-        public MasterDataMainForm( string universePath, string universeName )
+        public MasterDataMainForm( Image universeImage, string universePath, string universeName )
         {
             try
             {
@@ -26,7 +27,7 @@ namespace Universalis
                 Properties.Settings.Default.Reload();
             }
 
-            using( ProgressForm progressForm = new ProgressForm() )
+            using( ProgressForm progressForm = new ProgressForm( universeImage ) )
             {
                 Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
 

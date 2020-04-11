@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 
@@ -7,7 +8,7 @@ namespace Universalis
 {
     public partial class ProgressForm : Form
     {
-        public ProgressForm()
+        public ProgressForm( Image img )
         {
             using( var player = new SoundPlayer( Shared.Properties.Resources.startup_sound ) )
             {
@@ -17,6 +18,8 @@ namespace Universalis
             InitializeComponent();
 
             this.Icon = Shared.Properties.Resources.icon;
+
+            pictureBoxLogo.Image = img;
 
             labelVersion.Text = $"Version {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString( 2 )}";
             labelVersion.Font = new System.Drawing.Font( UniversalisFont.Family, 8 );

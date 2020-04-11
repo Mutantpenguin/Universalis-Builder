@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,7 +9,7 @@ namespace Universalis
 {
     public partial class UniverseSelectionForm : Form
     {
-        public delegate Form FormToOpen( string universePath, string universeName );
+        public delegate Form FormToOpen( Image universeImage, string universePath, string universeName );
 
         private static readonly string UniversesPath = Path.Combine( Directory.GetCurrentDirectory(), "Universes" );
 
@@ -71,7 +72,7 @@ namespace Universalis
                         var universeImagePath = Path.Combine( universeSubfolder, universeImageFilename );
                         if( File.Exists( universeImagePath ) )
                         {
-                            imageListUniverses.Images.Add( universeSubfolder, System.Drawing.Image.FromFile( universeImagePath ) );
+                            imageListUniverses.Images.Add( universeSubfolder, Image.FromFile( universeImagePath ) );
                         }
                         else
                         {
@@ -108,7 +109,7 @@ namespace Universalis
         {
             this.Hide();
 
-            formToOpen( listViewUniverses.SelectedItems[ 0 ].ImageKey, listViewUniverses.SelectedItems[ 0 ].Text ).ShowDialog( this );
+            formToOpen( imageListUniverses.Images[ listViewUniverses.SelectedItems[ 0 ].ImageKey ], listViewUniverses.SelectedItems[ 0 ].ImageKey, listViewUniverses.SelectedItems[ 0 ].Text ).ShowDialog( this );
 
             this.Close();
         }
