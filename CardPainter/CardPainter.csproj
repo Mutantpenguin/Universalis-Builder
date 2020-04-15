@@ -134,9 +134,6 @@
     <None Include="Resources\riesig.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Fahrzeug.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Infanterie.png" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +147,9 @@
       <Project>{7993deb0-5b56-4ef6-9bd0-507cd6fa6660}</Project>
       <Name>Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fahrzeug.png" />
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
