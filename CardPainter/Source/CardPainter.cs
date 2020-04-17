@@ -30,7 +30,7 @@ namespace Universalis
         private static readonly Pen SStructureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
         private static readonly Pen SStructureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
         private static readonly Pen SHitPointBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
-        // TODO maybe still needed later
+
         private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
 
         private static readonly Font Font0Dot2 = new Font( UniversalisFont.Family, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
