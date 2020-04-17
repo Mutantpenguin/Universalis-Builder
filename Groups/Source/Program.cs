@@ -21,7 +21,7 @@ namespace Universalis
 
                     UniverseSelectionForm.FormToOpen formToOpen = ( Image universeImage, string universePath, string universeName ) => new FactionOverviewForm( universeImage, universePath, universeName );
 
-                    Application.Run( new UniverseSelectionForm( formToOpen ) );
+                    Application.Run( new FormSplash( formToOpen ) );
                 }
             }
             catch( TLock.TLockNotSuccessfullException )

@@ -69,6 +69,12 @@
     <Compile Include="Source\Forms\FactionSelectionForm.Designer.cs">
       <DependentUpon>FactionSelectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Forms\FormSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\FormSplash.Designer.cs">
+      <DependentUpon>FormSplash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Forms\ImageSelectionForm2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\FactionSelectionForm.resx">
       <DependentUpon>FactionSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\FormSplash.resx">
+      <DependentUpon>FormSplash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\ImageSelectionForm2.resx">
       <DependentUpon>ImageSelectionForm2.cs</DependentUpon>

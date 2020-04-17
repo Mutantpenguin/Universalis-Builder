@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Media;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -10,11 +9,6 @@ namespace Universalis
     {
         public ProgressForm( Image img )
         {
-            using( var player = new SoundPlayer( Shared.Properties.Resources.startup_sound ) )
-            {
-                player.Play();
-            }
-
             InitializeComponent();
 
             this.Icon = Shared.Properties.Resources.icon;
