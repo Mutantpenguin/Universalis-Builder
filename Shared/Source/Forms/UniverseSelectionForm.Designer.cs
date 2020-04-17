@@ -39,7 +39,7 @@
             // imageListUniverses
             // 
             this.imageListUniverses.ColorDepth = System.Windows.Forms.ColorDepth.Depth16Bit;
-            this.imageListUniverses.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageListUniverses.ImageSize = new System.Drawing.Size(200, 200);
             this.imageListUniverses.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // listViewUniverses

@@ -29,15 +29,13 @@ namespace Universalis
 
             InitializeComponent();
 
-            listViewUniverses.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
+            listViewUniverses.Font = new Font( UniversalisFont.Family, 10 );
 
-            labelNoUniverses.Font = new System.Drawing.Font( UniversalisFont.Family, 20 );
+            labelNoUniverses.Font = new Font( UniversalisFont.Family, 20 );
             labelNoUniverses.Left = ( this.ClientSize.Width - labelNoUniverses.Width ) / 2;
             labelNoUniverses.Top = ( this.ClientSize.Height - labelNoUniverses.Height ) / 2;
 
             this.Icon = Shared.Properties.Resources.icon;
-
-            imageListUniverses.ImageSize = new System.Drawing.Size( 200, 200 );
 
             RefreshList();
         }
