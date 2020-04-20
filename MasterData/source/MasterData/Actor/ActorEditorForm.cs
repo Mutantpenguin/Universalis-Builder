@@ -654,9 +654,24 @@ namespace Universalis
                     case Actor.EType.Infanterie:
                         if( ( size != Actor.ESize.Klein )
                             &&
+                            ( size != Actor.ESize.Mittel )
+                            &&
+                            ( size != Actor.ESize.Groß ) )
+                        {
+                            MessageBox.Show( "Infanterie darf nur klein, mittel oder groß sein!",
+                                             caption,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Stop );
+                            return ( false );
+                        }
+                        break;
+
+                    case Actor.EType.Drohne:
+                        if( ( size != Actor.ESize.Klein )
+                            &&
                             ( size != Actor.ESize.Mittel ) )
                         {
-                            MessageBox.Show( "Infanterie darf nur klein oder mittel sein!",
+                            MessageBox.Show( "Drohnen dürfen nur klein oder mittel sein!",
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );

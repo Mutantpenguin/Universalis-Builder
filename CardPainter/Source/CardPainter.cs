@@ -238,22 +238,22 @@ namespace Universalis
 
         private static void DrawAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            DrawAttribute( g, XAttrFirstColumn, 0, "AGI", actor.ModAGI( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "BW", actor.ModBW( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ), "KO", actor.ModKO( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, 0,                "AGI",    actor.ModAGI( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "BW",     actor.ModBW( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ),   "KO",     actor.ModKO( actorOutfit ) );
 
-            DrawAttribute( g, XAttrSecondColumn, 0, "FK", actor.ModFK( actorOutfit ) );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ), "WN", actor.ModWN( actorOutfit ) );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ), "EH", actor.ModEH( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, 0,                 "FK",   actor.ModFK( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ),  "WN",   actor.ModWN( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ),    "EH",   actor.ModEH( actorOutfit ) );
         }
 
-        private static void DrawAttribute( Graphics g, int posX, int posY, string name, int attribModValue )
+        private static void DrawAttribute( Graphics g, int posX, int posY, string name, int? value )
         {
             int widthName = CmToPixel( 0.9 );
             int widthAtt = CmToPixel( 0.6 );
 
             Rectangle rectName = new Rectangle( posX, posY, widthName, SLineHeight );
-            Rectangle rectModified = new Rectangle( posX + widthName, posY, 2 * widthAtt, SLineHeight );
+            Rectangle rectValue = new Rectangle( posX + widthName, posY, 2 * widthAtt, SLineHeight );
 
             g.DrawRectangle( SLinePenBlack, new Rectangle( posX, posY, widthName + widthAtt + widthAtt, SLineHeight ) );
 
@@ -261,8 +261,17 @@ namespace Universalis
 
             Helpers.DrawStringCentered( g, name, FontStandard, Brushes.White, rectName );
 
-            int printModValue = attribModValue < 0 ? 0 : attribModValue;
-            Helpers.DrawStringCentered( g, printModValue.ToString(), FontStandard, attribModValue < 0 ? Brushes.Red : Brushes.Black, rectModified );
+            if( value == null )
+            {
+                Helpers.DrawStringCentered( g, "-", FontStandard, Brushes.Red, rectValue );
+            }
+            else
+            {
+                int printModValue = ( value.Value < 0 ) ? 0 : value.Value;
+                var brush = ( value.Value < 0 ) ? Brushes.Red : Brushes.Black;
+
+                Helpers.DrawStringCentered( g, printModValue.ToString(), FontStandard, brush, rectValue );
+            }
         }
 
         private static void DrawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
@@ -286,6 +295,7 @@ namespace Universalis
             switch( actor.Type )
             {
                 case Actor.EType.Infanterie:
+                case Actor.EType.Drohne:
                 case Actor.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
@@ -431,6 +441,10 @@ namespace Universalis
 
                 case Actor.EType.Fahrzeug:
                     g.DrawImage( Properties.Resources.Fahrzeug, rect );
+                    break;
+
+                case Actor.EType.Drohne:
+                    g.DrawImage( Properties.Resources.Drohne, rect );
                     break;
 
                 default:

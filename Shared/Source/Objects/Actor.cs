@@ -207,7 +207,8 @@ namespace Universalis
             Infanterie = 1,
             Mech = 2,
             Koloss = 3,
-            Fahrzeug = 4
+            Fahrzeug = 4,
+            Drohne = 5
         }
 
         public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
@@ -587,9 +588,16 @@ namespace Universalis
 #endregion members
 
 #region attributes
-        public int ModAGI( ActorOutfit actorOutfit )
+        public int? ModAGI( ActorOutfit actorOutfit )
         {
-            return ( Attributes.ModAGI( CurrentAttributeModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
+            if( this.Type == EType.Drohne )
+            {
+                return ( null );
+            }
+            else
+            {
+                return ( Attributes.ModAGI( CurrentAttributeModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
+            }
         }
 
         public int ModBW( ActorOutfit actorOutfit )
@@ -602,9 +610,16 @@ namespace Universalis
             return ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
-        public int ModFK( ActorOutfit actorOutfit )
+        public int? ModFK( ActorOutfit actorOutfit )
         {
-            return ( Attributes.ModFK( CurrentAttributeModifier( actorOutfit ) ) );
+            if( this.Type == EType.Drohne )
+            {
+                return ( null );
+            }
+            else
+            {
+                return ( Attributes.ModFK( CurrentAttributeModifier( actorOutfit ) ) );
+            }
         }
 
         public int ModWN( ActorOutfit actorOutfit )
@@ -612,9 +627,16 @@ namespace Universalis
             return ( Attributes.ModWN( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
-        public int ModEH( ActorOutfit actorOutfit )
+        public int? ModEH( ActorOutfit actorOutfit )
         {
-            return ( Attributes.ModEH( CurrentAttributeModifier( actorOutfit ) ) );
+            if( this.Type == EType.Drohne )
+            {
+                return ( null );
+            }
+            else
+            {
+                return ( Attributes.ModEH( CurrentAttributeModifier( actorOutfit ) ) );
+            }
         }
 #endregion attributes
 
@@ -648,6 +670,7 @@ namespace Universalis
             switch( this.Type )
             {
                 case EType.Infanterie:
+                case EType.Drohne:
                     return ( Convert.ToSingle( Math.Pow( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ), 2 ) ) );
 
                 case EType.Mech:
@@ -708,7 +731,9 @@ namespace Universalis
 
         public Weapon WeaponUnarmed( ActorOutfit actorOutfit )
         {
-            if( this.Type == EType.Fahrzeug )
+            if( ( this.Type == EType.Fahrzeug )
+                ||
+                ( this.Type == EType.Drohne ) )
             {
                 return ( null );
             }
@@ -827,6 +852,7 @@ namespace Universalis
             switch( this.Type )
             {
                 case EType.Infanterie:
+                case EType.Drohne:
                 case EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
                     points += HitPoints * Costs.Hitpoints;
                     break;
