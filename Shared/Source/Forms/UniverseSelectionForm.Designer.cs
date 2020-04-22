@@ -35,8 +35,11 @@
             this.labelNoUniverses = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelHeader = new System.Windows.Forms.Label();
+            this.buttonRefresh = new System.Windows.Forms.Button();
+            this.tableLayoutPanelCentered = new System.Windows.Forms.TableLayoutPanel();
             this.panelNoUniverses.SuspendLayout();
             this.panelHeader.SuspendLayout();
+            this.tableLayoutPanelCentered.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageListUniverses
@@ -64,7 +67,7 @@
             // panelNoUniverses
             // 
             this.panelNoUniverses.BackColor = System.Drawing.SystemColors.Window;
-            this.panelNoUniverses.Controls.Add(this.labelNoUniverses);
+            this.panelNoUniverses.Controls.Add(this.tableLayoutPanelCentered);
             this.panelNoUniverses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNoUniverses.Location = new System.Drawing.Point(0, 0);
             this.panelNoUniverses.Name = "panelNoUniverses";
@@ -74,9 +77,9 @@
             // 
             // labelNoUniverses
             // 
-            this.labelNoUniverses.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelNoUniverses.AutoSize = true;
-            this.labelNoUniverses.Location = new System.Drawing.Point(360, 188);
+            this.labelNoUniverses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelNoUniverses.Location = new System.Drawing.Point(3, 0);
             this.labelNoUniverses.Name = "labelNoUniverses";
             this.labelNoUniverses.Size = new System.Drawing.Size(133, 13);
             this.labelNoUniverses.TabIndex = 0;
@@ -104,6 +107,36 @@
             this.labelHeader.Text = "Bitte wählen Sie ein Universum";
             this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonRefresh.FlatAppearance.BorderSize = 0;
+            this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRefresh.Image = global::Shared.Properties.Resources.ic_refresh_black_48dp;
+            this.buttonRefresh.Location = new System.Drawing.Point(44, 16);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(50, 50);
+            this.buttonRefresh.TabIndex = 1;
+            this.buttonRefresh.UseVisualStyleBackColor = false;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
+            // tableLayoutPanelCentered
+            // 
+            this.tableLayoutPanelCentered.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanelCentered.AutoSize = true;
+            this.tableLayoutPanelCentered.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanelCentered.ColumnCount = 1;
+            this.tableLayoutPanelCentered.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelCentered.Controls.Add(this.labelNoUniverses, 0, 0);
+            this.tableLayoutPanelCentered.Controls.Add(this.buttonRefresh, 0, 1);
+            this.tableLayoutPanelCentered.Location = new System.Drawing.Point(357, 138);
+            this.tableLayoutPanelCentered.Name = "tableLayoutPanelCentered";
+            this.tableLayoutPanelCentered.RowCount = 2;
+            this.tableLayoutPanelCentered.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelCentered.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelCentered.Size = new System.Drawing.Size(139, 69);
+            this.tableLayoutPanelCentered.TabIndex = 2;
+            // 
             // UniverseSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,6 +154,8 @@
             this.panelNoUniverses.PerformLayout();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
+            this.tableLayoutPanelCentered.ResumeLayout(false);
+            this.tableLayoutPanelCentered.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -133,5 +168,7 @@
         private System.Windows.Forms.Label labelNoUniverses;
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label labelHeader;
+        private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCentered;
     }
 }

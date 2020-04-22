@@ -30,23 +30,23 @@ namespace Universalis
             InitializeComponent();
 
             listViewUniverses.Font = new Font( UniversalisFont.Family, 10 );
-
             labelNoUniverses.Font = new Font( UniversalisFont.Family, 20 );
-            labelNoUniverses.Left = ( this.panelNoUniverses.ClientSize.Width - labelNoUniverses.Width ) / 2;
-            labelNoUniverses.Top = ( this.panelNoUniverses.ClientSize.Height - labelNoUniverses.Height ) / 2;
+
+            tableLayoutPanelCentered.Left = ( panelNoUniverses.Width - tableLayoutPanelCentered.Width ) / 2;
+            tableLayoutPanelCentered.Top = ( panelNoUniverses.Height - tableLayoutPanelCentered.Height ) / 2;
 
             labelHeader.Font = new Font( UniversalisFont.Family, 20 );
-            labelHeader.Left = ( this.panelHeader.ClientSize.Width - labelHeader.Width ) / 2;
-            labelHeader.Top = ( this.panelHeader.ClientSize.Height - labelHeader.Height ) / 2;
+            labelHeader.Left = ( panelHeader.Width - labelHeader.Width ) / 2;
+            labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
 
             this.Icon = Shared.Properties.Resources.icon;
 
-            RefreshList();
+            RefreshUniverses();
         }
 
         private readonly FormToOpen formToOpen;
 
-        private void RefreshList()
+        private void RefreshUniverses()
         {
             imageListUniverses.Images.Clear();
             listViewUniverses.Clear();
@@ -96,15 +96,21 @@ namespace Universalis
 
                 if( validUniverseCounter == 0 )
                 {
-                    panelHeader.Visible = false;
                     listViewUniverses.Visible = false;
+                    panelHeader.Visible = false;
                     panelNoUniverses.Visible = true;
+                }
+                else
+                {
+                    listViewUniverses.Visible = true;
+                    panelHeader.Visible = true;
+                    panelNoUniverses.Visible = false;
                 }
             }
             else
             {
-                panelHeader.Visible = false;
                 listViewUniverses.Visible = false;
+                panelHeader.Visible = false;
                 panelNoUniverses.Visible = true;
             }
         }
@@ -124,6 +130,11 @@ namespace Universalis
             {
                 Application.Exit();
             }
+        }
+
+        private void buttonRefresh_Click( object sender, EventArgs e )
+        {
+            RefreshUniverses();
         }
     }
 }
