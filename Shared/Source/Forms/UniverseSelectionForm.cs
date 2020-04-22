@@ -32,8 +32,12 @@ namespace Universalis
             listViewUniverses.Font = new Font( UniversalisFont.Family, 10 );
 
             labelNoUniverses.Font = new Font( UniversalisFont.Family, 20 );
-            labelNoUniverses.Left = ( this.ClientSize.Width - labelNoUniverses.Width ) / 2;
-            labelNoUniverses.Top = ( this.ClientSize.Height - labelNoUniverses.Height ) / 2;
+            labelNoUniverses.Left = ( this.panelNoUniverses.ClientSize.Width - labelNoUniverses.Width ) / 2;
+            labelNoUniverses.Top = ( this.panelNoUniverses.ClientSize.Height - labelNoUniverses.Height ) / 2;
+
+            labelHeader.Font = new Font( UniversalisFont.Family, 20 );
+            labelHeader.Left = ( this.panelHeader.ClientSize.Width - labelHeader.Width ) / 2;
+            labelHeader.Top = ( this.panelHeader.ClientSize.Height - labelHeader.Height ) / 2;
 
             this.Icon = Shared.Properties.Resources.icon;
 
