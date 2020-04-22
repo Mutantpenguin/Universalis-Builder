@@ -263,7 +263,7 @@ namespace Universalis
 
             if( value == null )
             {
-                Helpers.DrawStringCentered( g, "-", FontStandard, Brushes.Red, rectValue );
+                Helpers.DrawStringCentered( g, "-", FontStandard, Brushes.Black, rectValue );
             }
             else
             {
