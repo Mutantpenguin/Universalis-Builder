@@ -51,15 +51,39 @@ namespace Universalis
             {
                 timerFadeOut.Stop();
 
-                this.Hide();
-
-                using( var form = new UniverseSelectionForm( formToOpen ) )
-                {
-                    form.ShowDialog( this );
-                }
-
-                this.Close();
+                ShowUniverseSelectionForm();
             }
+        }
+
+        private void ShowUniverseSelectionForm()
+        {
+            this.Hide();
+
+            using( var form = new UniverseSelectionForm( formToOpen ) )
+            {
+                form.ShowDialog( this );
+            }
+
+            this.Close();
+        }
+
+        private void FormSplash_KeyDown( object sender, KeyEventArgs e )
+        {
+            EndPrematurely();
+        }
+
+        private void FormSplash_MouseClick( object sender, MouseEventArgs e )
+        {
+            EndPrematurely();
+        }
+
+        private void EndPrematurely()
+        {
+            timerFadeIn.Stop();
+            timerWait.Stop();
+            timerFadeOut.Stop();
+
+            ShowUniverseSelectionForm();
         }
     }
 }

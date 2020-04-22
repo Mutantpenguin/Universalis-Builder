@@ -61,6 +61,8 @@
             this.Opacity = 0D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSplash";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormSplash_KeyDown);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FormSplash_MouseClick);
             this.ResumeLayout(false);
 
         }
