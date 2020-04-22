@@ -247,7 +247,7 @@ namespace Universalis
             DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ),    "EH",   actor.ModEH( actorOutfit ) );
         }
 
-        private static void DrawAttribute( Graphics g, int posX, int posY, string name, int? value )
+        private static void DrawAttribute( Graphics g, int posX, int posY, string name, int? attribute )
         {
             int widthName = CmToPixel( 0.9 );
             int widthAtt = CmToPixel( 0.6 );
@@ -261,14 +261,16 @@ namespace Universalis
 
             Helpers.DrawStringCentered( g, name, FontStandard, Brushes.White, rectName );
 
-            if( value == null )
+            if( !attribute.HasValue )
             {
                 Helpers.DrawStringCentered( g, "-", FontStandard, Brushes.Black, rectValue );
             }
             else
             {
-                int printModValue = ( value.Value < 0 ) ? 0 : value.Value;
-                var brush = ( value.Value < 0 ) ? Brushes.Red : Brushes.Black;
+                var value = attribute.Value;
+
+                int printModValue = ( value < 0 ) ? 0 : value;
+                var brush = ( value < 0 ) ? Brushes.Red : Brushes.Black;
 
                 Helpers.DrawStringCentered( g, printModValue.ToString(), FontStandard, brush, rectValue );
             }
@@ -284,8 +286,12 @@ namespace Universalis
             Helpers.DrawStringCentered( g, fovAndModWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
 
             // GB - Gefahrenbereich
-            g.DrawImage( Properties.Resources.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
-            Helpers.DrawStringCentered( g, $"{actor.ModDangerArea( actorOutfit )}cm", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
+            int? dangerArea = actor.ModDangerArea( actorOutfit );
+            if( dangerArea.HasValue )
+            {
+                g.DrawImage( Properties.Resources.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
+                Helpers.DrawStringCentered( g, $"{dangerArea.Value}cm", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
+            }
         }
 
         private static void DrawHitPoints( Graphics g, Actor actor )

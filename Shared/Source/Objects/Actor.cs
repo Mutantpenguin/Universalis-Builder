@@ -641,17 +641,24 @@ namespace Universalis
 #endregion attributes
 
 #region calculated values
-        public int ModDangerArea( ActorOutfit actorOutfit )
+        public int? ModDangerArea( ActorOutfit actorOutfit )
         {
-            int lengthDangerArea = Presets.MaxLengthDangerArea - Attributes.ModEH( CurrentAttributeModifier( actorOutfit ) );
-
-            if( lengthDangerArea < 0 )
+            if( this.Type == EType.Drohne )
             {
-                return ( 0 );
+                return ( null );
             }
             else
             {
-                return ( lengthDangerArea );
+                int lengthDangerArea = Presets.MaxLengthDangerArea - Attributes.ModEH( CurrentAttributeModifier( actorOutfit ) );
+
+                if( lengthDangerArea < 0 )
+                {
+                    return ( 0 );
+                }
+                else
+                {
+                    return ( lengthDangerArea );
+                }
             }
         }
 
