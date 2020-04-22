@@ -96,12 +96,14 @@ namespace Universalis
 
                 if( validUniverseCounter == 0 )
                 {
+                    panelHeader.Visible = false;
                     listViewUniverses.Visible = false;
                     panelNoUniverses.Visible = true;
                 }
             }
             else
             {
+                panelHeader.Visible = false;
                 listViewUniverses.Visible = false;
                 panelNoUniverses.Visible = true;
             }

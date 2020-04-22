@@ -63,6 +63,7 @@
             // 
             // panelNoUniverses
             // 
+            this.panelNoUniverses.BackColor = System.Drawing.SystemColors.Window;
             this.panelNoUniverses.Controls.Add(this.labelNoUniverses);
             this.panelNoUniverses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNoUniverses.Location = new System.Drawing.Point(0, 0);
