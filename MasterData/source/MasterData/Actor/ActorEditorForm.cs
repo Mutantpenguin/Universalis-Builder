@@ -188,6 +188,35 @@ namespace Universalis
 #region update
         private void updateFields()
         {
+            if( m_actorModified.Type == Actor.EType.Drohne )
+            {
+                labelAGI.Visible = false;
+                AttribAGI.Visible = false;
+
+                labelFK.Visible = false;
+                AttribFK.Visible = false;
+
+                labelEH.Visible = false;
+                AttribEH.Visible = false;
+
+                labelGB.Visible = false;
+                CalcAttribDangerArea.Visible = false;
+            }
+            else
+            {
+                labelAGI.Visible = true;
+                AttribAGI.Visible = true;
+
+                labelFK.Visible = true;
+                AttribFK.Visible = true;
+
+                labelEH.Visible = true;
+                AttribEH.Visible = true;
+
+                labelGB.Visible = true;
+                CalcAttribDangerArea.Visible = true;
+            }
+
             textBoxTragkraft.Text = $"{m_actorModified.ModMaxLoadCapacity( CurrentOutfit() ):n1}kg";
 
             textBoxBelastung.Text = $"{m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: false ):n1}kg";

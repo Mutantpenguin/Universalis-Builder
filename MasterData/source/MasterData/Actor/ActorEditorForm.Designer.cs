@@ -64,7 +64,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
             this.CalcAttribDangerArea = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelGB = new System.Windows.Forms.Label();
             this.HitPoints = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.AttribEH = new System.Windows.Forms.NumericUpDown();
@@ -73,12 +73,12 @@
             this.AttribKO = new System.Windows.Forms.NumericUpDown();
             this.AttribBW = new System.Windows.Forms.NumericUpDown();
             this.AttribAGI = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelEH = new System.Windows.Forms.Label();
+            this.labelWN = new System.Windows.Forms.Label();
+            this.labelFK = new System.Windows.Forms.Label();
+            this.labelKO = new System.Windows.Forms.Label();
+            this.labelBW = new System.Windows.Forms.Label();
+            this.labelAGI = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
@@ -486,7 +486,7 @@
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.comboBoxSize);
             this.panel2.Controls.Add(this.CalcAttribDangerArea);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.labelGB);
             this.panel2.Controls.Add(this.HitPoints);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.AttribEH);
@@ -495,12 +495,12 @@
             this.panel2.Controls.Add(this.AttribKO);
             this.panel2.Controls.Add(this.AttribBW);
             this.panel2.Controls.Add(this.AttribAGI);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.labelEH);
+            this.panel2.Controls.Add(this.labelWN);
+            this.panel2.Controls.Add(this.labelFK);
+            this.panel2.Controls.Add(this.labelKO);
+            this.panel2.Controls.Add(this.labelBW);
+            this.panel2.Controls.Add(this.labelAGI);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 137);
             this.panel2.Name = "panel2";
@@ -597,15 +597,15 @@
             this.CalcAttribDangerArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip.SetToolTip(this.CalcAttribDangerArea, "Gefahrenbereich");
             // 
-            // label1
+            // labelGB
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "GB";
-            this.toolTip.SetToolTip(this.label1, "Gefahrenbereich");
+            this.labelGB.AutoSize = true;
+            this.labelGB.Location = new System.Drawing.Point(3, 84);
+            this.labelGB.Name = "labelGB";
+            this.labelGB.Size = new System.Drawing.Size(22, 13);
+            this.labelGB.TabIndex = 36;
+            this.labelGB.Text = "GB";
+            this.toolTip.SetToolTip(this.labelGB, "Gefahrenbereich");
             // 
             // HitPoints
             // 
@@ -793,65 +793,65 @@
             0});
             this.AttribAGI.ValueChanged += new System.EventHandler(this.AttribAGI_ValueChanged);
             // 
-            // label7
+            // labelEH
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(90, 57);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(22, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "EH";
-            this.toolTip.SetToolTip(this.label7, "Entschlossenheit");
+            this.labelEH.AutoSize = true;
+            this.labelEH.Location = new System.Drawing.Point(90, 57);
+            this.labelEH.Name = "labelEH";
+            this.labelEH.Size = new System.Drawing.Size(22, 13);
+            this.labelEH.TabIndex = 13;
+            this.labelEH.Text = "EH";
+            this.toolTip.SetToolTip(this.labelEH, "Entschlossenheit");
             // 
-            // label6
+            // labelWN
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(90, 31);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "WN";
-            this.toolTip.SetToolTip(this.label6, "Wahrnehmung");
+            this.labelWN.AutoSize = true;
+            this.labelWN.Location = new System.Drawing.Point(90, 31);
+            this.labelWN.Name = "labelWN";
+            this.labelWN.Size = new System.Drawing.Size(26, 13);
+            this.labelWN.TabIndex = 12;
+            this.labelWN.Text = "WN";
+            this.toolTip.SetToolTip(this.labelWN, "Wahrnehmung");
             // 
-            // label5
+            // labelFK
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(90, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "FK";
-            this.toolTip.SetToolTip(this.label5, "Fernkampf");
+            this.labelFK.AutoSize = true;
+            this.labelFK.Location = new System.Drawing.Point(90, 5);
+            this.labelFK.Name = "labelFK";
+            this.labelFK.Size = new System.Drawing.Size(20, 13);
+            this.labelFK.TabIndex = 11;
+            this.labelFK.Text = "FK";
+            this.toolTip.SetToolTip(this.labelFK, "Fernkampf");
             // 
-            // label4
+            // labelKO
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 57);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(22, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "KO";
-            this.toolTip.SetToolTip(this.label4, "Konstitution");
+            this.labelKO.AutoSize = true;
+            this.labelKO.Location = new System.Drawing.Point(3, 57);
+            this.labelKO.Name = "labelKO";
+            this.labelKO.Size = new System.Drawing.Size(22, 13);
+            this.labelKO.TabIndex = 10;
+            this.labelKO.Text = "KO";
+            this.toolTip.SetToolTip(this.labelKO, "Konstitution");
             // 
-            // label3
+            // labelBW
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "BW";
-            this.toolTip.SetToolTip(this.label3, "Bewegung");
+            this.labelBW.AutoSize = true;
+            this.labelBW.Location = new System.Drawing.Point(3, 31);
+            this.labelBW.Name = "labelBW";
+            this.labelBW.Size = new System.Drawing.Size(25, 13);
+            this.labelBW.TabIndex = 9;
+            this.labelBW.Text = "BW";
+            this.toolTip.SetToolTip(this.labelBW, "Bewegung");
             // 
-            // label2
+            // labelAGI
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "AGI";
-            this.toolTip.SetToolTip(this.label2, "Agilität");
+            this.labelAGI.AutoSize = true;
+            this.labelAGI.Location = new System.Drawing.Point(3, 5);
+            this.labelAGI.Name = "labelAGI";
+            this.labelAGI.Size = new System.Drawing.Size(25, 13);
+            this.labelAGI.TabIndex = 8;
+            this.labelAGI.Text = "AGI";
+            this.toolTip.SetToolTip(this.labelAGI, "Agilität");
             // 
             // panel9
             // 
@@ -1611,12 +1611,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBoxCard;
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelEH;
+        private System.Windows.Forms.Label labelWN;
+        private System.Windows.Forms.Label labelFK;
+        private System.Windows.Forms.Label labelKO;
+        private System.Windows.Forms.Label labelBW;
+        private System.Windows.Forms.Label labelAGI;
         private System.Windows.Forms.NumericUpDown AttribEH;
         private System.Windows.Forms.NumericUpDown AttribWN;
         private System.Windows.Forms.NumericUpDown AttribFK;
@@ -1627,7 +1627,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxTragkraft;
         private System.Windows.Forms.TextBox CalcAttribDangerArea;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelGB;
         private System.Windows.Forms.Button buttonImages;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonSave;
