@@ -849,12 +849,19 @@ namespace Universalis
         {
             int points = 0;
 
-            points += Attributes.ModAGI( CurrentAttributeModifier( actorOutfit ) ) * Costs.AGI;
-            points += Attributes.ModBW( CurrentAttributeModifier( actorOutfit ) ) * Costs.BW;
-            points += Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) * Costs.KO;
-            points += Attributes.ModFK( CurrentAttributeModifier( actorOutfit ) ) * Costs.FK;
-            points += Attributes.ModWN( CurrentAttributeModifier( actorOutfit ) ) * Costs.WN;
-            points += Attributes.ModEH( CurrentAttributeModifier( actorOutfit ) ) * Costs.EH;
+            var modifier = CurrentAttributeModifier( actorOutfit );
+
+            if( this.Type != EType.Drohne )
+            {
+                points += Attributes.ModAGI( modifier ) * Costs.AGI;
+                points += Attributes.ModFK( modifier ) * Costs.FK;
+                points += Attributes.ModEH( modifier ) * Costs.EH;
+            }
+
+            points += Attributes.ModBW( modifier ) * Costs.BW;
+            points += Attributes.ModKO( modifier ) * Costs.KO;
+            points += Attributes.ModWN( modifier ) * Costs.WN;
+            
 
             switch( this.Type )
             {
