@@ -31,7 +31,9 @@ namespace Universalis
 
             if( Name != universe.Name
                 ||
-                Description != universe.Description )
+                Description != universe.Description
+                ||
+                Version != universe.Version )
             {
                 return ( false );
             }
@@ -50,5 +52,11 @@ namespace Universalis
             get;
             set;
         } = "Bitte Beschreibung eingeben";
+
+        public string Version
+        {
+            get;
+            set;
+        }
     }
 }
