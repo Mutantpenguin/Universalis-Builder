@@ -229,6 +229,7 @@ namespace Universalis
                     numericUpDownWeaponRangeAmount.Enabled = true;
                     numericUpDownAF.Enabled = true;
                     checkBoxIndirectFire.Enabled = true;
+                    checkBoxIndirectFire.Checked = false;
                     break;
 
                 case Weapon.EType.Nahkampf:
@@ -245,7 +246,8 @@ namespace Universalis
                     numericUpDownWeaponRangeAmount.Enabled = false;
                     numericUpDownAF.Enabled = false;
                     numericUpDownAF.Value = 0;
-                    checkBoxIndirectFire.Enabled = true;
+                    checkBoxIndirectFire.Enabled = false;
+                    checkBoxIndirectFire.Checked = true;
                     break;
 
                 default:
