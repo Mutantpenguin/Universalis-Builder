@@ -761,7 +761,7 @@ namespace Universalis
                         weaponUnarmed.DamageType = new DamageType()
                         {
                             Type = DamageType.EType.Schlag,
-                            Level = DamageType.ELevel.I
+                            Level = DamageType.ELevel.O
                         };
                         break;
 

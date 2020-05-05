@@ -158,14 +158,24 @@ namespace Universalis
                 }
 
                 // draw "pluses"
-                drawing.DrawImage( img_plus, new Rectangle( s_typeImageWidth - s_levelWidth, 0, s_levelWidth, s_levelHeight ) );
-                if( ( ELevel.II == Level ) || ( ELevel.III == Level ) )
+                if( ( ELevel.I == Level )
+                    ||
+                    ( ELevel.II == Level )
+                    ||
+                    ( ELevel.III == Level ) )
                 {
-                    drawing.DrawImage( img_plus, new Rectangle( s_typeImageWidth - s_levelWidth, s_levelHeight, s_levelWidth, s_levelHeight ) );
+                    drawing.DrawImage( img_plus, new Rectangle( s_typeImageWidth - s_levelWidth, 0, s_levelWidth, s_levelHeight ) );
 
-                    if( ELevel.III == Level )
+                    if( ( ELevel.II == Level )
+                        ||
+                        ( ELevel.III == Level ) )
                     {
-                        drawing.DrawImage( img_plus, new Rectangle( s_typeImageWidth - s_levelWidth, 2 * s_levelHeight, s_levelWidth, s_levelHeight ) );
+                        drawing.DrawImage( img_plus, new Rectangle( s_typeImageWidth - s_levelWidth, s_levelHeight, s_levelWidth, s_levelHeight ) );
+
+                        if( ELevel.III == Level )
+                        {
+                            drawing.DrawImage( img_plus, new Rectangle( s_typeImageWidth - s_levelWidth, 2 * s_levelHeight, s_levelWidth, s_levelHeight ) );
+                        }
                     }
                 }
             }
@@ -214,6 +224,7 @@ namespace Universalis
 
         public enum ELevel
         {
+            O = 0,
             I = 1,
             II = 2,
             III = 3

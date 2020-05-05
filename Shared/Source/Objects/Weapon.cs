@@ -268,7 +268,7 @@ namespace Universalis
         } = new DamageType
         {
             Type = DamageType.EType.Kinetisch,
-            Level = DamageType.ELevel.I
+            Level = DamageType.ELevel.O
         };
 
         public List<DamageEffect> DamageEffectList
