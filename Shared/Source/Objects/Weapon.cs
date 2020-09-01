@@ -26,7 +26,7 @@ namespace Universalis
             Description = weapon.Description;
             Rules = weapon.Rules;
             Weight = weapon.Weight;
-            Points = weapon.Points;
+            AdditionalPoints = weapon.AdditionalPoints;
             WK = weapon.WK;
             Type = weapon.Type;
             Strength = weapon.Strength;
@@ -79,7 +79,7 @@ namespace Universalis
                 ||
                 Rules != weapon.Rules
                 ||
-                Points != weapon.Points
+                AdditionalPoints != weapon.AdditionalPoints
                 ||
                 Weight != weapon.Weight )
             {
@@ -201,7 +201,7 @@ namespace Universalis
             set;
         } = 0;
 
-        public int Points
+        public int AdditionalPoints
         {
             get;
             set;
@@ -440,6 +440,22 @@ namespace Universalis
                     return ( Radius.ToString() );
                 }
             }
+        }
+
+        [JsonIgnore]
+        public int Points
+        {
+            get
+            {
+                return( CalculatedPoints() + AdditionalPoints );
+            }
+        }
+
+        public int CalculatedPoints()
+        {
+            // TODO calculate points with values
+
+            return ( 0 );
         }
     }
 }

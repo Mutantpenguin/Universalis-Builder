@@ -26,7 +26,7 @@ namespace Universalis
             Description = armor.Description;
             Rules = armor.Rules;
             Weight = armor.Weight;
-            Points = armor.Points;
+            AdditionalPoints = armor.AdditionalPoints;
             Protection = armor.Protection;
             SelfSustaining = armor.SelfSustaining;
 
@@ -90,7 +90,7 @@ namespace Universalis
                 ||
                 Rules != armor.Rules
                 ||
-                Points != armor.Points
+                AdditionalPoints != armor.AdditionalPoints
                 ||
                 Weight != armor.Weight )
             {
@@ -209,7 +209,7 @@ namespace Universalis
             set;
         } = String.Empty;
 
-        public int Points
+        public int AdditionalPoints
         {
             get;
             set;
@@ -363,6 +363,31 @@ namespace Universalis
         #endregion Attributes
 
         [JsonIgnore]
+        public int Points
+        {
+            get
+            {
+                return ( CalculatedPoints() + AdditionalPoints );
+            }
+        }
+
+        public int CalculatedPoints()
+        {
+            int points = 0;
+
+            // TODO calculate points with values
+
+            if( AttributeModifier != null )
+            {
+                points += AttributeModifier.Points();
+            }
+
+            // TODO this doesn't get automatically shown in the armor editor form
+
+            return ( points );
+        }
+
+        [ JsonIgnore]
         public Image TypesImage => ( DamageType.GetTypeListImage( DamageTypeList, DamageColor.EType.Green ) );
 
         [JsonIgnore]

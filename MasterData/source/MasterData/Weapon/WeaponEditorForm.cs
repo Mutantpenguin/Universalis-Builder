@@ -51,9 +51,18 @@ namespace Universalis
                 return ( false );
             }
 
-            if( numericUpDownPoints.Value == 0 )
+            if( !String.IsNullOrEmpty( textBoxRules.Text )
+                &&
+                ( numericUpDownAdditionalPoints.Value == 0 ) )
             {
-                MessageBox.Show( "Achtung, die Punkte stehen auf '0'!" );
+                MessageBox.Show( "Achtung, die zusätzlichen Punkte stehen auf '0', obwohl Regeln eingetragen wurden!" );
+            }
+
+            if( String.IsNullOrEmpty( textBoxRules.Text )
+                &&
+                ( numericUpDownAdditionalPoints.Value > 0 ) )
+            {
+                MessageBox.Show( "Achtung, es sind keine Regeln eingetragen, die zusätzlichen Punkte stehen aber nicht auf '0'!" );
             }
 
             if( numericUpDownWeight.Value == 0 )

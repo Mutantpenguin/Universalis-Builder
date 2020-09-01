@@ -89,7 +89,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(390, 40);
+            this.panel1.Size = new System.Drawing.Size(434, 40);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -111,7 +111,7 @@
             "+",
             "-",
             "="});
-            this.comboBoxType.Location = new System.Drawing.Point(348, 16);
+            this.comboBoxType.Location = new System.Drawing.Point(392, 16);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(39, 21);
             this.comboBoxType.TabIndex = 3;
@@ -133,7 +133,7 @@
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.traitBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxName.Location = new System.Drawing.Point(3, 16);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(339, 20);
+            this.textBoxName.Size = new System.Drawing.Size(383, 20);
             this.textBoxName.TabIndex = 2;
             // 
             // traitBindingSource
@@ -147,7 +147,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 196);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(384, 188);
+            this.panel3.Size = new System.Drawing.Size(428, 188);
             this.panel3.TabIndex = 0;
             // 
             // textBoxDescription
@@ -158,7 +158,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(384, 163);
+            this.textBoxDescription.Size = new System.Drawing.Size(428, 163);
             this.textBoxDescription.TabIndex = 0;
             // 
             // toolStrip1
@@ -167,7 +167,7 @@
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(384, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(428, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -184,7 +184,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(243, 181);
+            this.panel4.Size = new System.Drawing.Size(272, 181);
             this.panel4.TabIndex = 1;
             // 
             // textBoxRules
@@ -195,7 +195,7 @@
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRules.Size = new System.Drawing.Size(243, 156);
+            this.textBoxRules.Size = new System.Drawing.Size(272, 156);
             this.textBoxRules.TabIndex = 0;
             // 
             // toolStrip2
@@ -205,7 +205,7 @@
             this.toolStripButtonInsertLevelString});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(243, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(272, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -239,7 +239,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(390, 387);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(434, 387);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -254,7 +254,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(384, 187);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(428, 187);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // panel2
@@ -262,9 +262,9 @@
             this.panel2.Controls.Add(this.dataGridViewLevel);
             this.panel2.Controls.Add(this.toolStrip4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(252, 3);
+            this.panel2.Location = new System.Drawing.Point(281, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(129, 181);
+            this.panel2.Size = new System.Drawing.Size(144, 181);
             this.panel2.TabIndex = 2;
             // 
             // dataGridViewLevel
@@ -286,7 +286,7 @@
             this.dataGridViewLevel.Name = "dataGridViewLevel";
             this.dataGridViewLevel.RowHeadersVisible = false;
             this.dataGridViewLevel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewLevel.Size = new System.Drawing.Size(129, 156);
+            this.dataGridViewLevel.Size = new System.Drawing.Size(144, 156);
             this.dataGridViewLevel.TabIndex = 1;
             this.dataGridViewLevel.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewLevel_CurrentCellDirtyStateChanged);
             // 
@@ -328,7 +328,7 @@
             this.toolStripButtonUsage});
             this.toolStrip4.Location = new System.Drawing.Point(0, 0);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(129, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(144, 25);
             this.toolStrip4.TabIndex = 0;
             this.toolStrip4.Text = "toolStrip4";
             // 
@@ -377,7 +377,7 @@
             this.toolStripButtonSave});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(390, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(434, 25);
             this.toolStrip3.TabIndex = 1;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -404,7 +404,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 452);
+            this.ClientSize = new System.Drawing.Size(434, 452);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip3);

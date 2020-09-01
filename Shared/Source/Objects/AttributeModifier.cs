@@ -95,6 +95,20 @@ namespace Universalis
             }
         }
 
+        public int Points()
+        {
+            int points = 0;
+
+            points += AGI * Costs.AGI;
+            points += BW * Costs.BW;
+            points += KO * Costs.KO;
+            points += FK * Costs.FK;
+            points += WN * Costs.WN;
+            points += EH * Costs.EH;
+
+            return ( points );
+        }
+
         #region attributes
         public int AGI
         {

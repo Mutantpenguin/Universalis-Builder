@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBoxFactionIcon = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
@@ -60,17 +60,23 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 106);
+            this.panel1.Size = new System.Drawing.Size(434, 106);
             this.panel1.TabIndex = 0;
             // 
             // comboBoxType
             // 
+            this.comboBoxType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.factionBindingSource, "Type", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.comboBoxType.FormattingEnabled = true;
             this.comboBoxType.Location = new System.Drawing.Point(109, 45);
             this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(222, 21);
+            this.comboBoxType.Size = new System.Drawing.Size(313, 21);
             this.comboBoxType.TabIndex = 32;
+            // 
+            // factionBindingSource
+            // 
+            this.factionBindingSource.DataSource = typeof(Universalis.Faction);
             // 
             // label1
             // 
@@ -88,12 +94,8 @@
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.factionBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxName.Location = new System.Drawing.Point(109, 19);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(222, 20);
+            this.textBoxName.Size = new System.Drawing.Size(313, 20);
             this.textBoxName.TabIndex = 1;
-            // 
-            // factionBindingSource
-            // 
-            this.factionBindingSource.DataSource = typeof(Universalis.Faction);
             // 
             // pictureBoxFactionIcon
             // 
@@ -114,7 +116,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 131);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(343, 321);
+            this.panel3.Size = new System.Drawing.Size(434, 321);
             this.panel3.TabIndex = 2;
             // 
             // textBoxDescription
@@ -125,7 +127,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(343, 296);
+            this.textBoxDescription.Size = new System.Drawing.Size(434, 296);
             this.textBoxDescription.TabIndex = 1;
             // 
             // toolStrip1
@@ -134,7 +136,7 @@
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(343, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(434, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -151,7 +153,7 @@
             this.toolStripButtonSave});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(343, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(434, 25);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -178,7 +180,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 452);
+            this.ClientSize = new System.Drawing.Size(434, 452);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip2);

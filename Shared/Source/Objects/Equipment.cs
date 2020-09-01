@@ -22,7 +22,7 @@ namespace Universalis
             Name = equipment.Name;
             Description = equipment.Description;
             Rules = equipment.Rules;
-            Points = equipment.Points;
+            AdditionalPoints = equipment.AdditionalPoints;
             Weight = equipment.Weight;
 
             AP = equipment.AP;
@@ -60,7 +60,7 @@ namespace Universalis
                 ||
                 Rules != equipment.Rules
                 ||
-                Points != equipment.Points
+                AdditionalPoints != equipment.AdditionalPoints
                 ||
                 Weight != equipment.Weight
                 ||
@@ -116,7 +116,7 @@ namespace Universalis
             set;
         } = String.Empty;
 
-        public int Points
+        public int AdditionalPoints
         {
             get;
             set;
@@ -194,6 +194,31 @@ namespace Universalis
             }
 
             return ( text );
+        }
+
+        [JsonIgnore]
+        public int Points
+        {
+            get
+            {
+                return ( CalculatedPoints() + AdditionalPoints );
+            }
+        }
+
+        public int CalculatedPoints()
+        {
+            int points = 0;
+
+            // TODO calculate points with values
+
+            if( AttributeModifier != null )
+            {
+                points += AttributeModifier.Points();
+            }
+
+            // TODO this doesn't get automatically shown in the equipment editor form
+
+            return ( points );
         }
 
         #region Attributes
