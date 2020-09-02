@@ -454,6 +454,20 @@ namespace Universalis
         public int CalculatedPoints()
         {
             // TODO calculate points with values
+            // Class
+            // Type
+            // DamageType
+            // DamageEffects
+            // Strength
+            // AdditiveStrength
+            // AF
+            // Damage
+            // Radius
+            // Range
+            // UseOnce
+            // Unwieldy
+            // IndirectFire
+            // Weight
 
             return ( 0 );
         }

@@ -210,6 +210,8 @@ namespace Universalis
             int points = 0;
 
             // TODO calculate points with values
+            // AP
+            // UseOnce
 
             if( AttributeModifier != null )
             {
