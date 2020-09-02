@@ -1,3 +1,7 @@
+"Archetypen" einführen
+- Haben Attribute, TP, Größe, BW und BW-Art
+- werden pro Fraktion definiert
+
 Aktivierungsreihenfolge in allen Masken
   - Manager erledigt
   - Editoren fehlen noch
