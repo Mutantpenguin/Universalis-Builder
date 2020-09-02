@@ -39,6 +39,13 @@ namespace Universalis
             comboBoxDamageTypeLevel.SelectedItem = weapon.DamageType.Level;
 
             updateEffects();
+
+            damageEffectsBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
+        }
+
+        private void ChildBindingSource_CurrentItemChanged( object sender, EventArgs e )
+        {
+            weaponBindingSource.ResetCurrentItem();
         }
 
         private readonly Weapon m_originalWeapon;

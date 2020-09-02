@@ -39,6 +39,15 @@ namespace Universalis
 
             updateDamageEffects();
             updateDamageTypes();
+
+            attributeModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
+            damageEffectsBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
+            damageTypeBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
+        }
+
+        private void ChildBindingSource_CurrentItemChanged( object sender, EventArgs e )
+        {
+            armorBindingSource.ResetCurrentItem();
         }
 
         private readonly Armor m_originalArmor;

@@ -28,6 +28,13 @@ namespace Universalis
             {
                 tableLayoutPanelAttribMods.Enabled = false;
             }
+
+            attributeModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
+        }
+
+        private void ChildBindingSource_CurrentItemChanged( object sender, EventArgs e )
+        {
+            equipmentBindingSource.ResetCurrentItem();
         }
 
         private readonly Equipment m_originalEquipment;
