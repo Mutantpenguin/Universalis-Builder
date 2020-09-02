@@ -239,10 +239,10 @@ namespace Universalis
         private static void DrawAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             DrawAttribute( g, XAttrFirstColumn, 0,                "AGI",    actor.ModAGI( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "BW",     actor.ModBW( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ),   "KO",     actor.ModKO( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "NK",     actor.ModNK( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ),   "FK",     actor.ModFK( actorOutfit ) );
 
-            DrawAttribute( g, XAttrSecondColumn, 0,                 "FK",   actor.ModFK( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, 0,                 "KO",   actor.ModKO( actorOutfit ) );
             DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ),  "WN",   actor.ModWN( actorOutfit ) );
             DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ),    "EH",   actor.ModEH( actorOutfit ) );
         }
@@ -421,15 +421,17 @@ namespace Universalis
 
         private static void DrawMisc( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            DrawType( g, actor.Type );
-            DrawSize( g, actor.Size );
-            DrawMovement( g, actor.MovementType );
-            DrawWeight( g, actor, actorOutfit );
+            int sizeX = DrawType( g, XAttrThirdColumn, actor.Type );
+            int movementX = DrawSize( g, sizeX, actor.Size );
+            int weightX = DrawMovement( g, movementX, actor.MovementType, actor.ModBW( actorOutfit ) );
+            DrawWeight( g, weightX, actor, actorOutfit );
         }
 
-        private static void DrawType( Graphics g, Actor.EType type )
+        private static int DrawType( Graphics g, int xOffset, Actor.EType type )
         {
-            Rectangle rect = new Rectangle( XAttrThirdColumn, SLineHeightDouble, SLineHeight, SLineHeight );
+            int width = SLineHeight;
+
+            Rectangle rect = new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight );
 
             switch( type )
             {
@@ -458,9 +460,11 @@ namespace Universalis
             }
 
             g.DrawRectangle( SLinePenBlack, rect );
+
+            return ( xOffset + width );
         }
 
-        private static void DrawSize( Graphics g, Actor.ESize size )
+        private static int DrawSize( Graphics g, int xOffset, Actor.ESize size )
         {
             Bitmap img;
 
@@ -486,12 +490,16 @@ namespace Universalis
                     throw new InvalidOperationException( "unkown " + nameof( Actor.ESize ) );
             }
 
-            g.DrawImage( img, new Rectangle( XAttrThirdColumn + SLineHeight + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
+            int width = SLineHeight;
 
-            g.DrawRectangle( SLinePenBlack, new Rectangle( XAttrThirdColumn + SLineHeight, SLineHeightDouble, SLineHeight, SLineHeight ) );
+            g.DrawImage( img, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
+
+            g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );
+
+            return ( xOffset + width );
         }
 
-        private static void DrawMovement( Graphics g, EMovementType movementType )
+        private static int DrawMovement( Graphics g, int xOffset, EMovementType movementType, int BW )
         {
             Bitmap img;
 
@@ -525,22 +533,27 @@ namespace Universalis
                     throw new InvalidOperationException( "unkown " + nameof( EMovementType ) );
             }
 
-            g.DrawImage( img, new Rectangle( XAttrThirdColumn + SLineHeightDouble + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
+            int movementStringWidth = CmToPixel( 0.6 );
+            int width = movementStringWidth + 3 * SImageMargin + SImageSize;
 
-            g.DrawRectangle( SLinePenBlack, new Rectangle( XAttrThirdColumn + SLineHeightDouble, SLineHeightDouble, SLineHeight, SLineHeight ) );
+            g.DrawImage( img, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
+
+            Helpers.DrawStringCentered( g, $"{BW}cm", FontStandardSmall, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, movementStringWidth, SLineHeight ) );
+
+            g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );
+
+            return ( xOffset + width );
         }
 
-        private static void DrawWeight( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void DrawWeight( Graphics g, int xOffset, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            int x1 = XAttrThirdColumn + 3 * SLineHeight;
+            int weightStringWidth = CmToPixel( 0.6 );
 
-            int weightStringWidth = CmToPixel( 0.8 );
+            g.DrawImage( Properties.Resources.Gewicht, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
 
-            g.DrawImage( Properties.Resources.Gewicht, new Rectangle( x1 + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
+            Helpers.DrawStringCentered( g, $"{actor.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n0}", FontStandardSmall, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, weightStringWidth, SLineHeight ) );
 
-            Helpers.DrawStringCentered( g, $"{actor.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n1}", FontStandardSmall, Brushes.Black, new Rectangle( x1 + 2 * SImageMargin + SImageSize, SLineHeightDouble, weightStringWidth, SLineHeight ) );
-
-            g.DrawRectangle( SLinePenBlack, new Rectangle( x1, SLineHeightDouble, weightStringWidth + 3 * SImageMargin + SImageSize, SLineHeight ) );
+            g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, weightStringWidth + 3 * SImageMargin + SImageSize, SLineHeight ) );
         }
 
         private static void DrawSectionHeader( Graphics g, String name, Image sectionHeader, int posY )

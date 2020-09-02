@@ -36,6 +36,7 @@ namespace Universalis
                     AGI = equipment.AttributeModifier.AGI,
                     BW = equipment.AttributeModifier.BW,
                     KO = equipment.AttributeModifier.KO,
+                    NK = equipment.AttributeModifier.NK,
                     FK = equipment.AttributeModifier.FK,
                     WN = equipment.AttributeModifier.WN,
                     EH = equipment.AttributeModifier.EH
@@ -267,6 +268,22 @@ namespace Universalis
                 if( null != AttributeModifier )
                 {
                     return ( AttributeModifier.Format( AttributeModifier.KO ) );
+                }
+                else
+                {
+                    return ( null );
+                }
+            }
+        }
+
+        [JsonIgnore]
+        public string ModNK
+        {
+            get
+            {
+                if( null != AttributeModifier )
+                {
+                    return ( AttributeModifier.Format( AttributeModifier.NK ) );
                 }
                 else
                 {

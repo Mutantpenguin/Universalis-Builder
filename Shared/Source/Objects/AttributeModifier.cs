@@ -33,6 +33,8 @@ namespace Universalis
                 ||
                 KO != attributeModifier.KO
                 ||
+                NK != attributeModifier.NK
+                ||
                 FK != attributeModifier.FK
                 ||
                 WN != attributeModifier.WN
@@ -64,6 +66,11 @@ namespace Universalis
                 text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KO {Format( KO )}";
             }
 
+            if( NK != 0 )
+            {
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"NK {Format( NK )}";
+            }
+
             if( FK != 0 )
             {
                 text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"FK {Format( FK )}";
@@ -89,6 +96,7 @@ namespace Universalis
                 AGI += modifier.AGI;
                 BW += modifier.BW;
                 KO += modifier.KO;
+                NK += modifier.NK;
                 FK += modifier.FK;
                 WN += modifier.WN;
                 EH += modifier.EH;
@@ -102,6 +110,7 @@ namespace Universalis
             points += AGI * Costs.AGI;
             points += BW * Costs.BW;
             points += KO * Costs.KO;
+            points += NK * Costs.NK;
             points += FK * Costs.FK;
             points += WN * Costs.WN;
             points += EH * Costs.EH;
@@ -123,6 +132,12 @@ namespace Universalis
         }
 
         public int KO
+        {
+            get;
+            set;
+        }
+
+        public int NK
         {
             get;
             set;

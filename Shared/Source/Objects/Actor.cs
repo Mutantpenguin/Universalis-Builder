@@ -50,6 +50,8 @@ namespace Universalis
                 ||
                 Attributes.KO != actor.Attributes.KO
                 ||
+                Attributes.NK != actor.Attributes.NK
+                ||
                 Attributes.FK != actor.Attributes.FK
                 ||
                 Attributes.WN != actor.Attributes.WN
@@ -134,6 +136,7 @@ namespace Universalis
                 AGI = actor.Attributes.AGI,
                 BW = actor.Attributes.BW,
                 KO = actor.Attributes.KO,
+                NK = actor.Attributes.NK,
                 FK = actor.Attributes.FK,
                 WN = actor.Attributes.WN,
                 EH = actor.Attributes.EH
@@ -574,6 +577,7 @@ namespace Universalis
             AGI = 4,
             BW = 4,
             KO = 4,
+            NK = 4,
             FK = 4,
             WN = 4,
             EH = 4
@@ -610,6 +614,17 @@ namespace Universalis
             return ( Attributes.ModKO( CurrentAttributeModifier( actorOutfit ) ) );
         }
 
+        public int? ModNK( ActorOutfit actorOutfit )
+        {
+            if( this.Type == EType.Drohne )
+            {
+                return ( null );
+            }
+            else
+            {
+                return ( Attributes.ModNK( CurrentAttributeModifier( actorOutfit ) ) );
+            }
+        }
         public int? ModFK( ActorOutfit actorOutfit )
         {
             if( this.Type == EType.Drohne )
@@ -854,6 +869,7 @@ namespace Universalis
             if( this.Type != EType.Drohne )
             {
                 points += Attributes.ModAGI( modifier ) * Costs.AGI;
+                points += Attributes.ModNK( modifier ) * Costs.NK;
                 points += Attributes.ModFK( modifier ) * Costs.FK;
                 points += Attributes.ModEH( modifier ) * Costs.EH;
             }

@@ -23,6 +23,12 @@ namespace Universalis
             set;
         }
 
+        public int NK
+        {
+            get;
+            set;
+        }
+
         public int FK
         {
             get;
@@ -69,6 +75,16 @@ namespace Universalis
             }
 
             return ( KO + modifier.KO );
+        }
+
+        public int ModNK( AttributeModifier modifier )
+        {
+            if( modifier == null )
+            {
+                throw new ArgumentNullException( nameof( modifier ) );
+            }
+
+            return ( NK + modifier.NK );
         }
 
         public int ModFK( AttributeModifier modifier )

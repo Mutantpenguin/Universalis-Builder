@@ -52,6 +52,7 @@ namespace Universalis
             AttribAGI.Value = m_actorModified.Attributes.AGI;
             AttribBW.Value = m_actorModified.Attributes.BW;
             AttribKO.Value = m_actorModified.Attributes.KO;
+            AttribNK.Value = m_actorModified.Attributes.NK;
             AttribFK.Value = m_actorModified.Attributes.FK;
             AttribWN.Value = m_actorModified.Attributes.WN;
             AttribEH.Value = m_actorModified.Attributes.EH;
@@ -105,6 +106,13 @@ namespace Universalis
         private void AttribKO_ValueChanged( object sender, EventArgs e )
         {
             m_actorModified.Attributes.KO = Convert.ToInt32( AttribKO.Value );
+
+            updateFields();
+        }
+
+        private void AttribNK_ValueChanged( object sender, EventArgs e )
+        {
+            m_actorModified.Attributes.NK = Convert.ToInt32( AttribNK.Value );
 
             updateFields();
         }
@@ -193,6 +201,9 @@ namespace Universalis
                 labelAGI.Visible = false;
                 AttribAGI.Visible = false;
 
+                labelNK.Visible = false;
+                AttribNK.Visible = false;
+
                 labelFK.Visible = false;
                 AttribFK.Visible = false;
 
@@ -206,6 +217,9 @@ namespace Universalis
             {
                 labelAGI.Visible = true;
                 AttribAGI.Visible = true;
+
+                labelNK.Visible = true;
+                AttribNK.Visible = true;
 
                 labelFK.Visible = true;
                 AttribFK.Visible = true;

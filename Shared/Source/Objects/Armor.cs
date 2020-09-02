@@ -40,6 +40,7 @@ namespace Universalis
                     AGI = armor.AttributeModifier.AGI,
                     BW = armor.AttributeModifier.BW,
                     KO = armor.AttributeModifier.KO,
+                    NK = armor.AttributeModifier.NK,
                     FK = armor.AttributeModifier.FK,
                     WN = armor.AttributeModifier.WN,
                     EH = armor.AttributeModifier.EH
@@ -304,6 +305,22 @@ namespace Universalis
                 if( null != AttributeModifier )
                 {
                     return ( AttributeModifier.Format( AttributeModifier.KO ) );
+                }
+                else
+                {
+                    return ( null );
+                }
+            }
+        }
+
+        [JsonIgnore]
+        public string ModNK
+        {
+            get
+            {
+                if( null != AttributeModifier )
+                {
+                    return ( AttributeModifier.Format( AttributeModifier.NK ) );
                 }
                 else
                 {

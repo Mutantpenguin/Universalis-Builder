@@ -8,6 +8,7 @@ namespace Universalis
         public const int AGI = 10;
         public const int BW = 10;
         public const int KO = 10;
+        public const int NK = 10;
         public const int FK = 10;
         public const int WN = 10;
         public const int EH = 10;

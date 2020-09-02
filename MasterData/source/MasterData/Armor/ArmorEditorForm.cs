@@ -154,15 +154,7 @@ namespace Universalis
             {
                 toolStripButtonAttribMod.Image = Properties.Resources.ui_check_box;
 
-                AttributeModifier attributeModifier = new AttributeModifier
-                {
-                    AGI = 0,
-                    BW = 0,
-                    KO = 0,
-                    FK = 0,
-                    WN = 0,
-                    EH = 0
-                };
+                AttributeModifier attributeModifier = new AttributeModifier();
 
                 ( (Armor)armorBindingSource.DataSource ).AttributeModifier = attributeModifier;
 
