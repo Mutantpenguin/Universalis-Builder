@@ -268,7 +268,7 @@ namespace Universalis
         } = new DamageType
         {
             Type = DamageType.EType.Kinetisch,
-            Level = DamageType.ELevel.O
+            Level = DamageType.ELevel.I
         };
 
         public List<DamageEffect> DamageEffectList
@@ -457,9 +457,9 @@ namespace Universalis
 
             // TODO calculate points with values
             // Class
-            // DamageType LVL
             // Radius
             // Range
+            // Weight
 
             points += Strength * Costs.WeaponStrength;
             points += Damage * Costs.WeaponDamage;
@@ -467,6 +467,11 @@ namespace Universalis
             if( AdditiveStrength )
             {
                 points *= Costs.WeaponAdditiveStrengthMultiplicator;
+            }
+
+            for( int i = 0; i < (int)DamageType.Level; i++ )
+            {
+                points *= Costs.WeaponDamageTypeLevelMultiplikator;
             }
 
             for( int i = 0; i < AF; i++ )
@@ -482,11 +487,6 @@ namespace Universalis
                 }
             }
 
-            if( UseOnce )
-            {
-                points *= Costs.WeaponUseOnceMultiplicator;
-            }
-
             if( Unwieldy )
             {
                 points *= Costs.WeaponUnwieldyMultiplicator;
@@ -495,6 +495,11 @@ namespace Universalis
             if( IndirectFire )
             {
                 points *= Costs.WeaponIndirectFireMultiplicator;
+            }
+
+            if( UseOnce )
+            {
+                points *= Costs.WeaponUseOnceMultiplicator;
             }
 
             return ( (int)points );

@@ -211,6 +211,7 @@ namespace Universalis
 
             // TODO calculate points with values
             // AP
+            // Weight - especially since it can be negative
 
             if( AttributeModifier != null )
             {
@@ -221,8 +222,6 @@ namespace Universalis
             {
                 points *= Costs.EquipmentUseOnceMultiplicator;
             }
-
-            // TODO this doesn't get automatically shown in the equipment editor form
 
             return ( (int)points );
         }

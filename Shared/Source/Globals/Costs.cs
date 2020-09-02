@@ -22,19 +22,19 @@ namespace Universalis
             switch( movementType )
             {
                 case EMovementType.Antigrav:
-                    return ( 500 );
+                    return ( 100 );
 
                 case EMovementType.Flug:
-                    return ( 400 );
+                    return ( 80 );
 
                 case EMovementType.Fuss:
-                    return ( 300 );
+                    return ( 50 );
 
                 case EMovementType.Kette:
-                    return ( 200 );
+                    return ( 70 );
 
                 case EMovementType.Rad:
-                    return ( 100 );
+                    return ( 70 );
 
                 case EMovementType.Stationär:
                     return ( 0 );
@@ -48,6 +48,8 @@ namespace Universalis
         public const int WeaponStrength = 20;
         public const int WeaponDamage = 20;
 
+        public const float WeaponDamageTypeLevelMultiplikator = 1.4f;
+
         public const float WeaponUseOnceMultiplicator = 0.35f;
         public const float WeaponUnwieldyMultiplicator = 0.8f;
         public const float WeaponIndirectFireMultiplicator = 1.4f;
@@ -59,7 +61,12 @@ namespace Universalis
         // Armor
         public const int ArmorProtection = 20;
 
+        public const float ArmorDamageTypeLevelMultiplikator = 1.3f;
+
         public const float ArmorDamageEffectMultiplicator = 1.2f;
+
+        public const int ArmorCamouflagePassive = 20;
+        public const int ArmorCamouflageActive = 30;
 
         // Equipment
         public const float EquipmentUseOnceMultiplicator = 0.35f;

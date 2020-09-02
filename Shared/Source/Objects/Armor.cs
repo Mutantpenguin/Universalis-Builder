@@ -376,11 +376,21 @@ namespace Universalis
             float points = 0;
 
             // TODO calculate points with values
-            // Camouflage
             // SelfSustaining
-            // DamageTypes and LVL
+            // Weight
 
             points += Protection * Costs.ArmorProtection;
+
+            if( DamageTypeList != null )
+            {
+                foreach( var damageType in DamageTypeList )
+                {
+                    for( int i = 0; i < (int)damageType.Level; i++ )
+                    {
+                        points *= Costs.ArmorDamageTypeLevelMultiplikator;
+                    }
+                }
+            }
 
             if( DamageEffectList != null )
             {
@@ -390,12 +400,22 @@ namespace Universalis
                 }
             }
 
+            switch( Camouflage )
+            {
+                case ECamouflage.Keine:
+                    break;
+                case ECamouflage.Passiv:
+                    points += CamouflageLevel * Costs.ArmorCamouflagePassive;
+                    break;
+                case ECamouflage.Aktiv:
+                    points += CamouflageLevel * Costs.ArmorCamouflageActive;
+                    break;
+            }
+
             if( AttributeModifier != null )
             {
                 points += AttributeModifier.Points();
             }
-
-            // TODO this doesn't get automatically shown in the armor editor form
 
             return ( (int)points );
         }
