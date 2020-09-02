@@ -277,6 +277,8 @@ namespace Universalis
             ( (Armor)armorBindingSource.DataSource ).Camouflage = camouflage;
 
             numericUpDownCamouflageLevel.Enabled = ( camouflage != Armor.ECamouflage.Keine );
+
+            armorBindingSource.ResetCurrentItem();
         }
 
         private void dataGridViewDamageTypes_CurrentCellDirtyStateChanged( object sender, EventArgs e )

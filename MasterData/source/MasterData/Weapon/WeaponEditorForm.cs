@@ -130,6 +130,8 @@ namespace Universalis
             ( (Weapon)weaponBindingSource.DataSource ).DamageType.Level = (DamageType.ELevel)comboBoxDamageTypeLevel.SelectedItem;
 
             pictureBoxDamageType.Image = ( (Weapon)weaponBindingSource.DataSource ).DamageTypeImage;
+
+            weaponBindingSource.ResetCurrentItem();
         }
 
         private void updateEffects()
