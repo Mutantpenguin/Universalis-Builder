@@ -451,25 +451,53 @@ namespace Universalis
             }
         }
 
-        public int CalculatedPoints()
+        private int CalculatedPoints()
         {
+            float points = 0;
+
             // TODO calculate points with values
             // Class
-            // Type
-            // DamageType
-            // DamageEffects
-            // Strength
-            // AdditiveStrength
-            // AF
-            // Damage
+            // DamageType LVL
             // Radius
             // Range
-            // UseOnce
-            // Unwieldy
-            // IndirectFire
-            // Weight
 
-            return ( 0 );
+            points += Strength * Costs.WeaponStrength;
+            points += Damage * Costs.WeaponDamage;
+
+            if( AdditiveStrength )
+            {
+                points *= Costs.WeaponAdditiveStrengthMultiplicator;
+            }
+
+            for( int i = 0; i < AF; i++ )
+            {
+                points *= Costs.WeaponAFMultiplicator;
+            }
+
+            if( DamageEffectList != null )
+            {
+                foreach( var damageEffect in DamageEffectList )
+                {
+                    points *= Costs.WeaponDamageEffectMultiplicator;
+                }
+            }
+
+            if( UseOnce )
+            {
+                points *= Costs.WeaponUseOnceMultiplicator;
+            }
+
+            if( Unwieldy )
+            {
+                points *= Costs.WeaponUnwieldyMultiplicator;
+            }
+
+            if( IndirectFire )
+            {
+                points *= Costs.WeaponIndirectFireMultiplicator;
+            }
+
+            return ( (int)points );
         }
     }
 }

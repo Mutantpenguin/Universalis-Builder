@@ -371,17 +371,24 @@ namespace Universalis
             }
         }
 
-        public int CalculatedPoints()
+        private int CalculatedPoints()
         {
-            int points = 0;
+            float points = 0;
 
             // TODO calculate points with values
-            // Protection
             // Camouflage
-            // Weight
             // SelfSustaining
-            // DamageTypes
-            // DamageEffects
+            // DamageTypes and LVL
+
+            points += Protection * Costs.ArmorProtection;
+
+            if( DamageEffectList != null )
+            {
+                foreach( var damageEffect in DamageEffectList )
+                {
+                    points *= Costs.ArmorDamageEffectMultiplicator;
+                }
+            }
 
             if( AttributeModifier != null )
             {
@@ -390,7 +397,7 @@ namespace Universalis
 
             // TODO this doesn't get automatically shown in the armor editor form
 
-            return ( points );
+            return ( (int)points );
         }
 
         [ JsonIgnore]

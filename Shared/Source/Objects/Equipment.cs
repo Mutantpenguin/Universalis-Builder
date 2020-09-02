@@ -205,22 +205,26 @@ namespace Universalis
             }
         }
 
-        public int CalculatedPoints()
+        private int CalculatedPoints()
         {
-            int points = 0;
+            float points = 0;
 
             // TODO calculate points with values
             // AP
-            // UseOnce
 
             if( AttributeModifier != null )
             {
                 points += AttributeModifier.Points();
             }
 
+            if( UseOnce )
+            {
+                points *= Costs.EquipmentUseOnceMultiplicator;
+            }
+
             // TODO this doesn't get automatically shown in the equipment editor form
 
-            return ( points );
+            return ( (int)points );
         }
 
         #region Attributes
