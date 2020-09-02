@@ -32,14 +32,14 @@
             this.imageListUniverses = new System.Windows.Forms.ImageList(this.components);
             this.listViewUniverses = new System.Windows.Forms.ListView();
             this.panelNoUniverses = new System.Windows.Forms.Panel();
+            this.tableLayoutPanelCentered = new System.Windows.Forms.TableLayoutPanel();
             this.labelNoUniverses = new System.Windows.Forms.Label();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelHeader = new System.Windows.Forms.Label();
-            this.buttonRefresh = new System.Windows.Forms.Button();
-            this.tableLayoutPanelCentered = new System.Windows.Forms.TableLayoutPanel();
             this.panelNoUniverses.SuspendLayout();
-            this.panelHeader.SuspendLayout();
             this.tableLayoutPanelCentered.SuspendLayout();
+            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageListUniverses
@@ -59,7 +59,7 @@
             this.listViewUniverses.MultiSelect = false;
             this.listViewUniverses.Name = "listViewUniverses";
             this.listViewUniverses.ShowItemToolTips = true;
-            this.listViewUniverses.Size = new System.Drawing.Size(852, 338);
+            this.listViewUniverses.Size = new System.Drawing.Size(868, 338);
             this.listViewUniverses.TabIndex = 1;
             this.listViewUniverses.UseCompatibleStateImageBehavior = false;
             this.listViewUniverses.ItemActivate += new System.EventHandler(this.listViewUniverses_ItemActivate);
@@ -71,9 +71,26 @@
             this.panelNoUniverses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNoUniverses.Location = new System.Drawing.Point(0, 0);
             this.panelNoUniverses.Name = "panelNoUniverses";
-            this.panelNoUniverses.Size = new System.Drawing.Size(852, 388);
+            this.panelNoUniverses.Size = new System.Drawing.Size(868, 388);
             this.panelNoUniverses.TabIndex = 2;
             this.panelNoUniverses.Visible = false;
+            // 
+            // tableLayoutPanelCentered
+            // 
+            this.tableLayoutPanelCentered.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tableLayoutPanelCentered.AutoSize = true;
+            this.tableLayoutPanelCentered.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanelCentered.ColumnCount = 1;
+            this.tableLayoutPanelCentered.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelCentered.Controls.Add(this.labelNoUniverses, 0, 0);
+            this.tableLayoutPanelCentered.Controls.Add(this.buttonRefresh, 0, 1);
+            this.tableLayoutPanelCentered.Location = new System.Drawing.Point(365, 138);
+            this.tableLayoutPanelCentered.Name = "tableLayoutPanelCentered";
+            this.tableLayoutPanelCentered.RowCount = 2;
+            this.tableLayoutPanelCentered.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelCentered.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelCentered.Size = new System.Drawing.Size(139, 69);
+            this.tableLayoutPanelCentered.TabIndex = 2;
             // 
             // labelNoUniverses
             // 
@@ -85,27 +102,6 @@
             this.labelNoUniverses.TabIndex = 0;
             this.labelNoUniverses.Text = "Keine Universen gefunden";
             this.labelNoUniverses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panelHeader
-            // 
-            this.panelHeader.BackColor = System.Drawing.SystemColors.Window;
-            this.panelHeader.Controls.Add(this.labelHeader);
-            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(852, 50);
-            this.panelHeader.TabIndex = 1;
-            // 
-            // labelHeader
-            // 
-            this.labelHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelHeader.AutoSize = true;
-            this.labelHeader.Location = new System.Drawing.Point(360, 19);
-            this.labelHeader.Name = "labelHeader";
-            this.labelHeader.Size = new System.Drawing.Size(153, 13);
-            this.labelHeader.TabIndex = 1;
-            this.labelHeader.Text = "Bitte wählen Sie ein Universum";
-            this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonRefresh
             // 
@@ -120,28 +116,32 @@
             this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
-            // tableLayoutPanelCentered
+            // panelHeader
             // 
-            this.tableLayoutPanelCentered.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tableLayoutPanelCentered.AutoSize = true;
-            this.tableLayoutPanelCentered.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanelCentered.ColumnCount = 1;
-            this.tableLayoutPanelCentered.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelCentered.Controls.Add(this.labelNoUniverses, 0, 0);
-            this.tableLayoutPanelCentered.Controls.Add(this.buttonRefresh, 0, 1);
-            this.tableLayoutPanelCentered.Location = new System.Drawing.Point(357, 138);
-            this.tableLayoutPanelCentered.Name = "tableLayoutPanelCentered";
-            this.tableLayoutPanelCentered.RowCount = 2;
-            this.tableLayoutPanelCentered.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelCentered.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelCentered.Size = new System.Drawing.Size(139, 69);
-            this.tableLayoutPanelCentered.TabIndex = 2;
+            this.panelHeader.BackColor = System.Drawing.SystemColors.Window;
+            this.panelHeader.Controls.Add(this.labelHeader);
+            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(868, 50);
+            this.panelHeader.TabIndex = 1;
+            // 
+            // labelHeader
+            // 
+            this.labelHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelHeader.AutoSize = true;
+            this.labelHeader.Location = new System.Drawing.Point(368, 19);
+            this.labelHeader.Name = "labelHeader";
+            this.labelHeader.Size = new System.Drawing.Size(153, 13);
+            this.labelHeader.TabIndex = 1;
+            this.labelHeader.Text = "Bitte wählen Sie ein Universum";
+            this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UniverseSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 388);
+            this.ClientSize = new System.Drawing.Size(868, 388);
             this.Controls.Add(this.listViewUniverses);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelNoUniverses);
@@ -152,10 +152,10 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UniverseSelectionForm_KeyDown);
             this.panelNoUniverses.ResumeLayout(false);
             this.panelNoUniverses.PerformLayout();
-            this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
             this.tableLayoutPanelCentered.ResumeLayout(false);
             this.tableLayoutPanelCentered.PerformLayout();
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
