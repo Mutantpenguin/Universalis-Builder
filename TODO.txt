@@ -1,6 +1,4 @@
 Attribut NK in folgenden MAsken einfügen
-- ArmorEditorForm
-- EquipmentEditorForm
 - ArmorManagerForm
 - EquipmentManagerForm
 - AddArmorToActorForm
