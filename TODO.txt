@@ -1,7 +1,3 @@
-Attribut NK in folgenden MAsken einfügen
-- AddArmorToActorForm
-- AddEquipmentToActorForm
-
 "Archetypen" einführen
 - Haben Attribute, TP, Größe, BW und BW-Art
 - werden pro Fraktion definiert
