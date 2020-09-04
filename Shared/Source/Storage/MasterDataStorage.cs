@@ -12,6 +12,12 @@ namespace Universalis
             private set;
         }
 
+        public static ArchetypeStorage Archetype
+        {
+            get;
+            private set;
+        }
+
         public static TraitStorage Trait
         {
             get;
@@ -66,6 +72,7 @@ namespace Universalis
             File.SetAttributes( universeTrashPath, FileAttributes.Hidden );
 
             Faction = new FactionStorage( universePath, backgroundWorkerProvider() );
+            Archetype = new ArchetypeStorage( universePath, backgroundWorkerProvider() );
             Trait = new TraitStorage( universePath, backgroundWorkerProvider() );
             Armor = new ArmorStorage( universePath, backgroundWorkerProvider() );
             Weapon = new WeaponStorage( universePath, backgroundWorkerProvider() );

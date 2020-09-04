@@ -114,6 +114,7 @@
     <Compile Include="Source\JsonHelper\JsonGroupActorConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonActorTraitConverter.cs" />
     <Compile Include="Source\Objects\Actor.cs" />
+    <Compile Include="Source\Objects\Archetype.cs" />
     <Compile Include="Source\Objects\Armor.cs" />
     <Compile Include="Source\Objects\AttributeModifier.cs" />
     <Compile Include="Source\Objects\Attributes.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Source\Objects\Weapon.cs" />
     <Compile Include="Source\Objects\WeaponRange.cs" />
     <Compile Include="Source\Storage\ActorStorage.cs" />
+    <Compile Include="Source\Storage\ArchetypeStorage.cs" />
     <Compile Include="Source\Storage\ArmorStorage.cs" />
     <Compile Include="Source\Storage\EquipmentStorage.cs" />
     <Compile Include="Source\Storage\FactionStorage.cs" />
