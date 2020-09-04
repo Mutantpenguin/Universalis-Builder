@@ -151,7 +151,7 @@ namespace Universalis
                 int weaponsCount = DrawWeapons( g, actor, actorOutfit, traitsEndY );
 
                 int armorPosY = traitsEndY + ( SLineHeight * weaponsCount );
-                DrawArmor( g, actor.Armor, armorPosY );
+                DrawArmor( g, actor, actorOutfit, actor.Armor, armorPosY );
 
                 int equipmentYPos = armorPosY + SLineHeight * ( ( null == actor.Armor ? 0 : 2 ) );
                 int equipmentEndY = equipmentYPos;
@@ -796,7 +796,7 @@ namespace Universalis
             g.DrawImage( typeImage, new Rectangle( endPosX - SImageMargin - typeImageWidthDraw, posY + SImageMargin, typeImageWidthDraw, SImageSize ) );
         }
 
-        private static void DrawArmor( Graphics g, Armor armor, int posY )
+        private static void DrawArmor( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Armor armor, int posY )
         {
             if( armor != null )
             {
@@ -820,7 +820,7 @@ namespace Universalis
                 g.DrawLine( SLinePenBlack, protectionStart, posY + SLineHeight, protectionStart, posY + SLineHeightDouble );
                 g.DrawImage( Properties.Resources.Schutz_weiss, new Rectangle( protectionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
-                Helpers.DrawStringCentered( g, armor.Protection.ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, ( actor.ModKO( actorOutfit ) + armor.Protection ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
 
                 g.DrawLine( SLinePenBlack, effectsStart, posY + SLineHeight, effectsStart, posY + SLineHeightDouble );
 

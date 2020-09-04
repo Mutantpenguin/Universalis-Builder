@@ -236,7 +236,7 @@
             // 
             // protectionDataGridViewTextBoxColumn
             // 
-            this.protectionDataGridViewTextBoxColumn.DataPropertyName = "Protection";
+            this.protectionDataGridViewTextBoxColumn.DataPropertyName = "FormattedProtection";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.protectionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.protectionDataGridViewTextBoxColumn.HeaderText = "S";

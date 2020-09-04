@@ -261,7 +261,7 @@
             // 
             // Protection
             // 
-            this.Protection.DataPropertyName = "Protection";
+            this.Protection.DataPropertyName = "FormattedProtection";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.Protection.DefaultCellStyle = dataGridViewCellStyle2;
             this.Protection.HeaderText = "S";

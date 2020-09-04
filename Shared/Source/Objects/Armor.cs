@@ -388,6 +388,22 @@ namespace Universalis
             }
         }
 
+        [JsonIgnore]
+        public string FormattedProtection
+        {
+            get
+            {
+                if( 0 == Protection )
+                {
+                    return ( "-" );
+                }
+                else
+                {
+                    return ( "+" + Protection.ToString() );
+                }
+            }
+        }
+
         private int CalculatedPoints()
         {
             float points = 0;
