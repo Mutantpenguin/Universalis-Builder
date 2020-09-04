@@ -409,7 +409,6 @@ namespace Universalis
             float points = 0;
 
             // TODO calculate points with values
-            // SelfSustaining
             // Weight
 
             points += Protection * Costs.ArmorProtection;
@@ -443,6 +442,11 @@ namespace Universalis
                 case ECamouflage.Aktiv:
                     points += CamouflageLevel * Costs.ArmorCamouflageActive;
                     break;
+            }
+
+            if( SelfSustaining )
+            {
+                points *= Costs.ArmorSelfSustainingMultiplicator;
             }
 
             if( AttributeModifier != null )

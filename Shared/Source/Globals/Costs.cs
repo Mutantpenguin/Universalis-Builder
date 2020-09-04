@@ -69,6 +69,8 @@ namespace Universalis
         public const int ArmorCamouflagePassive = 20;
         public const int ArmorCamouflageActive = 30;
 
+        public const float ArmorSelfSustainingMultiplicator = 1.3f;
+
         // Equipment
         public const float EquipmentUseOnceMultiplicator = 0.35f;
     }
