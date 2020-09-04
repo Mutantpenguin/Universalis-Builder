@@ -13,7 +13,7 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
-            eLevelBindingSource.DataSource = DamageType.ELevelList;
+            eLevelBindingSource.DataSource = DamageType.ELevelList.Where( x => x != DamageType.ELevel.O );
 
             m_originalArmor = armor;
 
