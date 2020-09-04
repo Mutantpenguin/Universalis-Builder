@@ -69,6 +69,23 @@ namespace Universalis
                     }
                     else
                     {
+                        /* TODO git integration via "LibGit2Sharp"
+                        try
+                        {
+                            using( var repo = new Repository( universeSubfolder ) )
+                            {
+                                //MessageBox.Show( repo. );
+
+                                string logMessage = "";
+                                var remote = repo.Network.Remotes[ "origin" ];
+                                var refSpecs = remote.FetchRefSpecs.Select(x => x.Specification);
+                                Commands.Fetch( repo, remote.Name, refSpecs, null, logMessage );
+                            }
+                        }
+                        catch( RepositoryNotFoundException )
+                        {}
+                        */
+
                         var universe = JsonConvert.DeserializeObject<Universe>( File.ReadAllText( universeSettingsPath ) );
 
                         var universeImagePath = Path.Combine( universeSubfolder, universeImageFilename );

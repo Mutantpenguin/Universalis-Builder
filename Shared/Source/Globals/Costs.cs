@@ -7,7 +7,7 @@ namespace Universalis
         // Attributes
         public const int AGI = 10;
         public const int BW = 10;
-        public const int KO = 10;
+        public const int KO = 15;
         public const int NK = 10;
         public const int FK = 10;
         public const int WN = 10;
@@ -46,7 +46,7 @@ namespace Universalis
         }
 
         // Weapon
-        public const int WeaponStrength = 20;
+        public const int WeaponStrength = 10;
         public const int WeaponDamage = 20;
 
         public const float WeaponDamageTypeLevelMultiplikator = 1.4f;
@@ -60,7 +60,7 @@ namespace Universalis
         public const float WeaponAdditiveStrengthMultiplicator = 1.2f;
 
         // Armor
-        public const int ArmorProtection = 20;
+        public const int ArmorProtection = 10;
 
         public const float ArmorDamageTypeLevelMultiplikator = 1.3f;
 
