@@ -1,5 +1,11 @@
 "Archetypen" einführen
-- Haben Attribute, TP, Größe, BW und BW-Art
+- Haben
+	- Typ -> Editor
+	- Attribute
+	- TP
+	- Größe -> Editor
+	- BW
+	- BW-Art -> Editor
 - werden pro Fraktion definiert
 
 Aktivierungsreihenfolge in allen Masken

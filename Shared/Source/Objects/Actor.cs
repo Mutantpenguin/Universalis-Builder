@@ -195,6 +195,7 @@ namespace Universalis
             }
         }
 
+        // TODO Archetype - remove when ready
         public enum ESize
         {
             Klein = 1,
@@ -205,6 +206,7 @@ namespace Universalis
 
         public static readonly IList<ESize> ESizeList = Enum.GetValues( typeof( ESize ) ).Cast<ESize>().ToList().AsReadOnly();
 
+        // TODO Archetype - remove when ready
         public enum EType
         {
             Infanterie = 1,
@@ -240,6 +242,7 @@ namespace Universalis
             set;
         } = 75.0f;
 
+        // TODO Archetype - remove when ready
         public int HitPoints
         {
             get;
@@ -537,6 +540,7 @@ namespace Universalis
             set;
         }
 
+        // TODO Archetype - remove when ready
         public EMovementType MovementType
         {
             get;

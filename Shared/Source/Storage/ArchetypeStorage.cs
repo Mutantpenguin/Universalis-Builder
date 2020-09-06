@@ -112,9 +112,17 @@ namespace Universalis
             return ( archetype );
         }
 
-        public Archetype Create()
+        public Archetype Create( Faction faction )
         {
-            Archetype archetype = new Archetype();
+            if( null == faction )
+            {
+                throw new ArgumentNullException(nameof(faction ) );
+            }
+
+            Archetype archetype = new Archetype()
+            {
+                Faction = faction
+            };
 
             Save( archetype );
 

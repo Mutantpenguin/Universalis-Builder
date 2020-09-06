@@ -49,6 +49,7 @@ namespace Universalis
         EquipmentManagerForm equipmentManager = null;
         TraitsManagerForm traitsManager = null;
         FactionManagerForm factionManager = null;
+        ArchetypeManagerForm archetypeManager = null;
 
         private void buttonActors_Click( object sender, EventArgs e )
         {
@@ -138,6 +139,21 @@ namespace Universalis
             buttonFactions.Enabled = false;
 
             factionManager.Show( this );
+        }
+
+        private void buttonArchetypes_Click( object sender, EventArgs e )
+        {
+            archetypeManager = new ArchetypeManagerForm();
+
+            archetypeManager.FormClosed += delegate
+            {
+                buttonArchetypes.Enabled = true;
+                archetypeManager = null;
+            };
+
+            buttonArchetypes.Enabled = false;
+
+            archetypeManager.Show(this);
         }
 
         private void MasterDataMainForm_FormClosing( object sender, FormClosingEventArgs e )
