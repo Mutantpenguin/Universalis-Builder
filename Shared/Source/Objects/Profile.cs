@@ -18,7 +18,9 @@ namespace Universalis
                 ||
                 ( MovementType != profile.MovementType )
                 ||
-                ( Type != profile.Type ) )
+                ( Type != profile.Type )
+                ||
+                ( Fov != profile.Fov ) )
             {
                 return( false );
             }
@@ -38,6 +40,7 @@ namespace Universalis
             HitPoints = profile.HitPoints;
             MovementType = profile.MovementType;
             Type = profile.Type;
+            Fov = profile.Fov;
 
             Attributes = new Attributes( profile.Attributes );
         }
@@ -95,6 +98,11 @@ namespace Universalis
 
         public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
 
+        public EFieldOfView Fov
+        {
+            get;
+            set;
+        } = EFieldOfView._90;
 
         public Attributes Attributes
         {

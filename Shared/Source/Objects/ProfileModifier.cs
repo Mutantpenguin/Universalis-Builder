@@ -8,6 +8,11 @@ namespace Universalis
 {
     public class ProfileModifier
     {
+        public ProfileModifier()
+        {
+            AttributeModifier = new AttributeModifier();
+        }
+
         public ProfileModifier( ProfileModifier profileModifier )
         {
             Speed = profileModifier.Speed;
