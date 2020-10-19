@@ -44,19 +44,7 @@ namespace Universalis
                 return ( false );
             }
             
-            if( Attributes.AGI != actor.Attributes.AGI
-                ||
-                Attributes.BW != actor.Attributes.BW
-                ||
-                Attributes.KO != actor.Attributes.KO
-                ||
-                Attributes.NK != actor.Attributes.NK
-                ||
-                Attributes.FK != actor.Attributes.FK
-                ||
-                Attributes.WN != actor.Attributes.WN
-                ||
-                Attributes.EH != actor.Attributes.EH )
+            if( !Attributes.Equals( actor.Attributes ) )
             {
                 return ( false );
             }
@@ -131,16 +119,7 @@ namespace Universalis
 
             Faction = actor.Faction;
 
-            Attributes = new Attributes
-            {
-                AGI = actor.Attributes.AGI,
-                BW = actor.Attributes.BW,
-                KO = actor.Attributes.KO,
-                NK = actor.Attributes.NK,
-                FK = actor.Attributes.FK,
-                WN = actor.Attributes.WN,
-                EH = actor.Attributes.EH
-            };
+            Attributes = new Attributes( actor.Attributes );
 
             Weight = actor.Weight;
 
@@ -577,16 +556,7 @@ namespace Universalis
         {
             get;
             set;
-        } = new Attributes
-        {
-            AGI = 4,
-            BW = 4,
-            KO = 4,
-            NK = 4,
-            FK = 4,
-            WN = 4,
-            EH = 4
-        };
+        } = new Attributes();
 
         [ JsonConverter( typeof( JsonImageConverter ) )]
         public Bitmap Img
@@ -877,7 +847,9 @@ namespace Universalis
                 points += Attributes.EH * Costs.EH;
             }
 
-            points += Attributes.BW * Costs.BW;
+            // TODO no BW anymore, just Speed
+            // points += Attributes.BW * Costs.Speed;
+
             points += Attributes.KO * Costs.KO;
             points += Attributes.WN * Costs.WN;
 

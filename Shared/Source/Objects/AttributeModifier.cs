@@ -4,6 +4,19 @@ namespace Universalis
 {
     public class AttributeModifier
     {
+        public AttributeModifier()
+        { }
+
+        public AttributeModifier( AttributeModifier attributeModifier )
+        {
+            AGI = attributeModifier.AGI;
+            KO = attributeModifier.KO;
+            NK = attributeModifier.NK;
+            FK = attributeModifier.FK;
+            WN = attributeModifier.WN;
+            EH = attributeModifier.EH;
+        }
+
         public static string Format( int attribute )
         {
             if( attribute == 0 )
@@ -29,8 +42,6 @@ namespace Universalis
 
             if( AGI != attributeModifier.AGI
                 ||
-                BW != attributeModifier.BW
-                ||
                 KO != attributeModifier.KO
                 ||
                 NK != attributeModifier.NK
@@ -54,11 +65,6 @@ namespace Universalis
             if( AGI != 0 )
             {
                 text += $"AGI {Format( AGI )}";
-            }
-
-            if( BW != 0 )
-            {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"BW {Format( BW )}";
             }
 
             if( KO != 0 )
@@ -94,7 +100,6 @@ namespace Universalis
             if( null != modifier )
             {
                 AGI += modifier.AGI;
-                BW += modifier.BW;
                 KO += modifier.KO;
                 NK += modifier.NK;
                 FK += modifier.FK;
@@ -108,7 +113,6 @@ namespace Universalis
             int points = 0;
 
             points += AGI * Costs.AGI;
-            points += BW * Costs.BW;
             points += KO * Costs.KO;
             points += NK * Costs.NK;
             points += FK * Costs.FK;
@@ -120,12 +124,6 @@ namespace Universalis
 
         #region attributes
         public int AGI
-        {
-            get;
-            set;
-        }
-
-        public int BW
         {
             get;
             set;

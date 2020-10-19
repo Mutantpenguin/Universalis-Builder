@@ -50,15 +50,15 @@
             this.filterType = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewArchetypes = new System.Windows.Forms.DataGridView();
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FactionIcon = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HitPoints = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MovementType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hitPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.movementTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AGIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,8 +67,8 @@
             this.EHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypes)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -203,10 +203,10 @@
             this.dataGridViewArchetypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FactionIcon,
             this.nameDataGridViewTextBoxColumn,
-            this.Type,
-            this.Size,
-            this.HitPoints,
-            this.MovementType,
+            this.typeDataGridViewTextBoxColumn,
+            this.sizeDataGridViewTextBoxColumn,
+            this.hitPointsDataGridViewTextBoxColumn,
+            this.movementTypeDataGridViewTextBoxColumn,
             this.AGIDataGridViewTextBoxColumn,
             this.NKDataGridViewTextBoxColumn,
             this.FKDataGridViewTextBoxColumn,
@@ -228,6 +228,10 @@
             this.dataGridViewArchetypes.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewArchetype_CellToolTipTextNeeded);
             this.dataGridViewArchetypes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewArchetype_KeyDown);
             // 
+            // archetypeBindingSource
+            // 
+            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -242,10 +246,6 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
-            // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
             // 
             // FactionIcon
             // 
@@ -264,39 +264,39 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Type
+            // typeDataGridViewTextBoxColumn
             // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Typ";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Width = 80;
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Typ";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.typeDataGridViewTextBoxColumn.Width = 80;
             // 
-            // Size
+            // sizeDataGridViewTextBoxColumn
             // 
-            this.Size.DataPropertyName = "Size";
-            this.Size.HeaderText = "Größe";
-            this.Size.Name = "Size";
-            this.Size.ReadOnly = true;
-            this.Size.Width = 60;
+            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
+            this.sizeDataGridViewTextBoxColumn.HeaderText = "Größe";
+            this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
+            this.sizeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sizeDataGridViewTextBoxColumn.Width = 60;
             // 
-            // HitPoints
+            // hitPointsDataGridViewTextBoxColumn
             // 
-            this.HitPoints.DataPropertyName = "HitPoints";
+            this.hitPointsDataGridViewTextBoxColumn.DataPropertyName = "HitPoints";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.HitPoints.DefaultCellStyle = dataGridViewCellStyle2;
-            this.HitPoints.HeaderText = "TP";
-            this.HitPoints.Name = "HitPoints";
-            this.HitPoints.ReadOnly = true;
-            this.HitPoints.Width = 35;
+            this.hitPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.hitPointsDataGridViewTextBoxColumn.HeaderText = "TP";
+            this.hitPointsDataGridViewTextBoxColumn.Name = "hitPointsDataGridViewTextBoxColumn";
+            this.hitPointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.hitPointsDataGridViewTextBoxColumn.Width = 35;
             // 
-            // MovementType
+            // movementTypeDataGridViewTextBoxColumn
             // 
-            this.MovementType.DataPropertyName = "MovementType";
-            this.MovementType.HeaderText = "Bewegungsart";
-            this.MovementType.Name = "MovementType";
-            this.MovementType.ReadOnly = true;
-            this.MovementType.Width = 80;
+            this.movementTypeDataGridViewTextBoxColumn.DataPropertyName = "MovementType";
+            this.movementTypeDataGridViewTextBoxColumn.HeaderText = "Bewegungsart";
+            this.movementTypeDataGridViewTextBoxColumn.Name = "movementTypeDataGridViewTextBoxColumn";
+            this.movementTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.movementTypeDataGridViewTextBoxColumn.Width = 80;
             // 
             // AGIDataGridViewTextBoxColumn
             // 
@@ -374,9 +374,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,10 +401,10 @@
         private System.Windows.Forms.ToolStripButton checkBoxFilterType;
         private System.Windows.Forms.DataGridViewImageColumn FactionIcon;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Size;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HitPoints;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MovementType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hitPointsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn movementTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AGIDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn NKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FKDataGridViewTextBoxColumn;

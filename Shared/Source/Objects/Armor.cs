@@ -33,22 +33,13 @@ namespace Universalis
             Camouflage = armor.Camouflage;
             CamouflageLevel = armor.CamouflageLevel;
 
-            if( null != armor.AttributeModifier )
+            if( null != armor.ProfileModifier )
             {
-                AttributeModifier = new AttributeModifier
-                {
-                    AGI = armor.AttributeModifier.AGI,
-                    BW = armor.AttributeModifier.BW,
-                    KO = armor.AttributeModifier.KO,
-                    NK = armor.AttributeModifier.NK,
-                    FK = armor.AttributeModifier.FK,
-                    WN = armor.AttributeModifier.WN,
-                    EH = armor.AttributeModifier.EH
-                };
+                ProfileModifier = new ProfileModifier( armor.ProfileModifier );
             }
             else
             {
-                AttributeModifier = null;
+                ProfileModifier = null;
             }
 
             if( null != DamageTypeList )
@@ -98,19 +89,19 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( null != AttributeModifier ) && ( null == armor.AttributeModifier ) )
+            if( ( null != ProfileModifier ) && ( null == armor.ProfileModifier ) )
             {
                 return ( false );
             }
 
-            if( ( null == AttributeModifier ) && ( null != armor.AttributeModifier ) )
+            if( ( null == ProfileModifier ) && ( null != armor.ProfileModifier ) )
             {
                 return ( false );
             }
 
-            if( ( null != AttributeModifier ) && ( null != armor.AttributeModifier ) )
+            if( ( null != ProfileModifier ) && ( null != armor.ProfileModifier ) )
             {
-                if( !AttributeModifier.Equals( armor.AttributeModifier ) )
+                if( !AttributeModifier.Equals( armor.ProfileModifier ) )
                 {
                     return ( false );
                 }
@@ -222,7 +213,7 @@ namespace Universalis
             set;
         } = 0;
 
-        public AttributeModifier AttributeModifier
+        public ProfileModifier ProfileModifier
         {
             get;
             set;
@@ -449,9 +440,9 @@ namespace Universalis
                 points *= Costs.ArmorSelfSustainingMultiplicator;
             }
 
-            if( AttributeModifier != null )
+            if( ProfileModifier != null )
             {
-                points += AttributeModifier.Points();
+                points += ProfileModifier.Points();
             }
 
             return ( (int)points );
