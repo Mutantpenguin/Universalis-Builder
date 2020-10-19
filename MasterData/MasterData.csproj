@@ -280,6 +280,7 @@
     <None Include="Properties\DataSources\Archetype.datasource" />
     <None Include="Properties\DataSources\Armor.datasource" />
     <None Include="Properties\DataSources\AttributeModifier.datasource" />
+    <None Include="Properties\DataSources\Attributes.datasource" />
     <None Include="Properties\DataSources\DamageEffect.datasource" />
     <None Include="Properties\DataSources\DamageType.ELevel.datasource" />
     <None Include="Properties\DataSources\DamageType.EType.datasource" />

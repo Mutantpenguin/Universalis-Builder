@@ -55,13 +55,16 @@
             this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FactionIcon = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModAGI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModNK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModFK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModKO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModWN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModEH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ModBW = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HitPoints = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MovementType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AGIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypes)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -90,7 +93,6 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -201,13 +203,16 @@
             this.dataGridViewArchetypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FactionIcon,
             this.nameDataGridViewTextBoxColumn,
-            this.ModAGI,
-            this.ModNK,
-            this.ModFK,
-            this.ModKO,
-            this.ModWN,
-            this.ModEH,
-            this.ModBW});
+            this.Type,
+            this.Size,
+            this.HitPoints,
+            this.MovementType,
+            this.AGIDataGridViewTextBoxColumn,
+            this.NKDataGridViewTextBoxColumn,
+            this.FKDataGridViewTextBoxColumn,
+            this.KODataGridViewTextBoxColumn,
+            this.WNDataGridViewTextBoxColumn,
+            this.EHDataGridViewTextBoxColumn});
             this.dataGridViewArchetypes.DataSource = this.archetypeBindingSource;
             this.dataGridViewArchetypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewArchetypes.Location = new System.Drawing.Point(0, 25);
@@ -259,75 +264,99 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // ModAGI
+            // Type
             // 
-            this.ModAGI.DataPropertyName = "ModAGI";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModAGI.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ModAGI.HeaderText = "AGI";
-            this.ModAGI.Name = "ModAGI";
-            this.ModAGI.ReadOnly = true;
-            this.ModAGI.Width = 35;
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Typ";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            this.Type.Width = 80;
             // 
-            // ModNK
+            // Size
             // 
-            this.ModNK.DataPropertyName = "ModNK";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModNK.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ModNK.HeaderText = "NK";
-            this.ModNK.Name = "ModNK";
-            this.ModNK.ReadOnly = true;
-            this.ModNK.Width = 35;
+            this.Size.DataPropertyName = "Size";
+            this.Size.HeaderText = "Größe";
+            this.Size.Name = "Size";
+            this.Size.ReadOnly = true;
+            this.Size.Width = 60;
             // 
-            // ModFK
+            // HitPoints
             // 
-            this.ModFK.DataPropertyName = "ModFK";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModFK.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ModFK.HeaderText = "FK";
-            this.ModFK.Name = "ModFK";
-            this.ModFK.ReadOnly = true;
-            this.ModFK.Width = 35;
+            this.HitPoints.DataPropertyName = "HitPoints";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.HitPoints.DefaultCellStyle = dataGridViewCellStyle2;
+            this.HitPoints.HeaderText = "TP";
+            this.HitPoints.Name = "HitPoints";
+            this.HitPoints.ReadOnly = true;
+            this.HitPoints.Width = 35;
             // 
-            // ModKO
+            // MovementType
             // 
-            this.ModKO.DataPropertyName = "ModKO";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModKO.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ModKO.HeaderText = "KO";
-            this.ModKO.Name = "ModKO";
-            this.ModKO.ReadOnly = true;
-            this.ModKO.Width = 35;
+            this.MovementType.DataPropertyName = "MovementType";
+            this.MovementType.HeaderText = "Bewegungsart";
+            this.MovementType.Name = "MovementType";
+            this.MovementType.ReadOnly = true;
+            this.MovementType.Width = 80;
             // 
-            // ModWN
+            // AGIDataGridViewTextBoxColumn
             // 
-            this.ModWN.DataPropertyName = "ModWN";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModWN.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ModWN.HeaderText = "WN";
-            this.ModWN.Name = "ModWN";
-            this.ModWN.ReadOnly = true;
-            this.ModWN.Width = 35;
+            this.AGIDataGridViewTextBoxColumn.DataPropertyName = "Attributes.AGI";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.AGIDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.AGIDataGridViewTextBoxColumn.HeaderText = "AGI";
+            this.AGIDataGridViewTextBoxColumn.Name = "AGIDataGridViewTextBoxColumn";
+            this.AGIDataGridViewTextBoxColumn.ReadOnly = true;
+            this.AGIDataGridViewTextBoxColumn.Width = 35;
             // 
-            // ModEH
+            // NKDataGridViewTextBoxColumn
             // 
-            this.ModEH.DataPropertyName = "ModEH";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModEH.DefaultCellStyle = dataGridViewCellStyle7;
-            this.ModEH.HeaderText = "EH";
-            this.ModEH.Name = "ModEH";
-            this.ModEH.ReadOnly = true;
-            this.ModEH.Width = 35;
+            this.NKDataGridViewTextBoxColumn.DataPropertyName = "Attributes.NK";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.NKDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.NKDataGridViewTextBoxColumn.HeaderText = "NK";
+            this.NKDataGridViewTextBoxColumn.Name = "NKDataGridViewTextBoxColumn";
+            this.NKDataGridViewTextBoxColumn.ReadOnly = true;
+            this.NKDataGridViewTextBoxColumn.Width = 35;
             // 
-            // ModBW
+            // FKDataGridViewTextBoxColumn
             // 
-            this.ModBW.DataPropertyName = "ModBW";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ModBW.DefaultCellStyle = dataGridViewCellStyle8;
-            this.ModBW.HeaderText = "BW";
-            this.ModBW.Name = "ModBW";
-            this.ModBW.ReadOnly = true;
-            this.ModBW.Width = 35;
+            this.FKDataGridViewTextBoxColumn.DataPropertyName = "Attributes.FK";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FKDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.FKDataGridViewTextBoxColumn.HeaderText = "FK";
+            this.FKDataGridViewTextBoxColumn.Name = "FKDataGridViewTextBoxColumn";
+            this.FKDataGridViewTextBoxColumn.ReadOnly = true;
+            this.FKDataGridViewTextBoxColumn.Width = 35;
+            // 
+            // KODataGridViewTextBoxColumn
+            // 
+            this.KODataGridViewTextBoxColumn.DataPropertyName = "Attributes.KO";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.KODataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.KODataGridViewTextBoxColumn.HeaderText = "KO";
+            this.KODataGridViewTextBoxColumn.Name = "KODataGridViewTextBoxColumn";
+            this.KODataGridViewTextBoxColumn.ReadOnly = true;
+            this.KODataGridViewTextBoxColumn.Width = 35;
+            // 
+            // WNDataGridViewTextBoxColumn
+            // 
+            this.WNDataGridViewTextBoxColumn.DataPropertyName = "Attributes.WN";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.WNDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.WNDataGridViewTextBoxColumn.HeaderText = "WN";
+            this.WNDataGridViewTextBoxColumn.Name = "WNDataGridViewTextBoxColumn";
+            this.WNDataGridViewTextBoxColumn.ReadOnly = true;
+            this.WNDataGridViewTextBoxColumn.Width = 35;
+            // 
+            // EHDataGridViewTextBoxColumn
+            // 
+            this.EHDataGridViewTextBoxColumn.DataPropertyName = "Attributes.EH";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.EHDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            this.EHDataGridViewTextBoxColumn.HeaderText = "EH";
+            this.EHDataGridViewTextBoxColumn.Name = "EHDataGridViewTextBoxColumn";
+            this.EHDataGridViewTextBoxColumn.ReadOnly = true;
+            this.EHDataGridViewTextBoxColumn.Width = 35;
             // 
             // ArchetypeManagerForm
             // 
@@ -372,12 +401,15 @@
         private System.Windows.Forms.ToolStripButton checkBoxFilterType;
         private System.Windows.Forms.DataGridViewImageColumn FactionIcon;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModAGI;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModNK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModFK;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModKO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModWN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModEH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModBW;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Size;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HitPoints;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MovementType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AGIDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FKDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EHDataGridViewTextBoxColumn;
     }
 }

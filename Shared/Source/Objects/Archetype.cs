@@ -26,6 +26,20 @@ namespace Universalis
             Description = archetype.Description;
             Faction = archetype.Faction;
             Size = archetype.Size;
+            HitPoints = archetype.HitPoints;
+            MovementType = archetype.MovementType;
+            Type = archetype.Type;
+
+            Attributes = new Attributes
+            {
+                AGI = archetype.Attributes.AGI,
+                BW = archetype.Attributes.BW,
+                KO = archetype.Attributes.KO,
+                NK = archetype.Attributes.NK,
+                FK = archetype.Attributes.FK,
+                WN = archetype.Attributes.WN,
+                EH = archetype.Attributes.EH
+            };
         }
 
         public bool Equals( Archetype archetype )
@@ -41,12 +55,35 @@ namespace Universalis
                 ||
                 Faction != archetype.Faction
                 ||
-                Size != archetype.Size )
+                Size != archetype.Size
+                ||
+                HitPoints != archetype.HitPoints
+                ||
+                MovementType != archetype.MovementType
+                ||
+                Type != archetype.Type )
             {
                 return( false );
             }
 
-            return( true );
+            if( Attributes.AGI != archetype.Attributes.AGI
+                ||
+                Attributes.BW != archetype.Attributes.BW
+                ||
+                Attributes.KO != archetype.Attributes.KO
+                ||
+                Attributes.NK != archetype.Attributes.NK
+                ||
+                Attributes.FK != archetype.Attributes.FK
+                ||
+                Attributes.WN != archetype.Attributes.WN
+                ||
+                Attributes.EH != archetype.Attributes.EH )
+            {
+                return ( false );
+            }
+
+            return ( true );
         }
 
 #region members
@@ -123,13 +160,77 @@ namespace Universalis
 
         public static readonly IList<EType> ETypeList = Enum.GetValues(typeof(EType)).Cast<EType>().ToList().AsReadOnly();
 
+        public Attributes Attributes
+        {
+            get;
+            set;
+        } = new Attributes
+        {
+            AGI = 4,
+            BW = 4,
+            KO = 4,
+            NK = 4,
+            FK = 4,
+            WN = 4,
+            EH = 4
+        };
+
         [JsonIgnore]
         public float Weight
         {
             get
             {
-                // TODO - calculate based on Type, Size and KO
-                return (0.0f);
+                float typeMultiplicator = 0.0f;
+
+                switch( this.Type )
+                {
+                    case EType.Infanterie:
+                        typeMultiplicator = 17.5f;
+                        break;
+
+                    case EType.Koloss:
+                    case EType.Mech:
+                        typeMultiplicator = 30.0f;
+                        break;
+
+                    case EType.Drohne:
+                        typeMultiplicator = 10.0f;
+                        break;
+
+                    case EType.Fahrzeug:
+                        // TODO
+                        typeMultiplicator = 50.0f;
+                        break;
+
+                    default:
+                        throw new InvalidOperationException( "unkown " + nameof( EType ) );
+                }
+
+                float sizeMultiplicator = 0.0f;
+
+                switch( this.Size )
+                {
+                    case ESize.Klein:
+                        sizeMultiplicator = 0.5f;
+                        break;
+
+                    case ESize.Mittel:
+                        sizeMultiplicator = 1.0f;
+                        break;
+
+                    case ESize.Groß:
+                        sizeMultiplicator = 2.0f;
+                        break;
+
+                    case ESize.Riesig:
+                        sizeMultiplicator = 3.0f;
+                        break;
+
+                    default:
+                        throw new InvalidOperationException( "unkown " + nameof( ESize ) );
+                }
+
+                return ( this.Attributes.KO * typeMultiplicator * sizeMultiplicator );
             }
         }
 

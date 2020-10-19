@@ -572,6 +572,7 @@ namespace Universalis
             set;
         } = new List<ActorTrait>();
 
+        // TODO Archetype - remove when ready
         public Attributes Attributes
         {
             get;
