@@ -14,12 +14,12 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
-            filterFaction.ComboBox.DataSource = MasterDataStorage.Faction.Factions.OrderBy(x => x.Name)
+            filterFaction.ComboBox.DataSource = MasterDataStorage.Faction.Factions.OrderBy( x => x.Name )
                                                                                   .ToList();
             filterFaction.ComboBox.DisplayMember = nameof(Faction.Name);
             filterFaction.ComboBox.SelectionChangeCommitted += FilterFaction_SelectionChangeCommitted;
 
-            filterType.ComboBox.DataSource = Actor.ETypeList;
+            filterType.ComboBox.DataSource = Profile.ETypeList;
             filterType.ComboBox.SelectionChangeCommitted += FilterType_SelectionChangeCommitted;
 
             dataGridViewArchetypes.CellFormatting += DataGridViewArchetypes_CellFormatting;
