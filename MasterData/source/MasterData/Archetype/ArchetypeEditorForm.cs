@@ -16,20 +16,20 @@ namespace Universalis
             m_modifiedArchetype = new Archetype( archetype );
 
             // fill the combobox for the size
-            comboBoxSize.DataSource = Archetype.ESizeList;
-            comboBoxSize.SelectedItem = m_modifiedArchetype.Size;
+            comboBoxSize.DataSource = Profile.ESizeList;
+            comboBoxSize.SelectedItem = m_modifiedArchetype.Profile.Size;
 
             // fill the combobox for the type
-            comboBoxType.DataSource = Archetype.ETypeList;
-            comboBoxType.SelectedItem = m_modifiedArchetype.Type;
+            comboBoxType.DataSource = Profile.ETypeList;
+            comboBoxType.SelectedItem = m_modifiedArchetype.Profile.Type;
 
             // fill the combobox for the MovementType
             comboBoxMovementType.DataSource = Enum.GetValues( typeof( EMovementType ) );
-            comboBoxMovementType.SelectedItem = m_modifiedArchetype.MovementType;
+            comboBoxMovementType.SelectedItem = m_modifiedArchetype.Profile.MovementType;
 
             archetypeBindingSource.DataSource = m_modifiedArchetype;
 
-            attributeBindingSource.DataSource = m_modifiedArchetype.Attributes;
+            attributeBindingSource.DataSource = m_modifiedArchetype.Profile.Attributes;
 
             attributeBindingSource.CurrentItemChanged += AttributeBindingSource_CurrentItemChanged;
         }
@@ -64,18 +64,18 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( m_modifiedArchetype.Attributes.BW > 0 ) && ( EMovementType.Stationär == m_modifiedArchetype.MovementType ) )
+            if( ( m_modifiedArchetype.Profile.Speed > 0 ) && ( EMovementType.Stationär == m_modifiedArchetype.Profile.MovementType ) )
             {
-                MessageBox.Show( "BW ist größer als 0. Daher bitte eine andere Bewegungsart als " + EMovementType.Stationär.ToString() + " auswählen!",
+                MessageBox.Show( "Geschwindigkeit ist größer als 0. Daher bitte eine andere Bewegungsart als " + EMovementType.Stationär.ToString() + " auswählen!",
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
                 return ( false );
             }
 
-            if( ( m_modifiedArchetype.Attributes.BW <= 0 ) && ( EMovementType.Stationär != m_modifiedArchetype.MovementType ) )
+            if( ( m_modifiedArchetype.Profile.Speed <= 0 ) && ( EMovementType.Stationär != m_modifiedArchetype.Profile.MovementType ) )
             {
-                MessageBox.Show( "BW ist kleiner/gleich 0. Daher bitte die Bewegungsart " + EMovementType.Stationär.ToString() + " auswählen!",
+                MessageBox.Show( "Geschwindigkeit ist kleiner/gleich 0. Daher bitte die Bewegungsart " + EMovementType.Stationär.ToString() + " auswählen!",
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
@@ -83,16 +83,16 @@ namespace Universalis
             }
 
             {
-                Archetype.ESize size = (Archetype.ESize)comboBoxSize.SelectedItem;
+                Profile.ESize size = (Profile.ESize)comboBoxSize.SelectedItem;
 
-                switch( (Archetype.EType)comboBoxType.SelectedItem )
+                switch( (Profile.EType)comboBoxType.SelectedItem )
                 {
-                    case Archetype.EType.Infanterie:
-                        if( ( size != Archetype.ESize.Klein )
+                    case Profile.EType.Infanterie:
+                        if( ( size != Profile.ESize.Klein )
                             &&
-                            ( size != Archetype.ESize.Mittel )
+                            ( size != Profile.ESize.Mittel )
                             &&
-                            ( size != Archetype.ESize.Groß ) )
+                            ( size != Profile.ESize.Groß ) )
                         {
                             MessageBox.Show( "Infanterie darf nur klein, mittel oder groß sein!",
                                              caption,
@@ -102,10 +102,10 @@ namespace Universalis
                         }
                         break;
 
-                    case Archetype.EType.Drohne:
-                        if( ( size != Archetype.ESize.Klein )
+                    case Profile.EType.Drohne:
+                        if( ( size != Profile.ESize.Klein )
                             &&
-                            ( size != Archetype.ESize.Mittel ) )
+                            ( size != Profile.ESize.Mittel ) )
                         {
                             MessageBox.Show( "Drohnen dürfen nur klein oder mittel sein!",
                                              caption,
@@ -115,11 +115,11 @@ namespace Universalis
                         }
                         break;
 
-                    case Archetype.EType.Mech:
-                    case Archetype.EType.Koloss:
-                        if( ( size != Archetype.ESize.Groß )
+                    case Profile.EType.Mech:
+                    case Profile.EType.Koloss:
+                        if( ( size != Profile.ESize.Groß )
                             &&
-                            ( size != Archetype.ESize.Riesig ) )
+                            ( size != Profile.ESize.Riesig ) )
                         {
                             MessageBox.Show( "Mechs und Kolosse müssen immer groß oder riesig sein!",
                                              caption,
@@ -129,8 +129,8 @@ namespace Universalis
                         }
                         break;
 
-                    case Archetype.EType.Fahrzeug:
-                        if( size == Archetype.ESize.Klein )
+                    case Profile.EType.Fahrzeug:
+                        if( size == Profile.ESize.Klein )
                         {
                             MessageBox.Show( "Fahrzeuge dürfen nicht klein sein!",
                                              caption,
@@ -141,7 +141,7 @@ namespace Universalis
                         break;
 
                     default:
-                        throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
+                        throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
                 }
             }
 

@@ -25,21 +25,8 @@ namespace Universalis
             Name = archetype.Name;
             Description = archetype.Description;
             Faction = archetype.Faction;
-            Size = archetype.Size;
-            HitPoints = archetype.HitPoints;
-            MovementType = archetype.MovementType;
-            Type = archetype.Type;
 
-            Attributes = new Attributes
-            {
-                AGI = archetype.Attributes.AGI,
-                BW = archetype.Attributes.BW,
-                KO = archetype.Attributes.KO,
-                NK = archetype.Attributes.NK,
-                FK = archetype.Attributes.FK,
-                WN = archetype.Attributes.WN,
-                EH = archetype.Attributes.EH
-            };
+            Profile.Set( archetype.Profile );            
         }
 
         public bool Equals( Archetype archetype )
@@ -53,32 +40,12 @@ namespace Universalis
                 ||
                 Description != archetype.Description
                 ||
-                Faction != archetype.Faction
-                ||
-                Size != archetype.Size
-                ||
-                HitPoints != archetype.HitPoints
-                ||
-                MovementType != archetype.MovementType
-                ||
-                Type != archetype.Type )
+                Faction != archetype.Faction )
             {
                 return( false );
             }
 
-            if( Attributes.AGI != archetype.Attributes.AGI
-                ||
-                Attributes.BW != archetype.Attributes.BW
-                ||
-                Attributes.KO != archetype.Attributes.KO
-                ||
-                Attributes.NK != archetype.Attributes.NK
-                ||
-                Attributes.FK != archetype.Attributes.FK
-                ||
-                Attributes.WN != archetype.Attributes.WN
-                ||
-                Attributes.EH != archetype.Attributes.EH )
+            if( !Profile.Equals( archetype.Profile ) )
             {
                 return ( false );
             }
@@ -112,125 +79,72 @@ namespace Universalis
             get;
             set;
         }
-
-        public ESize Size
+ 
+        public Profile Profile
         {
             get;
             set;
-        } = ESize.Mittel;
-
-        public int HitPoints
-        {
-            get;
-            set;
-        } = 5;
-
-        public EMovementType MovementType
-        {
-            get;
-            set;
-        } = EMovementType.Fuss;
+        }
 
         #endregion members
 
-        public EType Type
-        {
-            get;
-            set;
-        } = EType.Infanterie;
-
-        public enum ESize
-        {
-            Klein = 1,
-            Mittel = 2,
-            Groß = 3,
-            Riesig = 4
-        }
-
-        public static readonly IList<ESize> ESizeList = Enum.GetValues(typeof(ESize)).Cast<ESize>().ToList().AsReadOnly();
-
-        public enum EType
-        {
-            Infanterie = 1,
-            Mech = 2,
-            Koloss = 3,
-            Fahrzeug = 4,
-            Drohne = 5
-        }
-
-        public static readonly IList<EType> ETypeList = Enum.GetValues(typeof(EType)).Cast<EType>().ToList().AsReadOnly();
-
-        public Attributes Attributes
-        {
-            get;
-            set;
-        } = new Attributes
-        {
-            AGI = 4,
-            BW = 4,
-            KO = 4,
-            NK = 4,
-            FK = 4,
-            WN = 4,
-            EH = 4
-        };
-
         [JsonIgnore]
+        // TODO move to Profile?
         public float Weight
         {
             get
             {
                 float typeMultiplicator = 0.0f;
 
-                switch( this.Type )
+                switch( this.Profile.Type )
                 {
-                    case EType.Infanterie:
+                    case Profile.EType.Infanterie:
                         typeMultiplicator = 17.5f;
                         break;
 
-                    case EType.Koloss:
-                    case EType.Mech:
+                    case Profile.EType.Koloss:
+                    case Profile.EType.Mech:
                         typeMultiplicator = 30.0f;
                         break;
 
-                    case EType.Drohne:
+                    case Profile.EType.Drohne:
                         typeMultiplicator = 10.0f;
                         break;
 
-                    case EType.Fahrzeug:
+                    case Profile.EType.Fahrzeug:
                         // TODO
                         typeMultiplicator = 50.0f;
                         break;
 
                     default:
-                        throw new InvalidOperationException( "unkown " + nameof( EType ) );
+                        throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
                 }
 
                 float sizeMultiplicator = 0.0f;
 
-                switch( this.Size )
+                switch( this.Profile.Size )
                 {
-                    case ESize.Klein:
+                    case Profile.ESize.Klein:
                         sizeMultiplicator = 0.5f;
                         break;
 
-                    case ESize.Mittel:
+                    case Profile.ESize.Mittel:
                         sizeMultiplicator = 1.0f;
                         break;
 
-                    case ESize.Groß:
+                    case Profile.ESize.Groß:
                         sizeMultiplicator = 2.0f;
                         break;
 
-                    case ESize.Riesig:
+                    case Profile.ESize.Riesig:
                         sizeMultiplicator = 3.0f;
                         break;
 
                     default:
-                        throw new InvalidOperationException( "unkown " + nameof( ESize ) );
+                        throw new InvalidOperationException( "unkown " + nameof( Profile.ESize ) );
                 }
 
-                return ( this.Attributes.KO * typeMultiplicator * sizeMultiplicator );
+                return ( this.Profile.Attributes.KO * typeMultiplicator * sizeMultiplicator );
             }
         }
 

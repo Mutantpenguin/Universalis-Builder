@@ -79,7 +79,7 @@ namespace Universalis
         private void refreshGridView()
         {
             List<Archetype> archetype = MasterDataStorage.Archetype.Archetypes.Where( s => filterFaction.Enabled ? s.Faction.ID == ((Faction)filterFaction.ComboBox.SelectedValue).ID : true )
-                                                                              .Where( s => filterType.Enabled ? s.Type == ((Archetype.EType)filterType.ComboBox.SelectedValue) : true )
+                                                                              .Where( s => filterType.Enabled ? s.Profile.Type == ((Profile.EType)filterType.ComboBox.SelectedValue) : true )
                                                                               .Where( s => s.Name.ToUpper().Contains(toolStripTextBoxSearch.Text.ToUpper()))
                                                                               .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                               .OrderBy( x => x.Name )

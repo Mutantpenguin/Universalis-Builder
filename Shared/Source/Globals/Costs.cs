@@ -6,7 +6,7 @@ namespace Universalis
     {
         // Attributes
         public const int AGI = 10;
-        public const int BW = 10;
+        public const int Speed = 10;
         public const int KO = 15;
         public const int NK = 10;
         public const int FK = 10;

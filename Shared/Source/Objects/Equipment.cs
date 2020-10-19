@@ -29,22 +29,13 @@ namespace Universalis
 
             UseOnce = equipment.UseOnce;
 
-            if( null != equipment.AttributeModifier )
+            if( null != equipment.ProfileModifier )
             {
-                AttributeModifier = new AttributeModifier
-                {
-                    AGI = equipment.AttributeModifier.AGI,
-                    BW = equipment.AttributeModifier.BW,
-                    KO = equipment.AttributeModifier.KO,
-                    NK = equipment.AttributeModifier.NK,
-                    FK = equipment.AttributeModifier.FK,
-                    WN = equipment.AttributeModifier.WN,
-                    EH = equipment.AttributeModifier.EH
-                };
+                ProfileModifier = new ProfileModifier( equipment.ProfileModifier );
             }
             else
             {
-                AttributeModifier = null;
+                ProfileModifier = null;
             }
         }
 
@@ -72,19 +63,19 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( null != AttributeModifier ) && ( null == equipment.AttributeModifier ) )
+            if( ( null != ProfileModifier ) && ( null == equipment.ProfileModifier ) )
             {
                 return ( false );
             }
 
-            if( ( null == AttributeModifier ) && ( null != equipment.AttributeModifier ) )
+            if( ( null == ProfileModifier ) && ( null != equipment.ProfileModifier ) )
             {
                 return ( false );
             }
 
-            if( ( null != AttributeModifier ) && ( null != equipment.AttributeModifier ) )
+            if( ( null != ProfileModifier ) && ( null != equipment.ProfileModifier ) )
             {
-                if( !AttributeModifier.Equals( equipment.AttributeModifier ) )
+                if( !ProfileModifier.Equals( equipment.ProfileModifier ) )
                 {
                     return ( false );
                 }
@@ -141,7 +132,7 @@ namespace Universalis
             set;
         } = 0;
 
-        public AttributeModifier AttributeModifier
+        public ProfileModifier ProfileModifier
         {
             get;
             set;

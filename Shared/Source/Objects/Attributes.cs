@@ -5,13 +5,52 @@ namespace Universalis
 {
     public class Attributes
     {
-        public int AGI
+        public Attributes()
         {
-            get;
-            set;
+            AGI = 4;
+            KO = 4;
+            NK = 4;
+            FK = 4;
+            WN = 4;
+            EH = 4;
         }
 
-        public int BW
+        public Attributes( Attributes attributes )
+        {
+            Set( attributes );
+        }
+
+        public void Set( Attributes attributes )
+        {
+            AGI = attributes.AGI;
+            KO = attributes.KO;
+            NK = attributes.NK;
+            FK = attributes.FK;
+            WN = attributes.WN;
+            EH = attributes.EH;
+        }
+
+        public bool Equals( Attributes attributes )
+        {
+            if( AGI != attributes.AGI
+                ||
+                KO != attributes.KO
+                ||
+                NK != attributes.NK
+                ||
+                FK != attributes.FK
+                ||
+                WN != attributes.WN
+                ||
+                EH != attributes.EH )
+            {
+                return( false );
+            }
+
+            return( true );
+        }
+
+        public int AGI
         {
             get;
             set;
@@ -55,16 +94,6 @@ namespace Universalis
             }
 
             return ( AGI + modifier.AGI );
-        }
-
-        public int ModBW( AttributeModifier modifier )
-        {
-            if( modifier == null )
-            {
-                throw new ArgumentNullException( nameof( modifier ) );
-            }
-
-            return ( BW + modifier.BW );
         }
 
         public int ModKO( AttributeModifier modifier )
