@@ -671,7 +671,7 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( m_actorModified.ModBW( CurrentOutfit() ) <= 0 ) && ( EMovementType.Stationär != m_actorModified.Archetype.Profile.MovementType ) )
+            if( ( m_actorModified.ModSpeed( CurrentOutfit() ) <= 0 ) && ( EMovementType.Stationär != m_actorModified.Archetype.Profile.MovementType ) )
             {
                 MessageBox.Show( "Geschwindigkeit ist kleiner/gleich 0, die Bewegungsart ist aber nicht stationär. Speichern wird abgebrochen.",
                                  caption,

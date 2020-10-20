@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Universalis
 {
@@ -15,22 +16,6 @@ namespace Universalis
             FK = attributeModifier.FK;
             WN = attributeModifier.WN;
             EH = attributeModifier.EH;
-        }
-
-        public static string Format( int attribute )
-        {
-            if( attribute == 0 )
-            {
-                return ( null );
-            }
-            else if( attribute > 0 )
-            {
-                return ( "+" + attribute );
-            }
-            else
-            {
-                return ( attribute.ToString() );
-            }
         }
 
         public bool Equals( AttributeModifier attributeModifier )
@@ -64,32 +49,32 @@ namespace Universalis
 
             if( AGI != 0 )
             {
-                text += $"AGI {Format( AGI )}";
+                text += $"AGI {Formatter.Modifier( AGI )}";
             }
 
             if( KO != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KO {Format( KO )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KO {Formatter.Modifier( KO )}";
             }
 
             if( NK != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"NK {Format( NK )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"NK {Formatter.Modifier( NK )}";
             }
 
             if( FK != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"FK {Format( FK )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"FK {Formatter.Modifier( FK )}";
             }
 
             if( WN != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"WN {Format( WN )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"WN {Formatter.Modifier( WN )}";
             }
 
             if( EH != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"EH {Format( EH )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"EH {Formatter.Modifier( EH )}";
             }
 
             return ( text );
@@ -159,5 +144,64 @@ namespace Universalis
             set;
         }
         #endregion attributes
+
+        #region attribute_strings
+
+        [JsonIgnore]
+        public string AGIString
+        {
+            get
+            {
+                return ( Formatter.Modifier( AGI ) );
+            }
+        }
+
+
+        [JsonIgnore]
+        public string KOString
+        {
+            get
+            {
+                return ( Formatter.Modifier( KO ) );
+            }
+        }
+
+        [JsonIgnore]
+        public string NKString
+        {
+            get
+            {
+                return ( Formatter.Modifier( NK ) );
+            }
+        }
+
+        [JsonIgnore]
+        public string FKString
+        {
+            get
+            {
+                return ( Formatter.Modifier( FK ) );
+            }
+        }
+
+        [JsonIgnore]
+        public string WNString
+        {
+            get
+            {
+                return ( Formatter.Modifier( WN ) );
+            }
+        }
+
+        [JsonIgnore]
+        public string EHString
+        {
+            get
+            {
+                return ( Formatter.Modifier( EH ) );
+            }
+        }
+
+        #endregion attribute_strings
     }
 }

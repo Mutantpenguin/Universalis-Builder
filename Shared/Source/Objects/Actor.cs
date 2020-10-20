@@ -178,9 +178,6 @@ namespace Universalis
             set;
         } = 75.0f;
 
-        [JsonIgnore]
-        public int HitZoneHitPoints => ( Convert.ToInt32( Math.Ceiling( HitPoints * Presets.HitZoneHitPointsMultiplier ) ) );
-
         [JsonConverter( typeof( JsonImageConverter ) )]
         public Bitmap Icon
         {
@@ -500,18 +497,18 @@ namespace Universalis
             }
             else
             {
-                return ( Attributes.ModAGI( CurrentProfileModifier( actorOutfit ).AttributeModifier ) - ModLoadModifier( actorOutfit ) );
+                return ( Archetype.Profile.Attributes.ModAGI( CurrentProfileModifier( actorOutfit ).AttributeModifier ) - ModLoadModifier( actorOutfit ) );
             }
         }
 
-        public int ModBW( ActorOutfit actorOutfit )
+        public int ModSpeed( ActorOutfit actorOutfit )
         {
-            return ( Attributes.ModBW( CurrentProfileModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
+            return ( Archetype.Profile.ModSpeed( CurrentProfileModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
         }
 
         public int ModKO( ActorOutfit actorOutfit )
         {
-            return ( Attributes.ModKO( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+            return ( Archetype.Profile.Attributes.ModKO( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
         }
 
         public int? ModNK( ActorOutfit actorOutfit )
@@ -522,7 +519,7 @@ namespace Universalis
             }
             else
             {
-                return ( Attributes.ModNK( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+                return ( Archetype.Profile.Attributes.ModNK( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
             }
         }
         public int? ModFK( ActorOutfit actorOutfit )
@@ -533,13 +530,13 @@ namespace Universalis
             }
             else
             {
-                return ( Attributes.ModFK( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+                return ( Archetype.Profile.Attributes.ModFK( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
             }
         }
 
         public int ModWN( ActorOutfit actorOutfit )
         {
-            return ( Attributes.ModWN( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+            return ( Archetype.Profile.Attributes.ModWN( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
         }
 
         public int? ModEH( ActorOutfit actorOutfit )
@@ -550,7 +547,7 @@ namespace Universalis
             }
             else
             {
-                return ( Attributes.ModEH( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+                return ( Archetype.Profile.Attributes.ModEH( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
             }
         }
 #endregion attributes
@@ -564,7 +561,7 @@ namespace Universalis
             }
             else
             {
-                int lengthDangerArea = Presets.MaxLengthDangerArea - Attributes.ModEH( CurrentProfileModifier( actorOutfit ).AttributeModifier );
+                int lengthDangerArea = Presets.MaxLengthDangerArea - Archetype.Profile.Attributes.ModEH( CurrentProfileModifier( actorOutfit ).AttributeModifier );
 
                 if( lengthDangerArea < 0 )
                 {
@@ -579,7 +576,7 @@ namespace Universalis
 
         public int ModAreaOfPerception( ActorOutfit actorOutfit )
         {
-            return ( Presets.AreaOfPerceptionMultiplier * Attributes.ModWN( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+            return ( Presets.AreaOfPerceptionMultiplier * Archetype.Profile.Attributes.ModWN( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
         }
 
         public static string ThrowRange( int attributeKO )
@@ -589,20 +586,22 @@ namespace Universalis
 
         public float ModMaxLoadCapacity( ActorOutfit actorOutfit )
         {
+            int modKO = Archetype.Profile.Attributes.ModKO( CurrentProfileModifier( actorOutfit ).AttributeModifier );
+
             switch( this.Archetype.Profile.Type )
             {
                 case Profile.EType.Infanterie:
                 case Profile.EType.Drohne:
-                    return ( Convert.ToSingle( Math.Pow( Attributes.ModKO( CurrentProfileModifier( actorOutfit ).AttributeModifier ), 2 ) ) );
+                    return ( Convert.ToSingle( Math.Pow( modKO, 2 ) ) );
 
                 case Profile.EType.Mech:
-                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentProfileModifier( actorOutfit ).AttributeModifier ) * Presets.MechLoadCapacityMultiplier ), 2 ) ) );
+                    return ( Convert.ToSingle( Math.Pow( ( modKO * Presets.MechLoadCapacityMultiplier ), 2 ) ) );
 
                 case Profile.EType.Koloss:
-                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentProfileModifier( actorOutfit ).AttributeModifier ) * Presets.ColossusLoadCapacityMultiplier ), 2 ) ) );
+                    return ( Convert.ToSingle( Math.Pow( ( modKO * Presets.ColossusLoadCapacityMultiplier ), 2 ) ) );
 
                 case Profile.EType.Fahrzeug:
-                    return ( Convert.ToSingle( Math.Pow( ( Attributes.ModKO( CurrentProfileModifier( actorOutfit ).AttributeModifier ) * Presets.FahrzeugLoadCapacityMultiplier ), 2 ) ) );
+                    return ( Convert.ToSingle( Math.Pow( ( modKO * Presets.FahrzeugLoadCapacityMultiplier ), 2 ) ) );
 
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
@@ -764,40 +763,7 @@ namespace Universalis
         {
             int points = 0;
 
-            if( this.Archetype.Profile.Type != Profile.EType.Drohne )
-            {
-                points += Attributes.AGI * Costs.AGI;
-                points += Attributes.NK * Costs.NK;
-                points += Attributes.FK * Costs.FK;
-                points += Attributes.EH * Costs.EH;
-            }
-
-            // TODO no BW anymore, just Speed
-            // points += Attributes.BW * Costs.Speed;
-
-            points += Attributes.KO * Costs.KO;
-            points += Attributes.WN * Costs.WN;
-
-            switch( this.Archetype.Profile.Type )
-            {
-                case Profile.EType.Infanterie:
-                case Profile.EType.Drohne:
-                case Profile.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
-                    points += HitPoints * Costs.Hitpoints;
-                    break;
-
-                case Profile.EType.Mech:
-                case Profile.EType.Koloss:
-                    points += ( HitPoints * Costs.Hitpoints ) + ( 3 * HitZoneHitPoints * Costs.Hitpoints );
-                    break;
-
-                default:
-                    throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
-            }
-
-            points += (int)Fov * Costs.FOV;
-
-            points += Costs.movementCost( Archetype.Profile.MovementType );
+            points += Archetype.Profile.Points();
 
             if( null != Armor )
             {

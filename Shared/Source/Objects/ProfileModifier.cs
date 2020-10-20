@@ -64,5 +64,32 @@ namespace Universalis
 
             return( points );
         }
+
+        public override string ToString()
+        {
+            string text = String.Empty;
+
+            if( Speed != 0 )
+            {
+                text += $"Geschwindigkeit {Formatter.Modifier( Speed )}";
+            }
+
+            if( HitPoints != 0 )
+            {
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"TP {Formatter.Modifier( HitPoints )}";
+            }
+
+            if( AttributeModifier != null )
+            {
+                string attributeModifierString = AttributeModifier.ToString();
+
+                if( !String.IsNullOrEmpty( attributeModifierString ) )
+                {
+                    text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + attributeModifierString;
+                }
+            }
+
+            return ( text );
+        }
     }
 }

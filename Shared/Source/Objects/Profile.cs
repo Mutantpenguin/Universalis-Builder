@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -130,6 +131,51 @@ namespace Universalis
             }
 
             return ( HitPoints + modifier.HitPoints );
+        }
+
+        [JsonIgnore]
+        public int HitZoneHitPoints => ( Convert.ToInt32( Math.Ceiling( HitPoints * Presets.HitZoneHitPointsMultiplier ) ) );
+
+        public int Points()
+        {
+            int points = 0;
+
+            if( Type != Profile.EType.Drohne )
+            {
+                points += Attributes.AGI * Costs.AGI;
+                points += Attributes.NK * Costs.NK;
+                points += Attributes.FK * Costs.FK;
+                points += Attributes.EH * Costs.EH;
+            }
+
+            // TODO no BW anymore, just Speed
+            // points += Attributes.BW * Costs.Speed;
+
+            points += Attributes.KO * Costs.KO;
+            points += Attributes.WN * Costs.WN;
+
+            switch( Type )
+            {
+                case Profile.EType.Infanterie:
+                case Profile.EType.Drohne:
+                case Profile.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
+                    points += HitPoints * Costs.HitPoints;
+                    break;
+
+                case Profile.EType.Mech:
+                case Profile.EType.Koloss:
+                    points += ( HitPoints * Costs.HitPoints ) + ( 3 * HitZoneHitPoints * Costs.HitPoints );
+                    break;
+
+                default:
+                    throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
+            }
+
+            points += (int)Fov * Costs.FOV;
+
+            points += Costs.movementCost( MovementType );
+
+            return ( points );
         }
     }
 }

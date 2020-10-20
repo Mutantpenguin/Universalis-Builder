@@ -281,7 +281,7 @@ namespace Universalis
             // WB - Wahrnehmungsbereich
             g.DrawImage( Properties.Resources.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
 
-            string fovAndModWbString = $"{(int)actor.Fov}°/{actor.ModAreaOfPerception( actorOutfit )}cm";
+            string fovAndModWbString = $"{(int)actor.Archetype.Profile.Fov}°/{actor.ModAreaOfPerception( actorOutfit )}cm";
             Size fovAndModWbSize = g.MeasureString( fovAndModWbString, FontStandard ).ToSize();
             Helpers.DrawStringCentered( g, fovAndModWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
 
@@ -306,7 +306,7 @@ namespace Universalis
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
 
-                    DrawHitPointCirclesVertical( g, actor.HitPoints, posX, posY, SHitPointSize );
+                    DrawHitPointCirclesVertical( g, actor.Archetype.Profile.HitPoints, posX, posY, SHitPointSize );
                     break;
 
                 case Profile.EType.Mech:
@@ -326,16 +326,16 @@ namespace Universalis
                     int widthLegs = widthMain;
 
                     // main
-                    DrawHitPointCirclesHorizonzal( g, actor.HitPoints, posXMain, posYMain, widthMain, down: true );
+                    DrawHitPointCirclesHorizonzal( g, actor.Archetype.Profile.HitPoints, posXMain, posYMain, widthMain, down: true );
 
                     // left arm
-                    DrawHitPointCirclesVertical( g, actor.HitZoneHitPoints, posXArmLeft, posYArmLeft, SHitPointSize );
+                    DrawHitPointCirclesVertical( g, actor.Archetype.Profile.HitZoneHitPoints, posXArmLeft, posYArmLeft, SHitPointSize );
 
                     // right arm
-                    DrawHitPointCirclesVertical( g, actor.HitZoneHitPoints, posXArmRight, posYArmRight, SHitPointSize );
+                    DrawHitPointCirclesVertical( g, actor.Archetype.Profile.HitZoneHitPoints, posXArmRight, posYArmRight, SHitPointSize );
 
                     // legs
-                    DrawHitPointCirclesHorizonzal( g, actor.HitZoneHitPoints, posXLegs, posYLegs, widthLegs, down: false );
+                    DrawHitPointCirclesHorizonzal( g, actor.Archetype.Profile.HitZoneHitPoints, posXLegs, posYLegs, widthLegs, down: false );
                     break;
 
                 default:
@@ -423,7 +423,7 @@ namespace Universalis
         {
             int sizeX = DrawType( g, XAttrThirdColumn, actor.Archetype.Profile.Type );
             int movementX = DrawSize( g, sizeX, actor.Archetype.Profile.Size );
-            int weightX = DrawMovement( g, movementX, actor.Archetype.Profile.MovementType, actor.ModBW( actorOutfit ) );
+            int weightX = DrawMovement( g, movementX, actor.Archetype.Profile.MovementType, actor.ModSpeed( actorOutfit ) );
             DrawWeight( g, weightX, actor, actorOutfit );
         }
 
