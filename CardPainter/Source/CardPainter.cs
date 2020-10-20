@@ -298,19 +298,19 @@ namespace Universalis
         {
             int margin = CmToPixel( 0.1 );
 
-            switch( actor.Type )
+            switch( actor.Archetype.Profile.Type )
             {
-                case Actor.EType.Infanterie:
-                case Actor.EType.Drohne:
-                case Actor.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
+                case Profile.EType.Infanterie:
+                case Profile.EType.Drohne:
+                case Profile.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
 
                     DrawHitPointCirclesVertical( g, actor.HitPoints, posX, posY, SHitPointSize );
                     break;
 
-                case Actor.EType.Mech:
-                case Actor.EType.Koloss:
+                case Profile.EType.Mech:
+                case Profile.EType.Koloss:
                     int posXArmLeft = SPictureRect.X + margin;
                     int posYArmLeft = SPictureRect.Y + margin;
 
@@ -339,7 +339,7 @@ namespace Universalis
                     break;
 
                 default:
-                    throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
+                    throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
             }            
         }
 
@@ -421,13 +421,13 @@ namespace Universalis
 
         private static void DrawMisc( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
-            int sizeX = DrawType( g, XAttrThirdColumn, actor.Type );
-            int movementX = DrawSize( g, sizeX, actor.Size );
-            int weightX = DrawMovement( g, movementX, actor.MovementType, actor.ModBW( actorOutfit ) );
+            int sizeX = DrawType( g, XAttrThirdColumn, actor.Archetype.Profile.Type );
+            int movementX = DrawSize( g, sizeX, actor.Archetype.Profile.Size );
+            int weightX = DrawMovement( g, movementX, actor.Archetype.Profile.MovementType, actor.ModBW( actorOutfit ) );
             DrawWeight( g, weightX, actor, actorOutfit );
         }
 
-        private static int DrawType( Graphics g, int xOffset, Actor.EType type )
+        private static int DrawType( Graphics g, int xOffset, Profile.EType type )
         {
             int width = SLineHeight;
 
@@ -435,28 +435,28 @@ namespace Universalis
 
             switch( type )
             {
-                case Actor.EType.Infanterie:
+                case Profile.EType.Infanterie:
                     g.DrawImage( Properties.Resources.Infanterie, rect );
                     break;
 
-                case Actor.EType.Mech:
+                case Profile.EType.Mech:
                     g.DrawImage( Properties.Resources.Mech, rect );
                     break;
 
-                case Actor.EType.Koloss:
+                case Profile.EType.Koloss:
                     g.DrawImage( Properties.Resources.Koloss, rect );
                     break;
 
-                case Actor.EType.Fahrzeug:
+                case Profile.EType.Fahrzeug:
                     g.DrawImage( Properties.Resources.Fahrzeug, rect );
                     break;
 
-                case Actor.EType.Drohne:
+                case Profile.EType.Drohne:
                     g.DrawImage( Properties.Resources.Drohne, rect );
                     break;
 
                 default:
-                    throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
+                    throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
             }
 
             g.DrawRectangle( SLinePenBlack, rect );
@@ -464,30 +464,30 @@ namespace Universalis
             return ( xOffset + width );
         }
 
-        private static int DrawSize( Graphics g, int xOffset, Actor.ESize size )
+        private static int DrawSize( Graphics g, int xOffset, Profile.ESize size )
         {
             Bitmap img;
 
             switch( size )
             {
-                case Actor.ESize.Klein :
+                case Profile.ESize.Klein :
                     img = Properties.Resources.klein;
                     break;
 
-                case Actor.ESize.Mittel :
+                case Profile.ESize.Mittel :
                     img = Properties.Resources.mittel;
                     break;
 
-                case Actor.ESize.Groß :
+                case Profile.ESize.Groß :
                     img = Properties.Resources.groß;
                     break;
 
-                case Actor.ESize.Riesig:
+                case Profile.ESize.Riesig:
                     img = Properties.Resources.riesig;
                     break;
 
                 default:
-                    throw new InvalidOperationException( "unkown " + nameof( Actor.ESize ) );
+                    throw new InvalidOperationException( "unkown " + nameof( Profile.ESize ) );
             }
 
             int width = SLineHeight;

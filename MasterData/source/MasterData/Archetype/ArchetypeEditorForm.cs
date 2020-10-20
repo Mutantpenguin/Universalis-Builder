@@ -27,6 +27,10 @@ namespace Universalis
             comboBoxMovementType.DataSource = Enum.GetValues( typeof( EMovementType ) );
             comboBoxMovementType.SelectedItem = m_modifiedArchetype.Profile.MovementType;
 
+            // fill the combobox for the FieldOfView
+            comboBoxFOV.DataSource = Enum.GetValues( typeof( EFieldOfView ) );
+            comboBoxFOV.SelectedItem = m_modifiedArchetype.Profile.Fov;
+
             archetypeBindingSource.DataSource = m_modifiedArchetype;
 
             attributeBindingSource.DataSource = m_modifiedArchetype.Profile.Attributes;

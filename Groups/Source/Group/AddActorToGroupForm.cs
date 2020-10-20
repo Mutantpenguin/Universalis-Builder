@@ -13,7 +13,7 @@ namespace Universalis
 
             m_factionID = factionID;
 
-            filterType.ComboBox.DataSource = Actor.ETypeList;
+            filterType.ComboBox.DataSource = Profile.ETypeList;
             filterType.ComboBox.SelectionChangeCommitted += FilterType_SelectionChangeCommitted;
 
             updateDataGridViewActors();
@@ -26,7 +26,7 @@ namespace Universalis
         private void updateDataGridViewActors()
         {
             actorBindingSource.DataSource = MasterDataStorage.Actor.Actors.Where( x => x.Faction.ID == m_factionID )
-                                                                          .Where( s => filterType.Enabled ? s.Type == ( (Actor.EType)filterType.ComboBox.SelectedValue ) : true )
+                                                                          .Where( s => filterType.Enabled ? s.Archetype.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
                                                                           .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                           .OrderBy( x => x.Name )
                                                                           .ToList();
