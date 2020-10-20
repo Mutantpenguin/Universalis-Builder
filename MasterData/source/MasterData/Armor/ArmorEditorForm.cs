@@ -32,7 +32,7 @@ namespace Universalis
             }
             else
             {
-                tableLayoutPanelProfileMods.Enabled = false;
+                panelProfileMods.Enabled = false;
             }
 
             comboBoxCamouflage.DataSource = Armor.ECamouflageList;
@@ -165,7 +165,7 @@ namespace Universalis
                 profileModifierBindingSource.DataSource = profileModifier;
                 attributeModifierBindingSource.DataSource = profileModifier.AttributeModifier;
 
-                tableLayoutPanelProfileMods.Enabled = true;
+                panelProfileMods.Enabled = true;
             }
             else
             {
@@ -176,7 +176,7 @@ namespace Universalis
                 profileModifierBindingSource.DataSource = typeof( ProfileModifier );
                 attributeModifierBindingSource.DataSource = typeof( AttributeModifier );
 
-                tableLayoutPanelProfileMods.Enabled = false;
+                panelProfileMods.Enabled = false;
             }
         }
 

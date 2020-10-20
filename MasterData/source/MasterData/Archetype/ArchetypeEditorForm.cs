@@ -28,7 +28,7 @@ namespace Universalis
             comboBoxFOV.DataSource = Enum.GetValues( typeof( EFieldOfView ) );
 
             archetypeBindingSource.DataSource = m_modifiedArchetype;
-
+            profileBindingSource.DataSource = m_modifiedArchetype.Profile;
             attributeBindingSource.DataSource = m_modifiedArchetype.Profile.Attributes;
 
             attributeBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
