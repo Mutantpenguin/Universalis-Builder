@@ -20,7 +20,7 @@ namespace Universalis
             filterFaction.ComboBox.DisplayMember = nameof( Faction.Name );
             filterFaction.ComboBox.SelectionChangeCommitted += FilterFaction_SelectionChangeCommitted;
 
-            filterType.ComboBox.DataSource = Actor.ETypeList;
+            filterType.ComboBox.DataSource = Profile.ETypeList;
             filterType.ComboBox.SelectionChangeCommitted += FilterType_SelectionChangeCommitted;
 
             RefreshActorsGridView();
@@ -125,7 +125,7 @@ namespace Universalis
         private void RefreshActorsGridView()
         {
             List<Actor> actors = MasterDataStorage.Actor.Actors.Where( s => filterFaction.Enabled ? s.Faction.ID == ( (Faction)filterFaction.ComboBox.SelectedValue ).ID : true )
-                                                               .Where( s => filterType.Enabled ? s.Type == ( (Actor.EType)filterType.ComboBox.SelectedValue ) : true )
+                                                               .Where( s => filterType.Enabled ? s.Archetype.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
                                                                .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                .OrderBy( x => x.Name )
                                                                .ToList();

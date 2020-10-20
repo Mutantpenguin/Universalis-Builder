@@ -23,11 +23,11 @@ namespace Universalis
             eTraitLevelBindingSource.DataSource = TraitLevel.ELevelList;
 
             // fill the combobox for the size
-            comboBoxSize.DataSource = Actor.ESizeList;
+            comboBoxSize.DataSource = Profile.ESizeList;
             comboBoxSize.SelectedItem = m_actorModified.Size;
 
             // fill the combobox for the type
-            comboBoxType.DataSource = Actor.ETypeList;
+            comboBoxType.DataSource = Profile.ETypeList;
             comboBoxType.SelectedItem = m_actorModified.Type;
 
             // fill the combobox for the MovementType
@@ -154,14 +154,14 @@ namespace Universalis
 
         private void comboBoxSize_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            m_actorModified.Size = (Actor.ESize)comboBoxSize.SelectedItem;
+            m_actorModified.Size = (Profile.ESize)comboBoxSize.SelectedItem;
 
             updateFields();
         }
 
         private void comboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            m_actorModified.Type = (Actor.EType)comboBoxType.SelectedItem;
+            m_actorModified.Type = (Profile.EType)comboBoxType.SelectedItem;
 
             updateFields();
         }
@@ -196,7 +196,7 @@ namespace Universalis
 #region update
         private void updateFields()
         {
-            if( m_actorModified.Type == Actor.EType.Drohne )
+            if( m_actorModified.Archetype.Profile.Type == Profile.EType.Drohne )
             {
                 labelAGI.Visible = false;
                 AttribAGI.Visible = false;
@@ -671,85 +671,13 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( m_actorModified.ModBW( CurrentOutfit() ) > 0 ) && ( EMovementType.Stationär == m_actorModified.MovementType ) )
+            if( ( m_actorModified.ModBW( CurrentOutfit() ) <= 0 ) && ( EMovementType.Stationär != m_actorModified.Archetype.Profile.MovementType ) )
             {
-                MessageBox.Show( "BW ist größer als 0. Daher bitte eine andere Bewegungsart als " + EMovementType.Stationär.ToString() + " auswählen!",
+                MessageBox.Show( "Geschwindigkeit ist kleiner/gleich 0, die Bewegungsart ist aber nicht stationär. Speichern wird abgebrochen.",
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
                 return ( false );
-            }
-
-            if( ( m_actorModified.ModBW( CurrentOutfit() ) <= 0 ) && ( EMovementType.Stationär != m_actorModified.MovementType ) )
-            {
-                MessageBox.Show( "BW ist kleiner/gleich 0. Daher bitte die Bewegungsart " + EMovementType.Stationär.ToString() + " auswählen!",
-                                 caption,
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.Stop );
-                return ( false );
-            }
-
-            {
-                Actor.ESize size = (Actor.ESize)comboBoxSize.SelectedItem;
-
-                switch( (Actor.EType)comboBoxType.SelectedItem )
-                {
-                    case Actor.EType.Infanterie:
-                        if( ( size != Actor.ESize.Klein )
-                            &&
-                            ( size != Actor.ESize.Mittel )
-                            &&
-                            ( size != Actor.ESize.Groß ) )
-                        {
-                            MessageBox.Show( "Infanterie darf nur klein, mittel oder groß sein!",
-                                             caption,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Stop );
-                            return ( false );
-                        }
-                        break;
-
-                    case Actor.EType.Drohne:
-                        if( ( size != Actor.ESize.Klein )
-                            &&
-                            ( size != Actor.ESize.Mittel ) )
-                        {
-                            MessageBox.Show( "Drohnen dürfen nur klein oder mittel sein!",
-                                             caption,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Stop );
-                            return ( false );
-                        }
-                        break;
-
-                    case Actor.EType.Mech:
-                    case Actor.EType.Koloss:
-                        if( ( size != Actor.ESize.Groß )
-                            &&
-                            ( size != Actor.ESize.Riesig ) )
-                        {
-                            MessageBox.Show( "Mechs und Kolosse müssen immer groß oder riesig sein!",
-                                             caption,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Stop );
-                            return ( false );
-                        }
-                        break;
-
-                    case Actor.EType.Fahrzeug:
-                        if( size == Actor.ESize.Klein )
-                        {
-                            MessageBox.Show( "Fahrzeuge dürfen nicht klein sein!",
-                                             caption,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Stop );
-                            return ( false );
-                        }
-                        break;
-
-                    default:
-                        throw new InvalidOperationException( "unkown " + nameof( Actor.EType ) );
-                }
             }
 
             return ( true );
