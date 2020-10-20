@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,18 +17,11 @@ namespace Universalis
         public ProfileModifier( ProfileModifier profileModifier )
         {
             Speed = profileModifier.Speed;
-            HitPoints = profileModifier.HitPoints;
 
             AttributeModifier = new AttributeModifier( profileModifier.AttributeModifier );
         }
 
         public int Speed
-        {
-            get;
-            set;
-        }
-
-        public int HitPoints
         {
             get;
             set;
@@ -44,8 +38,6 @@ namespace Universalis
             if( null != modifier )
             {
                 Speed += modifier.Speed;
-
-                HitPoints += modifier.HitPoints;
 
                 AttributeModifier.Add( modifier.AttributeModifier );
             }
@@ -74,11 +66,6 @@ namespace Universalis
                 text += $"Geschwindigkeit {Formatter.Modifier( Speed )}";
             }
 
-            if( HitPoints != 0 )
-            {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"TP {Formatter.Modifier( HitPoints )}";
-            }
-
             if( AttributeModifier != null )
             {
                 string attributeModifierString = AttributeModifier.ToString();
@@ -90,6 +77,15 @@ namespace Universalis
             }
 
             return ( text );
+        }
+
+        [JsonIgnore]
+        public string SpeedString
+        {
+            get
+            {
+                return ( Formatter.Modifier( Speed ) );
+            }
         }
     }
 }

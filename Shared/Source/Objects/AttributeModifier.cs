@@ -156,7 +156,6 @@ namespace Universalis
             }
         }
 
-
         [JsonIgnore]
         public string KOString
         {
