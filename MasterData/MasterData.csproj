@@ -286,6 +286,7 @@
     <None Include="Properties\DataSources\DamageType.EType.datasource" />
     <None Include="Properties\DataSources\Equipment.datasource" />
     <None Include="Properties\DataSources\Faction.datasource" />
+    <None Include="Properties\DataSources\Profile.datasource" />
     <None Include="Properties\DataSources\Trait.datasource" />
     <None Include="Properties\DataSources\TraitLevel.datasource" />
     <None Include="Properties\DataSources\TraitLevel.ELevel.datasource" />

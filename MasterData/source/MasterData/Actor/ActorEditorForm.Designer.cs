@@ -54,38 +54,6 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.toolStripDescription = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.AttribNK = new System.Windows.Forms.NumericUpDown();
-            this.labelNK = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.comboBoxFOV = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.comboBoxMovementType = new System.Windows.Forms.ComboBox();
-            this.CalcAreaOfPerception = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBoxSize = new System.Windows.Forms.ComboBox();
-            this.CalcAttribDangerArea = new System.Windows.Forms.TextBox();
-            this.labelGB = new System.Windows.Forms.Label();
-            this.HitPoints = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.AttribEH = new System.Windows.Forms.NumericUpDown();
-            this.AttribWN = new System.Windows.Forms.NumericUpDown();
-            this.AttribFK = new System.Windows.Forms.NumericUpDown();
-            this.AttribKO = new System.Windows.Forms.NumericUpDown();
-            this.AttribBW = new System.Windows.Forms.NumericUpDown();
-            this.AttribAGI = new System.Windows.Forms.NumericUpDown();
-            this.labelEH = new System.Windows.Forms.Label();
-            this.labelWN = new System.Windows.Forms.Label();
-            this.labelFK = new System.Windows.Forms.Label();
-            this.labelKO = new System.Windows.Forms.Label();
-            this.labelBW = new System.Windows.Forms.Label();
-            this.labelAGI = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.comboBoxType = new System.Windows.Forms.ComboBox();
-            this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
             this.textBoxTragkraft = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -143,6 +111,12 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.attributesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
@@ -154,17 +128,6 @@
             this.toolStripTraits.SuspendLayout();
             this.panel8.SuspendLayout();
             this.toolStripDescription.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribNK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HitPoints)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribEH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribWN)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribFK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribKO)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribBW)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribAGI)).BeginInit();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorWeaponBindingSource)).BeginInit();
@@ -188,6 +151,9 @@
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributesBindingSource)).BeginInit();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -196,20 +162,19 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel10, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panel10, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(279, 642);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 642);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel7
@@ -226,7 +191,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(273, 95);
+            this.panel7.Size = new System.Drawing.Size(323, 95);
             this.panel7.TabIndex = 6;
             // 
             // label18
@@ -241,7 +206,7 @@
             // textBoxOutfitCost
             // 
             this.textBoxOutfitCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxOutfitCost.Location = new System.Drawing.Point(207, 43);
+            this.textBoxOutfitCost.Location = new System.Drawing.Point(257, 43);
             this.textBoxOutfitCost.Name = "textBoxOutfitCost";
             this.textBoxOutfitCost.ReadOnly = true;
             this.textBoxOutfitCost.Size = new System.Drawing.Size(63, 20);
@@ -285,14 +250,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.Location = new System.Drawing.Point(135, 3);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(135, 20);
+            this.textBoxName.Size = new System.Drawing.Size(185, 20);
             this.textBoxName.TabIndex = 14;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // textBoxBaseCost
             // 
             this.textBoxBaseCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxBaseCost.Location = new System.Drawing.Point(135, 43);
+            this.textBoxBaseCost.Location = new System.Drawing.Point(185, 43);
             this.textBoxBaseCost.Name = "textBoxBaseCost";
             this.textBoxBaseCost.ReadOnly = true;
             this.textBoxBaseCost.Size = new System.Drawing.Size(63, 20);
@@ -315,9 +280,9 @@
             this.panel10.Controls.Add(this.dataGridViewTraits);
             this.panel10.Controls.Add(this.toolStripTraits);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(3, 459);
+            this.panel10.Location = new System.Drawing.Point(3, 392);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(273, 180);
+            this.panel10.Size = new System.Drawing.Size(323, 247);
             this.panel10.TabIndex = 10;
             // 
             // dataGridViewTraits
@@ -342,7 +307,7 @@
             this.dataGridViewTraits.Name = "dataGridViewTraits";
             this.dataGridViewTraits.RowHeadersVisible = false;
             this.dataGridViewTraits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTraits.Size = new System.Drawing.Size(273, 155);
+            this.dataGridViewTraits.Size = new System.Drawing.Size(323, 222);
             this.dataGridViewTraits.TabIndex = 1;
             this.dataGridViewTraits.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewTraits_CellBeginEdit);
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
@@ -407,7 +372,7 @@
             this.toolStripButtonTraitRemove});
             this.toolStripTraits.Location = new System.Drawing.Point(0, 0);
             this.toolStripTraits.Name = "toolStripTraits";
-            this.toolStripTraits.Size = new System.Drawing.Size(273, 25);
+            this.toolStripTraits.Size = new System.Drawing.Size(323, 25);
             this.toolStripTraits.TabIndex = 0;
             this.toolStripTraits.Text = "toolStrip5";
             // 
@@ -445,9 +410,9 @@
             this.panel8.Controls.Add(this.textBoxDescription);
             this.panel8.Controls.Add(this.toolStripDescription);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 273);
+            this.panel8.Location = new System.Drawing.Point(3, 139);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(273, 180);
+            this.panel8.Size = new System.Drawing.Size(323, 247);
             this.panel8.TabIndex = 6;
             // 
             // textBoxDescription
@@ -457,7 +422,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(273, 155);
+            this.textBoxDescription.Size = new System.Drawing.Size(323, 222);
             this.textBoxDescription.TabIndex = 7;
             this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
@@ -467,7 +432,7 @@
             this.toolStripLabel2});
             this.toolStripDescription.Location = new System.Drawing.Point(0, 0);
             this.toolStripDescription.Name = "toolStripDescription";
-            this.toolStripDescription.Size = new System.Drawing.Size(273, 25);
+            this.toolStripDescription.Size = new System.Drawing.Size(323, 25);
             this.toolStripDescription.TabIndex = 0;
             this.toolStripDescription.Text = "toolStrip2";
             // 
@@ -476,481 +441,6 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(79, 22);
             this.toolStripLabel2.Text = "Beschreibung";
-            // 
-            // panel2
-            // 
-            this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.AttribNK);
-            this.panel2.Controls.Add(this.labelNK);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.comboBoxFOV);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.comboBoxMovementType);
-            this.panel2.Controls.Add(this.CalcAreaOfPerception);
-            this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.comboBoxSize);
-            this.panel2.Controls.Add(this.CalcAttribDangerArea);
-            this.panel2.Controls.Add(this.labelGB);
-            this.panel2.Controls.Add(this.HitPoints);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.AttribEH);
-            this.panel2.Controls.Add(this.AttribWN);
-            this.panel2.Controls.Add(this.AttribFK);
-            this.panel2.Controls.Add(this.AttribKO);
-            this.panel2.Controls.Add(this.AttribBW);
-            this.panel2.Controls.Add(this.AttribAGI);
-            this.panel2.Controls.Add(this.labelEH);
-            this.panel2.Controls.Add(this.labelWN);
-            this.panel2.Controls.Add(this.labelFK);
-            this.panel2.Controls.Add(this.labelKO);
-            this.panel2.Controls.Add(this.labelBW);
-            this.panel2.Controls.Add(this.labelAGI);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 137);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(273, 130);
-            this.panel2.TabIndex = 0;
-            // 
-            // AttribNK
-            // 
-            this.AttribNK.Location = new System.Drawing.Point(34, 29);
-            this.AttribNK.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.AttribNK.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.AttribNK.Name = "AttribNK";
-            this.AttribNK.ReadOnly = true;
-            this.AttribNK.Size = new System.Drawing.Size(50, 20);
-            this.AttribNK.TabIndex = 56;
-            this.AttribNK.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribNK, "Nahkampf");
-            this.AttribNK.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.AttribNK.ValueChanged += new System.EventHandler(this.AttribNK_ValueChanged);
-            // 
-            // labelNK
-            // 
-            this.labelNK.AutoSize = true;
-            this.labelNK.Location = new System.Drawing.Point(3, 31);
-            this.labelNK.Name = "labelNK";
-            this.labelNK.Size = new System.Drawing.Size(22, 13);
-            this.labelNK.TabIndex = 55;
-            this.labelNK.Text = "NK";
-            this.toolTip.SetToolTip(this.labelNK, "Nahkampf");
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(177, 57);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 13);
-            this.label13.TabIndex = 53;
-            this.label13.Text = "FOV";
-            this.toolTip.SetToolTip(this.label13, "Sichtfeld");
-            // 
-            // comboBoxFOV
-            // 
-            this.comboBoxFOV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFOV.FormattingEnabled = true;
-            this.comboBoxFOV.Location = new System.Drawing.Point(220, 54);
-            this.comboBoxFOV.Name = "comboBoxFOV";
-            this.comboBoxFOV.Size = new System.Drawing.Size(50, 21);
-            this.comboBoxFOV.TabIndex = 52;
-            this.toolTip.SetToolTip(this.comboBoxFOV, "Sichtfeld");
-            this.comboBoxFOV.SelectionChangeCommitted += new System.EventHandler(this.comboBoxFOV_SelectionChangeCommitted);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(90, 109);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(20, 13);
-            this.label17.TabIndex = 51;
-            this.label17.Text = "Art";
-            this.toolTip.SetToolTip(this.label17, "Bewegungsart");
-            // 
-            // comboBoxMovementType
-            // 
-            this.comboBoxMovementType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMovementType.FormattingEnabled = true;
-            this.comboBoxMovementType.Location = new System.Drawing.Point(121, 106);
-            this.comboBoxMovementType.Name = "comboBoxMovementType";
-            this.comboBoxMovementType.Size = new System.Drawing.Size(149, 21);
-            this.comboBoxMovementType.TabIndex = 50;
-            this.toolTip.SetToolTip(this.comboBoxMovementType, "Bewegungsart");
-            this.comboBoxMovementType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxMovementType_SelectionChangeCommitted);
-            // 
-            // CalcAreaOfPerception
-            // 
-            this.CalcAreaOfPerception.Location = new System.Drawing.Point(121, 81);
-            this.CalcAreaOfPerception.Name = "CalcAreaOfPerception";
-            this.CalcAreaOfPerception.ReadOnly = true;
-            this.CalcAreaOfPerception.Size = new System.Drawing.Size(50, 20);
-            this.CalcAreaOfPerception.TabIndex = 49;
-            this.CalcAreaOfPerception.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip.SetToolTip(this.CalcAreaOfPerception, "Wahrnehmungsbereich");
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(90, 84);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(25, 13);
-            this.label16.TabIndex = 47;
-            this.label16.Text = "WB";
-            this.toolTip.SetToolTip(this.label16, "Wahrnehmungsbereich");
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(177, 31);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(36, 13);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "Größe";
-            // 
-            // comboBoxSize
-            // 
-            this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSize.FormattingEnabled = true;
-            this.comboBoxSize.Location = new System.Drawing.Point(220, 28);
-            this.comboBoxSize.Name = "comboBoxSize";
-            this.comboBoxSize.Size = new System.Drawing.Size(50, 21);
-            this.comboBoxSize.TabIndex = 40;
-            this.comboBoxSize.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSize_SelectionChangeCommitted);
-            // 
-            // CalcAttribDangerArea
-            // 
-            this.CalcAttribDangerArea.Location = new System.Drawing.Point(34, 81);
-            this.CalcAttribDangerArea.Name = "CalcAttribDangerArea";
-            this.CalcAttribDangerArea.ReadOnly = true;
-            this.CalcAttribDangerArea.Size = new System.Drawing.Size(50, 20);
-            this.CalcAttribDangerArea.TabIndex = 37;
-            this.CalcAttribDangerArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.toolTip.SetToolTip(this.CalcAttribDangerArea, "Gefahrenbereich");
-            // 
-            // labelGB
-            // 
-            this.labelGB.AutoSize = true;
-            this.labelGB.Location = new System.Drawing.Point(3, 84);
-            this.labelGB.Name = "labelGB";
-            this.labelGB.Size = new System.Drawing.Size(22, 13);
-            this.labelGB.TabIndex = 36;
-            this.labelGB.Text = "GB";
-            this.toolTip.SetToolTip(this.labelGB, "Gefahrenbereich");
-            // 
-            // HitPoints
-            // 
-            this.HitPoints.Location = new System.Drawing.Point(220, 3);
-            this.HitPoints.Maximum = new decimal(new int[] {
-            27,
-            0,
-            0,
-            0});
-            this.HitPoints.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.HitPoints.Name = "HitPoints";
-            this.HitPoints.ReadOnly = true;
-            this.HitPoints.Size = new System.Drawing.Size(50, 20);
-            this.HitPoints.TabIndex = 31;
-            this.HitPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.HitPoints, "Trefferpunkte");
-            this.HitPoints.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.HitPoints.ValueChanged += new System.EventHandler(this.HitPoints_ValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(177, 5);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 13);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "TP";
-            // 
-            // AttribEH
-            // 
-            this.AttribEH.Location = new System.Drawing.Point(121, 55);
-            this.AttribEH.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.AttribEH.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.AttribEH.Name = "AttribEH";
-            this.AttribEH.ReadOnly = true;
-            this.AttribEH.Size = new System.Drawing.Size(50, 20);
-            this.AttribEH.TabIndex = 28;
-            this.AttribEH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribEH, "Entschlossenheit");
-            this.AttribEH.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.AttribEH.ValueChanged += new System.EventHandler(this.AttribEH_ValueChanged);
-            // 
-            // AttribWN
-            // 
-            this.AttribWN.Location = new System.Drawing.Point(121, 29);
-            this.AttribWN.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.AttribWN.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.AttribWN.Name = "AttribWN";
-            this.AttribWN.ReadOnly = true;
-            this.AttribWN.Size = new System.Drawing.Size(50, 20);
-            this.AttribWN.TabIndex = 27;
-            this.AttribWN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribWN, "Wahrnehmung");
-            this.AttribWN.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.AttribWN.ValueChanged += new System.EventHandler(this.AttribWN_ValueChanged);
-            // 
-            // AttribFK
-            // 
-            this.AttribFK.Location = new System.Drawing.Point(34, 55);
-            this.AttribFK.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.AttribFK.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.AttribFK.Name = "AttribFK";
-            this.AttribFK.ReadOnly = true;
-            this.AttribFK.Size = new System.Drawing.Size(50, 20);
-            this.AttribFK.TabIndex = 26;
-            this.AttribFK.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribFK, "Fernkampf");
-            this.AttribFK.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.AttribFK.ValueChanged += new System.EventHandler(this.AttribFK_ValueChanged);
-            // 
-            // AttribKO
-            // 
-            this.AttribKO.Location = new System.Drawing.Point(121, 3);
-            this.AttribKO.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.AttribKO.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.AttribKO.Name = "AttribKO";
-            this.AttribKO.ReadOnly = true;
-            this.AttribKO.Size = new System.Drawing.Size(50, 20);
-            this.AttribKO.TabIndex = 25;
-            this.AttribKO.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribKO, "Konstitution");
-            this.AttribKO.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.AttribKO.ValueChanged += new System.EventHandler(this.AttribKO_ValueChanged);
-            // 
-            // AttribBW
-            // 
-            this.AttribBW.Location = new System.Drawing.Point(34, 107);
-            this.AttribBW.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.AttribBW.Name = "AttribBW";
-            this.AttribBW.ReadOnly = true;
-            this.AttribBW.Size = new System.Drawing.Size(50, 20);
-            this.AttribBW.TabIndex = 24;
-            this.AttribBW.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribBW, "Bewegung");
-            this.AttribBW.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.AttribBW.ValueChanged += new System.EventHandler(this.AttribBW_ValueChanged);
-            // 
-            // AttribAGI
-            // 
-            this.AttribAGI.Location = new System.Drawing.Point(34, 3);
-            this.AttribAGI.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.AttribAGI.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.AttribAGI.Name = "AttribAGI";
-            this.AttribAGI.ReadOnly = true;
-            this.AttribAGI.Size = new System.Drawing.Size(50, 20);
-            this.AttribAGI.TabIndex = 23;
-            this.AttribAGI.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.toolTip.SetToolTip(this.AttribAGI, "Agilität");
-            this.AttribAGI.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.AttribAGI.ValueChanged += new System.EventHandler(this.AttribAGI_ValueChanged);
-            // 
-            // labelEH
-            // 
-            this.labelEH.AutoSize = true;
-            this.labelEH.Location = new System.Drawing.Point(90, 57);
-            this.labelEH.Name = "labelEH";
-            this.labelEH.Size = new System.Drawing.Size(22, 13);
-            this.labelEH.TabIndex = 13;
-            this.labelEH.Text = "EH";
-            this.toolTip.SetToolTip(this.labelEH, "Entschlossenheit");
-            // 
-            // labelWN
-            // 
-            this.labelWN.AutoSize = true;
-            this.labelWN.Location = new System.Drawing.Point(90, 31);
-            this.labelWN.Name = "labelWN";
-            this.labelWN.Size = new System.Drawing.Size(26, 13);
-            this.labelWN.TabIndex = 12;
-            this.labelWN.Text = "WN";
-            this.toolTip.SetToolTip(this.labelWN, "Wahrnehmung");
-            // 
-            // labelFK
-            // 
-            this.labelFK.AutoSize = true;
-            this.labelFK.Location = new System.Drawing.Point(3, 57);
-            this.labelFK.Name = "labelFK";
-            this.labelFK.Size = new System.Drawing.Size(20, 13);
-            this.labelFK.TabIndex = 11;
-            this.labelFK.Text = "FK";
-            this.toolTip.SetToolTip(this.labelFK, "Fernkampf");
-            // 
-            // labelKO
-            // 
-            this.labelKO.AutoSize = true;
-            this.labelKO.Location = new System.Drawing.Point(90, 5);
-            this.labelKO.Name = "labelKO";
-            this.labelKO.Size = new System.Drawing.Size(22, 13);
-            this.labelKO.TabIndex = 10;
-            this.labelKO.Text = "KO";
-            this.toolTip.SetToolTip(this.labelKO, "Konstitution");
-            // 
-            // labelBW
-            // 
-            this.labelBW.AutoSize = true;
-            this.labelBW.Location = new System.Drawing.Point(3, 109);
-            this.labelBW.Name = "labelBW";
-            this.labelBW.Size = new System.Drawing.Size(25, 13);
-            this.labelBW.TabIndex = 9;
-            this.labelBW.Text = "BW";
-            this.toolTip.SetToolTip(this.labelBW, "Bewegung");
-            // 
-            // labelAGI
-            // 
-            this.labelAGI.AutoSize = true;
-            this.labelAGI.Location = new System.Drawing.Point(3, 5);
-            this.labelAGI.Name = "labelAGI";
-            this.labelAGI.Size = new System.Drawing.Size(25, 13);
-            this.labelAGI.TabIndex = 8;
-            this.labelAGI.Text = "AGI";
-            this.toolTip.SetToolTip(this.labelAGI, "Agilität");
-            // 
-            // panel9
-            // 
-            this.panel9.AutoSize = true;
-            this.panel9.Controls.Add(this.label15);
-            this.panel9.Controls.Add(this.comboBoxType);
-            this.panel9.Controls.Add(this.numericUpDownWeight);
-            this.panel9.Controls.Add(this.label14);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(3, 104);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(273, 27);
-            this.panel9.TabIndex = 11;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 6);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(25, 13);
-            this.label15.TabIndex = 43;
-            this.label15.Text = "Typ";
-            // 
-            // comboBoxType
-            // 
-            this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(34, 3);
-            this.comboBoxType.Name = "comboBoxType";
-            this.comboBoxType.Size = new System.Drawing.Size(132, 21);
-            this.comboBoxType.TabIndex = 42;
-            this.comboBoxType.SelectionChangeCommitted += new System.EventHandler(this.comboBoxType_SelectionChangeCommitted);
-            // 
-            // numericUpDownWeight
-            // 
-            this.numericUpDownWeight.DecimalPlaces = 1;
-            this.numericUpDownWeight.Location = new System.Drawing.Point(220, 4);
-            this.numericUpDownWeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDownWeight.Name = "numericUpDownWeight";
-            this.numericUpDownWeight.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownWeight.TabIndex = 28;
-            this.numericUpDownWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownWeight.ValueChanged += new System.EventHandler(this.numericUpDownWeight_ValueChanged);
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(172, 6);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(46, 13);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "Gewicht";
             // 
             // textBoxTragkraft
             // 
@@ -1302,9 +792,9 @@
             // pictureBoxCard
             // 
             this.pictureBoxCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxCard.Location = new System.Drawing.Point(279, 0);
+            this.pictureBoxCard.Location = new System.Drawing.Point(329, 0);
             this.pictureBoxCard.Name = "pictureBoxCard";
-            this.pictureBoxCard.Size = new System.Drawing.Size(735, 642);
+            this.pictureBoxCard.Size = new System.Drawing.Size(685, 642);
             this.pictureBoxCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCard.TabIndex = 0;
             this.pictureBoxCard.TabStop = false;
@@ -1564,6 +1054,53 @@
             // 
             this.factionBindingSource.DataSource = typeof(Universalis.Faction);
             // 
+            // profileBindingSource
+            // 
+            this.profileBindingSource.DataSource = typeof(Universalis.Profile);
+            // 
+            // attributesBindingSource
+            // 
+            this.attributesBindingSource.DataSource = typeof(Universalis.Attributes);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 6);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 13);
+            this.label15.TabIndex = 43;
+            this.label15.Text = "Archetyp";
+            // 
+            // panel9
+            // 
+            this.panel9.AutoSize = true;
+            this.panel9.Controls.Add(this.button1);
+            this.panel9.Controls.Add(this.textBox1);
+            this.panel9.Controls.Add(this.label15);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(3, 104);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(323, 29);
+            this.panel9.TabIndex = 11;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(58, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(233, 20);
+            this.textBox1.TabIndex = 44;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Image = global::Universalis.Properties.Resources.pencil;
+            this.button1.Location = new System.Drawing.Point(297, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(23, 23);
+            this.button1.TabIndex = 45;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // ActorEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1594,19 +1131,6 @@
             this.panel8.PerformLayout();
             this.toolStripDescription.ResumeLayout(false);
             this.toolStripDescription.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribNK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HitPoints)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribEH)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribWN)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribFK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribKO)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribBW)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AttribAGI)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).EndInit();
@@ -1643,6 +1167,10 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributesBindingSource)).EndInit();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1651,31 +1179,15 @@
         #endregion
 
         private System.Windows.Forms.Button buttonBack;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBoxCard;
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.Label labelEH;
-        private System.Windows.Forms.Label labelWN;
-        private System.Windows.Forms.Label labelFK;
-        private System.Windows.Forms.Label labelKO;
-        private System.Windows.Forms.Label labelBW;
-        private System.Windows.Forms.Label labelAGI;
-        private System.Windows.Forms.NumericUpDown AttribEH;
-        private System.Windows.Forms.NumericUpDown AttribWN;
-        private System.Windows.Forms.NumericUpDown AttribFK;
         private System.Windows.Forms.TextBox textBoxBaseCost;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.NumericUpDown HitPoints;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxTragkraft;
-        private System.Windows.Forms.TextBox CalcAttribDangerArea;
-        private System.Windows.Forms.Label labelGB;
         private System.Windows.Forms.Button buttonImages;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBoxSize;
         private System.Windows.Forms.DataGridView dataGridViewWeapons;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
@@ -1684,10 +1196,6 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.DataGridView dataGridViewArmor;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox CalcAreaOfPerception;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox comboBoxMovementType;
         private System.Windows.Forms.BindingSource factionBindingSource;
         private System.Windows.Forms.BindingSource actorWeaponBindingSource;
         private System.Windows.Forms.BindingSource actorEquipmentBindingSource;
@@ -1709,9 +1217,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripButton toolStripButtonEquipmentAdd;
         private System.Windows.Forms.ToolStripButton toolStripButtonEquipmentRemove;
-        private System.Windows.Forms.NumericUpDown AttribKO;
-        private System.Windows.Forms.NumericUpDown AttribBW;
-        private System.Windows.Forms.NumericUpDown AttribAGI;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox textBoxBelastung;
@@ -1724,8 +1229,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
         private System.Windows.Forms.PictureBox pictureBoxFactionIcon;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox comboBoxFOV;
         private System.Windows.Forms.BindingSource actorTraitBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel11;
@@ -1739,11 +1242,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.NumericUpDown numericUpDownWeight;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1763,7 +1261,11 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBoxOutfitCost;
         private System.Windows.Forms.ToolStripLabel toolStripLabelOutfitCount;
-        private System.Windows.Forms.NumericUpDown AttribNK;
-        private System.Windows.Forms.Label labelNK;
+        private System.Windows.Forms.BindingSource profileBindingSource;
+        private System.Windows.Forms.BindingSource attributesBindingSource;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button1;
     }
 }

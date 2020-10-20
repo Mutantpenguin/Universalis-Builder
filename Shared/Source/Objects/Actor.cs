@@ -27,8 +27,6 @@ namespace Universalis
                 ||
                 Description != actor.Description
                 ||
-                Weight != actor.Weight
-                ||
                 Faction != actor.Faction )
             {
                 return ( false );
@@ -111,8 +109,6 @@ namespace Universalis
 
             Archetype = actor.Archetype;
 
-            Weight = actor.Weight;
-
             Icon = actor.Icon;
 
             Img = actor.Img;
@@ -171,12 +167,6 @@ namespace Universalis
             get;
             set;
         } = "Bitte Beschreibung eingeben";
-
-        public float Weight
-        {
-            get;
-            set;
-        } = 75.0f;
 
         [JsonConverter( typeof( JsonImageConverter ) )]
         public Bitmap Icon

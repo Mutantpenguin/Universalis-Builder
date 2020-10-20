@@ -22,21 +22,8 @@ namespace Universalis
 
             eTraitLevelBindingSource.DataSource = TraitLevel.ELevelList;
 
-            // fill the combobox for the size
-            comboBoxSize.DataSource = Profile.ESizeList;
-            comboBoxSize.SelectedItem = m_actorModified.Size;
-
-            // fill the combobox for the type
-            comboBoxType.DataSource = Profile.ETypeList;
-            comboBoxType.SelectedItem = m_actorModified.Type;
-
-            // fill the combobox for the MovementType
-            comboBoxMovementType.DataSource = Enum.GetValues( typeof( EMovementType ) );
-            comboBoxMovementType.SelectedItem = m_actorModified.MovementType;
-
-            // fill the combobox for the FieldOfView
-            comboBoxFOV.DataSource = Enum.GetValues( typeof( EFieldOfView ) );
-            comboBoxFOV.SelectedItem = m_actorModified.Fov;
+            profileBindingSource.DataSource = m_actorModified.Archetype.Profile;
+            attributesBindingSource.DataSource = m_actorModified.Archetype.Profile.Attributes;
 
             FillOutfitsComboBox();
 
@@ -46,18 +33,6 @@ namespace Universalis
             pictureBoxActorIcon.Image = m_actorModified.Icon;
 
             textBoxName.Text = m_actorModified.Name;
-
-            numericUpDownWeight.Value = (decimal)m_actorModified.Weight;
-
-            AttribAGI.Value = m_actorModified.Attributes.AGI;
-            AttribBW.Value = m_actorModified.Attributes.BW;
-            AttribKO.Value = m_actorModified.Attributes.KO;
-            AttribNK.Value = m_actorModified.Attributes.NK;
-            AttribFK.Value = m_actorModified.Attributes.FK;
-            AttribWN.Value = m_actorModified.Attributes.WN;
-            AttribEH.Value = m_actorModified.Attributes.EH;
-
-            HitPoints.Value = m_actorModified.HitPoints;
 
             textBoxDescription.Text = m_actorModified.Description;
 
@@ -89,93 +64,10 @@ namespace Universalis
         private readonly Actor m_actorOriginal;
 
 #region values changed
-        private void AttribAGI_ValueChanged( object sender, EventArgs e )
-        {
-            m_actorModified.Attributes.AGI = Convert.ToInt32( AttribAGI.Value );
-
-            updateFields();
-        }
-
-        private void AttribBW_ValueChanged( object sender, EventArgs e )
-        {
-            m_actorModified.Attributes.BW = Convert.ToInt32( AttribBW.Value );
-
-            updateFields();
-        }
-
-        private void AttribKO_ValueChanged( object sender, EventArgs e )
-        {
-            m_actorModified.Attributes.KO = Convert.ToInt32( AttribKO.Value );
-
-            updateFields();
-        }
-
-        private void AttribNK_ValueChanged( object sender, EventArgs e )
-        {
-            m_actorModified.Attributes.NK = Convert.ToInt32( AttribNK.Value );
-
-            updateFields();
-        }
-
-        private void AttribFK_ValueChanged( object sender, EventArgs e )
-        {
-            m_actorModified.Attributes.FK = Convert.ToInt32( AttribFK.Value );
-
-            updateFields();
-        }
-
-        private void AttribWN_ValueChanged( object sender, EventArgs e )
-        {
-            m_actorModified.Attributes.WN = Convert.ToInt32( AttribWN.Value );
-
-            updateFields();
-        }
-
-        private void AttribEH_ValueChanged( object sender, EventArgs e )
-        {
-            m_actorModified.Attributes.EH = Convert.ToInt32( AttribEH.Value );
-
-            updateFields();
-        }
-
-        private void HitPoints_ValueChanged( object sender, EventArgs e )
-        {
-            m_actorModified.HitPoints = Convert.ToInt32( HitPoints.Value );
-
-            updateFields();
-        }
 
         private void textBoxName_TextChanged( object sender, EventArgs e )
         {
             m_actorModified.Name = textBoxName.Text;
-
-            updateFields();
-        }
-
-        private void comboBoxSize_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            m_actorModified.Size = (Profile.ESize)comboBoxSize.SelectedItem;
-
-            updateFields();
-        }
-
-        private void comboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            m_actorModified.Type = (Profile.EType)comboBoxType.SelectedItem;
-
-            updateFields();
-        }
-
-        private void comboBoxMovementType_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            m_actorModified.MovementType = (EMovementType)comboBoxMovementType.SelectedItem;
-
-            updateFields();
-        }
-
-        private void comboBoxFOV_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            m_actorModified.Fov = (EFieldOfView)comboBoxFOV.SelectedItem;
 
             updateFields();
         }
@@ -185,52 +77,11 @@ namespace Universalis
             m_actorModified.Description = textBoxDescription.Text;
         }
 
-        private void numericUpDownWeight_ValueChanged( object sender, EventArgs e )
-        {
-            m_actorModified.Weight = (float)numericUpDownWeight.Value;
-
-            updateFields();
-        }
 #endregion values changed
 
 #region update
         private void updateFields()
         {
-            if( m_actorModified.Archetype.Profile.Type == Profile.EType.Drohne )
-            {
-                labelAGI.Visible = false;
-                AttribAGI.Visible = false;
-
-                labelNK.Visible = false;
-                AttribNK.Visible = false;
-
-                labelFK.Visible = false;
-                AttribFK.Visible = false;
-
-                labelEH.Visible = false;
-                AttribEH.Visible = false;
-
-                labelGB.Visible = false;
-                CalcAttribDangerArea.Visible = false;
-            }
-            else
-            {
-                labelAGI.Visible = true;
-                AttribAGI.Visible = true;
-
-                labelNK.Visible = true;
-                AttribNK.Visible = true;
-
-                labelFK.Visible = true;
-                AttribFK.Visible = true;
-
-                labelEH.Visible = true;
-                AttribEH.Visible = true;
-
-                labelGB.Visible = true;
-                CalcAttribDangerArea.Visible = true;
-            }
-
             textBoxTragkraft.Text = $"{m_actorModified.ModMaxLoadCapacity( CurrentOutfit() ):n1}kg";
 
             textBoxBelastung.Text = $"{m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: false ):n1}kg";
@@ -242,10 +93,6 @@ namespace Universalis
             {
                 textBoxBelastung.BackColor = SystemColors.Control;
             }
-
-            CalcAttribDangerArea.Text = $"{m_actorModified.ModDangerArea( CurrentOutfit() )}cm";
-
-            CalcAreaOfPerception.Text = $"{m_actorModified.ModAreaOfPerception( CurrentOutfit() )}cm";
 
             textBoxBaseCost.Text = m_actorModified.Points( actorOutfit: null ).ToString();
             textBoxOutfitCost.Text = m_actorModified.Points( CurrentOutfit() ).ToString();
@@ -711,13 +558,13 @@ namespace Universalis
 
                 string text = armor.Name + ":" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( armor.Rules );
 
-                if( null != armor.AttributeModifier )
+                if( null != armor.ProfileModifier )
                 {
-                    string attributeModifierString = armor.AttributeModifier.ToString();
+                    string profileModifierString = armor.ProfileModifier.ToString();
 
-                    if( !String.IsNullOrEmpty( attributeModifierString ) )
+                    if( !String.IsNullOrEmpty( profileModifierString ) )
                     {
-                        text += Environment.NewLine + attributeModifierString;
+                        text += Environment.NewLine + profileModifierString;
                     }
                 }
 
