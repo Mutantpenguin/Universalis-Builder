@@ -54,6 +54,10 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.toolStripDescription = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.textBoxTragkraft = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -113,10 +117,6 @@
             this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.attributesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label15 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
@@ -128,6 +128,7 @@
             this.toolStripTraits.SuspendLayout();
             this.panel8.SuspendLayout();
             this.toolStripDescription.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorWeaponBindingSource)).BeginInit();
@@ -153,7 +154,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributesBindingSource)).BeginInit();
-            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -174,7 +174,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(329, 642);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 642);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel7
@@ -191,7 +191,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(323, 95);
+            this.panel7.Size = new System.Drawing.Size(294, 95);
             this.panel7.TabIndex = 6;
             // 
             // label18
@@ -205,8 +205,7 @@
             // 
             // textBoxOutfitCost
             // 
-            this.textBoxOutfitCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxOutfitCost.Location = new System.Drawing.Point(257, 43);
+            this.textBoxOutfitCost.Location = new System.Drawing.Point(207, 43);
             this.textBoxOutfitCost.Name = "textBoxOutfitCost";
             this.textBoxOutfitCost.ReadOnly = true;
             this.textBoxOutfitCost.Size = new System.Drawing.Size(63, 20);
@@ -250,14 +249,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxName.Location = new System.Drawing.Point(135, 3);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(185, 20);
+            this.textBoxName.Size = new System.Drawing.Size(156, 20);
             this.textBoxName.TabIndex = 14;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
             // textBoxBaseCost
             // 
-            this.textBoxBaseCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxBaseCost.Location = new System.Drawing.Point(185, 43);
+            this.textBoxBaseCost.Location = new System.Drawing.Point(135, 43);
             this.textBoxBaseCost.Name = "textBoxBaseCost";
             this.textBoxBaseCost.ReadOnly = true;
             this.textBoxBaseCost.Size = new System.Drawing.Size(63, 20);
@@ -266,9 +264,11 @@
             // 
             // buttonImages
             // 
+            this.buttonImages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonImages.Location = new System.Drawing.Point(3, 69);
             this.buttonImages.Name = "buttonImages";
-            this.buttonImages.Size = new System.Drawing.Size(267, 23);
+            this.buttonImages.Size = new System.Drawing.Size(288, 23);
             this.buttonImages.TabIndex = 39;
             this.buttonImages.Text = "Bilder auswählen";
             this.buttonImages.UseVisualStyleBackColor = true;
@@ -282,7 +282,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 392);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(323, 247);
+            this.panel10.Size = new System.Drawing.Size(294, 247);
             this.panel10.TabIndex = 10;
             // 
             // dataGridViewTraits
@@ -307,7 +307,7 @@
             this.dataGridViewTraits.Name = "dataGridViewTraits";
             this.dataGridViewTraits.RowHeadersVisible = false;
             this.dataGridViewTraits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTraits.Size = new System.Drawing.Size(323, 222);
+            this.dataGridViewTraits.Size = new System.Drawing.Size(294, 222);
             this.dataGridViewTraits.TabIndex = 1;
             this.dataGridViewTraits.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewTraits_CellBeginEdit);
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
@@ -372,7 +372,7 @@
             this.toolStripButtonTraitRemove});
             this.toolStripTraits.Location = new System.Drawing.Point(0, 0);
             this.toolStripTraits.Name = "toolStripTraits";
-            this.toolStripTraits.Size = new System.Drawing.Size(323, 25);
+            this.toolStripTraits.Size = new System.Drawing.Size(294, 25);
             this.toolStripTraits.TabIndex = 0;
             this.toolStripTraits.Text = "toolStrip5";
             // 
@@ -412,7 +412,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 139);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(323, 247);
+            this.panel8.Size = new System.Drawing.Size(294, 247);
             this.panel8.TabIndex = 6;
             // 
             // textBoxDescription
@@ -422,7 +422,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(323, 222);
+            this.textBoxDescription.Size = new System.Drawing.Size(294, 222);
             this.textBoxDescription.TabIndex = 7;
             this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
@@ -432,7 +432,7 @@
             this.toolStripLabel2});
             this.toolStripDescription.Location = new System.Drawing.Point(0, 0);
             this.toolStripDescription.Name = "toolStripDescription";
-            this.toolStripDescription.Size = new System.Drawing.Size(323, 25);
+            this.toolStripDescription.Size = new System.Drawing.Size(294, 25);
             this.toolStripDescription.TabIndex = 0;
             this.toolStripDescription.Text = "toolStrip2";
             // 
@@ -441,6 +441,47 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(79, 22);
             this.toolStripLabel2.Text = "Beschreibung";
+            // 
+            // panel9
+            // 
+            this.panel9.AutoSize = true;
+            this.panel9.Controls.Add(this.button1);
+            this.panel9.Controls.Add(this.textBox1);
+            this.panel9.Controls.Add(this.label15);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(3, 104);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(294, 29);
+            this.panel9.TabIndex = 11;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Image = global::Universalis.Properties.Resources.pencil;
+            this.button1.Location = new System.Drawing.Point(268, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(23, 23);
+            this.button1.TabIndex = 45;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(58, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(204, 20);
+            this.textBox1.TabIndex = 44;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 6);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 13);
+            this.label15.TabIndex = 43;
+            this.label15.Text = "Archetyp";
             // 
             // textBoxTragkraft
             // 
@@ -792,9 +833,9 @@
             // pictureBoxCard
             // 
             this.pictureBoxCard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxCard.Location = new System.Drawing.Point(329, 0);
+            this.pictureBoxCard.Location = new System.Drawing.Point(300, 0);
             this.pictureBoxCard.Name = "pictureBoxCard";
-            this.pictureBoxCard.Size = new System.Drawing.Size(685, 642);
+            this.pictureBoxCard.Size = new System.Drawing.Size(714, 642);
             this.pictureBoxCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCard.TabIndex = 0;
             this.pictureBoxCard.TabStop = false;
@@ -1062,45 +1103,6 @@
             // 
             this.attributesBindingSource.DataSource = typeof(Universalis.Attributes);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 6);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 13);
-            this.label15.TabIndex = 43;
-            this.label15.Text = "Archetyp";
-            // 
-            // panel9
-            // 
-            this.panel9.AutoSize = true;
-            this.panel9.Controls.Add(this.button1);
-            this.panel9.Controls.Add(this.textBox1);
-            this.panel9.Controls.Add(this.label15);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(3, 104);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(323, 29);
-            this.panel9.TabIndex = 11;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(58, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(233, 20);
-            this.textBox1.TabIndex = 44;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Image = global::Universalis.Properties.Resources.pencil;
-            this.button1.Location = new System.Drawing.Point(297, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 23);
-            this.button1.TabIndex = 45;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // ActorEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1131,6 +1133,8 @@
             this.panel8.PerformLayout();
             this.toolStripDescription.ResumeLayout(false);
             this.toolStripDescription.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).EndInit();
@@ -1169,8 +1173,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributesBindingSource)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

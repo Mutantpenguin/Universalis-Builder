@@ -8,10 +8,16 @@ namespace Universalis
 {
     public class Actor
     {
-        public Actor() {}
+        public Actor()
+        { }
+
+        public Actor( Faction faction, Archetype archetype )
+        {
+            Faction = faction;
+            Archetype = archetype;
+        }
 
         public Actor( Actor actor, bool withOutfitID )
-            : this()
         {
             Set( actor, withOutfitID );
         }

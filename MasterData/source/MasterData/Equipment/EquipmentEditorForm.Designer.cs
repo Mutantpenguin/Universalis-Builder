@@ -67,7 +67,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButtonAttribMod = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonProfileMod = new System.Windows.Forms.ToolStripButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -82,6 +82,7 @@
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.profileModifierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
@@ -112,6 +113,7 @@
             this.toolStrip3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profileModifierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -588,7 +590,7 @@
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel2,
-            this.toolStripButtonAttribMod});
+            this.toolStripButtonProfileMod});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(484, 25);
@@ -598,19 +600,19 @@
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
-            this.toolStripLabel2.Size = new System.Drawing.Size(133, 22);
-            this.toolStripLabel2.Text = "Attributs-Modifikatoren";
+            this.toolStripLabel2.Size = new System.Drawing.Size(115, 22);
+            this.toolStripLabel2.Text = "Profil-Modifikatoren";
             // 
-            // toolStripButtonAttribMod
+            // toolStripButtonProfileMod
             // 
-            this.toolStripButtonAttribMod.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonAttribMod.CheckOnClick = true;
-            this.toolStripButtonAttribMod.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAttribMod.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
-            this.toolStripButtonAttribMod.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAttribMod.Name = "toolStripButtonAttribMod";
-            this.toolStripButtonAttribMod.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonAttribMod.Click += new System.EventHandler(this.toolStripButtonAttribMod_Click);
+            this.toolStripButtonProfileMod.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonProfileMod.CheckOnClick = true;
+            this.toolStripButtonProfileMod.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonProfileMod.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.toolStripButtonProfileMod.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonProfileMod.Name = "toolStripButtonProfileMod";
+            this.toolStripButtonProfileMod.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonProfileMod.Click += new System.EventHandler(this.toolStripButtonProfileMod_Click);
             // 
             // panel4
             // 
@@ -753,6 +755,10 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
+            // profileModifierBindingSource
+            // 
+            this.profileModifierBindingSource.DataSource = typeof(Universalis.Profile);
+            // 
             // EquipmentEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -815,6 +821,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profileModifierBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -836,7 +843,7 @@
         private System.Windows.Forms.BindingSource equipmentBindingSource;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
-        private System.Windows.Forms.ToolStripButton toolStripButtonAttribMod;
+        private System.Windows.Forms.ToolStripButton toolStripButtonProfileMod;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelAttribMods;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.NumericUpDown numericUpDownAGI;
@@ -875,5 +882,6 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.NumericUpDown numericUpDownNK;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.BindingSource profileModifierBindingSource;
     }
 }

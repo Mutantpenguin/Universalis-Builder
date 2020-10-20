@@ -17,28 +17,28 @@ namespace Universalis
 
             // fill the combobox for the size
             comboBoxSize.DataSource = Profile.ESizeList;
-            comboBoxSize.SelectedItem = m_modifiedArchetype.Profile.Size;
 
             // fill the combobox for the type
             comboBoxType.DataSource = Profile.ETypeList;
-            comboBoxType.SelectedItem = m_modifiedArchetype.Profile.Type;
 
             // fill the combobox for the MovementType
             comboBoxMovementType.DataSource = Enum.GetValues( typeof( EMovementType ) );
-            comboBoxMovementType.SelectedItem = m_modifiedArchetype.Profile.MovementType;
 
             // fill the combobox for the FieldOfView
             comboBoxFOV.DataSource = Enum.GetValues( typeof( EFieldOfView ) );
-            comboBoxFOV.SelectedItem = m_modifiedArchetype.Profile.Fov;
 
             archetypeBindingSource.DataSource = m_modifiedArchetype;
 
             attributeBindingSource.DataSource = m_modifiedArchetype.Profile.Attributes;
 
-            attributeBindingSource.CurrentItemChanged += AttributeBindingSource_CurrentItemChanged;
+            attributeBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
+            profileBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
+
+
+            // TODO show GB and WB
         }
 
-        private void AttributeBindingSource_CurrentItemChanged( object sender, EventArgs e )
+        private void ChildBindingSource_CurrentItemChanged( object sender, EventArgs e )
         {
             archetypeBindingSource.ResetCurrentItem();
         }
@@ -214,6 +214,12 @@ namespace Universalis
         private void comboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
         {
             // TODO set attributes AGI, NK, FK and EH to 0 when it is a drone and lock the fields
+            // TODO drone: hide dangerarea
+        }
+
+        private void label10_Click( object sender, EventArgs e )
+        {
+
         }
     }
 }
