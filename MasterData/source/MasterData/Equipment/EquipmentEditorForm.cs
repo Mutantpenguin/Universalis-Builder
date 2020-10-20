@@ -23,12 +23,11 @@ namespace Universalis
                 toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
 
                 profileModifierBindingSource.DataSource = m_modifiedEquipment.ProfileModifier;
-
                 attributeModifierBindingSource.DataSource = m_modifiedEquipment.ProfileModifier.AttributeModifier;
             }
             else
             {
-                tableLayoutPanelAttribMods.Enabled = false;
+                panelProfileMods.Enabled = false;
             }
 
             profileModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
@@ -86,7 +85,7 @@ namespace Universalis
                 profileModifierBindingSource.DataSource = profileModifier;
                 attributeModifierBindingSource.DataSource = profileModifier.AttributeModifier;
 
-                tableLayoutPanelAttribMods.Enabled = true;
+                panelProfileMods.Enabled = true;
             }
             else
             {
@@ -97,7 +96,7 @@ namespace Universalis
                 profileModifierBindingSource.DataSource = typeof( ProfileModifier );
                 attributeModifierBindingSource.DataSource = typeof( AttributeModifier );
 
-                tableLayoutPanelAttribMods.Enabled = false;
+                panelProfileMods.Enabled = false;
             }
         }
 
