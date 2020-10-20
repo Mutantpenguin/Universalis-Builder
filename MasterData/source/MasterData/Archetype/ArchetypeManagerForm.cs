@@ -29,36 +29,9 @@ namespace Universalis
             toolStripTextBoxSearch.TextBox.Select();
         }
 
-        // TODO transform into universal solution
         private void DataGridViewArchetypes_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
-            if( ( dataGridViewArchetypes.Rows[ e.RowIndex ].DataBoundItem != null ) && ( dataGridViewArchetypes.Columns[ e.ColumnIndex ].DataPropertyName.Contains( "." ) ) )
-            {
-                e.Value = BindProperty( dataGridViewArchetypes.Rows[ e.RowIndex ].DataBoundItem, dataGridViewArchetypes.Columns[ e.ColumnIndex ].DataPropertyName );
-            }
-        }
-
-        // TODO transform into universal solution
-        private string BindProperty( object property, string propertyName )
-        {
-            if( propertyName.Contains( "." ) )
-            {
-                string leftPropertyName = propertyName.Substring( 0, propertyName.IndexOf( "." ) );
-
-                foreach( PropertyInfo propertyInfo in property.GetType().GetProperties() )
-                {
-                    if( propertyInfo.Name == leftPropertyName )
-                    {
-                        return( BindProperty( propertyInfo.GetValue( property, null ), propertyName.Substring( propertyName.IndexOf( "." ) + 1 ) ) );
-                    }
-                }
-            }
-            else
-            {
-                return( property.GetType().GetProperty( propertyName ).GetValue( property, null ).ToString() );
-            }
-
-            return ( String.Empty );
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewArchetypes );
         }
 
         private void FilterFaction_SelectionChangeCommitted(object sender, EventArgs e)

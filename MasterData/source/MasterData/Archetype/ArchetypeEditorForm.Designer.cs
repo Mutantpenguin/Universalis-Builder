@@ -279,7 +279,8 @@
             // 
             // comboBoxFOV
             // 
-            this.comboBoxFOV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.profileBindingSource, "Fov", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxFOV.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.profileBindingSource, "Fov", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxFOV.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.profileBindingSource, "Fov", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.comboBoxFOV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFOV.FormattingEnabled = true;
             this.comboBoxFOV.Location = new System.Drawing.Point(94, 161);
@@ -788,6 +789,8 @@
             // 
             // comboBoxType
             // 
+            this.comboBoxType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.profileBindingSource, "Type", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxType.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.profileBindingSource, "Type", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxType.FormattingEnabled = true;
             this.comboBoxType.Location = new System.Drawing.Point(94, 28);
@@ -807,7 +810,8 @@
             // 
             // comboBoxSize
             // 
-            this.comboBoxSize.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.profileBindingSource, "Size", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxSize.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.profileBindingSource, "Size", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxSize.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.profileBindingSource, "Size", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSize.FormattingEnabled = true;
             this.comboBoxSize.Location = new System.Drawing.Point(94, 55);

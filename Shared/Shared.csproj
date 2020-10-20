@@ -58,6 +58,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Source\Fonts\UniversalisFont.cs" />
+    <Compile Include="Source\Forms\ArchetypeSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\ArchetypeSelectionForm.Designer.cs">
+      <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Forms\EnterNameForm.cs">
       <SubType>Form</SubType>
     </Compile>
