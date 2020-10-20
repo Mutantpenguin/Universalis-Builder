@@ -14,7 +14,7 @@ namespace Universalis
         public const int EH = 10;
 
         // Actor
-        public const int Hitpoints = 15;
+        public const int HitPoints = 15;
 
         public const int FOV = 2;
 

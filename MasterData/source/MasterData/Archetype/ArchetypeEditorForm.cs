@@ -36,6 +36,8 @@ namespace Universalis
             attributeBindingSource.DataSource = m_modifiedArchetype.Profile.Attributes;
 
             attributeBindingSource.CurrentItemChanged += AttributeBindingSource_CurrentItemChanged;
+
+            // TODO set attributes AGI, NK, FK and EH to 0 when it is a drone and lock the fields
         }
 
         private void AttributeBindingSource_CurrentItemChanged( object sender, EventArgs e )

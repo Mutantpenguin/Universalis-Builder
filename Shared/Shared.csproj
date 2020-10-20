@@ -104,6 +104,7 @@
     <Compile Include="Source\Graphics\SectionHeader.cs" />
     <Compile Include="Source\Helper\ColorHelper.cs" />
     <Compile Include="Source\Helper\DataGridViewHelper.cs" />
+    <Compile Include="Source\Helper\Formatter.cs" />
     <Compile Include="Source\Helper\ImageHelper.cs" />
     <Compile Include="Source\Helper\TLock.cs" />
     <Compile Include="Source\Helper\ToolTipHelper.cs" />

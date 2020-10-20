@@ -158,9 +158,9 @@ namespace Universalis
         {
             string text = String.Empty;
 
-            if( null != this.AttributeModifier )
+            if( null != this.ProfileModifier )
             {
-                string attributeModifierString = this.AttributeModifier.ToString();
+                string attributeModifierString = this.ProfileModifier.ToString();
 
                 if( !String.IsNullOrEmpty( attributeModifierString ) )
                 {
@@ -205,9 +205,9 @@ namespace Universalis
             // AP
             // Weight - especially since it can be negative
 
-            if( AttributeModifier != null )
+            if( ProfileModifier != null )
             {
-                points += AttributeModifier.Points();
+                points += ProfileModifier.Points();
             }
 
             if( UseOnce )
@@ -217,119 +217,5 @@ namespace Universalis
 
             return ( (int)points );
         }
-
-        #region Attributes
-        [JsonIgnore]
-        public string ModAGI
-        {
-            get
-            {
-                if( null != AttributeModifier )
-                {
-                    return ( AttributeModifier.Format( AttributeModifier.AGI ) );
-                }
-                else
-                {
-                    return ( null );
-                }
-            }
-        }
-
-        [JsonIgnore]
-        public string ModBW
-        {
-            get
-            {
-                if( null != AttributeModifier )
-                {
-                    return ( AttributeModifier.Format( AttributeModifier.BW ) );
-                }
-                else
-                {
-                    return ( null );
-                }
-            }
-        }
-
-        [JsonIgnore]
-        public string ModKO
-        {
-            get
-            {
-                if( null != AttributeModifier )
-                {
-                    return ( AttributeModifier.Format( AttributeModifier.KO ) );
-                }
-                else
-                {
-                    return ( null );
-                }
-            }
-        }
-
-        [JsonIgnore]
-        public string ModNK
-        {
-            get
-            {
-                if( null != AttributeModifier )
-                {
-                    return ( AttributeModifier.Format( AttributeModifier.NK ) );
-                }
-                else
-                {
-                    return ( null );
-                }
-            }
-        }
-
-        [JsonIgnore]
-        public string ModFK
-        {
-            get
-            {
-                if( null != AttributeModifier )
-                {
-                    return ( AttributeModifier.Format( AttributeModifier.FK ) );
-                }
-                else
-                {
-                    return ( null );
-                }
-            }
-        }
-
-        [JsonIgnore]
-        public string ModWN
-        {
-            get
-            {
-                if( null != AttributeModifier )
-                {
-                    return ( AttributeModifier.Format( AttributeModifier.WN ) );
-                }
-                else
-                {
-                    return ( null );
-                }
-            }
-        }
-
-        [JsonIgnore]
-        public string ModEH
-        {
-            get
-            {
-                if( null != AttributeModifier )
-                {
-                    return ( AttributeModifier.Format( AttributeModifier.EH ) );
-                }
-                else
-                {
-                    return ( null );
-                }
-            }
-        }
-        #endregion Attributes
     }
 }
