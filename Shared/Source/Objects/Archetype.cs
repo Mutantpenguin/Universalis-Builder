@@ -1,14 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 
 namespace Universalis
 {
     public class Archetype
     {
-        public Archetype() {}
+        public Archetype()
+        { }
 
         public Archetype( Archetype archetype )
         {
@@ -84,7 +83,7 @@ namespace Universalis
         {
             get;
             set;
-        }
+        } = new Profile();
 
         #endregion members
 

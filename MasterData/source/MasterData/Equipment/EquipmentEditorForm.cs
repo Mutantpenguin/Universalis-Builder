@@ -13,22 +13,25 @@ namespace Universalis
 
             m_originalEquipment = equipment;
 
-            Equipment modifiedEquipment = new Equipment( equipment );
+            m_modifiedEquipment = new Equipment( equipment );
 
-            equipmentBindingSource.DataSource = modifiedEquipment;
+            equipmentBindingSource.DataSource = m_modifiedEquipment;
 
-            if( null != modifiedEquipment.AttributeModifier )
+            if( null != m_modifiedEquipment.ProfileModifier )
             {
-                toolStripButtonAttribMod.Checked = true;
-                toolStripButtonAttribMod.Image = Properties.Resources.ui_check_box;
+                toolStripButtonProfileMod.Checked = true;
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
 
-                attributeModifierBindingSource.DataSource = modifiedEquipment.AttributeModifier;
+                profileModifierBindingSource.DataSource = m_modifiedEquipment.ProfileModifier;
+
+                attributeModifierBindingSource.DataSource = m_modifiedEquipment.ProfileModifier.AttributeModifier;
             }
             else
             {
                 tableLayoutPanelAttribMods.Enabled = false;
             }
 
+            profileModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
             attributeModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
         }
 
@@ -38,6 +41,7 @@ namespace Universalis
         }
 
         private readonly Equipment m_originalEquipment;
+        private Equipment m_modifiedEquipment;
 
         private bool mandatoryFieldsFilled()
         {
@@ -69,26 +73,28 @@ namespace Universalis
             return ( true );
         }
 
-        private void toolStripButtonAttribMod_Click( object sender, EventArgs e )
+        private void toolStripButtonProfileMod_Click( object sender, EventArgs e )
         {
-            if( toolStripButtonAttribMod.Checked )
+            if( toolStripButtonProfileMod.Checked )
             {
-                toolStripButtonAttribMod.Image = Properties.Resources.ui_check_box;
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
 
-                AttributeModifier attributeModifier = new AttributeModifier();
+                var profileModifier = new ProfileModifier();
 
-                ( (Equipment)equipmentBindingSource.DataSource ).AttributeModifier = attributeModifier;
+                m_modifiedEquipment.ProfileModifier = profileModifier;
 
-                attributeModifierBindingSource.DataSource = attributeModifier;
+                profileModifierBindingSource.DataSource = profileModifier;
+                attributeModifierBindingSource.DataSource = profileModifier.AttributeModifier;
 
                 tableLayoutPanelAttribMods.Enabled = true;
             }
             else
             {
-                toolStripButtonAttribMod.Image = Properties.Resources.ui_check_box_uncheck;
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box_uncheck;
 
-                ( (Equipment)equipmentBindingSource.DataSource ).AttributeModifier = null;
+                m_modifiedEquipment.ProfileModifier = null;
 
+                profileModifierBindingSource.DataSource = typeof( ProfileModifier );
                 attributeModifierBindingSource.DataSource = typeof( AttributeModifier );
 
                 tableLayoutPanelAttribMods.Enabled = false;

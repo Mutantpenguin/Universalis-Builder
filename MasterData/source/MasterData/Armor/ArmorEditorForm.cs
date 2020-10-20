@@ -17,29 +17,32 @@ namespace Universalis
 
             m_originalArmor = armor;
 
-            Armor modifiedArmor = new Armor( armor );
+            m_modifiedArmor = new Armor( armor );
 
-            armorBindingSource.DataSource = modifiedArmor;
+            armorBindingSource.DataSource = m_modifiedArmor;
 
-            if( null != modifiedArmor.AttributeModifier )
+            if( null != m_modifiedArmor.ProfileModifier )
             {
-                toolStripButtonAttribMod.Checked = true;
-                toolStripButtonAttribMod.Image = Properties.Resources.ui_check_box;
+                toolStripButtonProfileMod.Checked = true;
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
 
-                attributeModifierBindingSource.DataSource = modifiedArmor.AttributeModifier;
+                profileModifierBindingSource.DataSource = m_modifiedArmor.ProfileModifier;
+
+                attributeModifierBindingSource.DataSource = m_modifiedArmor.ProfileModifier.AttributeModifier;
             }
             else
             {
-                tableLayoutPanelAttribMods.Enabled = false;
+                tableLayoutPanelProfileMods.Enabled = false;
             }
 
             comboBoxCamouflage.DataSource = Armor.ECamouflageList;
-            comboBoxCamouflage.SelectedItem = modifiedArmor.Camouflage;
-            numericUpDownCamouflageLevel.Enabled = ( modifiedArmor.Camouflage != Armor.ECamouflage.Keine );
+            comboBoxCamouflage.SelectedItem = m_modifiedArmor.Camouflage;
+            numericUpDownCamouflageLevel.Enabled = ( m_modifiedArmor.Camouflage != Armor.ECamouflage.Keine );
 
             updateDamageEffects();
             updateDamageTypes();
 
+            profileModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
             attributeModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
             damageEffectsBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
             damageTypeBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
@@ -51,6 +54,7 @@ namespace Universalis
         }
 
         private readonly Armor m_originalArmor;
+        private Armor m_modifiedArmor;
 
         private bool mandatoryFieldsFilled()
         {
@@ -148,29 +152,31 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonAttribMod_Click( object sender, EventArgs e )
+        private void toolStripButtonProfileMod_Click( object sender, EventArgs e )
         {
-            if( toolStripButtonAttribMod.Checked )
+            if( toolStripButtonProfileMod.Checked )
             {
-                toolStripButtonAttribMod.Image = Properties.Resources.ui_check_box;
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
 
-                AttributeModifier attributeModifier = new AttributeModifier();
+                var profileModifier = new ProfileModifier();
 
-                ( (Armor)armorBindingSource.DataSource ).AttributeModifier = attributeModifier;
+                m_modifiedArmor.ProfileModifier = profileModifier;
 
-                attributeModifierBindingSource.DataSource = attributeModifier;
+                profileModifierBindingSource.DataSource = profileModifier;
+                attributeModifierBindingSource.DataSource = profileModifier.AttributeModifier;
 
-                tableLayoutPanelAttribMods.Enabled = true;
+                tableLayoutPanelProfileMods.Enabled = true;
             }
             else
             {
-                toolStripButtonAttribMod.Image = Properties.Resources.ui_check_box_uncheck;
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box_uncheck;
 
-                ( (Armor)armorBindingSource.DataSource ).AttributeModifier = null;
+                m_modifiedArmor.ProfileModifier = null;
 
+                profileModifierBindingSource.DataSource = typeof( ProfileModifier );
                 attributeModifierBindingSource.DataSource = typeof( AttributeModifier );
 
-                tableLayoutPanelAttribMods.Enabled = false;
+                tableLayoutPanelProfileMods.Enabled = false;
             }
         }
 

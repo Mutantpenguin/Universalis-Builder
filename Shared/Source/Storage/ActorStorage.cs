@@ -114,10 +114,7 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( faction ) );
             }
 
-            Actor actor = new Actor()
-            {
-                Faction = faction
-            };
+            Actor actor = new Actor( faction, null ); // TODO pass archetype
 
             actor.ActorOutfitsList.Add( new Actor.ActorOutfit()
             {
