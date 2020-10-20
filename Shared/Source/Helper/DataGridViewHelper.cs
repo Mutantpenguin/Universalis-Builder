@@ -72,13 +72,13 @@ namespace Universalis
                 {
                     if( propertyInfo.Name == leftPropertyName )
                     {
-                        return ( BindMemberProperty( propertyInfo.GetValue( property, null ), propertyName.Substring( propertyName.IndexOf( "." ) + 1 ) ) );
+                        return ( BindMemberProperty( propertyInfo.GetValue( property ), propertyName.Substring( propertyName.IndexOf( "." ) + 1 ) ) );
                     }
                 }
             }
             else
             {
-                return ( property.GetType().GetProperty( propertyName ).GetValue( property, null ).ToString() );
+                return ( property.GetType().GetProperty( propertyName ).GetValue( property ) );
             }
 
             return ( String.Empty );

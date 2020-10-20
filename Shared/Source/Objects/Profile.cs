@@ -121,16 +121,6 @@ namespace Universalis
             return ( Speed + modifier.Speed );
         }
 
-        public int ModHitPoints( ProfileModifier modifier )
-        {
-            if( modifier == null )
-            {
-                throw new ArgumentNullException( nameof( modifier ) );
-            }
-
-            return ( HitPoints + modifier.HitPoints );
-        }
-
         [JsonIgnore]
         public int HitZoneHitPoints => ( Convert.ToInt32( Math.Ceiling( HitPoints * Presets.HitZoneHitPointsMultiplier ) ) );
 
