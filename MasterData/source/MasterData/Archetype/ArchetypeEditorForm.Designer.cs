@@ -31,11 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxWeight = new System.Windows.Forms.TextBox();
-            this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -60,7 +58,6 @@
             this.tableLayoutPanelAttribMods = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.numericUpDownAGI = new System.Windows.Forms.NumericUpDown();
-            this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.numericUpDownNK = new System.Windows.Forms.NumericUpDown();
@@ -88,9 +85,10 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HitPoints)).BeginInit();
@@ -100,7 +98,6 @@
             this.tableLayoutPanelAttribMods.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNK)).BeginInit();
             this.panel7.SuspendLayout();
@@ -114,6 +111,9 @@
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -141,10 +141,6 @@
             this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
             this.textBoxPoints.TabIndex = 38;
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
             // 
             // label2
             // 
@@ -176,10 +172,6 @@
             this.textBoxWeight.Size = new System.Drawing.Size(56, 20);
             this.textBoxWeight.TabIndex = 35;
             this.textBoxWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // profileBindingSource
-            // 
-            this.profileBindingSource.DataSource = typeof(Universalis.Profile);
             // 
             // label1
             // 
@@ -300,7 +292,7 @@
             // 
             // CalcAreaOfPerception
             // 
-            this.CalcAreaOfPerception.Location = new System.Drawing.Point(389, 24);
+            this.CalcAreaOfPerception.Location = new System.Drawing.Point(323, 62);
             this.CalcAreaOfPerception.Name = "CalcAreaOfPerception";
             this.CalcAreaOfPerception.ReadOnly = true;
             this.CalcAreaOfPerception.Size = new System.Drawing.Size(50, 20);
@@ -311,7 +303,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(358, 27);
+            this.label16.Location = new System.Drawing.Point(292, 65);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(25, 13);
             this.label16.TabIndex = 59;
@@ -320,7 +312,7 @@
             // 
             // CalcAttribDangerArea
             // 
-            this.CalcAttribDangerArea.Location = new System.Drawing.Point(302, 24);
+            this.CalcAttribDangerArea.Location = new System.Drawing.Point(323, 28);
             this.CalcAttribDangerArea.Name = "CalcAttribDangerArea";
             this.CalcAttribDangerArea.ReadOnly = true;
             this.CalcAttribDangerArea.Size = new System.Drawing.Size(50, 20);
@@ -331,7 +323,7 @@
             // labelGB
             // 
             this.labelGB.AutoSize = true;
-            this.labelGB.Location = new System.Drawing.Point(271, 27);
+            this.labelGB.Location = new System.Drawing.Point(292, 31);
             this.labelGB.Name = "labelGB";
             this.labelGB.Size = new System.Drawing.Size(22, 13);
             this.labelGB.TabIndex = 57;
@@ -470,10 +462,6 @@
             0,
             0,
             0});
-            // 
-            // attributeBindingSource
-            // 
-            this.attributeBindingSource.DataSource = typeof(Universalis.Attributes);
             // 
             // label4
             // 
@@ -831,6 +819,18 @@
             this.comboBoxSize.Size = new System.Drawing.Size(85, 21);
             this.comboBoxSize.TabIndex = 44;
             // 
+            // archetypeBindingSource
+            // 
+            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
+            // 
+            // attributeBindingSource
+            // 
+            this.attributeBindingSource.DataSource = typeof(Universalis.Attributes);
+            // 
+            // profileBindingSource
+            // 
+            this.profileBindingSource.DataSource = typeof(Universalis.Profile);
+            // 
             // ArchetypeEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -849,8 +849,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ArchetypeEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -866,7 +864,6 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNK)).EndInit();
@@ -888,6 +885,9 @@
             this.toolStrip3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
