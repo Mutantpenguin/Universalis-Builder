@@ -551,7 +551,7 @@ namespace Universalis
 
             g.DrawImage( Properties.Resources.Gewicht, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
 
-            Helpers.DrawStringCentered( g, $"{actor.Archetype.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n0}", FontStandardSmall, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, weightStringWidth, SLineHeight ) );
+            Helpers.DrawStringCentered( g, $"{actor.Archetype.Profile.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n0}", FontStandardSmall, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, weightStringWidth, SLineHeight ) );
 
             g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, weightStringWidth + 3 * SImageMargin + SImageSize, SLineHeight ) );
         }
