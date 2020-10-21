@@ -16,6 +16,13 @@ namespace Universalis
             refreshGridView();
 
             toolStripTextBoxSearch.TextBox.Select();
+
+            dataGridViewEquipment.CellFormatting += DataGridViewEquipment_CellFormatting;
+        }
+
+        private void DataGridViewEquipment_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewEquipment );
         }
 
         private void refreshGridView()
