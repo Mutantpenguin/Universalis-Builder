@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FactionSelectionForm));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,6 +40,7 @@
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactions)).BeginInit();
@@ -48,7 +50,8 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBoxSearch});
+            this.toolStripTextBoxSearch,
+            this.toolStripButtonClearSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(402, 25);
@@ -148,6 +151,16 @@
             // 
             this.factionBindingSource.DataSource = typeof(Universalis.Faction);
             // 
+            // toolStripButtonClearSearch
+            // 
+            this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClearSearch.Image")));
+            this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
+            this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
+            this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
+            // 
             // FactionSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,5 +195,6 @@
         private System.Windows.Forms.BindingSource factionBindingSource;
         private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
     }
 }

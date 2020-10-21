@@ -354,7 +354,7 @@
             this.weightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
             this.weightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.weightDataGridViewTextBoxColumn.Width = 50;
+            this.weightDataGridViewTextBoxColumn.Width = 60;
             // 
             // pointsDataGridViewTextBoxColumn
             // 
@@ -364,7 +364,7 @@
             this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pointsDataGridViewTextBoxColumn.Width = 50;
+            this.pointsDataGridViewTextBoxColumn.Width = 60;
             // 
             // AddArmorToActorForm
             // 
