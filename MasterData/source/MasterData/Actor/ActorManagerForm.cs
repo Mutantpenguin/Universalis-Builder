@@ -58,20 +58,26 @@ namespace Universalis
                 {
                     if( factionSelectionForm.SelectedFaction != null )
                     {
-                        Actor actor = MasterDataStorage.Actor.Create( factionSelectionForm.SelectedFaction );
-
-                        toolStripTextBoxSearch.Text = String.Empty;
-                        RefreshActorsGridView();
-
-                        editActor( actor );
-
-                        dataGridViewActors.ClearSelection();
-                        foreach( DataGridViewRow row in dataGridViewActors.Rows )
+                        using( ArchetypeSelectionForm archetypeSelectionForm = new ArchetypeSelectionForm( factionSelectionForm.SelectedFaction ) )
                         {
-                            if( actor.ID == ( (Actor)row.DataBoundItem ).ID )
+                            if( archetypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
                             {
-                                row.Selected = true;
-                                break;
+                                Actor actor = MasterDataStorage.Actor.Create( factionSelectionForm.SelectedFaction, archetypeSelectionForm.SelectedArchetype );
+
+                                toolStripTextBoxSearch.Text = String.Empty;
+                                RefreshActorsGridView();
+
+                                editActor( actor );
+
+                                dataGridViewActors.ClearSelection();
+                                foreach( DataGridViewRow row in dataGridViewActors.Rows )
+                                {
+                                    if( actor.ID == ( (Actor)row.DataBoundItem ).ID )
+                                    {
+                                        row.Selected = true;
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
@@ -100,7 +106,7 @@ namespace Universalis
             {
                 Actor actorSource = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                Actor actorNew = MasterDataStorage.Actor.Create( actorSource.Faction );
+                Actor actorNew = MasterDataStorage.Actor.Create( actorSource.Faction, actorSource.Archetype );
                 actorNew.Set( actorSource );
                 actorNew.Name = $"(Kopie von) {actorSource.Name}";
                 MasterDataStorage.Actor.Save( actorNew );

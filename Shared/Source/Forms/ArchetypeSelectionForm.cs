@@ -12,9 +12,11 @@ namespace Universalis
 {
     public partial class ArchetypeSelectionForm : Form
     {
-        public ArchetypeSelectionForm()
+        public ArchetypeSelectionForm( Faction faction )
         {
             InitializeComponent();
+
+            m_factionFilter = faction;
 
             filterType.ComboBox.DataSource = Profile.ETypeList;
             filterType.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
@@ -25,6 +27,8 @@ namespace Universalis
 
             dataGridViewArchetypes.CellFormatting += DataGridViewArchetypes_CellFormatting;
         }
+
+        private readonly Faction m_factionFilter;
 
         private void DataGridViewArchetypes_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
@@ -38,7 +42,8 @@ namespace Universalis
 
         private void updateDataGridViewArchetypes()
         {
-            archetypeBindingSource.DataSource = MasterDataStorage.Archetype.Archetypes.Where( s => filterType.Enabled ? s.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
+            archetypeBindingSource.DataSource = MasterDataStorage.Archetype.Archetypes.Where( s => m_factionFilter == s.Faction )
+                                                                                      .Where( s => filterType.Enabled ? s.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
                                                                                       .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                                       .OrderBy( x => x.Name )
                                                                                       .ToList();
