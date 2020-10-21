@@ -549,9 +549,9 @@ namespace Universalis
                 return ( Archetype.Profile.Attributes.ModEH( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
             }
         }
-#endregion profile
+        #endregion profile
 
-#region calculated values
+        #region calculated values
         public int? ModDangerArea( ActorOutfit actorOutfit )
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne )
@@ -659,12 +659,14 @@ namespace Universalis
             }
             else
             {
+                int modKO = ModKO( actorOutfit );
+
                 Weapon weaponUnarmed = new Weapon()
                 {
                     Type = Weapon.EType.Nahkampf,
                     Name = "Unbewaffnet",
-                    Strength = ModKO( actorOutfit ),
-                    Damage = Convert.ToInt32( Math.Round( ModKO( actorOutfit ) / 3.0f, 0 ) )
+                    Strength = modKO,
+                    Damage = Convert.ToInt32( Math.Round( modKO / 3.0f, 0 ) )
                 };
 
                 switch( this.Archetype.Profile.Type )
@@ -704,6 +706,8 @@ namespace Universalis
             }
             else
             {
+                int modKO = ModKO( actorOutfit );
+
                 Weapon weaponDetonation = new Weapon()
                 {
                     WK = Weapon.EClass.V,
@@ -723,9 +727,9 @@ namespace Universalis
                                                                       {
                                                                           Type = DamageEffect.EType.Explosiv
                                                                       } },
-                    Radius = ModKO( actorOutfit ),
-                    Strength = ModKO( actorOutfit ),
-                    Damage = Convert.ToInt32( Math.Round( ModKO( actorOutfit ) / 2.0f, 0 ) )
+                    Radius = modKO,
+                    Strength = modKO,
+                    Damage = Convert.ToInt32( Math.Round( modKO / 2.0f, 0 ) )
                 };
 
                 return ( weaponDetonation );

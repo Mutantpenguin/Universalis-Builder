@@ -520,9 +520,39 @@ namespace Universalis
                 return ( false );
             }
 
+            Actor.ActorOutfit currentOutfit = CurrentOutfit();
+
+            if( m_actorModified.ModSpeed( currentOutfit ) < 0 )
+            {
+                MessageBox.Show( "Geschwindigkeit darf nicht negativ sein!",
+                                 caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
+                return ( false );
+            }
+
+            if( ( m_actorModified.ModAGI( currentOutfit ) < 0 )
+                ||
+                ( m_actorModified.ModNK( currentOutfit ) < 0 )
+                ||
+                ( m_actorModified.ModFK( currentOutfit ) < 0 )
+                ||
+                ( m_actorModified.ModKO( currentOutfit ) < 0 )
+                ||
+                ( m_actorModified.ModWN( currentOutfit ) < 0 )
+                ||
+                ( m_actorModified.ModEH( currentOutfit ) < 0 ) )
+            {
+                MessageBox.Show( "Attribute dürfen nicht negativ sein!",
+                                 caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
+                return ( false );
+            }
+
             if( ( m_actorModified.ModSpeed( CurrentOutfit() ) <= 0 ) && ( EMovementType.Stationär != m_actorModified.Archetype.Profile.MovementType ) )
             {
-                MessageBox.Show( "Geschwindigkeit ist kleiner/gleich 0, die Bewegungsart ist aber nicht stationär. Speichern wird abgebrochen.",
+                MessageBox.Show( "Geschwindigkeit ist gleich 0, die Bewegungsart ist aber nicht stationär. Speichern wird abgebrochen.",
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
