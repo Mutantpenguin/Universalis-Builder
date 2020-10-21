@@ -82,9 +82,9 @@ namespace Universalis
 #region update
         private void updateFields()
         {
-            textBoxTragkraft.Text = $"{m_actorModified.ModMaxLoadCapacity( CurrentOutfit() ):n1}kg";
+            textBoxTragkraft.Text = $"{m_actorModified.ModMaxLoadCapacity( CurrentOutfit() ):n1} kg";
 
-            textBoxBelastung.Text = $"{m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: false ):n1}kg";
+            textBoxBelastung.Text = $"{m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: false ):n1} kg";
             if( m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: false ) > m_actorModified.ModMaxLoadCapacity( CurrentOutfit() ) )
             {
                 textBoxBelastung.BackColor = Color.OrangeRed;

@@ -167,6 +167,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\ArchetypeSelectionForm.resx">
+      <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\EnterNameForm.resx">
       <DependentUpon>EnterNameForm.cs</DependentUpon>
     </EmbeddedResource>
