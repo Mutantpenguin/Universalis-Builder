@@ -759,7 +759,7 @@ namespace Universalis
         {
             int points = 0;
 
-            points += Archetype.Profile.Points();
+            points += Archetype.Points;
 
             if( null != Armor )
             {

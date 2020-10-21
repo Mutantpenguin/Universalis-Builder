@@ -31,16 +31,20 @@ namespace Universalis
             profileBindingSource.DataSource = m_modifiedArchetype.Profile;
             attributeBindingSource.DataSource = m_modifiedArchetype.Profile.Attributes;
 
-            attributeBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
-            profileBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
-
+            profileBindingSource.CurrentItemChanged += ProfileBindingSource_CurrentItemChanged;
+            attributeBindingSource.CurrentItemChanged += AttributeBindingSource_CurrentItemChanged;
 
             // TODO show GB and WB
         }
 
-        private void ChildBindingSource_CurrentItemChanged( object sender, EventArgs e )
+        private void ProfileBindingSource_CurrentItemChanged( object sender, EventArgs e )
         {
             archetypeBindingSource.ResetCurrentItem();
+        }
+
+        private void AttributeBindingSource_CurrentItemChanged( object sender, EventArgs e )
+        {
+            profileBindingSource.ResetCurrentItem();
         }
 
         private readonly Archetype m_originalArchetype;

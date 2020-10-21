@@ -124,46 +124,110 @@ namespace Universalis
         [JsonIgnore]
         public int HitZoneHitPoints => ( Convert.ToInt32( Math.Ceiling( HitPoints * Presets.HitZoneHitPointsMultiplier ) ) );
 
-        public int Points()
+        [JsonIgnore]
+        public int Points
         {
-            int points = 0;
-
-            if( Type != Profile.EType.Drohne )
+            get
             {
-                points += Attributes.AGI * Costs.AGI;
-                points += Attributes.NK * Costs.NK;
-                points += Attributes.FK * Costs.FK;
-                points += Attributes.EH * Costs.EH;
+                int points = 0;
+
+                if( Type != Profile.EType.Drohne )
+                {
+                    points += Attributes.AGI * Costs.AGI;
+                    points += Attributes.NK * Costs.NK;
+                    points += Attributes.FK * Costs.FK;
+                    points += Attributes.EH * Costs.EH;
+                }
+
+                // TODO no BW anymore, just Speed
+                // points += Attributes.BW * Costs.Speed;
+
+                points += Attributes.KO * Costs.KO;
+                points += Attributes.WN * Costs.WN;
+
+                switch( Type )
+                {
+                    case Profile.EType.Infanterie:
+                    case Profile.EType.Drohne:
+                    case Profile.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
+                        points += HitPoints * Costs.HitPoints;
+                        break;
+
+                    case Profile.EType.Mech:
+                    case Profile.EType.Koloss:
+                        points += ( HitPoints * Costs.HitPoints ) + ( 3 * HitZoneHitPoints * Costs.HitPoints );
+                        break;
+
+                    default:
+                        throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
+                }
+
+                points += (int)Fov * Costs.FOV;
+
+                points += Costs.movementCost( MovementType );
+
+                return ( points );
             }
+        }
 
-            // TODO no BW anymore, just Speed
-            // points += Attributes.BW * Costs.Speed;
-
-            points += Attributes.KO * Costs.KO;
-            points += Attributes.WN * Costs.WN;
-
-            switch( Type )
+        [JsonIgnore]
+        // TODO move to Profile?
+        public float Weight
+        {
+            get
             {
-                case Profile.EType.Infanterie:
-                case Profile.EType.Drohne:
-                case Profile.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
-                    points += HitPoints * Costs.HitPoints;
-                    break;
+                float typeMultiplicator = 0.0f;
 
-                case Profile.EType.Mech:
-                case Profile.EType.Koloss:
-                    points += ( HitPoints * Costs.HitPoints ) + ( 3 * HitZoneHitPoints * Costs.HitPoints );
-                    break;
+                switch( Type )
+                {
+                    case EType.Infanterie:
+                        typeMultiplicator = 17.5f;
+                        break;
 
-                default:
-                    throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
+                    case EType.Koloss:
+                    case EType.Mech:
+                        typeMultiplicator = 30.0f;
+                        break;
+
+                    case EType.Drohne:
+                        typeMultiplicator = 10.0f;
+                        break;
+
+                    case EType.Fahrzeug:
+                        // TODO
+                        typeMultiplicator = 50.0f;
+                        break;
+
+                    default:
+                        throw new InvalidOperationException( "unkown " + nameof( EType ) );
+                }
+
+                float sizeMultiplicator = 0.0f;
+
+                switch( Size )
+                {
+                    case ESize.Klein:
+                        sizeMultiplicator = 0.7f;
+                        break;
+
+                    case ESize.Mittel:
+                        sizeMultiplicator = 1.0f;
+                        break;
+
+                    case ESize.Groß:
+                        sizeMultiplicator = 2.0f;
+                        break;
+
+                    case ESize.Riesig:
+                        sizeMultiplicator = 3.0f;
+                        break;
+
+                    default:
+                        throw new InvalidOperationException( "unkown " + nameof( Profile.ESize ) );
+                }
+
+                return ( Attributes.KO * typeMultiplicator * sizeMultiplicator );
             }
-
-            points += (int)Fov * Costs.FOV;
-
-            points += Costs.movementCost( MovementType );
-
-            return ( points );
         }
     }
 }

@@ -39,6 +39,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonArchetypeAdd = new System.Windows.Forms.ToolStripButton();
@@ -51,9 +53,9 @@
             this.filterType = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewArchetypes = new System.Windows.Forms.DataGridView();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FactionIcon = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,10 +69,12 @@
             this.KODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -215,7 +219,9 @@
             this.FKDataGridViewTextBoxColumn,
             this.KODataGridViewTextBoxColumn,
             this.WNDataGridViewTextBoxColumn,
-            this.EHDataGridViewTextBoxColumn});
+            this.EHDataGridViewTextBoxColumn,
+            this.Weight,
+            this.Points});
             this.dataGridViewArchetypes.DataSource = this.archetypeBindingSource;
             this.dataGridViewArchetypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewArchetypes.Location = new System.Drawing.Point(0, 25);
@@ -231,10 +237,6 @@
             this.dataGridViewArchetypes.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewArchetype_CellToolTipTextNeeded);
             this.dataGridViewArchetypes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewArchetype_KeyDown);
             // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -249,6 +251,10 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
+            // 
+            // archetypeBindingSource
+            // 
+            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
             // 
             // FactionIcon
             // 
@@ -371,6 +377,27 @@
             this.EHDataGridViewTextBoxColumn.ReadOnly = true;
             this.EHDataGridViewTextBoxColumn.Width = 35;
             // 
+            // Weight
+            // 
+            this.Weight.DataPropertyName = "Profile.Weight";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N1";
+            this.Weight.DefaultCellStyle = dataGridViewCellStyle10;
+            this.Weight.HeaderText = "Gewicht";
+            this.Weight.Name = "Weight";
+            this.Weight.ReadOnly = true;
+            this.Weight.Width = 60;
+            // 
+            // Points
+            // 
+            this.Points.DataPropertyName = "Points";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Points.DefaultCellStyle = dataGridViewCellStyle11;
+            this.Points.HeaderText = "Punkte";
+            this.Points.Name = "Points";
+            this.Points.ReadOnly = true;
+            this.Points.Width = 60;
+            // 
             // ArchetypeManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,9 +414,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -425,5 +452,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn WNDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn EHDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Weight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Points;
     }
 }
