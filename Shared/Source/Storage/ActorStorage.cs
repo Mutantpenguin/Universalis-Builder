@@ -154,14 +154,10 @@ namespace Universalis
 
         public IList<Actor> ActorsWithArchetype( Archetype archetype )
         {
-            return( null );
-            /*
-             * TODO Archetype
-            return ( m_actorList.Where(x => x.ActorOutfitsList.Exists( y => y.ActorWeaponsList.Exists( z => z.Weapon.ID == archetype.ID ) ) )
-                                .OrderBy( x => x.Name )
-                                .ToList()
-                                .AsReadOnly());
-            */
+            return( m_actorList.Where( x => x.Archetype.ID == archetype.ID )
+                               .OrderBy( x => x.Name )
+                               .ToList()
+                               .AsReadOnly());
         }
 
         public IList<Actor> ActorsWithWeapon( Weapon weapon )

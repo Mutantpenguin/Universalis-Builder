@@ -139,8 +139,7 @@ namespace Universalis
                     points += Attributes.EH * Costs.EH;
                 }
 
-                // TODO no BW anymore, just Speed
-                // points += Attributes.BW * Costs.Speed;
+                points += Speed * Costs.Speed;
 
                 points += Attributes.KO * Costs.KO;
                 points += Attributes.WN * Costs.WN;
@@ -171,7 +170,6 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        // TODO move to Profile?
         public float Weight
         {
             get

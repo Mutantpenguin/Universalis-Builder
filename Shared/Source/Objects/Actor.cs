@@ -469,7 +469,8 @@ namespace Universalis
             get;
             set;
         } = new List<ActorTrait>();
-        
+
+        [JsonConverter( typeof( JsonArchetypeConverter ) )]
         public Archetype Archetype
         {
             get;

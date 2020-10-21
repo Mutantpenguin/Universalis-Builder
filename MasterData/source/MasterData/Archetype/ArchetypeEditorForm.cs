@@ -220,10 +220,5 @@ namespace Universalis
             // TODO set attributes AGI, NK, FK and EH to 0 when it is a drone and lock the fields
             // TODO drone: hide dangerarea
         }
-
-        private void label10_Click( object sender, EventArgs e )
-        {
-
-        }
     }
 }
