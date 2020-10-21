@@ -64,5 +64,10 @@ namespace Universalis
         {
             updateDataGridViewFactions();
         }
+
+        private void toolStripButtonClearSearch_Click( object sender, EventArgs e )
+        {
+            toolStripTextBoxSearch.Clear();
+        }
     }
 }
