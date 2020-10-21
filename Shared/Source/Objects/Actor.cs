@@ -482,9 +482,16 @@ namespace Universalis
             get;
             set;
         } = null;
+
 #endregion members
 
-#region attributes
+#region profile
+
+        public int ModSpeed( ActorOutfit actorOutfit )
+        {
+            return ( Archetype.Profile.ModSpeed( CurrentProfileModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
+        }
+
         public int? ModAGI( ActorOutfit actorOutfit )
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne )
@@ -495,11 +502,6 @@ namespace Universalis
             {
                 return ( Archetype.Profile.Attributes.ModAGI( CurrentProfileModifier( actorOutfit ).AttributeModifier ) - ModLoadModifier( actorOutfit ) );
             }
-        }
-
-        public int ModSpeed( ActorOutfit actorOutfit )
-        {
-            return ( Archetype.Profile.ModSpeed( CurrentProfileModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
         }
 
         public int ModKO( ActorOutfit actorOutfit )
@@ -546,7 +548,7 @@ namespace Universalis
                 return ( Archetype.Profile.Attributes.ModEH( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
             }
         }
-#endregion attributes
+#endregion profile
 
 #region calculated values
         public int? ModDangerArea( ActorOutfit actorOutfit )

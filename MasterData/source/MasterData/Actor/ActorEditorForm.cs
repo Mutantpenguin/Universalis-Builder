@@ -22,6 +22,8 @@ namespace Universalis
 
             eTraitLevelBindingSource.DataSource = TraitLevel.ELevelList;
 
+            archetypeBindingSource.DataSource = m_actorModified.Archetype;
+
             profileBindingSource.DataSource = m_actorModified.Archetype.Profile;
             attributesBindingSource.DataSource = m_actorModified.Archetype.Profile.Attributes;
 
@@ -624,6 +626,21 @@ namespace Universalis
         private void buttonRefresh_Click( object sender, EventArgs e )
         {
             updateFields();
+        }
+
+        private void toolStripButtonChangeArchetype_Click( object sender, EventArgs e )
+        {
+            using( ArchetypeSelectionForm archetypeSelectionForm = new ArchetypeSelectionForm( m_actorModified.Faction ) )
+            {
+                if( archetypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                {
+                    m_actorModified.Archetype = archetypeSelectionForm.SelectedArchetype;
+
+                    archetypeBindingSource.DataSource = m_actorModified.Archetype;
+
+                    updateFields();
+                }
+            }
         }
     }
 }

@@ -107,14 +107,19 @@ namespace Universalis
             return ( m_actorList.Find( x => x.ID == id ) );
         }
 
-        public Actor Create( Faction faction )
+        public Actor Create( Faction faction, Archetype archetype )
         {
             if( null == faction )
             {
                 throw new ArgumentNullException( nameof( faction ) );
             }
 
-            Actor actor = new Actor( faction, null ); // TODO pass archetype
+            if( null == archetype )
+            {
+                throw new ArgumentNullException( nameof( archetype ) );
+            }
+
+            Actor actor = new Actor( faction, archetype );
 
             actor.ActorOutfitsList.Add( new Actor.ActorOutfit()
             {
