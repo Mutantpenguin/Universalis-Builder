@@ -72,7 +72,12 @@ namespace Universalis
                 {
                     if( propertyInfo.Name == leftPropertyName )
                     {
-                        return ( BindMemberProperty( propertyInfo.GetValue( property ), propertyName.Substring( propertyName.IndexOf( "." ) + 1 ) ) );
+                        object propertyValue = propertyInfo.GetValue( property );
+
+                        if( propertyValue != null )
+                        {
+                            return ( BindMemberProperty( propertyValue, propertyName.Substring( propertyName.IndexOf( "." ) + 1 ) ) );
+                        }
                     }
                 }
             }
