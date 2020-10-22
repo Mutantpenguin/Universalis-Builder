@@ -71,6 +71,8 @@ namespace Universalis
 
         public const float ArmorSelfSustainingMultiplicator = 1.3f;
 
+        public const float ArmorAdditiveProtectionMultiplicator = 1.2f;
+
         // Equipment
         public const float EquipmentUseOnceMultiplicator = 0.35f;
     }

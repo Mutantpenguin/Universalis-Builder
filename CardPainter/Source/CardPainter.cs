@@ -820,7 +820,14 @@ namespace Universalis
                 g.DrawLine( SLinePenBlack, protectionStart, posY + SLineHeight, protectionStart, posY + SLineHeightDouble );
                 g.DrawImage( Properties.Resources.Schutz_weiss, new Rectangle( protectionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
-                Helpers.DrawStringCentered( g, ( actor.ModKO( actorOutfit ) + armor.Protection ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                if( armor.AdditiveProtection )
+                {
+                    Helpers.DrawStringCentered( g, ( armor.Protection + actor.ModKO( actorOutfit ) ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                }
+                else
+                {
+                    Helpers.DrawStringCentered( g, armor.FormattedProtection, FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                }
 
                 g.DrawLine( SLinePenBlack, effectsStart, posY + SLineHeight, effectsStart, posY + SLineHeightDouble );
 
