@@ -42,13 +42,29 @@ namespace Universalis
             updateDamageEffects();
             updateDamageTypes();
 
-            profileModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
-            attributeModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
-            damageEffectsBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
-            damageTypeBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
+            profileModifierBindingSource.CurrentItemChanged += ProfileModifierBindingSource_CurrentItemChanged;
+            attributeModifierBindingSource.CurrentItemChanged += AttributeModifierBindingSource_CurrentItemChanged;
+
+            damageEffectsBindingSource.CurrentItemChanged += DamageEffectsBindingSource_CurrentItemChanged;
+            damageTypeBindingSource.CurrentItemChanged += DamageTypeBindingSource_CurrentItemChanged;
         }
 
-        private void ChildBindingSource_CurrentItemChanged( object sender, EventArgs e )
+        private void DamageTypeBindingSource_CurrentItemChanged( object sender, EventArgs e )
+        {
+            armorBindingSource.ResetCurrentItem();
+        }
+
+        private void DamageEffectsBindingSource_CurrentItemChanged( object sender, EventArgs e )
+        {
+            armorBindingSource.ResetCurrentItem();
+        }
+
+        private void AttributeModifierBindingSource_CurrentItemChanged( object sender, EventArgs e )
+        {
+            profileModifierBindingSource.ResetCurrentItem();
+        }
+
+        private void ProfileModifierBindingSource_CurrentItemChanged( object sender, EventArgs e )
         {
             armorBindingSource.ResetCurrentItem();
         }

@@ -28,6 +28,7 @@ namespace Universalis
             Weight = armor.Weight;
             AdditionalPoints = armor.AdditionalPoints;
             Protection = armor.Protection;
+            AdditiveProtection = armor.AdditiveProtection;
             SelfSustaining = armor.SelfSustaining;
 
             Camouflage = armor.Camouflage;
@@ -89,6 +90,15 @@ namespace Universalis
                 return ( false );
             }
 
+            if( Protection != armor.Protection
+                ||
+                AdditiveProtection != armor.AdditiveProtection
+                ||
+                SelfSustaining != armor.SelfSustaining )
+            {
+                return ( false );
+            }
+
             if( ( null != ProfileModifier ) && ( null == armor.ProfileModifier ) )
             {
                 return ( false );
@@ -105,13 +115,6 @@ namespace Universalis
                 {
                     return ( false );
                 }
-            }
-
-            if( Protection != armor.Protection
-                ||
-                SelfSustaining != armor.SelfSustaining )
-            {
-                return ( false );
             }
 
             if( Camouflage != armor.Camouflage
@@ -225,6 +228,12 @@ namespace Universalis
             set;
         } = 1;
 
+        public bool AdditiveProtection
+        {
+            get;
+            set;
+        } = false;
+
         public ECamouflage Camouflage
         {
             get;
@@ -275,7 +284,14 @@ namespace Universalis
                 }
                 else
                 {
-                    return ( "+" + Protection.ToString() );
+                    if( AdditiveProtection )
+                    {
+                        return ( "+" + Protection.ToString() );
+                    }
+                    else
+                    {
+                        return ( Protection.ToString() );
+                    }
                 }
             }
         }
@@ -288,6 +304,11 @@ namespace Universalis
             // Weight
 
             points += Protection * Costs.ArmorProtection;
+
+            if( AdditiveProtection )
+            {
+                points *= Costs.ArmorAdditiveProtectionMultiplicator;
+            }
 
             if( DamageTypeList != null )
             {
