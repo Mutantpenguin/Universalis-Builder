@@ -224,8 +224,6 @@ namespace Universalis
             Rectangle rect = new Rectangle( Point.Empty, new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) );
 
             g.DrawImage( faction.Icon, rect );
-
-            g.DrawRectangle( SLinePenBlack, rect );
         }
 
         private static void DrawPicture( Graphics g, Bitmap image )
