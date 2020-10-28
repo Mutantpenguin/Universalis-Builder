@@ -507,12 +507,12 @@ namespace Universalis
                     img = Properties.ResourcesBewegung.bewegung_stationär;
                     break;
 
-                case EMovementType.Antigrav:
-                    img = Properties.ResourcesBewegung.bewegung_antigrav;
+                case EMovementType.Schweben:
+                    img = Properties.ResourcesBewegung.bewegung_schweben;
                     break;
 
-                case EMovementType.Fuss:
-                    img = Properties.ResourcesBewegung.bewegung_fuss;
+                case EMovementType.Beine:
+                    img = Properties.ResourcesBewegung.bewegung_beine;
                     break;
 
                 case EMovementType.Flug:
