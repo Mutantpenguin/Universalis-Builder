@@ -68,7 +68,7 @@ namespace Universalis
         {
             get;
             set;
-        } = EMovementType.Fuss;
+        } = EMovementType.Beine;
 
         public EType Type
         {

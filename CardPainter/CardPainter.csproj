@@ -80,13 +80,13 @@
     <None Include="Resources\Gewicht.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bewegung_antigrav.png" />
+    <None Include="Resources\bewegung_schweben.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bewegung_flug.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\bewegung_fuss.png" />
+    <None Include="Resources\bewegung_beine.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bewegung_kette.png" />

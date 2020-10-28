@@ -22,13 +22,13 @@ namespace Universalis
         {
             switch( movementType )
             {
-                case EMovementType.Antigrav:
+                case EMovementType.Schweben:
                     return ( 100 );
 
                 case EMovementType.Flug:
                     return ( 80 );
 
-                case EMovementType.Fuss:
+                case EMovementType.Beine:
                     return ( 50 );
 
                 case EMovementType.Kette:

@@ -19,7 +19,7 @@ namespace Universalis.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class ResourcesBewegung {
@@ -63,9 +63,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bewegung_antigrav {
+        internal static System.Drawing.Bitmap bewegung_beine {
             get {
-                object obj = ResourceManager.GetObject("bewegung_antigrav", resourceCulture);
+                object obj = ResourceManager.GetObject("bewegung_beine", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -76,16 +76,6 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap bewegung_flug {
             get {
                 object obj = ResourceManager.GetObject("bewegung_flug", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bewegung_fuss {
-            get {
-                object obj = ResourceManager.GetObject("bewegung_fuss", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +96,16 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap bewegung_rad {
             get {
                 object obj = ResourceManager.GetObject("bewegung_rad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bewegung_schweben {
+            get {
+                object obj = ResourceManager.GetObject("bewegung_schweben", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
