@@ -365,7 +365,7 @@ namespace Universalis
                                                                                          .Distinct()
                                                                                          .Where( x => ( !String.IsNullOrEmpty( x.Rules ) )
                                                                                                       ||
-                                                                                                      ( x.UseOnce && ( !String.IsNullOrEmpty( x.ProfileModifier.ToString() ) ) ) )
+                                                                                                      ( x.UseOnce && ( !String.IsNullOrEmpty( x.ProfileModifier?.ToString() ) ) ) )
                                                                                          .OrderBy( x => x.Name ) )
                 {
                     if( equipment.AP == 0 )
