@@ -113,9 +113,13 @@ namespace Universalis
                     case Profile.EType.Drohne:
                         if( ( size != Profile.ESize.Klein )
                             &&
-                            ( size != Profile.ESize.Mittel ) )
+                            ( size != Profile.ESize.Mittel )
+                            &&
+                            ( size != Profile.ESize.Groß )
+                            &&
+                            ( size != Profile.ESize.Riesig ) )
                         {
-                            MessageBox.Show( "Drohnen dürfen nur klein oder mittel sein!",
+                            MessageBox.Show( "Drohnen dürfen nur klein, mittel, groß oder riesig sein!",
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );
