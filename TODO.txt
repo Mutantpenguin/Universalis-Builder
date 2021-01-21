@@ -8,6 +8,16 @@
 	- BW-Art -> Editor
 - werden pro Fraktion definiert
 
+
+Waffen:
+	- brauchen AttributeModifier
+
+Karte:
+	- Unhandlich für Waffen anders anzeigen
+	- Unhandlich für Ausrüstung anzeigen
+
+
+
 Aktivierungsreihenfolge in allen Masken
   - Manager erledigt
   - Editoren fehlen noch
