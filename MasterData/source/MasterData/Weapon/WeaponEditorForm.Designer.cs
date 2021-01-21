@@ -31,15 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
+            this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBoxDamageEffects = new System.Windows.Forms.PictureBox();
-            this.numericUpDownAdditionalPoints = new System.Windows.Forms.NumericUpDown();
             this.pictureBoxDamageType = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
+            this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numericUpDownAdditionalPoints = new System.Windows.Forms.NumericUpDown();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -82,6 +83,8 @@
             this.damageEffectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.textBoxRules = new System.Windows.Forms.TextBox();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
@@ -89,15 +92,12 @@
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageEffects)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
             this.panel4.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -115,10 +115,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.damageEffectsBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.toolStrip4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.toolStrip5.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -136,34 +136,20 @@
             this.panel1.Size = new System.Drawing.Size(484, 93);
             this.panel1.TabIndex = 1;
             // 
-            // numericUpDownWeight
+            // textBoxPoints
             // 
-            this.numericUpDownWeight.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponBindingSource, "Weight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownWeight.DecimalPlaces = 1;
-            this.numericUpDownWeight.Location = new System.Drawing.Point(195, 180);
-            this.numericUpDownWeight.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownWeight.Name = "numericUpDownWeight";
-            this.numericUpDownWeight.Size = new System.Drawing.Size(56, 20);
-            this.numericUpDownWeight.TabIndex = 26;
-            this.numericUpDownWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.weaponBindingSource, "Points", true));
+            this.textBoxPoints.Location = new System.Drawing.Point(425, 16);
+            this.textBoxPoints.Name = "textBoxPoints";
+            this.textBoxPoints.ReadOnly = true;
+            this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
+            this.textBoxPoints.TabIndex = 36;
+            this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // weaponBindingSource
             // 
             this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(143, 184);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Gewicht";
             // 
             // pictureBoxDamageEffects
             // 
@@ -179,21 +165,6 @@
             this.pictureBoxDamageEffects.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDamageEffects.TabIndex = 21;
             this.pictureBoxDamageEffects.TabStop = false;
-            // 
-            // numericUpDownAdditionalPoints
-            // 
-            this.numericUpDownAdditionalPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownAdditionalPoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownAdditionalPoints.Location = new System.Drawing.Point(3, 3);
-            this.numericUpDownAdditionalPoints.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownAdditionalPoints.Name = "numericUpDownAdditionalPoints";
-            this.numericUpDownAdditionalPoints.Size = new System.Drawing.Size(56, 20);
-            this.numericUpDownAdditionalPoints.TabIndex = 4;
-            this.numericUpDownAdditionalPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // pictureBoxDamageType
             // 
@@ -235,6 +206,46 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(416, 20);
             this.textBoxName.TabIndex = 6;
+            // 
+            // numericUpDownWeight
+            // 
+            this.numericUpDownWeight.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponBindingSource, "Weight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownWeight.DecimalPlaces = 1;
+            this.numericUpDownWeight.Location = new System.Drawing.Point(195, 180);
+            this.numericUpDownWeight.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownWeight.Name = "numericUpDownWeight";
+            this.numericUpDownWeight.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownWeight.TabIndex = 26;
+            this.numericUpDownWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(143, 184);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Gewicht";
+            // 
+            // numericUpDownAdditionalPoints
+            // 
+            this.numericUpDownAdditionalPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownAdditionalPoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownAdditionalPoints.Location = new System.Drawing.Point(3, 3);
+            this.numericUpDownAdditionalPoints.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownAdditionalPoints.Name = "numericUpDownAdditionalPoints";
+            this.numericUpDownAdditionalPoints.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownAdditionalPoints.TabIndex = 4;
+            this.numericUpDownAdditionalPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // panel4
             // 
@@ -334,9 +345,9 @@
             this.checkBoxUnwieldy.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.weaponBindingSource, "Unwieldy", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxUnwieldy.Location = new System.Drawing.Point(134, 160);
             this.checkBoxUnwieldy.Name = "checkBoxUnwieldy";
-            this.checkBoxUnwieldy.Size = new System.Drawing.Size(83, 17);
+            this.checkBoxUnwieldy.Size = new System.Drawing.Size(80, 17);
             this.checkBoxUnwieldy.TabIndex = 33;
-            this.checkBoxUnwieldy.Text = "Schwerfällig";
+            this.checkBoxUnwieldy.Text = "Unhandlich";
             this.checkBoxUnwieldy.UseVisualStyleBackColor = true;
             // 
             // checkBoxUseOnce
@@ -687,6 +698,26 @@
             this.panel5.Size = new System.Drawing.Size(478, 86);
             this.panel5.TabIndex = 6;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label12);
+            this.panel2.Controls.Add(this.textBoxRules);
+            this.panel2.Controls.Add(this.numericUpDownAdditionalPoints);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(478, 61);
+            this.panel2.TabIndex = 2;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(65, 5);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(72, 13);
+            this.label12.TabIndex = 47;
+            this.label12.Text = "Zusatzpunkte";
+            // 
             // textBoxRules
             // 
             this.textBoxRules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -761,37 +792,6 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.textBoxRules);
-            this.panel2.Controls.Add(this.numericUpDownAdditionalPoints);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(478, 61);
-            this.panel2.TabIndex = 2;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(65, 5);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 13);
-            this.label12.TabIndex = 47;
-            this.label12.Text = "Zusatzpunkte";
-            // 
-            // textBoxPoints
-            // 
-            this.textBoxPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.weaponBindingSource, "Points", true));
-            this.textBoxPoints.Location = new System.Drawing.Point(425, 16);
-            this.textBoxPoints.Name = "textBoxPoints";
-            this.textBoxPoints.ReadOnly = true;
-            this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
-            this.textBoxPoints.TabIndex = 36;
-            this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // WeaponEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -809,11 +809,11 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WeaponEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageEffects)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -839,13 +839,13 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
