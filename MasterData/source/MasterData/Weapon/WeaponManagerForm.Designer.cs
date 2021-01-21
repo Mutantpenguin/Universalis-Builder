@@ -66,10 +66,10 @@
             this.MaxRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedAF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedRadius = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IndirectFire = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.EffectsImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Unwieldy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.IndirectFire = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
@@ -236,10 +236,10 @@
             this.MaxRange,
             this.FormattedAF,
             this.FormattedRadius,
+            this.IndirectFire,
             this.EffectsImage,
             this.UseOnce,
             this.Unwieldy,
-            this.IndirectFire,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewWeapons.DataSource = this.weaponBindingSource;
@@ -366,6 +366,15 @@
             this.FormattedRadius.ReadOnly = true;
             this.FormattedRadius.Width = 50;
             // 
+            // IndirectFire
+            // 
+            this.IndirectFire.DataPropertyName = "IndirectFire";
+            this.IndirectFire.HeaderText = "I";
+            this.IndirectFire.Name = "IndirectFire";
+            this.IndirectFire.ReadOnly = true;
+            this.IndirectFire.ToolTipText = "Indirektes Feuer";
+            this.IndirectFire.Width = 30;
+            // 
             // EffectsImage
             // 
             this.EffectsImage.DataPropertyName = "EffectsImage";
@@ -387,20 +396,11 @@
             // Unwieldy
             // 
             this.Unwieldy.DataPropertyName = "Unwieldy";
-            this.Unwieldy.HeaderText = "S";
+            this.Unwieldy.HeaderText = "U";
             this.Unwieldy.Name = "Unwieldy";
             this.Unwieldy.ReadOnly = true;
-            this.Unwieldy.ToolTipText = "Schwerfällig";
+            this.Unwieldy.ToolTipText = "Unhandlich";
             this.Unwieldy.Width = 30;
-            // 
-            // IndirectFire
-            // 
-            this.IndirectFire.DataPropertyName = "IndirectFire";
-            this.IndirectFire.HeaderText = "I";
-            this.IndirectFire.Name = "IndirectFire";
-            this.IndirectFire.ReadOnly = true;
-            this.IndirectFire.ToolTipText = "Indirektes Feuer";
-            this.IndirectFire.Width = 30;
             // 
             // weightDataGridViewTextBoxColumn
             // 
@@ -475,10 +475,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxRange;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAF;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRadius;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IndirectFire;
         private System.Windows.Forms.DataGridViewImageColumn EffectsImage;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn IndirectFire;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }
