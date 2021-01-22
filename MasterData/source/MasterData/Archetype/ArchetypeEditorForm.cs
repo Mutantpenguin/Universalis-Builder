@@ -34,6 +34,8 @@ namespace Universalis
             profileBindingSource.CurrentItemChanged += ProfileBindingSource_CurrentItemChanged;
             attributeBindingSource.CurrentItemChanged += AttributeBindingSource_CurrentItemChanged;
 
+            Setup();
+
             // TODO show GB and WB
         }
 
@@ -223,6 +225,48 @@ namespace Universalis
         {
             // TODO set attributes AGI, NK, FK and EH to 0 when it is a drone and lock the fields
             // TODO drone: hide dangerarea
+
+            Setup();
+
+            if( Profile.EType.Drohne == (Profile.EType)comboBoxType.SelectedItem )
+            {
+                numericUpDownAGI.Value = 0;
+                numericUpDownNK.Value = 0;
+                numericUpDownFK.Value = 0;
+                numericUpDownEH.Value = 0;
+            }
+
+            //attributeBindingSource.ResetCurrentItem();
+        }
+
+        private void Setup()
+        {
+            if( Profile.EType.Drohne == (Profile.EType)comboBoxType.SelectedItem )
+            {
+                var attributes = m_modifiedArchetype.Profile.Attributes;
+
+                numericUpDownAGI.Enabled = false;
+                numericUpDownNK.Enabled = false;
+                numericUpDownFK.Enabled = false;
+                numericUpDownEH.Enabled = false;
+
+                numericUpDownAGI.Minimum = 0;
+                numericUpDownNK.Minimum = 0;
+                numericUpDownFK.Minimum = 0;
+                numericUpDownEH.Minimum = 0;
+            }
+            else
+            {
+                numericUpDownAGI.Enabled = true;
+                numericUpDownNK.Enabled = true;
+                numericUpDownFK.Enabled = true;
+                numericUpDownEH.Enabled = true;
+
+                numericUpDownAGI.Minimum = 1;
+                numericUpDownNK.Minimum = 1;
+                numericUpDownFK.Minimum = 1;
+                numericUpDownEH.Minimum = 1;
+            }
         }
     }
 }
