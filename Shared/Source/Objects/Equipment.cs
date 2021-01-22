@@ -29,6 +29,8 @@ namespace Universalis
 
             UseOnce = equipment.UseOnce;
 
+            Unwieldy = equipment.Unwieldy;
+
             if( null != equipment.ProfileModifier )
             {
                 ProfileModifier = new ProfileModifier( equipment.ProfileModifier );
@@ -57,6 +59,8 @@ namespace Universalis
                 Weight != equipment.Weight
                 ||
                 UseOnce != equipment.UseOnce
+                ||
+                Unwieldy != equipment.Unwieldy
                 ||
                 AP != equipment.AP )
             {
@@ -121,6 +125,12 @@ namespace Universalis
         } = 0;
 
         public bool UseOnce
+        {
+            get;
+            set;
+        } = false;
+
+        public bool Unwieldy
         {
             get;
             set;
@@ -213,6 +223,11 @@ namespace Universalis
             if( UseOnce )
             {
                 points *= Costs.EquipmentUseOnceMultiplicator;
+            }
+
+            if( Unwieldy )
+            {
+                points *= Costs.EquipmentUnwieldyMultiplicator;
             }
 
             return ( (int)points );

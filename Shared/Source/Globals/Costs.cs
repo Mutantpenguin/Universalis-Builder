@@ -75,5 +75,6 @@ namespace Universalis
 
         // Equipment
         public const float EquipmentUseOnceMultiplicator = 0.35f;
+        public const float EquipmentUnwieldyMultiplicator = 0.8f;
     }
 }

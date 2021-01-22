@@ -58,6 +58,7 @@
             this.WNString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EHString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Unwieldy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.apDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +88,7 @@
             this.WNString,
             this.EHString,
             this.UseOnce,
+            this.Unwieldy,
             this.apDataGridViewTextBoxColumn,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
@@ -97,7 +99,7 @@
             this.dataGridViewEquipment.ReadOnly = true;
             this.dataGridViewEquipment.RowHeadersVisible = false;
             this.dataGridViewEquipment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEquipment.Size = new System.Drawing.Size(714, 294);
+            this.dataGridViewEquipment.Size = new System.Drawing.Size(796, 372);
             this.dataGridViewEquipment.TabIndex = 0;
             this.dataGridViewEquipment.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEquipment_CellDoubleClick);
             this.dataGridViewEquipment.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewEquipment_CellToolTipTextNeeded);
@@ -112,7 +114,7 @@
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
-            this.buttonOk.Location = new System.Drawing.Point(611, 3);
+            this.buttonOk.Location = new System.Drawing.Point(693, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 23);
             this.buttonOk.TabIndex = 4;
@@ -142,7 +144,7 @@
             this.toolStripButtonClearSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(714, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(796, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -170,9 +172,9 @@
             this.panel2.Controls.Add(this.buttonCancel);
             this.panel2.Controls.Add(this.buttonOk);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 319);
+            this.panel2.Location = new System.Drawing.Point(0, 397);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(714, 29);
+            this.panel2.Size = new System.Drawing.Size(796, 29);
             this.panel2.TabIndex = 2;
             // 
             // nameDataGridViewTextBoxColumn
@@ -263,6 +265,15 @@
             this.UseOnce.ToolTipText = "Einmalnutzung";
             this.UseOnce.Width = 30;
             // 
+            // Unwieldy
+            // 
+            this.Unwieldy.DataPropertyName = "Unwieldy";
+            this.Unwieldy.HeaderText = "U";
+            this.Unwieldy.Name = "Unwieldy";
+            this.Unwieldy.ReadOnly = true;
+            this.Unwieldy.ToolTipText = "Unhandlich";
+            this.Unwieldy.Width = 30;
+            // 
             // apDataGridViewTextBoxColumn
             // 
             this.apDataGridViewTextBoxColumn.DataPropertyName = "FormattedAP";
@@ -301,7 +312,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(714, 348);
+            this.ClientSize = new System.Drawing.Size(796, 426);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridViewEquipment);
             this.Controls.Add(this.panel2);
@@ -338,6 +349,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn WNString;
         private System.Windows.Forms.DataGridViewTextBoxColumn EHString;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
         private System.Windows.Forms.DataGridViewTextBoxColumn apDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;

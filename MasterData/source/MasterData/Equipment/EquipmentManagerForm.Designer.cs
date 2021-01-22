@@ -49,12 +49,13 @@
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewEquipment = new System.Windows.Forms.DataGridView();
+            this.equipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GKString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AGIString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NKString = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,15 +63,15 @@
             this.KOString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WNString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EHString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Unwieldy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.apDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEquipment)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -91,6 +92,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -162,7 +164,6 @@
             this.dataGridViewEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
-            this.UseOnce,
             this.GKString,
             this.AGIString,
             this.NKString,
@@ -170,6 +171,8 @@
             this.KOString,
             this.WNString,
             this.EHString,
+            this.UseOnce,
+            this.Unwieldy,
             this.apDataGridViewTextBoxColumn,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
@@ -185,6 +188,10 @@
             this.dataGridViewEquipment.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEquipment_CellDoubleClick);
             this.dataGridViewEquipment.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewEquipment_CellToolTipTextNeeded);
             this.dataGridViewEquipment.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewEquipment_KeyDown);
+            // 
+            // equipmentBindingSource
+            // 
+            this.equipmentBindingSource.DataSource = typeof(Universalis.Equipment);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -219,14 +226,13 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
-            // UseOnce
+            // nameDataGridViewTextBoxColumn
             // 
-            this.UseOnce.DataPropertyName = "UseOnce";
-            this.UseOnce.HeaderText = "E";
-            this.UseOnce.Name = "UseOnce";
-            this.UseOnce.ReadOnly = true;
-            this.UseOnce.ToolTipText = "Einmalnutzung";
-            this.UseOnce.Width = 30;
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // GKString
             // 
@@ -298,6 +304,24 @@
             this.EHString.ReadOnly = true;
             this.EHString.Width = 35;
             // 
+            // UseOnce
+            // 
+            this.UseOnce.DataPropertyName = "UseOnce";
+            this.UseOnce.HeaderText = "E";
+            this.UseOnce.Name = "UseOnce";
+            this.UseOnce.ReadOnly = true;
+            this.UseOnce.ToolTipText = "Einmalnutzung";
+            this.UseOnce.Width = 30;
+            // 
+            // Unwieldy
+            // 
+            this.Unwieldy.DataPropertyName = "Unwieldy";
+            this.Unwieldy.HeaderText = "U";
+            this.Unwieldy.Name = "Unwieldy";
+            this.Unwieldy.ReadOnly = true;
+            this.Unwieldy.ToolTipText = "Unhandlich";
+            this.Unwieldy.Width = 30;
+            // 
             // apDataGridViewTextBoxColumn
             // 
             this.apDataGridViewTextBoxColumn.DataPropertyName = "FormattedAP";
@@ -308,14 +332,6 @@
             this.apDataGridViewTextBoxColumn.ReadOnly = true;
             this.apDataGridViewTextBoxColumn.ToolTipText = "Aktionspunkte";
             this.apDataGridViewTextBoxColumn.Width = 35;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // weightDataGridViewTextBoxColumn
             // 
@@ -338,10 +354,6 @@
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.pointsDataGridViewTextBoxColumn.Width = 60;
             // 
-            // equipmentBindingSource
-            // 
-            this.equipmentBindingSource.DataSource = typeof(Universalis.Equipment);
-            // 
             // EquipmentManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,9 +370,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEquipment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -383,7 +395,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
         private System.Windows.Forms.DataGridViewTextBoxColumn GKString;
         private System.Windows.Forms.DataGridViewTextBoxColumn AGIString;
         private System.Windows.Forms.DataGridViewTextBoxColumn NKString;
@@ -391,6 +402,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KOString;
         private System.Windows.Forms.DataGridViewTextBoxColumn WNString;
         private System.Windows.Forms.DataGridViewTextBoxColumn EHString;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
         private System.Windows.Forms.DataGridViewTextBoxColumn apDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;

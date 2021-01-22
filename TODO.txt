@@ -1,3 +1,14 @@
+Gewicht:
+	von der Karte entfernen
+
+Waffen:
+	- brauchen AttributeModifier
+
+Karte:
+	- Unhandlich für Waffen anders anzeigen
+	- Unhandlich für Ausrüstung anzeigen
+
+
 "Archetypen" einführen
 - Haben
 	- Typ -> Editor
@@ -7,6 +18,8 @@
 	- BW
 	- BW-Art -> Editor
 - werden pro Fraktion definiert
+
+
 
 Aktivierungsreihenfolge in allen Masken
   - Manager erledigt

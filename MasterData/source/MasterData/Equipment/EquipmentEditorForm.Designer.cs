@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
+            this.equipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label10 = new System.Windows.Forms.Label();
             this.checkBoxUseOnce = new System.Windows.Forms.CheckBox();
             this.numericUpDownAP = new System.Windows.Forms.NumericUpDown();
@@ -41,9 +42,11 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.numericUpDownAdditionalPoints = new System.Windows.Forms.NumericUpDown();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panelProfileMods = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.numericUpDownAGI = new System.Windows.Forms.NumericUpDown();
+            this.attributeModifierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.numericUpDownNK = new System.Windows.Forms.NumericUpDown();
@@ -60,6 +63,10 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.numericUpDownEH = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
+            this.profileModifierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonProfileMod = new System.Windows.Forms.ToolStripButton();
@@ -77,21 +84,18 @@
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
-            this.panelProfileMods = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.equipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.attributeModifierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.profileModifierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkBoxUnwieldy = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
             this.panel3.SuspendLayout();
+            this.panelProfileMods.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeModifierBindingSource)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNK)).BeginInit();
             this.panel7.SuspendLayout();
@@ -102,6 +106,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWN)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEH)).BeginInit();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileModifierBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -110,17 +117,12 @@
             this.toolStrip3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.toolStrip4.SuspendLayout();
-            this.panelProfileMods.SuspendLayout();
-            this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeModifierBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileModifierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.checkBoxUnwieldy);
             this.panel1.Controls.Add(this.textBoxPoints);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.checkBoxUseOnce);
@@ -146,6 +148,10 @@
             this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
             this.textBoxPoints.TabIndex = 35;
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // equipmentBindingSource
+            // 
+            this.equipmentBindingSource.DataSource = typeof(Universalis.Equipment);
             // 
             // label10
             // 
@@ -267,6 +273,17 @@
             this.panel3.Size = new System.Drawing.Size(484, 100);
             this.panel3.TabIndex = 2;
             // 
+            // panelProfileMods
+            // 
+            this.panelProfileMods.AutoSize = true;
+            this.panelProfileMods.Controls.Add(this.tableLayoutPanel4);
+            this.panelProfileMods.Controls.Add(this.panel14);
+            this.panelProfileMods.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelProfileMods.Location = new System.Drawing.Point(0, 25);
+            this.panelProfileMods.Name = "panelProfileMods";
+            this.panelProfileMods.Size = new System.Drawing.Size(484, 75);
+            this.panelProfileMods.TabIndex = 2;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.AutoSize = true;
@@ -322,6 +339,10 @@
             this.numericUpDownAGI.Size = new System.Drawing.Size(68, 20);
             this.numericUpDownAGI.TabIndex = 1;
             this.numericUpDownAGI.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // attributeModifierBindingSource
+            // 
+            this.attributeModifierBindingSource.DataSource = typeof(Universalis.AttributeModifier);
             // 
             // label4
             // 
@@ -537,6 +558,51 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "EH";
             // 
+            // panel14
+            // 
+            this.panel14.AutoSize = true;
+            this.panel14.Controls.Add(this.numericUpDownSpeed);
+            this.panel14.Controls.Add(this.label5);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel14.Location = new System.Drawing.Point(0, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(484, 26);
+            this.panel14.TabIndex = 3;
+            // 
+            // numericUpDownSpeed
+            // 
+            this.numericUpDownSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownSpeed.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileModifierBindingSource, "Speed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(94, 3);
+            this.numericUpDownSpeed.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.numericUpDownSpeed.Minimum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(58, 20);
+            this.numericUpDownSpeed.TabIndex = 6;
+            this.numericUpDownSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // profileModifierBindingSource
+            // 
+            this.profileModifierBindingSource.DataSource = typeof(Universalis.ProfileModifier);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Geschwindigkeit";
+            // 
             // toolStrip2
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -706,69 +772,16 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
-            // panelProfileMods
+            // checkBoxUnwieldy
             // 
-            this.panelProfileMods.AutoSize = true;
-            this.panelProfileMods.Controls.Add(this.tableLayoutPanel4);
-            this.panelProfileMods.Controls.Add(this.panel14);
-            this.panelProfileMods.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelProfileMods.Location = new System.Drawing.Point(0, 25);
-            this.panelProfileMods.Name = "panelProfileMods";
-            this.panelProfileMods.Size = new System.Drawing.Size(484, 75);
-            this.panelProfileMods.TabIndex = 2;
-            // 
-            // panel14
-            // 
-            this.panel14.AutoSize = true;
-            this.panel14.Controls.Add(this.numericUpDownSpeed);
-            this.panel14.Controls.Add(this.label5);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(484, 26);
-            this.panel14.TabIndex = 3;
-            // 
-            // numericUpDownSpeed
-            // 
-            this.numericUpDownSpeed.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownSpeed.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileModifierBindingSource, "Speed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownSpeed.Location = new System.Drawing.Point(94, 3);
-            this.numericUpDownSpeed.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.numericUpDownSpeed.Minimum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDownSpeed.Name = "numericUpDownSpeed";
-            this.numericUpDownSpeed.Size = new System.Drawing.Size(58, 20);
-            this.numericUpDownSpeed.TabIndex = 6;
-            this.numericUpDownSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Geschwindigkeit";
-            // 
-            // equipmentBindingSource
-            // 
-            this.equipmentBindingSource.DataSource = typeof(Universalis.Equipment);
-            // 
-            // attributeModifierBindingSource
-            // 
-            this.attributeModifierBindingSource.DataSource = typeof(Universalis.AttributeModifier);
-            // 
-            // profileModifierBindingSource
-            // 
-            this.profileModifierBindingSource.DataSource = typeof(Universalis.ProfileModifier);
+            this.checkBoxUnwieldy.AutoSize = true;
+            this.checkBoxUnwieldy.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.equipmentBindingSource, "Unwieldy", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxUnwieldy.Location = new System.Drawing.Point(194, 42);
+            this.checkBoxUnwieldy.Name = "checkBoxUnwieldy";
+            this.checkBoxUnwieldy.Size = new System.Drawing.Size(80, 17);
+            this.checkBoxUnwieldy.TabIndex = 36;
+            this.checkBoxUnwieldy.Text = "Unhandlich";
+            this.checkBoxUnwieldy.UseVisualStyleBackColor = true;
             // 
             // EquipmentEditorForm
             // 
@@ -787,16 +800,20 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EquipmentEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panelProfileMods.ResumeLayout(false);
+            this.panelProfileMods.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeModifierBindingSource)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNK)).EndInit();
@@ -812,6 +829,10 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEH)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileModifierBindingSource)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -827,14 +848,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
-            this.panelProfileMods.ResumeLayout(false);
-            this.panelProfileMods.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeModifierBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileModifierBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -897,5 +910,6 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.NumericUpDown numericUpDownSpeed;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBoxUnwieldy;
     }
 }
