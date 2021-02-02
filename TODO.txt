@@ -18,9 +18,6 @@ Archetypen:
 AttributeModifier:
 	- sind irgendwie überall in der GUI ziemlich buggy
 
-Waffen
-	- Für alle Waffen "additive Stärke" erlauben?
-
 "Archetypen" einführen
 - Haben
 	- Typ -> Editor
