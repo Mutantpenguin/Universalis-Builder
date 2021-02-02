@@ -8,6 +8,18 @@ Karte:
 	- Unhandlich für Waffen anders anzeigen
 	- Unhandlich für Ausrüstung anzeigen
 
+Fraktion:
+	- Liste mit Namen hinterlegen können die in "Groups" zufällig "zusammengebaut" werden
+
+Archetypen:
+	- Werte würfeln?
+		- Achtung, Drohnen haben nicht alle Werte
+
+AttributeModifier:
+	- sind irgendwie überall in der GUI ziemlich buggy
+
+Waffen
+	- Für alle Waffen "additive Stärke" erlauben?
 
 "Archetypen" einführen
 - Haben
@@ -28,6 +40,7 @@ Aktivierungsreihenfolge in allen Masken
 
 GroupPDFExport:
 	- Übersichtsseite aller genutzen Waffeneffekte?
+		-> Dafür müssen die Waffeneffekte ein eigener Datentyp werden
 
 Neue Icons als FensterIcon verwendet?
 	Eventuell kleinere Varianten benötigt.
