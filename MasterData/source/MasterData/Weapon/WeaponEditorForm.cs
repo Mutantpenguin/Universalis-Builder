@@ -79,14 +79,6 @@ namespace Universalis
 
             var weapon = ( weaponBindingSource.DataSource as Weapon );
 
-            if( ( weapon.Type != Weapon.EType.Nahkampf )
-                &&
-                ( weapon.AdditiveStrength ) )
-            {
-                MessageBox.Show( "Nur Nahkampfwaffen dürfen über additive Stärke verfügen!" );
-                return ( false );
-            }
-
             if( weapon.AdditiveStrength && weapon.Strength == 0 )
             {
                 MessageBox.Show( "Bei additiver Stärke muss die Stärke größer 0 sein!" );
