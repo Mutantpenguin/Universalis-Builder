@@ -7,6 +7,7 @@ Waffen:
 Karte:
 	- Unhandlich für Waffen anders anzeigen
 	- Unhandlich für Ausrüstung anzeigen
+	- Unhandlich mit "!" darstellen?
 
 Fraktion:
 	- Liste mit Namen hinterlegen können die in "Groups" zufällig "zusammengebaut" werden
