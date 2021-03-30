@@ -31,8 +31,6 @@ namespace Universalis
         private static readonly Pen SStructureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
         private static readonly Pen SHitPointBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
 
-        private static readonly Pen unwieldyCirclePen = new Pen( Color.White, CmToPixel( 0.015f ) );
-
         private static readonly Font Font0Dot2 = new Font( UniversalisFont.Family, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
         private static readonly Font Font0Dot3 = new Font( UniversalisFont.Family, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
         private static readonly Font Font0Dot35 = new Font( UniversalisFont.Family, CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
@@ -46,6 +44,7 @@ namespace Universalis
         private static readonly Font FontWeapon = Font0Dot3;
         private static readonly Font FontWeaponName = Font0Dot2;
         private static readonly Font FontWk = Font0Dot3;
+        private static readonly Font FontUnwieldy = Font0Dot2;
         private static readonly Font FontArmor = Font0Dot3;
         private static readonly Font FontArmorName = Font0Dot2;
         private static readonly Font FontEquipment = Font0Dot3;
@@ -90,6 +89,7 @@ namespace Universalis
         private static readonly int XAttrSecondColumn = CmToPixel( 6.1 );
         private static readonly int XAttrThirdColumn = CmToPixel( 8.5 );
 
+        private const String UnwieldyMarker = "»";
         private const String NonBreakingSpace = "\u00a0";
         #endregion members
 
@@ -99,6 +99,7 @@ namespace Universalis
         private static readonly int WeaponStrengthWidth = CmToPixel( 0.5 );
         private static readonly int WeaponDamageWidth = CmToPixel( 0.5 );
         private static readonly int WeaponRangeWidth = CmToPixel( 0.9 );
+        private static readonly int WeaponUnwieldyLength = WeaponWkWidth / 4;
 
         private static readonly int WeaponWkStart = SSectionsPosX;
         private static readonly int WeaponNameStart = WeaponWkStart + WeaponWkWidth;
@@ -681,9 +682,8 @@ namespace Universalis
 
             if( weapon.Unwieldy )
             {
-                Rectangle circleRect = new Rectangle( wkRect.Location, wkRect.Size );
-                circleRect.Inflate( CmToPixel( -0.05 ), CmToPixel( -0.05 ) );
-                g.DrawEllipse( unwieldyCirclePen, circleRect );
+                Rectangle unwieldyRect = new Rectangle( wkRect.Right - WeaponUnwieldyLength, wkRect.Y, WeaponUnwieldyLength, WeaponUnwieldyLength );
+                Helpers.DrawStringCentered( g, UnwieldyMarker, FontUnwieldy, Brushes.White, unwieldyRect );
             }
 
             string weaponName = weapon.Name;
@@ -860,6 +860,8 @@ namespace Universalis
                                                            ||
                                                            ( x.equipment.UseOnce )
                                                            ||
+                                                           ( x.equipment.Unwieldy )
+                                                           ||
                                                            ( !String.IsNullOrEmpty( x.equipment.Rules ) ) )
                                               .OrderBy( x => x.equipment.Name )
                                               .ToList();
@@ -871,6 +873,11 @@ namespace Universalis
                 StringBuilder builder = new StringBuilder();
                 foreach( var entry in equipList )
                 {
+                    if( entry.equipment.Unwieldy )
+                    {
+                        builder.Append( UnwieldyMarker );
+                    }
+
                     builder.Append( entry.equipment.Name );
 
                     if( entry.equipment.AP > 0 )
