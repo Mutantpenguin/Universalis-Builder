@@ -599,9 +599,6 @@ namespace Universalis
                 case Profile.EType.Koloss:
                     return ( Convert.ToSingle( Math.Pow( ( modKO * Presets.ColossusLoadCapacityMultiplier ), 2 ) ) );
 
-                case Profile.EType.Fahrzeug:
-                    return ( Convert.ToSingle( Math.Pow( ( modKO * Presets.FahrzeugLoadCapacityMultiplier ), 2 ) ) );
-
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
             }
@@ -651,9 +648,7 @@ namespace Universalis
 
         public Weapon WeaponUnarmed( ActorOutfit actorOutfit )
         {
-            if( ( this.Archetype.Profile.Type == Profile.EType.Fahrzeug )
-                ||
-                ( this.Archetype.Profile.Type == Profile.EType.Drohne ) )
+            if( this.Archetype.Profile.Type == Profile.EType.Drohne ) 
             {
                 return ( null );
             }

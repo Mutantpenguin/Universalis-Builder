@@ -150,17 +150,6 @@ namespace Universalis
                         }
                         break;
 
-                    case Profile.EType.Fahrzeug:
-                        if( size == Profile.ESize.Klein )
-                        {
-                            MessageBox.Show( "Fahrzeuge dürfen nicht klein sein!",
-                                             caption,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Stop );
-                            return ( false );
-                        }
-                        break;
-
                     default:
                         throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
                 }

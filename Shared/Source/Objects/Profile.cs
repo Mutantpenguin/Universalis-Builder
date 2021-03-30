@@ -91,7 +91,6 @@ namespace Universalis
             Infanterie = 1,
             Mech = 2,
             Koloss = 3,
-            Fahrzeug = 4,
             Drohne = 5
         }
 
@@ -148,7 +147,6 @@ namespace Universalis
                 {
                     case Profile.EType.Infanterie:
                     case Profile.EType.Drohne:
-                    case Profile.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
                         points += HitPoints * Costs.HitPoints;
                         break;
 
@@ -189,11 +187,6 @@ namespace Universalis
 
                     case EType.Drohne:
                         typeMultiplicator = 10.0f;
-                        break;
-
-                    case EType.Fahrzeug:
-                        // TODO
-                        typeMultiplicator = 50.0f;
                         break;
 
                     default:

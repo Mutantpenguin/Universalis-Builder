@@ -143,9 +143,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Fahrzeug.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Drohne.png" />
   </ItemGroup>
   <ItemGroup>
