@@ -85,11 +85,18 @@ namespace Universalis
 
             if( ( m_modifiedArchetype.Profile.Speed == 0 ) && ( EMovementType.Stationär != m_modifiedArchetype.Profile.MovementType ) )
             {
-                MessageBox.Show( "Geschwindigkeit ist gleich 0. Daher bitte die Bewegungsart " + EMovementType.Stationär.ToString() + " auswählen!",
-                                 caption,
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.Stop );
-                return ( false );
+                if( MessageBox.Show( "Geschwindigkeit ist gleich 0. Die Bewegungsart auf '" + EMovementType.Stationär.ToString() + "' setzen?",
+                                     caption,
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Stop,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    m_modifiedArchetype.Profile.MovementType = EMovementType.Stationär;
+                }
+                else
+                {
+                    return ( false );
+                }
             }
 
             {
