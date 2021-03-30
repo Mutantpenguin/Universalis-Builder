@@ -423,7 +423,6 @@ namespace Universalis
             int sizeX = DrawType( g, XAttrThirdColumn, actor.Archetype.Profile.Type );
             int movementX = DrawSize( g, sizeX, actor.Archetype.Profile.Size );
             int weightX = DrawMovement( g, movementX, actor.Archetype.Profile.MovementType, actor.ModSpeed( actorOutfit ) );
-            DrawWeight( g, weightX, actor, actorOutfit );
         }
 
         private static int DrawType( Graphics g, int xOffset, Profile.EType type )
@@ -542,17 +541,6 @@ namespace Universalis
             g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );
 
             return ( xOffset + width );
-        }
-
-        private static void DrawWeight( Graphics g, int xOffset, Actor actor, Actor.ActorOutfit actorOutfit )
-        {
-            int weightStringWidth = CmToPixel( 0.6 );
-
-            g.DrawImage( Properties.Resources.Gewicht, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
-
-            Helpers.DrawStringCentered( g, $"{actor.Archetype.Profile.Weight + actor.LoadoutWeight( actorOutfit, withSelfSustaining: true ):n0}", FontStandardSmall, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, weightStringWidth, SLineHeight ) );
-
-            g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, weightStringWidth + 3 * SImageMargin + SImageSize, SLineHeight ) );
         }
 
         private static void DrawSectionHeader( Graphics g, String name, Image sectionHeader, int posY )

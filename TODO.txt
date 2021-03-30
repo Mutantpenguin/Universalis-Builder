@@ -1,6 +1,3 @@
-Gewicht:
-	von der Karte entfernen
-
 Waffen:
 	- brauchen AttributeModifier
 
