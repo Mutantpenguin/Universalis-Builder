@@ -301,7 +301,6 @@ namespace Universalis
             {
                 case Profile.EType.Infanterie:
                 case Profile.EType.Drohne:
-                case Profile.EType.Fahrzeug: // TODO implement completely different HitZones for vehicles? like chassis, engine and so on?
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
 
@@ -443,10 +442,6 @@ namespace Universalis
 
                 case Profile.EType.Koloss:
                     g.DrawImage( Properties.Resources.Koloss, rect );
-                    break;
-
-                case Profile.EType.Fahrzeug:
-                    g.DrawImage( Properties.Resources.Fahrzeug, rect );
                     break;
 
                 case Profile.EType.Drohne:
