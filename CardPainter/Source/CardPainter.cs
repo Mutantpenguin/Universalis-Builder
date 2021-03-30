@@ -249,12 +249,12 @@ namespace Universalis
         private static void DrawAttribute( Graphics g, int posX, int posY, string name, int? attribute )
         {
             int widthName = CmToPixel( 0.9 );
-            int widthAtt = CmToPixel( 0.6 );
+            int widthAtt = CmToPixel( 1.2 );
 
             Rectangle rectName = new Rectangle( posX, posY, widthName, SLineHeight );
-            Rectangle rectValue = new Rectangle( posX + widthName, posY, 2 * widthAtt, SLineHeight );
+            Rectangle rectValue = new Rectangle( posX + widthName, posY, widthAtt, SLineHeight );
 
-            g.DrawRectangle( SLinePenBlack, new Rectangle( posX, posY, widthName + widthAtt + widthAtt, SLineHeight ) );
+            g.DrawRectangle( SLinePenBlack, new Rectangle( posX, posY, widthName + widthAtt, SLineHeight ) );
 
             g.FillRectangle( Brushes.Black, rectName );
 
