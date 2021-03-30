@@ -77,9 +77,6 @@
     <None Include="Resources\Wahrnehmungsbereich.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Gewicht.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\bewegung_schweben.png" />
   </ItemGroup>
   <ItemGroup>
