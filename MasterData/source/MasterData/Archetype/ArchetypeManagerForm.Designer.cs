@@ -175,6 +175,7 @@
             this.checkBoxFilterFaction.CheckOnClick = true;
             this.checkBoxFilterFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.checkBoxFilterFaction.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterFaction.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.checkBoxFilterFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterFaction.Name = "checkBoxFilterFaction";
             this.checkBoxFilterFaction.Size = new System.Drawing.Size(23, 22);
@@ -194,6 +195,7 @@
             this.checkBoxFilterType.CheckOnClick = true;
             this.checkBoxFilterType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.checkBoxFilterType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.checkBoxFilterType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterType.Name = "checkBoxFilterType";
             this.checkBoxFilterType.Size = new System.Drawing.Size(23, 22);

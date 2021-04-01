@@ -318,13 +318,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ui-check-box.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ui-check-box-uncheck.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\ui-check-box-uncheck.png" />
+    <None Include="Resources\ui-check-box.png" />
     <None Include="Resources\text_snippet.png" />
     <None Include="Resources\change_circle.png" />
     <None Include="Resources\plus.png" />

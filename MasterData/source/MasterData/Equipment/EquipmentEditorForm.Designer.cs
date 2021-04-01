@@ -637,6 +637,7 @@
             this.toolStripButtonProfileMod.CheckOnClick = true;
             this.toolStripButtonProfileMod.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonProfileMod.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.toolStripButtonProfileMod.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonProfileMod.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonProfileMod.Name = "toolStripButtonProfileMod";
             this.toolStripButtonProfileMod.Size = new System.Drawing.Size(23, 22);
