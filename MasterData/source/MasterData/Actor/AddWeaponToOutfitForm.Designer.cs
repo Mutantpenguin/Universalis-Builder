@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,25 +40,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
-            this.wKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Strength = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormattedDamage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WeaponRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaxRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormattedAF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormattedRadius = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IndirectFire = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.effectsImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Unwieldy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -71,6 +56,22 @@
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.filterType = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
+            this.wKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Strength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedDamage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WeaponRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedAF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedRadius = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IndirectFire = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.effectsImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Unwieldy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Reloadable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
@@ -130,6 +131,7 @@
             this.effectsImageDataGridViewImageColumn,
             this.UseOnce,
             this.Unwieldy,
+            this.Reloadable,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewWeapons.DataSource = this.weaponBindingSource;
@@ -144,6 +146,134 @@
             this.dataGridViewWeapons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWeapons_CellDoubleClick);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWeapons_KeyDown);
+            // 
+            // weaponBindingSource
+            // 
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.dataGridViewWeapons);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(754, 369);
+            this.panel2.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.buttonOk);
+            this.panel3.Controls.Add(this.buttonCancel);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 394);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(754, 32);
+            this.panel3.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "WeaponRange";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewTextBoxColumn1.HeaderText = "R";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ToolTipText = "Reichweite";
+            this.dataGridViewTextBoxColumn1.Width = 30;
+            // 
+            // toolStripTextBoxSearch
+            // 
+            this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
+            this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxSearch_KeyDown);
+            this.toolStripTextBoxSearch.TextChanged += new System.EventHandler(this.toolStripTextBoxSearch_TextChanged);
+            // 
+            // filterWK
+            // 
+            this.filterWK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterWK.Enabled = false;
+            this.filterWK.Name = "filterWK";
+            this.filterWK.Size = new System.Drawing.Size(75, 25);
+            // 
+            // checkBoxFilterWK
+            // 
+            this.checkBoxFilterWK.CheckOnClick = true;
+            this.checkBoxFilterWK.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.checkBoxFilterWK.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterWK.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.checkBoxFilterWK.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.checkBoxFilterWK.Name = "checkBoxFilterWK";
+            this.checkBoxFilterWK.Size = new System.Drawing.Size(23, 22);
+            this.checkBoxFilterWK.ToolTipText = "nach WK filtern";
+            this.checkBoxFilterWK.Click += new System.EventHandler(this.checkBoxFilterWK_Click);
+            // 
+            // filterDamageType
+            // 
+            this.filterDamageType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterDamageType.Enabled = false;
+            this.filterDamageType.Name = "filterDamageType";
+            this.filterDamageType.Size = new System.Drawing.Size(121, 25);
+            // 
+            // checkBoxFilterDamageType
+            // 
+            this.checkBoxFilterDamageType.CheckOnClick = true;
+            this.checkBoxFilterDamageType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.checkBoxFilterDamageType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterDamageType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.checkBoxFilterDamageType.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.checkBoxFilterDamageType.Name = "checkBoxFilterDamageType";
+            this.checkBoxFilterDamageType.Size = new System.Drawing.Size(23, 22);
+            this.checkBoxFilterDamageType.ToolTipText = "nach Schadenstyp filtern";
+            this.checkBoxFilterDamageType.Click += new System.EventHandler(this.checkBoxFilterDamageType_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBoxSearch,
+            this.toolStripButtonClearSearch,
+            this.filterWK,
+            this.checkBoxFilterWK,
+            this.filterDamageType,
+            this.checkBoxFilterDamageType,
+            this.filterType,
+            this.checkBoxFilterType});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(754, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonClearSearch
+            // 
+            this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonClearSearch.Image = global::Universalis.Properties.Resources.clear;
+            this.toolStripButtonClearSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
+            this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
+            this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
+            // 
+            // filterType
+            // 
+            this.filterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterType.Enabled = false;
+            this.filterType.Name = "filterType";
+            this.filterType.Size = new System.Drawing.Size(121, 25);
+            // 
+            // checkBoxFilterType
+            // 
+            this.checkBoxFilterType.CheckOnClick = true;
+            this.checkBoxFilterType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.checkBoxFilterType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.checkBoxFilterType.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.checkBoxFilterType.Name = "checkBoxFilterType";
+            this.checkBoxFilterType.Size = new System.Drawing.Size(23, 22);
+            this.checkBoxFilterType.ToolTipText = "nach Typ filtern";
+            this.checkBoxFilterType.Click += new System.EventHandler(this.checkBoxFilterType_Click);
             // 
             // wKDataGridViewTextBoxColumn
             // 
@@ -276,6 +406,15 @@
             this.Unwieldy.ToolTipText = "Unhandlich";
             this.Unwieldy.Width = 30;
             // 
+            // Reloadable
+            // 
+            this.Reloadable.DataPropertyName = "Reloadable";
+            this.Reloadable.HeaderText = "N";
+            this.Reloadable.Name = "Reloadable";
+            this.Reloadable.ReadOnly = true;
+            this.Reloadable.ToolTipText = "Nachladen";
+            this.Reloadable.Width = 30;
+            // 
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
@@ -296,134 +435,6 @@
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.pointsDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // weaponBindingSource
-            // 
-            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
-            // 
-            // panel2
-            // 
-            this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.dataGridViewWeapons);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(754, 369);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.AutoSize = true;
-            this.panel3.Controls.Add(this.buttonOk);
-            this.panel3.Controls.Add(this.buttonCancel);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 394);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(754, 32);
-            this.panel3.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "WeaponRange";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewTextBoxColumn1.HeaderText = "R";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ToolTipText = "Reichweite";
-            this.dataGridViewTextBoxColumn1.Width = 30;
-            // 
-            // toolStripTextBoxSearch
-            // 
-            this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
-            this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
-            this.toolStripTextBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxSearch_KeyDown);
-            this.toolStripTextBoxSearch.TextChanged += new System.EventHandler(this.toolStripTextBoxSearch_TextChanged);
-            // 
-            // filterWK
-            // 
-            this.filterWK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filterWK.Enabled = false;
-            this.filterWK.Name = "filterWK";
-            this.filterWK.Size = new System.Drawing.Size(75, 25);
-            // 
-            // checkBoxFilterWK
-            // 
-            this.checkBoxFilterWK.CheckOnClick = true;
-            this.checkBoxFilterWK.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterWK.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
-            this.checkBoxFilterWK.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.checkBoxFilterWK.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.checkBoxFilterWK.Name = "checkBoxFilterWK";
-            this.checkBoxFilterWK.Size = new System.Drawing.Size(23, 22);
-            this.checkBoxFilterWK.ToolTipText = "nach WK filtern";
-            this.checkBoxFilterWK.Click += new System.EventHandler(this.checkBoxFilterWK_Click);
-            // 
-            // filterDamageType
-            // 
-            this.filterDamageType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filterDamageType.Enabled = false;
-            this.filterDamageType.Name = "filterDamageType";
-            this.filterDamageType.Size = new System.Drawing.Size(121, 25);
-            // 
-            // checkBoxFilterDamageType
-            // 
-            this.checkBoxFilterDamageType.CheckOnClick = true;
-            this.checkBoxFilterDamageType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterDamageType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
-            this.checkBoxFilterDamageType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.checkBoxFilterDamageType.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.checkBoxFilterDamageType.Name = "checkBoxFilterDamageType";
-            this.checkBoxFilterDamageType.Size = new System.Drawing.Size(23, 22);
-            this.checkBoxFilterDamageType.ToolTipText = "nach Schadenstyp filtern";
-            this.checkBoxFilterDamageType.Click += new System.EventHandler(this.checkBoxFilterDamageType_Click);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBoxSearch,
-            this.toolStripButtonClearSearch,
-            this.filterWK,
-            this.checkBoxFilterWK,
-            this.filterDamageType,
-            this.checkBoxFilterDamageType,
-            this.filterType,
-            this.checkBoxFilterType});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(754, 25);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButtonClearSearch
-            // 
-            this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonClearSearch.Image = global::Universalis.Properties.Resources.clear;
-            this.toolStripButtonClearSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
-            this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
-            this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
-            // 
-            // filterType
-            // 
-            this.filterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filterType.Enabled = false;
-            this.filterType.Name = "filterType";
-            this.filterType.Size = new System.Drawing.Size(121, 25);
-            // 
-            // checkBoxFilterType
-            // 
-            this.checkBoxFilterType.CheckOnClick = true;
-            this.checkBoxFilterType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
-            this.checkBoxFilterType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.checkBoxFilterType.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.checkBoxFilterType.Name = "checkBoxFilterType";
-            this.checkBoxFilterType.Size = new System.Drawing.Size(23, 22);
-            this.checkBoxFilterType.ToolTipText = "nach Typ filtern";
-            this.checkBoxFilterType.Click += new System.EventHandler(this.checkBoxFilterType_Click);
             // 
             // AddWeaponToOutfitForm
             // 
@@ -481,6 +492,7 @@
         private System.Windows.Forms.DataGridViewImageColumn effectsImageDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Reloadable;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }
