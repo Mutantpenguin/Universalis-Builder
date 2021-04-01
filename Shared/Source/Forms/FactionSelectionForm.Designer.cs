@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FactionSelectionForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactions)).BeginInit();
@@ -65,15 +65,25 @@
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.TextChanged += new System.EventHandler(this.toolStripTextBoxSearch_TextChanged);
             // 
+            // toolStripButtonClearSearch
+            // 
+            this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClearSearch.Image")));
+            this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
+            this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
+            this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
+            // 
             // panel1
             // 
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 271);
+            this.panel1.Location = new System.Drawing.Point(0, 268);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(402, 29);
+            this.panel1.Size = new System.Drawing.Size(402, 32);
             this.panel1.TabIndex = 1;
             // 
             // buttonCancel
@@ -82,7 +92,7 @@
             this.buttonCancel.Image = global::Shared.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(100, 26);
             this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Abbrechen";
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -96,7 +106,7 @@
             this.buttonOk.Image = global::Shared.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(299, 3);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(100, 23);
+            this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 4;
             this.buttonOk.Text = "Übernehmen";
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -126,7 +136,7 @@
             this.dataGridViewFactions.RowHeadersVisible = false;
             this.dataGridViewFactions.RowTemplate.Height = 40;
             this.dataGridViewFactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewFactions.Size = new System.Drawing.Size(402, 246);
+            this.dataGridViewFactions.Size = new System.Drawing.Size(402, 243);
             this.dataGridViewFactions.TabIndex = 2;
             this.dataGridViewFactions.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFactions_CellDoubleClick);
             // 
@@ -150,16 +160,6 @@
             // factionBindingSource
             // 
             this.factionBindingSource.DataSource = typeof(Universalis.Faction);
-            // 
-            // toolStripButtonClearSearch
-            // 
-            this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClearSearch.Image")));
-            this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
-            this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
-            this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
             // 
             // FactionSelectionForm
             // 

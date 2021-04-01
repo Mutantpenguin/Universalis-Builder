@@ -53,7 +53,7 @@
             this.buttonOk.Image = global::Shared.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(120, 29);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(100, 23);
+            this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 8;
             this.buttonOk.Text = "Übernehmen";
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -66,7 +66,7 @@
             this.buttonCancel.Image = global::Shared.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 29);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(100, 26);
             this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Abbrechen";
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

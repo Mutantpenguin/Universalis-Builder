@@ -89,7 +89,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.pictureBoxCard);
             this.splitContainer1.Panel2MinSize = 50;
-            this.splitContainer1.Size = new System.Drawing.Size(1264, 642);
+            this.splitContainer1.Size = new System.Drawing.Size(1264, 639);
             this.splitContainer1.SplitterDistance = 296;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -107,7 +107,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(296, 642);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(296, 639);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel7
@@ -181,7 +181,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 75);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(290, 108);
+            this.panel2.Size = new System.Drawing.Size(290, 107);
             this.panel2.TabIndex = 9;
             // 
             // textBoxDescription
@@ -191,7 +191,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(290, 83);
+            this.textBoxDescription.Size = new System.Drawing.Size(290, 82);
             this.textBoxDescription.TabIndex = 7;
             this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
@@ -217,9 +217,9 @@
             this.panel5.Controls.Add(this.dataGridViewActors);
             this.panel5.Controls.Add(this.toolStrip1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 189);
+            this.panel5.Location = new System.Drawing.Point(3, 188);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(290, 450);
+            this.panel5.Size = new System.Drawing.Size(290, 448);
             this.panel5.TabIndex = 5;
             // 
             // dataGridViewActors
@@ -248,7 +248,7 @@
             this.dataGridViewActors.RowTemplate.ContextMenuStrip = this.contextMenuStripActors;
             this.dataGridViewActors.RowTemplate.Height = 40;
             this.dataGridViewActors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewActors.Size = new System.Drawing.Size(290, 425);
+            this.dataGridViewActors.Size = new System.Drawing.Size(290, 423);
             this.dataGridViewActors.TabIndex = 5;
             this.dataGridViewActors.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewActors_CellMouseDown);
             this.dataGridViewActors.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewActors_CellPainting);
@@ -375,7 +375,7 @@
             this.pictureBoxCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxCard.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxCard.Name = "pictureBoxCard";
-            this.pictureBoxCard.Size = new System.Drawing.Size(964, 642);
+            this.pictureBoxCard.Size = new System.Drawing.Size(964, 639);
             this.pictureBoxCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCard.TabIndex = 0;
             this.pictureBoxCard.TabStop = false;
@@ -386,10 +386,10 @@
             this.panel3.Controls.Add(this.buttonBack);
             this.panel3.Controls.Add(this.buttonSave);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 642);
+            this.panel3.Location = new System.Drawing.Point(0, 639);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1264, 29);
+            this.panel3.Size = new System.Drawing.Size(1264, 32);
             this.panel3.TabIndex = 1;
             // 
             // buttonBack
@@ -398,7 +398,7 @@
             this.buttonBack.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonBack.Location = new System.Drawing.Point(3, 3);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(100, 23);
+            this.buttonBack.Size = new System.Drawing.Size(100, 26);
             this.buttonBack.TabIndex = 0;
             this.buttonBack.Text = "&Zurück";
             this.buttonBack.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -411,7 +411,7 @@
             this.buttonSave.Image = global::Universalis.Properties.Resources.disk;
             this.buttonSave.Location = new System.Drawing.Point(1161, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(100, 23);
+            this.buttonSave.Size = new System.Drawing.Size(100, 26);
             this.buttonSave.TabIndex = 0;
             this.buttonSave.Text = "&Speichern";
             this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
