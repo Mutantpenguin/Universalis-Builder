@@ -350,7 +350,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ArchetypeSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ArchetypeSelectionForm";
+            this.Text = "Bitte wählen Sie einen Archetyp";
             this.panel1.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

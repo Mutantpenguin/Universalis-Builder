@@ -510,7 +510,7 @@
             this.toolStripButtonChangeArchetype.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonChangeArchetype.Name = "toolStripButtonChangeArchetype";
             this.toolStripButtonChangeArchetype.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonChangeArchetype.Text = "toolStripButton1";
+            this.toolStripButtonChangeArchetype.Text = "Archetyp wechseln";
             this.toolStripButtonChangeArchetype.Click += new System.EventHandler(this.toolStripButtonChangeArchetype_Click);
             // 
             // textBoxTragkraft
