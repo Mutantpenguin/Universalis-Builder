@@ -600,6 +600,7 @@
             this.toolStripButtonAddEffect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonAddEffect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonAddEffect.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonAddEffect.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonAddEffect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAddEffect.Name = "toolStripButtonAddEffect";
             this.toolStripButtonAddEffect.Size = new System.Drawing.Size(23, 22);
@@ -611,6 +612,7 @@
             this.toolStripButtonRemoveEffect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonRemoveEffect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonRemoveEffect.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonRemoveEffect.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonRemoveEffect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRemoveEffect.Name = "toolStripButtonRemoveEffect";
             this.toolStripButtonRemoveEffect.Size = new System.Drawing.Size(23, 22);
@@ -778,6 +780,7 @@
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.link;
+            this.toolStripButtonUsage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -786,9 +789,10 @@
             // toolStripButtonSave
             // 
             this.toolStripButtonSave.Image = global::Universalis.Properties.Resources.disk;
+            this.toolStripButtonSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
-            this.toolStripButtonSave.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButtonSave.Size = new System.Drawing.Size(81, 22);
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 

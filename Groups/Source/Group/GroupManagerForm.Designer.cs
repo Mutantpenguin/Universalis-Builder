@@ -137,6 +137,7 @@
             this.toolStripButtonAddGroup.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonAddGroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonAddGroup.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonAddGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonAddGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAddGroup.Name = "toolStripButtonAddGroup";
             this.toolStripButtonAddGroup.Size = new System.Drawing.Size(23, 22);
@@ -148,6 +149,7 @@
             this.toolStripButtonDeleteGroup.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonDeleteGroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonDeleteGroup.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonDeleteGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonDeleteGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDeleteGroup.Name = "toolStripButtonDeleteGroup";
             this.toolStripButtonDeleteGroup.Size = new System.Drawing.Size(23, 22);
@@ -167,6 +169,7 @@
             // 
             this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonClearSearch.Image = global::Universalis.Properties.Resources.clear;
+            this.toolStripButtonClearSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
             this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
@@ -178,6 +181,7 @@
             this.toolStripButtonCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonCopy.Image = global::Universalis.Properties.Resources.copy;
+            this.toolStripButtonCopy.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCopy.Name = "toolStripButtonCopy";
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
@@ -189,6 +193,7 @@
             this.toolStripButtonExportFile.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonExportFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonExportFile.Image = global::Universalis.Properties.Resources.file_download;
+            this.toolStripButtonExportFile.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonExportFile.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonExportFile.Name = "toolStripButtonExportFile";
             this.toolStripButtonExportFile.Size = new System.Drawing.Size(23, 22);
@@ -200,6 +205,7 @@
             this.toolStripButtonPDF.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonPDF.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonPDF.Image = global::Universalis.Properties.Resources.document_pdf;
+            this.toolStripButtonPDF.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonPDF.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonPDF.Name = "toolStripButtonPDF";
             this.toolStripButtonPDF.Size = new System.Drawing.Size(23, 22);

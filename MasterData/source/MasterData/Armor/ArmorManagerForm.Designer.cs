@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArmorManagerForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -52,9 +51,6 @@
             this.filterCamouflage = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterCamouflage = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewArmor = new System.Windows.Forms.DataGridView();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelfSustaining = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TypesImage = new System.Windows.Forms.DataGridViewImageColumn();
@@ -71,10 +67,13 @@
             this.EHString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArmor)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -108,6 +107,7 @@
             this.toolStripButtonArmorAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonArmorAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonArmorAdd.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonArmorAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonArmorAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArmorAdd.Name = "toolStripButtonArmorAdd";
             this.toolStripButtonArmorAdd.Size = new System.Drawing.Size(23, 22);
@@ -119,6 +119,7 @@
             this.toolStripButtonArmorDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonArmorDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonArmorDelete.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonArmorDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonArmorDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArmorDelete.Name = "toolStripButtonArmorDelete";
             this.toolStripButtonArmorDelete.Size = new System.Drawing.Size(23, 22);
@@ -130,6 +131,7 @@
             this.toolStripButtonCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonCopy.Image = global::Universalis.Properties.Resources.copy;
+            this.toolStripButtonCopy.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCopy.Name = "toolStripButtonCopy";
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
@@ -141,6 +143,7 @@
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.link;
+            this.toolStripButtonUsage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -149,7 +152,8 @@
             // toolStripButtonClearSearch
             // 
             this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClearSearch.Image")));
+            this.toolStripButtonClearSearch.Image = global::Universalis.Properties.Resources.clear;
+            this.toolStripButtonClearSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
             this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
@@ -214,25 +218,6 @@
             this.dataGridViewArmor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewArmor_CellDoubleClick);
             this.dataGridViewArmor.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewArmor_CellToolTipTextNeeded);
             this.dataGridViewArmor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewArmor_KeyDown);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelCount});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(796, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabelCount
-            // 
-            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
-            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
-            // 
-            // armorBindingSource
-            // 
-            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -390,6 +375,25 @@
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.pointsDataGridViewTextBoxColumn.Width = 60;
             // 
+            // armorBindingSource
+            // 
+            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelCount});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(796, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelCount
+            // 
+            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
+            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
+            // 
             // ArmorManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,9 +410,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArmor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

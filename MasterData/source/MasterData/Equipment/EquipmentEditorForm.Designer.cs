@@ -30,8 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxPoints = new System.Windows.Forms.TextBox();
+            this.checkBoxUnwieldy = new System.Windows.Forms.CheckBox();
             this.equipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.checkBoxUseOnce = new System.Windows.Forms.CheckBox();
             this.numericUpDownAP = new System.Windows.Forms.NumericUpDown();
@@ -84,7 +85,6 @@
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
-            this.checkBoxUnwieldy = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
@@ -138,6 +138,21 @@
             this.panel1.Size = new System.Drawing.Size(484, 65);
             this.panel1.TabIndex = 0;
             // 
+            // checkBoxUnwieldy
+            // 
+            this.checkBoxUnwieldy.AutoSize = true;
+            this.checkBoxUnwieldy.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.equipmentBindingSource, "Unwieldy", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxUnwieldy.Location = new System.Drawing.Point(194, 42);
+            this.checkBoxUnwieldy.Name = "checkBoxUnwieldy";
+            this.checkBoxUnwieldy.Size = new System.Drawing.Size(80, 17);
+            this.checkBoxUnwieldy.TabIndex = 36;
+            this.checkBoxUnwieldy.Text = "Unhandlich";
+            this.checkBoxUnwieldy.UseVisualStyleBackColor = true;
+            // 
+            // equipmentBindingSource
+            // 
+            this.equipmentBindingSource.DataSource = typeof(Universalis.Equipment);
+            // 
             // textBoxPoints
             // 
             this.textBoxPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -148,10 +163,6 @@
             this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
             this.textBoxPoints.TabIndex = 35;
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // equipmentBindingSource
-            // 
-            this.equipmentBindingSource.DataSource = typeof(Universalis.Equipment);
             // 
             // label10
             // 
@@ -758,6 +769,7 @@
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.link;
+            this.toolStripButtonUsage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -766,22 +778,12 @@
             // toolStripButtonSave
             // 
             this.toolStripButtonSave.Image = global::Universalis.Properties.Resources.disk;
+            this.toolStripButtonSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSave.Name = "toolStripButtonSave";
-            this.toolStripButtonSave.Size = new System.Drawing.Size(79, 22);
+            this.toolStripButtonSave.Size = new System.Drawing.Size(81, 22);
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
-            // 
-            // checkBoxUnwieldy
-            // 
-            this.checkBoxUnwieldy.AutoSize = true;
-            this.checkBoxUnwieldy.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.equipmentBindingSource, "Unwieldy", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxUnwieldy.Location = new System.Drawing.Point(194, 42);
-            this.checkBoxUnwieldy.Name = "checkBoxUnwieldy";
-            this.checkBoxUnwieldy.Size = new System.Drawing.Size(80, 17);
-            this.checkBoxUnwieldy.TabIndex = 36;
-            this.checkBoxUnwieldy.Text = "Unhandlich";
-            this.checkBoxUnwieldy.UseVisualStyleBackColor = true;
             // 
             // EquipmentEditorForm
             // 

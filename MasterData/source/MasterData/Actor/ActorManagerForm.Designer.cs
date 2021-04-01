@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
@@ -36,7 +35,7 @@
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.actorBindingSource = new System.Windows.Forms.BindingSource();
             this.toolStripCardManager = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonAddActor = new System.Windows.Forms.ToolStripButton();
@@ -160,6 +159,7 @@
             this.toolStripButtonAddActor.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonAddActor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonAddActor.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonAddActor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonAddActor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAddActor.Name = "toolStripButtonAddActor";
             this.toolStripButtonAddActor.Size = new System.Drawing.Size(23, 22);
@@ -171,6 +171,7 @@
             this.toolStripButtonDeleteActor.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonDeleteActor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonDeleteActor.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonDeleteActor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonDeleteActor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDeleteActor.Name = "toolStripButtonDeleteActor";
             this.toolStripButtonDeleteActor.Size = new System.Drawing.Size(23, 22);
@@ -181,6 +182,7 @@
             // 
             this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonClearSearch.Image = global::Universalis.Properties.Resources.clear;
+            this.toolStripButtonClearSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
             this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
@@ -219,6 +221,7 @@
             this.toolStripButtonCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonCopy.Image = global::Universalis.Properties.Resources.copy;
+            this.toolStripButtonCopy.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCopy.Name = "toolStripButtonCopy";
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
@@ -230,6 +233,7 @@
             this.toolStripButtonExportImage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonExportImage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonExportImage.Image = global::Universalis.Properties.Resources.image;
+            this.toolStripButtonExportImage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonExportImage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonExportImage.Name = "toolStripButtonExportImage";
             this.toolStripButtonExportImage.Size = new System.Drawing.Size(23, 22);
@@ -251,6 +255,7 @@
             this.toolStripButtonChangeFaction.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonChangeFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonChangeFaction.Image = global::Universalis.Properties.Resources.pencil;
+            this.toolStripButtonChangeFaction.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonChangeFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonChangeFaction.Name = "toolStripButtonChangeFaction";
             this.toolStripButtonChangeFaction.Size = new System.Drawing.Size(23, 22);
