@@ -239,12 +239,12 @@ namespace Universalis
 
                 if( group.HasMissingActors() )
                 {
-                    imgInactiveActors = Properties.Resources.exclamation_red;
+                    imgInactiveActors = Properties.Resources.error;
                 }
 
                 if( group.HasMissingActorOutfits() )
                 {
-                    imgMissingActorOutfits = Properties.Resources.exclamation;
+                    imgMissingActorOutfits = Properties.Resources.error_outline;
                 }
 
                 if( imgInactiveActors != null || imgMissingActorOutfits != null )

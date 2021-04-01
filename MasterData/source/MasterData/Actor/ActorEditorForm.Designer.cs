@@ -402,7 +402,7 @@
             // 
             this.toolStripButtonTraitRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonTraitRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonTraitRemove.Image = global::Universalis.Properties.Resources.minus;
+            this.toolStripButtonTraitRemove.Image = global::Universalis.Properties.Resources.trash;
             this.toolStripButtonTraitRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonTraitRemove.Name = "toolStripButtonTraitRemove";
             this.toolStripButtonTraitRemove.Size = new System.Drawing.Size(23, 22);
@@ -502,7 +502,7 @@
             // 
             this.toolStripButtonChangeArchetype.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonChangeArchetype.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonChangeArchetype.Image = global::Universalis.Properties.Resources.pencil;
+            this.toolStripButtonChangeArchetype.Image = global::Universalis.Properties.Resources.change_circle;
             this.toolStripButtonChangeArchetype.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonChangeArchetype.Name = "toolStripButtonChangeArchetype";
             this.toolStripButtonChangeArchetype.Size = new System.Drawing.Size(23, 22);
@@ -631,7 +631,7 @@
             // 
             this.toolStripButtonWeaponRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonWeaponRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonWeaponRemove.Image = global::Universalis.Properties.Resources.minus;
+            this.toolStripButtonWeaponRemove.Image = global::Universalis.Properties.Resources.trash;
             this.toolStripButtonWeaponRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonWeaponRemove.Name = "toolStripButtonWeaponRemove";
             this.toolStripButtonWeaponRemove.Size = new System.Drawing.Size(23, 22);
@@ -739,7 +739,7 @@
             // 
             this.toolStripButtonArmorRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonArmorRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonArmorRemove.Image = global::Universalis.Properties.Resources.minus;
+            this.toolStripButtonArmorRemove.Image = global::Universalis.Properties.Resources.trash;
             this.toolStripButtonArmorRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArmorRemove.Name = "toolStripButtonArmorRemove";
             this.toolStripButtonArmorRemove.Size = new System.Drawing.Size(23, 22);
@@ -849,7 +849,7 @@
             // 
             this.toolStripButtonEquipmentRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonEquipmentRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonEquipmentRemove.Image = global::Universalis.Properties.Resources.minus;
+            this.toolStripButtonEquipmentRemove.Image = global::Universalis.Properties.Resources.trash;
             this.toolStripButtonEquipmentRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEquipmentRemove.Name = "toolStripButtonEquipmentRemove";
             this.toolStripButtonEquipmentRemove.Size = new System.Drawing.Size(23, 22);
@@ -1033,7 +1033,7 @@
             // 
             this.toolStripButtonOutfitRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonOutfitRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonOutfitRemove.Image = global::Universalis.Properties.Resources.minus;
+            this.toolStripButtonOutfitRemove.Image = global::Universalis.Properties.Resources.trash;
             this.toolStripButtonOutfitRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutfitRemove.Name = "toolStripButtonOutfitRemove";
             this.toolStripButtonOutfitRemove.Size = new System.Drawing.Size(23, 22);

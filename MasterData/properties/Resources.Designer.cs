@@ -19,7 +19,7 @@ namespace Universalis.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -63,16 +63,6 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap application_list {
-            get {
-                object obj = ResourceManager.GetObject("application_list", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap archetypes {
             get {
                 object obj = ResourceManager.GetObject("archetypes", resourceCulture);
@@ -93,19 +83,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap arrow_step_over {
+        internal static System.Drawing.Bitmap change_circle {
             get {
-                object obj = ResourceManager.GetObject("arrow_step_over", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap blue_folder_horizontal_open {
-            get {
-                object obj = ResourceManager.GetObject("blue_folder_horizontal_open", resourceCulture);
+                object obj = ResourceManager.GetObject("change_circle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +173,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap minus {
+        internal static System.Drawing.Bitmap link {
             get {
-                object obj = ResourceManager.GetObject("minus", resourceCulture);
+                object obj = ResourceManager.GetObject("link", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,16 +203,6 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pin {
-            get {
-                object obj = ResourceManager.GetObject("pin", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap plus {
             get {
                 object obj = ResourceManager.GetObject("plus", resourceCulture);
@@ -253,9 +223,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap script_text {
+        internal static System.Drawing.Bitmap text_snippet {
             get {
-                object obj = ResourceManager.GetObject("script_text", resourceCulture);
+                object obj = ResourceManager.GetObject("text_snippet", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -276,6 +246,16 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap traits {
             get {
                 object obj = ResourceManager.GetObject("traits", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash {
+            get {
+                object obj = ResourceManager.GetObject("trash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

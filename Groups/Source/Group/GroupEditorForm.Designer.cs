@@ -41,6 +41,7 @@
             this.outfitWechselnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.umbenennenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eigenesBildHochladenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eigenesBildEntfernenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonActorsAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonActorsRemove = new System.Windows.Forms.ToolStripButton();
@@ -53,7 +54,6 @@
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.eigenesBildEntfernenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -297,11 +297,11 @@
             this.eigenesBildHochladenToolStripMenuItem,
             this.eigenesBildEntfernenToolStripMenuItem});
             this.contextMenuStripActors.Name = "contextMenuStripActors";
-            this.contextMenuStripActors.Size = new System.Drawing.Size(197, 114);
+            this.contextMenuStripActors.Size = new System.Drawing.Size(197, 92);
             // 
             // outfitWechselnToolStripMenuItem
             // 
-            this.outfitWechselnToolStripMenuItem.Image = global::Universalis.Properties.Resources.application_list;
+            this.outfitWechselnToolStripMenuItem.Image = global::Universalis.Properties.Resources.change_circle;
             this.outfitWechselnToolStripMenuItem.Name = "outfitWechselnToolStripMenuItem";
             this.outfitWechselnToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.outfitWechselnToolStripMenuItem.Text = "&Outfit wechseln";
@@ -321,6 +321,14 @@
             this.eigenesBildHochladenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.eigenesBildHochladenToolStripMenuItem.Text = "&Eigenes Bild hochladen";
             this.eigenesBildHochladenToolStripMenuItem.Click += new System.EventHandler(this.eigenesBildHochladenToolStripMenuItem_Click);
+            // 
+            // eigenesBildEntfernenToolStripMenuItem
+            // 
+            this.eigenesBildEntfernenToolStripMenuItem.Image = global::Universalis.Properties.Resources.cross_circle;
+            this.eigenesBildEntfernenToolStripMenuItem.Name = "eigenesBildEntfernenToolStripMenuItem";
+            this.eigenesBildEntfernenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.eigenesBildEntfernenToolStripMenuItem.Text = "Eigenes Bild entfernen";
+            this.eigenesBildEntfernenToolStripMenuItem.Click += new System.EventHandler(this.eigenesBildEntfernenToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -349,7 +357,7 @@
             // 
             this.toolStripButtonActorsRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonActorsRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonActorsRemove.Image = global::Universalis.Properties.Resources.minus;
+            this.toolStripButtonActorsRemove.Image = global::Universalis.Properties.Resources.trash;
             this.toolStripButtonActorsRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonActorsRemove.Name = "toolStripButtonActorsRemove";
             this.toolStripButtonActorsRemove.Size = new System.Drawing.Size(23, 22);
@@ -437,14 +445,6 @@
             // factionBindingSource
             // 
             this.factionBindingSource.DataSource = typeof(Universalis.Faction);
-            // 
-            // eigenesBildEntfernenToolStripMenuItem
-            // 
-            this.eigenesBildEntfernenToolStripMenuItem.Image = global::Universalis.Properties.Resources.cross_circle;
-            this.eigenesBildEntfernenToolStripMenuItem.Name = "eigenesBildEntfernenToolStripMenuItem";
-            this.eigenesBildEntfernenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.eigenesBildEntfernenToolStripMenuItem.Text = "Eigenes Bild entfernen";
-            this.eigenesBildEntfernenToolStripMenuItem.Click += new System.EventHandler(this.eigenesBildEntfernenToolStripMenuItem_Click);
             // 
             // GroupEditorForm
             // 
