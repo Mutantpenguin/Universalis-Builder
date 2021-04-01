@@ -201,6 +201,8 @@
     <None Include="Resources\empty.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ui-check-box-uncheck.png" />
+    <None Include="Resources\ui-check-box.png" />
     <None Include="Resources\change_circle.png" />
     <None Include="Resources\error_outline.png" />
     <None Include="Resources\error.png" />
@@ -219,8 +221,6 @@
     <None Include="Resources\blue-folder-horizontal-open.png" />
     <None Include="Resources\application-list.png" />
     <None Include="Resources\minus.png" />
-    <None Include="Resources\ui-check-box-uncheck.png" />
-    <None Include="Resources\ui-check-box.png" />
     <Content Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -63,7 +62,7 @@
             this.EHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypes)).BeginInit();
@@ -154,6 +153,7 @@
             this.checkBoxFilterType.CheckOnClick = true;
             this.checkBoxFilterType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.checkBoxFilterType.Image = global::Shared.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.checkBoxFilterType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterType.Name = "checkBoxFilterType";
             this.checkBoxFilterType.Size = new System.Drawing.Size(23, 22);

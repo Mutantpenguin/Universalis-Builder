@@ -173,6 +173,7 @@
             this.checkBoxFilterCamouflage.CheckOnClick = true;
             this.checkBoxFilterCamouflage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.checkBoxFilterCamouflage.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterCamouflage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.checkBoxFilterCamouflage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterCamouflage.Name = "checkBoxFilterCamouflage";
             this.checkBoxFilterCamouflage.Size = new System.Drawing.Size(23, 22);

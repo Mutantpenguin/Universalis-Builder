@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
@@ -35,7 +36,7 @@
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actorBindingSource = new System.Windows.Forms.BindingSource();
+            this.actorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripCardManager = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonAddActor = new System.Windows.Forms.ToolStripButton();
@@ -202,6 +203,7 @@
             this.checkBoxFilterFaction.CheckOnClick = true;
             this.checkBoxFilterFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.checkBoxFilterFaction.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterFaction.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.checkBoxFilterFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterFaction.Name = "checkBoxFilterFaction";
             this.checkBoxFilterFaction.Size = new System.Drawing.Size(23, 22);
@@ -244,6 +246,7 @@
             this.checkBoxFilterType.CheckOnClick = true;
             this.checkBoxFilterType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.checkBoxFilterType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.checkBoxFilterType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterType.Name = "checkBoxFilterType";
             this.checkBoxFilterType.Size = new System.Drawing.Size(23, 22);
