@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
-            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pictureBoxDamageEffects = new System.Windows.Forms.PictureBox();
             this.pictureBoxDamageType = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxWK = new System.Windows.Forms.ComboBox();
             this.numericUpDownWeaponRangeAmount = new System.Windows.Forms.NumericUpDown();
-            this.weaponRangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.numericUpDownWeaponRangeLength = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownAF = new System.Windows.Forms.NumericUpDown();
@@ -78,9 +76,6 @@
             this.toolStripButtonRemoveEffect = new System.Windows.Forms.ToolStripButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridViewDamageEffects = new System.Windows.Forms.DataGridView();
-            this.getOriginalImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.damageEffectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -92,8 +87,13 @@
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.checkBoxReloadable = new System.Windows.Forms.CheckBox();
+            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.weaponRangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.getOriginalImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.damageEffectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageEffects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
@@ -105,20 +105,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStrength)).BeginInit();
             this.toolStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeaponRangeAmount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponRangeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeaponRangeLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAF)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRadius)).BeginInit();
             this.toolStrip3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageEffects)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.damageEffectsBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.toolStrip4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.toolStrip5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponRangeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.damageEffectsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -146,10 +147,6 @@
             this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
             this.textBoxPoints.TabIndex = 36;
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // weaponBindingSource
-            // 
-            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
             // 
             // pictureBoxDamageEffects
             // 
@@ -287,6 +284,7 @@
             // panel3
             // 
             this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.checkBoxReloadable);
             this.panel3.Controls.Add(this.checkBoxAdditiveStrength);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.numericUpDownWeight);
@@ -343,7 +341,7 @@
             // 
             this.checkBoxUnwieldy.AutoSize = true;
             this.checkBoxUnwieldy.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.weaponBindingSource, "Unwieldy", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxUnwieldy.Location = new System.Drawing.Point(134, 160);
+            this.checkBoxUnwieldy.Location = new System.Drawing.Point(78, 160);
             this.checkBoxUnwieldy.Name = "checkBoxUnwieldy";
             this.checkBoxUnwieldy.Size = new System.Drawing.Size(80, 17);
             this.checkBoxUnwieldy.TabIndex = 33;
@@ -356,9 +354,10 @@
             this.checkBoxUseOnce.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.weaponBindingSource, "UseOnce", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.checkBoxUseOnce.Location = new System.Drawing.Point(6, 160);
             this.checkBoxUseOnce.Name = "checkBoxUseOnce";
-            this.checkBoxUseOnce.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxUseOnce.Size = new System.Drawing.Size(66, 17);
             this.checkBoxUseOnce.TabIndex = 32;
-            this.checkBoxUseOnce.Text = "Einmalnutzung";
+            this.checkBoxUseOnce.Text = "Einmaln.";
+            this.toolTip.SetToolTip(this.checkBoxUseOnce, "Einmalnutzung");
             this.checkBoxUseOnce.UseVisualStyleBackColor = true;
             // 
             // comboBoxType
@@ -497,11 +496,6 @@
             this.numericUpDownWeaponRangeAmount.TabIndex = 17;
             this.numericUpDownWeaponRangeAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // weaponRangeBindingSource
-            // 
-            this.weaponRangeBindingSource.DataSource = typeof(Universalis.WeaponRange);
-            this.weaponRangeBindingSource.CurrentItemChanged += new System.EventHandler(this.weaponRangeBindingSource_CurrentItemChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -636,8 +630,8 @@
             this.dataGridViewDamageEffects.AllowUserToAddRows = false;
             this.dataGridViewDamageEffects.AllowUserToDeleteRows = false;
             this.dataGridViewDamageEffects.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewDamageEffects.AutoGenerateColumns = false;
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
@@ -653,26 +647,6 @@
             this.dataGridViewDamageEffects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDamageEffects.Size = new System.Drawing.Size(216, 178);
             this.dataGridViewDamageEffects.TabIndex = 28;
-            // 
-            // getOriginalImageDataGridViewImageColumn
-            // 
-            this.getOriginalImageDataGridViewImageColumn.DataPropertyName = "GetOriginalImage";
-            this.getOriginalImageDataGridViewImageColumn.HeaderText = "";
-            this.getOriginalImageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.getOriginalImageDataGridViewImageColumn.Name = "getOriginalImageDataGridViewImageColumn";
-            this.getOriginalImageDataGridViewImageColumn.ReadOnly = true;
-            this.getOriginalImageDataGridViewImageColumn.Width = 22;
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            // 
-            // damageEffectsBindingSource
-            // 
-            this.damageEffectsBindingSource.DataSource = typeof(Universalis.DamageEffect);
             // 
             // tableLayoutPanel1
             // 
@@ -796,6 +770,46 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
+            // checkBoxReloadable
+            // 
+            this.checkBoxReloadable.AutoSize = true;
+            this.checkBoxReloadable.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.weaponBindingSource, "Reloadable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxReloadable.Location = new System.Drawing.Point(164, 160);
+            this.checkBoxReloadable.Name = "checkBoxReloadable";
+            this.checkBoxReloadable.Size = new System.Drawing.Size(78, 17);
+            this.checkBoxReloadable.TabIndex = 36;
+            this.checkBoxReloadable.Text = "Nachladen";
+            this.checkBoxReloadable.UseVisualStyleBackColor = true;
+            // 
+            // weaponBindingSource
+            // 
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
+            // 
+            // weaponRangeBindingSource
+            // 
+            this.weaponRangeBindingSource.DataSource = typeof(Universalis.WeaponRange);
+            this.weaponRangeBindingSource.CurrentItemChanged += new System.EventHandler(this.weaponRangeBindingSource_CurrentItemChanged);
+            // 
+            // getOriginalImageDataGridViewImageColumn
+            // 
+            this.getOriginalImageDataGridViewImageColumn.DataPropertyName = "GetOriginalImage";
+            this.getOriginalImageDataGridViewImageColumn.HeaderText = "";
+            this.getOriginalImageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.getOriginalImageDataGridViewImageColumn.Name = "getOriginalImageDataGridViewImageColumn";
+            this.getOriginalImageDataGridViewImageColumn.ReadOnly = true;
+            this.getOriginalImageDataGridViewImageColumn.Width = 22;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            // 
+            // damageEffectsBindingSource
+            // 
+            this.damageEffectsBindingSource.DataSource = typeof(Universalis.DamageEffect);
+            // 
             // WeaponEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -813,7 +827,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WeaponEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageEffects)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
@@ -829,7 +842,6 @@
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeaponRangeAmount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponRangeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeaponRangeLength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAF)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRadius)).EndInit();
@@ -838,7 +850,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageEffects)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.damageEffectsBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -850,6 +861,9 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponRangeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.damageEffectsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -919,5 +933,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxPoints;
+        private System.Windows.Forms.CheckBox checkBoxReloadable;
     }
 }

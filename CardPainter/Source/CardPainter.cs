@@ -735,6 +735,13 @@ namespace Universalis
                 }
             }
 
+            if( weapon.Reloadable )
+            {
+                g.DrawImage( Properties.Resources.nachladen, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+
+                remainderPosX += SLineHeight;
+            }
+
             if( weapon.IndirectFire )
             {
                 g.DrawImage( Properties.Resources.Indirekt, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );

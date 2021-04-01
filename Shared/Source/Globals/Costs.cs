@@ -53,6 +53,7 @@ namespace Universalis
 
         public const float WeaponUseOnceMultiplicator = 0.35f;
         public const float WeaponUnwieldyMultiplicator = 0.8f;
+        public const float WeaponReloadMultiplicator = 0.7f;
         public const float WeaponIndirectFireMultiplicator = 1.4f;
 
         public const float WeaponDamageEffectMultiplicator = 1.2f;

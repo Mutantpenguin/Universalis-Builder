@@ -64,6 +64,8 @@ namespace Universalis
             Radius = weapon.Radius;
 
             Unwieldy = weapon.Unwieldy;
+
+            Reloadable = weapon.Reloadable;
         }
 
         public bool Equals( Weapon weapon )
@@ -100,7 +102,9 @@ namespace Universalis
                 ||
                 Radius != weapon.Radius
                 ||
-                Unwieldy != weapon.Unwieldy )
+                Unwieldy != weapon.Unwieldy
+                ||
+                Reloadable != weapon.Reloadable )
             {
                 return ( false );
             }
@@ -250,6 +254,12 @@ namespace Universalis
         } = 0;
 
         public bool Unwieldy
+        {
+            get;
+            set;
+        } = false;
+
+        public bool Reloadable
         {
             get;
             set;
@@ -490,6 +500,11 @@ namespace Universalis
             if( Unwieldy )
             {
                 points *= Costs.WeaponUnwieldyMultiplicator;
+            }
+
+            if( Reloadable )
+            {
+                points *= Costs.WeaponReloadMultiplicator;
             }
 
             if( IndirectFire )

@@ -53,6 +53,9 @@
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
+            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.WK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DamageTypeImage = new System.Windows.Forms.DataGridViewImageColumn();
@@ -66,11 +69,9 @@
             this.EffectsImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Unwieldy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Reloadable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
@@ -247,6 +248,7 @@
             this.EffectsImage,
             this.UseOnce,
             this.Unwieldy,
+            this.Reloadable,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewWeapons.DataSource = this.weaponBindingSource;
@@ -261,6 +263,25 @@
             this.dataGridViewWeapons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWeapons_CellDoubleClick);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWeapons_KeyDown);
+            // 
+            // weaponBindingSource
+            // 
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelCount});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(754, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelCount
+            // 
+            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
+            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
             // WK
             // 
@@ -390,6 +411,15 @@
             this.Unwieldy.ToolTipText = "Unhandlich";
             this.Unwieldy.Width = 30;
             // 
+            // Reloadable
+            // 
+            this.Reloadable.DataPropertyName = "Reloadable";
+            this.Reloadable.HeaderText = "N";
+            this.Reloadable.Name = "Reloadable";
+            this.Reloadable.ReadOnly = true;
+            this.Reloadable.ToolTipText = "Nachladen";
+            this.Reloadable.Width = 30;
+            // 
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
@@ -410,25 +440,6 @@
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.pointsDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // weaponBindingSource
-            // 
-            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelCount});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(754, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabelCount
-            // 
-            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
-            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
             // WeaponManagerForm
             // 
@@ -486,6 +497,7 @@
         private System.Windows.Forms.DataGridViewImageColumn EffectsImage;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Reloadable;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }

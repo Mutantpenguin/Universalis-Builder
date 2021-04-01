@@ -173,6 +173,16 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nachladen {
+            get {
+                object obj = ResourceManager.GetObject("nachladen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap patrone {
             get {
                 object obj = ResourceManager.GetObject("patrone", resourceCulture);
