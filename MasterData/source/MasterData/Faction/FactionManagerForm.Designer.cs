@@ -135,7 +135,7 @@
             // 
             this.toolStripButtonDeleteFaction.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonDeleteFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonDeleteFaction.Image = global::Universalis.Properties.Resources.minus;
+            this.toolStripButtonDeleteFaction.Image = global::Universalis.Properties.Resources.trash;
             this.toolStripButtonDeleteFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonDeleteFaction.Name = "toolStripButtonDeleteFaction";
             this.toolStripButtonDeleteFaction.Size = new System.Drawing.Size(23, 22);
@@ -171,7 +171,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.link;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);

@@ -219,7 +219,7 @@
             // 
             this.toolStripButtonInsertLevelString.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonInsertLevelString.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonInsertLevelString.Image = global::Universalis.Properties.Resources.script_text;
+            this.toolStripButtonInsertLevelString.Image = global::Universalis.Properties.Resources.text_snippet;
             this.toolStripButtonInsertLevelString.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonInsertLevelString.Name = "toolStripButtonInsertLevelString";
             this.toolStripButtonInsertLevelString.Size = new System.Drawing.Size(23, 22);
@@ -353,7 +353,7 @@
             // 
             this.toolStripButtonRemoveLevel.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonRemoveLevel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonRemoveLevel.Image = global::Universalis.Properties.Resources.minus;
+            this.toolStripButtonRemoveLevel.Image = global::Universalis.Properties.Resources.trash;
             this.toolStripButtonRemoveLevel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRemoveLevel.Name = "toolStripButtonRemoveLevel";
             this.toolStripButtonRemoveLevel.Size = new System.Drawing.Size(23, 22);
@@ -364,7 +364,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.link;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
@@ -385,7 +385,7 @@
             // 
             this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::Universalis.Properties.Resources.pin;
+            this.toolStripButton1.Image = global::Universalis.Properties.Resources.link;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);

@@ -610,7 +610,7 @@
             // 
             this.toolStripButtonRemoveEffect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonRemoveEffect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonRemoveEffect.Image = global::Universalis.Properties.Resources.minus;
+            this.toolStripButtonRemoveEffect.Image = global::Universalis.Properties.Resources.trash;
             this.toolStripButtonRemoveEffect.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRemoveEffect.Name = "toolStripButtonRemoveEffect";
             this.toolStripButtonRemoveEffect.Size = new System.Drawing.Size(23, 22);
@@ -777,7 +777,7 @@
             // 
             this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.pin;
+            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.link;
             this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonUsage.Name = "toolStripButtonUsage";
             this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);

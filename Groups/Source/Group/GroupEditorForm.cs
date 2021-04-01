@@ -266,12 +266,12 @@ namespace Universalis
 
                     if( groupActor.Actor == null )
                     {
-                        Image imgInactiveActors = Properties.Resources.exclamation_red;
+                        Image imgInactiveActors = Properties.Resources.error;
                         e.Graphics.DrawImageUnscaled( imgInactiveActors, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveActors.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveActors.Height ) / 2 ) );
                     }
                     else
                     {
-                        Image imgMissingActorOutfits = Properties.Resources.exclamation;
+                        Image imgMissingActorOutfits = Properties.Resources.error_outline;
                         e.Graphics.DrawImageUnscaled( imgMissingActorOutfits, e.CellBounds.X + e.CellBounds.Width - (int)( imgMissingActorOutfits.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgMissingActorOutfits.Height ) / 2 ) );
                     }
 

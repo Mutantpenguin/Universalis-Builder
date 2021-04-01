@@ -201,24 +201,26 @@
     <None Include="Resources\empty.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\change_circle.png" />
+    <None Include="Resources\error_outline.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\file_download.png" />
     <None Include="Resources\document-pdf.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\cross-circle.png" />
+    <None Include="Resources\tick.png" />
     <None Include="Resources\image.png" />
-    <None Include="Resources\pencil.png" />
-    <None Include="Resources\exclamation.png" />
-    <None Include="Resources\exclamation-red.png" />
-    <None Include="Resources\document-export.png" />
     <None Include="Resources\clear.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\disk.png" />
+    <None Include="Resources\pencil.png" />
     <None Include="Resources\funnel.png" />
+    <None Include="Resources\trash.png" />
     <None Include="Resources\blue-folder-horizontal-open.png" />
     <None Include="Resources\application-list.png" />
-    <None Include="Resources\tick.png" />
-    <None Include="Resources\disk.png" />
-    <None Include="Resources\cross-circle.png" />
-    <None Include="Resources\plus.png" />
     <None Include="Resources\minus.png" />
     <None Include="Resources\ui-check-box-uncheck.png" />
     <None Include="Resources\ui-check-box.png" />
-    <None Include="Resources\copy.png" />
     <Content Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
