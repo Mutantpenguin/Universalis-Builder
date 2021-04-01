@@ -48,9 +48,9 @@
             this.panel1.Controls.Add(this.buttonOk);
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 118);
+            this.panel1.Location = new System.Drawing.Point(0, 115);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(211, 29);
+            this.panel1.Size = new System.Drawing.Size(211, 32);
             this.panel1.TabIndex = 0;
             // 
             // buttonOk
@@ -60,7 +60,7 @@
             this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(108, 3);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(100, 23);
+            this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "Übernehmen";
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -74,7 +74,7 @@
             this.buttonCancel.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(100, 26);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Abbrechen";
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -100,7 +100,7 @@
             this.dataGridViewDamageTypes.Name = "dataGridViewDamageTypes";
             this.dataGridViewDamageTypes.RowHeadersVisible = false;
             this.dataGridViewDamageTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDamageTypes.Size = new System.Drawing.Size(211, 118);
+            this.dataGridViewDamageTypes.Size = new System.Drawing.Size(211, 115);
             this.dataGridViewDamageTypes.TabIndex = 1;
             this.dataGridViewDamageTypes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDamageTypes_CellDoubleClick);
             // 

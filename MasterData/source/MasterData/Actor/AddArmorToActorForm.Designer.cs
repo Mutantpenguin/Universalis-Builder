@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddArmorToActorForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,16 +41,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddArmorToActorForm));
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.dataGridViewArmor = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
-            this.filterCamouflage = new System.Windows.Forms.ToolStripComboBox();
-            this.checkBoxFilterCamouflage = new System.Windows.Forms.ToolStripButton();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelfSustaining = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.typesImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
@@ -68,10 +61,17 @@
             this.EHString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
+            this.filterCamouflage = new System.Windows.Forms.ToolStripComboBox();
+            this.checkBoxFilterCamouflage = new System.Windows.Forms.ToolStripButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArmor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonOk
@@ -81,7 +81,7 @@
             this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(693, 3);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(100, 23);
+            this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "Übernehmen";
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -95,7 +95,7 @@
             this.buttonCancel.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(100, 26);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Abbrechen";
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -137,76 +137,11 @@
             this.dataGridViewArmor.ReadOnly = true;
             this.dataGridViewArmor.RowHeadersVisible = false;
             this.dataGridViewArmor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewArmor.Size = new System.Drawing.Size(796, 372);
+            this.dataGridViewArmor.Size = new System.Drawing.Size(796, 369);
             this.dataGridViewArmor.TabIndex = 3;
             this.dataGridViewArmor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewArmor_CellDoubleClick);
             this.dataGridViewArmor.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewArmor_CellToolTipTextNeeded);
             this.dataGridViewArmor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewArmor_KeyDown);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBoxSearch,
-            this.toolStripButtonClearSearch,
-            this.filterCamouflage,
-            this.checkBoxFilterCamouflage});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(796, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripTextBoxSearch
-            // 
-            this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
-            this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
-            this.toolStripTextBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxSearch_KeyDown);
-            this.toolStripTextBoxSearch.TextChanged += new System.EventHandler(this.toolStripTextBoxSearch_TextChanged);
-            // 
-            // toolStripButtonClearSearch
-            // 
-            this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClearSearch.Image")));
-            this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
-            this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
-            this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
-            // 
-            // filterCamouflage
-            // 
-            this.filterCamouflage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filterCamouflage.Enabled = false;
-            this.filterCamouflage.Name = "filterCamouflage";
-            this.filterCamouflage.Size = new System.Drawing.Size(80, 25);
-            this.filterCamouflage.ToolTipText = "Tarnung";
-            // 
-            // checkBoxFilterCamouflage
-            // 
-            this.checkBoxFilterCamouflage.CheckOnClick = true;
-            this.checkBoxFilterCamouflage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterCamouflage.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
-            this.checkBoxFilterCamouflage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.checkBoxFilterCamouflage.Name = "checkBoxFilterCamouflage";
-            this.checkBoxFilterCamouflage.Size = new System.Drawing.Size(23, 22);
-            this.checkBoxFilterCamouflage.ToolTipText = "nach Tarnung filtern";
-            this.checkBoxFilterCamouflage.Click += new System.EventHandler(this.checkBoxFilterCamouflage_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.buttonCancel);
-            this.panel2.Controls.Add(this.buttonOk);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 397);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(796, 29);
-            this.panel2.TabIndex = 2;
-            // 
-            // armorBindingSource
-            // 
-            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -366,6 +301,71 @@
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.pointsDataGridViewTextBoxColumn.Width = 60;
             // 
+            // armorBindingSource
+            // 
+            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBoxSearch,
+            this.toolStripButtonClearSearch,
+            this.filterCamouflage,
+            this.checkBoxFilterCamouflage});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(796, 25);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripTextBoxSearch
+            // 
+            this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
+            this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxSearch_KeyDown);
+            this.toolStripTextBoxSearch.TextChanged += new System.EventHandler(this.toolStripTextBoxSearch_TextChanged);
+            // 
+            // toolStripButtonClearSearch
+            // 
+            this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClearSearch.Image")));
+            this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
+            this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
+            this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
+            // 
+            // filterCamouflage
+            // 
+            this.filterCamouflage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterCamouflage.Enabled = false;
+            this.filterCamouflage.Name = "filterCamouflage";
+            this.filterCamouflage.Size = new System.Drawing.Size(80, 25);
+            this.filterCamouflage.ToolTipText = "Tarnung";
+            // 
+            // checkBoxFilterCamouflage
+            // 
+            this.checkBoxFilterCamouflage.CheckOnClick = true;
+            this.checkBoxFilterCamouflage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.checkBoxFilterCamouflage.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterCamouflage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.checkBoxFilterCamouflage.Name = "checkBoxFilterCamouflage";
+            this.checkBoxFilterCamouflage.Size = new System.Drawing.Size(23, 22);
+            this.checkBoxFilterCamouflage.ToolTipText = "nach Tarnung filtern";
+            this.checkBoxFilterCamouflage.Click += new System.EventHandler(this.checkBoxFilterCamouflage_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.buttonCancel);
+            this.panel2.Controls.Add(this.buttonOk);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 394);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(796, 32);
+            this.panel2.TabIndex = 2;
+            // 
             // AddArmorToActorForm
             // 
             this.AcceptButton = this.buttonOk;
@@ -381,10 +381,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rüstungsauswahl";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArmor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

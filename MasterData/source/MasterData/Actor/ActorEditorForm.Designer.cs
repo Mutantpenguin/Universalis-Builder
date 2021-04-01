@@ -56,6 +56,7 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.textBoxArchetypeDescription = new System.Windows.Forms.TextBox();
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxArchetypeName = new System.Windows.Forms.TextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
@@ -119,7 +120,6 @@
             this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.attributesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
@@ -132,6 +132,7 @@
             this.panel8.SuspendLayout();
             this.toolStripDescription.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
@@ -158,7 +159,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -179,7 +179,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 642);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(300, 639);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel7
@@ -285,9 +285,9 @@
             this.panel10.Controls.Add(this.dataGridViewTraits);
             this.panel10.Controls.Add(this.toolStripTraits);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(3, 450);
+            this.panel10.Location = new System.Drawing.Point(3, 448);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(294, 189);
+            this.panel10.Size = new System.Drawing.Size(294, 188);
             this.panel10.TabIndex = 10;
             // 
             // dataGridViewTraits
@@ -312,7 +312,7 @@
             this.dataGridViewTraits.Name = "dataGridViewTraits";
             this.dataGridViewTraits.RowHeadersVisible = false;
             this.dataGridViewTraits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTraits.Size = new System.Drawing.Size(294, 164);
+            this.dataGridViewTraits.Size = new System.Drawing.Size(294, 163);
             this.dataGridViewTraits.TabIndex = 1;
             this.dataGridViewTraits.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewTraits_CellBeginEdit);
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
@@ -417,7 +417,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 255);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(294, 189);
+            this.panel8.Size = new System.Drawing.Size(294, 187);
             this.panel8.TabIndex = 6;
             // 
             // textBoxDescription
@@ -427,7 +427,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(294, 164);
+            this.textBoxDescription.Size = new System.Drawing.Size(294, 162);
             this.textBoxDescription.TabIndex = 7;
             this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
@@ -470,6 +470,10 @@
             this.textBoxArchetypeDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxArchetypeDescription.Size = new System.Drawing.Size(294, 100);
             this.textBoxArchetypeDescription.TabIndex = 47;
+            // 
+            // archetypeBindingSource
+            // 
+            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
             // 
             // textBoxArchetypeName
             // 
@@ -536,7 +540,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 184);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(244, 224);
+            this.panel5.Size = new System.Drawing.Size(244, 223);
             this.panel5.TabIndex = 5;
             // 
             // dataGridViewWeapons
@@ -561,7 +565,7 @@
             this.dataGridViewWeapons.ReadOnly = true;
             this.dataGridViewWeapons.RowHeadersVisible = false;
             this.dataGridViewWeapons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewWeapons.Size = new System.Drawing.Size(244, 199);
+            this.dataGridViewWeapons.Size = new System.Drawing.Size(244, 198);
             this.dataGridViewWeapons.TabIndex = 5;
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             // 
@@ -751,9 +755,9 @@
             this.panel4.Controls.Add(this.dataGridViewEquipment);
             this.panel4.Controls.Add(this.toolStripEquipment);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 414);
+            this.panel4.Location = new System.Drawing.Point(3, 413);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(244, 225);
+            this.panel4.Size = new System.Drawing.Size(244, 223);
             this.panel4.TabIndex = 4;
             // 
             // dataGridViewEquipment
@@ -778,7 +782,7 @@
             this.dataGridViewEquipment.ReadOnly = true;
             this.dataGridViewEquipment.RowHeadersVisible = false;
             this.dataGridViewEquipment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEquipment.Size = new System.Drawing.Size(244, 200);
+            this.dataGridViewEquipment.Size = new System.Drawing.Size(244, 198);
             this.dataGridViewEquipment.TabIndex = 5;
             this.dataGridViewEquipment.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewEquipment_CellToolTipTextNeeded);
             // 
@@ -861,7 +865,7 @@
             this.pictureBoxCard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxCard.Location = new System.Drawing.Point(300, 0);
             this.pictureBoxCard.Name = "pictureBoxCard";
-            this.pictureBoxCard.Size = new System.Drawing.Size(714, 642);
+            this.pictureBoxCard.Size = new System.Drawing.Size(714, 639);
             this.pictureBoxCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCard.TabIndex = 0;
             this.pictureBoxCard.TabStop = false;
@@ -871,7 +875,7 @@
             this.buttonBack.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonBack.Location = new System.Drawing.Point(3, 3);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(100, 23);
+            this.buttonBack.Size = new System.Drawing.Size(100, 26);
             this.buttonBack.TabIndex = 0;
             this.buttonBack.Text = "&Zurück";
             this.buttonBack.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -886,9 +890,9 @@
             this.panel3.Controls.Add(this.buttonBack);
             this.panel3.Controls.Add(this.buttonSave);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 642);
+            this.panel3.Location = new System.Drawing.Point(0, 639);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1264, 29);
+            this.panel3.Size = new System.Drawing.Size(1264, 32);
             this.panel3.TabIndex = 1;
             // 
             // buttonRefresh
@@ -897,7 +901,7 @@
             this.buttonRefresh.Image = global::Universalis.Properties.Resources.refresh;
             this.buttonRefresh.Location = new System.Drawing.Point(574, 3);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(116, 23);
+            this.buttonRefresh.Size = new System.Drawing.Size(116, 26);
             this.buttonRefresh.TabIndex = 1;
             this.buttonRefresh.Text = "Auffrischen";
             this.buttonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -911,7 +915,7 @@
             this.buttonSave.Image = global::Universalis.Properties.Resources.disk;
             this.buttonSave.Location = new System.Drawing.Point(1161, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(100, 23);
+            this.buttonSave.Size = new System.Drawing.Size(100, 26);
             this.buttonSave.TabIndex = 0;
             this.buttonSave.Text = "&Speichern";
             this.buttonSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -946,7 +950,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1264, 642);
+            this.panel1.Size = new System.Drawing.Size(1264, 639);
             this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -967,7 +971,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 642);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 639);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // panel14
@@ -1129,10 +1133,6 @@
             // 
             this.attributesBindingSource.DataSource = typeof(Universalis.Attributes);
             // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
-            // 
             // ActorEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1165,6 +1165,7 @@
             this.toolStripDescription.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1205,7 +1206,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

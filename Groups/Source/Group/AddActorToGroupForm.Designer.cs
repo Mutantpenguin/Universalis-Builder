@@ -58,7 +58,7 @@
             this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(499, 3);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(100, 23);
+            this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "Übernehmen";
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -72,7 +72,7 @@
             this.buttonCancel.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(100, 26);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Abbrechen";
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -102,7 +102,7 @@
             this.dataGridViewActors.RowHeadersVisible = false;
             this.dataGridViewActors.RowTemplate.Height = 40;
             this.dataGridViewActors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewActors.Size = new System.Drawing.Size(602, 294);
+            this.dataGridViewActors.Size = new System.Drawing.Size(602, 291);
             this.dataGridViewActors.TabIndex = 3;
             this.dataGridViewActors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewArmor_CellDoubleClick);
             this.dataGridViewActors.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewActors_CellToolTipTextNeeded);
@@ -145,9 +145,9 @@
             this.panel2.Controls.Add(this.buttonCancel);
             this.panel2.Controls.Add(this.buttonOk);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 319);
+            this.panel2.Location = new System.Drawing.Point(0, 316);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(602, 29);
+            this.panel2.Size = new System.Drawing.Size(602, 32);
             this.panel2.TabIndex = 1;
             // 
             // toolStrip1

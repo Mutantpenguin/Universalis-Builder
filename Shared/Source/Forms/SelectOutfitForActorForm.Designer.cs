@@ -100,7 +100,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 216);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(254, 29);
+            this.panel1.Size = new System.Drawing.Size(254, 32);
             this.panel1.TabIndex = 1;
             // 
             // buttonOk
@@ -110,7 +110,7 @@
             this.buttonOk.Image = global::Shared.Properties.Resources.tick;
             this.buttonOk.Location = new System.Drawing.Point(151, 3);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(100, 23);
+            this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 8;
             this.buttonOk.Text = "Übernehmen";
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -124,7 +124,7 @@
             this.buttonCancel.Image = global::Shared.Properties.Resources.cross_circle;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(100, 26);
             this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Abbrechen";
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
