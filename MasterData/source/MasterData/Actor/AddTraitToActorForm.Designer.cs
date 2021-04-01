@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddTraitToActorForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -79,7 +78,8 @@
             // toolStripButtonClearSearch
             // 
             this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClearSearch.Image")));
+            this.toolStripButtonClearSearch.Image = global::Universalis.Properties.Resources.clear;
+            this.toolStripButtonClearSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
             this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
@@ -94,9 +94,10 @@
             this.toolStripMenuItemNegatives,
             this.toolStripMenuItemNeutrals});
             this.toolStripDropDownButtonFilter.Image = global::Universalis.Properties.Resources.funnel;
+            this.toolStripDropDownButtonFilter.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripDropDownButtonFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButtonFilter.Name = "toolStripDropDownButtonFilter";
-            this.toolStripDropDownButtonFilter.Size = new System.Drawing.Size(29, 22);
+            this.toolStripDropDownButtonFilter.Size = new System.Drawing.Size(31, 22);
             this.toolStripDropDownButtonFilter.ToolTipText = "Nach positiven/negativen Eigenschaften filtern";
             // 
             // toolStripMenuItemPositives
@@ -105,7 +106,7 @@
             this.toolStripMenuItemPositives.CheckOnClick = true;
             this.toolStripMenuItemPositives.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemPositives.Name = "toolStripMenuItemPositives";
-            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(151, 22);
+            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemPositives.Text = "zeige Positive";
             this.toolStripMenuItemPositives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemPositives_CheckedChanged);
             // 
@@ -115,7 +116,7 @@
             this.toolStripMenuItemNegatives.CheckOnClick = true;
             this.toolStripMenuItemNegatives.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemNegatives.Name = "toolStripMenuItemNegatives";
-            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(151, 22);
+            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemNegatives.Text = "zeige Negative";
             this.toolStripMenuItemNegatives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNegatives_CheckedChanged);
             // 
@@ -125,7 +126,7 @@
             this.toolStripMenuItemNeutrals.CheckOnClick = true;
             this.toolStripMenuItemNeutrals.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemNeutrals.Name = "toolStripMenuItemNeutrals";
-            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(151, 22);
+            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemNeutrals.Text = "zeige Neutrale";
             this.toolStripMenuItemNeutrals.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNeutrals_CheckedChanged);
             // 

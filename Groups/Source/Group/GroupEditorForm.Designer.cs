@@ -347,6 +347,7 @@
             this.toolStripButtonActorsAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonActorsAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonActorsAdd.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonActorsAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonActorsAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonActorsAdd.Name = "toolStripButtonActorsAdd";
             this.toolStripButtonActorsAdd.Size = new System.Drawing.Size(23, 22);
@@ -358,6 +359,7 @@
             this.toolStripButtonActorsRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonActorsRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonActorsRemove.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonActorsRemove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonActorsRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonActorsRemove.Name = "toolStripButtonActorsRemove";
             this.toolStripButtonActorsRemove.Size = new System.Drawing.Size(23, 22);

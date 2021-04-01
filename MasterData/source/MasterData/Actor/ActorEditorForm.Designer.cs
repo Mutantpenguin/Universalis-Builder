@@ -16,18 +16,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
@@ -296,8 +296,8 @@
             this.dataGridViewTraits.AllowUserToDeleteRows = false;
             this.dataGridViewTraits.AllowUserToOrderColumns = true;
             this.dataGridViewTraits.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTraits.AutoGenerateColumns = false;
             this.dataGridViewTraits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -321,9 +321,9 @@
             // Type
             // 
             this.Type.DataPropertyName = "Type";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Type.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Type.DefaultCellStyle = dataGridViewCellStyle14;
             this.Type.HeaderText = "";
             this.Type.Name = "Type";
             this.Type.ReadOnly = true;
@@ -342,8 +342,8 @@
             // 
             this.levelDataGridViewComboBoxColumn.DataPropertyName = "Level";
             this.levelDataGridViewComboBoxColumn.DataSource = this.eTraitLevelBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.levelDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.levelDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
             this.levelDataGridViewComboBoxColumn.HeaderText = "Stufe";
             this.levelDataGridViewComboBoxColumn.Name = "levelDataGridViewComboBoxColumn";
             this.levelDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -357,8 +357,8 @@
             // pointsDataGridViewTextBoxColumn3
             // 
             this.pointsDataGridViewTextBoxColumn3.DataPropertyName = "Points";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle16;
             this.pointsDataGridViewTextBoxColumn3.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn3.Name = "pointsDataGridViewTextBoxColumn3";
             this.pointsDataGridViewTextBoxColumn3.ReadOnly = true;
@@ -392,6 +392,7 @@
             this.toolStripButtonTraitAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonTraitAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonTraitAdd.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonTraitAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonTraitAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonTraitAdd.Name = "toolStripButtonTraitAdd";
             this.toolStripButtonTraitAdd.Size = new System.Drawing.Size(23, 22);
@@ -403,6 +404,7 @@
             this.toolStripButtonTraitRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonTraitRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonTraitRemove.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonTraitRemove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonTraitRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonTraitRemove.Name = "toolStripButtonTraitRemove";
             this.toolStripButtonTraitRemove.Size = new System.Drawing.Size(23, 22);
@@ -507,6 +509,7 @@
             this.toolStripButtonChangeArchetype.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonChangeArchetype.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonChangeArchetype.Image = global::Universalis.Properties.Resources.change_circle;
+            this.toolStripButtonChangeArchetype.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonChangeArchetype.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonChangeArchetype.Name = "toolStripButtonChangeArchetype";
             this.toolStripButtonChangeArchetype.Size = new System.Drawing.Size(23, 22);
@@ -549,8 +552,8 @@
             this.dataGridViewWeapons.AllowUserToDeleteRows = false;
             this.dataGridViewWeapons.AllowUserToOrderColumns = true;
             this.dataGridViewWeapons.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewWeapons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewWeapons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewWeapons.AutoGenerateColumns = false;
             this.dataGridViewWeapons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewWeapons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -580,9 +583,9 @@
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "N1";
-            this.weightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "N1";
+            this.weightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
             this.weightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
             this.weightDataGridViewTextBoxColumn.ReadOnly = true;
@@ -591,8 +594,8 @@
             // pointsDataGridViewTextBoxColumn
             // 
             this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
             this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -625,6 +628,7 @@
             this.toolStripButtonWeaponAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonWeaponAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonWeaponAdd.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonWeaponAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonWeaponAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonWeaponAdd.Name = "toolStripButtonWeaponAdd";
             this.toolStripButtonWeaponAdd.Size = new System.Drawing.Size(23, 22);
@@ -636,6 +640,7 @@
             this.toolStripButtonWeaponRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonWeaponRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonWeaponRemove.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonWeaponRemove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonWeaponRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonWeaponRemove.Name = "toolStripButtonWeaponRemove";
             this.toolStripButtonWeaponRemove.Size = new System.Drawing.Size(23, 22);
@@ -688,9 +693,9 @@
             // weightDataGridViewTextBoxColumn2
             // 
             this.weightDataGridViewTextBoxColumn2.DataPropertyName = "Weight";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N1";
-            this.weightDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.Format = "N1";
+            this.weightDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle20;
             this.weightDataGridViewTextBoxColumn2.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn2.Name = "weightDataGridViewTextBoxColumn2";
             this.weightDataGridViewTextBoxColumn2.ReadOnly = true;
@@ -699,8 +704,8 @@
             // pointsDataGridViewTextBoxColumn2
             // 
             this.pointsDataGridViewTextBoxColumn2.DataPropertyName = "Points";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle21;
             this.pointsDataGridViewTextBoxColumn2.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn2.Name = "pointsDataGridViewTextBoxColumn2";
             this.pointsDataGridViewTextBoxColumn2.ReadOnly = true;
@@ -733,6 +738,7 @@
             this.toolStripButtonArmorAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonArmorAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonArmorAdd.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonArmorAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonArmorAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArmorAdd.Name = "toolStripButtonArmorAdd";
             this.toolStripButtonArmorAdd.Size = new System.Drawing.Size(23, 22);
@@ -744,6 +750,7 @@
             this.toolStripButtonArmorRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonArmorRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonArmorRemove.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonArmorRemove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonArmorRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArmorRemove.Name = "toolStripButtonArmorRemove";
             this.toolStripButtonArmorRemove.Size = new System.Drawing.Size(23, 22);
@@ -766,8 +773,8 @@
             this.dataGridViewEquipment.AllowUserToDeleteRows = false;
             this.dataGridViewEquipment.AllowUserToOrderColumns = true;
             this.dataGridViewEquipment.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewEquipment.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewEquipment.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewEquipment.AutoGenerateColumns = false;
             this.dataGridViewEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -798,9 +805,9 @@
             // weightDataGridViewTextBoxColumn1
             // 
             this.weightDataGridViewTextBoxColumn1.DataPropertyName = "Weight";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N1";
-            this.weightDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "N1";
+            this.weightDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle23;
             this.weightDataGridViewTextBoxColumn1.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn1.Name = "weightDataGridViewTextBoxColumn1";
             this.weightDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -809,8 +816,8 @@
             // pointsDataGridViewTextBoxColumn1
             // 
             this.pointsDataGridViewTextBoxColumn1.DataPropertyName = "Points";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle24;
             this.pointsDataGridViewTextBoxColumn1.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn1.Name = "pointsDataGridViewTextBoxColumn1";
             this.pointsDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -843,6 +850,7 @@
             this.toolStripButtonEquipmentAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonEquipmentAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonEquipmentAdd.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonEquipmentAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonEquipmentAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEquipmentAdd.Name = "toolStripButtonEquipmentAdd";
             this.toolStripButtonEquipmentAdd.Size = new System.Drawing.Size(23, 22);
@@ -854,6 +862,7 @@
             this.toolStripButtonEquipmentRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonEquipmentRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonEquipmentRemove.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonEquipmentRemove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonEquipmentRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEquipmentRemove.Name = "toolStripButtonEquipmentRemove";
             this.toolStripButtonEquipmentRemove.Size = new System.Drawing.Size(23, 22);
@@ -1027,6 +1036,7 @@
             this.toolStripButtonOutfitAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonOutfitAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonOutfitAdd.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonOutfitAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonOutfitAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutfitAdd.Name = "toolStripButtonOutfitAdd";
             this.toolStripButtonOutfitAdd.Size = new System.Drawing.Size(23, 22);
@@ -1038,6 +1048,7 @@
             this.toolStripButtonOutfitRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonOutfitRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonOutfitRemove.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonOutfitRemove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonOutfitRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutfitRemove.Name = "toolStripButtonOutfitRemove";
             this.toolStripButtonOutfitRemove.Size = new System.Drawing.Size(23, 22);
@@ -1049,6 +1060,7 @@
             this.toolStripButtonOutfitRename.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripButtonOutfitRename.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonOutfitRename.Image = global::Universalis.Properties.Resources.pencil;
+            this.toolStripButtonOutfitRename.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonOutfitRename.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutfitRename.Name = "toolStripButtonOutfitRename";
             this.toolStripButtonOutfitRename.Size = new System.Drawing.Size(23, 22);
