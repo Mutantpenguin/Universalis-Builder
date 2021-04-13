@@ -39,6 +39,7 @@
             this.labelHeader = new System.Windows.Forms.Label();
             this.panelControl = new System.Windows.Forms.Panel();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.panelNoUniverses.SuspendLayout();
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -109,7 +110,7 @@
             // 
             this.buttonRefresh.FlatAppearance.BorderSize = 0;
             this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRefresh.Image = global::Shared.Properties.Resources.ic_refresh_black_48dp;
+            this.buttonRefresh.Image = global::Shared.Properties.Resources.baseline_refresh_black_48dp;
             this.buttonRefresh.Location = new System.Drawing.Point(3, 3);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(50, 50);
@@ -140,6 +141,7 @@
             // panelControl
             // 
             this.panelControl.AutoSize = true;
+            this.panelControl.Controls.Add(this.buttonDelete);
             this.panelControl.Controls.Add(this.buttonAdd);
             this.panelControl.Controls.Add(this.buttonRefresh);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -153,12 +155,26 @@
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAdd.FlatAppearance.BorderSize = 0;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Image = global::Shared.Properties.Resources.ic_playlist_add_black_48dp;
+            this.buttonAdd.Image = global::Shared.Properties.Resources.outline_playlist_add_black_48dp;
             this.buttonAdd.Location = new System.Drawing.Point(815, 3);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(50, 50);
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Image = global::Shared.Properties.Resources.baseline_delete_black_48dp;
+            this.buttonDelete.Location = new System.Drawing.Point(759, 3);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(50, 50);
+            this.buttonDelete.TabIndex = 2;
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // UniverseSelectionForm
             // 
@@ -198,5 +214,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCentered;
         private System.Windows.Forms.Panel panelControl;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }

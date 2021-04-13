@@ -153,5 +153,39 @@ namespace Universalis
         {
             RefreshUniverses();
         }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            // TODO
+
+            RefreshUniverses();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if( listViewUniverses.SelectedItems.Count > 0 )
+            {
+                var path = listViewUniverses.SelectedItems[ 0 ].ImageKey;
+
+                // TODO show name of the universe
+                if( MessageBox.Show( $"Wirklich das Universum '{listViewUniverses.SelectedItems[ 0 ].ImageKey}' löschen?",
+                                     "Wirklich löschen?",
+                                     MessageBoxButtons.YesNo,
+                                     MessageBoxIcon.Warning,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
+                {
+                    var directory = new DirectoryInfo( path ) { Attributes = FileAttributes.Normal };
+
+                    foreach( var info in directory.GetFileSystemInfos( "*", SearchOption.AllDirectories ) )
+                    {
+                        info.Attributes = FileAttributes.Normal;
+                    }
+
+                    directory.Delete( true );
+                }
+
+                RefreshUniverses();
+            }
+        }
     }
 }
