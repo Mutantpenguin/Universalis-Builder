@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LibGit2Sharp;
+using Newtonsoft.Json;
 using System;
 using System.Drawing;
 using System.IO;
@@ -72,6 +73,7 @@ namespace Universalis
                         /* TODO git integration via "LibGit2Sharp"
                         try
                         {
+                            // TODO if( Repository.IsValid( universeSubfolder ) )
                             using( var repo = new Repository( universeSubfolder ) )
                             {
                                 //MessageBox.Show( repo. );
@@ -156,9 +158,24 @@ namespace Universalis
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            // TODO
+            using( var dialog = new RepoUrlForm() )
+            {
+                if( dialog.ShowDialog() == DialogResult.OK )
+                {
+                    // TODO iterate all repositories and decline to checkout if it was already checked out
 
-            RefreshUniverses();
+                    using( var progressForm = new CloneForm( UniversesPath, dialog.RepositoryURL ) )
+                    {
+                        if( progressForm.ShowDialog() == DialogResult.OK )
+                        {
+                            // TODO check if this is a valid universe, or just any git repo
+                            // TODO ask to delete if it's invalid
+
+                            RefreshUniverses();
+                        }
+                    }
+                }
+            }
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
