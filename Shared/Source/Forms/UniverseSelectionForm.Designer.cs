@@ -37,9 +37,12 @@
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelHeader = new System.Windows.Forms.Label();
+            this.panelControl = new System.Windows.Forms.Panel();
+            this.buttonAdd = new System.Windows.Forms.Button();
             this.panelNoUniverses.SuspendLayout();
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
+            this.panelControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageListUniverses
@@ -59,7 +62,7 @@
             this.listViewUniverses.MultiSelect = false;
             this.listViewUniverses.Name = "listViewUniverses";
             this.listViewUniverses.ShowItemToolTips = true;
-            this.listViewUniverses.Size = new System.Drawing.Size(868, 338);
+            this.listViewUniverses.Size = new System.Drawing.Size(868, 282);
             this.listViewUniverses.TabIndex = 1;
             this.listViewUniverses.UseCompatibleStateImageBehavior = false;
             this.listViewUniverses.ItemActivate += new System.EventHandler(this.listViewUniverses_ItemActivate);
@@ -83,13 +86,12 @@
             this.tableLayoutPanelCentered.ColumnCount = 1;
             this.tableLayoutPanelCentered.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelCentered.Controls.Add(this.labelNoUniverses, 0, 0);
-            this.tableLayoutPanelCentered.Controls.Add(this.buttonRefresh, 0, 1);
             this.tableLayoutPanelCentered.Location = new System.Drawing.Point(365, 138);
             this.tableLayoutPanelCentered.Name = "tableLayoutPanelCentered";
             this.tableLayoutPanelCentered.RowCount = 2;
             this.tableLayoutPanelCentered.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelCentered.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelCentered.Size = new System.Drawing.Size(139, 69);
+            this.tableLayoutPanelCentered.Size = new System.Drawing.Size(139, 13);
             this.tableLayoutPanelCentered.TabIndex = 2;
             // 
             // labelNoUniverses
@@ -105,11 +107,10 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.buttonRefresh.FlatAppearance.BorderSize = 0;
             this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRefresh.Image = global::Shared.Properties.Resources.ic_refresh_black_48dp;
-            this.buttonRefresh.Location = new System.Drawing.Point(44, 16);
+            this.buttonRefresh.Location = new System.Drawing.Point(3, 3);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(50, 50);
             this.buttonRefresh.TabIndex = 1;
@@ -118,7 +119,6 @@
             // 
             // panelHeader
             // 
-            this.panelHeader.BackColor = System.Drawing.SystemColors.Window;
             this.panelHeader.Controls.Add(this.labelHeader);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
@@ -137,12 +137,36 @@
             this.labelHeader.Text = "Bitte wählen Sie ein Universum";
             this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panelControl
+            // 
+            this.panelControl.AutoSize = true;
+            this.panelControl.Controls.Add(this.buttonAdd);
+            this.panelControl.Controls.Add(this.buttonRefresh);
+            this.panelControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl.Location = new System.Drawing.Point(0, 332);
+            this.panelControl.Name = "panelControl";
+            this.panelControl.Size = new System.Drawing.Size(868, 56);
+            this.panelControl.TabIndex = 3;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Image = global::Shared.Properties.Resources.ic_playlist_add_black_48dp;
+            this.buttonAdd.Location = new System.Drawing.Point(815, 3);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(50, 50);
+            this.buttonAdd.TabIndex = 0;
+            this.buttonAdd.UseVisualStyleBackColor = false;
+            // 
             // UniverseSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 388);
             this.Controls.Add(this.listViewUniverses);
+            this.Controls.Add(this.panelControl);
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelNoUniverses);
             this.KeyPreview = true;
@@ -156,7 +180,9 @@
             this.tableLayoutPanelCentered.PerformLayout();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
+            this.panelControl.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -170,5 +196,7 @@
         private System.Windows.Forms.Label labelHeader;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelCentered;
+        private System.Windows.Forms.Panel panelControl;
+        private System.Windows.Forms.Button buttonAdd;
     }
 }

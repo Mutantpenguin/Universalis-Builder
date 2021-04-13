@@ -263,6 +263,16 @@ namespace Shared.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap ic_playlist_add_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("ic_playlist_add_black_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap ic_refresh_black_48dp {
             get {
                 object obj = ResourceManager.GetObject("ic_refresh_black_48dp", resourceCulture);
