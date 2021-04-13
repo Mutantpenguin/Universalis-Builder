@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props" Condition="Exists('..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -20,6 +21,8 @@
     <SccProvider>
     </SccProvider>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LibGit2Sharp, Version=0.26.0.0, Culture=neutral, PublicKeyToken=7cbde695407f0333, processorArchitecture=MSIL">
+      <HintPath>..\packages\LibGit2Sharp.0.26.2\lib\net46\LibGit2Sharp.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="Source\Forms\ArchetypeSelectionForm.Designer.cs">
       <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\CloneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\CloneForm.Designer.cs">
+      <DependentUpon>CloneForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\EnterNameForm.cs">
       <SubType>Form</SubType>
@@ -93,6 +105,12 @@
     </Compile>
     <Compile Include="Source\Forms\ImageSelectionForm.Designer.cs">
       <DependentUpon>ImageSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\RepoUrlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\RepoUrlForm.Designer.cs">
+      <DependentUpon>RepoUrlForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\SelectOutfitForActorForm.cs">
       <SubType>Form</SubType>
@@ -171,6 +189,9 @@
     <EmbeddedResource Include="Source\Forms\ArchetypeSelectionForm.resx">
       <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\CloneForm.resx">
+      <DependentUpon>CloneForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\EnterNameForm.resx">
       <DependentUpon>EnterNameForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\ProgressForm.resx">
       <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\RepoUrlForm.resx">
+      <DependentUpon>RepoUrlForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\SelectOutfitForActorForm.resx">
       <DependentUpon>SelectOutfitForActorForm.cs</DependentUpon>
@@ -310,8 +334,17 @@
   <ItemGroup>
     <None Include="Resources\baseline_delete_black_48dp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spinner.gif" />
+  </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
