@@ -38,14 +38,24 @@ namespace Universalis
 
         private void BackgroundWorkerClone_RunWorkerCompleted( object sender, RunWorkerCompletedEventArgs e )
         {
+            /* TODO
+               var universeSettingsPath = Path.Combine( universeSubfolder, universeSettingsFilename );
+
+               if( !File.Exists( universeSettingsPath ) )
+            */
+
             if( e.Error != null )
             {
                 MessageBox.Show( e.Error.Message );
+
+                // TODO RepositoryHelper.Delete( path );
 
                 this.DialogResult = DialogResult.Cancel;
             }
             else
             {
+                // TODO remove when not valid, however valid is defined
+
                 this.DialogResult = DialogResult.OK;
             }
 
