@@ -73,6 +73,16 @@ namespace Shared.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap baseline_error_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_error_black_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap baseline_folder_black_48dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_folder_black_48dp", resourceCulture);
@@ -83,9 +93,29 @@ namespace Shared.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap baseline_new_releases_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_new_releases_black_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap baseline_refresh_black_48dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_refresh_black_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap baseline_warning_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_warning_black_48dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

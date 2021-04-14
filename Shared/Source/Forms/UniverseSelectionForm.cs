@@ -1,8 +1,9 @@
-using LibGit2Sharp;
+﻿using LibGit2Sharp;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,6 +20,14 @@ namespace Universalis
 
         private static readonly string universeSettingsFilename = "universe.json";
         private static readonly string universeImageFilename = "logo.jpg";
+
+        private static readonly ColorMatrix s_colorMatrixRepoBehind = ColorHelper.ColorToColorMatrix( Color.SeaGreen );
+        private static readonly ColorMatrix s_colorMatrixRepoAhead = ColorHelper.ColorToColorMatrix( Color.Orange );
+        private static readonly ColorMatrix s_colorMatrixRepoError = ColorHelper.ColorToColorMatrix( Color.Red );
+
+        private static readonly Image repoBehindImage = ImageHelper.Colorize( Shared.Properties.Resources.baseline_new_releases_black_48dp, s_colorMatrixRepoBehind );
+        private static readonly Image repoAheadImage = ImageHelper.Colorize( Shared.Properties.Resources.baseline_warning_black_48dp, s_colorMatrixRepoAhead );
+        private static readonly Image repoErrorImage = ImageHelper.Colorize( Shared.Properties.Resources.baseline_error_black_48dp, s_colorMatrixRepoError );
 
         public UniverseSelectionForm( FormToOpen formToOpen )
         {
@@ -57,6 +66,20 @@ namespace Universalis
                 get;
                 set;
             }
+
+            public enum EState
+            {
+                READY,
+                BEHIND,
+                AHEAD,
+                ERROR
+            }
+
+            public EState State
+            {
+                get;
+                set;
+            } = EState.READY;
         }
 
         private void RefreshUniverses()
@@ -83,6 +106,7 @@ namespace Universalis
                     else
                     {
                         string repositoryURL = String.Empty;
+                        UniverseListViewItem.EState state = UniverseListViewItem.EState.READY;
 
                         //* TODO git integration via "LibGit2Sharp"
                         if( Repository.IsValid( universeSubfolder ) )
@@ -99,39 +123,84 @@ namespace Universalis
                                         var refSpecs = remote.FetchRefSpecs.Select( x => x.Specification );
                                         Commands.Fetch( repo, remote.Name, refSpecs, null, logMessage );
                                     }
+
+                                    if( repo.Head.TrackingDetails.AheadBy > 0 )
+                                    {
+                                        state = UniverseListViewItem.EState.AHEAD;
+                                    }
+                                    else if( repo.Head.TrackingDetails.BehindBy > 0 )
+                                    {
+                                        state = UniverseListViewItem.EState.BEHIND;
+                                    }
                                 }
                             }
                             catch( RepositoryNotFoundException )
                             {
-                                // TODO
+                                // TODO store and show message?
+
+                                state = UniverseListViewItem.EState.ERROR;
+                            }
+                            catch( Exception )
+                            {
+                                // TODO store and show message?
+
+                                state = UniverseListViewItem.EState.ERROR;
                             }
                         }
 
                         var universe = JsonConvert.DeserializeObject<Universe>( File.ReadAllText( universeSettingsPath ) );
 
                         var universeImagePath = Path.Combine( universeSubfolder, universeImageFilename );
+
+                        Image universeImg;
+
                         if( File.Exists( universeImagePath ) )
                         {
                             // this is needed, because loading via the Bitmaps constructor (or Image.FromFile) leaves a file handle open so we can't delete the folder while the program is running
-                            Image universeImg;
                             using( var bmpTemp = new Bitmap( universeImagePath ) )
                             {
                                 universeImg = new Bitmap( bmpTemp );
                             }
-
-                            imageListUniverses.Images.Add( universeSubfolder, universeImg );
                         }
                         else
                         {
-                            imageListUniverses.Images.Add( universeSubfolder, Shared.Properties.Resources.empty );
+                            universeImg = Shared.Properties.Resources.empty;
                         }
+
+                        Image overlayImage = null;
+
+                        switch( state )
+                        {
+                            case UniverseListViewItem.EState.BEHIND:
+                                overlayImage = repoBehindImage;
+                                break;
+
+                            case UniverseListViewItem.EState.AHEAD:
+                                overlayImage = repoAheadImage;
+                                break;
+
+                            case UniverseListViewItem.EState.ERROR:
+                                overlayImage = repoErrorImage;
+                                break;
+                        }
+
+                        if( overlayImage != null )
+                        {
+                            using( var g = Graphics.FromImage( universeImg ) )
+                            {
+                                g.DrawImage( overlayImage, 0, 0 );
+                            }
+                        }
+
+                        imageListUniverses.Images.Add( universeSubfolder, universeImg );
 
                         var lvi = new UniverseListViewItem()
                         {
                             Text = universe.Name,
                             ImageKey = universeSubfolder,
                             ToolTipText = universe.Description,
-                            RepositoryURL = repositoryURL
+                            RepositoryURL = repositoryURL,
+                            State = state
                         };
 
                         listViewUniverses.Items.Add( lvi );
@@ -163,11 +232,73 @@ namespace Universalis
 
         private void listViewUniverses_ItemActivate( object sender, EventArgs e )
         {
-            this.Hide();
+            var universeItem = listViewUniverses.SelectedItems[ 0 ] as UniverseListViewItem;
 
-            formToOpen( imageListUniverses.Images[ listViewUniverses.SelectedItems[ 0 ].ImageKey ], listViewUniverses.SelectedItems[ 0 ].ImageKey, listViewUniverses.SelectedItems[ 0 ].Text ).ShowDialog( this );
+            void OpenUniverse()
+            {
+                this.Hide();
 
-            this.Close();
+                formToOpen( imageListUniverses.Images[ universeItem.ImageKey ], universeItem.ImageKey, universeItem.Text ).ShowDialog( this );
+
+                this.Close();
+            }
+
+            switch( universeItem.State )
+            {
+                case UniverseListViewItem.EState.READY:
+                    OpenUniverse();
+
+                    break;
+
+                case UniverseListViewItem.EState.BEHIND:
+                    if( MessageBox.Show( "Ein Update ist vorhanden! Soll das Update installiert werden?",
+                                         "Update vorhanden",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Information,
+                                         MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
+                    {
+                        // TODO
+                        using( var repo = new Repository( universeItem.ImageKey ) )
+                        {
+                            try
+                            {
+                                Commands.Pull( repo, null, null );
+                            }
+                            catch( Exception )
+                            {
+                                // TODO MessageBox
+                            }
+                        }
+
+                        RefreshUniverses();
+                    }
+                    else
+                    {
+                        OpenUniverse();
+                    }
+
+                    break;
+
+                case UniverseListViewItem.EState.AHEAD:
+                    if( MessageBox.Show( "Lokale Änderungen sind vorhanden! Trotzdem öffnen?",
+                                         "Lokale Änderungen vorhanden",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Warning,
+                                         MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
+                    {
+                        OpenUniverse();
+                    }
+
+                    break;
+
+                case UniverseListViewItem.EState.ERROR:
+                    MessageBox.Show( "Dieses Universum ist defekt und kann nicht geöffnet werden!",
+                                     "Universum defekt",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Error );
+
+                    break;
+            }
         }
 
         private void UniverseSelectionForm_KeyDown( object sender, KeyEventArgs e )

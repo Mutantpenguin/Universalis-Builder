@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
@@ -91,6 +92,28 @@ namespace Universalis
             else
             {
                 return ( false );
+            }
+        }
+
+        public static Image Colorize( Image image, ColorMatrix colorMatrix )
+        {
+            if( null == image )
+            {
+                throw new ArgumentNullException( nameof( image ) );
+            }
+
+            using( ImageAttributes imageAttributes = new ImageAttributes() )
+            {
+                
+                imageAttributes.SetColorMatrix( colorMatrix );
+
+                Bitmap image_colorized = new Bitmap( image.Width, image.Height );
+                using( Graphics drawing = Graphics.FromImage( image_colorized ) )
+                {
+                    drawing.DrawImage( image, new Rectangle( Point.Empty, image.Size ), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, imageAttributes );
+                }
+
+                return ( image_colorized );
             }
         }
     }
