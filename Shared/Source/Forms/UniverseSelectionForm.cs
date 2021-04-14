@@ -47,6 +47,15 @@ namespace Universalis
 
         private readonly FormToOpen formToOpen;
 
+        private class UniverseListViewItem : ListViewItem
+        {
+            public string RepositoryURL
+            {
+                get;
+                set;
+            }
+        }
+
         private void RefreshUniverses()
         {
             imageListUniverses.Images.Clear();
@@ -70,23 +79,29 @@ namespace Universalis
                     }
                     else
                     {
-                        /* TODO git integration via "LibGit2Sharp"
-                        try
-                        {
-                            // TODO if( Repository.IsValid( universeSubfolder ) )
-                            using( var repo = new Repository( universeSubfolder ) )
-                            {
-                                //MessageBox.Show( repo. );
+                        string repositoryURL = String.Empty;
 
-                                string logMessage = "";
-                                var remote = repo.Network.Remotes[ "origin" ];
-                                var refSpecs = remote.FetchRefSpecs.Select(x => x.Specification);
-                                Commands.Fetch( repo, remote.Name, refSpecs, null, logMessage );
+                        //* TODO git integration via "LibGit2Sharp"
+                        if( Repository.IsValid( universeSubfolder ) )
+                        {
+                            try
+                            {
+                                using( var repo = new Repository( universeSubfolder ) )
+                                {
+                                    string logMessage = "";
+                                    var remote = repo.Network.Remotes[ "origin" ];
+
+                                    repositoryURL = remote.Url;
+
+                                    var refSpecs = remote.FetchRefSpecs.Select( x => x.Specification );
+                                    Commands.Fetch( repo, remote.Name, refSpecs, null, logMessage );
+                                }
+                            }
+                            catch( RepositoryNotFoundException )
+                            {
+                                // TODO
                             }
                         }
-                        catch( RepositoryNotFoundException )
-                        {}
-                        */
 
                         var universe = JsonConvert.DeserializeObject<Universe>( File.ReadAllText( universeSettingsPath ) );
 
@@ -107,11 +122,12 @@ namespace Universalis
                             imageListUniverses.Images.Add( universeSubfolder, Shared.Properties.Resources.empty );
                         }
 
-                        ListViewItem lvi = new ListViewItem()
+                        var lvi = new UniverseListViewItem()
                         {
                             Text = universe.Name,
                             ImageKey = universeSubfolder,
-                            ToolTipText = universe.Description
+                            ToolTipText = universe.Description,
+                            RepositoryURL = repositoryURL
                         };
 
                         listViewUniverses.Items.Add( lvi );
@@ -169,7 +185,17 @@ namespace Universalis
             {
                 if( dialog.ShowDialog() == DialogResult.OK )
                 {
-                    // TODO iterate all repositories and decline to checkout if it was already checked out
+                    // iterate all repositories and decline to checkout if it was already checked out
+                    foreach( var item in listViewUniverses.Items )
+                    {
+                        var universeItem = item as UniverseListViewItem;
+
+                        if( dialog.RepositoryURL.ToString() == universeItem.RepositoryURL )
+                        {
+                            MessageBox.Show( "Dieses Universum existiert hier bereits!" );
+                            return;
+                        }
+                    }
 
                     using( var progressForm = new CloneForm( UniversesPath, dialog.RepositoryURL ) )
                     {
@@ -191,13 +217,13 @@ namespace Universalis
             {
                 var path = listViewUniverses.SelectedItems[ 0 ].ImageKey;
 
-                // TODO show name of the universe
-                if( MessageBox.Show( $"Wirklich das Universum '{listViewUniverses.SelectedItems[ 0 ].ImageKey}' löschen?",
+                if( MessageBox.Show( $"Wirklich das Universum '{listViewUniverses.SelectedItems[ 0 ].Text}' löschen?",
                                      "Wirklich löschen?",
                                      MessageBoxButtons.YesNo,
                                      MessageBoxIcon.Warning,
                                      MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
                 {
+                    // can't delete a git repo just like that since some files are protected so we need to reset their file attributes first
                     var directory = new DirectoryInfo( path ) { Attributes = FileAttributes.Normal };
 
                     foreach( var info in directory.GetFileSystemInfos( "*", SearchOption.AllDirectories ) )
@@ -206,9 +232,9 @@ namespace Universalis
                     }
 
                     directory.Delete( true );
-                }
 
-                RefreshUniverses();
+                    RefreshUniverses();
+                }
             }
         }
     }
