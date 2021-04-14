@@ -12,7 +12,9 @@ namespace Universalis
     {
         public delegate Form FormToOpen( Image universeImage, string universePath, string universeName );
 
-        private static readonly string UniversesPath = Path.Combine( Directory.GetCurrentDirectory(), "Universes" );
+        private static readonly string UniversesSubFolder = "Universes";
+
+        private static readonly string UniversesPath = Path.Combine( UniversalisSettings.UserAppFolder, UniversesSubFolder );
 
         private static readonly string universeSettingsFilename = "universe.json";
         private static readonly string universeImageFilename = "logo.jpg";
