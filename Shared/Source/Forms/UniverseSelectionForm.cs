@@ -1,6 +1,7 @@
 ﻿using LibGit2Sharp;
 using Newtonsoft.Json;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -236,6 +237,25 @@ namespace Universalis
                     directory.Delete( true );
 
                     RefreshUniverses();
+                }
+            }
+        }
+
+        private void buttonOpenFolder_Click( object sender, EventArgs e )
+        {
+            if( listViewUniverses.SelectedItems.Count > 0 )
+            {
+                var selectedItem = listViewUniverses.SelectedItems[ 0 ];
+
+                var path = selectedItem.ImageKey;
+
+                if( !Directory.Exists( path ) )
+                {
+                    MessageBox.Show( $"Der Ordner für das Universum '{selectedItem.Text}' existiert nicht!" );
+                }
+                else
+                {
+                    Process.Start( path );
                 }
             }
         }
