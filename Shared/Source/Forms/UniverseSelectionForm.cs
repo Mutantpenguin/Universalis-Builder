@@ -1,4 +1,4 @@
-﻿using LibGit2Sharp;
+using LibGit2Sharp;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -92,12 +92,13 @@ namespace Universalis
                                 using( var repo = new Repository( universeSubfolder ) )
                                 {
                                     string logMessage = "";
-                                    var remote = repo.Network.Remotes[ "origin" ];
 
-                                    repositoryURL = remote.Url;
-
-                                    var refSpecs = remote.FetchRefSpecs.Select( x => x.Specification );
-                                    Commands.Fetch( repo, remote.Name, refSpecs, null, logMessage );
+                                    // fetch all
+                                    foreach( Remote remote in repo.Network.Remotes )
+                                    {
+                                        var refSpecs = remote.FetchRefSpecs.Select( x => x.Specification );
+                                        Commands.Fetch( repo, remote.Name, refSpecs, null, logMessage );
+                                    }
                                 }
                             }
                             catch( RepositoryNotFoundException )
