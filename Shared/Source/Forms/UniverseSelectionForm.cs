@@ -93,7 +93,14 @@ namespace Universalis
                         var universeImagePath = Path.Combine( universeSubfolder, universeImageFilename );
                         if( File.Exists( universeImagePath ) )
                         {
-                            imageListUniverses.Images.Add( universeSubfolder, Image.FromFile( universeImagePath ) );
+                            // this is needed, because loading via the Bitmaps constructor (or Image.FromFile) leaves a file handle open so we can't delete the folder while the program is running
+                            Image universeImg;
+                            using( var bmpTemp = new Bitmap( universeImagePath ) )
+                            {
+                                universeImg = new Bitmap( bmpTemp );
+                            }
+
+                            imageListUniverses.Images.Add( universeSubfolder, universeImg );
                         }
                         else
                         {
