@@ -132,7 +132,6 @@
     <Compile Include="Source\Helper\ImageHelper.cs" />
     <Compile Include="Source\Helper\RepositoryHelper.cs" />
     <Compile Include="Source\Helper\UniversalisSettings.cs" />
-    <Compile Include="Source\Helper\TLock.cs" />
     <Compile Include="Source\Helper\ToolTipHelper.cs" />
     <Compile Include="Source\JsonHelper\JsonActorEquipmentConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonActorWeaponConverter.cs" />

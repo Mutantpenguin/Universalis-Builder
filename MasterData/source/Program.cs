@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -12,9 +14,18 @@ namespace Universalis
         [STAThread]
         static void Main()
         {
-            try
+            using( var mutex = new Mutex( false, "8de494a8-5c74-4caf-95eb-3426d719c2b5" ) )
             {
-                using( TLock tlock = new TLock() )
+                if( !mutex.WaitOne( TimeSpan.Zero ) )
+                {
+                    MessageBox.Show( $"Das Programm '{Assembly.GetExecutingAssembly().GetName().Name}' darf nur einmal zur gleichen Zeit laufen!",
+                                     String.Empty,
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Stop );
+
+                    Application.Exit();
+                }
+                else
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault( false );
@@ -22,11 +33,9 @@ namespace Universalis
                     UniverseSelectionForm.FormToOpen formToOpen = ( Image universeImage, string universePath, string universeName ) => new MasterDataMainForm( universeImage, universePath, universeName );
 
                     Application.Run( new FormSplash( formToOpen ) );
+
+                    mutex.ReleaseMutex();
                 }
-            }
-            catch( TLock.TLockNotSuccessfullException )
-            {
-                Application.Exit();
             }
         }
     }
