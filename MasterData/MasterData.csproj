@@ -343,7 +343,6 @@
     <None Include="Resources\equipment.png" />
     <None Include="Resources\armor.png" />
     <None Include="Resources\script-text.png" />
-    <None Include="Resources\application-list.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
