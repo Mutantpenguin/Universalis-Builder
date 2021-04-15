@@ -383,5 +383,27 @@ namespace Universalis
                 }
             }
         }
+
+        private void panelHeader_Paint( object sender, PaintEventArgs e )
+        {
+            base.OnPaint( e );
+
+            using( Graphics g = e.Graphics )
+            {
+                var p = new Pen( Color.Black, 1 );
+                g.DrawLine( p, 0, panelHeader.Height - 1, panelHeader.Width, panelHeader.Height - 1 );
+            }
+        }
+
+        private void panelControl_Paint( object sender, PaintEventArgs e )
+        {
+            base.OnPaint( e );
+
+            using( Graphics g = e.Graphics )
+            {
+                var p = new Pen( Color.Black, 1 );
+                g.DrawLine( p, 0, 0, panelControl.Width, 0 );
+            }
+        }
     }
 }

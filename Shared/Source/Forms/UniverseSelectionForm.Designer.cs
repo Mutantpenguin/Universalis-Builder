@@ -38,9 +38,9 @@
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelHeader = new System.Windows.Forms.Label();
             this.panelControl = new System.Windows.Forms.Panel();
+            this.buttonOpenFolder = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonOpenFolder = new System.Windows.Forms.Button();
             this.panelNoUniverses.SuspendLayout();
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -127,6 +127,7 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(868, 50);
             this.panelHeader.TabIndex = 1;
+            this.panelHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHeader_Paint);
             // 
             // labelHeader
             // 
@@ -151,6 +152,20 @@
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(868, 56);
             this.panelControl.TabIndex = 3;
+            this.panelControl.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl_Paint);
+            // 
+            // buttonOpenFolder
+            // 
+            this.buttonOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOpenFolder.FlatAppearance.BorderSize = 0;
+            this.buttonOpenFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOpenFolder.Image = global::Shared.Properties.Resources.baseline_folder_black_48dp;
+            this.buttonOpenFolder.Location = new System.Drawing.Point(703, 3);
+            this.buttonOpenFolder.Name = "buttonOpenFolder";
+            this.buttonOpenFolder.Size = new System.Drawing.Size(50, 50);
+            this.buttonOpenFolder.TabIndex = 3;
+            this.buttonOpenFolder.UseVisualStyleBackColor = false;
+            this.buttonOpenFolder.Click += new System.EventHandler(this.buttonOpenFolder_Click);
             // 
             // buttonDelete
             // 
@@ -177,19 +192,6 @@
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // buttonOpenFolder
-            // 
-            this.buttonOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOpenFolder.FlatAppearance.BorderSize = 0;
-            this.buttonOpenFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpenFolder.Image = global::Shared.Properties.Resources.baseline_folder_black_48dp;
-            this.buttonOpenFolder.Location = new System.Drawing.Point(703, 3);
-            this.buttonOpenFolder.Name = "buttonOpenFolder";
-            this.buttonOpenFolder.Size = new System.Drawing.Size(50, 50);
-            this.buttonOpenFolder.TabIndex = 3;
-            this.buttonOpenFolder.UseVisualStyleBackColor = false;
-            this.buttonOpenFolder.Click += new System.EventHandler(this.buttonOpenFolder_Click);
             // 
             // UniverseSelectionForm
             // 
