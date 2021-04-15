@@ -107,15 +107,15 @@ namespace Universalis
                     {
                         string repositoryURL = String.Empty;
                         UniverseListViewItem.EState state = UniverseListViewItem.EState.READY;
+                        string errorMessage = String.Empty;
 
-                        //* TODO git integration via "LibGit2Sharp"
                         if( Repository.IsValid( universeSubfolder ) )
                         {
                             try
                             {
                                 using( var repo = new Repository( universeSubfolder ) )
                                 {
-                                    string logMessage = "";
+                                    string logMessage = String.Empty;
 
                                     // fetch all
                                     foreach( Remote remote in repo.Network.Remotes )
@@ -134,15 +134,15 @@ namespace Universalis
                                     }
                                 }
                             }
-                            catch( RepositoryNotFoundException )
+                            catch( RepositoryNotFoundException ex )
                             {
-                                // TODO store and show message?
+                                errorMessage = ex.Message;
 
                                 state = UniverseListViewItem.EState.ERROR;
                             }
-                            catch( Exception )
+                            catch( Exception ex )
                             {
-                                // TODO store and show message?
+                                errorMessage = ex.Message;
 
                                 state = UniverseListViewItem.EState.ERROR;
                             }
@@ -198,7 +198,7 @@ namespace Universalis
                         {
                             Text = universe.Name,
                             ImageKey = universeSubfolder,
-                            ToolTipText = universe.Description,
+                            ToolTipText = errorMessage ?? universe.Description,
                             RepositoryURL = repositoryURL,
                             State = state
                         };
