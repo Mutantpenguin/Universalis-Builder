@@ -1,4 +1,4 @@
-﻿using LibGit2Sharp;
+using LibGit2Sharp;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -325,9 +325,17 @@ namespace Universalis
                     {
                         var universeItem = item as UniverseListViewItem;
 
-                        if( dialog.RepositoryURL.ToString() == universeItem.RepositoryURL )
+                        var itemUri = new Uri( universeItem.RepositoryURL );
+
+                        if( Uri.Compare( dialog.RepositoryURL, itemUri,
+                                         UriComponents.Host | UriComponents.PathAndQuery,
+                                         UriFormat.SafeUnescaped,
+                                         StringComparison.OrdinalIgnoreCase ) == 0 )
                         {
-                            MessageBox.Show( "Dieses Universum existiert hier bereits!" );
+                            MessageBox.Show( "Dieses Universum existiert hier bereits!",
+                                             String.Empty,
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Error );
                             return;
                         }
                     }
