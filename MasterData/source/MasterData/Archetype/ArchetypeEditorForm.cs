@@ -136,13 +136,12 @@ namespace Universalis
                         }
                         break;
 
-                    case Profile.EType.Mech:
                     case Profile.EType.Koloss:
                         if( ( size != Profile.ESize.Groß )
                             &&
                             ( size != Profile.ESize.Riesig ) )
                         {
-                            MessageBox.Show( "Mechs und Kolosse müssen immer groß oder riesig sein!",
+                            MessageBox.Show( "Kolosse müssen immer groß oder riesig sein!",
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );

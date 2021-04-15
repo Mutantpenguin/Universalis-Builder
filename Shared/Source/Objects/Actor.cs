@@ -593,9 +593,6 @@ namespace Universalis
                 case Profile.EType.Drohne:
                     return ( Convert.ToSingle( Math.Pow( modKO, 2 ) ) );
 
-                case Profile.EType.Mech:
-                    return ( Convert.ToSingle( Math.Pow( ( modKO * Presets.MechLoadCapacityMultiplier ), 2 ) ) );
-
                 case Profile.EType.Koloss:
                     return ( Convert.ToSingle( Math.Pow( ( modKO * Presets.ColossusLoadCapacityMultiplier ), 2 ) ) );
 
@@ -675,7 +672,6 @@ namespace Universalis
                         };
                         break;
 
-                    case Profile.EType.Mech:
                     case Profile.EType.Koloss:
                         weaponUnarmed.WK = Weapon.EClass.II;
                         weaponUnarmed.DamageType = new DamageType()
@@ -690,44 +686,6 @@ namespace Universalis
                 }
 
                 return ( weaponUnarmed );
-            }
-        }
-
-        public Weapon WeaponDetonation( ActorOutfit actorOutfit )
-        {
-            if( this.Archetype.Profile.Type != Profile.EType.Mech )
-            {
-                return ( null );
-            }
-            else
-            {
-                int modKO = ModKO( actorOutfit );
-
-                Weapon weaponDetonation = new Weapon()
-                {
-                    WK = Weapon.EClass.V,
-                    Type = Weapon.EType.Fernkampf,
-                    WeaponRange = new WeaponRange()
-                    {
-                        Amount = 0,
-                        Length = 0
-                    },
-                    Name = "Bei Detonation",
-                    DamageType = new DamageType()
-                    {
-                        Type = DamageType.EType.Schlag,
-                        Level = DamageType.ELevel.II
-                    },
-                    DamageEffectList = new List<DamageEffect>() { new DamageEffect()
-                                                                      {
-                                                                          Type = DamageEffect.EType.Explosiv
-                                                                      } },
-                    Radius = modKO,
-                    Strength = modKO,
-                    Damage = Convert.ToInt32( Math.Round( modKO / 2.0f, 0 ) )
-                };
-
-                return ( weaponDetonation );
             }
         }
 

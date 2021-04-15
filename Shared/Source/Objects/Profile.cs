@@ -89,7 +89,6 @@ namespace Universalis
         public enum EType
         {
             Infanterie = 1,
-            Mech = 2,
             Koloss = 3,
             Drohne = 5
         }
@@ -150,7 +149,6 @@ namespace Universalis
                         points += HitPoints * Costs.HitPoints;
                         break;
 
-                    case Profile.EType.Mech:
                     case Profile.EType.Koloss:
                         points += ( HitPoints * Costs.HitPoints ) + ( 3 * HitZoneHitPoints * Costs.HitPoints );
                         break;
@@ -181,7 +179,6 @@ namespace Universalis
                         break;
 
                     case EType.Koloss:
-                    case EType.Mech:
                         typeMultiplicator = 30.0f;
                         break;
 

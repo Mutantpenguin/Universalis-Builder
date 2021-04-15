@@ -134,9 +134,6 @@
     <None Include="Resources\Infanterie.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Mech.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{7993deb0-5b56-4ef6-9bd0-507cd6fa6660}</Project>
       <Name>Shared</Name>
