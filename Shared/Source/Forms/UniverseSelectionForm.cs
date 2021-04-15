@@ -1,4 +1,4 @@
-using LibGit2Sharp;
+﻿using LibGit2Sharp;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -93,9 +93,9 @@ namespace Universalis
             {
                 int validUniverseCounter = 0;
 
-                foreach( string universeSubfolder in universeSubfolders )
+                foreach( string universePath in universeSubfolders )
                 {
-                    var universeSettingsPath = Path.Combine( universeSubfolder, universeSettingsFilename );
+                    var universeSettingsPath = Path.Combine( universePath, universeSettingsFilename );
 
                     if( !File.Exists( universeSettingsPath ) )
                     {
@@ -105,16 +105,24 @@ namespace Universalis
                     }
                     else
                     {
-                        string repositoryURL = String.Empty;
-                        UniverseListViewItem.EState state = UniverseListViewItem.EState.READY;
-                        string errorMessage = String.Empty;
+                        var lvi = new UniverseListViewItem()
+                        {
+                            ImageKey = universePath
+                        };                        
 
-                        if( Repository.IsValid( universeSubfolder ) )
+                        var universe = JsonConvert.DeserializeObject<Universe>( File.ReadAllText( universeSettingsPath ) );
+
+                        lvi.Text = universe.Name;
+                        lvi.ToolTipText = universe.Description;
+
+                        if( Repository.IsValid( universePath ) )
                         {
                             try
                             {
-                                using( var repo = new Repository( universeSubfolder ) )
+                                using( var repo = new Repository( universePath ) )
                                 {
+                                    lvi.RepositoryURL = repo.Network.Remotes.FirstOrDefault( r => r.Name == "origin" ).Url;
+
                                     string logMessage = String.Empty;
 
                                     // fetch all
@@ -126,31 +134,29 @@ namespace Universalis
 
                                     if( repo.Head.TrackingDetails.AheadBy > 0 )
                                     {
-                                        state = UniverseListViewItem.EState.AHEAD;
+                                        lvi.State = UniverseListViewItem.EState.AHEAD;
                                     }
                                     else if( repo.Head.TrackingDetails.BehindBy > 0 )
                                     {
-                                        state = UniverseListViewItem.EState.BEHIND;
+                                        lvi.State = UniverseListViewItem.EState.BEHIND;
                                     }
                                 }
                             }
                             catch( RepositoryNotFoundException ex )
                             {
-                                errorMessage = ex.Message;
+                                lvi.ToolTipText = ex.Message;
 
-                                state = UniverseListViewItem.EState.ERROR;
+                                lvi.State = UniverseListViewItem.EState.ERROR;
                             }
                             catch( Exception ex )
                             {
-                                errorMessage = ex.Message;
+                                lvi.ToolTipText = ex.Message;
 
-                                state = UniverseListViewItem.EState.ERROR;
+                                lvi.State = UniverseListViewItem.EState.ERROR;
                             }
                         }
 
-                        var universe = JsonConvert.DeserializeObject<Universe>( File.ReadAllText( universeSettingsPath ) );
-
-                        var universeImagePath = Path.Combine( universeSubfolder, universeImageFilename );
+                        var universeImagePath = Path.Combine( universePath, universeImageFilename );
 
                         Image universeImg;
 
@@ -169,7 +175,7 @@ namespace Universalis
 
                         Image overlayImage = null;
 
-                        switch( state )
+                        switch( lvi.State )
                         {
                             case UniverseListViewItem.EState.BEHIND:
                                 overlayImage = repoBehindImage;
@@ -192,16 +198,7 @@ namespace Universalis
                             }
                         }
 
-                        imageListUniverses.Images.Add( universeSubfolder, universeImg );
-
-                        var lvi = new UniverseListViewItem()
-                        {
-                            Text = universe.Name,
-                            ImageKey = universeSubfolder,
-                            ToolTipText = errorMessage ?? universe.Description,
-                            RepositoryURL = repositoryURL,
-                            State = state
-                        };
+                        imageListUniverses.Images.Add( universePath, universeImg );
 
                         listViewUniverses.Items.Add( lvi );
 
