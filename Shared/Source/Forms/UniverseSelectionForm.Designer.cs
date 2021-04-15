@@ -203,6 +203,7 @@
             this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.panelNoUniverses);
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(884, 427);
             this.Name = "UniverseSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Universalis";
