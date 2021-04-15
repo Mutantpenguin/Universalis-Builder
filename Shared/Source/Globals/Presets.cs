@@ -2,7 +2,6 @@
 {
     static class Presets
     {
-        public const int MechLoadCapacityMultiplier = 2;
         public const int ColossusLoadCapacityMultiplier = 2;
 
         public const float HitZoneHitPointsMultiplier = 2.0f / 3.0f;

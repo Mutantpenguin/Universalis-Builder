@@ -307,7 +307,6 @@ namespace Universalis
                     DrawHitPointCirclesVertical( g, actor.Archetype.Profile.HitPoints, posX, posY, SHitPointSize );
                     break;
 
-                case Profile.EType.Mech:
                 case Profile.EType.Koloss:
                     int posXArmLeft = SPictureRect.X + margin;
                     int posYArmLeft = SPictureRect.Y + margin;
@@ -434,10 +433,6 @@ namespace Universalis
             {
                 case Profile.EType.Infanterie:
                     g.DrawImage( Properties.Resources.Infanterie, rect );
-                    break;
-
-                case Profile.EType.Mech:
-                    g.DrawImage( Properties.Resources.Mech, rect );
                     break;
 
                 case Profile.EType.Koloss:
@@ -626,14 +621,6 @@ namespace Universalis
                                                                     .ThenBy( x => x.weapon.Name ) )
                 {
                     DrawWeapon( g, actor, actorOutfit, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * SLineHeight ) );
-
-                    lineNumber++;
-                }
-
-                Weapon weaponDetonation = actor.WeaponDetonation( actorOutfit );
-                if( weaponDetonation != null )
-                {
-                    DrawWeapon( g, actor, actorOutfit, weaponDetonation, 1, posY + ( lineNumber * SLineHeight ) );
 
                     lineNumber++;
                 }
