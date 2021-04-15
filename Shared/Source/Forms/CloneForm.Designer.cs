@@ -41,6 +41,7 @@ namespace Universalis
             // 
             this.panel1.AutoSize = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.pictureBoxSpinner);
             this.panel1.Controls.Add(this.labelBytes);
             this.panel1.Controls.Add(this.labelObjects);
@@ -57,7 +58,7 @@ namespace Universalis
             this.pictureBoxSpinner.Image = global::Shared.Properties.Resources.spinner;
             this.pictureBoxSpinner.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxSpinner.Name = "pictureBoxSpinner";
-            this.pictureBoxSpinner.Size = new System.Drawing.Size(228, 71);
+            this.pictureBoxSpinner.Size = new System.Drawing.Size(226, 71);
             this.pictureBoxSpinner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSpinner.TabIndex = 3;
             this.pictureBoxSpinner.TabStop = false;
@@ -65,7 +66,8 @@ namespace Universalis
             // labelBytes
             // 
             this.labelBytes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelBytes.Location = new System.Drawing.Point(140, 86);
+            this.labelBytes.Location = new System.Drawing.Point(138, 86);
+            this.labelBytes.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.labelBytes.Name = "labelBytes";
             this.labelBytes.Size = new System.Drawing.Size(100, 13);
             this.labelBytes.TabIndex = 2;
@@ -76,6 +78,7 @@ namespace Universalis
             // 
             this.labelObjects.AutoSize = true;
             this.labelObjects.Location = new System.Drawing.Point(12, 86);
+            this.labelObjects.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.labelObjects.Name = "labelObjects";
             this.labelObjects.Size = new System.Drawing.Size(65, 13);
             this.labelObjects.TabIndex = 1;
