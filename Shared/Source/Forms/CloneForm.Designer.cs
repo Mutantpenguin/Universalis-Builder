@@ -59,7 +59,7 @@ namespace Universalis
             this.pictureBoxSpinner.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxSpinner.Name = "pictureBoxSpinner";
             this.pictureBoxSpinner.Size = new System.Drawing.Size(226, 71);
-            this.pictureBoxSpinner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSpinner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxSpinner.TabIndex = 3;
             this.pictureBoxSpinner.TabStop = false;
             // 
