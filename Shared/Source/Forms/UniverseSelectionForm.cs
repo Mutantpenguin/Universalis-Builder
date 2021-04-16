@@ -254,16 +254,20 @@ namespace Universalis
                                          MessageBoxIcon.Information,
                                          MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
                     {
-                        // TODO
-                        using( var repo = new Repository( universeItem.ImageKey ) )
+                         using( var repo = new Repository( universeItem.ImageKey ) )
                         {
                             try
                             {
-                                Commands.Pull( repo, null, null );
+                                repo.RemoveUntrackedFiles();
+
+                                repo.Reset( ResetMode.Hard );
+
+                                Commands.Pull( repo, new Signature( "dummy", "dummy", DateTimeOffset.Now ), new PullOptions() );
                             }
-                            catch( Exception )
+                            catch( Exception ex )
                             {
                                 // TODO MessageBox
+                                MessageBox.Show( ex.Message );
                             }
                         }
 
