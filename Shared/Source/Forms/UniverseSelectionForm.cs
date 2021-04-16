@@ -1,6 +1,7 @@
 ﻿using LibGit2Sharp;
 using Newtonsoft.Json;
 using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -84,9 +85,23 @@ namespace Universalis
 
         private void RefreshUniverses()
         {
+            panelMain.Visible = false;
+            panelControl.Enabled = false;
+            panelWorking.Visible = true;
+            panelNoUniverses.Visible = false;
+
             imageListUniverses.Images.Clear();
             listViewUniverses.Clear();
 
+            var backgroundWorkerRefresh = new BackgroundWorker();
+
+            backgroundWorkerRefresh.DoWork += BackgroundWorkerRefresh_DoWork;
+
+            backgroundWorkerRefresh.RunWorkerAsync();
+        }
+
+        private void BackgroundWorkerRefresh_DoWork( object sender, DoWorkEventArgs e )
+        {
             string[] universeSubfolders = Directory.GetDirectories( UniversesPath );
 
             if( universeSubfolders.Count() > 0 )
@@ -108,7 +123,7 @@ namespace Universalis
                         var lvi = new UniverseListViewItem()
                         {
                             ImageKey = universePath
-                        };                        
+                        };
 
                         var universe = JsonConvert.DeserializeObject<Universe>( File.ReadAllText( universeSettingsPath ) );
 
@@ -198,33 +213,42 @@ namespace Universalis
                             }
                         }
 
-                        imageListUniverses.Images.Add( universePath, universeImg );
+                        this.Invoke( new MethodInvoker( () =>
+                        {
+                            imageListUniverses.Images.Add( universePath, universeImg );
 
-                        listViewUniverses.Items.Add( lvi );
+                            listViewUniverses.Items.Add( lvi );
+                        } ) );
 
                         validUniverseCounter++;
                     }
                 }
 
-                if( validUniverseCounter == 0 )
+                this.Invoke( new MethodInvoker( () =>
                 {
-                    listViewUniverses.Visible = false;
-                    panelHeader.Visible = false;
-                    panelNoUniverses.Visible = true;
-                }
-                else
-                {
-                    listViewUniverses.Visible = true;
-                    panelHeader.Visible = true;
-                    panelNoUniverses.Visible = false;
-                }
+                    if( validUniverseCounter == 0 )
+                    {
+                        panelNoUniverses.Visible = true;
+                    }
+                    else
+                    {
+                        panelMain.Visible = true;
+                    }
+                } ) );
             }
             else
             {
-                listViewUniverses.Visible = false;
-                panelHeader.Visible = false;
-                panelNoUniverses.Visible = true;
+                this.Invoke( new MethodInvoker( () =>
+                {
+                    panelNoUniverses.Visible = true;
+                } ) );
             }
+
+            this.Invoke( new MethodInvoker( () =>
+            {
+                panelControl.Enabled = true;
+                panelWorking.Visible = false;
+            } ) );
         }
 
         private void listViewUniverses_ItemActivate( object sender, EventArgs e )
