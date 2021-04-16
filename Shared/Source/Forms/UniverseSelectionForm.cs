@@ -112,7 +112,7 @@ namespace Universalis
 
                         var universe = JsonConvert.DeserializeObject<Universe>( File.ReadAllText( universeSettingsPath ) );
 
-                        lvi.Text = universe.Name;
+                        lvi.Text = universe.Name + ( String.IsNullOrEmpty( universe.Version ) ? String.Empty : " - " + universe.Version );
                         lvi.ToolTipText = universe.Description;
 
                         if( Repository.IsValid( universePath ) )
