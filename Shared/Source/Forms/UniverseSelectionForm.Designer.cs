@@ -41,10 +41,16 @@
             this.buttonOpenFolder = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.panelWorking = new System.Windows.Forms.Panel();
+            this.pictureBoxSpinner = new System.Windows.Forms.PictureBox();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.panelNoUniverses.SuspendLayout();
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.panelControl.SuspendLayout();
+            this.panelWorking.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpinner)).BeginInit();
+            this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageListUniverses
@@ -76,7 +82,7 @@
             this.panelNoUniverses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNoUniverses.Location = new System.Drawing.Point(0, 0);
             this.panelNoUniverses.Name = "panelNoUniverses";
-            this.panelNoUniverses.Size = new System.Drawing.Size(868, 388);
+            this.panelNoUniverses.Size = new System.Drawing.Size(868, 332);
             this.panelNoUniverses.TabIndex = 2;
             this.panelNoUniverses.Visible = false;
             // 
@@ -88,7 +94,7 @@
             this.tableLayoutPanelCentered.ColumnCount = 1;
             this.tableLayoutPanelCentered.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelCentered.Controls.Add(this.labelNoUniverses, 0, 0);
-            this.tableLayoutPanelCentered.Location = new System.Drawing.Point(365, 138);
+            this.tableLayoutPanelCentered.Location = new System.Drawing.Point(365, 110);
             this.tableLayoutPanelCentered.Name = "tableLayoutPanelCentered";
             this.tableLayoutPanelCentered.RowCount = 2;
             this.tableLayoutPanelCentered.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -193,15 +199,47 @@
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // panelWorking
+            // 
+            this.panelWorking.BackColor = System.Drawing.SystemColors.Window;
+            this.panelWorking.Controls.Add(this.pictureBoxSpinner);
+            this.panelWorking.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelWorking.Location = new System.Drawing.Point(0, 0);
+            this.panelWorking.Name = "panelWorking";
+            this.panelWorking.Size = new System.Drawing.Size(868, 332);
+            this.panelWorking.TabIndex = 3;
+            this.panelWorking.Visible = false;
+            // 
+            // pictureBoxSpinner
+            // 
+            this.pictureBoxSpinner.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxSpinner.Image = global::Shared.Properties.Resources.spinner;
+            this.pictureBoxSpinner.Location = new System.Drawing.Point(334, 92);
+            this.pictureBoxSpinner.Name = "pictureBoxSpinner";
+            this.pictureBoxSpinner.Size = new System.Drawing.Size(200, 148);
+            this.pictureBoxSpinner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxSpinner.TabIndex = 4;
+            this.pictureBoxSpinner.TabStop = false;
+            // 
+            // panelMain
+            // 
+            this.panelMain.Controls.Add(this.listViewUniverses);
+            this.panelMain.Controls.Add(this.panelHeader);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(868, 332);
+            this.panelMain.TabIndex = 3;
+            // 
             // UniverseSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 388);
-            this.Controls.Add(this.listViewUniverses);
-            this.Controls.Add(this.panelControl);
-            this.Controls.Add(this.panelHeader);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelNoUniverses);
+            this.Controls.Add(this.panelWorking);
+            this.Controls.Add(this.panelControl);
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(884, 427);
             this.Name = "UniverseSelectionForm";
@@ -215,6 +253,9 @@
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelControl.ResumeLayout(false);
+            this.panelWorking.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpinner)).EndInit();
+            this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +275,8 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonOpenFolder;
+        private System.Windows.Forms.Panel panelWorking;
+        private System.Windows.Forms.PictureBox pictureBoxSpinner;
+        private System.Windows.Forms.Panel panelMain;
     }
 }
