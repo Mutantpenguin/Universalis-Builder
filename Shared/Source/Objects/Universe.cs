@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.IO;
 
 namespace Universalis
 {
@@ -57,6 +59,34 @@ namespace Universalis
         {
             get;
             set;
+        }
+
+        private static readonly string universeSettingsFilename = "universe.json";
+
+        public static Universe Load( string universePath )
+        {
+            var universeSettingsPath = Path.Combine( universePath, universeSettingsFilename );
+
+            if( !File.Exists( universeSettingsPath ) )
+            {
+                // TODO show message
+                return ( null );
+            }
+
+            Universe universe = null;
+
+            try
+            {
+                // TODO check against schema before trying to deserialize it
+
+                universe = JsonConvert.DeserializeObject<Universe>( File.ReadAllText( universeSettingsPath ) );
+            }
+            catch( Exception ex )
+            {
+                // TODO
+            }
+
+            return ( universe );
         }
     }
 }

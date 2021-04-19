@@ -1,28 +1,28 @@
 ﻿using LibGit2Sharp;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Universalis
 {
     public partial class CloneForm : Form
     {
-        BackgroundWorker BackgroundWorkerClone = new BackgroundWorker();
+        private BackgroundWorker BackgroundWorkerClone = new BackgroundWorker();
 
-        readonly string UniversesPath;
-        readonly Uri RepositoryURL;
+        private readonly Uri RepositoryURL;
+
+        public string UniversePath
+        {
+            get;
+            private set;
+        }
 
         public CloneForm( string universesPath, Uri repositoryURL )
         {
-            UniversesPath = universesPath;
             RepositoryURL = repositoryURL;
+
+            UniversePath = Path.Combine( universesPath, Guid.NewGuid().ToString() );
 
             InitializeComponent();
 
@@ -38,25 +38,27 @@ namespace Universalis
 
         private void BackgroundWorkerClone_RunWorkerCompleted( object sender, RunWorkerCompletedEventArgs e )
         {
-            /* TODO
-               var universeSettingsPath = Path.Combine( universeSubfolder, universeSettingsFilename );
-
-               if( !File.Exists( universeSettingsPath ) )
-            */
-
             if( e.Error != null )
             {
                 MessageBox.Show( e.Error.Message );
-
-                // TODO RepositoryHelper.Delete( path );
 
                 this.DialogResult = DialogResult.Cancel;
             }
             else
             {
-                // TODO remove when not valid, however valid is defined
+                if( Universe.Load( UniversePath ) == null )
+                {
+                    MessageBox.Show( "This is not a valid universe!",
+                                     "Invalid universe",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Error );
 
-                this.DialogResult = DialogResult.OK;
+                    this.DialogResult = DialogResult.Cancel;
+                }
+                else
+                {
+                    this.DialogResult = DialogResult.OK;
+                }
             }
 
             this.Close();
@@ -78,7 +80,7 @@ namespace Universalis
                 }
             };
 
-            Repository.Clone( RepositoryURL.ToString(), Path.Combine( UniversesPath, Guid.NewGuid().ToString() ), co );
+            Repository.Clone( RepositoryURL.ToString(), UniversePath, co );
         }
     }
 }
