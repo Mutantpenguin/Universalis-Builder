@@ -98,7 +98,9 @@ namespace Universalis
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(317, 115);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimumSize = new System.Drawing.Size(333, 39);
             this.Name = "RepoUrlForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

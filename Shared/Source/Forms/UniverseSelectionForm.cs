@@ -19,7 +19,6 @@ namespace Universalis
 
         private static readonly string UniversesPath = Path.Combine( UniversalisSettings.UserAppFolder, UniversesSubFolder );
 
-        private static readonly string universeSettingsFilename = "universe.json";
         private static readonly string universeImageFilename = "logo.jpg";
 
         private static readonly ColorMatrix s_colorMatrixRepoBehind = ColorHelper.ColorToColorMatrix( Color.SeaGreen );
@@ -110,22 +109,14 @@ namespace Universalis
 
                 foreach( string universePath in universeSubfolders )
                 {
-                    var universeSettingsPath = Path.Combine( universePath, universeSettingsFilename );
+                    var universe = Universe.Load( universePath );
 
-                    if( !File.Exists( universeSettingsPath ) )
-                    {
-#if DEBUG
-                        // TODO show message
-#endif
-                    }
-                    else
+                    if( universe != null )
                     {
                         var lvi = new UniverseListViewItem()
                         {
                             ImageKey = universePath
                         };
-
-                        var universe = JsonConvert.DeserializeObject<Universe>( File.ReadAllText( universeSettingsPath ) );
 
                         lvi.Text = universe.Name + ( String.IsNullOrEmpty( universe.Version ) ? String.Empty : " - " + universe.Version );
                         lvi.ToolTipText = universe.Description;
@@ -350,18 +341,21 @@ namespace Universalis
                     {
                         var universeItem = item as UniverseListViewItem;
 
-                        var itemUri = new Uri( universeItem.RepositoryURL );
-
-                        if( Uri.Compare( dialog.RepositoryURL, itemUri,
-                                         UriComponents.Host | UriComponents.PathAndQuery,
-                                         UriFormat.SafeUnescaped,
-                                         StringComparison.OrdinalIgnoreCase ) == 0 )
+                        if( !String.IsNullOrEmpty( universeItem.RepositoryURL ) )
                         {
-                            MessageBox.Show( "Dieses Universum existiert hier bereits!",
-                                             String.Empty,
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Error );
-                            return;
+                            var itemUri = new Uri( universeItem.RepositoryURL );
+
+                            if( Uri.Compare( dialog.RepositoryURL, itemUri,
+                                             UriComponents.Host | UriComponents.PathAndQuery,
+                                             UriFormat.SafeUnescaped,
+                                             StringComparison.OrdinalIgnoreCase ) == 0 )
+                            {
+                                MessageBox.Show( "Dieses Universum existiert hier bereits!",
+                                                 String.Empty,
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Error );
+                                return;
+                            }
                         }
                     }
 
@@ -369,10 +363,11 @@ namespace Universalis
                     {
                         if( cloneForm.ShowDialog() == DialogResult.OK )
                         {
-                            // TODO check if this is a valid universe, or just any git repo
-                            // TODO ask to delete if it's invalid
-
                             RefreshUniverses();
+                        }
+                        else
+                        {
+                            RepositoryHelper.Delete( cloneForm.UniversePath );
                         }
                     }
                 }
