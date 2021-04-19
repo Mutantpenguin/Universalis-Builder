@@ -365,9 +365,9 @@ namespace Universalis
                         }
                     }
 
-                    using( var progressForm = new CloneForm( UniversesPath, dialog.RepositoryURL ) )
+                    using( var cloneForm = new CloneForm( UniversesPath, dialog.RepositoryURL ) )
                     {
-                        if( progressForm.ShowDialog() == DialogResult.OK )
+                        if( cloneForm.ShowDialog() == DialogResult.OK )
                         {
                             // TODO check if this is a valid universe, or just any git repo
                             // TODO ask to delete if it's invalid
