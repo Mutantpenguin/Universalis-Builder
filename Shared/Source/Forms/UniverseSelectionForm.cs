@@ -109,15 +109,23 @@ namespace Universalis
 
                 foreach( string universePath in universeSubfolders )
                 {
-                    var universe = Universe.Load( universePath );
-
-                    if( universe != null )
+                    var lvi = new UniverseListViewItem()
                     {
-                        var lvi = new UniverseListViewItem()
-                        {
-                            ImageKey = universePath
-                        };
+                        ImageKey = universePath
+                    };
 
+                    Image universeImg = Shared.Properties.Resources.empty;
+
+                    var (universe, error) = Universe.Load( universePath );
+
+                    if( universe == null )
+                    {
+                        lvi.Text = "Defektes Universum";
+                        lvi.State = UniverseListViewItem.EState.ERROR;
+                        lvi.ToolTipText = error;
+                    }
+                    else
+                    {
                         lvi.Text = universe.Name + ( String.IsNullOrEmpty( universe.Version ) ? String.Empty : " - " + universe.Version );
                         lvi.ToolTipText = universe.Description;
 
@@ -164,8 +172,6 @@ namespace Universalis
 
                         var universeImagePath = Path.Combine( universePath, universeImageFilename );
 
-                        Image universeImg;
-
                         if( File.Exists( universeImagePath ) )
                         {
                             // this is needed, because loading via the Bitmaps constructor (or Image.FromFile) leaves a file handle open so we can't delete the folder while the program is running
@@ -174,45 +180,41 @@ namespace Universalis
                                 universeImg = new Bitmap( bmpTemp );
                             }
                         }
-                        else
-                        {
-                            universeImg = Shared.Properties.Resources.empty;
-                        }
-
-                        Image overlayImage = null;
-
-                        switch( lvi.State )
-                        {
-                            case UniverseListViewItem.EState.BEHIND:
-                                overlayImage = repoBehindImage;
-                                break;
-
-                            case UniverseListViewItem.EState.AHEAD:
-                                overlayImage = repoAheadImage;
-                                break;
-
-                            case UniverseListViewItem.EState.ERROR:
-                                overlayImage = repoErrorImage;
-                                break;
-                        }
-
-                        if( overlayImage != null )
-                        {
-                            using( var g = Graphics.FromImage( universeImg ) )
-                            {
-                                g.DrawImage( overlayImage, 0, 0 );
-                            }
-                        }
-
-                        this.Invoke( new MethodInvoker( () =>
-                        {
-                            imageListUniverses.Images.Add( universePath, universeImg );
-
-                            listViewUniverses.Items.Add( lvi );
-                        } ) );
-
-                        validUniverseCounter++;
                     }
+
+                    Image overlayImage = null;
+
+                    switch( lvi.State )
+                    {
+                        case UniverseListViewItem.EState.BEHIND:
+                            overlayImage = repoBehindImage;
+                            break;
+
+                        case UniverseListViewItem.EState.AHEAD:
+                            overlayImage = repoAheadImage;
+                            break;
+
+                        case UniverseListViewItem.EState.ERROR:
+                            overlayImage = repoErrorImage;
+                            break;
+                    }
+
+                    if( overlayImage != null )
+                    {
+                        using( var g = Graphics.FromImage( universeImg ) )
+                        {
+                            g.DrawImage( overlayImage, 0, 0 );
+                        }
+                    }
+
+                    this.Invoke( new MethodInvoker( () =>
+                    {
+                        imageListUniverses.Images.Add( universePath, universeImg );
+
+                        listViewUniverses.Items.Add( lvi );
+                    } ) );
+
+                    validUniverseCounter++;
                 }
 
                 this.Invoke( new MethodInvoker( () =>

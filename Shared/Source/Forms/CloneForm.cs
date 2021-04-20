@@ -46,10 +46,12 @@ namespace Universalis
             }
             else
             {
-                if( Universe.Load( UniversePath ) == null )
+                var (universe, error) = Universe.Load( UniversePath );
+
+                if( universe == null )
                 {
-                    MessageBox.Show( "This is not a valid universe!",
-                                     "Invalid universe",
+                    MessageBox.Show( $"Dies ist kein Universum:\n{error}",
+                                     "Invalides Universum",
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Error );
 

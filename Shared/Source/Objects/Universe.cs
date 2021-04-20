@@ -63,14 +63,13 @@ namespace Universalis
 
         private static readonly string universeSettingsFilename = "universe.json";
 
-        public static Universe Load( string universePath )
+        public static (Universe,string) Load( string universePath )
         {
             var universeSettingsPath = Path.Combine( universePath, universeSettingsFilename );
 
             if( !File.Exists( universeSettingsPath ) )
             {
-                // TODO show message
-                return ( null );
+                return ( null, "Die Einstellungsdatei für dieses Universum existiert nicht." );
             }
 
             Universe universe = null;
@@ -83,10 +82,10 @@ namespace Universalis
             }
             catch( Exception ex )
             {
-                // TODO
+                return (universe, ex.Message);
             }
 
-            return ( universe );
+            return ( universe, null );
         }
     }
 }
