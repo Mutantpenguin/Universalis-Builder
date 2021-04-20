@@ -269,7 +269,7 @@ namespace Universalis
                                          MessageBoxIcon.Information,
                                          MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
                     {
-                         using( var repo = new Repository( universeItem.ImageKey ) )
+                        using( var repo = new Repository( universeItem.ImageKey ) )
                         {
                             try
                             {
@@ -281,8 +281,10 @@ namespace Universalis
                             }
                             catch( Exception ex )
                             {
-                                // TODO MessageBox
-                                MessageBox.Show( ex.Message );
+                                MessageBox.Show( ex.Message,
+                                                 "Probleme beim Update",
+                                                 MessageBoxButtons.OK,
+                                                 MessageBoxIcon.Error );
                             }
                         }
 
