@@ -10,10 +10,6 @@ Waffen:
 Fraktion:
 	- Liste mit Namen hinterlegen können die in "Groups" zufällig "zusammengebaut" werden
 
-Archetypen:
-	- Werte würfeln?
-		- Achtung, Drohnen haben nicht alle Werte
-
 AttributeModifier:
 	- sind irgendwie überall in der GUI ziemlich buggy
 
