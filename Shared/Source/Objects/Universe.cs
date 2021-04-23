@@ -1,5 +1,8 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Universalis
@@ -72,20 +75,27 @@ namespace Universalis
                 return ( null, "Die Einstellungsdatei für dieses Universum existiert nicht." );
             }
 
-            Universe universe = null;
-
             try
             {
-                // TODO check against schema before trying to deserialize it
+                var universeSchema = JSchema.Parse( Shared.Properties.Resources.schema_universe );
 
-                universe = JsonConvert.DeserializeObject<Universe>( File.ReadAllText( universeSettingsPath ) );
+                JObject universeObject = JObject.Parse( File.ReadAllText( universeSettingsPath ) );
+
+                if( !universeObject.IsValid( universeSchema, out IList<string> errorMessagesSending ) )
+                {
+                    return (null, String.Join( ", ", errorMessagesSending ));
+                }
+                else
+                {
+                    var universe = universeObject.ToObject<Universe>();
+
+                    return (universe, null);
+                }
             }
             catch( Exception ex )
             {
-                return (universe, ex.Message);
+                return (null, ex.Message);
             }
-
-            return ( universe, null );
         }
     }
 }

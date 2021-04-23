@@ -361,6 +361,22 @@ namespace Shared.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;type&quot;: &quot;object&quot;,
+        ///	&quot;properties&quot;: {
+        ///		&quot;name&quot;: { &quot;type&quot;: &quot;string&quot; },
+        ///		&quot;description&quot;: { &quot;type&quot;: &quot;string&quot; },
+        ///		&quot;version&quot;: { &quot;type&quot;: &quot;string&quot; }
+        ///	}
+        ///}.
+        /// </summary>
+        public static string schema_universe {
+            get {
+                return ResourceManager.GetString("schema_universe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap section_pattern {
