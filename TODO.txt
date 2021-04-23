@@ -1,3 +1,9 @@
+Universe:
+	- Logo mit in JSON aufnehmen?
+
+Für alle Objekte:
+	- White- und Blacklist für Fraktionen?
+
 Waffen:
 	- brauchen AttributeModifier
 
