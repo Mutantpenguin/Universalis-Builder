@@ -79,15 +79,15 @@ namespace Universalis
             {
                 var universeSchema = JSchema.Parse( Shared.Properties.Resources.schema_universe );
 
-                JObject universeObject = JObject.Parse( File.ReadAllText( universeSettingsPath ) );
+                JObject universeJObject = JObject.Parse( File.ReadAllText( universeSettingsPath ) );
 
-                if( !universeObject.IsValid( universeSchema, out IList<string> errorMessagesSending ) )
+                if( !universeJObject.IsValid( universeSchema, out IList<string> errorMessages ) )
                 {
-                    return (null, String.Join( ", ", errorMessagesSending ));
+                    return (null, String.Join( ", ", errorMessages ));
                 }
                 else
                 {
-                    var universe = universeObject.ToObject<Universe>();
+                    var universe = universeJObject.ToObject<Universe>();
 
                     return (universe, null);
                 }
