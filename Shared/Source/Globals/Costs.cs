@@ -49,7 +49,7 @@ namespace Universalis
         public const int WeaponStrength = 10;
         public const int WeaponDamage = 20;
 
-        public const float WeaponDamageTypeLevelMultiplikator = 1.4f;
+        public const float WeaponDamageTypeLevelMultiplicator = 1.4f;
 
         public const float WeaponUseOnceMultiplicator = 0.35f;
         public const float WeaponUnwieldyMultiplicator = 0.8f;
@@ -63,7 +63,7 @@ namespace Universalis
         // Armor
         public const int ArmorProtection = 10;
 
-        public const float ArmorDamageTypeLevelMultiplikator = 1.3f;
+        public const float ArmorDamageTypeLevelMultiplicator = 1.3f;
 
         public const float ArmorDamageEffectMultiplicator = 1.2f;
 
