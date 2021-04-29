@@ -46,6 +46,17 @@ namespace Universalis
             return ( true );
         }
 
+        public String NameWithVersion()
+        {
+            return ( Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - " + Version ) );
+        }
+
+        public Guid ID
+        {
+            get;
+            set;
+        } = Guid.NewGuid();
+
         public string Name
         {
             get;

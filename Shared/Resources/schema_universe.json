@@ -3,8 +3,12 @@
 	"properties": {
 		"name": { "type": "string" },
 		"description": { "type": "string" },
-		"version": { "type": "string" }
+		"version": { "type": "string" },
+		"id": {
+			"type": "string",
+			"format": "uuid"
+		}
 	},
-	"required": [ "name", "description" ],
+	"required": [ "name", "description", "id" ],
 	"additionalProperties": false
 }

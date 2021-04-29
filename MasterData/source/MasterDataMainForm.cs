@@ -8,7 +8,7 @@ namespace Universalis
 {
     public partial class MasterDataMainForm : Form
     {
-        public MasterDataMainForm( Image universeImage, string universePath, string universeName )
+        public MasterDataMainForm( Image universeImage, string universePath, Universe universe )
         {
             try
             {
@@ -38,7 +38,7 @@ namespace Universalis
 
             InitializeComponent();
 
-            this.Text = universeName + " Stammdaten";
+            this.Text = universe.NameWithVersion() + " Stammdaten";
 
             this.Icon = Shared.Properties.Resources.icon;
         }

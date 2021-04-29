@@ -13,7 +13,7 @@ namespace Universalis
 {
     public partial class UniverseSelectionForm : Form
     {
-        public delegate Form FormToOpen( Image universeImage, string universePath, string universeName );
+        public delegate Form FormToOpen( Image universeImage, string universePath, Universe universe );
 
         private static readonly string UniversesSubFolder = "Universes";
 
@@ -80,6 +80,12 @@ namespace Universalis
                 get;
                 set;
             } = EState.READY;
+
+            public Universe Universe
+            {
+                get;
+                set;
+            }
         }
 
         private void RefreshUniverses()
@@ -126,7 +132,8 @@ namespace Universalis
                     }
                     else
                     {
-                        lvi.Text = universe.Name + ( String.IsNullOrEmpty( universe.Version ) ? String.Empty : " - " + universe.Version );
+                        lvi.Universe = universe;
+                        lvi.Text = universe.NameWithVersion();
                         lvi.ToolTipText = universe.Description;
 
                         if( Repository.IsValid( universePath ) )
@@ -252,7 +259,7 @@ namespace Universalis
             {
                 this.Hide();
 
-                formToOpen( imageListUniverses.Images[ universeItem.ImageKey ], universeItem.ImageKey, universeItem.Text ).ShowDialog( this );
+                formToOpen( imageListUniverses.Images[ universeItem.ImageKey ], universeItem.ImageKey, universeItem.Universe ).ShowDialog( this );
 
                 this.Close();
             }
