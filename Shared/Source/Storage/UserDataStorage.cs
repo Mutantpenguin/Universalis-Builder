@@ -6,6 +6,10 @@ namespace Universalis
 {
     public static class UserDataStorage
     {
+        private static readonly string GroupsSubFolder = "Groups";
+
+        private static readonly string GroupsPath = Path.Combine( UniversalisSettings.UserAppFolder, GroupsSubFolder );
+
         public static GroupStorage Group
         {
             get;
@@ -14,8 +18,20 @@ namespace Universalis
 
         private static bool setupAlreadyCompleted = false;
 
-        public static void Setup( string universePath, Storage.BackgroundWorkerProvider backgroundWorkerProvider )
+        public static void Setup( Guid universeId, Storage.BackgroundWorkerProvider backgroundWorkerProvider )
         {
+            if( !Directory.Exists( GroupsPath ) )
+            {
+                Directory.CreateDirectory( GroupsPath );
+            }
+
+            String universeGroupsPath = Path.Combine( GroupsPath, universeId.ToString() );
+
+            if( !Directory.Exists( universeGroupsPath ) )
+            {
+                Directory.CreateDirectory( universeGroupsPath );
+            }
+
             if( setupAlreadyCompleted )
             {
                 MessageBox.Show( "User data was already loaded once!",
@@ -26,7 +42,7 @@ namespace Universalis
                 throw new InvalidOperationException();
             }
 
-            var universeTrashPath = Path.Combine( universePath, Storage.trashSubfolderName );
+            var universeTrashPath = Path.Combine( universeGroupsPath, Storage.trashSubfolderName );
 
             if( !Directory.Exists( universeTrashPath ) )
             {
@@ -35,7 +51,7 @@ namespace Universalis
 
             File.SetAttributes( universeTrashPath, FileAttributes.Hidden );
 
-            Group = new GroupStorage( universePath, backgroundWorkerProvider() );
+            Group = new GroupStorage( universeGroupsPath, backgroundWorkerProvider() );
 
             setupAlreadyCompleted = true;
         }

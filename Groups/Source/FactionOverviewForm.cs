@@ -8,7 +8,7 @@ namespace Universalis
 {
     public partial class FactionOverviewForm : Form
     {
-        public FactionOverviewForm( Image universeImage, string universePath, string universeName )
+        public FactionOverviewForm( Image universeImage, string universePath, Universe universe )
         {
             if( Properties.Settings.Default.UpgradeSettings )
             {
@@ -23,14 +23,14 @@ namespace Universalis
 
                 MasterDataStorage.Setup( universePath, backgroundWorkerProvider );
 
-                UserDataStorage.Setup( universePath, backgroundWorkerProvider );
+                UserDataStorage.Setup( universe.ID, backgroundWorkerProvider );
 
                 progressForm.ShowDialog();
             }
 
             InitializeComponent();
 
-            this.Text = universeName + " - " + this.Text;
+            this.Text = universe.NameWithVersion() + " - " + this.Text;
 
             listViewFactions.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
 
