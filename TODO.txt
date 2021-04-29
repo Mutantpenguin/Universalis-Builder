@@ -1,6 +1,6 @@
 Groups:
 	- im PDF: Version und Name des verwendeten Universums anzeigen
-	- im PDF: Inhalt für die Rückseite in einer Schleife erzeugen und solange verkleinern, bis alles passt
+	- im PDF: Inhalt für die Rückseite in einer Schleife erzeugen und solange verkleinern, bis alles passt. Mehr Spalten anzeigen wenn der Text sehr klein wird.
 
 Universe:
 	- Logo mit in JSON aufnehmen?
@@ -10,6 +10,9 @@ Universe:
 
 Für alle Objekte:
 	- White- und Blacklist für Fraktionen?
+
+Rüstung:
+	- Tarnung entfernen?
 
 Waffen:
 	- brauchen AttributeModifier
