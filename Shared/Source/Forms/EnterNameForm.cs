@@ -35,5 +35,10 @@ namespace Universalis
                 }
             }
         }
+
+        private void buttonRandomName_Click( object sender, EventArgs e )
+        {
+            MessageBox.Show( "asdasd" );
+        }
     }
 }
