@@ -316,7 +316,7 @@ namespace Universalis
                 {
                     for( int i = 0; i < (int)damageType.Level; i++ )
                     {
-                        points *= Costs.ArmorDamageTypeLevelMultiplikator;
+                        points *= Costs.ArmorDamageTypeLevelMultiplicator;
                     }
                 }
             }

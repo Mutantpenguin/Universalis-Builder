@@ -481,7 +481,7 @@ namespace Universalis
 
             for( int i = 0; i < (int)DamageType.Level; i++ )
             {
-                points *= Costs.WeaponDamageTypeLevelMultiplikator;
+                points *= Costs.WeaponDamageTypeLevelMultiplicator;
             }
 
             for( int i = 0; i < AF; i++ )
