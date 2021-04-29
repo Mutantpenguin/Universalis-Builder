@@ -1,3 +1,6 @@
+Groups:
+	- im PDF: Version und Name des verwendeten Universums anzeigen
+
 Universe:
 	- Logo mit in JSON aufnehmen?
 	- Author
