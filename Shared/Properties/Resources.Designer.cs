@@ -63,6 +63,16 @@ namespace Shared.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap baseline_casino_black_18dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_casino_black_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap baseline_delete_black_48dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_delete_black_48dp", resourceCulture);
@@ -367,7 +377,9 @@ namespace Shared.Properties {
         ///		&quot;name&quot;: { &quot;type&quot;: &quot;string&quot; },
         ///		&quot;description&quot;: { &quot;type&quot;: &quot;string&quot; },
         ///		&quot;version&quot;: { &quot;type&quot;: &quot;string&quot; }
-        ///	}
+        ///	},
+        ///	&quot;required&quot;: [ &quot;name&quot;, &quot;description&quot; ],
+        ///	&quot;additionalProperties&quot;: false
         ///}.
         /// </summary>
         public static string schema_universe {
