@@ -1,5 +1,8 @@
 Universe:
 	- Logo mit in JSON aufnehmen?
+	- Author
+	- contact email address
+	- website
 
 Für alle Objekte:
 	- White- und Blacklist für Fraktionen?
