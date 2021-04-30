@@ -1029,7 +1029,7 @@
             // 
             this.toolStripLabel6.Name = "toolStripLabel6";
             this.toolStripLabel6.Size = new System.Drawing.Size(43, 22);
-            this.toolStripLabel6.Text = "Outfits";
+            this.toolStripLabel6.Text = "Ausstattungen";
             // 
             // toolStripButtonOutfitAdd
             // 
@@ -1040,7 +1040,7 @@
             this.toolStripButtonOutfitAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutfitAdd.Name = "toolStripButtonOutfitAdd";
             this.toolStripButtonOutfitAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonOutfitAdd.ToolTipText = "Outfit hinzufügen";
+            this.toolStripButtonOutfitAdd.ToolTipText = "Ausstattung hinzufügen";
             this.toolStripButtonOutfitAdd.Click += new System.EventHandler(this.toolStripButtonOutfitAdd_Click);
             // 
             // toolStripButtonOutfitRemove
@@ -1052,7 +1052,7 @@
             this.toolStripButtonOutfitRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutfitRemove.Name = "toolStripButtonOutfitRemove";
             this.toolStripButtonOutfitRemove.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonOutfitRemove.ToolTipText = "Outfit entfernen";
+            this.toolStripButtonOutfitRemove.ToolTipText = "Ausstattung entfernen";
             this.toolStripButtonOutfitRemove.Click += new System.EventHandler(this.toolStripButtonOutfitRemove_Click);
             // 
             // toolStripButtonOutfitRename
@@ -1064,7 +1064,7 @@
             this.toolStripButtonOutfitRename.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutfitRename.Name = "toolStripButtonOutfitRename";
             this.toolStripButtonOutfitRename.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonOutfitRename.ToolTipText = "Outfit umbenennen";
+            this.toolStripButtonOutfitRename.ToolTipText = "Ausstattung umbenennen";
             this.toolStripButtonOutfitRename.Click += new System.EventHandler(this.toolStripButtonOutfitRename_Click);
             // 
             // toolStripLabelOutfitCount

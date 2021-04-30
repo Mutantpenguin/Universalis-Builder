@@ -157,7 +157,7 @@
             this.MinimumSize = new System.Drawing.Size(260, 39);
             this.Name = "SelectOutfitForActorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Outfit auswählen";
+            this.Text = "Ausstattung auswählen";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOutfits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorOutfitBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);

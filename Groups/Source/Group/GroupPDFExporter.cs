@@ -190,7 +190,7 @@ namespace Universalis
             {
                 Border = Rectangle.NO_BORDER
             } );
-            actorTable.AddCell( new PdfPCell( new Phrase( "Outfit", s_actorFontHeader ) )
+            actorTable.AddCell( new PdfPCell( new Phrase( "Ausstattung", s_actorFontHeader ) )
             {
                 Border = Rectangle.NO_BORDER
             } );

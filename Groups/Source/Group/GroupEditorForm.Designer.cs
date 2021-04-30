@@ -304,7 +304,7 @@
             this.outfitWechselnToolStripMenuItem.Image = global::Universalis.Properties.Resources.change_circle;
             this.outfitWechselnToolStripMenuItem.Name = "outfitWechselnToolStripMenuItem";
             this.outfitWechselnToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.outfitWechselnToolStripMenuItem.Text = "&Outfit wechseln";
+            this.outfitWechselnToolStripMenuItem.Text = "&Ausstattung wechseln";
             // 
             // umbenennenToolStripMenuItem
             // 
