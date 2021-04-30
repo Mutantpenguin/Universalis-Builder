@@ -8,6 +8,7 @@
 
         public const int AreaOfPerceptionMultiplier = 5;
         public const int throwRangeLengthMultiplier = 2;
+        public const float throwRangeLengthUnwieldyMultiplier = 0.5f;
         public const int throwRangeAmount = 4;
 
         public const int MaxLengthDangerArea = 12;
