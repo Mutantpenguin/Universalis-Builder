@@ -9,7 +9,7 @@ namespace Universalis
 {
     public partial class GroupManagerForm : Form    
     {
-        public GroupManagerForm( Faction faction )
+        public GroupManagerForm( Universe universe, Faction faction )
         {
             InitializeComponent();
 
@@ -19,6 +19,7 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
+            m_universe = universe;
             m_faction = faction;
 
             pictureBoxFaction.Image = faction.Icon;
@@ -29,6 +30,7 @@ namespace Universalis
             toolStripTextBoxSearch.TextBox.Select();
         }
 
+        private readonly Universe m_universe;
         private readonly Faction m_faction;
 
         private void dataGridViewGroups_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
@@ -159,7 +161,7 @@ namespace Universalis
 
                 if( IsValid( group ) )
                 {
-                    GroupPDFExporter.GeneratePDF( group, Path.ChangeExtension( Path.GetTempFileName(), "pdf" ) );
+                    GroupPDFExporter.GeneratePDF( m_universe, group, Path.ChangeExtension( Path.GetTempFileName(), "pdf" ) );
                 }
             }
         }
