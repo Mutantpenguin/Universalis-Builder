@@ -30,6 +30,8 @@ namespace Universalis
 
             InitializeComponent();
 
+            m_universe = universe;
+
             this.Text = universe.NameWithVersion() + " - " + this.Text;
 
             listViewFactions.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
@@ -40,6 +42,8 @@ namespace Universalis
 
             RefreshList();
         }
+
+        private readonly Universe m_universe;
 
         private void RefreshList()
         {
@@ -76,7 +80,7 @@ namespace Universalis
         {
             Faction faction = MasterDataStorage.Faction.Factions.First( x => x.ID.ToString() == listViewFactions.SelectedItems[ 0 ].ImageKey );
 
-            using( GroupManagerForm groupManagerForm = new GroupManagerForm( faction ) )
+            using( GroupManagerForm groupManagerForm = new GroupManagerForm( m_universe, faction ) )
             {
                 this.Hide();
 

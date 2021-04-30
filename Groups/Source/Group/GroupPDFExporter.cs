@@ -66,7 +66,7 @@ namespace Universalis
             return ( pixel * 2.54f / dpi );
         }
 
-        public static void GeneratePDF( Group p_group, string p_fileName )
+        public static void GeneratePDF( Universe p_universe, Group p_group, string p_fileName )
         {
             if( null == p_group )
             {
@@ -92,7 +92,7 @@ namespace Universalis
 
                 document.Open();
 
-                CreateMainPage( document, pdfWriter, p_group );
+                CreateMainPage( document, pdfWriter, p_universe, p_group );
                 CreateCardPages( document, pdfWriter, p_group );
 
                 document.Close();
@@ -103,7 +103,7 @@ namespace Universalis
             Cursor.Current = Cursors.Arrow;
         }
 
-        private static void CreateMainPage( Document document, PdfWriter pdfWriter, Group group )
+        private static void CreateMainPage( Document document, PdfWriter pdfWriter, Universe universe, Group group )
         {
             document.SetPageSize( PageSize.A4 );
 
@@ -146,8 +146,36 @@ namespace Universalis
             ColumnText.ShowTextAligned( headerBarTemplate, Element.ALIGN_LEFT, new Phrase( group.Name, s_pageTitleFont ), 3 * margin + factionImgWidth + groupImgWidth, ( headerBarHeight - s_headerTitleAscent - s_headerTitleDescent ) / 2, 0 );
             
             document.Add( Image.GetInstance( headerBarTemplate ) );
-            
-            document.Add( new Paragraph( s_versionInfo, s_versionInfoFont ) );
+
+            float columnWidth = ( document.PageSize.Width - document.LeftMargin - document.RightMargin ) / 2.0f;
+
+            PdfPTable infoTable = new PdfPTable( new float[ 2 ] { columnWidth, columnWidth } )
+            {
+                WidthPercentage = 100,
+                SpacingBefore = 0f,
+                SpacingAfter = 0f,
+            };
+
+            infoTable.AddCell( new PdfPCell( new Phrase( $"Für das Universum \"{universe.NameWithVersion()}\"", s_versionInfoFont ) )
+            {
+                Border = Rectangle.NO_BORDER
+            } );
+            infoTable.AddCell( new PdfPCell( new Phrase( s_versionInfo, s_versionInfoFont ) )
+            {
+                Border = Rectangle.NO_BORDER,
+                HorizontalAlignment = Element.ALIGN_RIGHT
+            } );
+
+            document.Add( infoTable );
+
+            document.Add( Chunk.NEWLINE );
+
+            /*
+            document.Add( new Paragraph( s_versionInfo, s_versionInfoFont )
+            {
+                Alignment = Element.ALIGN_RIGHT
+            } );
+            */
 
             if( !String.IsNullOrEmpty( group.Description ) )
             {
