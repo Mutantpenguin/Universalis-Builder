@@ -266,7 +266,7 @@ namespace Universalis
                 Actor.ActorOutfit actorOutfit = (Actor.ActorOutfit)comboBoxOutfits.SelectedItem;
 
                 if( MessageBox.Show( $"Wollen Sie wirklich das Outfit '{actorOutfit.Name}' löschen?",
-                                     "Outfit löschen",
+                                     "Ausstattung löschen",
                                      MessageBoxButtons.OKCancel,
                                      MessageBoxIcon.Warning,
                                      MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
