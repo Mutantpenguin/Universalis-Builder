@@ -578,9 +578,16 @@ namespace Universalis
             return ( Presets.AreaOfPerceptionMultiplier * Archetype.Profile.Attributes.ModWN( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
         }
 
-        public static string ThrowRange( int attributeKO )
+        public static string ThrowRange( int attributeKO, bool unwieldy )
         {
-            return( $"{attributeKO * Presets.throwRangeLengthMultiplier}/{Presets.throwRangeAmount}" );
+            if( unwieldy )
+            {
+                return ( $"{attributeKO}/{Presets.throwRangeAmount}" );
+            }
+            else
+            {
+                return ( $"{attributeKO * Presets.throwRangeLengthMultiplier}/{Presets.throwRangeAmount}" );
+            }
         }
 
         public float ModMaxLoadCapacity( ActorOutfit actorOutfit )
