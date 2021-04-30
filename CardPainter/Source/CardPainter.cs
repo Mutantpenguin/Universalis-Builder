@@ -701,7 +701,7 @@ namespace Universalis
 
             if( Weapon.EType.Wurf == weapon.Type )
             {
-                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModKO( actorOutfit ) ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModKO( actorOutfit ), weapon.Unwieldy ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
             }
             else
             {
