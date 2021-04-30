@@ -744,21 +744,21 @@ namespace Universalis
 
                 g.DrawImage( afImg, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
-                remainderPosX += SLineHeight;
+                remainderPosX += SImageSize;
             }
 
             if( weapon.Reloadable )
             {
                 g.DrawImage( Properties.Resources.nachladen, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
-                remainderPosX += SLineHeight;
+                remainderPosX += SImageSize;
             }
 
             if( weapon.IndirectFire )
             {
                 g.DrawImage( Properties.Resources.Indirekt, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
-                remainderPosX += SLineHeight;
+                remainderPosX += SImageSize;
             }
 
             if( weapon.Radius > 0 )
@@ -767,7 +767,7 @@ namespace Universalis
                 g.FillEllipse( Brushes.Black, rect );
                 Helpers.DrawStringCentered( g, weapon.FormattedRadius, FontWeapon, Brushes.White, rect );
 
-                remainderPosX += SLineHeight;
+                remainderPosX += SImageSize;
             }
 
             int damageEffectsPosX = DrawDamageEffects( g, remainderPosX, posY, weapon.EffectsImage );
