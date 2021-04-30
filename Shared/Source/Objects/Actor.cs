@@ -582,7 +582,7 @@ namespace Universalis
         {
             if( unwieldy )
             {
-                return ( $"{attributeKO}/{Presets.throwRangeAmount}" );
+                return ( $"{Math.Ceiling( attributeKO * Presets.throwRangeLengthUnwieldyMultiplier )}/{Presets.throwRangeAmount}" );
             }
             else
             {
