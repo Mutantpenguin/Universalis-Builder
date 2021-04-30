@@ -710,16 +710,41 @@ namespace Universalis
 
             if( weapon.AF > 0 )
             {
-                remainderPosX += SImageMargin;
+                var afImg = new Bitmap( SImageSize, SImageSize );
 
-                int width = ( SImageSize ) / 3;
+                int afSize = (int)(SImageSize / 2.5);
 
-                for( int j = 0; j < weapon.AF; j++ )
+                using( var g_af = Graphics.FromImage( afImg ) )
                 {
-                    g.DrawImage( Properties.Resources.patrone, new Rectangle( remainderPosX, posY + SImageMargin, width, SImageSize ) );
+                    switch( weapon.AF )
+                    {
+                        case 1:
+                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - ( afSize / 2 ), ( SImageSize / 2 ) - ( afSize / 2 ), afSize, afSize ) );
+                            break;
 
-                    remainderPosX += width;
+                        case 2:
+                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ) - afSize, afSize, afSize ) );
+                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ), afSize, afSize ) );
+                            break;
+
+                        case 3:
+                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ) - afSize, afSize, afSize ) );
+                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ), afSize, afSize ) );
+                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ) - ( afSize / 2 ), afSize, afSize ) );
+                            break;
+
+                        case 4:
+                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ) - afSize, afSize, afSize ) );
+                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ), afSize, afSize ) );
+                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ) - afSize, afSize, afSize ) );
+                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ), afSize, afSize ) );
+                            break;
+                    }
                 }
+
+                g.DrawImage( afImg, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+
+                remainderPosX += SLineHeight;
             }
 
             if( weapon.Reloadable )
