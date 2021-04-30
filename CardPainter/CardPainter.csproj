@@ -93,9 +93,6 @@
     <None Include="Resources\bewegung_rad.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\patrone.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\camo_active_white.png" />
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +145,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nachladen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Autofeuer.png" />
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

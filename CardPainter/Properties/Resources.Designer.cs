@@ -63,6 +63,16 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Autofeuer {
+            get {
+                object obj = ResourceManager.GetObject("Autofeuer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap camo_active_white {
             get {
                 object obj = ResourceManager.GetObject("camo_active_white", resourceCulture);
@@ -166,16 +176,6 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap nachladen {
             get {
                 object obj = ResourceManager.GetObject("nachladen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap patrone {
-            get {
-                object obj = ResourceManager.GetObject("patrone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
