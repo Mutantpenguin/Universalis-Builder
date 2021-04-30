@@ -32,6 +32,7 @@ namespace Universalis
         private static readonly Pen SHitPointBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
 
         private static readonly Font Font0Dot2 = new Font( UniversalisFont.Family, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot25 = new Font( UniversalisFont.Family, CmToPixel( 0.25 ), FontStyle.Regular, GraphicsUnit.Pixel );
         private static readonly Font Font0Dot3 = new Font( UniversalisFont.Family, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
         private static readonly Font Font0Dot35 = new Font( UniversalisFont.Family, CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
@@ -43,6 +44,7 @@ namespace Universalis
         private static readonly Font FontPoints = Font0Dot2;
         private static readonly Font FontWeapon = Font0Dot3;
         private static readonly Font FontWeaponName = Font0Dot2;
+        private static readonly Font FontWeaponRadius = Font0Dot25;
         private static readonly Font FontWk = Font0Dot3;
         private static readonly Font FontUnwieldy = Font0Dot2;
         private static readonly Font FontArmor = Font0Dot3;
@@ -765,7 +767,7 @@ namespace Universalis
             {
                 Rectangle rect = new Rectangle( remainderPosX + WeaponRadiusMargin, posY + WeaponRadiusMargin, SLineHeight - ( 2 * WeaponRadiusMargin ), SLineHeight - ( 2 * WeaponRadiusMargin ) );
                 g.FillEllipse( Brushes.Black, rect );
-                Helpers.DrawStringCentered( g, weapon.FormattedRadius, FontWeapon, Brushes.White, rect );
+                Helpers.DrawStringCentered( g, weapon.FormattedRadius, FontWeaponRadius, Brushes.White, rect );
 
                 remainderPosX += SImageSize;
             }
