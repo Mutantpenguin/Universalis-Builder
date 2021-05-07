@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 
 namespace Universalis
@@ -74,6 +75,31 @@ namespace Universalis
             get;
             set;
         }
+
+        public string Author
+        {
+            get;
+            set;
+        }
+
+        public string Contact
+        {
+            get;
+            set;
+        }
+
+        public string Website
+        {
+            get;
+            set;
+        }
+
+        [JsonIgnore]
+        public Image Logo
+        {
+            get;
+            set;
+        } = Shared.Properties.Resources.empty;
 
         private static readonly string universeSettingsFilename = "universe.json";
 

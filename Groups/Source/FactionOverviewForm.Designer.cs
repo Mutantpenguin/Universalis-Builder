@@ -31,18 +31,24 @@
             this.components = new System.ComponentModel.Container();
             this.listViewFactions = new System.Windows.Forms.ListView();
             this.imageListFactions = new System.Windows.Forms.ImageList(this.components);
+            this.panelHeader = new System.Windows.Forms.Panel();
+            this.labelHeader = new System.Windows.Forms.Label();
+            this.pictureBoxInfo = new System.Windows.Forms.PictureBox();
+            this.panelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
             this.SuspendLayout();
             // 
             // listViewFactions
             // 
             this.listViewFactions.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.listViewFactions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listViewFactions.HideSelection = false;
             this.listViewFactions.LargeImageList = this.imageListFactions;
-            this.listViewFactions.Location = new System.Drawing.Point(0, 0);
+            this.listViewFactions.Location = new System.Drawing.Point(0, 50);
             this.listViewFactions.MultiSelect = false;
             this.listViewFactions.Name = "listViewFactions";
             this.listViewFactions.ShowItemToolTips = true;
-            this.listViewFactions.Size = new System.Drawing.Size(728, 645);
+            this.listViewFactions.Size = new System.Drawing.Size(728, 595);
             this.listViewFactions.TabIndex = 0;
             this.listViewFactions.UseCompatibleStateImageBehavior = false;
             this.listViewFactions.ItemActivate += new System.EventHandler(this.listViewFactions_ItemActivate);
@@ -53,6 +59,38 @@
             this.imageListFactions.ImageSize = new System.Drawing.Size(16, 16);
             this.imageListFactions.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // panelHeader
+            // 
+            this.panelHeader.Controls.Add(this.pictureBoxInfo);
+            this.panelHeader.Controls.Add(this.labelHeader);
+            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(728, 50);
+            this.panelHeader.TabIndex = 2;
+            // 
+            // labelHeader
+            // 
+            this.labelHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelHeader.AutoSize = true;
+            this.labelHeader.Location = new System.Drawing.Point(325, 19);
+            this.labelHeader.Name = "labelHeader";
+            this.labelHeader.Size = new System.Drawing.Size(79, 13);
+            this.labelHeader.TabIndex = 1;
+            this.labelHeader.Text = "universe_name";
+            this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxInfo
+            // 
+            this.pictureBoxInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxInfo.Image = global::Universalis.Properties.Resources.baseline_info_black_24dp;
+            this.pictureBoxInfo.Location = new System.Drawing.Point(701, 3);
+            this.pictureBoxInfo.Name = "pictureBoxInfo";
+            this.pictureBoxInfo.Size = new System.Drawing.Size(24, 24);
+            this.pictureBoxInfo.TabIndex = 2;
+            this.pictureBoxInfo.TabStop = false;
+            this.pictureBoxInfo.Click += new System.EventHandler(this.pictureBoxInfo_Click);
+            // 
             // FactionOverviewForm
             // 
             this.AllowDrop = true;
@@ -60,6 +98,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 645);
             this.Controls.Add(this.listViewFactions);
+            this.Controls.Add(this.panelHeader);
             this.KeyPreview = true;
             this.Name = "FactionOverviewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -68,6 +107,9 @@
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FactionOverviewForm_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FactionOverviewForm_DragEnter);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FactionOverviewForm_KeyDown);
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -76,5 +118,8 @@
 
         private System.Windows.Forms.ListView listViewFactions;
         private System.Windows.Forms.ImageList imageListFactions;
+        private System.Windows.Forms.Panel panelHeader;
+        private System.Windows.Forms.Label labelHeader;
+        private System.Windows.Forms.PictureBox pictureBoxInfo;
     }
 }

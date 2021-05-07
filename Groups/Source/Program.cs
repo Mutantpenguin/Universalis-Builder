@@ -30,7 +30,7 @@ namespace Universalis
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault( false );
 
-                    UniverseSelectionForm.FormToOpen formToOpen = ( Image universeImage, string universePath, Universe universe ) => new FactionOverviewForm( universeImage, universePath, universe );
+                    UniverseSelectionForm.FormToOpen formToOpen = ( string universePath, Universe universe ) => new FactionOverviewForm( universePath, universe );
 
                     Application.Run( new FormSplash( formToOpen ) );
 

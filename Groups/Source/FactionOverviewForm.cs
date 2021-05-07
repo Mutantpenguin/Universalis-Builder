@@ -8,7 +8,7 @@ namespace Universalis
 {
     public partial class FactionOverviewForm : Form
     {
-        public FactionOverviewForm( Image universeImage, string universePath, Universe universe )
+        public FactionOverviewForm( string universePath, Universe universe )
         {
             if( Properties.Settings.Default.UpgradeSettings )
             {
@@ -17,7 +17,7 @@ namespace Universalis
                 Properties.Settings.Default.Save();
             }
 
-            using( ProgressForm progressForm = new ProgressForm( universeImage ) )
+            using( ProgressForm progressForm = new ProgressForm( universe.Logo ) )
             {
                 Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
 
@@ -32,9 +32,12 @@ namespace Universalis
 
             m_universe = universe;
 
-            this.Text = universe.NameWithVersion() + " - " + this.Text;
+            listViewFactions.Font = new Font( UniversalisFont.Family, 10 );
 
-            listViewFactions.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
+            labelHeader.Text = universe.NameWithVersion();
+            labelHeader.Font = new Font( UniversalisFont.Family, 20 );
+            labelHeader.Left = ( panelHeader.Width - labelHeader.Width ) / 2;
+            labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
 
             this.Icon = Shared.Properties.Resources.icon;
 
@@ -186,6 +189,14 @@ namespace Universalis
                         MessageBox.Show( $"Problem beim Lesen der Gruppen-Datei '{Path.GetFileName( fileName )}':\n{ex.Message}" );
                     }
                 }
+            }
+        }
+
+        private void pictureBoxInfo_Click( object sender, EventArgs e )
+        {
+            using( var infoForm = new InfoForm( m_universe ) )
+            {
+                infoForm.ShowDialog();
             }
         }
     }
