@@ -8,7 +8,7 @@ namespace Universalis
 {
     public partial class MasterDataMainForm : Form
     {
-        public MasterDataMainForm( Image universeImage, string universePath, Universe universe )
+        public MasterDataMainForm( string universePath, Universe universe )
         {
             try
             {
@@ -27,7 +27,7 @@ namespace Universalis
                 Properties.Settings.Default.Reload();
             }
 
-            using( ProgressForm progressForm = new ProgressForm( universeImage ) )
+            using( ProgressForm progressForm = new ProgressForm( universe.Logo ) )
             {
                 Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
 

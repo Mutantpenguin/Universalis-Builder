@@ -1,5 +1,4 @@
 Groups:
-	- im PDF: Version und Name des verwendeten Universums anzeigen
 	- im PDF: Inhalt für die Rückseite in einer Schleife erzeugen und solange verkleinern, bis alles passt. Mehr Spalten anzeigen wenn der Text sehr klein wird.
 
 Universe:

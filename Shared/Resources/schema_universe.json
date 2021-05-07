@@ -7,6 +7,15 @@
 		"id": {
 			"type": "string",
 			"format": "uuid"
+		},
+		"author": { "type": "string" },
+		"website": {
+			"type": "string",
+			"format": "uri"
+		},
+		"contact": {
+			"type": "string",
+			"format": "email"
 		}
 	},
 	"required": [ "name", "description", "id" ],

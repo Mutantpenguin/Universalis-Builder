@@ -13,7 +13,7 @@ namespace Universalis
 {
     public partial class UniverseSelectionForm : Form
     {
-        public delegate Form FormToOpen( Image universeImage, string universePath, Universe universe );
+        public delegate Form FormToOpen( string universePath, Universe universe );
 
         private static readonly string UniversesSubFolder = "Universes";
 
@@ -120,9 +120,7 @@ namespace Universalis
                         ImageKey = universePath
                     };
 
-                    Image universeImg = Shared.Properties.Resources.empty;
-
-                    var (universe, error) = Universe.Load( universePath );
+                    var (universe, error) = Universe.Load( universePath );                    
 
                     if( universe == null )
                     {
@@ -184,7 +182,7 @@ namespace Universalis
                             // this is needed, because loading via the Bitmaps constructor (or Image.FromFile) leaves a file handle open so we can't delete the folder while the program is running
                             using( var bmpTemp = new Bitmap( universeImagePath ) )
                             {
-                                universeImg = new Bitmap( bmpTemp );
+                                universe.Logo = new Bitmap( bmpTemp );
                             }
                         }
                     }
@@ -208,15 +206,23 @@ namespace Universalis
 
                     if( overlayImage != null )
                     {
-                        using( var g = Graphics.FromImage( universeImg ) )
+                        var logoWithOverlay = new Bitmap( universe.Logo );
+
+                        using( var g = Graphics.FromImage( logoWithOverlay ) )
                         {
                             g.DrawImage( overlayImage, 0, 0 );
                         }
+
+                        imageListUniverses.Images.Add( universePath, logoWithOverlay );
+                    }
+                    else
+                    {
+                        imageListUniverses.Images.Add( universePath, universe.Logo );
                     }
 
                     this.Invoke( new MethodInvoker( () =>
                     {
-                        imageListUniverses.Images.Add( universePath, universeImg );
+                        imageListUniverses.Images.Add( universePath, universe.Logo );
 
                         listViewUniverses.Items.Add( lvi );
                     } ) );
@@ -259,7 +265,7 @@ namespace Universalis
             {
                 this.Hide();
 
-                formToOpen( imageListUniverses.Images[ universeItem.ImageKey ], universeItem.ImageKey, universeItem.Universe ).ShowDialog( this );
+                formToOpen( universeItem.ImageKey, universeItem.Universe ).ShowDialog( this );
 
                 this.Close();
             }
