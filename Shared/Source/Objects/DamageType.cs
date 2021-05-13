@@ -46,7 +46,29 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public Image GetOriginalImage => ( getTypeImage( DamageColor.EType.Original ) );
+        public Image Img
+        {
+            get
+            {
+                switch( Type )
+                {
+                    case EType.Kinetisch:
+                        return ( Shared.Properties.Resources.typ_kinetik );
+
+                    case EType.Schlag:
+                        return ( Shared.Properties.Resources.typ_schlag );
+
+                    case EType.Schnitt:
+                        return ( Shared.Properties.Resources.typ_schnitt );
+
+                    case EType.Strahl:
+                        return ( Shared.Properties.Resources.typ_strahl );
+
+                    default:
+                        throw new InvalidOperationException( "unkown DamageType.EType" );
+                }
+            }
+        }
 
         private static readonly Image s_typ_kinetik_green = DamageColor.Colorize( Shared.Properties.Resources.typ_kinetik, DamageColor.EType.Green );
         private static readonly Image s_typ_schlag_green = DamageColor.Colorize( Shared.Properties.Resources.typ_schlag, DamageColor.EType.Green );
@@ -61,29 +83,10 @@ namespace Universalis
         private static readonly Image s_type_plus_green = DamageColor.Colorize( Shared.Properties.Resources.typ_plus, DamageColor.EType.Green );
         private static readonly Image s_type_plus_red = DamageColor.Colorize( Shared.Properties.Resources.typ_plus, DamageColor.EType.Red );
 
-        private Image getTypeImage( DamageColor.EType color )
+        private Image GetColoredImage( DamageColor.EType color )
         {
             switch( color )
             {
-                case DamageColor.EType.Original:
-                    switch( Type )
-                    {
-                        case EType.Kinetisch:
-                            return ( Shared.Properties.Resources.typ_kinetik );
-
-                        case EType.Schlag:
-                            return ( Shared.Properties.Resources.typ_schlag );
-
-                        case EType.Schnitt:
-                            return ( Shared.Properties.Resources.typ_schnitt );
-
-                        case EType.Strahl:
-                            return ( Shared.Properties.Resources.typ_strahl );
-
-                        default:
-                            throw new InvalidOperationException( "unkown DamageType.EType" );
-                    }
-
                 case DamageColor.EType.Green:
                     switch( Type )
                     {
@@ -136,15 +139,11 @@ namespace Universalis
             {
                 Rectangle typeRect = new Rectangle( Point.Empty, new Size( s_typeImageWidth - s_levelWidth, s_typeImageHeight ) );
 
-                drawing.DrawImage( getTypeImage( color ), typeRect );
+                drawing.DrawImage( GetColoredImage( color ), typeRect );
 
                 Image img_plus;
                 switch( color )
                 {
-                    case DamageColor.EType.Original:
-                        img_plus = Shared.Properties.Resources.typ_plus;
-                        break;
-
                     case DamageColor.EType.Green:
                         img_plus = s_type_plus_green;
                         break;

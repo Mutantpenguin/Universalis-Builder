@@ -34,7 +34,7 @@
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.dataGridViewDamageTypes = new System.Windows.Forms.DataGridView();
-            this.getOriginalImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.imgDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damageTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
@@ -48,9 +48,9 @@
             this.panel1.Controls.Add(this.buttonOk);
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 115);
+            this.panel1.Location = new System.Drawing.Point(0, 239);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(211, 32);
+            this.panel1.Size = new System.Drawing.Size(285, 32);
             this.panel1.TabIndex = 0;
             // 
             // buttonOk
@@ -58,7 +58,7 @@
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
-            this.buttonOk.Location = new System.Drawing.Point(108, 3);
+            this.buttonOk.Location = new System.Drawing.Point(182, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 2;
@@ -92,26 +92,27 @@
             this.dataGridViewDamageTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageTypes.ColumnHeadersVisible = false;
             this.dataGridViewDamageTypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.getOriginalImageDataGridViewImageColumn,
+            this.imgDataGridViewImageColumn,
             this.typeDataGridViewTextBoxColumn});
             this.dataGridViewDamageTypes.DataSource = this.damageTypeBindingSource;
             this.dataGridViewDamageTypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDamageTypes.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewDamageTypes.Name = "dataGridViewDamageTypes";
             this.dataGridViewDamageTypes.RowHeadersVisible = false;
+            this.dataGridViewDamageTypes.RowTemplate.Height = 40;
             this.dataGridViewDamageTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDamageTypes.Size = new System.Drawing.Size(211, 115);
+            this.dataGridViewDamageTypes.Size = new System.Drawing.Size(285, 239);
             this.dataGridViewDamageTypes.TabIndex = 1;
             this.dataGridViewDamageTypes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDamageTypes_CellDoubleClick);
             // 
-            // getOriginalImageDataGridViewImageColumn
+            // imgDataGridViewImageColumn
             // 
-            this.getOriginalImageDataGridViewImageColumn.DataPropertyName = "GetOriginalImage";
-            this.getOriginalImageDataGridViewImageColumn.HeaderText = "GetOriginalImage";
-            this.getOriginalImageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.getOriginalImageDataGridViewImageColumn.Name = "getOriginalImageDataGridViewImageColumn";
-            this.getOriginalImageDataGridViewImageColumn.ReadOnly = true;
-            this.getOriginalImageDataGridViewImageColumn.Width = 22;
+            this.imgDataGridViewImageColumn.DataPropertyName = "Img";
+            this.imgDataGridViewImageColumn.HeaderText = "Img";
+            this.imgDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.imgDataGridViewImageColumn.Name = "imgDataGridViewImageColumn";
+            this.imgDataGridViewImageColumn.ReadOnly = true;
+            this.imgDataGridViewImageColumn.Width = 22;
             // 
             // typeDataGridViewTextBoxColumn
             // 
@@ -129,7 +130,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(211, 147);
+            this.ClientSize = new System.Drawing.Size(285, 271);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridViewDamageTypes);
             this.Controls.Add(this.panel1);
@@ -152,7 +153,7 @@
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.DataGridView dataGridViewDamageTypes;
         private System.Windows.Forms.BindingSource damageTypeBindingSource;
-        private System.Windows.Forms.DataGridViewImageColumn getOriginalImageDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewImageColumn imgDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
     }
 }

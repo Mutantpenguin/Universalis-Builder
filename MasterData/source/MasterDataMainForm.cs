@@ -50,6 +50,7 @@ namespace Universalis
         TraitsManagerForm traitsManager = null;
         FactionManagerForm factionManager = null;
         ArchetypeManagerForm archetypeManager = null;
+        DamageEffectManagerForm damageEffectManager = null;
 
         private void buttonActors_Click( object sender, EventArgs e )
         {
@@ -156,6 +157,21 @@ namespace Universalis
             archetypeManager.Show(this);
         }
 
+        private void buttonDamageEffects_Click( object sender, EventArgs e )
+        {
+            damageEffectManager = new DamageEffectManagerForm();
+
+            damageEffectManager.FormClosed += delegate
+            {
+                buttonDamageEffects.Enabled = true;
+                damageEffectManager = null;
+            };
+
+            buttonDamageEffects.Enabled = false;
+
+            damageEffectManager.Show( this );
+        }
+
         private void MasterDataMainForm_FormClosing( object sender, FormClosingEventArgs e )
         {
             if( actorManager != null
@@ -168,7 +184,9 @@ namespace Universalis
                 ||
                 traitsManager != null
                 ||
-                factionManager != null )
+                factionManager != null
+                ||
+                damageEffectManager != null )
             {
                 MessageBox.Show( "Bitte zuerst alle Fenster schließen!",
                                  "",

@@ -80,22 +80,7 @@ namespace Universalis
             }
         }
 
-        public static bool ImagesIdentical( Image img_1, Image img_2 )
-        {
-            String firstImage = ImageBase64Helper.ImageToBase64( img_1 );
-            String secondImage = ImageBase64Helper.ImageToBase64( img_2 );
-
-            if( firstImage.Equals( secondImage ) )
-            {
-                return ( true );
-            }
-            else
-            {
-                return ( false );
-            }
-        }
-
-        public static Image Colorize( Image image, ColorMatrix colorMatrix )
+        public static Bitmap Colorize( Image image, ColorMatrix colorMatrix )
         {
             if( null == image )
             {

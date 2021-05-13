@@ -1,3 +1,17 @@
+TODO
+- MasterDataManager: Icon für DamageEffect
+- DamageEffect in Weapon und Armor wird falsch gespeichert (als vollständiges Objekt)
+- Brauchen DamageEffects eine Description?
+- DamageEffects benötigen Radiobuttons/Checkboxen um klar zu machen, ob sie in Weapons und/oder Armor verwendet werden dürfen.
+
+
+
+
+
+Universe:
+  "section_pattern" ins Universe packen, damit jedes ein eigenes haben kann
+
+
 Groups:
 	- im PDF: Inhalt für die Rückseite in einer Schleife erzeugen und solange verkleinern, bis alles passt. Mehr Spalten anzeigen wenn der Text sehr klein wird.
 

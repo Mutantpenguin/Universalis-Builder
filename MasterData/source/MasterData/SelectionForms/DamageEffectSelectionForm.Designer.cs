@@ -1,6 +1,6 @@
 ﻿namespace Universalis
 {
-    partial class EffectSelectionForm
+    partial class DamageEffectSelectionForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.dataGridViewDamageEffects = new System.Windows.Forms.DataGridView();
-            this.getOriginalImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damageEffectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iconDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageEffects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageEffectBindingSource)).BeginInit();
@@ -48,9 +51,9 @@
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 263);
+            this.panel1.Location = new System.Drawing.Point(0, 394);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(211, 32);
+            this.panel1.Size = new System.Drawing.Size(331, 32);
             this.panel1.TabIndex = 1;
             // 
             // buttonCancel
@@ -71,7 +74,7 @@
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
-            this.buttonOk.Location = new System.Drawing.Point(108, 3);
+            this.buttonOk.Location = new System.Drawing.Point(228, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 0;
@@ -92,51 +95,67 @@
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
             this.dataGridViewDamageEffects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.getOriginalImageDataGridViewImageColumn,
-            this.typeDataGridViewTextBoxColumn});
+            this.iconDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewDamageEffects.DataSource = this.damageEffectBindingSource;
             this.dataGridViewDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDamageEffects.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewDamageEffects.Name = "dataGridViewDamageEffects";
+            this.dataGridViewDamageEffects.ReadOnly = true;
             this.dataGridViewDamageEffects.RowHeadersVisible = false;
+            this.dataGridViewDamageEffects.RowTemplate.Height = 40;
             this.dataGridViewDamageEffects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDamageEffects.Size = new System.Drawing.Size(211, 263);
+            this.dataGridViewDamageEffects.Size = new System.Drawing.Size(331, 394);
             this.dataGridViewDamageEffects.TabIndex = 0;
             this.dataGridViewDamageEffects.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // getOriginalImageDataGridViewImageColumn
-            // 
-            this.getOriginalImageDataGridViewImageColumn.DataPropertyName = "GetOriginalImage";
-            this.getOriginalImageDataGridViewImageColumn.HeaderText = "";
-            this.getOriginalImageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.getOriginalImageDataGridViewImageColumn.Name = "getOriginalImageDataGridViewImageColumn";
-            this.getOriginalImageDataGridViewImageColumn.ReadOnly = true;
-            this.getOriginalImageDataGridViewImageColumn.Width = 22;
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             // 
             // damageEffectBindingSource
             // 
             this.damageEffectBindingSource.DataSource = typeof(Universalis.DamageEffect);
             // 
-            // EffectSelectionForm
+            // iconDataGridViewTextBoxColumn
+            // 
+            this.iconDataGridViewTextBoxColumn.DataPropertyName = "Icon";
+            this.iconDataGridViewTextBoxColumn.HeaderText = "Icon";
+            this.iconDataGridViewTextBoxColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.iconDataGridViewTextBoxColumn.Name = "iconDataGridViewTextBoxColumn";
+            this.iconDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iconDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Bezeichnung";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pointsDataGridViewTextBoxColumn
+            // 
+            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
+            this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pointsDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // DamageEffectSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(211, 295);
+            this.ClientSize = new System.Drawing.Size(331, 426);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridViewDamageEffects);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "EffectSelectionForm";
+            this.Name = "DamageEffectSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Effektauswahl";
+            this.Text = "Schadenseffekte";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageEffects)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageEffectBindingSource)).EndInit();
@@ -152,7 +171,8 @@
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.DataGridView dataGridViewDamageEffects;
         private System.Windows.Forms.BindingSource damageEffectBindingSource;
-        private System.Windows.Forms.DataGridViewImageColumn getOriginalImageDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }
 }

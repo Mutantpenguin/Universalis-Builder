@@ -24,6 +24,12 @@ namespace Universalis
             private set;
         }
 
+        public static DamageEffectStorage DamageEffect
+        {
+            get;
+            private set;
+        }
+
         public static ArmorStorage Armor
         {
             get;
@@ -74,6 +80,7 @@ namespace Universalis
             Faction = new FactionStorage( universePath, backgroundWorkerProvider() );
             Archetype = new ArchetypeStorage( universePath, backgroundWorkerProvider() );
             Trait = new TraitStorage( universePath, backgroundWorkerProvider() );
+            DamageEffect = new DamageEffectStorage( universePath, backgroundWorkerProvider() );
             Armor = new ArmorStorage( universePath, backgroundWorkerProvider() );
             Weapon = new WeaponStorage( universePath, backgroundWorkerProvider() );
             Equipment = new EquipmentStorage( universePath, backgroundWorkerProvider() );

@@ -1,14 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Drawing;
 
 namespace Universalis
 {
-    internal class JsonImageConverter : JsonConverter
+    internal class JsonDamageEffectConverter : JsonConverter
     {
         public override bool CanConvert( Type objectType )
         {
-            return ( objectType == typeof( Image ) );
+            return ( objectType == typeof( DamageEffect ) );
         }
 
         public override object ReadJson( JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer )
@@ -20,7 +19,7 @@ namespace Universalis
 
             if( null != reader.Value )
             {
-                return ( ImageBase64Helper.Base64ToImage( (string)reader.Value ) );
+                return ( MasterDataStorage.DamageEffect.Get( new Guid( (string)reader.Value ) ) );
             }
             else
             {
@@ -35,7 +34,10 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( writer ) );
             }
 
-            writer.WriteValue( ImageBase64Helper.ImageToBase64( (Image)value ) );
+            if( null != value )
+            {
+                writer.WriteValue( ( (DamageEffect)value ).ID );
+            }
         }
     }
 }

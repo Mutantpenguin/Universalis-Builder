@@ -174,7 +174,7 @@ namespace Universalis
             set;
         } = "Bitte Beschreibung eingeben";
 
-        [JsonConverter( typeof( JsonImageConverter ) )]
+        [JsonConverter( typeof( JsonJpegConverter ) )]
         public Bitmap Icon
         {
             get;
@@ -477,7 +477,7 @@ namespace Universalis
             set;
         }
 
-        [JsonConverter( typeof( JsonImageConverter ) )]
+        [JsonConverter( typeof( JsonJpegConverter ) )]
         public Bitmap Img
         {
             get;

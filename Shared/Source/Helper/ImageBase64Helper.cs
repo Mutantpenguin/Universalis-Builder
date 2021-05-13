@@ -13,7 +13,9 @@ namespace Universalis
             return ( Bitmap.FromStream( new MemoryStream( Convert.FromBase64String( base64Image ) ) ) );
         }
 
-        public static string ImageToBase64( Image img )
+        private static ImageCodecInfo JgpEncoder = ImageCodecInfo.GetImageDecoders().First( x => x.FormatID == ImageFormat.Jpeg.Guid );
+
+        public static string JpegToBase64( Image img )
         {
             if( img == null )
             {
@@ -30,15 +32,28 @@ namespace Universalis
                 {
                     // every image that was not a jpeg before will be saved with a quality of 90%
 
-                    ImageCodecInfo jgpEncoder = ImageCodecInfo.GetImageDecoders().First( x => x.FormatID == ImageFormat.Jpeg.Guid );
-
                     using( EncoderParameters encoderParameters = new EncoderParameters( 1 ) )
                     {
                         encoderParameters.Param[ 0 ] = new EncoderParameter( Encoder.Quality, 90L );
 
-                        img.Save( m, jgpEncoder, encoderParameters );
+                        img.Save( m, JgpEncoder, encoderParameters );
                     }
                 }                
+
+                return ( Convert.ToBase64String( m.ToArray() ) );
+            }
+        }
+
+        public static string PngToBase64( Image img )
+        {
+            if( img == null )
+            {
+                throw new ArgumentNullException( nameof( img ) );
+            }
+
+            using( MemoryStream m = new MemoryStream() )
+            {
+                img.Save( m, ImageFormat.Png );
 
                 return ( Convert.ToBase64String( m.ToArray() ) );
             }

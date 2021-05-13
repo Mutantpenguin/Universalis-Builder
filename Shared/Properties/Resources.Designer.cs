@@ -153,176 +153,6 @@ namespace Shared.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap effekt_desintegrator {
-            get {
-                object obj = ResourceManager.GetObject("effekt_desintegrator", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_durchschlag {
-            get {
-                object obj = ResourceManager.GetObject("effekt_durchschlag", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_elektro {
-            get {
-                object obj = ResourceManager.GetObject("effekt_elektro", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_emp {
-            get {
-                object obj = ResourceManager.GetObject("effekt_emp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_explosiv {
-            get {
-                object obj = ResourceManager.GetObject("effekt_explosiv", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_fusion {
-            get {
-                object obj = ResourceManager.GetObject("effekt_fusion", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_hitze {
-            get {
-                object obj = ResourceManager.GetObject("effekt_hitze", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_kälte {
-            get {
-                object obj = ResourceManager.GetObject("effekt_kälte", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_komposit {
-            get {
-                object obj = ResourceManager.GetObject("effekt_komposit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_mikrowelle {
-            get {
-                object obj = ResourceManager.GetObject("effekt_mikrowelle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_monomolekular {
-            get {
-                object obj = ResourceManager.GetObject("effekt_monomolekular", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_panzerbrechend {
-            get {
-                object obj = ResourceManager.GetObject("effekt_panzerbrechend", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_paralyse {
-            get {
-                object obj = ResourceManager.GetObject("effekt_paralyse", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_rail {
-            get {
-                object obj = ResourceManager.GetObject("effekt_rail", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_schrapnell {
-            get {
-                object obj = ResourceManager.GetObject("effekt_schrapnell", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_struktur {
-            get {
-                object obj = ResourceManager.GetObject("effekt_struktur", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap effekt_vibro {
-            get {
-                object obj = ResourceManager.GetObject("effekt_vibro", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap empty {
             get {
                 object obj = ResourceManager.GetObject("empty", resourceCulture);
@@ -376,9 +206,22 @@ namespace Shared.Properties {
         ///	&quot;properties&quot;: {
         ///		&quot;name&quot;: { &quot;type&quot;: &quot;string&quot; },
         ///		&quot;description&quot;: { &quot;type&quot;: &quot;string&quot; },
-        ///		&quot;version&quot;: { &quot;type&quot;: &quot;string&quot; }
+        ///		&quot;version&quot;: { &quot;type&quot;: &quot;string&quot; },
+        ///		&quot;id&quot;: {
+        ///			&quot;type&quot;: &quot;string&quot;,
+        ///			&quot;format&quot;: &quot;uuid&quot;
+        ///		},
+        ///		&quot;author&quot;: { &quot;type&quot;: &quot;string&quot; },
+        ///		&quot;website&quot;: {
+        ///			&quot;type&quot;: &quot;string&quot;,
+        ///			&quot;format&quot;: &quot;uri&quot;
+        ///		},
+        ///		&quot;contact&quot;: {
+        ///			&quot;type&quot;: &quot;string&quot;,
+        ///			&quot;format&quot;: &quot;email&quot;
+        ///		}
         ///	},
-        ///	&quot;required&quot;: [ &quot;name&quot;, &quot;description&quot; ],
+        ///	&quot;required&quot;: [ &quot;name&quot;, &quot;description&quot;, &quot;id&quot; ],
         ///	&quot;additionalProperties&quot;: false
         ///}.
         /// </summary>
@@ -423,16 +266,6 @@ namespace Shared.Properties {
         public static System.Drawing.Bitmap tick {
             get {
                 object obj = ResourceManager.GetObject("tick", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap typ_gsw {
-            get {
-                object obj = ResourceManager.GetObject("typ_gsw", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

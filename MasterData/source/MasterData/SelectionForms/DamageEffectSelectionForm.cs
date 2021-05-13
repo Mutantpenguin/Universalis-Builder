@@ -5,23 +5,15 @@ using System.Windows.Forms;
 
 namespace Universalis
 {
-    public partial class EffectSelectionForm : Form
+    public partial class DamageEffectSelectionForm : Form
     {
-        public EffectSelectionForm( List<DamageEffect> damageEffectList  )
+        public DamageEffectSelectionForm( List<DamageEffect> damageEffectList  )
         {
             InitializeComponent();
 
-            List<DamageEffect> effectsList = new List<DamageEffect>();
-
-            foreach( DamageEffect.EType type in DamageEffect.ETypelList.OrderBy( x => x.ToString() ) )
-            {
-                if( ( null == damageEffectList ) || ( null == damageEffectList.Find( x => x.Type == type ) ) )
-                {
-                    effectsList.Add( new DamageEffect { Type = type } );
-                }
-            }
-
-            damageEffectBindingSource.DataSource = effectsList;
+            damageEffectBindingSource.DataSource = MasterDataStorage.DamageEffect.DamageEffects.Where( s => damageEffectList.Find( x => x.ID == s.ID ) == null )
+                                                                                               .OrderBy( x => x.Name )
+                                                                                               .ToList();
         }
 
         public List<DamageEffect> SelectedDamageEffects

@@ -34,7 +34,7 @@ namespace Universalis
                 return ( false );
             }
 
-            if( !ImageHelper.ImagesIdentical( Icon, group.Icon ) )
+            if( Icon != group.Icon )
             {
                 return ( false );
             }
@@ -95,7 +95,7 @@ namespace Universalis
             set;
         }
 
-        [JsonConverter( typeof( JsonImageConverter ) )]
+        [JsonConverter( typeof( JsonJpegConverter ) )]
         public Bitmap Icon
         {
             get;
@@ -238,7 +238,7 @@ namespace Universalis
                 set;
             }
 
-            [JsonConverter( typeof( JsonImageConverter ) )]
+            [JsonConverter( typeof( JsonJpegConverter ) )]
             public Bitmap CustomImg
             {
                 get;

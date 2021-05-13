@@ -140,9 +140,11 @@
     <Compile Include="Source\JsonHelper\JsonActorWeaponConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonArchetypeConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonArmorConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonDamageEffectConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonFactionConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonGroupActorConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonActorTraitConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonPngConverter.cs" />
     <Compile Include="Source\Objects\Actor.cs" />
     <Compile Include="Source\Objects\Archetype.cs" />
     <Compile Include="Source\Objects\Armor.cs" />
@@ -157,7 +159,7 @@
     <Compile Include="Source\Objects\Faction.cs" />
     <Compile Include="Source\Objects\FieldOfView.cs" />
     <Compile Include="Source\Objects\Group.cs" />
-    <Compile Include="Source\JsonHelper\JsonBitmapConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonJpegConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonActorOutfitConverter.cs" />
     <Compile Include="Source\Objects\MovementType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,6 +172,7 @@
     <Compile Include="Source\Storage\ActorStorage.cs" />
     <Compile Include="Source\Storage\ArchetypeStorage.cs" />
     <Compile Include="Source\Storage\ArmorStorage.cs" />
+    <Compile Include="Source\Storage\DamageEffectStorage.cs" />
     <Compile Include="Source\Storage\EquipmentStorage.cs" />
     <Compile Include="Source\Storage\FactionStorage.cs" />
     <Compile Include="Source\Storage\GroupStorage.cs" />
@@ -233,47 +236,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\Universalis.Archetype.datasource" />
-    <None Include="Resources\effekt_desintegrator.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_durchschlag.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_elektro.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_emp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_explosiv.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_fusion.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_hitze.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_kälte.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_mikrowelle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_monomolekular.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_panzerbrechend.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_rail.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_vibro.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NovaRound-Regular.ttf" />
-    <None Include="Resources\typ_gsw.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\typ_kinetik.png" />
@@ -297,19 +262,7 @@
     <None Include="Resources\startup_sound.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\effekt_struktur.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_komposit.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\section_pattern.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_paralyse.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\effekt_schrapnell.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />

@@ -73,7 +73,7 @@ namespace Universalis
             set;
         }
 
-        [JsonConverter( typeof( JsonImageConverter ) )]
+        [JsonConverter( typeof( JsonJpegConverter ) )]
         public Bitmap Icon
         {
             get;

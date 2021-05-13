@@ -56,6 +56,18 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Helper\ArmorDisplayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Helper\ArmorDisplayForm.Designer.cs">
+      <DependentUpon>ArmorDisplayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Helper\WeaponDisplayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Helper\WeaponDisplayForm.Designer.cs">
+      <DependentUpon>WeaponDisplayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Helper\ActorDisplayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,17 +140,29 @@
     <Compile Include="Source\MasterData\Armor\ArmorEditorForm.Designer.cs">
       <DependentUpon>ArmorEditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\MasterData\DamageEffect\DamageEffectManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\MasterData\DamageEffect\DamageEffectManagerForm.Designer.cs">
+      <DependentUpon>DamageEffectManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\MasterData\DamageEffect\DamageEffectEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\MasterData\DamageEffect\DamageEffectEditorForm.Designer.cs">
+      <DependentUpon>DamageEffectEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\MasterData\SelectionForms\DamageTypeSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\MasterData\SelectionForms\DamageTypeSelectionForm.Designer.cs">
       <DependentUpon>DamageTypeSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\MasterData\SelectionForms\EffectSelectionForm.cs">
+    <Compile Include="Source\MasterData\SelectionForms\DamageEffectSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\MasterData\SelectionForms\EffectSelectionForm.Designer.cs">
-      <DependentUpon>EffectSelectionForm.cs</DependentUpon>
+    <Compile Include="Source\MasterData\SelectionForms\DamageEffectSelectionForm.Designer.cs">
+      <DependentUpon>DamageEffectSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\MasterData\Equipment\EquipmentEditorForm.cs">
       <SubType>Form</SubType>
@@ -190,6 +214,12 @@
     </Compile>
     <Compile Include="Source\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Source\Helper\ArmorDisplayForm.resx">
+      <DependentUpon>ArmorDisplayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Helper\WeaponDisplayForm.resx">
+      <DependentUpon>WeaponDisplayForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Helper\ActorDisplayForm.resx">
       <DependentUpon>ActorDisplayForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,11 +259,18 @@
     <EmbeddedResource Include="Source\MasterData\Armor\ArmorEditorForm.resx">
       <DependentUpon>ArmorEditorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\MasterData\DamageEffect\DamageEffectManagerForm.resx">
+      <DependentUpon>DamageEffectManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\MasterData\DamageEffect\DamageEffectEditorForm.resx">
+      <DependentUpon>DamageEffectEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\SelectionForms\DamageTypeSelectionForm.resx">
       <DependentUpon>DamageTypeSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterData\SelectionForms\EffectSelectionForm.resx">
-      <DependentUpon>EffectSelectionForm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\MasterData\SelectionForms\DamageEffectSelectionForm.resx">
+      <DependentUpon>DamageEffectSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\Equipment\EquipmentEditorForm.resx">
       <DependentUpon>EquipmentEditorForm.cs</DependentUpon>
@@ -257,6 +294,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\Weapon\WeaponEditorForm.resx">
       <DependentUpon>WeaponEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\Weapon\WeaponManagerForm.resx">
       <DependentUpon>WeaponManagerForm.cs</DependentUpon>
