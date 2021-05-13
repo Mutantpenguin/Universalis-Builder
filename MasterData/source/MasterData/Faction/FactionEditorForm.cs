@@ -107,11 +107,8 @@ namespace Universalis
         {
             if( mandatoryFieldsFilled() )
             {
-                if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_originalFaction.Set( (Faction)factionBindingSource.DataSource );
-                    MasterDataStorage.Faction.Save( m_originalFaction );
-                }
+                m_originalFaction.Set( (Faction)factionBindingSource.DataSource );
+                MasterDataStorage.Faction.Save( m_originalFaction );
             }
         }
 

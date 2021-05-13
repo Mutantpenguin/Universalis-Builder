@@ -87,11 +87,8 @@ namespace Universalis
         {
             if( mandatoryFieldsFilled() )
             {
-                if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_originalDamageEffect.Set( (DamageEffect)damageEffectBindingSource.DataSource );
-                    MasterDataStorage.DamageEffect.Save( m_originalDamageEffect );
-                }
+                m_originalDamageEffect.Set( (DamageEffect)damageEffectBindingSource.DataSource );
+                MasterDataStorage.DamageEffect.Save( m_originalDamageEffect );
             }
         }
 

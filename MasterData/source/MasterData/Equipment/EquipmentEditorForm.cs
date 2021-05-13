@@ -135,11 +135,8 @@ namespace Universalis
         {
             if( mandatoryFieldsFilled() )
             {
-                if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_originalEquipment.Set( (Equipment)equipmentBindingSource.DataSource );
-                    MasterDataStorage.Equipment.Save( m_originalEquipment );
-                }
+                m_originalEquipment.Set( (Equipment)equipmentBindingSource.DataSource );
+                MasterDataStorage.Equipment.Save( m_originalEquipment );
             }
         }
 

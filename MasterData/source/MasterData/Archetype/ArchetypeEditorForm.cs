@@ -192,11 +192,8 @@ namespace Universalis
         {
             if( checkValidity() )
             {
-                if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_originalArchetype.Set( (Archetype)archetypeBindingSource.DataSource );
-                    MasterDataStorage.Archetype.Save( m_originalArchetype );
-                }
+                m_originalArchetype.Set( (Archetype)archetypeBindingSource.DataSource );
+                MasterDataStorage.Archetype.Save( m_originalArchetype );
             }
         }
 
