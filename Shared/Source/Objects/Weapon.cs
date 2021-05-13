@@ -8,9 +8,13 @@ namespace Universalis
 {
     public class Weapon
     {
-        public Weapon() { }
+        public Weapon()
+        {
+            DamageEffectList = new List<DamageEffect>();
+        }
 
         public Weapon( Weapon weapon )
+            : this()
         {
             Set( weapon );
         }
@@ -34,13 +38,10 @@ namespace Universalis
             Damage = weapon.Damage;
             DamageType = new DamageType( weapon.DamageType );
 
-            if( null != weapon.DamageEffectList )
+            DamageEffectList.Clear();
+            foreach( DamageEffect damageEffect in weapon.DamageEffectList )
             {
-                DamageEffectList = new List<DamageEffect>( weapon.DamageEffectList );
-            }
-            else
-            {
-                DamageEffectList = null;
+                DamageEffectList.Add( new DamageEffect( damageEffect ) );
             }
 
             if( null != weapon.WeaponRange )
@@ -116,22 +117,19 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( ( null == DamageEffectList ) && ( null != weapon.DamageEffectList ) )
-                ||
-                ( ( null != DamageEffectList ) && ( null == weapon.DamageEffectList ) ) )
+            foreach( DamageEffect damageEffect in DamageEffectList )
             {
-                return ( false );
-            }
-            else
-            {
-                if( ( ( null != DamageEffectList ) && ( null != weapon.DamageEffectList ) ) )
+                if( weapon.DamageEffectList.Find( x => x.Equals( damageEffect ) ) == null )
                 {
-                    if( DamageEffectList.Except( weapon.DamageEffectList ).Any()
-                        ||
-                        weapon.DamageEffectList.Except( DamageEffectList ).Any() )
-                    {
-                        return ( false );
-                    }
+                    return ( false );
+                }
+            }
+
+            foreach( DamageEffect damageEffect in weapon.DamageEffectList )
+            {
+                if( DamageEffectList.Find( x => x.Equals( damageEffect ) ) == null )
+                {
+                    return ( false );
                 }
             }
 
@@ -489,6 +487,7 @@ namespace Universalis
                 points *= Costs.WeaponAFMultiplicator;
             }
 
+            // TODO each DamageEffect has its own points
             if( DamageEffectList != null )
             {
                 foreach( var damageEffect in DamageEffectList )

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
-            this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.pictureBoxFactionIcon = new System.Windows.Forms.PictureBox();
@@ -42,12 +41,13 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.factionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,10 +73,6 @@
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(313, 21);
             this.comboBoxType.TabIndex = 32;
-            // 
-            // factionBindingSource
-            // 
-            this.factionBindingSource.DataSource = typeof(Universalis.Faction);
             // 
             // label1
             // 
@@ -178,6 +174,10 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
+            // factionBindingSource
+            // 
+            this.factionBindingSource.DataSource = typeof(Universalis.Faction);
+            // 
             // FactionEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,7 +194,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FactionEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -202,6 +201,7 @@
             this.toolStrip1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.factionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

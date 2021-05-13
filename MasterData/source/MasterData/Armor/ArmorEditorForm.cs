@@ -123,7 +123,7 @@ namespace Universalis
 
             if( null != armor.DamageEffectList )
             {
-                damageEffectsBindingSource.DataSource = armor.DamageEffectList.OrderBy( x => x.Type.ToString() )
+                damageEffectsBindingSource.DataSource = armor.DamageEffectList.OrderBy( x => x.Name )
                                                                               .ToList();
             }
 
@@ -135,7 +135,7 @@ namespace Universalis
 
         private void toolStripButtonAddEffect_Click( object sender, EventArgs e )
         {
-            using( EffectSelectionForm effectSelectionForm = new EffectSelectionForm( ( (Armor)armorBindingSource.DataSource ).DamageEffectList ) )
+            using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( ( (Armor)armorBindingSource.DataSource ).DamageEffectList ) )
             {
                 if( effectSelectionForm.ShowDialog( this ) == DialogResult.OK )
                 {
@@ -161,8 +161,8 @@ namespace Universalis
         {
             if( dataGridViewDamageEffects.SelectedRows.Count > 0 )
             {
-                DamageEffect.EType type = ( (DamageEffect)( dataGridViewDamageEffects.Rows[ dataGridViewDamageEffects.SelectedRows[ 0 ].Index ].DataBoundItem ) ).Type;
-                ( (Armor)armorBindingSource.DataSource ).DamageEffectList.RemoveAll( s => s.Type == type );
+                var damageEffect = (DamageEffect)( dataGridViewDamageEffects.Rows[ dataGridViewDamageEffects.SelectedRows[ 0 ].Index ].DataBoundItem );
+                ( (Armor)armorBindingSource.DataSource ).DamageEffectList.RemoveAll( x => x.ID == damageEffect.ID );
 
                 updateDamageEffects();
             }

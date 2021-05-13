@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -141,6 +142,14 @@ namespace Universalis
         }
 
         public IList<Armor> Armors => ( m_armorList.AsReadOnly() );
+
+        public IList<Armor> ArmorsWithDamageEffect( DamageEffect damageEffect )
+        {
+            return ( m_armorList.Where( x => x.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) )
+                                .OrderBy( x => x.Name )
+                                .ToList()
+                                .AsReadOnly() );
+        }
 
         private readonly List<Armor> m_armorList = new List<Armor>();
     }

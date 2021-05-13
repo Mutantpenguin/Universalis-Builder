@@ -8,7 +8,6 @@ namespace Universalis
     {
         public enum EType
         {
-            Original,
             Red,
             Green
         }
@@ -19,7 +18,7 @@ namespace Universalis
         private static readonly ColorMatrix s_colorMatrixRed = ColorHelper.ColorToColorMatrix( red );
         private static readonly ColorMatrix s_colorMatrixGreen = ColorHelper.ColorToColorMatrix( green );
 
-        public static Image Colorize( Image image, EType color )
+        public static Bitmap Colorize( Image image, EType color )
         {
             using( ImageAttributes imageAttributes = new ImageAttributes() )
             {
