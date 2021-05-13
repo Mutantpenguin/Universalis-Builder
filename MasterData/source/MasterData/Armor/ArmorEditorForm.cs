@@ -268,11 +268,8 @@ namespace Universalis
         {
             if( mandatoryFieldsFilled() )
             {
-                if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_originalArmor.Set( (Armor)armorBindingSource.DataSource );
-                    MasterDataStorage.Armor.Save( m_originalArmor );
-                }
+                m_originalArmor.Set( (Armor)armorBindingSource.DataSource );
+                MasterDataStorage.Armor.Save( m_originalArmor );
             }
         }
 

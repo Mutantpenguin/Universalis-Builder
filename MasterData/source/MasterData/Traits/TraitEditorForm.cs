@@ -116,11 +116,8 @@ namespace Universalis
         {
             if( mandatoryFieldsFilled() )
             {
-                if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_originalTrait.Set( (Trait)traitBindingSource.DataSource );
-                    MasterDataStorage.Trait.Save( m_originalTrait );
-                }
+                m_originalTrait.Set( (Trait)traitBindingSource.DataSource );
+                MasterDataStorage.Trait.Save( m_originalTrait );
             }
         }
 

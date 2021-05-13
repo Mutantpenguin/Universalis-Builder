@@ -58,11 +58,8 @@ namespace Universalis
         {
             if( mandatoryFieldsFilled() )
             {
-                if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_groupOriginal.Set( m_groupModified );
-                    UserDataStorage.Group.Save( m_groupOriginal );
-                }
+                m_groupOriginal.Set( m_groupModified );
+                UserDataStorage.Group.Save( m_groupOriginal );
             }
         }
 

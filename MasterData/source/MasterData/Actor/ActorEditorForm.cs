@@ -111,15 +111,8 @@ namespace Universalis
         {
             if( checkValidity() )
             {
-                if( MessageBox.Show( "Änderungen speichern?",
-                                     String.Empty,
-                                     MessageBoxButtons.OKCancel,
-                                     MessageBoxIcon.Warning,
-                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_actorOriginal.SetWithOutfitID( m_actorModified );
-                    MasterDataStorage.Actor.Save( m_actorOriginal );
-                }
+                m_actorOriginal.SetWithOutfitID( m_actorModified );
+                MasterDataStorage.Actor.Save( m_actorOriginal );
             }
         }
 

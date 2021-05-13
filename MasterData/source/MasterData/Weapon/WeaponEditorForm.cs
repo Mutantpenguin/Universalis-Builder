@@ -212,11 +212,8 @@ namespace Universalis
         {
             if( mandatoryFieldsFilled() )
             {
-                if( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_originalWeapon.Set( (Weapon)weaponBindingSource.DataSource );
-                    MasterDataStorage.Weapon.Save( m_originalWeapon );
-                }
+                m_originalWeapon.Set( (Weapon)weaponBindingSource.DataSource );
+                MasterDataStorage.Weapon.Save( m_originalWeapon );
             }
         }
 
