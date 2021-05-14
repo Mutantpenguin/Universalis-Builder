@@ -1,5 +1,4 @@
 ﻿using LibGit2Sharp;
-using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -20,6 +19,8 @@ namespace Universalis
         private static readonly string UniversesPath = Path.Combine( UniversalisSettings.UserAppFolder, UniversesSubFolder );
 
         private static readonly string universeImageFilename = "logo.jpg";
+
+        private static readonly ColorMatrix s_colorMatrixUniverserLoadingError = ColorHelper.ColorToColorMatrix( Color.IndianRed );
 
         private static readonly ColorMatrix s_colorMatrixRepoBehind = ColorHelper.ColorToColorMatrix( Color.SeaGreen );
         private static readonly ColorMatrix s_colorMatrixRepoAhead = ColorHelper.ColorToColorMatrix( Color.Orange );
@@ -111,8 +112,6 @@ namespace Universalis
 
             if( universeSubfolders.Count() > 0 )
             {
-                int validUniverseCounter = 0;
-
                 foreach( string universePath in universeSubfolders )
                 {
                     var lvi = new UniverseListViewItem()
@@ -120,13 +119,15 @@ namespace Universalis
                         ImageKey = universePath
                     };
 
-                    var (universe, error) = Universe.Load( universePath );                    
+                    var (universe, error) = Universe.Load( universePath );
 
                     if( universe == null )
                     {
                         lvi.Text = "Defektes Universum";
                         lvi.State = UniverseListViewItem.EState.ERROR;
                         lvi.ToolTipText = error;
+
+                        imageListUniverses.Images.Add( universePath, ImageHelper.Colorize( Shared.Properties.Resources.empty, s_colorMatrixUniverserLoadingError ) );
                     }
                     else
                     {
@@ -185,61 +186,50 @@ namespace Universalis
                                 universe.Logo = new Bitmap( bmpTemp );
                             }
                         }
-                    }
 
-                    Image overlayImage = null;
+                        Image overlayImage = null;
 
-                    switch( lvi.State )
-                    {
-                        case UniverseListViewItem.EState.BEHIND:
-                            overlayImage = repoBehindImage;
-                            break;
-
-                        case UniverseListViewItem.EState.AHEAD:
-                            overlayImage = repoAheadImage;
-                            break;
-
-                        case UniverseListViewItem.EState.ERROR:
-                            overlayImage = repoErrorImage;
-                            break;
-                    }
-
-                    if( overlayImage != null )
-                    {
-                        var logoWithOverlay = new Bitmap( universe.Logo );
-
-                        using( var g = Graphics.FromImage( logoWithOverlay ) )
+                        switch( lvi.State )
                         {
-                            g.DrawImage( overlayImage, 0, 0 );
+                            case UniverseListViewItem.EState.BEHIND:
+                                overlayImage = repoBehindImage;
+                                break;
+
+                            case UniverseListViewItem.EState.AHEAD:
+                                overlayImage = repoAheadImage;
+                                break;
+
+                            case UniverseListViewItem.EState.ERROR:
+                                overlayImage = repoErrorImage;
+                                break;
                         }
 
-                        imageListUniverses.Images.Add( universePath, logoWithOverlay );
-                    }
-                    else
-                    {
-                        imageListUniverses.Images.Add( universePath, universe.Logo );
+                        if( overlayImage != null )
+                        {
+                            var logoWithOverlay = new Bitmap( universe.Logo );
+
+                            using( var g = Graphics.FromImage( logoWithOverlay ) )
+                            {
+                                g.DrawImage( overlayImage, 0, 0 );
+                            }
+
+                            imageListUniverses.Images.Add( universePath, logoWithOverlay );
+                        }
+                        else
+                        {
+                            imageListUniverses.Images.Add( universePath, universe.Logo );
+                        }
                     }
 
                     this.Invoke( new MethodInvoker( () =>
                     {
-                        imageListUniverses.Images.Add( universePath, universe.Logo );
-
                         listViewUniverses.Items.Add( lvi );
                     } ) );
-
-                    validUniverseCounter++;
                 }
 
                 this.Invoke( new MethodInvoker( () =>
                 {
-                    if( validUniverseCounter == 0 )
-                    {
-                        panelNoUniverses.Visible = true;
-                    }
-                    else
-                    {
-                        panelMain.Visible = true;
-                    }
+                    panelMain.Visible = true;
                 } ) );
             }
             else

@@ -99,7 +99,7 @@ namespace Universalis
         {
             get;
             set;
-        } = Shared.Properties.Resources.empty;
+        }
 
         private static readonly string universeSettingsFilename = "universe.json";
 
