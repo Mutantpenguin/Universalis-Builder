@@ -101,6 +101,8 @@ namespace Universalis
         private void comboBoxWK_SelectionChangeCommitted( object sender, EventArgs e )
         {
             ( (Weapon)weaponBindingSource.DataSource ).WK = (Weapon.EClass)comboBoxWK.SelectedItem;
+
+            weaponBindingSource.ResetCurrentItem();
         }
 
         private void comboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
