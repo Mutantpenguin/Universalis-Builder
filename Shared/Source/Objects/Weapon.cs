@@ -464,7 +464,6 @@ namespace Universalis
             float points = 0;
 
             // TODO calculate points with values
-            // Class
             // Radius
             // Range
             // Weight
@@ -515,6 +514,8 @@ namespace Universalis
             {
                 points *= Costs.WeaponUseOnceMultiplicator;
             }
+
+            points *= ( 1 + Math.Abs( 5 - (int)WK ) * 0.25f );
 
             return ( (int)points );
         }
