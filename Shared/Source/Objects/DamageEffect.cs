@@ -24,6 +24,7 @@ namespace Universalis
 
             Name = damageEffect.Name;
             Description = damageEffect.Description;
+            UsageType = damageEffect.UsageType;
             Rules = damageEffect.Rules;
             Points = damageEffect.Points;
             Icon = damageEffect.Icon;
@@ -39,6 +40,8 @@ namespace Universalis
             if( Name != damageEffect.Name
                 ||
                 Description != damageEffect.Description
+                ||
+                UsageType != damageEffect.UsageType
                 ||
                 Rules != damageEffect.Rules
                 ||
@@ -104,6 +107,12 @@ namespace Universalis
             get;
             set;
         } = String.Empty;
+
+        public EUsageType UsageType
+        {
+            get;
+            set;
+        } = EUsageType.Alle;
 
         public string Rules
         {
@@ -173,5 +182,14 @@ namespace Universalis
         }
 
         private static readonly Bitmap s_emptyImage = new Bitmap( 1, 1 );
+
+        public enum EUsageType
+        {
+            Alle = 1,
+            Waffe = 2,
+            Rüstung = 3
+        }
+
+        public static readonly IList<EUsageType> EUsageTypeList = Enum.GetValues( typeof( EUsageType ) ).Cast<EUsageType>().ToList().AsReadOnly();
     }
 }

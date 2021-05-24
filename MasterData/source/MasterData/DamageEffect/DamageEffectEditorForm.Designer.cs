@@ -50,6 +50,8 @@
             this.contextMenuStripUsage = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.armorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.weaponToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBoxUsageType = new System.Windows.Forms.ToolStripComboBox();
             this.damageEffectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
@@ -194,7 +196,9 @@
             // toolStrip2
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel2});
+            this.toolStripLabel2,
+            this.toolStripComboBoxUsageType,
+            this.toolStripLabel3});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(428, 25);
@@ -260,21 +264,35 @@
             this.armorToolStripMenuItem,
             this.weaponToolStripMenuItem});
             this.contextMenuStripUsage.Name = "contextMenuStripUsage";
-            this.contextMenuStripUsage.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStripUsage.Size = new System.Drawing.Size(132, 48);
             // 
             // armorToolStripMenuItem
             // 
             this.armorToolStripMenuItem.Name = "armorToolStripMenuItem";
-            this.armorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.armorToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.armorToolStripMenuItem.Text = "Rüstungen";
             this.armorToolStripMenuItem.Click += new System.EventHandler(this.armorToolStripMenuItem_Click);
             // 
             // weaponToolStripMenuItem
             // 
             this.weaponToolStripMenuItem.Name = "weaponToolStripMenuItem";
-            this.weaponToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.weaponToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.weaponToolStripMenuItem.Text = "Waffen";
             this.weaponToolStripMenuItem.Click += new System.EventHandler(this.weaponToolStripMenuItem_Click);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(73, 22);
+            this.toolStripLabel3.Text = "Verwendung";
+            // 
+            // toolStripComboBoxUsageType
+            // 
+            this.toolStripComboBoxUsageType.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripComboBoxUsageType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxUsageType.Name = "toolStripComboBoxUsageType";
+            this.toolStripComboBoxUsageType.Size = new System.Drawing.Size(80, 25);
             // 
             // damageEffectBindingSource
             // 
@@ -340,5 +358,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripUsage;
         private System.Windows.Forms.ToolStripMenuItem armorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem weaponToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxUsageType;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
     }
 }

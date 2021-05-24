@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewDamageEffects = new System.Windows.Forms.DataGridView();
+            this.damageEffectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripCardManager = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonAddDamageEffect = new System.Windows.Forms.ToolStripButton();
@@ -39,14 +40,14 @@
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.pointsRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.damageEffectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.UsageType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pointsRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageEffects)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.damageEffectBindingSource)).BeginInit();
             this.toolStripCardManager.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.damageEffectBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewDamageEffects
@@ -61,6 +62,7 @@
             this.dataGridViewDamageEffects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iconDataGridViewImageColumn,
             this.nameDataGridViewTextBoxColumn,
+            this.UsageType,
             this.pointsRangeDataGridViewTextBoxColumn});
             this.dataGridViewDamageEffects.DataSource = this.damageEffectBindingSource;
             this.dataGridViewDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -76,6 +78,10 @@
             this.dataGridViewDamageEffects.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDamageEffects_CellDoubleClick);
             this.dataGridViewDamageEffects.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewDamageEffects_CellToolTipTextNeeded);
             this.dataGridViewDamageEffects.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewDamageEffects_KeyDown);
+            // 
+            // damageEffectBindingSource
+            // 
+            this.damageEffectBindingSource.DataSource = typeof(Universalis.DamageEffect);
             // 
             // toolStripCardManager
             // 
@@ -148,16 +154,6 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
-            // pointsRangeDataGridViewTextBoxColumn
-            // 
-            this.pointsRangeDataGridViewTextBoxColumn.DataPropertyName = "PointsRange";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.pointsRangeDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.pointsRangeDataGridViewTextBoxColumn.Name = "pointsRangeDataGridViewTextBoxColumn";
-            this.pointsRangeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pointsRangeDataGridViewTextBoxColumn.Width = 80;
-            // 
             // iconDataGridViewImageColumn
             // 
             this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
@@ -176,9 +172,23 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // damageEffectBindingSource
+            // UsageType
             // 
-            this.damageEffectBindingSource.DataSource = typeof(Universalis.Actor);
+            this.UsageType.DataPropertyName = "UsageType";
+            this.UsageType.HeaderText = "Typ";
+            this.UsageType.Name = "UsageType";
+            this.UsageType.ReadOnly = true;
+            this.UsageType.Width = 80;
+            // 
+            // pointsRangeDataGridViewTextBoxColumn
+            // 
+            this.pointsRangeDataGridViewTextBoxColumn.DataPropertyName = "PointsRange";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.pointsRangeDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.pointsRangeDataGridViewTextBoxColumn.Name = "pointsRangeDataGridViewTextBoxColumn";
+            this.pointsRangeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pointsRangeDataGridViewTextBoxColumn.Width = 80;
             // 
             // DamageEffectManagerForm
             // 
@@ -194,11 +204,11 @@
             this.Text = "Schadenseffekte";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DamageEffectManagerForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageEffects)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.damageEffectBindingSource)).EndInit();
             this.toolStripCardManager.ResumeLayout(false);
             this.toolStripCardManager.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.damageEffectBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,6 +227,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsageType;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsRangeDataGridViewTextBoxColumn;
     }
 }

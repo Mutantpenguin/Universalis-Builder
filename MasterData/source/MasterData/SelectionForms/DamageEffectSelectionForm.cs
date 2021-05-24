@@ -7,11 +7,12 @@ namespace Universalis
 {
     public partial class DamageEffectSelectionForm : Form
     {
-        public DamageEffectSelectionForm( List<DamageEffect> damageEffectList  )
+        public DamageEffectSelectionForm( DamageEffect.EUsageType usageType, List<DamageEffect> damageEffectList )
         {
             InitializeComponent();
 
             damageEffectBindingSource.DataSource = MasterDataStorage.DamageEffect.DamageEffects.Where( s => damageEffectList.Find( x => x.ID == s.ID ) == null )
+                                                                                               .Where( x => ( x.UsageType == usageType ) || ( x.UsageType == DamageEffect.EUsageType.Alle ) )
                                                                                                .OrderBy( x => x.Name )
                                                                                                .ToList();
         }
