@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -19,6 +18,15 @@ namespace Universalis
             DamageEffect modifiedDamageEffect = new DamageEffect( damageEffect );
 
             damageEffectBindingSource.DataSource = modifiedDamageEffect;
+
+            toolStripComboBoxUsageType.ComboBox.DataSource = DamageEffect.EUsageTypeList;
+            toolStripComboBoxUsageType.ComboBox.SelectedItem = modifiedDamageEffect.UsageType;
+            toolStripComboBoxUsageType.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
+        }
+
+        private void ComboBox_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            ( (DamageEffect)damageEffectBindingSource.DataSource ).UsageType = (DamageEffect.EUsageType)toolStripComboBoxUsageType.SelectedItem;
         }
 
         private readonly DamageEffect m_originalDamageEffect;

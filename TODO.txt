@@ -2,7 +2,6 @@ TODO
 - MasterDataManager: Icon für DamageEffect
 - DamageEffect in Weapon und Armor wird falsch gespeichert (als vollständiges Objekt)
 - Brauchen DamageEffects eine Description?
-- DamageEffects benötigen Radiobuttons/Checkboxen um klar zu machen, ob sie in Weapons und/oder Armor verwendet werden dürfen.
 
 
 

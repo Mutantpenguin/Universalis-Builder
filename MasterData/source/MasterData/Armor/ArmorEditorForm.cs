@@ -135,7 +135,7 @@ namespace Universalis
 
         private void toolStripButtonAddEffect_Click( object sender, EventArgs e )
         {
-            using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( ( (Armor)armorBindingSource.DataSource ).DamageEffectList ) )
+            using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Rüstung, ( (Armor)armorBindingSource.DataSource ).DamageEffectList ) )
             {
                 if( effectSelectionForm.ShowDialog( this ) == DialogResult.OK )
                 {
