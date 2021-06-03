@@ -146,10 +146,7 @@ namespace Universalis
                             ( (Armor)armorBindingSource.DataSource ).DamageEffectList = new List<DamageEffect>();
                         }
 
-                        foreach( DamageEffect damageEffect in effectSelectionForm.SelectedDamageEffects )
-                        {
-                            ( (Armor)armorBindingSource.DataSource ).DamageEffectList.Add( damageEffect );
-                        }
+                        ( (Armor)armorBindingSource.DataSource ).DamageEffectList.AddRange( effectSelectionForm.SelectedDamageEffects );
 
                         updateDamageEffects();
                     }
@@ -211,10 +208,7 @@ namespace Universalis
                             ( (Armor)armorBindingSource.DataSource ).DamageTypeList = new List<DamageType>();
                         }
 
-                        foreach( DamageType damageType in damageTypeSelectionForm.SelectedDamageTypes )
-                        {
-                            ( (Armor)armorBindingSource.DataSource ).DamageTypeList.Add( damageType );
-                        }
+                        ( (Armor)armorBindingSource.DataSource ).DamageTypeList.AddRange( damageTypeSelectionForm.SelectedDamageTypes );
 
                         updateDamageTypes();
                     }

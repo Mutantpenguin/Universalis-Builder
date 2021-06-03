@@ -157,10 +157,7 @@ namespace Universalis
                             ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList = new List<DamageEffect>();
                         }
 
-                        foreach( DamageEffect damageEffect in effectSelectionForm.SelectedDamageEffects )
-                        {
-                            ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList.Add( damageEffect );
-                        }
+                        ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList.AddRange( effectSelectionForm.SelectedDamageEffects );
 
                         updateEffects();
                     }
