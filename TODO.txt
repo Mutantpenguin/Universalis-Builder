@@ -7,7 +7,8 @@ TODO
 
 
 Universe:
-  "section_pattern" ins Universe packen, damit jedes ein eigenes haben kann
+	- "section_pattern" ins Universe packen, damit jedes ein eigenes haben kann
+	- Font für PDF und Karte?
 
 
 Groups:
