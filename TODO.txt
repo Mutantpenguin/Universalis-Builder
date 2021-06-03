@@ -1,6 +1,5 @@
 TODO
 - MasterDataManager: Icon für DamageEffect
-- DamageEffect in Weapon und Armor wird falsch gespeichert (als vollständiges Objekt)
 - Brauchen DamageEffects eine Description?
 
 
