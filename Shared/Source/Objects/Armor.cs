@@ -58,17 +58,14 @@ namespace Universalis
 
             if( null != armor.DamageTypeList )
             {
-                foreach( DamageType danageType in armor.DamageTypeList )
+                foreach( DamageType damageType in armor.DamageTypeList )
                 {
-                    DamageTypeList.Add( new DamageType( danageType ) );
+                    DamageTypeList.Add( new DamageType( damageType ) );
                 }
             }
 
             DamageEffectList.Clear();
-            foreach( DamageEffect damageEffect in armor.DamageEffectList )
-            {
-                DamageEffectList.Add( new DamageEffect( damageEffect ) );
-            }
+            DamageEffectList.AddRange( armor.DamageEffectList );
         }
 
         public bool Equals( Armor armor )
@@ -250,6 +247,7 @@ namespace Universalis
             set;
         }
 
+        [JsonConverter( typeof( JsonDamageEffectListConverter ) )]
         public List<DamageEffect> DamageEffectList
         {
             get;

@@ -140,7 +140,7 @@
     <Compile Include="Source\JsonHelper\JsonActorWeaponConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonArchetypeConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonArmorConverter.cs" />
-    <Compile Include="Source\JsonHelper\JsonDamageEffectConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonDamageEffectListConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonFactionConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonGroupActorConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonActorTraitConverter.cs" />
