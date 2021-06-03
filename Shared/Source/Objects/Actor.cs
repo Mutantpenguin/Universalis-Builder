@@ -232,10 +232,7 @@ namespace Universalis
 
                 if( null != actorOutfit.ActorWeaponsList )
                 {
-                    foreach( ActorWeapon actorWeapon in actorOutfit.ActorWeaponsList )
-                    {
-                        ActorWeaponsList.Add( actorWeapon );
-                    }
+                    ActorWeaponsList.AddRange( actorOutfit.ActorWeaponsList );
                 }
 
                 if( null != ActorEquipmentList )
@@ -249,10 +246,7 @@ namespace Universalis
 
                 if( null != actorOutfit.ActorEquipmentList )
                 {
-                    foreach( ActorEquipment actorEquipment in actorOutfit.ActorEquipmentList )
-                    {
-                        ActorEquipmentList.Add( actorEquipment );
-                    }
+                    ActorEquipmentList.AddRange( actorOutfit.ActorEquipmentList );
                 }
             }
 
