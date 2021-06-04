@@ -93,12 +93,6 @@
     <None Include="Resources\bewegung_rad.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\camo_active_white.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\camo_passive_white.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Stärke_weiss.png" />
   </ItemGroup>
   <ItemGroup>

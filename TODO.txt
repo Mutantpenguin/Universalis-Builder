@@ -2,9 +2,6 @@ TODO
 - Brauchen DamageEffects eine Description?
 
 
-
-
-
 Universe:
 	- "section_pattern" ins Universe packen, damit jedes ein eigenes haben kann
 	- Font für PDF und Karte?
@@ -21,9 +18,6 @@ Universe:
 
 Für alle Objekte:
 	- White- und Blacklist für Fraktionen?
-
-Rüstung:
-	- Tarnung entfernen?
 
 Waffen:
 	- brauchen AttributeModifier
