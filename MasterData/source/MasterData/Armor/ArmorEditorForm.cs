@@ -131,20 +131,30 @@ namespace Universalis
 
         private void toolStripButtonAddEffect_Click( object sender, EventArgs e )
         {
-            using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Rüstung, ( (Armor)armorBindingSource.DataSource ).DamageEffectList ) )
+            if( dataGridViewDamageEffects.Rows.Count >= 5 )
             {
-                if( effectSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                MessageBox.Show(    "Es dürfen maximal 5 Schadenseffekte ausgewählt werden.",
+                                    "Maximum erreicht",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Stop );
+            }
+            else
+            {
+                using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Rüstung, ( (Armor)armorBindingSource.DataSource ).DamageEffectList ) )
                 {
-                    if( effectSelectionForm.SelectedDamageEffects.Count > 0 )
+                    if( effectSelectionForm.ShowDialog( this ) == DialogResult.OK )
                     {
-                        if( null == ( (Armor)armorBindingSource.DataSource ).DamageEffectList )
+                        if( effectSelectionForm.SelectedDamageEffects.Count > 0 )
                         {
-                            ( (Armor)armorBindingSource.DataSource ).DamageEffectList = new List<DamageEffect>();
+                            if( null == ( (Armor)armorBindingSource.DataSource ).DamageEffectList )
+                            {
+                                ( (Armor)armorBindingSource.DataSource ).DamageEffectList = new List<DamageEffect>();
+                            }
+
+                            ( (Armor)armorBindingSource.DataSource ).DamageEffectList.AddRange( effectSelectionForm.SelectedDamageEffects );
+
+                            updateDamageEffects();
                         }
-
-                        ( (Armor)armorBindingSource.DataSource ).DamageEffectList.AddRange( effectSelectionForm.SelectedDamageEffects );
-
-                        updateDamageEffects();
                     }
                 }
             }
