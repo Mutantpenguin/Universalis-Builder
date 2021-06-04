@@ -1,5 +1,4 @@
 TODO
-- MasterDataManager: Icon für DamageEffect
 - Brauchen DamageEffects eine Description?
 
 
