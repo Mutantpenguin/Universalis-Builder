@@ -357,6 +357,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\damage_effects.png" />
+    <None Include="Resources\damage_effects.pngpng.png" />
     <None Include="Resources\ui-check-box-uncheck.png" />
     <None Include="Resources\ui-check-box.png" />
     <None Include="Resources\text_snippet.png" />
@@ -380,7 +382,6 @@
     <None Include="Resources\factions.png" />
     <None Include="Resources\equipment.png" />
     <None Include="Resources\armor.png" />
-    <None Include="Resources\script-text.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
