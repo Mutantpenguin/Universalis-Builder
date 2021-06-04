@@ -44,7 +44,3 @@ Aktivierungsreihenfolge in allen Masken
   - Manager erledigt
   - Editoren fehlen noch
   - AddXToY fehlen noch
-
-GroupPDFExport:
-	- Übersichtsseite aller genutzen Waffeneffekte?
-		-> Dafür müssen die Waffeneffekte ein eigener Datentyp werden

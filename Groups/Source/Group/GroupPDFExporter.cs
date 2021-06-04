@@ -29,6 +29,9 @@ namespace Universalis
         private static readonly Font s_flipsideHeaderFont = new Font( s_baseFontUniversalis, CmToPixel( 0.35f ), Font.NORMAL, Color.WHITE );
         private static readonly Font s_nameFlipsideFont = new Font( s_baseFontUniversalis, CmToPixel( 0.2f ), Font.BOLD );
         private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2f ) );
+
+        private static readonly Font s_damageEffectFont = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ) );
+        private static readonly Font s_damageEffectFontHeader = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ), Font.BOLD );
         #endregion
 
         #region flipside
@@ -94,6 +97,7 @@ namespace Universalis
 
                 CreateMainPage( document, pdfWriter, p_universe, p_group );
                 CreateCardPages( document, pdfWriter, p_group );
+                CreateDamageEffectsPage( document, pdfWriter, p_group );
 
                 document.Close();
             }
@@ -508,6 +512,71 @@ namespace Universalis
             columnText.AddElement( table );
 
             columnText.Go();
+        }
+
+        private static void CreateDamageEffectsPage( Document document, PdfWriter pdfWriter, Group p_group )
+        {
+            document.SetPageSize( PageSize.A4 );
+
+            document.NewPage();
+
+            float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+            float damageEffectImgWidth = CmToPixel( 1 );
+            float nameWidth = CmToPixel( 4 );
+            float rulesWidth = printableWidth - ( damageEffectImgWidth + nameWidth );
+
+            const int columnCount = 3;
+
+            PdfPTable damageEffectsTable = new PdfPTable( new float[ columnCount ] { damageEffectImgWidth, nameWidth, rulesWidth } )
+            {
+                WidthPercentage = 100,
+                SpacingBefore = 0f,
+                SpacingAfter = 0f,
+            };
+
+            // TableHeader
+            damageEffectsTable.AddCell( new PdfPCell( new Phrase( "Schadenseffekt", s_damageEffectFontHeader ) )
+            {
+                Border = Rectangle.NO_BORDER,
+                Colspan = 2
+            } );
+
+            damageEffectsTable.AddCell( new PdfPCell( new Phrase( "Regeln", s_damageEffectFontHeader ) )
+            {
+                Border = Rectangle.NO_BORDER
+            } );
+
+            foreach( var damageEffect in MasterDataStorage.DamageEffect.DamageEffects.OrderBy( x => x.Name ) )
+            {
+                if( p_group.GroupActorList.Exists( x => x.ActorOutfit.ActorWeaponsList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
+                                                        ||
+                                                        x.Actor.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) )
+                {
+                    Image damageEffectImg = Image.GetInstance( damageEffect.Icon, System.Drawing.Imaging.ImageFormat.Png );
+                    damageEffectImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
+                    damageEffectsTable.AddCell( new PdfPCell( damageEffectImg )
+                    {
+                        Border = Rectangle.TOP_BORDER,
+                        VerticalAlignment = Element.ALIGN_MIDDLE,
+                        MinimumHeight = CmToPixel( 1 )
+                    } );
+
+                    damageEffectsTable.AddCell( new PdfPCell( new Phrase( damageEffect.Name, s_damageEffectFont ) )
+                    {
+                        Border = Rectangle.TOP_BORDER,
+                        HorizontalAlignment = Element.ALIGN_CENTER,
+                        VerticalAlignment = Element.ALIGN_MIDDLE
+                    } );
+
+                    damageEffectsTable.AddCell( new PdfPCell( new Phrase( damageEffect.Rules, s_damageEffectFont ) )
+                    {
+                        Border = Rectangle.TOP_BORDER,
+                        VerticalAlignment = Element.ALIGN_MIDDLE
+                    } );
+                }
+            }
+
+            document.Add( damageEffectsTable );
         }
     }
 }
