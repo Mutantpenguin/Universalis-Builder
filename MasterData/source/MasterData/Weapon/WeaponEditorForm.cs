@@ -146,20 +146,30 @@ namespace Universalis
 
         private void toolStripButtonAddEffect_Click( object sender, EventArgs e )
         {
-            using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Waffe, ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList ) )
+            if( dataGridViewDamageEffects.Rows.Count >= 5 )
             {
-                if( effectSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                MessageBox.Show(    "Es dürfen maximal 5 Schadenseffekte ausgewählt werden.",
+                                    "Maximum erreicht",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Stop );
+            }
+            else
+            {
+                using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Waffe, ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList ) )
                 {
-                    if( effectSelectionForm.SelectedDamageEffects.Count > 0 )
+                    if( effectSelectionForm.ShowDialog( this ) == DialogResult.OK )
                     {
-                        if( null == ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList )
+                        if( effectSelectionForm.SelectedDamageEffects.Count > 0 )
                         {
-                            ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList = new List<DamageEffect>();
+                            if( null == ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList )
+                            {
+                                ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList = new List<DamageEffect>();
+                            }
+
+                            ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList.AddRange( effectSelectionForm.SelectedDamageEffects );
+
+                            updateEffects();
                         }
-
-                        ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList.AddRange( effectSelectionForm.SelectedDamageEffects );
-
-                        updateEffects();
                     }
                 }
             }
