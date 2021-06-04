@@ -35,9 +35,6 @@ namespace Universalis
             AdditiveProtection = armor.AdditiveProtection;
             SelfSustaining = armor.SelfSustaining;
 
-            Camouflage = armor.Camouflage;
-            CamouflageLevel = armor.CamouflageLevel;
-
             if( null != armor.ProfileModifier )
             {
                 ProfileModifier = new ProfileModifier( armor.ProfileModifier );
@@ -115,13 +112,6 @@ namespace Universalis
                 }
             }
 
-            if( Camouflage != armor.Camouflage
-                ||
-                CamouflageLevel != armor.CamouflageLevel )
-            {
-                return ( false );
-            }
-
             if( ( ( null == DamageTypeList ) && ( null != armor.DamageTypeList ) )
                 ||
                 ( ( null != DamageTypeList ) && ( null == armor.DamageTypeList ) ) )
@@ -165,15 +155,6 @@ namespace Universalis
 
             return ( true );
         }
-
-        public enum ECamouflage
-        {
-            Keine = 0,
-            Passiv = 1,
-            Aktiv = 2
-        }
-
-        public static List<ECamouflage> ECamouflageList => ( Enum.GetValues( typeof( ECamouflage ) ).Cast<ECamouflage>().ToList() );
 
         public Guid ID
         {
@@ -228,18 +209,6 @@ namespace Universalis
             get;
             set;
         } = false;
-
-        public ECamouflage Camouflage
-        {
-            get;
-            set;
-        } = ECamouflage.Keine;
-
-        public int CamouflageLevel
-        {
-            get;
-            set;
-        } = 0;
 
         public List<DamageType> DamageTypeList
         {
@@ -324,18 +293,6 @@ namespace Universalis
                 {
                     points *= Costs.ArmorDamageEffectMultiplicator;
                 }
-            }
-
-            switch( Camouflage )
-            {
-                case ECamouflage.Keine:
-                    break;
-                case ECamouflage.Passiv:
-                    points += CamouflageLevel * Costs.ArmorCamouflagePassive;
-                    break;
-                case ECamouflage.Aktiv:
-                    points += CamouflageLevel * Costs.ArmorCamouflageActive;
-                    break;
             }
 
             if( SelfSustaining )

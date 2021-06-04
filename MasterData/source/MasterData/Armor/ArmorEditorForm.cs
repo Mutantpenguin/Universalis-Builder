@@ -35,10 +35,6 @@ namespace Universalis
                 panelProfileMods.Enabled = false;
             }
 
-            comboBoxCamouflage.DataSource = Armor.ECamouflageList;
-            comboBoxCamouflage.SelectedItem = m_modifiedArmor.Camouflage;
-            numericUpDownCamouflageLevel.Enabled = ( m_modifiedArmor.Camouflage != Armor.ECamouflage.Keine );
-
             updateDamageEffects();
             updateDamageTypes();
 
@@ -273,17 +269,6 @@ namespace Universalis
             {
                 this.Close();
             }
-        }
-
-        private void comboBoxCamouflage_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            Armor.ECamouflage camouflage = (Armor.ECamouflage)comboBoxCamouflage.SelectedItem;
-
-            ( (Armor)armorBindingSource.DataSource ).Camouflage = camouflage;
-
-            numericUpDownCamouflageLevel.Enabled = ( camouflage != Armor.ECamouflage.Keine );
-
-            armorBindingSource.ResetCurrentItem();
         }
 
         private void dataGridViewDamageTypes_CurrentCellDirtyStateChanged( object sender, EventArgs e )
