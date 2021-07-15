@@ -516,41 +516,51 @@ namespace Universalis
 
         private static void CreateDamageEffectsPage( Document document, PdfWriter pdfWriter, Group p_group )
         {
-            document.SetPageSize( PageSize.A4 );
-
-            document.NewPage();
-
-            float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
-            float damageEffectImgWidth = CmToPixel( 1 );
-            float nameWidth = CmToPixel( 4 );
-            float rulesWidth = printableWidth - ( damageEffectImgWidth + nameWidth );
-
-            const int columnCount = 3;
-
-            PdfPTable damageEffectsTable = new PdfPTable( new float[ columnCount ] { damageEffectImgWidth, nameWidth, rulesWidth } )
-            {
-                WidthPercentage = 100,
-                SpacingBefore = 0f,
-                SpacingAfter = 0f,
-            };
-
-            // TableHeader
-            damageEffectsTable.AddCell( new PdfPCell( new Phrase( "Schadenseffekt", s_damageEffectFontHeader ) )
-            {
-                Border = Rectangle.NO_BORDER,
-                Colspan = 2
-            } );
-
-            damageEffectsTable.AddCell( new PdfPCell( new Phrase( "Regeln", s_damageEffectFontHeader ) )
-            {
-                Border = Rectangle.NO_BORDER
-            } );
+            var damageEffectsToPrint = new List<DamageEffect>();
 
             foreach( var damageEffect in MasterDataStorage.DamageEffect.DamageEffects.OrderBy( x => x.Name ) )
             {
                 if( p_group.GroupActorList.Exists( x => x.ActorOutfit.ActorWeaponsList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
                                                         ||
                                                         ( ( x.Actor.Armor != null ) && x.Actor.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) ) )
+                {
+                    damageEffectsToPrint.Add( damageEffect );
+                }
+            }
+
+            if( damageEffectsToPrint.Count > 0 )
+            {
+                document.SetPageSize( PageSize.A4 );
+
+                document.NewPage();
+
+                float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
+                float damageEffectImgWidth = CmToPixel( 1 );
+                float nameWidth = CmToPixel( 4 );
+                float rulesWidth = printableWidth - ( damageEffectImgWidth + nameWidth );
+
+                const int columnCount = 3;
+
+                PdfPTable damageEffectsTable = new PdfPTable( new float[ columnCount ] { damageEffectImgWidth, nameWidth, rulesWidth } )
+                {
+                    WidthPercentage = 100,
+                    SpacingBefore = 0f,
+                    SpacingAfter = 0f,
+                };
+
+                // TableHeader
+                damageEffectsTable.AddCell( new PdfPCell( new Phrase( "Schadenseffekt", s_damageEffectFontHeader ) )
+                {
+                    Border = Rectangle.NO_BORDER,
+                    Colspan = 2
+                } );
+
+                damageEffectsTable.AddCell( new PdfPCell( new Phrase( "Regeln", s_damageEffectFontHeader ) )
+                {
+                    Border = Rectangle.NO_BORDER
+                } );
+
+                foreach( var damageEffect in damageEffectsToPrint )
                 {
                     Image damageEffectImg = Image.GetInstance( damageEffect.Icon, System.Drawing.Imaging.ImageFormat.Png );
                     damageEffectImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
@@ -574,9 +584,9 @@ namespace Universalis
                         VerticalAlignment = Element.ALIGN_MIDDLE
                     } );
                 }
-            }
 
-            document.Add( damageEffectsTable );
+                document.Add( damageEffectsTable );
+            }
         }
     }
 }
