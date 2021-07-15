@@ -550,7 +550,7 @@ namespace Universalis
             {
                 if( p_group.GroupActorList.Exists( x => x.ActorOutfit.ActorWeaponsList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
                                                         ||
-                                                        x.Actor.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) )
+                                                        ( ( x.Actor.Armor != null ) && x.Actor.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) ) )
                 {
                     Image damageEffectImg = Image.GetInstance( damageEffect.Icon, System.Drawing.Imaging.ImageFormat.Png );
                     damageEffectImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
