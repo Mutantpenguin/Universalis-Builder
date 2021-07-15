@@ -805,12 +805,10 @@ namespace Universalis
                 int nameWidth = CmToPixel( 3.3 );
                 int typesWidth = SLineHeight * 4;
                 int protectionWidth = CmToPixel( 0.5 );
-                int camouflageWidth = CmToPixel( 0.5 );
 
                 int typesStart = SSectionsPosX + nameWidth;
                 int protectionStart = typesStart + typesWidth;
                 int effectsStart = protectionStart + protectionWidth;
-                int camouflageStart = SCardWidth - SLineHeight;
 
                 DrawSectionHeader( g, "Rüstung", SectionHeaderArmor, posY );
 
@@ -832,16 +830,6 @@ namespace Universalis
                 }
 
                 g.DrawLine( SLinePenBlack, effectsStart, posY + SLineHeight, effectsStart, posY + SLineHeightDouble );
-
-                // Camouflage
-                if( armor.Camouflage != Armor.ECamouflage.Keine )
-                {
-                    Image img = ( armor.Camouflage == Armor.ECamouflage.Passiv ) ? Properties.Resources.camo_passive_white : Properties.Resources.camo_active_white;
-
-                    g.DrawImage( img, new Rectangle( camouflageStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
-                    g.DrawLine( SLinePenBlack, camouflageStart, posY + SLineHeight, camouflageStart, posY + SLineHeightDouble );
-                    Helpers.DrawStringCentered( g, armor.CamouflageLevel.ToString(), FontArmor, ArmorFontBrush, new Rectangle( camouflageStart, posY + SLineHeight, camouflageWidth, SLineHeight ) );
-                }
 
                 DrawDamageType( g, protectionStart, posY + SLineHeight, armor.TypesImage );
 

@@ -39,10 +39,7 @@ namespace Universalis
             DamageType = new DamageType( weapon.DamageType );
 
             DamageEffectList.Clear();
-            foreach( DamageEffect damageEffect in weapon.DamageEffectList )
-            {
-                DamageEffectList.Add( new DamageEffect( damageEffect ) );
-            }
+            DamageEffectList.AddRange( weapon.DamageEffectList );
 
             if( null != weapon.WeaponRange )
             {
@@ -279,6 +276,7 @@ namespace Universalis
             Level = DamageType.ELevel.I
         };
 
+        [ JsonConverter( typeof( JsonDamageEffectListConverter ) ) ]
         public List<DamageEffect> DamageEffectList
         {
             get;

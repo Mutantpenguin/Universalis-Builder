@@ -13,9 +13,6 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
-            filterCamouflage.ComboBox.DataSource = Armor.ECamouflageList;
-            filterCamouflage.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
-
             refreshGridView();
 
             toolStripTextBoxSearch.TextBox.Select();
@@ -40,8 +37,7 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Armor> armor = MasterDataStorage.Armor.Armors.Where( s => filterCamouflage.Enabled ? s.Camouflage == ( (Armor.ECamouflage)filterCamouflage.ComboBox.SelectedValue ) : true )
-                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            List<Armor> armor = MasterDataStorage.Armor.Armors.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                               .OrderBy( x => x.Name )
                                                               .ToList();
 
@@ -167,15 +163,6 @@ namespace Universalis
         private void toolStripButtonClearSearch_Click( object sender, EventArgs e )
         {
             toolStripTextBoxSearch.Clear();
-        }
-
-        private void checkBoxFilterCamouflage_Click( object sender, EventArgs e )
-        {
-            filterCamouflage.Enabled = !filterCamouflage.Enabled;
-
-            checkBoxFilterCamouflage.Image = checkBoxFilterCamouflage.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
-
-            refreshGridView();
         }
 
         private void toolStripTextBoxSearch_KeyDown( object sender, KeyEventArgs e )

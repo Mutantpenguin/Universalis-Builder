@@ -10,9 +10,6 @@ namespace Universalis
         {
             InitializeComponent();
 
-            filterCamouflage.ComboBox.DataSource = Armor.ECamouflageList;
-            filterCamouflage.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
-
             updateDataGridViewArmor();
 
             toolStripTextBoxSearch.TextBox.Select();
@@ -32,8 +29,7 @@ namespace Universalis
 
         private void updateDataGridViewArmor()
         {
-            armorBindingSource.DataSource = MasterDataStorage.Armor.Armors.Where( s => filterCamouflage.Enabled ? s.Camouflage == ( (Armor.ECamouflage)filterCamouflage.ComboBox.SelectedValue ) : true )
-                                                                          .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            armorBindingSource.DataSource = MasterDataStorage.Armor.Armors.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                           .OrderBy( x => x.Name )
                                                                           .ToList();
         }
@@ -96,15 +92,6 @@ namespace Universalis
         private void toolStripButtonClearSearch_Click( object sender, EventArgs e )
         {
             toolStripTextBoxSearch.Clear();
-        }
-
-        private void checkBoxFilterCamouflage_Click( object sender, EventArgs e )
-        {
-            filterCamouflage.Enabled = !filterCamouflage.Enabled;
-
-            checkBoxFilterCamouflage.Image = checkBoxFilterCamouflage.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
-
-            updateDataGridViewArmor();
         }
 
         private void dataGridViewArmor_KeyDown( object sender, KeyEventArgs e )

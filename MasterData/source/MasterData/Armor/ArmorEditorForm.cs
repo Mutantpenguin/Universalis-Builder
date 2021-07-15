@@ -35,10 +35,6 @@ namespace Universalis
                 panelProfileMods.Enabled = false;
             }
 
-            comboBoxCamouflage.DataSource = Armor.ECamouflageList;
-            comboBoxCamouflage.SelectedItem = m_modifiedArmor.Camouflage;
-            numericUpDownCamouflageLevel.Enabled = ( m_modifiedArmor.Camouflage != Armor.ECamouflage.Keine );
-
             updateDamageEffects();
             updateDamageTypes();
 
@@ -135,23 +131,30 @@ namespace Universalis
 
         private void toolStripButtonAddEffect_Click( object sender, EventArgs e )
         {
-            using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Rüstung, ( (Armor)armorBindingSource.DataSource ).DamageEffectList ) )
+            if( dataGridViewDamageEffects.Rows.Count >= 5 )
             {
-                if( effectSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                MessageBox.Show(    "Es dürfen maximal 5 Schadenseffekte ausgewählt werden.",
+                                    "Maximum erreicht",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Stop );
+            }
+            else
+            {
+                using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Rüstung, ( (Armor)armorBindingSource.DataSource ).DamageEffectList ) )
                 {
-                    if( effectSelectionForm.SelectedDamageEffects.Count > 0 )
+                    if( effectSelectionForm.ShowDialog( this ) == DialogResult.OK )
                     {
-                        if( null == ( (Armor)armorBindingSource.DataSource ).DamageEffectList )
+                        if( effectSelectionForm.SelectedDamageEffects.Count > 0 )
                         {
-                            ( (Armor)armorBindingSource.DataSource ).DamageEffectList = new List<DamageEffect>();
-                        }
+                            if( null == ( (Armor)armorBindingSource.DataSource ).DamageEffectList )
+                            {
+                                ( (Armor)armorBindingSource.DataSource ).DamageEffectList = new List<DamageEffect>();
+                            }
 
-                        foreach( DamageEffect damageEffect in effectSelectionForm.SelectedDamageEffects )
-                        {
-                            ( (Armor)armorBindingSource.DataSource ).DamageEffectList.Add( damageEffect );
-                        }
+                            ( (Armor)armorBindingSource.DataSource ).DamageEffectList.AddRange( effectSelectionForm.SelectedDamageEffects );
 
-                        updateDamageEffects();
+                            updateDamageEffects();
+                        }
                     }
                 }
             }
@@ -211,10 +214,7 @@ namespace Universalis
                             ( (Armor)armorBindingSource.DataSource ).DamageTypeList = new List<DamageType>();
                         }
 
-                        foreach( DamageType damageType in damageTypeSelectionForm.SelectedDamageTypes )
-                        {
-                            ( (Armor)armorBindingSource.DataSource ).DamageTypeList.Add( damageType );
-                        }
+                        ( (Armor)armorBindingSource.DataSource ).DamageTypeList.AddRange( damageTypeSelectionForm.SelectedDamageTypes );
 
                         updateDamageTypes();
                     }
@@ -279,17 +279,6 @@ namespace Universalis
             {
                 this.Close();
             }
-        }
-
-        private void comboBoxCamouflage_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            Armor.ECamouflage camouflage = (Armor.ECamouflage)comboBoxCamouflage.SelectedItem;
-
-            ( (Armor)armorBindingSource.DataSource ).Camouflage = camouflage;
-
-            numericUpDownCamouflageLevel.Enabled = ( camouflage != Armor.ECamouflage.Keine );
-
-            armorBindingSource.ResetCurrentItem();
         }
 
         private void dataGridViewDamageTypes_CurrentCellDirtyStateChanged( object sender, EventArgs e )

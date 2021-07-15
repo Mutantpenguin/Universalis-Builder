@@ -67,9 +67,6 @@ namespace Universalis
 
         public const float ArmorDamageEffectMultiplicator = 1.2f;
 
-        public const int ArmorCamouflagePassive = 20;
-        public const int ArmorCamouflageActive = 30;
-
         public const float ArmorSelfSustainingMultiplicator = 1.3f;
 
         public const float ArmorAdditiveProtectionMultiplicator = 1.2f;
