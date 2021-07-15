@@ -44,6 +44,7 @@
             this.panelWorking = new System.Windows.Forms.Panel();
             this.pictureBoxSpinner = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.buttonAddUniverse = new System.Windows.Forms.Button();
             this.panelNoUniverses.SuspendLayout();
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -149,6 +150,7 @@
             // panelControl
             // 
             this.panelControl.AutoSize = true;
+            this.panelControl.Controls.Add(this.buttonAddUniverse);
             this.panelControl.Controls.Add(this.buttonOpenFolder);
             this.panelControl.Controls.Add(this.buttonDelete);
             this.panelControl.Controls.Add(this.buttonAdd);
@@ -231,6 +233,20 @@
             this.panelMain.Size = new System.Drawing.Size(868, 332);
             this.panelMain.TabIndex = 3;
             // 
+            // buttonAddUniverse
+            // 
+            this.buttonAddUniverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddUniverse.FlatAppearance.BorderSize = 0;
+            this.buttonAddUniverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddUniverse.Image = global::Shared.Properties.Resources.baseline_add_box_black_48dp;
+            this.buttonAddUniverse.Location = new System.Drawing.Point(647, 3);
+            this.buttonAddUniverse.Name = "buttonAddUniverse";
+            this.buttonAddUniverse.Size = new System.Drawing.Size(50, 50);
+            this.buttonAddUniverse.TabIndex = 4;
+            this.buttonAddUniverse.UseVisualStyleBackColor = false;
+            this.buttonAddUniverse.Visible = false;
+            this.buttonAddUniverse.Click += new System.EventHandler(this.buttonAddUniverse_Click);
+            // 
             // UniverseSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,5 +294,6 @@
         private System.Windows.Forms.Panel panelWorking;
         private System.Windows.Forms.PictureBox pictureBoxSpinner;
         private System.Windows.Forms.Panel panelMain;
+        private System.Windows.Forms.Button buttonAddUniverse;
     }
 }
