@@ -6,14 +6,11 @@ Universe:
 	- "section_pattern" ins Universe packen, damit jedes ein eigenes haben kann
 	- Font für PDF und Karte?
 
-Group-PDF:
-	- Seite mit Schadenseffekten nur zeigen, wenn auch welche vorhanden sind.
-
 Groups:
 	- im PDF: Inhalt für die Rückseite in einer Schleife erzeugen und solange verkleinern, bis alles passt. Mehr Spalten anzeigen wenn der Text sehr klein wird.
 
 Universe:
-	- Logo mit in JSON aufnehmen?
+	- Logo mit in JSON aufnehmen?1
 	- Author
 	- contact email address
 	- website
