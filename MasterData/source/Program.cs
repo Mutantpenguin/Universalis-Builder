@@ -32,7 +32,7 @@ namespace Universalis
 
                     UniverseSelectionForm.FormToOpen formToOpen = ( string universePath, Universe universe ) => new MasterDataMainForm( universePath, universe );
 
-                    Application.Run( new FormSplash( formToOpen ) );
+                    Application.Run( new FormSplash( formToOpen, allowNewUniverse: true ) );
 
                     mutex.ReleaseMutex();
                 }

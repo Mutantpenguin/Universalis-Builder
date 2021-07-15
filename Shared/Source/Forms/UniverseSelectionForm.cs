@@ -30,7 +30,7 @@ namespace Universalis
         private static readonly Image repoAheadImage = ImageHelper.Colorize( Shared.Properties.Resources.baseline_warning_black_48dp, s_colorMatrixRepoAhead );
         private static readonly Image repoErrorImage = ImageHelper.Colorize( Shared.Properties.Resources.baseline_error_black_48dp, s_colorMatrixRepoError );
 
-        public UniverseSelectionForm( FormToOpen formToOpen )
+        public UniverseSelectionForm( FormToOpen formToOpen, bool allowNewUniverse )
         {
             this.formToOpen = formToOpen;
 
@@ -42,6 +42,11 @@ namespace Universalis
             File.SetAttributes( UniversesPath, FileAttributes.Hidden );
 
             InitializeComponent();
+
+            if( allowNewUniverse )
+            {
+                buttonAddUniverse.Visible = true;
+            }
 
             listViewUniverses.Font = new Font( UniversalisFont.Family, 10 );
             labelNoUniverses.Font = new Font( UniversalisFont.Family, 20 );
@@ -439,6 +444,11 @@ namespace Universalis
                 var p = new Pen( Color.Black, 1 );
                 g.DrawLine( p, 0, 0, panelControl.Width, 0 );
             }
+        }
+
+        private void buttonAddUniverse_Click( object sender, EventArgs e )
+        {
+            MessageBox.Show( "Not Implemented Yet" );
         }
     }
 }
