@@ -218,11 +218,17 @@ namespace Universalis
                                 g.DrawImage( overlayImage, 0, 0 );
                             }
 
-                            imageListUniverses.Images.Add( universePath, logoWithOverlay );
+                            this.Invoke( new MethodInvoker( () =>
+                            {
+                                imageListUniverses.Images.Add( universePath, logoWithOverlay );
+                            } ) );
                         }
                         else
                         {
-                            imageListUniverses.Images.Add( universePath, universe.Logo );
+                            this.Invoke( new MethodInvoker( () =>
+                            {
+                                imageListUniverses.Images.Add( universePath, universe.Logo );
+                            } ) );
                         }
                     }
 
