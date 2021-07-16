@@ -1,6 +1,7 @@
 TODO
 - Brauchen DamageEffects eine Description?
-
+- Additive Trefferpunkte in der Ausrüstung! Also positiv und negativ.
+  - Actor nicht speichern können, wenn TP dadurch auf 0
 
 Universe:
 	- "section_pattern" ins Universe packen, damit jedes ein eigenes haben kann
