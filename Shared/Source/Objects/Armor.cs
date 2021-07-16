@@ -2,19 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 
 namespace Universalis
 {
     public class Armor
     {
         public Armor()
-        {
-            DamageEffectList = new List<DamageEffect>();
-        }
+        { }
 
         public Armor( Armor armor )
-            : this()
         {
             Set( armor );
         }
@@ -44,14 +40,7 @@ namespace Universalis
                 ProfileModifier = null;
             }
 
-            if( null != DamageTypeList )
-            {
-                DamageTypeList.Clear();
-            }
-            else
-            {
-                DamageTypeList = new List<DamageType>();
-            }
+            DamageTypeList.Clear();
 
             if( null != armor.DamageTypeList )
             {
@@ -112,28 +101,19 @@ namespace Universalis
                 }
             }
 
-            if( ( ( null == DamageTypeList ) && ( null != armor.DamageTypeList ) )
-                ||
-                ( ( null != DamageTypeList ) && ( null == armor.DamageTypeList ) ) )
+            foreach( DamageType damageType in DamageTypeList )
             {
-                return ( false );
-            }
-            else
-            {
-                foreach( DamageType damageType in DamageTypeList )
+                if( armor.DamageTypeList.Find( x => x.Equals( damageType ) ) == null )
                 {
-                    if( armor.DamageTypeList.Find( x => x.Equals( damageType ) ) == null )
-                    {
-                        return ( false );
-                    }
+                    return ( false );
                 }
+            }
 
-                foreach( DamageType damageType in armor.DamageTypeList )
+            foreach( DamageType damageType in armor.DamageTypeList )
+            {
+                if( DamageTypeList.Find( x => x.Equals( damageType ) ) == null )
                 {
-                    if( DamageTypeList.Find( x => x.Equals( damageType ) ) == null )
-                    {
-                        return ( false );
-                    }
+                    return ( false );
                 }
             }
 
@@ -214,14 +194,14 @@ namespace Universalis
         {
             get;
             set;
-        }
+        } = new List<DamageType>();
 
         [JsonConverter( typeof( JsonDamageEffectListConverter ) )]
         public List<DamageEffect> DamageEffectList
         {
             get;
             set;
-        }
+        } = new List<DamageEffect>();
 
         public bool SelfSustaining
         {
