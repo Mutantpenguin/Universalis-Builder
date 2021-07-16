@@ -65,9 +65,10 @@ namespace Universalis
                                 Actor actor = MasterDataStorage.Actor.Create( factionSelectionForm.SelectedFaction, archetypeSelectionForm.SelectedArchetype );
 
                                 toolStripTextBoxSearch.Text = String.Empty;
-                                RefreshActorsGridView();
 
                                 editActor( actor );
+
+                                RefreshActorsGridView();
 
                                 dataGridViewActors.ClearSelection();
                                 foreach( DataGridViewRow row in dataGridViewActors.Rows )

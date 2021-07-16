@@ -70,6 +70,12 @@ namespace Universalis
             {
                 throw new ArgumentNullException( nameof( faction ) );
             }
+
+            if( !m_factionList.Contains( faction ) )
+            {
+                m_factionList.Add( faction );
+            }
+
             string filename = GetFilename( faction );
             string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
@@ -113,13 +119,7 @@ namespace Universalis
 
         public Faction Create()
         {
-            Faction faction = new Faction();
-
-            Save( faction );
-
-            m_factionList.Add( faction );
-        
-            return ( faction );
+            return ( new Faction() );
         }
 
         public void Delete( Faction faction )

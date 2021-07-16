@@ -60,9 +60,10 @@ namespace Universalis
             Group group = UserDataStorage.Group.Create( m_faction );
 
             toolStripTextBoxSearch.Text = String.Empty;
-            RefreshGroupsGridView();
 
             editGroup( group );
+
+            RefreshGroupsGridView();
 
             dataGridViewGroups.ClearSelection();
             foreach( DataGridViewRow row in dataGridViewGroups.Rows )
@@ -187,7 +188,7 @@ namespace Universalis
 
                             try
                             {
-                                UserDataStorage.Group.SaveAs( group, groupSaveFileDialog.FileName );
+                                UserDataStorage.Group.Export( group, groupSaveFileDialog.FileName );
                             }
                             catch( Exception ex )
                             {

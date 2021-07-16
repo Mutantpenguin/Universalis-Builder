@@ -75,28 +75,17 @@ namespace Universalis
 
         public void Save( Group group )
         {
-            string filename = GetFilename( group );
-
-            SaveAs( group, filename );
-        }
-
-        private string GetFilename( Group group )
-        {
-            return Path.ChangeExtension( Path.Combine( s_path, group.ID.ToString() ), Storage.fileExtension );
-        }
-
-        private string GetFilenameTrash( Group group )
-        {
-            return Path.ChangeExtension( Path.Combine( s_pathTrash, group.ID.ToString() ), Storage.fileExtension );
-        }
-
-        public void SaveAs( Group group, string filename )
-        {
             if( null == group )
             {
                 throw new ArgumentNullException( nameof( group ) );
             }
 
+            if( !m_groupList.Contains( group ) )
+            {
+                m_groupList.Add( group );
+            }
+
+            string filename = GetFilename( group );
             string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
             if( File.Exists( filename ) )
@@ -115,6 +104,45 @@ namespace Universalis
             }
         }
 
+        private string GetFilename( Group group )
+        {
+            return Path.ChangeExtension( Path.Combine( s_path, group.ID.ToString() ), Storage.fileExtension );
+        }
+
+        private string GetFilenameTrash( Group group )
+        {
+            return Path.ChangeExtension( Path.Combine( s_pathTrash, group.ID.ToString() ), Storage.fileExtension );
+        }
+
+        public void Export( Group group, string filename )
+        {
+            if( null == group )
+            {
+                throw new ArgumentNullException( nameof( group ) );
+            }
+
+            if( File.Exists( filename ) )
+            {
+                if( MessageBox.Show( "Die Datei existiert bereits. Überschreiben?",
+                                     "Asdasd",
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Warning,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    try
+                    {
+                        File.Delete( filename );
+
+                        File.WriteAllText( filename, JsonConvert.SerializeObject( group, Storage.formatting ) );
+                    }
+                    catch( Exception ex )
+                    {
+                        MessageBox.Show( $"Fehler beim Exportieren der Datei '{filename}':\n{ex.Message}" );
+                    }
+                }
+            }
+        }
+
         public Group Create( Faction faction )
         {
             if( null == faction )
@@ -126,10 +154,6 @@ namespace Universalis
             {
                 Faction = faction
             };
-
-            Save( group );
-
-            m_groupList.Add( group );
 
             return ( group );
         }

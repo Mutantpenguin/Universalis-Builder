@@ -47,9 +47,10 @@ namespace Universalis
             Equipment equipment = MasterDataStorage.Equipment.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
-            refreshGridView();
 
             editEquipment( equipment );
+
+            refreshGridView();
 
             dataGridViewEquipment.ClearSelection();
             foreach( DataGridViewRow row in dataGridViewEquipment.Rows )

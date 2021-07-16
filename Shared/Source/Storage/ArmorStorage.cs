@@ -72,6 +72,12 @@ namespace Universalis
             {
                 throw new ArgumentNullException( nameof( armor ) );
             }
+
+            if( !m_armorList.Contains( armor ) )
+            {
+                m_armorList.Add( armor );
+            }
+
             string filename = GetFilename( armor );
             string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
@@ -115,13 +121,7 @@ namespace Universalis
 
         public Armor Create()
         {
-            Armor armor = new Armor();
-
-            Save( armor );
-
-            m_armorList.Add( armor );
-
-            return ( armor );
+            return ( new Armor() );
         }
 
         public void Delete( Armor armor )

@@ -40,9 +40,10 @@ namespace Universalis
             Faction faction = MasterDataStorage.Faction.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
-            refreshGridView();
 
             editFaction( faction );
+
+            refreshGridView();
 
             dataGridViewFactions.ClearSelection();
             foreach( DataGridViewRow row in dataGridViewFactions.Rows )

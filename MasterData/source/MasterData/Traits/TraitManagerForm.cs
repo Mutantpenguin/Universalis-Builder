@@ -58,9 +58,10 @@ namespace Universalis
             Trait trait = MasterDataStorage.Trait.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
-            refreshGridView();
 
             editTrait( trait );
+
+            refreshGridView();
 
             dataGridViewTraits.ClearSelection();
             foreach( DataGridViewRow row in dataGridViewTraits.Rows )
