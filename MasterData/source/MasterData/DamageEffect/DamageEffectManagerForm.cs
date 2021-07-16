@@ -45,9 +45,10 @@ namespace Universalis
             DamageEffect damageEffect = MasterDataStorage.DamageEffect.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
-            refreshGridView();
 
             editDamageEffect( damageEffect );
+
+            refreshGridView();
 
             dataGridViewDamageEffects.ClearSelection();
             foreach( DataGridViewRow row in dataGridViewDamageEffects.Rows )

@@ -73,6 +73,11 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( actor ) );
             }
 
+            if( !m_actorList.Contains( actor ) )
+            {
+                m_actorList.Add( actor );
+            }
+
             string filename = GetFilename( actor );
             string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
@@ -125,10 +130,6 @@ namespace Universalis
             {
                 Name = "Bitte Namen eingeben"
             } );
-
-            Save( actor );
-
-            m_actorList.Add( actor );
 
             return ( actor );
         }

@@ -71,6 +71,12 @@ namespace Universalis
             {
                 throw new ArgumentNullException( nameof( archetype ) );
             }
+
+            if( !m_archetypeList.Contains( archetype ) )
+            {
+                m_archetypeList.Add( archetype );
+            }
+
             string filename = GetFilename( archetype );
             string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
@@ -123,10 +129,6 @@ namespace Universalis
             {
                 Faction = faction
             };
-
-            Save( archetype );
-
-            m_archetypeList.Add( archetype );
 
             return ( archetype );
         }

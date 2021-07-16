@@ -71,6 +71,12 @@ namespace Universalis
             {
                 throw new ArgumentNullException( nameof( damageEffect ) );
             }
+
+            if( !m_damageEffectList.Contains( damageEffect ) )
+            {
+                m_damageEffectList.Add( damageEffect );
+            }
+
             string filename = GetFilename( damageEffect );
             string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
@@ -114,13 +120,7 @@ namespace Universalis
 
         public DamageEffect Create()
         {
-            DamageEffect damageEffect = new DamageEffect();
-
-            Save( damageEffect );
-
-            m_damageEffectList.Add( damageEffect );
-
-            return ( damageEffect );
+            return ( new DamageEffect() );
         }
 
         public void Delete( DamageEffect damageEffect )

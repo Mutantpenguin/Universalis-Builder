@@ -52,9 +52,10 @@ namespace Universalis
             Armor armor = MasterDataStorage.Armor.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
-            refreshGridView();
 
             editArmor( armor );
+
+            refreshGridView();
 
             dataGridViewArmor.ClearSelection();
             foreach( DataGridViewRow row in dataGridViewArmor.Rows )

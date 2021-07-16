@@ -87,9 +87,10 @@ namespace Universalis
             Weapon weapon = MasterDataStorage.Weapon.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
-            refreshGridView();
 
             editWeapon( weapon );
+
+            refreshGridView();
 
             dataGridViewWeapons.ClearSelection();
             foreach( DataGridViewRow row in dataGridViewWeapons.Rows )

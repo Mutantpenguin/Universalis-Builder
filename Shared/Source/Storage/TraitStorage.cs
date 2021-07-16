@@ -71,6 +71,12 @@ namespace Universalis
             {
                 throw new ArgumentNullException( nameof( trait ) );
             }
+
+            if( !m_traitsList.Contains( trait ) )
+            {
+                m_traitsList.Add( trait );
+            }
+
             string filename = GetFilename( trait );
             string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
@@ -116,10 +122,6 @@ namespace Universalis
         {
             Trait trait = new Trait();
             trait.TraitLevelList.Add( new TraitLevel() );
-
-            Save( trait );
-
-            m_traitsList.Add( trait );
 
             return ( trait );
         }

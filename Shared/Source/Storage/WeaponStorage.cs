@@ -72,6 +72,12 @@ namespace Universalis
             {
                 throw new ArgumentNullException( nameof( weapon ) );
             }
+
+            if( !m_weaponList.Contains( weapon ) )
+            {
+                m_weaponList.Add( weapon );
+            }
+
             string filename = GetFilename( weapon );
             string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
@@ -115,13 +121,7 @@ namespace Universalis
 
         public Weapon Create()
         {
-            Weapon weapon = new Weapon();
-
-            Save( weapon );
-
-            m_weaponList.Add( weapon );
-
-            return ( weapon );
+            return ( new Weapon() );
         }
 
         public void Delete( Weapon weapon )

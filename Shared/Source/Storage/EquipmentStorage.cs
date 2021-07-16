@@ -71,6 +71,12 @@ namespace Universalis
             {
                 throw new ArgumentNullException( nameof( equipment ) );
             }
+
+            if( !m_equipmentList.Contains( equipment ) )
+            {
+                m_equipmentList.Add( equipment );
+            }
+
             string filename = GetFilename( equipment );
             string filenameBackup = Path.ChangeExtension( filename, Storage.backupFileExtension );
 
@@ -114,13 +120,7 @@ namespace Universalis
 
         public Equipment Create()
         {
-            Equipment equipment = new Equipment();
-
-            Save( equipment );
-
-            m_equipmentList.Add( equipment );
-
-            return ( equipment );
+            return ( new Equipment() );
         }
 
         public void Delete( Equipment equipment )

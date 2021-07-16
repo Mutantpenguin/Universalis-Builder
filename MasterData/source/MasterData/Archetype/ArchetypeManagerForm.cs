@@ -75,9 +75,10 @@ namespace Universalis
                         Archetype archetype = MasterDataStorage.Archetype.Create( factionSelectionForm.SelectedFaction );
 
                         toolStripTextBoxSearch.Text = String.Empty;
-                        refreshGridView();
 
                         editArchetype( archetype );
+
+                        refreshGridView();
 
                         dataGridViewArchetypes.ClearSelection();
                         foreach( DataGridViewRow row in dataGridViewArchetypes.Rows )
