@@ -38,13 +38,14 @@
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelHeader = new System.Windows.Forms.Label();
             this.panelControl = new System.Windows.Forms.Panel();
+            this.buttonAddUniverse = new System.Windows.Forms.Button();
             this.buttonOpenFolder = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panelWorking = new System.Windows.Forms.Panel();
             this.pictureBoxSpinner = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.buttonAddUniverse = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelNoUniverses.SuspendLayout();
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -123,6 +124,7 @@
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(50, 50);
             this.buttonRefresh.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.buttonRefresh, "Universen neu laden");
             this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
@@ -162,6 +164,21 @@
             this.panelControl.TabIndex = 3;
             this.panelControl.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl_Paint);
             // 
+            // buttonAddUniverse
+            // 
+            this.buttonAddUniverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddUniverse.FlatAppearance.BorderSize = 0;
+            this.buttonAddUniverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddUniverse.Image = global::Shared.Properties.Resources.baseline_add_box_black_48dp;
+            this.buttonAddUniverse.Location = new System.Drawing.Point(647, 3);
+            this.buttonAddUniverse.Name = "buttonAddUniverse";
+            this.buttonAddUniverse.Size = new System.Drawing.Size(50, 50);
+            this.buttonAddUniverse.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.buttonAddUniverse, "Neues Universum erstellen");
+            this.buttonAddUniverse.UseVisualStyleBackColor = false;
+            this.buttonAddUniverse.Visible = false;
+            this.buttonAddUniverse.Click += new System.EventHandler(this.buttonAddUniverse_Click);
+            // 
             // buttonOpenFolder
             // 
             this.buttonOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -172,6 +189,7 @@
             this.buttonOpenFolder.Name = "buttonOpenFolder";
             this.buttonOpenFolder.Size = new System.Drawing.Size(50, 50);
             this.buttonOpenFolder.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.buttonOpenFolder, "Universum im Explorer öffnen");
             this.buttonOpenFolder.UseVisualStyleBackColor = false;
             this.buttonOpenFolder.Click += new System.EventHandler(this.buttonOpenFolder_Click);
             // 
@@ -185,6 +203,7 @@
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(50, 50);
             this.buttonDelete.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.buttonDelete, "Universum löschen");
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
@@ -198,6 +217,7 @@
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(50, 50);
             this.buttonAdd.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.buttonAdd, "Universum hinzufügen");
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
@@ -232,20 +252,6 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(868, 332);
             this.panelMain.TabIndex = 3;
-            // 
-            // buttonAddUniverse
-            // 
-            this.buttonAddUniverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddUniverse.FlatAppearance.BorderSize = 0;
-            this.buttonAddUniverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddUniverse.Image = global::Shared.Properties.Resources.baseline_add_box_black_48dp;
-            this.buttonAddUniverse.Location = new System.Drawing.Point(647, 3);
-            this.buttonAddUniverse.Name = "buttonAddUniverse";
-            this.buttonAddUniverse.Size = new System.Drawing.Size(50, 50);
-            this.buttonAddUniverse.TabIndex = 4;
-            this.buttonAddUniverse.UseVisualStyleBackColor = false;
-            this.buttonAddUniverse.Visible = false;
-            this.buttonAddUniverse.Click += new System.EventHandler(this.buttonAddUniverse_Click);
             // 
             // UniverseSelectionForm
             // 
@@ -295,5 +301,6 @@
         private System.Windows.Forms.PictureBox pictureBoxSpinner;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button buttonAddUniverse;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
