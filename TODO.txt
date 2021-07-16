@@ -28,6 +28,8 @@ Fraktion:
 
 AttributeModifier:
 	- sind irgendwie überall in der GUI ziemlich buggy
+	- in eigenen Dialog auslagern, diesen überall einbinden
+	  - Anzeige als schönes Bitmap?
 
 "Archetypen" einführen
 - Haben
