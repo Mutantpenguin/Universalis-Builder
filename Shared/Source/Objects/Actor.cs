@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -312,6 +312,16 @@ namespace Universalis
                 }
             }
 
+            public float Weight()
+            {
+                float weight = 0.0f;
+
+                weight += ActorWeaponsList.Sum( x => x.Weight );
+                weight += ActorEquipmentList.Sum( x => x.Weight );
+
+
+                return ( weight );
+            }
             public List<ActorWeapon> ActorWeaponsList
             {
                 get;
@@ -608,8 +618,7 @@ namespace Universalis
 
             if( actorOutfit != null )
             {
-                loadoutWeight += actorOutfit.ActorWeaponsList.Sum( x => x.Weight );
-                loadoutWeight += actorOutfit.ActorEquipmentList.Sum( x => x.Weight );
+                loadoutWeight += actorOutfit.Weight();
             }
 
             if( null != Armor )
