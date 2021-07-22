@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -322,6 +322,7 @@ namespace Universalis
 
                 return ( weight );
             }
+
             public List<ActorWeapon> ActorWeaponsList
             {
                 get;
@@ -495,6 +496,16 @@ namespace Universalis
         public int ModSpeed( ActorOutfit actorOutfit )
         {
             return ( Archetype.Profile.ModSpeed( CurrentProfileModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
+        }
+
+        public int ModHitPoints( ActorOutfit actorOutfit )
+        {
+            return ( Archetype.Profile.ModHitPoints( CurrentProfileModifier( actorOutfit ) ) );
+        }
+
+        public int ModHitZoneHitPoints( ActorOutfit actorOutfit )
+        {
+            return ( Archetype.Profile.ModHitZoneHitPoints( CurrentProfileModifier( actorOutfit ) ) );
         }
 
         public int? ModAGI( ActorOutfit actorOutfit )

@@ -524,6 +524,15 @@ namespace Universalis
                 return ( false );
             }
 
+            if( m_actorModified.ModHitPoints( currentOutfit ) <= 0 )
+            {
+                MessageBox.Show( "Trefferpunkte dürfen nicht 0 oder negativ sein!",
+                                 caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
+                return ( false );
+            }
+
             if( ( m_actorModified.ModAGI( currentOutfit ) < 0 )
                 ||
                 ( m_actorModified.ModNK( currentOutfit ) < 0 )

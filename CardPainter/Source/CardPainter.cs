@@ -146,7 +146,7 @@ namespace Universalis
                 DrawCalculatedAttributes( g, actor, actorOutfit );
                 DrawMisc( g, actor, actorOutfit );
 
-                DrawHitPoints( g, actor );
+                DrawHitPoints( g, actor, actorOutfit );
                 DrawPoints( g, actor, actorOutfit );
 
                 int traitsEndY = DrawTraits( g, actor.ActorTraitsList );
@@ -295,7 +295,7 @@ namespace Universalis
             }
         }
 
-        private static void DrawHitPoints( Graphics g, Actor actor )
+        private static void DrawHitPoints( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             int margin = CmToPixel( 0.1 );
 
@@ -306,7 +306,7 @@ namespace Universalis
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
 
-                    DrawHitPointCirclesVertical( g, actor.Archetype.Profile.HitPoints, posX, posY, SHitPointSize );
+                    DrawHitPointCirclesVertical( g, actor.ModHitPoints( actorOutfit ), posX, posY, SHitPointSize );
                     break;
 
                 case Profile.EType.Koloss:
@@ -325,16 +325,18 @@ namespace Universalis
                     int widthLegs = widthMain;
 
                     // main
-                    DrawHitPointCirclesHorizonzal( g, actor.Archetype.Profile.HitPoints, posXMain, posYMain, widthMain, down: true );
+                    DrawHitPointCirclesHorizonzal( g, actor.ModHitPoints( actorOutfit ), posXMain, posYMain, widthMain, down: true );
+
+                    int modHitZoneHitPoints = actor.ModHitZoneHitPoints( actorOutfit );
 
                     // left arm
-                    DrawHitPointCirclesVertical( g, actor.Archetype.Profile.HitZoneHitPoints, posXArmLeft, posYArmLeft, SHitPointSize );
+                    DrawHitPointCirclesVertical( g, modHitZoneHitPoints, posXArmLeft, posYArmLeft, SHitPointSize );
 
                     // right arm
-                    DrawHitPointCirclesVertical( g, actor.Archetype.Profile.HitZoneHitPoints, posXArmRight, posYArmRight, SHitPointSize );
+                    DrawHitPointCirclesVertical( g, modHitZoneHitPoints, posXArmRight, posYArmRight, SHitPointSize );
 
                     // legs
-                    DrawHitPointCirclesHorizonzal( g, actor.Archetype.Profile.HitZoneHitPoints, posXLegs, posYLegs, widthLegs, down: false );
+                    DrawHitPointCirclesHorizonzal( g, modHitZoneHitPoints, posXLegs, posYLegs, widthLegs, down: false );
                     break;
 
                 default:
