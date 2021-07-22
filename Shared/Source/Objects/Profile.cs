@@ -122,6 +122,21 @@ namespace Universalis
         [JsonIgnore]
         public int HitZoneHitPoints => ( Convert.ToInt32( Math.Ceiling( HitPoints * Presets.HitZoneHitPointsMultiplier ) ) );
 
+        public int ModHitPoints( ProfileModifier modifier )
+        {
+            if( modifier == null )
+            {
+                throw new ArgumentNullException( nameof( modifier ) );
+            }
+
+            return ( HitPoints + modifier.HitPoints );
+        }
+
+        public int ModHitZoneHitPoints( ProfileModifier modifier )
+        {
+            return ( Convert.ToInt32( Math.Ceiling( ModHitPoints( modifier ) * Presets.HitZoneHitPointsMultiplier ) ) );
+        }
+
         [JsonIgnore]
         public int Points
         {

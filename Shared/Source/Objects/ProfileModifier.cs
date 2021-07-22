@@ -17,11 +17,18 @@ namespace Universalis
         public ProfileModifier( ProfileModifier profileModifier )
         {
             Speed = profileModifier.Speed;
+            HitPoints = profileModifier.HitPoints;
 
             AttributeModifier = new AttributeModifier( profileModifier.AttributeModifier );
         }
 
         public int Speed
+        {
+            get;
+            set;
+        }
+
+        public int HitPoints
         {
             get;
             set;
@@ -38,6 +45,7 @@ namespace Universalis
             if( null != modifier )
             {
                 Speed += modifier.Speed;
+                HitPoints += modifier.HitPoints;
 
                 AttributeModifier.Add( modifier.AttributeModifier );
             }
@@ -47,7 +55,9 @@ namespace Universalis
         {
             int points = 0;
 
+            // TODO higher costs for modifiers?
             points += Speed * Costs.Speed;
+            points += HitPoints * Costs.HitPoints;
 
             if( AttributeModifier != null )
             {
@@ -64,6 +74,11 @@ namespace Universalis
             if( Speed != 0 )
             {
                 text += $"Geschwindigkeit {Formatter.Modifier( Speed )}";
+            }
+
+            if( HitPoints != 0 )
+            {
+                text += $"Trefferpunkte {Formatter.Modifier( HitPoints )}";
             }
 
             if( AttributeModifier != null )
@@ -85,6 +100,15 @@ namespace Universalis
             get
             {
                 return ( Formatter.Modifier( Speed ) );
+            }
+        }
+
+        [JsonIgnore]
+        public string HitPointsString
+        {
+            get
+            {
+                return ( Formatter.Modifier( HitPoints ) );
             }
         }
     }

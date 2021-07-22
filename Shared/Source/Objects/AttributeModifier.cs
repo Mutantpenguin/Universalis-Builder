@@ -97,6 +97,7 @@ namespace Universalis
         {
             int points = 0;
 
+            // TODO higher costs for modifiers?
             points += AGI * Costs.AGI;
             points += KO * Costs.KO;
             points += NK * Costs.NK;
