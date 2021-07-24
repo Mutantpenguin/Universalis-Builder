@@ -180,6 +180,10 @@ namespace Universalis
 
                 toolStripButtonProfileModEditor.Enabled = false;
                 panelProfileModifier.Visible = false;
+
+                textBoxProfileModifier.Text = String.Empty;
+
+                armorBindingSource.ResetBindings( false );
             }
         }
 

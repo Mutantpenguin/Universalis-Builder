@@ -317,6 +317,10 @@ namespace Universalis
 
                 toolStripButtonProfileModEditor.Enabled = false;
                 panelProfileModifier.Visible = false;
+
+                textBoxProfileModifier.Text = String.Empty;
+
+                weaponBindingSource.ResetBindings( false );
             }
         }
 
