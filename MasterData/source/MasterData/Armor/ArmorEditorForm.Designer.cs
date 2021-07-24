@@ -580,10 +580,11 @@
             // 
             this.toolStripButtonProfileModEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.toolStripButtonProfileModEditor.Image = global::Universalis.Properties.Resources.pencil;
+            this.toolStripButtonProfileModEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonProfileModEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonProfileModEditor.Name = "toolStripButtonProfileModEditor";
             this.toolStripButtonProfileModEditor.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonProfileModEditor.Text = "toolStripButton1";
+            this.toolStripButtonProfileModEditor.Text = "editieren";
             this.toolStripButtonProfileModEditor.Click += new System.EventHandler(this.toolStripButtonProfileModEditor_Click);
             // 
             // tableLayoutPanel2
