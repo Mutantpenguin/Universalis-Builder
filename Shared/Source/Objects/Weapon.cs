@@ -555,5 +555,32 @@ namespace Universalis
 
             return ( (int)points );
         }
+
+        public override string ToString()
+        {
+            string text = String.Empty;
+
+            if( null != this.ProfileModifier )
+            {
+                string attributeModifierString = this.ProfileModifier.ToString();
+
+                if( !String.IsNullOrEmpty( attributeModifierString ) )
+                {
+                    text += attributeModifierString;
+                }
+            }
+
+            if( !String.IsNullOrEmpty( this.Rules ) )
+            {
+                if( !String.IsNullOrEmpty( text ) )
+                {
+                    text += Environment.NewLine;
+                }
+
+                text += this.Rules;
+            }
+
+            return ( text );
+        }
     }
 }
