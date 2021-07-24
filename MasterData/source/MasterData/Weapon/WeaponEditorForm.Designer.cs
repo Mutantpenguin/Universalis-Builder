@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -92,6 +92,13 @@
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panelProfileModifier = new System.Windows.Forms.Panel();
+            this.textBoxProfileModifier = new System.Windows.Forms.TextBox();
+            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonProfileMod = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButtonProfileModEditor = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageEffects)).BeginInit();
@@ -119,6 +126,9 @@
             this.toolStrip4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.toolStrip5.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panelProfileModifier.SuspendLayout();
+            this.toolStrip6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -252,9 +262,9 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 95);
+            this.panel4.Location = new System.Drawing.Point(3, 140);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(478, 86);
+            this.panel4.Size = new System.Drawing.Size(478, 132);
             this.panel4.TabIndex = 5;
             // 
             // textBoxDescription
@@ -265,7 +275,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(478, 61);
+            this.textBoxDescription.Size = new System.Drawing.Size(478, 107);
             this.textBoxDescription.TabIndex = 1;
             // 
             // toolStrip1
@@ -649,8 +659,8 @@
             this.dataGridViewDamageEffects.AllowUserToAddRows = false;
             this.dataGridViewDamageEffects.AllowUserToDeleteRows = false;
             this.dataGridViewDamageEffects.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewDamageEffects.AutoGenerateColumns = false;
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
@@ -702,7 +712,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(478, 86);
+            this.panel5.Size = new System.Drawing.Size(478, 131);
             this.panel5.TabIndex = 6;
             // 
             // panel2
@@ -713,7 +723,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(478, 61);
+            this.panel2.Size = new System.Drawing.Size(478, 106);
             this.panel2.TabIndex = 2;
             // 
             // label12
@@ -735,7 +745,7 @@
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRules.Size = new System.Drawing.Size(472, 29);
+            this.textBoxRules.Size = new System.Drawing.Size(472, 74);
             this.textBoxRules.TabIndex = 1;
             // 
             // toolStrip4
@@ -761,12 +771,12 @@
             this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 327);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 381);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(484, 184);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(484, 275);
             this.tableLayoutPanel2.TabIndex = 31;
             // 
             // toolStrip5
@@ -801,12 +811,84 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
+            // panel7
+            // 
+            this.panel7.AutoSize = true;
+            this.panel7.Controls.Add(this.panelProfileModifier);
+            this.panel7.Controls.Add(this.toolStrip6);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 327);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(484, 54);
+            this.panel7.TabIndex = 32;
+            // 
+            // panelProfileModifier
+            // 
+            this.panelProfileModifier.AutoSize = true;
+            this.panelProfileModifier.Controls.Add(this.textBoxProfileModifier);
+            this.panelProfileModifier.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProfileModifier.Location = new System.Drawing.Point(0, 25);
+            this.panelProfileModifier.Name = "panelProfileModifier";
+            this.panelProfileModifier.Padding = new System.Windows.Forms.Padding(5);
+            this.panelProfileModifier.Size = new System.Drawing.Size(484, 29);
+            this.panelProfileModifier.TabIndex = 46;
+            // 
+            // textBoxProfileModifier
+            // 
+            this.textBoxProfileModifier.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProfileModifier.Location = new System.Drawing.Point(6, 8);
+            this.textBoxProfileModifier.Name = "textBoxProfileModifier";
+            this.textBoxProfileModifier.ReadOnly = true;
+            this.textBoxProfileModifier.Size = new System.Drawing.Size(472, 13);
+            this.textBoxProfileModifier.TabIndex = 45;
+            // 
+            // toolStrip6
+            // 
+            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonProfileMod,
+            this.toolStripLabel5,
+            this.toolStripButtonProfileModEditor});
+            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip6.Name = "toolStrip6";
+            this.toolStrip6.Size = new System.Drawing.Size(484, 25);
+            this.toolStrip6.TabIndex = 0;
+            this.toolStrip6.Text = "toolStrip6";
+            // 
+            // toolStripButtonProfileMod
+            // 
+            this.toolStripButtonProfileMod.CheckOnClick = true;
+            this.toolStripButtonProfileMod.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonProfileMod.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.toolStripButtonProfileMod.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonProfileMod.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonProfileMod.Name = "toolStripButtonProfileMod";
+            this.toolStripButtonProfileMod.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonProfileMod.Click += new System.EventHandler(this.toolStripButtonProfileMod_Click);
+            // 
+            // toolStripLabel5
+            // 
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(115, 22);
+            this.toolStripLabel5.Text = "Profil-Modifikatoren";
+            // 
+            // toolStripButtonProfileModEditor
+            // 
+            this.toolStripButtonProfileModEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonProfileModEditor.Image = global::Universalis.Properties.Resources.pencil;
+            this.toolStripButtonProfileModEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonProfileModEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonProfileModEditor.Name = "toolStripButtonProfileModEditor";
+            this.toolStripButtonProfileModEditor.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonProfileModEditor.Text = "editieren";
+            this.toolStripButtonProfileModEditor.Click += new System.EventHandler(this.toolStripButtonProfileModEditor_Click);
+            // 
             // WeaponEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 511);
+            this.ClientSize = new System.Drawing.Size(484, 656);
             this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip5);
@@ -855,6 +937,12 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.toolStrip5.ResumeLayout(false);
             this.toolStrip5.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panelProfileModifier.ResumeLayout(false);
+            this.panelProfileModifier.PerformLayout();
+            this.toolStrip6.ResumeLayout(false);
+            this.toolStrip6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -924,5 +1012,12 @@
         private System.Windows.Forms.TextBox textBoxPoints;
         private System.Windows.Forms.CheckBox checkBoxReloadable;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panelProfileModifier;
+        private System.Windows.Forms.TextBox textBoxProfileModifier;
+        private System.Windows.Forms.ToolStrip toolStrip6;
+        private System.Windows.Forms.ToolStripButton toolStripButtonProfileMod;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel5;
+        private System.Windows.Forms.ToolStripButton toolStripButtonProfileModEditor;
     }
 }
