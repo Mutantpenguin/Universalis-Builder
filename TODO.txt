@@ -28,14 +28,7 @@ Fraktion:
 	- Liste mit Namen hinterlegen können die in "Groups" zufällig "zusammengebaut" werden
 
 "Archetypen" einführen
-- Haben
-	- Typ -> Editor
-	- Attribute
-	- TP
-	- Größe -> Editor
-	- BW
-	- BW-Art -> Editor
-- werden pro Fraktion definiert
+- GB und WB anzeigen
 
 
 
