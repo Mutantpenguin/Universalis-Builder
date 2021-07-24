@@ -97,7 +97,7 @@ namespace Universalis
 
             if( HitPoints != 0 )
             {
-                text += $"TP {Formatter.Modifier( HitPoints )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"TP {Formatter.Modifier( HitPoints )}";
             }
 
             if( AttributeModifier != null )
