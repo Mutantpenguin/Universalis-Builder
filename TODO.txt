@@ -29,9 +29,6 @@ Universe:
 Für alle Objekte:
 	- White- und Blacklist für Fraktionen?
 
-Waffen:
-	- brauchen AttributeModifier
-
 Fraktion:
 	- Liste mit Namen hinterlegen können die in "Groups" zufällig "zusammengebaut" werden
 
