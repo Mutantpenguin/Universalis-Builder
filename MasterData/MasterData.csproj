@@ -152,16 +152,16 @@
     <Compile Include="Source\MasterData\DamageEffect\DamageEffectEditorForm.Designer.cs">
       <DependentUpon>DamageEffectEditorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\MasterData\SelectionForms\DamageTypeSelectionForm.cs">
+    <Compile Include="Source\Misc\DamageTypeSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\MasterData\SelectionForms\DamageTypeSelectionForm.Designer.cs">
+    <Compile Include="Source\Misc\DamageTypeSelectionForm.Designer.cs">
       <DependentUpon>DamageTypeSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\MasterData\SelectionForms\DamageEffectSelectionForm.cs">
+    <Compile Include="Source\Misc\DamageEffectSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\MasterData\SelectionForms\DamageEffectSelectionForm.Designer.cs">
+    <Compile Include="Source\Misc\DamageEffectSelectionForm.Designer.cs">
       <DependentUpon>DamageEffectSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\MasterData\Equipment\EquipmentEditorForm.cs">
@@ -266,10 +266,10 @@
       <DependentUpon>DamageEffectEditorForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterData\SelectionForms\DamageTypeSelectionForm.resx">
+    <EmbeddedResource Include="Source\Misc\DamageTypeSelectionForm.resx">
       <DependentUpon>DamageTypeSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterData\SelectionForms\DamageEffectSelectionForm.resx">
+    <EmbeddedResource Include="Source\Misc\DamageEffectSelectionForm.resx">
       <DependentUpon>DamageEffectSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\Equipment\EquipmentEditorForm.resx">
