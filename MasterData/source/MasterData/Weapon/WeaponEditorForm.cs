@@ -98,6 +98,12 @@ namespace Universalis
                 return ( false );
             }
 
+            if( weapon.UseOnce && ( weapon.ProfileModifier != null ) )
+            {
+                MessageBox.Show( "Einmalnutzung darf nicht mit Profil-Modifikatoren kombiniert werden!" );
+                return ( false );
+            }
+
             return ( true );
         }
 
