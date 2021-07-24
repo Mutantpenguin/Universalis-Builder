@@ -41,6 +41,15 @@ namespace Universalis
             DamageEffectList.Clear();
             DamageEffectList.AddRange( weapon.DamageEffectList );
 
+            if( null != weapon.ProfileModifier )
+            {
+                ProfileModifier = new ProfileModifier( weapon.ProfileModifier );
+            }
+            else
+            {
+                ProfileModifier = null;
+            }
+
             if( null != weapon.WeaponRange )
             {
                 WeaponRange = new WeaponRange
@@ -125,6 +134,24 @@ namespace Universalis
             foreach( DamageEffect damageEffect in weapon.DamageEffectList )
             {
                 if( DamageEffectList.Find( x => x.Equals( damageEffect ) ) == null )
+                {
+                    return ( false );
+                }
+            }
+
+            if( ( null != ProfileModifier ) && ( null == weapon.ProfileModifier ) )
+            {
+                return ( false );
+            }
+
+            if( ( null == ProfileModifier ) && ( null != weapon.ProfileModifier ) )
+            {
+                return ( false );
+            }
+
+            if( ( null != ProfileModifier ) && ( null != weapon.ProfileModifier ) )
+            {
+                if( !ProfileModifier.Equals( weapon.ProfileModifier ) )
                 {
                     return ( false );
                 }
@@ -278,6 +305,12 @@ namespace Universalis
 
         [ JsonConverter( typeof( JsonDamageEffectListConverter ) ) ]
         public List<DamageEffect> DamageEffectList
+        {
+            get;
+            set;
+        }
+
+        public ProfileModifier ProfileModifier
         {
             get;
             set;
@@ -491,6 +524,11 @@ namespace Universalis
                 {
                     points *= Costs.WeaponDamageEffectMultiplicator;
                 }
+            }
+
+            if( ProfileModifier != null )
+            {
+                points += ProfileModifier.Points();
             }
 
             if( Unwieldy )
