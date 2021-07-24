@@ -9,10 +9,7 @@ namespace Universalis
 {
     public class ProfileModifier
     {
-        public ProfileModifier()
-        {
-            AttributeModifier = new AttributeModifier();
-        }
+        public ProfileModifier() { }
 
         public ProfileModifier( ProfileModifier profileModifier )
         {
@@ -20,6 +17,28 @@ namespace Universalis
             HitPoints = profileModifier.HitPoints;
 
             AttributeModifier = new AttributeModifier( profileModifier.AttributeModifier );
+        }
+
+        public bool Equals( ProfileModifier profileModifier )
+        {
+            if( null == profileModifier )
+            {
+                throw new ArgumentNullException( nameof( profileModifier ) );
+            }
+
+            if( Speed != profileModifier.Speed
+                ||
+                HitPoints != profileModifier.HitPoints )
+            {
+                return ( false );
+            }
+
+            if( !AttributeModifier.Equals( profileModifier.AttributeModifier ) )
+            {
+                return ( false );
+            }
+
+            return ( true );
         }
 
         public int Speed
@@ -38,7 +57,7 @@ namespace Universalis
         {
             get;
             set;
-        }
+        } = new AttributeModifier();
 
         public void Add( ProfileModifier modifier )
         {
