@@ -1,7 +1,5 @@
 ProfileModifier:
-- In Tooltips einbauen für ActorEditor
-  - Armor
-  - Weapon
+- Waffen dürfen nicht UseOnce sein, und einen ProfileModifier haben
 
 TODO
 - Brauchen DamageEffects eine Description?
