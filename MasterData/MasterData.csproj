@@ -212,6 +212,13 @@
     <Compile Include="Source\MasterData\Weapon\WeaponManagerForm.Designer.cs">
       <DependentUpon>WeaponManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Misc\ImageFromProfileModifier.cs" />
+    <Compile Include="Source\Misc\ProfileModifierEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\ProfileModifierEditor.Designer.cs">
+      <DependentUpon>ProfileModifierEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Source\Helper\ArmorDisplayForm.resx">
@@ -309,6 +316,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Source\Misc\ProfileModifierEditor.resx">
+      <DependentUpon>ProfileModifierEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="masterdata.sh">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
