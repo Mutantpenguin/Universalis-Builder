@@ -22,16 +22,13 @@ namespace Universalis
                 toolStripButtonProfileMod.Checked = true;
                 toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
 
-                profileModifierBindingSource.DataSource = m_modifiedEquipment.ProfileModifier;
-                attributeModifierBindingSource.DataSource = m_modifiedEquipment.ProfileModifier.AttributeModifier;
+                textBoxProfileModifier.Text = m_modifiedEquipment.ProfileModifier.ToString();
             }
             else
             {
-                panelProfileMods.Enabled = false;
+                toolStripButtonProfileModEditor.Enabled = false;
+                panelProfileModifier.Visible = false;
             }
-
-            profileModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
-            attributeModifierBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
         }
 
         private void ChildBindingSource_CurrentItemChanged( object sender, EventArgs e )
@@ -82,10 +79,10 @@ namespace Universalis
 
                 m_modifiedEquipment.ProfileModifier = profileModifier;
 
-                profileModifierBindingSource.DataSource = profileModifier;
-                attributeModifierBindingSource.DataSource = profileModifier.AttributeModifier;
+                toolStripButtonProfileModEditor.Enabled = true;
+                panelProfileModifier.Visible = true;
 
-                panelProfileMods.Enabled = true;
+                openProfileModEditor();
             }
             else
             {
@@ -93,10 +90,8 @@ namespace Universalis
 
                 m_modifiedEquipment.ProfileModifier = null;
 
-                profileModifierBindingSource.DataSource = typeof( ProfileModifier );
-                attributeModifierBindingSource.DataSource = typeof( AttributeModifier );
-
-                panelProfileMods.Enabled = false;
+                toolStripButtonProfileModEditor.Enabled = false;
+                panelProfileModifier.Visible = false;
             }
         }
 
@@ -153,6 +148,25 @@ namespace Universalis
             using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithEquipment( m_originalEquipment ) ) )
             {
                 actorDisplay.ShowDialog( this );
+            }
+        }
+
+        private void toolStripButtonProfileModEditor_Click( object sender, EventArgs e )
+        {
+            openProfileModEditor();
+        }
+
+        private void openProfileModEditor()
+        {
+            var armor = (Equipment)equipmentBindingSource.DataSource;
+
+            var profileModifierEditor = new ProfileModifierEditor( armor.ProfileModifier );
+
+            if( profileModifierEditor.ShowDialog( this ) == DialogResult.OK )
+            {
+                armor.ProfileModifier = profileModifierEditor.ProfileModifier;
+                textBoxProfileModifier.Text = armor.ProfileModifier.ToString();
+                equipmentBindingSource.ResetBindings( false );
             }
         }
     }
