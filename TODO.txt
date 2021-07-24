@@ -1,6 +1,3 @@
-ProfileModifier:
-- Waffen dürfen nicht UseOnce sein, und einen ProfileModifier haben
-
 TODO
 - Brauchen DamageEffects eine Description?
 - Additive Trefferpunkte in der Ausrüstung! Also positiv und negativ.
