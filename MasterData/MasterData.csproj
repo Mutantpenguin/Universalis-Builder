@@ -212,7 +212,6 @@
     <Compile Include="Source\MasterData\Weapon\WeaponManagerForm.Designer.cs">
       <DependentUpon>WeaponManagerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Misc\ImageFromProfileModifier.cs" />
     <Compile Include="Source\Misc\ProfileModifierEditor.cs">
       <SubType>Form</SubType>
     </Compile>

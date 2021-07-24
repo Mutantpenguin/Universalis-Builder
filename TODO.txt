@@ -1,7 +1,6 @@
 TODO
 - Brauchen DamageEffects eine Description?
 - Additive Trefferpunkte in der Ausrüstung! Also positiv und negativ.
-  - In die neue GUI für Profile-Modifier einbauen
   - In die Übersichten einbauen
     - Armor
 	- Equipment
@@ -32,9 +31,9 @@ Fraktion:
 	- Liste mit Namen hinterlegen können die in "Groups" zufällig "zusammengebaut" werden
 
 AttributeModifier:
-	- sind irgendwie überall in der GUI ziemlich buggy
-	- in eigenen Dialog auslagern, diesen überall einbinden
-	  - Anzeige als schönes Bitmap?
+	- in eigenen Dialog auslagern, und einbinden
+	  - Equipment
+	  - Weapon
 
 "Archetypen" einführen
 - Haben
