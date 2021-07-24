@@ -24,6 +24,19 @@ namespace Universalis
 
             weaponBindingSource.DataSource = modifiedWeapon;
 
+            if( null != modifiedWeapon.ProfileModifier )
+            {
+                toolStripButtonProfileMod.Checked = true;
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
+
+                textBoxProfileModifier.Text = modifiedWeapon.ProfileModifier.ToString();
+            }
+            else
+            {
+                toolStripButtonProfileModEditor.Enabled = false;
+                panelProfileModifier.Visible = false;
+            }
+
             weaponRangeBindingSource.DataSource = modifiedWeapon.WeaponRange;
 
             comboBoxWK.DataSource = Weapon.EClassList;
@@ -276,6 +289,53 @@ namespace Universalis
             using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithWeapon( m_originalWeapon ) ) )
             {
                 actorDisplay.ShowDialog( this );
+            }
+        }
+
+        private void toolStripButtonProfileMod_Click( object sender, EventArgs e )
+        {
+            var weapon = (Weapon)weaponBindingSource.DataSource;
+
+            if( toolStripButtonProfileMod.Checked )
+            {
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
+
+                var profileModifier = new ProfileModifier();
+
+                weapon.ProfileModifier = profileModifier;
+
+                toolStripButtonProfileModEditor.Enabled = true;
+                panelProfileModifier.Visible = true;
+
+                openProfileModEditor();
+            }
+            else
+            {
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box_uncheck;
+
+                weapon.ProfileModifier = null;
+
+                toolStripButtonProfileModEditor.Enabled = false;
+                panelProfileModifier.Visible = false;
+            }
+        }
+
+        private void toolStripButtonProfileModEditor_Click( object sender, EventArgs e )
+        {
+            openProfileModEditor();
+        }
+
+        private void openProfileModEditor()
+        {
+            var armor = (Weapon)weaponBindingSource.DataSource;
+
+            var profileModifierEditor = new ProfileModifierEditor( armor.ProfileModifier );
+
+            if( profileModifierEditor.ShowDialog( this ) == DialogResult.OK )
+            {
+                armor.ProfileModifier = profileModifierEditor.ProfileModifier;
+                textBoxProfileModifier.Text = armor.ProfileModifier.ToString();
+                weaponBindingSource.ResetBindings( false );
             }
         }
     }

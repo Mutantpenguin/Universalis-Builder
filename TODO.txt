@@ -35,11 +35,6 @@ Waffen:
 Fraktion:
 	- Liste mit Namen hinterlegen können die in "Groups" zufällig "zusammengebaut" werden
 
-AttributeModifier:
-	- in eigenen Dialog auslagern, und einbinden
-	  - Equipment
-	  - Weapon
-
 "Archetypen" einführen
 - Haben
 	- Typ -> Editor
