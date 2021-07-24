@@ -2,6 +2,10 @@ TODO
 - Brauchen DamageEffects eine Description?
 - Additive Trefferpunkte in der Ausrüstung! Also positiv und negativ.
   - In die neue GUI für Profile-Modifier einbauen
+  - In die Übersichten einbauen
+    - Armor
+	- Equipment
+	- Weapon (sobald hier überhaupt verfügbar)
   - Höhere Punktkosten für Trefferpunkte in Ausrüstung, wenn Modell ein Koloss ist?
 
 Universe:
