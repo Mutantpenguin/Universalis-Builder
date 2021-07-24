@@ -92,12 +92,12 @@ namespace Universalis
 
             if( Speed != 0 )
             {
-                text += $"Geschwindigkeit {Formatter.Modifier( Speed )}";
+                text += $"GK {Formatter.Modifier( Speed )}";
             }
 
             if( HitPoints != 0 )
             {
-                text += $"Trefferpunkte {Formatter.Modifier( HitPoints )}";
+                text += $"TP {Formatter.Modifier( HitPoints )}";
             }
 
             if( AttributeModifier != null )
