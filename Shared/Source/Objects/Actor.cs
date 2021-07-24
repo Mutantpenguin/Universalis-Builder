@@ -772,6 +772,11 @@ namespace Universalis
 
             if( actorOutfit != null )
             {
+                foreach( ActorWeapon actorWeapon in actorOutfit.ActorWeaponsList.Where( x => !x.Weapon.UseOnce ) )
+                {
+                    modifier.Add( actorWeapon.Weapon.ProfileModifier );
+                }
+
                 foreach( ActorEquipment actorEquipment in actorOutfit.ActorEquipmentList.Where( x => !x.Equipment.UseOnce ) )
                 {
                     modifier.Add( actorEquipment.Equipment.ProfileModifier );
