@@ -1,3 +1,8 @@
+ProfileModifier:
+- In Tooltips einbauen für ActorEditor
+  - Armor
+  - Weapon
+
 TODO
 - Brauchen DamageEffects eine Description?
 - Additive Trefferpunkte in der Ausrüstung! Also positiv und negativ.
