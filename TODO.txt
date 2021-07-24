@@ -7,7 +7,7 @@ TODO
   - In die Übersichten einbauen
     - Armor
 	- Equipment
-	- Weapon (sobald hier überhaupt verfügbar)
+	- Weapon
   - Höhere Punktkosten für Trefferpunkte in Ausrüstung, wenn Modell ein Koloss ist?
 
 Universe:
