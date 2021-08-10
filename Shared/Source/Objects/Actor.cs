@@ -569,28 +569,12 @@ namespace Universalis
         #region calculated values
         public int? ModDangerArea( ActorOutfit actorOutfit )
         {
-            if( this.Archetype.Profile.Type == Profile.EType.Drohne )
-            {
-                return ( null );
-            }
-            else
-            {
-                int lengthDangerArea = Presets.MaxLengthDangerArea - Archetype.Profile.Attributes.ModEH( CurrentProfileModifier( actorOutfit ).AttributeModifier );
-
-                if( lengthDangerArea < 0 )
-                {
-                    return ( 0 );
-                }
-                else
-                {
-                    return ( lengthDangerArea );
-                }
-            }
+            return ( Archetype.Profile.DangerArea( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
         }
 
         public int ModAreaOfPerception( ActorOutfit actorOutfit )
         {
-            return ( Presets.AreaOfPerceptionMultiplier * Archetype.Profile.Attributes.ModWN( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+            return ( Archetype.Profile.AreaOfPerception( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
         }
 
         public static string ThrowRange( int attributeKO, bool unwieldy )
