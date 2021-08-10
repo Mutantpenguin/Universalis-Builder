@@ -232,5 +232,31 @@ namespace Universalis
                 return ( Attributes.KO * typeMultiplicator * sizeMultiplicator );
             }
         }
+
+        public int? DangerArea( AttributeModifier modifier )
+        {
+            if( Type == EType.Drohne )
+            {
+                return ( null );
+            }
+            else
+            {
+                int lengthDangerArea = Presets.MaxLengthDangerArea - Attributes.ModEH( modifier );
+
+                if( lengthDangerArea < 0 )
+                {
+                    return ( 0 );
+                }
+                else
+                {
+                    return ( lengthDangerArea );
+                }
+            }
+        }
+
+        public int AreaOfPerception( AttributeModifier modifier )
+        {
+            return ( Presets.AreaOfPerceptionMultiplier * Attributes.ModWN( modifier ) );
+        }
     }
 }

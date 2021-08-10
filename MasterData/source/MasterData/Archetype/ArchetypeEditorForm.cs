@@ -11,37 +11,42 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
+            profileBindingSource.CurrentItemChanged += ProfileBindingSource_CurrentItemChanged;
+            attributeBindingSource.CurrentItemChanged += AttributeBindingSource_CurrentItemChanged;
+
             m_originalArchetype = archetype;
 
             m_modifiedArchetype = new Archetype( archetype );
-
-            // fill the combobox for the size
-            comboBoxSize.DataSource = Profile.ESizeList;
-
-            // fill the combobox for the type
-            comboBoxType.DataSource = Profile.ETypeList;
-
-            // fill the combobox for the MovementType
-            comboBoxMovementType.DataSource = Enum.GetValues( typeof( EMovementType ) );
-
-            // fill the combobox for the FieldOfView
-            comboBoxFOV.DataSource = Enum.GetValues( typeof( EFieldOfView ) );
 
             archetypeBindingSource.DataSource = m_modifiedArchetype;
             profileBindingSource.DataSource = m_modifiedArchetype.Profile;
             attributeBindingSource.DataSource = m_modifiedArchetype.Profile.Attributes;
 
-            profileBindingSource.CurrentItemChanged += ProfileBindingSource_CurrentItemChanged;
-            attributeBindingSource.CurrentItemChanged += AttributeBindingSource_CurrentItemChanged;
+            // fill the combobox for the size
+            comboBoxSize.DataSource = Profile.ESizeList;
+            comboBoxSize.SelectedItem = archetype.Profile.Size;
 
-            Setup();
+            // fill the combobox for the type
+            comboBoxType.DataSource = Profile.ETypeList;
+            comboBoxType.SelectedItem = archetype.Profile.Type;
 
-            // TODO show GB and WB
+            // fill the combobox for the MovementType
+            comboBoxMovementType.DataSource = Enum.GetValues( typeof( EMovementType ) );
+            comboBoxMovementType.SelectedItem = archetype.Profile.MovementType;
+
+            // fill the combobox for the FieldOfView
+            comboBoxFOV.DataSource = Enum.GetValues( typeof( EFieldOfView ) );
+            comboBoxFOV.SelectedItem = archetype.Profile.Fov;
+
+            TypeDependantFields();
         }
 
         private void ProfileBindingSource_CurrentItemChanged( object sender, EventArgs e )
         {
             archetypeBindingSource.ResetCurrentItem();
+
+            AreaOfPerception.Text = Convert.ToString( ( (Profile)profileBindingSource.DataSource ).AreaOfPerception( new AttributeModifier() ) );
+            DangerArea.Text = Convert.ToString( ( (Profile)profileBindingSource.DataSource ).DangerArea( new AttributeModifier() ) );
         }
 
         private void AttributeBindingSource_CurrentItemChanged( object sender, EventArgs e )
@@ -213,52 +218,94 @@ namespace Universalis
             }
         }
 
-        private void comboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
+        private void TypeDependantFields()
         {
-            // TODO set attributes AGI, NK, FK and EH to 0 when it is a drone and lock the fields
-            // TODO drone: hide dangerarea
-
-            Setup();
-
             if( Profile.EType.Drohne == (Profile.EType)comboBoxType.SelectedItem )
             {
+                numericUpDownAGI.Minimum = 0;
+                numericUpDownNK.Minimum = 0;
+                numericUpDownFK.Minimum = 0;
+                numericUpDownEH.Minimum = 0;
+
                 numericUpDownAGI.Value = 0;
                 numericUpDownNK.Value = 0;
                 numericUpDownFK.Value = 0;
                 numericUpDownEH.Value = 0;
             }
-
-            //attributeBindingSource.ResetCurrentItem();
-        }
-
-        private void Setup()
-        {
-            if( Profile.EType.Drohne == (Profile.EType)comboBoxType.SelectedItem )
-            {
-                var attributes = m_modifiedArchetype.Profile.Attributes;
-
-                numericUpDownAGI.Enabled = false;
-                numericUpDownNK.Enabled = false;
-                numericUpDownFK.Enabled = false;
-                numericUpDownEH.Enabled = false;
-
-                numericUpDownAGI.Minimum = 0;
-                numericUpDownNK.Minimum = 0;
-                numericUpDownFK.Minimum = 0;
-                numericUpDownEH.Minimum = 0;
-            }
             else
             {
-                numericUpDownAGI.Enabled = true;
-                numericUpDownNK.Enabled = true;
-                numericUpDownFK.Enabled = true;
-                numericUpDownEH.Enabled = true;
-
                 numericUpDownAGI.Minimum = 1;
                 numericUpDownNK.Minimum = 1;
                 numericUpDownFK.Minimum = 1;
                 numericUpDownEH.Minimum = 1;
+
+                var attributes = m_originalArchetype.Profile.Attributes;
+
+                numericUpDownAGI.Value = attributes.AGI;
+                numericUpDownNK.Value = attributes.NK;
+                numericUpDownFK.Value = attributes.FK;
+                numericUpDownEH.Value = attributes.EH;
             }
+        }
+
+        private void comboBoxType_SelectedValueChanged( object sender, EventArgs e )
+        {
+            Profile profile = (Profile)profileBindingSource.DataSource;
+
+            switch( profile.Type )
+            {
+                case Profile.EType.Drohne:
+                    DangerArea.Visible = false;
+                    labelGB.Visible = false;
+
+                    numericUpDownAGI.Enabled = false;
+                    numericUpDownNK.Enabled = false;
+                    numericUpDownFK.Enabled = false;
+                    numericUpDownEH.Enabled = false;
+
+                    break;
+
+                default:
+                    DangerArea.Visible = true;
+                    labelGB.Visible = true;
+
+                    numericUpDownAGI.Enabled = true;
+                    numericUpDownNK.Enabled = true;
+                    numericUpDownFK.Enabled = true;
+                    numericUpDownEH.Enabled = true;
+
+                    break;
+            }
+        }
+
+        private void comboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            ( (Profile)profileBindingSource.DataSource ).Type = (Profile.EType)comboBoxType.SelectedItem;
+
+            profileBindingSource.ResetCurrentItem();
+
+            TypeDependantFields();
+        }
+
+        private void comboBoxSize_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            ( (Profile)profileBindingSource.DataSource ).Size = (Profile.ESize)comboBoxSize.SelectedItem;
+
+            profileBindingSource.ResetCurrentItem();
+        }
+
+        private void comboBoxMovementType_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            ( (Profile)profileBindingSource.DataSource ).MovementType = (EMovementType)comboBoxMovementType.SelectedItem;
+
+            profileBindingSource.ResetCurrentItem();
+        }
+
+        private void comboBoxFOV_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            ( (Profile)profileBindingSource.DataSource ).Fov = (EFieldOfView)comboBoxFOV.SelectedItem;
+
+            profileBindingSource.ResetCurrentItem();
         }
     }
 }
