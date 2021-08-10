@@ -22,7 +22,8 @@ Universe:
 	- website
 
 Für alle Objekte:
-	- White- und Blacklist für Fraktionen?
+	- White- und Blacklist für Fraktionen
+	- White- und Blacklist für Archetyp Typen
 
 Fraktion:
 	- Liste mit Namen hinterlegen können die in "Groups" zufällig "zusammengebaut" werden
