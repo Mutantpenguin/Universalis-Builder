@@ -1,5 +1,4 @@
 TODO
-- Brauchen DamageEffects eine Description?
 - Additive Trefferpunkte in der Ausrüstung! Also positiv und negativ.
   - In die Übersichten einbauen
     - Armor
@@ -27,6 +26,7 @@ Für alle Objekte:
 	- White- und Blacklist für Fraktionen
 	- White- und Blacklist für Archetyp Typen
 	- White- und Blacklist für Archetyp Größen
+	- Mindestanforderungen? Also z.B. mindestens AGI 5?
 
 Fraktion:
 	- Liste mit Namen hinterlegen können die in "Groups" zufällig "zusammengebaut" werden
