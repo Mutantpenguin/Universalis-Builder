@@ -7,15 +7,7 @@ namespace Universalis
 {
     public class TraitLevel
     {
-        public enum ELevel
-        {
-            Kein = 0,
-            I = 1,
-            II = 2,
-            III = 3
-        }
-
-        public static readonly IList<ELevel> ELevelList = Enum.GetValues( typeof( ELevel ) ).Cast<ELevel>().ToList().AsReadOnly();
+        public static readonly IList<uint> LevelList = Enumerable.Range( 0, 21 ).Select( x => (uint)x ).ToList();
 
         public TraitLevel() {}
 
@@ -42,11 +34,11 @@ namespace Universalis
             return ( true );
         }
 
-        public ELevel Level
+        public uint Level
         {
             get;
             set;
-        } = ELevel.Kein;
+        } = 0;
 
         public int Points
         {
@@ -183,7 +175,7 @@ namespace Universalis
         } = new List<TraitLevel>();
 
         [JsonIgnore]
-        public TraitLevel.ELevel MinLevel
+        public uint MinLevel
         {
             get
             {
@@ -196,7 +188,7 @@ namespace Universalis
         {
             get
             {
-                int minLevel = TraitLevelList.Min( x => (int)x.Level );
+                uint minLevel = TraitLevelList.Min( x => x.Level );
 
                 if( minLevel == 0 )
                 {
@@ -204,7 +196,7 @@ namespace Universalis
                 }
                 else
                 {
-                    int maxLevel = TraitLevelList.Max( x => (int)x.Level );
+                    uint maxLevel = TraitLevelList.Max( x => x.Level );
 
                     if( minLevel == maxLevel )
                     {
@@ -237,14 +229,14 @@ namespace Universalis
             }
         }
 
-        public int Points( TraitLevel.ELevel level )
+        public int Points( uint level )
         {
             return ( TraitLevelList.Find( x => x.Level == level ).Points );
         }
 
-        public string RulesWithLevel( TraitLevel.ELevel lvl )
+        public string RulesWithLevel( uint lvl )
         {
-            if( lvl == TraitLevel.ELevel.Kein )
+            if( lvl == 0 )
             {
                 return ( this.Rules.Replace( LevelString, "X" ) );
             }

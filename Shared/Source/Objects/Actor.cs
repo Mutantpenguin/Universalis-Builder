@@ -374,7 +374,7 @@ namespace Universalis
                 set;
             } = Guid.NewGuid();
 
-            public TraitLevel.ELevel Level
+            public uint Level
             {
                 get;
                 set;

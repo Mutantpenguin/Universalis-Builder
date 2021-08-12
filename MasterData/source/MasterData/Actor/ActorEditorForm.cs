@@ -20,7 +20,7 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
-            eTraitLevelBindingSource.DataSource = TraitLevel.ELevelList;
+            traitLevelBindingSource.DataSource = TraitLevel.LevelList;
 
             archetypeBindingSource.DataSource = m_actorModified.Archetype;
 
