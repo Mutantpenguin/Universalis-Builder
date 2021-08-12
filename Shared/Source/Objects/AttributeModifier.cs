@@ -11,9 +11,9 @@ namespace Universalis
         public AttributeModifier( AttributeModifier attributeModifier )
         {
             AGI = attributeModifier.AGI;
-            KO = attributeModifier.KO;
             NK = attributeModifier.NK;
             FK = attributeModifier.FK;
+            KO = attributeModifier.KO;
             WN = attributeModifier.WN;
             EH = attributeModifier.EH;
         }
@@ -27,11 +27,11 @@ namespace Universalis
 
             if( AGI != attributeModifier.AGI
                 ||
-                KO != attributeModifier.KO
-                ||
                 NK != attributeModifier.NK
                 ||
                 FK != attributeModifier.FK
+                ||
+                KO != attributeModifier.KO
                 ||
                 WN != attributeModifier.WN
                 ||
@@ -52,11 +52,6 @@ namespace Universalis
                 text += $"AGI {Formatter.Modifier( AGI )}";
             }
 
-            if( KO != 0 )
-            {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KO {Formatter.Modifier( KO )}";
-            }
-
             if( NK != 0 )
             {
                 text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"NK {Formatter.Modifier( NK )}";
@@ -65,6 +60,11 @@ namespace Universalis
             if( FK != 0 )
             {
                 text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"FK {Formatter.Modifier( FK )}";
+            }
+
+            if( KO != 0 )
+            {
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KO {Formatter.Modifier( KO )}";
             }
 
             if( WN != 0 )
@@ -85,9 +85,9 @@ namespace Universalis
             if( null != modifier )
             {
                 AGI += modifier.AGI;
-                KO += modifier.KO;
                 NK += modifier.NK;
                 FK += modifier.FK;
+                KO += modifier.KO;
                 WN += modifier.WN;
                 EH += modifier.EH;
             }
@@ -99,9 +99,9 @@ namespace Universalis
 
             // TODO higher costs for modifiers?
             points += AGI * Costs.AGI;
-            points += KO * Costs.KO;
             points += NK * Costs.NK;
             points += FK * Costs.FK;
+            points += KO * Costs.KO;
             points += WN * Costs.WN;
             points += EH * Costs.EH;
 
