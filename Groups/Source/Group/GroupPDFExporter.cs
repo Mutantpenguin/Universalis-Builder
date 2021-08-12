@@ -368,7 +368,7 @@ namespace Universalis
                                                                                         .Where( x => !String.IsNullOrEmpty( x.Trait.Rules ) )
                                                                                         .OrderBy( x => x.Name ) )
                 {
-                    if( actorTrait.Level != TraitLevel.ELevel.Kein )
+                    if( actorTrait.Level != 0 )
                     {
                         flipsideBlocks.Add( new flipsideBlock() { Name = actorTrait.Name + " " + actorTrait.Level, Rules = actorTrait.Trait.RulesWithLevel( actorTrait.Level ) } );
                     }

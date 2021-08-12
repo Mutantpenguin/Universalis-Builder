@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxType = new System.Windows.Forms.TextBox();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -49,7 +51,10 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewLevel = new System.Windows.Forms.DataGridView();
-            this.eTraitLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.levelDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.levelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traitLevelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonAddLevel = new System.Windows.Forms.ToolStripButton();
@@ -58,12 +63,8 @@
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
-            this.textBoxType = new System.Windows.Forms.TextBox();
-            this.levelDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traitLevelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -72,11 +73,10 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLevel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eTraitLevelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.levelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.traitLevelsBindingSource)).BeginInit();
             this.toolStrip4.SuspendLayout();
             this.toolStrip3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitLevelsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,6 +91,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(434, 41);
             this.panel1.TabIndex = 1;
+            // 
+            // textBoxType
+            // 
+            this.textBoxType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.traitBindingSource, "Type", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxType.Location = new System.Drawing.Point(392, 16);
+            this.textBoxType.Name = "textBoxType";
+            this.textBoxType.ReadOnly = true;
+            this.textBoxType.Size = new System.Drawing.Size(39, 22);
+            this.textBoxType.TabIndex = 5;
+            this.textBoxType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // label2
             // 
@@ -272,9 +287,34 @@
             this.dataGridViewLevel.TabIndex = 1;
             this.dataGridViewLevel.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewLevel_CurrentCellDirtyStateChanged);
             // 
-            // eTraitLevelBindingSource
+            // levelDataGridViewComboBoxColumn
             // 
-            this.eTraitLevelBindingSource.DataSource = typeof(Universalis.TraitLevel.ELevel);
+            this.levelDataGridViewComboBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.levelDataGridViewComboBoxColumn.DataPropertyName = "Level";
+            this.levelDataGridViewComboBoxColumn.DataSource = this.levelBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.levelDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.levelDataGridViewComboBoxColumn.HeaderText = "Stufe";
+            this.levelDataGridViewComboBoxColumn.Name = "levelDataGridViewComboBoxColumn";
+            this.levelDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.levelDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // levelBindingSource
+            // 
+            this.levelBindingSource.DataSource = typeof(uint);
+            // 
+            // pointsDataGridViewTextBoxColumn
+            // 
+            this.pointsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
+            // 
+            // traitLevelsBindingSource
+            // 
+            this.traitLevelsBindingSource.DataSource = typeof(Universalis.TraitLevel);
             // 
             // toolStrip4
             // 
@@ -362,46 +402,6 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
-            // textBoxType
-            // 
-            this.textBoxType.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.traitBindingSource, "Type", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxType.Location = new System.Drawing.Point(392, 16);
-            this.textBoxType.Name = "textBoxType";
-            this.textBoxType.ReadOnly = true;
-            this.textBoxType.Size = new System.Drawing.Size(39, 22);
-            this.textBoxType.TabIndex = 5;
-            this.textBoxType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // levelDataGridViewComboBoxColumn
-            // 
-            this.levelDataGridViewComboBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.levelDataGridViewComboBoxColumn.DataPropertyName = "Level";
-            this.levelDataGridViewComboBoxColumn.DataSource = this.eTraitLevelBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.levelDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.levelDataGridViewComboBoxColumn.HeaderText = "Stufe";
-            this.levelDataGridViewComboBoxColumn.Name = "levelDataGridViewComboBoxColumn";
-            this.levelDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.levelDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // pointsDataGridViewTextBoxColumn
-            // 
-            this.pointsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
-            // 
-            // traitLevelsBindingSource
-            // 
-            this.traitLevelsBindingSource.DataSource = typeof(Universalis.TraitLevel);
-            // 
-            // traitBindingSource
-            // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
-            // 
             // TraitEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +418,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TraitEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -431,13 +432,12 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLevel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eTraitLevelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.levelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.traitLevelsBindingSource)).EndInit();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitLevelsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,7 +468,7 @@
         private System.Windows.Forms.BindingSource traitLevelsBindingSource;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddLevel;
         private System.Windows.Forms.ToolStripButton toolStripButtonRemoveLevel;
-        private System.Windows.Forms.BindingSource eTraitLevelBindingSource;
+        private System.Windows.Forms.BindingSource levelBindingSource;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewComboBoxColumn levelDataGridViewComboBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;

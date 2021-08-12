@@ -12,7 +12,7 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
-            eTraitLevelBindingSource.DataSource = TraitLevel.ELevelList;
+            levelBindingSource.DataSource = TraitLevel.LevelList;
 
             m_originalTrait = trait;
 
@@ -56,23 +56,35 @@ namespace Universalis
                 }
             }
 
-            if( traitModified.TraitLevelList.Find( x => x.Level == TraitLevel.ELevel.Kein ) != null )
+            if( traitModified.TraitLevelList.Find( x => x.Level == 0 ) != null )
             {
-                if( traitModified.TraitLevelList.Find( x => x.Level != TraitLevel.ELevel.Kein ) != null )
+                if( traitModified.TraitLevelList.Find( x => x.Level != 0 ) != null )
                 {
-                    MessageBox.Show( $"Achtung, Sie haben die Stufe '{TraitLevel.ELevel.Kein.ToString()}' mit mindestens einer Anderen kombiniert!" );
+                    MessageBox.Show( $"Achtung, Sie haben die Stufe 0 mit mindestens einer Anderen kombiniert!" );
                     return ( false );
                 }
             }
             else
             {
-                foreach( TraitLevel.ELevel eLevel in TraitLevel.ELevelList )
+                foreach( uint level in TraitLevel.LevelList )
                 {
-                    if( traitModified.TraitLevelList.Count( x => x.Level == eLevel ) > 1 )
+                    if( traitModified.TraitLevelList.Count( x => x.Level == level ) > 1 )
                     {
-                        MessageBox.Show( $"Achtung, Sie haben die Stufe '{eLevel.ToString()}' mehr als 1 Mal verwendet!" );
+                        MessageBox.Show( $"Achtung, Sie haben die Stufe '{level}' mehr als 1 Mal verwendet!" );
                         return ( false );
                     }
+                }
+            }
+
+            var minLevel = traitModified.TraitLevelList.Min( x => x.Level );
+            var maxLevel = traitModified.TraitLevelList.Max( x => x.Level );
+
+            for( uint i = minLevel; i <= maxLevel; i++ )
+            {
+                if( !traitModified.TraitLevelList.Exists( x => x.Level == i ) )
+                {
+                    MessageBox.Show( $"Achtung, es fehlt die Stufe '{i}'!" );
+                    return ( false );
                 }
             }
 
@@ -180,20 +192,20 @@ namespace Universalis
             {
                 traitModified.TraitLevelList.Add( new TraitLevel()
                 {
-                    Level = TraitLevel.ELevel.Kein
+                    Level = 0
                 } );
 
                 updateLevels();
             }
             else
             {
-                foreach( TraitLevel.ELevel eLevel in TraitLevel.ELevelList.OrderBy( x => x ) )
+                foreach( var level in TraitLevel.LevelList.OrderBy( x => x ) )
                 {
-                    if( traitModified.TraitLevelList.Find( x => x.Level == eLevel ) == null )
+                    if( traitModified.TraitLevelList.Find( x => x.Level == level ) == null )
                     {
                         traitModified.TraitLevelList.Add( new TraitLevel()
                         {
-                            Level = eLevel
+                            Level = level
                         } );
                         updateLevels();
                         break;
