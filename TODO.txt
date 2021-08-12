@@ -5,31 +5,10 @@ TODO
 	- Equipment
 	- Weapon
   - Höhere Punktkosten für Trefferpunkte in Ausrüstung, wenn Modell ein Koloss ist?
-- Positive und Negative Mods auf kritischen Zustand
-- ProfileModifikatoren auf Eigenschaften?
 
 Universe:
 	- "section_pattern" ins Universe packen, damit jedes ein eigenes haben kann
 	- Font für PDF und Karte?
-
-Groups:
-	- im PDF: Inhalt für die Rückseite in einer Schleife erzeugen und solange verkleinern, bis alles passt. Mehr Spalten anzeigen wenn der Text sehr klein wird.
-	- Dateiname: nicht mehr irgendein random Name, stattdessen den Namen der Gruppe ausgeben?
-
-Universe:
-	- Logo mit in JSON aufnehmen?
-	- Author
-	- contact email address
-	- website
-
-Für alle Objekte:
-	- White- und Blacklist für Fraktionen
-	- White- und Blacklist für Archetyp Typen
-	- White- und Blacklist für Archetyp Größen
-	- Mindestanforderungen? Also z.B. mindestens AGI 5?
-
-Fraktion:
-	- Liste mit Namen hinterlegen können die in "Groups" zufällig "zusammengebaut" werden
 
 Aktivierungsreihenfolge in allen Masken
   - Manager erledigt
