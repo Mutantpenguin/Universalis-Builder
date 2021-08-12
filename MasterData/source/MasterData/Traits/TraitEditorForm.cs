@@ -20,8 +20,6 @@ namespace Universalis
 
             traitBindingSource.DataSource = modifiedTrait;
 
-            comboBoxType.SelectedItem = modifiedTrait.Type;
-
             updateLevels();
         }
 
@@ -140,11 +138,6 @@ namespace Universalis
             }
 
             dataGridViewLevel.ClearSelection();
-        }
-
-        private void comboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            ( (Trait)traitBindingSource.DataSource ).Type = (string)comboBoxType.SelectedItem;
         }
 
         private void dataGridViewLevel_CurrentCellDirtyStateChanged( object sender, EventArgs e )
