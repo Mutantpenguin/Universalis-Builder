@@ -1,9 +1,5 @@
 TODO
 - Additive Trefferpunkte in der Ausrüstung! Also positiv und negativ.
-  - In die Übersichten einbauen
-    - Armor
-	- Equipment
-	- Weapon
   - Höhere Punktkosten für Trefferpunkte in Ausrüstung, wenn Modell ein Koloss ist?
 
 Universe:
