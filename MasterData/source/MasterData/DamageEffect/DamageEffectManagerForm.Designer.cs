@@ -43,7 +43,7 @@
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UsageType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pointsRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageEffects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageEffectBindingSource)).BeginInit();
             this.toolStripCardManager.SuspendLayout();
@@ -63,7 +63,7 @@
             this.iconDataGridViewImageColumn,
             this.nameDataGridViewTextBoxColumn,
             this.UsageType,
-            this.pointsRangeDataGridViewTextBoxColumn});
+            this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewDamageEffects.DataSource = this.damageEffectBindingSource;
             this.dataGridViewDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDamageEffects.Location = new System.Drawing.Point(0, 25);
@@ -180,15 +180,15 @@
             this.UsageType.ReadOnly = true;
             this.UsageType.Width = 80;
             // 
-            // pointsRangeDataGridViewTextBoxColumn
+            // pointsDataGridViewTextBoxColumn
             // 
-            this.pointsRangeDataGridViewTextBoxColumn.DataPropertyName = "PointsRange";
+            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.pointsRangeDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.pointsRangeDataGridViewTextBoxColumn.Name = "pointsRangeDataGridViewTextBoxColumn";
-            this.pointsRangeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pointsRangeDataGridViewTextBoxColumn.Width = 80;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
+            this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pointsDataGridViewTextBoxColumn.Width = 80;
             // 
             // DamageEffectManagerForm
             // 
@@ -228,6 +228,6 @@
         private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn UsageType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pointsRangeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }
 }

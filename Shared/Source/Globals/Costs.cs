@@ -56,7 +56,7 @@ namespace Universalis
         public const float WeaponReloadMultiplicator = 0.7f;
         public const float WeaponIndirectFireMultiplicator = 1.4f;
 
-        public const float WeaponDamageEffectMultiplicator = 1.2f;
+        public const float WeaponDamageEffectMultiplicator = 1.1f;
         public const float WeaponAFMultiplicator = 1.1f;
         public const float WeaponAdditiveStrengthMultiplicator = 1.2f;
 
@@ -65,7 +65,7 @@ namespace Universalis
 
         public const float ArmorDamageTypeLevelMultiplicator = 1.3f;
 
-        public const float ArmorDamageEffectMultiplicator = 1.2f;
+        public const float ArmorDamageEffectMultiplicator = 1.1f;
 
         public const float ArmorSelfSustainingMultiplicator = 1.3f;
 
