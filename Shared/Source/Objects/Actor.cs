@@ -733,7 +733,17 @@ namespace Universalis
 
             if( null != ActorTraitsList )
             {
-                points += ActorTraitsList.Sum( x => x.Points );
+                var positiveTraits = ActorTraitsList.Where( x => x.Points >= 0 );
+                var negativeTraits = ActorTraitsList.Where( x => x.Points < 0 );
+
+                float positiveTraitsPoints = positiveTraits.Sum( x => x.Points );
+                float negativeTraitsPoints = negativeTraits.Sum( x => x.Points );
+
+                // scale points with the amount of different traits where negative traits have an diminishing effect
+                positiveTraitsPoints *= (float)Math.Pow( Costs.TraitsModifier, positiveTraits.Count() );
+                negativeTraitsPoints /= (float)Math.Pow( Costs.TraitsModifier, negativeTraits.Count() );
+
+                points += (int)positiveTraitsPoints + (int)negativeTraitsPoints;
             }
 
             if( actorOutfit != null )
