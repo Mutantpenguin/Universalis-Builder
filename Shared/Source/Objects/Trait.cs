@@ -57,7 +57,7 @@ namespace Universalis
 
     public class Trait
     {
-        public Trait() {}
+        public Trait() { }
 
         public Trait( Trait trait )
         {
@@ -74,7 +74,6 @@ namespace Universalis
             Name = trait.Name;
             Description = trait.Description;
             Rules = trait.Rules;
-            Type = trait.Type;
 
             if( null != TraitLevelList )
             {
@@ -105,9 +104,7 @@ namespace Universalis
                 ||
                 Description != trait.Description
                 ||
-                Rules != trait.Rules
-                ||
-                Type != trait.Type )
+                Rules != trait.Rules )
             {
                 return ( false );
             }
@@ -157,11 +154,27 @@ namespace Universalis
             set;
         } = "Bitte Regeln eingeben";
 
+        [JsonIgnore]
         public string Type
         {
-            get;
-            set;
-        } = "=";
+            get
+            {
+                var minPoints = TraitLevelList.Min( x => x.Points );
+
+                if( minPoints > 0 )
+                {
+                    return "+";
+                }
+                else if ( minPoints < 0 )
+                {
+                    return "-";
+                }
+                else
+                {
+                    return "=";
+                }
+            }
+        }
 
         public List<TraitLevel> TraitLevelList
         {
