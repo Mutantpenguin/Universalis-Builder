@@ -48,7 +48,16 @@
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewEquipment = new System.Windows.Forms.DataGridView();
+            this.equipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Unwieldy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.GKString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AGIString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NKString = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,17 +65,8 @@
             this.KOString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WNString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EHString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Unwieldy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.apDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEquipment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).BeginInit();
@@ -91,6 +91,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -167,6 +168,9 @@
             this.dataGridViewEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
+            this.apDataGridViewTextBoxColumn,
+            this.UseOnce,
+            this.Unwieldy,
             this.GKString,
             this.AGIString,
             this.NKString,
@@ -174,9 +178,6 @@
             this.KOString,
             this.WNString,
             this.EHString,
-            this.UseOnce,
-            this.Unwieldy,
-            this.apDataGridViewTextBoxColumn,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewEquipment.DataSource = this.equipmentBindingSource;
@@ -191,134 +192,6 @@
             this.dataGridViewEquipment.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEquipment_CellDoubleClick);
             this.dataGridViewEquipment.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewEquipment_CellToolTipTextNeeded);
             this.dataGridViewEquipment.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewEquipment_KeyDown);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // GKString
-            // 
-            this.GKString.DataPropertyName = "ProfileModifier.SpeedString";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.GKString.DefaultCellStyle = dataGridViewCellStyle2;
-            this.GKString.HeaderText = "GK";
-            this.GKString.Name = "GKString";
-            this.GKString.ReadOnly = true;
-            this.GKString.Width = 35;
-            // 
-            // AGIString
-            // 
-            this.AGIString.DataPropertyName = "ProfileModifier.AttributeModifier.AGIString";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.AGIString.DefaultCellStyle = dataGridViewCellStyle3;
-            this.AGIString.HeaderText = "AGI";
-            this.AGIString.Name = "AGIString";
-            this.AGIString.ReadOnly = true;
-            this.AGIString.Width = 35;
-            // 
-            // NKString
-            // 
-            this.NKString.DataPropertyName = "ProfileModifier.AttributeModifier.NKString";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.NKString.DefaultCellStyle = dataGridViewCellStyle4;
-            this.NKString.HeaderText = "NK";
-            this.NKString.Name = "NKString";
-            this.NKString.ReadOnly = true;
-            this.NKString.Width = 35;
-            // 
-            // FKString
-            // 
-            this.FKString.DataPropertyName = "ProfileModifier.AttributeModifier.FKString";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.FKString.DefaultCellStyle = dataGridViewCellStyle5;
-            this.FKString.HeaderText = "FK";
-            this.FKString.Name = "FKString";
-            this.FKString.ReadOnly = true;
-            this.FKString.Width = 35;
-            // 
-            // KOString
-            // 
-            this.KOString.DataPropertyName = "ProfileModifier.AttributeModifier.KOString";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.KOString.DefaultCellStyle = dataGridViewCellStyle6;
-            this.KOString.HeaderText = "KO";
-            this.KOString.Name = "KOString";
-            this.KOString.ReadOnly = true;
-            this.KOString.Width = 35;
-            // 
-            // WNString
-            // 
-            this.WNString.DataPropertyName = "ProfileModifier.AttributeModifier.WNString";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.WNString.DefaultCellStyle = dataGridViewCellStyle7;
-            this.WNString.HeaderText = "WN";
-            this.WNString.Name = "WNString";
-            this.WNString.ReadOnly = true;
-            this.WNString.Width = 35;
-            // 
-            // EHString
-            // 
-            this.EHString.DataPropertyName = "ProfileModifier.AttributeModifier.EHString";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.EHString.DefaultCellStyle = dataGridViewCellStyle8;
-            this.EHString.HeaderText = "EH";
-            this.EHString.Name = "EHString";
-            this.EHString.ReadOnly = true;
-            this.EHString.Width = 35;
-            // 
-            // UseOnce
-            // 
-            this.UseOnce.DataPropertyName = "UseOnce";
-            this.UseOnce.HeaderText = "E";
-            this.UseOnce.Name = "UseOnce";
-            this.UseOnce.ReadOnly = true;
-            this.UseOnce.ToolTipText = "Einmalnutzung";
-            this.UseOnce.Width = 30;
-            // 
-            // Unwieldy
-            // 
-            this.Unwieldy.DataPropertyName = "Unwieldy";
-            this.Unwieldy.HeaderText = "U";
-            this.Unwieldy.Name = "Unwieldy";
-            this.Unwieldy.ReadOnly = true;
-            this.Unwieldy.ToolTipText = "Unhandlich";
-            this.Unwieldy.Width = 30;
-            // 
-            // apDataGridViewTextBoxColumn
-            // 
-            this.apDataGridViewTextBoxColumn.DataPropertyName = "FormattedAP";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.apDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.apDataGridViewTextBoxColumn.HeaderText = "AP";
-            this.apDataGridViewTextBoxColumn.Name = "apDataGridViewTextBoxColumn";
-            this.apDataGridViewTextBoxColumn.ReadOnly = true;
-            this.apDataGridViewTextBoxColumn.ToolTipText = "Aktionspunkte";
-            this.apDataGridViewTextBoxColumn.Width = 35;
-            // 
-            // weightDataGridViewTextBoxColumn
-            // 
-            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N1";
-            this.weightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
-            this.weightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
-            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-            this.weightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.weightDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // pointsDataGridViewTextBoxColumn
-            // 
-            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
-            this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
-            this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pointsDataGridViewTextBoxColumn.Width = 60;
             // 
             // equipmentBindingSource
             // 
@@ -356,6 +229,134 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // apDataGridViewTextBoxColumn
+            // 
+            this.apDataGridViewTextBoxColumn.DataPropertyName = "FormattedAP";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.apDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.apDataGridViewTextBoxColumn.HeaderText = "AP";
+            this.apDataGridViewTextBoxColumn.Name = "apDataGridViewTextBoxColumn";
+            this.apDataGridViewTextBoxColumn.ReadOnly = true;
+            this.apDataGridViewTextBoxColumn.ToolTipText = "Aktionspunkte";
+            this.apDataGridViewTextBoxColumn.Width = 35;
+            // 
+            // UseOnce
+            // 
+            this.UseOnce.DataPropertyName = "UseOnce";
+            this.UseOnce.HeaderText = "E";
+            this.UseOnce.Name = "UseOnce";
+            this.UseOnce.ReadOnly = true;
+            this.UseOnce.ToolTipText = "Einmalnutzung";
+            this.UseOnce.Width = 30;
+            // 
+            // Unwieldy
+            // 
+            this.Unwieldy.DataPropertyName = "Unwieldy";
+            this.Unwieldy.HeaderText = "U";
+            this.Unwieldy.Name = "Unwieldy";
+            this.Unwieldy.ReadOnly = true;
+            this.Unwieldy.ToolTipText = "Unhandlich";
+            this.Unwieldy.Width = 30;
+            // 
+            // GKString
+            // 
+            this.GKString.DataPropertyName = "ProfileModifier.SpeedString";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.GKString.DefaultCellStyle = dataGridViewCellStyle3;
+            this.GKString.HeaderText = "GK";
+            this.GKString.Name = "GKString";
+            this.GKString.ReadOnly = true;
+            this.GKString.Width = 35;
+            // 
+            // AGIString
+            // 
+            this.AGIString.DataPropertyName = "ProfileModifier.AttributeModifier.AGIString";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.AGIString.DefaultCellStyle = dataGridViewCellStyle4;
+            this.AGIString.HeaderText = "AGI";
+            this.AGIString.Name = "AGIString";
+            this.AGIString.ReadOnly = true;
+            this.AGIString.Width = 35;
+            // 
+            // NKString
+            // 
+            this.NKString.DataPropertyName = "ProfileModifier.AttributeModifier.NKString";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.NKString.DefaultCellStyle = dataGridViewCellStyle5;
+            this.NKString.HeaderText = "NK";
+            this.NKString.Name = "NKString";
+            this.NKString.ReadOnly = true;
+            this.NKString.Width = 35;
+            // 
+            // FKString
+            // 
+            this.FKString.DataPropertyName = "ProfileModifier.AttributeModifier.FKString";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.FKString.DefaultCellStyle = dataGridViewCellStyle6;
+            this.FKString.HeaderText = "FK";
+            this.FKString.Name = "FKString";
+            this.FKString.ReadOnly = true;
+            this.FKString.Width = 35;
+            // 
+            // KOString
+            // 
+            this.KOString.DataPropertyName = "ProfileModifier.AttributeModifier.KOString";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.KOString.DefaultCellStyle = dataGridViewCellStyle7;
+            this.KOString.HeaderText = "KO";
+            this.KOString.Name = "KOString";
+            this.KOString.ReadOnly = true;
+            this.KOString.Width = 35;
+            // 
+            // WNString
+            // 
+            this.WNString.DataPropertyName = "ProfileModifier.AttributeModifier.WNString";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.WNString.DefaultCellStyle = dataGridViewCellStyle8;
+            this.WNString.HeaderText = "WN";
+            this.WNString.Name = "WNString";
+            this.WNString.ReadOnly = true;
+            this.WNString.Width = 35;
+            // 
+            // EHString
+            // 
+            this.EHString.DataPropertyName = "ProfileModifier.AttributeModifier.EHString";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.EHString.DefaultCellStyle = dataGridViewCellStyle9;
+            this.EHString.HeaderText = "EH";
+            this.EHString.Name = "EHString";
+            this.EHString.ReadOnly = true;
+            this.EHString.Width = 35;
+            // 
+            // weightDataGridViewTextBoxColumn
+            // 
+            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N1";
+            this.weightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            this.weightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
+            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+            this.weightDataGridViewTextBoxColumn.ReadOnly = true;
+            this.weightDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // pointsDataGridViewTextBoxColumn
+            // 
+            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
+            this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pointsDataGridViewTextBoxColumn.Width = 60;
             // 
             // EquipmentManagerForm
             // 
@@ -398,6 +399,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
         private System.Windows.Forms.DataGridViewTextBoxColumn GKString;
         private System.Windows.Forms.DataGridViewTextBoxColumn AGIString;
         private System.Windows.Forms.DataGridViewTextBoxColumn NKString;
@@ -405,9 +409,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn KOString;
         private System.Windows.Forms.DataGridViewTextBoxColumn WNString;
         private System.Windows.Forms.DataGridViewTextBoxColumn EHString;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Unwieldy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }
