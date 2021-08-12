@@ -522,8 +522,11 @@ namespace Universalis
             {
                 foreach( var damageEffect in DamageEffectList )
                 {
-                    points *= Costs.WeaponDamageEffectMultiplicator;
+                    points += damageEffect.Points;
                 }
+
+                // scale points with the amount of different damage effects
+                points *= (float)Math.Pow( Costs.WeaponDamageEffectMultiplicator, DamageEffectList.Count );
             }
 
             if( ProfileModifier != null )

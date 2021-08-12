@@ -266,13 +266,15 @@ namespace Universalis
                 }
             }
 
-            // TODO each DamageEffect has its own points?
             if( DamageEffectList != null )
             {
                 foreach( var damageEffect in DamageEffectList )
                 {
-                    points *= Costs.ArmorDamageEffectMultiplicator;
+                    points += damageEffect.Points;
                 }
+
+                // scale points with the amount of different damage effects
+                points *= (float)Math.Pow( Costs.ArmorDamageEffectMultiplicator, DamageEffectList.Count );
             }
 
             if( SelfSustaining )
