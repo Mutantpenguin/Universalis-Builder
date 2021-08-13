@@ -388,13 +388,7 @@ namespace Universalis
             }
 
             [JsonIgnore]
-            public string Name => ( Trait.Name );
-
-            [JsonIgnore]
             public int Points => ( Trait.Points( Level ) );
-
-            [JsonIgnore]
-            public string Type => ( Trait.Type );
         }
 
         public class ActorWeapon

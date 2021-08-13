@@ -45,17 +45,18 @@
             this.toolStripMenuItemNeutrals = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTraits = new System.Windows.Forms.DataGridView();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AvailableLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PointsRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.AvailableLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PointsRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -77,6 +78,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -150,7 +152,7 @@
             this.toolStripMenuItemPositives.CheckOnClick = true;
             this.toolStripMenuItemPositives.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemPositives.Name = "toolStripMenuItemPositives";
-            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(151, 22);
             this.toolStripMenuItemPositives.Text = "zeige Positive";
             this.toolStripMenuItemPositives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemPositives_CheckedChanged);
             // 
@@ -160,7 +162,7 @@
             this.toolStripMenuItemNegatives.CheckOnClick = true;
             this.toolStripMenuItemNegatives.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemNegatives.Name = "toolStripMenuItemNegatives";
-            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(151, 22);
             this.toolStripMenuItemNegatives.Text = "zeige Negative";
             this.toolStripMenuItemNegatives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNegatives_CheckedChanged);
             // 
@@ -170,7 +172,7 @@
             this.toolStripMenuItemNeutrals.CheckOnClick = true;
             this.toolStripMenuItemNeutrals.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemNeutrals.Name = "toolStripMenuItemNeutrals";
-            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(151, 22);
             this.toolStripMenuItemNeutrals.Text = "zeige Neutrale";
             this.toolStripMenuItemNeutrals.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNeutrals_CheckedChanged);
             // 
@@ -197,6 +199,7 @@
             this.dataGridViewTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Type,
             this.nameDataGridViewTextBoxColumn,
+            this.UseOnce,
             this.AvailableLevels,
             this.PointsRange});
             this.dataGridViewTraits.DataSource = this.traitBindingSource;
@@ -212,6 +215,25 @@
             this.dataGridViewTraits.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTraits_CellDoubleClick);
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
             this.dataGridViewTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewTraits_KeyDown);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelCount});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(384, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelCount
+            // 
+            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
+            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
+            // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // Type
             // 
@@ -233,6 +255,15 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // UseOnce
+            // 
+            this.UseOnce.DataPropertyName = "UseOnce";
+            this.UseOnce.HeaderText = "E";
+            this.UseOnce.Name = "UseOnce";
+            this.UseOnce.ReadOnly = true;
+            this.UseOnce.ToolTipText = "Einmalnutzung";
+            this.UseOnce.Width = 30;
+            // 
             // AvailableLevels
             // 
             this.AvailableLevels.DataPropertyName = "AvailableLevels";
@@ -253,25 +284,6 @@
             this.PointsRange.ReadOnly = true;
             this.PointsRange.Width = 80;
             // 
-            // traitBindingSource
-            // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelCount});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(384, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabelCount
-            // 
-            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
-            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
-            // 
             // TraitsManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,9 +300,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,6 +327,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
         private System.Windows.Forms.DataGridViewTextBoxColumn AvailableLevels;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsRange;
     }

@@ -364,18 +364,20 @@ namespace Universalis
 
                 List<flipsideBlock> flipsideBlocks = new List<flipsideBlock>();
 
-                foreach( Actor.ActorTrait actorTrait in groupActor.Actor.ActorTraitsList.Select( x => x )
-                                                                                        .Where( x => !String.IsNullOrEmpty( x.Trait.Rules ) )
-                                                                                        .OrderBy( x => x.Name ) )
+                foreach( var entry in groupActor.Actor.ActorTraitsList.GroupBy( x => new { x.Trait.ID, x.Level } )
+                                                                      .Select( x => new { trait = MasterDataStorage.Trait.Get( x.Key.ID ), lvl = x.Key.Level } )
+                                                                      .Where( x => !String.IsNullOrEmpty( x.trait.Rules ) )
+                                                                      .OrderBy( x => x.trait.Name ) )
                 {
-                    if( actorTrait.Level != 0 )
+                    string name = entry.trait.Name;
+                    string rules = entry.trait.RulesWithLevel( entry.lvl );
+
+                    if( entry.lvl != 0 )
                     {
-                        flipsideBlocks.Add( new flipsideBlock() { Name = actorTrait.Name + " " + actorTrait.Level, Rules = actorTrait.Trait.RulesWithLevel( actorTrait.Level ) } );
+                        name += " " + entry.lvl;
                     }
-                    else
-                    {
-                        flipsideBlocks.Add( new flipsideBlock() { Name = actorTrait.Name, Rules = actorTrait.Trait.RulesWithLevel( actorTrait.Level ) } );
-                    }
+
+                    flipsideBlocks.Add( new flipsideBlock() { Name = name, Rules = rules } );
                 }
 
                 if( ( groupActor.Actor.Armor != null )

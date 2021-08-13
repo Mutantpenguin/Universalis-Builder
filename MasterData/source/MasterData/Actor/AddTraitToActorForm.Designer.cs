@@ -44,11 +44,12 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.dataGridViewTraits = new System.Windows.Forms.DataGridView();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.AvailableLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointsRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).BeginInit();
@@ -106,7 +107,7 @@
             this.toolStripMenuItemPositives.CheckOnClick = true;
             this.toolStripMenuItemPositives.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemPositives.Name = "toolStripMenuItemPositives";
-            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(151, 22);
             this.toolStripMenuItemPositives.Text = "zeige Positive";
             this.toolStripMenuItemPositives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemPositives_CheckedChanged);
             // 
@@ -116,7 +117,7 @@
             this.toolStripMenuItemNegatives.CheckOnClick = true;
             this.toolStripMenuItemNegatives.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemNegatives.Name = "toolStripMenuItemNegatives";
-            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(151, 22);
             this.toolStripMenuItemNegatives.Text = "zeige Negative";
             this.toolStripMenuItemNegatives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNegatives_CheckedChanged);
             // 
@@ -126,7 +127,7 @@
             this.toolStripMenuItemNeutrals.CheckOnClick = true;
             this.toolStripMenuItemNeutrals.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemNeutrals.Name = "toolStripMenuItemNeutrals";
-            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(151, 22);
             this.toolStripMenuItemNeutrals.Text = "zeige Neutrale";
             this.toolStripMenuItemNeutrals.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNeutrals_CheckedChanged);
             // 
@@ -182,6 +183,7 @@
             this.dataGridViewTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Type,
             this.nameDataGridViewTextBoxColumn,
+            this.UseOnce,
             this.AvailableLevels,
             this.PointsRange});
             this.dataGridViewTraits.DataSource = this.traitBindingSource;
@@ -196,6 +198,10 @@
             this.dataGridViewTraits.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTraits_CellDoubleClick);
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
             this.dataGridViewTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewTraits_KeyDown);
+            // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // Type
             // 
@@ -217,6 +223,15 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // UseOnce
+            // 
+            this.UseOnce.DataPropertyName = "UseOnce";
+            this.UseOnce.HeaderText = "E";
+            this.UseOnce.Name = "UseOnce";
+            this.UseOnce.ReadOnly = true;
+            this.UseOnce.ToolTipText = "Einmalnutzung";
+            this.UseOnce.Width = 30;
+            // 
             // AvailableLevels
             // 
             this.AvailableLevels.DataPropertyName = "AvailableLevels";
@@ -236,10 +251,6 @@
             this.PointsRange.Name = "PointsRange";
             this.PointsRange.ReadOnly = true;
             this.PointsRange.Width = 80;
-            // 
-            // traitBindingSource
-            // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // AddTraitToActorForm
             // 
@@ -281,6 +292,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
         private System.Windows.Forms.DataGridViewTextBoxColumn AvailableLevels;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsRange;
     }
