@@ -47,6 +47,13 @@ namespace Universalis
             m_initialized = true;
 
             updateFields();
+
+            dataGridViewTraits.CellFormatting += DataGridViewTraits_CellFormatting;
+        }
+
+        private void DataGridViewTraits_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewTraits );
         }
 
         private void FillOutfitsComboBox()
@@ -384,7 +391,7 @@ namespace Universalis
 #region traits
         private void updateGridViewTraits()
         {
-            actorTraitBindingSource.DataSource = m_actorModified.ActorTraitsList.OrderBy( x => x.Name )
+            actorTraitBindingSource.DataSource = m_actorModified.ActorTraitsList.OrderBy( x => x.Trait.Name )
                                                                                 .ToList();
 
             dataGridViewTraits.ClearSelection();
@@ -431,7 +438,7 @@ namespace Universalis
                             m_actorModified.ActorTraitsList.Add( new Actor.ActorTrait
                             {
                                 Trait = trait,
-                                Level = trait.MinLevel
+                                Level = trait.TraitLevelList.Min( x => x.Level )
                             } );
                         }
 
@@ -570,7 +577,7 @@ namespace Universalis
             {
                 Actor.ActorTrait actorTrait = (Actor.ActorTrait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem;
 
-                e.ToolTipText = actorTrait.Name + ":" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( actorTrait.Trait.RulesWithLevel( actorTrait.Level ) );
+                e.ToolTipText = actorTrait.Trait.Name + ":" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( actorTrait.Trait.RulesWithLevel( actorTrait.Level ) );
             }
         }
 

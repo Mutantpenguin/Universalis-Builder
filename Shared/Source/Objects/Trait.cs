@@ -66,6 +66,7 @@ namespace Universalis
             Name = trait.Name;
             Description = trait.Description;
             Rules = trait.Rules;
+            UseOnce = trait.UseOnce;
 
             if( null != TraitLevelList )
             {
@@ -96,7 +97,9 @@ namespace Universalis
                 ||
                 Description != trait.Description
                 ||
-                Rules != trait.Rules )
+                Rules != trait.Rules
+                ||
+                UseOnce != trait.UseOnce )
             {
                 return ( false );
             }
@@ -146,6 +149,12 @@ namespace Universalis
             set;
         } = "Bitte Regeln eingeben";
 
+        public bool UseOnce
+        {
+            get;
+            set;
+        } = false;
+
         [JsonIgnore]
         public string Type
         {
@@ -173,15 +182,6 @@ namespace Universalis
             get;
             set;
         } = new List<TraitLevel>();
-
-        [JsonIgnore]
-        public uint MinLevel
-        {
-            get
-            {
-                return ( TraitLevelList.Min( x => x.Level ) );
-            }
-        }
 
         [JsonIgnore]
         public string AvailableLevels

@@ -555,13 +555,26 @@ namespace Universalis
                 const String delimiter = ", ";
 
                 StringBuilder builder = new StringBuilder();
-                foreach( Actor.ActorTrait trait in actorTraitList.OrderBy( x => x.Name ) )
+                foreach( var entry in actorTraitList.GroupBy( x => new { x.Trait.ID, x.Level, x.Trait.UseOnce } )
+                                                    .Select( x => new { trait = MasterDataStorage.Trait.Get( x.Key.ID ), lvl = x.Key.Level, useOnce = x.Key.UseOnce, use_once_count = x.Count() } )
+                                                    .OrderBy( x => x.trait.Name )
+                                                    .ToList() )
                 {
-                    builder.Append( trait.Name );
+                    builder.Append( entry.trait.Name );
 
-                    if( trait.Level > 0 )
+                    if( entry.lvl > 0 )
                     {
-                        builder.Append( NonBreakingSpace + trait.Level );
+                        builder.Append( NonBreakingSpace + entry.lvl );
+                    }
+
+                    if( entry.useOnce )
+                    {
+                        builder.Append( NonBreakingSpace );
+
+                        for( int j = 0; j < entry.use_once_count; j++ )
+                        {
+                            builder.Append( "○" );
+                        }
                     }
 
                     builder.Append( delimiter );
