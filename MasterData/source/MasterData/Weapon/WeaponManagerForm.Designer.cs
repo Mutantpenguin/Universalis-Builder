@@ -285,6 +285,7 @@
             this.dataGridViewWeapons.Size = new System.Drawing.Size(1019, 379);
             this.dataGridViewWeapons.TabIndex = 0;
             this.dataGridViewWeapons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWeapons_CellDoubleClick);
+            this.dataGridViewWeapons.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewWeapons_CellFormatting);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWeapons_KeyDown);
             // 
@@ -466,7 +467,7 @@
             // 
             // AGIString
             // 
-            this.AGIString.DataPropertyName = "ProfileModifier.AttributeModifier";
+            this.AGIString.DataPropertyName = "ProfileModifier.AttributeModifier.AGIString";
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.AGIString.DefaultCellStyle = dataGridViewCellStyle11;
             this.AGIString.HeaderText = "AGI";

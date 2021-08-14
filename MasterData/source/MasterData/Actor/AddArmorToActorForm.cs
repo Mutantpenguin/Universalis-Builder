@@ -13,8 +13,6 @@ namespace Universalis
             updateDataGridViewArmor();
 
             toolStripTextBoxSearch.TextBox.Select();
-
-            dataGridViewArmor.CellFormatting += DataGridViewArmor_CellFormatting;
         }
 
         private void DataGridViewArmor_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
