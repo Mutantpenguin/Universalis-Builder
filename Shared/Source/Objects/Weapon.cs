@@ -475,10 +475,7 @@ namespace Universalis
             // TODO each DamageEffect has its own points
             if( DamageEffectList != null )
             {
-                foreach( var damageEffect in DamageEffectList )
-                {
-                    points += damageEffect.Points;
-                }
+                points += DamageEffectList.Sum( x => x.Points );
 
                 // scale points with the amount of different damage effects
                 points *= (float)Math.Pow( Costs.WeaponDamageEffectMultiplicator, DamageEffectList.Count );
