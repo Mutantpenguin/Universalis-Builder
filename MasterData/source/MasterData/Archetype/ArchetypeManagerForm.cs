@@ -22,8 +22,6 @@ namespace Universalis
             filterType.ComboBox.DataSource = Profile.ETypeList;
             filterType.ComboBox.SelectionChangeCommitted += FilterType_SelectionChangeCommitted;
 
-            dataGridViewArchetypes.CellFormatting += DataGridViewArchetypes_CellFormatting;
-
             refreshGridView();
 
             toolStripTextBoxSearch.TextBox.Select();
