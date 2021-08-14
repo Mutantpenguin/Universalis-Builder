@@ -290,7 +290,7 @@ namespace Universalis
             return ( (int)points );
         }
 
-        [ JsonIgnore]
+        [JsonIgnore]
         public Image TypesImage => ( DamageType.GetTypeListImage( DamageTypeList, DamageColor.EType.Green ) );
 
         [JsonIgnore]

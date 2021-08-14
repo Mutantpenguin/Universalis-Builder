@@ -102,7 +102,7 @@ namespace Universalis
             set;
         } = Shared.Properties.Resources.empty;
 
-        [ JsonConverter( typeof( JsonFactionConverter ) )]
+        [JsonConverter( typeof( JsonFactionConverter ) )]
         public Faction Faction
         {
             get;
