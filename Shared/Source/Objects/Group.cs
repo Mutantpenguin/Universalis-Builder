@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace Universalis
 {
@@ -138,11 +139,7 @@ namespace Universalis
             {
                 int points = 0;
 
-                foreach( GroupActor groupActor in GroupActorList )
-                {
-
-                    points += groupActor.Points;
-                }
+                points += GroupActorList.Sum( x => x.Points );
 
                 return ( points );
             }

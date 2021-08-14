@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace Universalis
 {
@@ -262,10 +263,7 @@ namespace Universalis
 
             if( DamageEffectList != null )
             {
-                foreach( var damageEffect in DamageEffectList )
-                {
-                    points += damageEffect.Points;
-                }
+                points += DamageEffectList.Sum( x => x.Points );
 
                 // scale points with the amount of different damage effects
                 points *= (float)Math.Pow( Costs.ArmorDamageEffectMultiplicator, DamageEffectList.Count );
