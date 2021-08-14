@@ -449,7 +449,7 @@
             // 
             // AGIString
             // 
-            this.AGIString.DataPropertyName = "ProfileModifier.AttributeModifier";
+            this.AGIString.DataPropertyName = "ProfileModifier.AttributeModifier.AGIString";
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.AGIString.DefaultCellStyle = dataGridViewCellStyle11;
             this.AGIString.HeaderText = "AGI";
