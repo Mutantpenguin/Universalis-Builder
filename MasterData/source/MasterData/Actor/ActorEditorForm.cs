@@ -47,8 +47,6 @@ namespace Universalis
             m_initialized = true;
 
             updateFields();
-
-            dataGridViewTraits.CellFormatting += DataGridViewTraits_CellFormatting;
         }
 
         private void DataGridViewTraits_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )

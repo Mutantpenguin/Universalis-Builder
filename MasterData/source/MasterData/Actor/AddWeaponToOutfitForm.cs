@@ -26,8 +26,6 @@ namespace Universalis
             updateDataGridViewWeapons();
 
             toolStripTextBoxSearch.TextBox.Select();
-
-            dataGridViewWeapons.CellFormatting += DataGridViewWeapons_CellFormatting;
         }
 
         private void DataGridViewWeapons_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )

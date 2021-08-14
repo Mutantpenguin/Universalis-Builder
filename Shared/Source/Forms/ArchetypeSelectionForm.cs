@@ -24,8 +24,6 @@ namespace Universalis
             updateDataGridViewArchetypes();
 
             toolStripTextBoxSearch.TextBox.Select();
-
-            dataGridViewArchetypes.CellFormatting += DataGridViewArchetypes_CellFormatting;
         }
 
         private readonly Faction m_factionFilter;
