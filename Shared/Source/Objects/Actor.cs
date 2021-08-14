@@ -181,7 +181,7 @@ namespace Universalis
             set;
         } = Shared.Properties.Resources.empty;
 
-        [ JsonIgnore]
+        [JsonIgnore]
         public Bitmap FactionIcon
         {
             get

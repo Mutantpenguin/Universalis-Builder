@@ -303,7 +303,7 @@ namespace Universalis
             Level = DamageType.ELevel.I
         };
 
-        [ JsonConverter( typeof( JsonDamageEffectListConverter ) ) ]
+        [JsonConverter( typeof( JsonDamageEffectListConverter ) ) ]
         public List<DamageEffect> DamageEffectList
         {
             get;
@@ -332,7 +332,7 @@ namespace Universalis
             set;
         } = false;
 
-        [ JsonIgnore]
+        [JsonIgnore]
         public Image DamageTypeImage => ( DamageType.GetImage( DamageColor.EType.Red ) );
 
         [JsonIgnore]
@@ -443,7 +443,7 @@ namespace Universalis
             }
         }
 
-        [ JsonIgnore]
+        [JsonIgnore]
         public string MaxRange
         {
             get
