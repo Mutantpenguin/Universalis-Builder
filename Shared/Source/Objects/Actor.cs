@@ -407,13 +407,13 @@ namespace Universalis
             }
 
             [JsonIgnore]
-            public string Name => ( Weapon.Name );
+            public string Name => Weapon.Name;
 
             [JsonIgnore]
-            public float Weight => ( Weapon.Weight );
+            public float Weight => Weapon.Weight;
 
             [JsonIgnore]
-            public int Points => ( Weapon.Points );
+            public int Points => Weapon.Points;
         }
 
         public class ActorEquipment
@@ -432,13 +432,13 @@ namespace Universalis
             }
 
             [JsonIgnore]
-            public string Name => ( Equipment.Name );
+            public string Name => Equipment.Name;
 
             [JsonIgnore]
-            public float Weight => ( Equipment.Weight );
+            public float Weight => Equipment.Weight;
 
             [JsonIgnore]
-            public int Points => ( Equipment.Points );
+            public int Points => Equipment.Points;
         }
 
         #region members

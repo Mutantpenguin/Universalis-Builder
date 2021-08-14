@@ -210,13 +210,7 @@ namespace Universalis
         } = false;
 
         [JsonIgnore]
-        public int Points
-        {
-            get
-            {
-                return ( CalculatedPoints() + AdditionalPoints );
-            }
-        }
+        public int Points => CalculatedPoints() + AdditionalPoints;
 
         [JsonIgnore]
         public string FormattedProtection
@@ -291,13 +285,13 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public Image TypesImage => ( DamageType.GetTypeListImage( DamageTypeList, DamageColor.EType.Green ) );
+        public Image TypesImage => DamageType.GetTypeListImage( DamageTypeList, DamageColor.EType.Green );
 
         [JsonIgnore]
-        public Image EffectsImage => ( DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Green ) );
+        public Image EffectsImage => DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Green );
 
         [JsonIgnore]
-        public string EffectsString => ( DamageEffect.GetEffectListString( DamageEffectList ) );
+        public string EffectsString => DamageEffect.GetEffectListString( DamageEffectList );
 
         public override string ToString()
         {

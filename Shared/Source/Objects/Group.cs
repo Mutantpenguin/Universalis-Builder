@@ -246,20 +246,7 @@ namespace Universalis
             } = null;
 
             [JsonIgnore]
-            public Bitmap Icon
-            {
-                get
-                {
-                    if( Actor != null )
-                    {
-                        return ( Actor.Icon );
-                    }
-                    else
-                    {
-                        return ( Shared.Properties.Resources.empty );
-                    }
-                }
-            }
+            public Bitmap Icon => ( Actor != null ) ? Actor.Icon : Shared.Properties.Resources.empty;
 
             [JsonIgnore]
             public string Name
@@ -290,20 +277,7 @@ namespace Universalis
             }
 
             [JsonIgnore]
-            public int Points
-            {
-                get
-                {
-                    if( Actor != null )
-                    {
-                        return ( Actor.Points( ActorOutfit ) );
-                    }
-                    else
-                    {
-                        return ( 0 );
-                    }
-                }
-            }
+            public int Points => ( Actor != null ) ? Actor.Points( ActorOutfit ) : 0;
         }
 
         public bool HasMissingActorOutfits()

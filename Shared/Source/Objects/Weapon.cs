@@ -333,13 +333,13 @@ namespace Universalis
         } = false;
 
         [JsonIgnore]
-        public Image DamageTypeImage => ( DamageType.GetImage( DamageColor.EType.Red ) );
+        public Image DamageTypeImage => DamageType.GetImage( DamageColor.EType.Red );
 
         [JsonIgnore]
-        public Image EffectsImage => ( DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Red ) );
+        public Image EffectsImage => DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Red );
 
         [JsonIgnore]
-        public string EffectsString => ( DamageEffect.GetEffectListString( DamageEffectList ) );
+        public string EffectsString => DamageEffect.GetEffectListString( DamageEffectList );
 
         [JsonIgnore]
         public string FormattedStrength
@@ -365,36 +365,10 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string FormattedDamage
-        {
-            get
-            {
-                if( 0 == Damage )
-                {
-                    return ( "-" );
-                }
-                else
-                {
-                    return ( Damage.ToString() );
-                }
-            }
-        }
+        public string FormattedDamage => ( 0 == Damage ) ? "-" : Damage.ToString();
 
         [JsonIgnore]
-        public string FormattedAF
-        {
-            get
-            {
-                if( 0 == AF )
-                {
-                    return ( "-" );
-                }
-                else
-                {
-                    return ( AF.ToString() );
-                }
-            }
-        }
+        public string FormattedAF => ( 0 == AF ) ? "-" : AF.ToString();
 
         [JsonIgnore]
         public string FormattedRange
@@ -466,29 +440,10 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string FormattedRadius
-        {
-            get
-            {
-                if( 0 == Radius )
-                {
-                    return ( "-" );
-                }
-                else
-                {
-                    return ( Radius.ToString() );
-                }
-            }
-        }
+        public string FormattedRadius => ( 0 == Radius ) ? "-" : Radius.ToString();
 
-        [JsonIgnore]
-        public int Points
-        {
-            get
-            {
-                return( CalculatedPoints() + AdditionalPoints );
-            }
-        }
+        [ JsonIgnore]
+        public int Points => CalculatedPoints() + AdditionalPoints;
 
         private int CalculatedPoints()
         {

@@ -149,58 +149,22 @@ namespace Universalis
         #region attribute_strings
 
         [JsonIgnore]
-        public string AGIString
-        {
-            get
-            {
-                return ( Formatter.Modifier( AGI ) );
-            }
-        }
+        public string AGIString => Formatter.Modifier( AGI );
 
         [JsonIgnore]
-        public string KOString
-        {
-            get
-            {
-                return ( Formatter.Modifier( KO ) );
-            }
-        }
+        public string KOString => Formatter.Modifier( KO );
 
         [JsonIgnore]
-        public string NKString
-        {
-            get
-            {
-                return ( Formatter.Modifier( NK ) );
-            }
-        }
+        public string NKString => Formatter.Modifier( NK );
 
         [JsonIgnore]
-        public string FKString
-        {
-            get
-            {
-                return ( Formatter.Modifier( FK ) );
-            }
-        }
+        public string FKString => Formatter.Modifier( FK );
 
         [JsonIgnore]
-        public string WNString
-        {
-            get
-            {
-                return ( Formatter.Modifier( WN ) );
-            }
-        }
+        public string WNString => Formatter.Modifier( WN );
 
         [JsonIgnore]
-        public string EHString
-        {
-            get
-            {
-                return ( Formatter.Modifier( EH ) );
-            }
-        }
+        public string EHString => Formatter.Modifier( EH );
 
         #endregion attribute_strings
     }
