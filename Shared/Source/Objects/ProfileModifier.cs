@@ -114,21 +114,9 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string SpeedString
-        {
-            get
-            {
-                return ( Formatter.Modifier( Speed ) );
-            }
-        }
+        public string SpeedString => Formatter.Modifier( Speed );
 
         [JsonIgnore]
-        public string HitPointsString
-        {
-            get
-            {
-                return ( Formatter.Modifier( HitPoints ) );
-            }
-        }
+        public string HitPointsString => Formatter.Modifier( HitPoints );
     }
 }

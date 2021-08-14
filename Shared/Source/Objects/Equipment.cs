@@ -149,20 +149,7 @@ namespace Universalis
         } = null;
 
         [JsonIgnore]
-        public string FormattedAP
-        {
-            get
-            {
-                if( 0 == AP )
-                {
-                    return ( "" );
-                }
-                else
-                {
-                    return ( AP.ToString() );
-                }
-            }
-        }
+        public string FormattedAP => ( AP == 0 ) ? "" : AP.ToString();
         
         public override string ToString()
         {
@@ -199,13 +186,7 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public int Points
-        {
-            get
-            {
-                return ( CalculatedPoints() + AdditionalPoints );
-            }
-        }
+        public int Points => CalculatedPoints() + AdditionalPoints;
 
         private int CalculatedPoints()
         {
