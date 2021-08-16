@@ -223,28 +223,28 @@ namespace Universalis
             if( Profile.EType.Drohne == (Profile.EType)comboBoxType.SelectedItem )
             {
                 numericUpDownAGI.Minimum = 0;
-                numericUpDownNK.Minimum = 0;
-                numericUpDownFK.Minimum = 0;
-                numericUpDownEH.Minimum = 0;
+                numericUpDownHTH.Minimum = 0;
+                numericUpDownLRC.Minimum = 0;
+                numericUpDownDET.Minimum = 0;
 
                 numericUpDownAGI.Value = 0;
-                numericUpDownNK.Value = 0;
-                numericUpDownFK.Value = 0;
-                numericUpDownEH.Value = 0;
+                numericUpDownHTH.Value = 0;
+                numericUpDownLRC.Value = 0;
+                numericUpDownDET.Value = 0;
             }
             else
             {
                 numericUpDownAGI.Minimum = 1;
-                numericUpDownNK.Minimum = 1;
-                numericUpDownFK.Minimum = 1;
-                numericUpDownEH.Minimum = 1;
+                numericUpDownHTH.Minimum = 1;
+                numericUpDownLRC.Minimum = 1;
+                numericUpDownDET.Minimum = 1;
 
                 var attributes = m_originalArchetype.Profile.Attributes;
 
-                numericUpDownAGI.Value = attributes.AGI;
-                numericUpDownNK.Value = attributes.NK;
-                numericUpDownFK.Value = attributes.FK;
-                numericUpDownEH.Value = attributes.EH;
+                numericUpDownAGI.Value = Math.Max( attributes.AGI, 1 );
+                numericUpDownHTH.Value = Math.Max( attributes.HTH, 1 );
+                numericUpDownLRC.Value = Math.Max( attributes.LRC, 1 );
+                numericUpDownDET.Value = Math.Max( attributes.DET, 1 );
             }
         }
 
@@ -259,9 +259,9 @@ namespace Universalis
                     labelGB.Visible = false;
 
                     numericUpDownAGI.Enabled = false;
-                    numericUpDownNK.Enabled = false;
-                    numericUpDownFK.Enabled = false;
-                    numericUpDownEH.Enabled = false;
+                    numericUpDownHTH.Enabled = false;
+                    numericUpDownLRC.Enabled = false;
+                    numericUpDownDET.Enabled = false;
 
                     break;
 
@@ -270,9 +270,9 @@ namespace Universalis
                     labelGB.Visible = true;
 
                     numericUpDownAGI.Enabled = true;
-                    numericUpDownNK.Enabled = true;
-                    numericUpDownFK.Enabled = true;
-                    numericUpDownEH.Enabled = true;
+                    numericUpDownHTH.Enabled = true;
+                    numericUpDownLRC.Enabled = true;
+                    numericUpDownDET.Enabled = true;
 
                     break;
             }

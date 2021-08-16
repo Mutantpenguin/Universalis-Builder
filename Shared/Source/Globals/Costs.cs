@@ -5,15 +5,15 @@ namespace Universalis
     static class Costs
     {
         // Attributes
-        public const int AGI = 10;
-        public const int Speed = 10;
-        public const int KO = 15;
-        public const int NK = 10;
-        public const int FK = 10;
-        public const int WN = 10;
-        public const int EH = 10;
+        public const int AGI = 10; // Agility           / "Agilität"
+        public const int HTH = 10; // Hand-To-Hand      / "Nahkampf"
+        public const int LRC = 10; // Long-Range-Combat / "Fernkampf"
+        public const int PHY = 15; // Physique          / "Konstitution"
+        public const int AWA = 10; // Awareness         / "Wahrnehmung"
+        public const int DET = 10; // Determination     / "Entschlossenheit"
 
         // Actor
+        public const int Speed = 10;
         public const int HitPoints = 15;
 
         public const int FOV = 2;

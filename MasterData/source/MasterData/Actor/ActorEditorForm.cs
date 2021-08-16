@@ -540,15 +540,15 @@ namespace Universalis
 
             if( ( m_actorModified.ModAGI( currentOutfit ) < 0 )
                 ||
-                ( m_actorModified.ModNK( currentOutfit ) < 0 )
+                ( m_actorModified.ModHTH( currentOutfit ) < 0 )
                 ||
-                ( m_actorModified.ModFK( currentOutfit ) < 0 )
+                ( m_actorModified.ModLRC( currentOutfit ) < 0 )
                 ||
-                ( m_actorModified.ModKO( currentOutfit ) < 0 )
+                ( m_actorModified.ModPHY( currentOutfit ) < 0 )
                 ||
-                ( m_actorModified.ModWN( currentOutfit ) < 0 )
+                ( m_actorModified.ModAWA( currentOutfit ) < 0 )
                 ||
-                ( m_actorModified.ModEH( currentOutfit ) < 0 ) )
+                ( m_actorModified.ModDET( currentOutfit ) < 0 ) )
             {
                 MessageBox.Show( "Attribute dürfen nicht negativ sein!",
                                  caption,
