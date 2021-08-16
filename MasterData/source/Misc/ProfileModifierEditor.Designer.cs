@@ -168,7 +168,7 @@ namespace Universalis
             // 
             this.numericUpDownPHY.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownPHY.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attributeModifierBindingSource, "PHY", true));
+            this.numericUpDownPHY.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attributeModifierBindingSource, "PHY", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDownPHY.Location = new System.Drawing.Point(3, 20);
             this.numericUpDownPHY.Maximum = new decimal(new int[] {
             12,
@@ -209,7 +209,7 @@ namespace Universalis
             // 
             this.numericUpDownHTH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownHTH.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attributeModifierBindingSource, "HTH", true));
+            this.numericUpDownHTH.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attributeModifierBindingSource, "HTH", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDownHTH.Location = new System.Drawing.Point(3, 20);
             this.numericUpDownHTH.Maximum = new decimal(new int[] {
             12,
@@ -250,7 +250,7 @@ namespace Universalis
             // 
             this.numericUpDownLRC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownLRC.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attributeModifierBindingSource, "LRC", true));
+            this.numericUpDownLRC.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attributeModifierBindingSource, "LRC", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDownLRC.Location = new System.Drawing.Point(3, 20);
             this.numericUpDownLRC.Maximum = new decimal(new int[] {
             12,
@@ -291,7 +291,7 @@ namespace Universalis
             // 
             this.numericUpDownAWA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownAWA.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attributeModifierBindingSource, "AWA", true));
+            this.numericUpDownAWA.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attributeModifierBindingSource, "AWA", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDownAWA.Location = new System.Drawing.Point(3, 20);
             this.numericUpDownAWA.Maximum = new decimal(new int[] {
             12,
@@ -332,7 +332,7 @@ namespace Universalis
             // 
             this.numericUpDownDET.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownDET.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attributeModifierBindingSource, "DET", true));
+            this.numericUpDownDET.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.attributeModifierBindingSource, "DET", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDownDET.Location = new System.Drawing.Point(4, 20);
             this.numericUpDownDET.Maximum = new decimal(new int[] {
             12,
