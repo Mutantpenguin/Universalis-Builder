@@ -633,7 +633,7 @@ namespace Universalis
 
                 foreach( var weaponEntry in actorOutfit.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
                                                                     .Select( x => new { weapon = MasterDataStorage.Weapon.Get( x.Key ), count = x.Count() } )
-                                                                    .OrderBy( x => x.weapon.WK )
+                                                                    .OrderBy( x => x.weapon.Class )
                                                                     .ThenBy( x => x.weapon.RangeSort )
                                                                     .ThenBy( x => x.weapon.Name ) )
                 {
@@ -665,7 +665,7 @@ namespace Universalis
 
             Rectangle wkRect = new Rectangle( WeaponWkStart, posY, WeaponWkWidth, SLineHeight );
             g.FillRectangle( Brushes.Black, wkRect );
-            Helpers.DrawStringCentered( g, weapon.WK.ToString(), FontWk, Brushes.White, wkRect );
+            Helpers.DrawStringCentered( g, weapon.Class.ToString(), FontWk, Brushes.White, wkRect );
 
             if( weapon.Unwieldy )
             {
@@ -725,7 +725,7 @@ namespace Universalis
 
             int remainderPosX = WeaponRangeStart + WeaponRangeWidth;
 
-            if( weapon.AF > 0 )
+            if( weapon.SustainedFire > 0 )
             {
                 var afImg = new Bitmap( SImageSize, SImageSize );
 
@@ -733,7 +733,7 @@ namespace Universalis
 
                 using( var g_af = Graphics.FromImage( afImg ) )
                 {
-                    switch( weapon.AF )
+                    switch( weapon.SustainedFire )
                     {
                         case 1:
                             g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - ( afSize / 2 ), ( SImageSize / 2 ) - ( afSize / 2 ), afSize, afSize ) );

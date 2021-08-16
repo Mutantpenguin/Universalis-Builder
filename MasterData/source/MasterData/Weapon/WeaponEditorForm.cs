@@ -39,8 +39,8 @@ namespace Universalis
 
             weaponRangeBindingSource.DataSource = modifiedWeapon.WeaponRange;
 
-            comboBoxWK.DataSource = Weapon.EClassList;
-            comboBoxWK.SelectedItem = weapon.WK;
+            comboBoxWeaponClass.DataSource = Weapon.EClassList;
+            comboBoxWeaponClass.SelectedItem = weapon.Class;
 
             comboBoxType.DataSource = Weapon.ETypeList;
             comboBoxType.SelectedItem = weapon.Type;
@@ -117,9 +117,9 @@ namespace Universalis
             textBoxMaxRange.Text = ( (Weapon)weaponBindingSource.DataSource ).MaxRange;
         }
 
-        private void comboBoxWK_SelectionChangeCommitted( object sender, EventArgs e )
+        private void comboBoxWeaponClass_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            ( (Weapon)weaponBindingSource.DataSource ).WK = (Weapon.EClass)comboBoxWK.SelectedItem;
+            ( (Weapon)weaponBindingSource.DataSource ).Class = (Weapon.EClass)comboBoxWeaponClass.SelectedItem;
 
             weaponBindingSource.ResetCurrentItem();
         }
@@ -262,7 +262,7 @@ namespace Universalis
                 case Weapon.EType.Fernkampf:
                     numericUpDownWeaponRangeLength.Enabled = true;
                     numericUpDownWeaponRangeAmount.Enabled = true;
-                    numericUpDownAF.Enabled = true;
+                    numericUpDownSustainedFire.Enabled = true;
                     checkBoxIndirectFire.Enabled = true;
                     checkBoxIndirectFire.Checked = false;
                     break;
@@ -270,8 +270,8 @@ namespace Universalis
                 case Weapon.EType.Nahkampf:
                     numericUpDownWeaponRangeLength.Enabled = false;
                     numericUpDownWeaponRangeAmount.Enabled = false;
-                    numericUpDownAF.Enabled = false;
-                    numericUpDownAF.Value = 0;
+                    numericUpDownSustainedFire.Enabled = false;
+                    numericUpDownSustainedFire.Value = 0;
                     checkBoxIndirectFire.Enabled = false;
                     checkBoxIndirectFire.Checked = false;
                     break;
@@ -279,8 +279,8 @@ namespace Universalis
                 case Weapon.EType.Wurf:
                     numericUpDownWeaponRangeLength.Enabled = false;
                     numericUpDownWeaponRangeAmount.Enabled = false;
-                    numericUpDownAF.Enabled = false;
-                    numericUpDownAF.Value = 0;
+                    numericUpDownSustainedFire.Enabled = false;
+                    numericUpDownSustainedFire.Value = 0;
                     checkBoxIndirectFire.Enabled = false;
                     checkBoxIndirectFire.Checked = true;
                     break;

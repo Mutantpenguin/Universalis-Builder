@@ -663,7 +663,7 @@ namespace Universalis
                 switch( this.Archetype.Profile.Type )
                 {
                     case Profile.EType.Infanterie:
-                        weaponUnarmed.WK = Weapon.EClass.I;
+                        weaponUnarmed.Class = Weapon.EClass.I;
                         weaponUnarmed.DamageType = new DamageType()
                         {
                             Type = DamageType.EType.Schlag,
@@ -672,7 +672,7 @@ namespace Universalis
                         break;
 
                     case Profile.EType.Koloss:
-                        weaponUnarmed.WK = Weapon.EClass.II;
+                        weaponUnarmed.Class = Weapon.EClass.II;
                         weaponUnarmed.DamageType = new DamageType()
                         {
                             Type = DamageType.EType.Schlag,

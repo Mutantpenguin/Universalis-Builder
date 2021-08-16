@@ -52,8 +52,8 @@
             this.toolStripButtonWeaponAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonWeaponDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
-            this.filterWK = new System.Windows.Forms.ToolStripComboBox();
-            this.checkBoxFilterWK = new System.Windows.Forms.ToolStripButton();
+            this.filterWeaponClass = new System.Windows.Forms.ToolStripComboBox();
+            this.checkBoxFilterWeaponClass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.filterDamageType = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterDamageType = new System.Windows.Forms.ToolStripButton();
@@ -61,17 +61,17 @@
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
-            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.WK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.WeaponClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DamageTypeImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.Strength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Damage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormattedAF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedSustainedFire = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedRadius = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IndirectFire = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.EffectsImage = new System.Windows.Forms.DataGridViewImageColumn();
@@ -90,8 +90,8 @@
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -101,8 +101,8 @@
             this.toolStripButtonWeaponAdd,
             this.toolStripButtonWeaponDelete,
             this.toolStripButtonClearSearch,
-            this.filterWK,
-            this.checkBoxFilterWK,
+            this.filterWeaponClass,
+            this.checkBoxFilterWeaponClass,
             this.toolStripButtonCopy,
             this.filterDamageType,
             this.checkBoxFilterDamageType,
@@ -160,25 +160,25 @@
             this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
             this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
             // 
-            // filterWK
+            // filterWeaponClass
             // 
-            this.filterWK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filterWK.DropDownWidth = 100;
-            this.filterWK.Enabled = false;
-            this.filterWK.Name = "filterWK";
-            this.filterWK.Size = new System.Drawing.Size(75, 25);
+            this.filterWeaponClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterWeaponClass.DropDownWidth = 100;
+            this.filterWeaponClass.Enabled = false;
+            this.filterWeaponClass.Name = "filterWeaponClass";
+            this.filterWeaponClass.Size = new System.Drawing.Size(75, 25);
             // 
-            // checkBoxFilterWK
+            // checkBoxFilterWeaponClass
             // 
-            this.checkBoxFilterWK.CheckOnClick = true;
-            this.checkBoxFilterWK.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterWK.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
-            this.checkBoxFilterWK.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.checkBoxFilterWK.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.checkBoxFilterWK.Name = "checkBoxFilterWK";
-            this.checkBoxFilterWK.Size = new System.Drawing.Size(23, 22);
-            this.checkBoxFilterWK.ToolTipText = "nach WK filtern";
-            this.checkBoxFilterWK.Click += new System.EventHandler(this.checkBoxFilterWK_Click);
+            this.checkBoxFilterWeaponClass.CheckOnClick = true;
+            this.checkBoxFilterWeaponClass.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.checkBoxFilterWeaponClass.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterWeaponClass.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.checkBoxFilterWeaponClass.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.checkBoxFilterWeaponClass.Name = "checkBoxFilterWeaponClass";
+            this.checkBoxFilterWeaponClass.Size = new System.Drawing.Size(23, 22);
+            this.checkBoxFilterWeaponClass.ToolTipText = "nach WK filtern";
+            this.checkBoxFilterWeaponClass.Click += new System.EventHandler(this.checkBoxFilterWeaponClass_Click);
             // 
             // toolStripButtonCopy
             // 
@@ -252,14 +252,14 @@
             this.dataGridViewWeapons.AutoGenerateColumns = false;
             this.dataGridViewWeapons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewWeapons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.WK,
+            this.WeaponClass,
             this.nameDataGridViewTextBoxColumn,
             this.DamageTypeImage,
             this.Strength,
             this.Damage,
             this.FormattedRange,
             this.MaxRange,
-            this.FormattedAF,
+            this.FormattedSustainedFire,
             this.FormattedRadius,
             this.IndirectFire,
             this.EffectsImage,
@@ -290,10 +290,6 @@
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWeapons_KeyDown);
             // 
-            // weaponBindingSource
-            // 
-            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -309,15 +305,19 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
-            // WK
+            // weaponBindingSource
             // 
-            this.WK.DataPropertyName = "WK";
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
+            // 
+            // WeaponClass
+            // 
+            this.WeaponClass.DataPropertyName = "Class";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.WK.DefaultCellStyle = dataGridViewCellStyle2;
-            this.WK.HeaderText = "WK";
-            this.WK.Name = "WK";
-            this.WK.ReadOnly = true;
-            this.WK.Width = 30;
+            this.WeaponClass.DefaultCellStyle = dataGridViewCellStyle2;
+            this.WeaponClass.HeaderText = "WK";
+            this.WeaponClass.Name = "WeaponClass";
+            this.WeaponClass.ReadOnly = true;
+            this.WeaponClass.Width = 30;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -380,16 +380,16 @@
             this.MaxRange.ToolTipText = "maximale Reichweite";
             this.MaxRange.Width = 40;
             // 
-            // FormattedAF
+            // FormattedSustainedFire
             // 
-            this.FormattedAF.DataPropertyName = "FormattedAF";
+            this.FormattedSustainedFire.DataPropertyName = "FormattedSustainedFire";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FormattedAF.DefaultCellStyle = dataGridViewCellStyle7;
-            this.FormattedAF.HeaderText = "AF";
-            this.FormattedAF.Name = "FormattedAF";
-            this.FormattedAF.ReadOnly = true;
-            this.FormattedAF.ToolTipText = "Autofeuer";
-            this.FormattedAF.Width = 30;
+            this.FormattedSustainedFire.DefaultCellStyle = dataGridViewCellStyle7;
+            this.FormattedSustainedFire.HeaderText = "DF";
+            this.FormattedSustainedFire.Name = "FormattedSustainedFire";
+            this.FormattedSustainedFire.ReadOnly = true;
+            this.FormattedSustainedFire.ToolTipText = "Dauerfeuer";
+            this.FormattedSustainedFire.Width = 30;
             // 
             // FormattedRadius
             // 
@@ -563,9 +563,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,8 +579,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonWeaponDelete;
         private System.Windows.Forms.DataGridView dataGridViewWeapons;
         private System.Windows.Forms.BindingSource weaponBindingSource;
-        private System.Windows.Forms.ToolStripComboBox filterWK;
-        private System.Windows.Forms.ToolStripButton checkBoxFilterWK;
+        private System.Windows.Forms.ToolStripComboBox filterWeaponClass;
+        private System.Windows.Forms.ToolStripButton checkBoxFilterWeaponClass;
         private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
         private System.Windows.Forms.ToolStripComboBox filterDamageType;
         private System.Windows.Forms.ToolStripButton checkBoxFilterDamageType;
@@ -590,14 +590,14 @@
         private System.Windows.Forms.ToolStripButton checkBoxFilterType;
         private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WeaponClass;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn DamageTypeImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn Strength;
         private System.Windows.Forms.DataGridViewTextBoxColumn Damage;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRange;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxRange;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedSustainedFire;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRadius;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IndirectFire;
         private System.Windows.Forms.DataGridViewImageColumn EffectsImage;

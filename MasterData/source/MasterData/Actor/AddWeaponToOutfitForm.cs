@@ -11,9 +11,9 @@ namespace Universalis
         {
             InitializeComponent();
 
-            filterWK.ComboBox.DataSource = Weapon.EClassList;
-            filterWK.ComboBox.SelectedIndex = 0;
-            filterWK.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
+            filterWeaponClass.ComboBox.DataSource = Weapon.EClassList;
+            filterWeaponClass.ComboBox.SelectedIndex = 0;
+            filterWeaponClass.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
 
             filterType.ComboBox.DataSource = Weapon.ETypeList;
             filterType.ComboBox.SelectedIndex = 0;
@@ -36,7 +36,7 @@ namespace Universalis
         private void updateDataGridViewWeapons()
         {
             weaponBindingSource.DataSource = MasterDataStorage.Weapon.Weapons.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                             .Where( s => filterWK.Enabled ? s.WK == (Weapon.EClass)filterWK.ComboBox.SelectedItem : true )
+                                                                             .Where( s => filterWeaponClass.Enabled ? s.Class == (Weapon.EClass)filterWeaponClass.ComboBox.SelectedItem : true )
                                                                              .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
                                                                              .Where( s => filterDamageType.Enabled ? s.DamageType.Type == (DamageType.EType)filterDamageType.ComboBox.SelectedItem : true )
                                                                              .OrderBy( x => x.Name )
@@ -90,11 +90,11 @@ namespace Universalis
             }
         }
 
-        private void checkBoxFilterWK_Click( object sender, EventArgs e )
+        private void checkBoxFilterWeaponClass_Click( object sender, EventArgs e )
         {
-            filterWK.Enabled = !filterWK.Enabled;
+            filterWeaponClass.Enabled = !filterWeaponClass.Enabled;
 
-            checkBoxFilterWK.Image = checkBoxFilterWK.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
+            checkBoxFilterWeaponClass.Image = checkBoxFilterWeaponClass.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             updateDataGridViewWeapons();
         }

@@ -298,7 +298,7 @@ namespace Universalis
 #region weapons
         private void updateGridViewWeapons()
         {
-            actorWeaponBindingSource.DataSource = CurrentOutfit().ActorWeaponsList.OrderBy( x => x.Weapon.WK )
+            actorWeaponBindingSource.DataSource = CurrentOutfit().ActorWeaponsList.OrderBy( x => x.Weapon.Class )
                                                                                   .ThenBy( x => x.Weapon.RangeSort )
                                                                                   .ThenBy( x => x.Name )
                                                                                   .ToList();

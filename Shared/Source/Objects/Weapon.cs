@@ -31,7 +31,7 @@ namespace Universalis
             Rules = weapon.Rules;
             Weight = weapon.Weight;
             AdditionalPoints = weapon.AdditionalPoints;
-            WK = weapon.WK;
+            Class = weapon.Class;
             Type = weapon.Type;
             Strength = weapon.Strength;
             AdditiveStrength = weapon.AdditiveStrength;
@@ -67,7 +67,7 @@ namespace Universalis
 
             IndirectFire = weapon.IndirectFire;
 
-            AF = weapon.AF;
+            SustainedFire = weapon.SustainedFire;
             Radius = weapon.Radius;
 
             Unwieldy = weapon.Unwieldy;
@@ -95,7 +95,7 @@ namespace Universalis
                 return ( false );
             }
 
-            if( WK != weapon.WK
+            if( Class != weapon.Class
                 ||
                 Type != weapon.Type
                 ||
@@ -105,7 +105,7 @@ namespace Universalis
                 ||
                 Damage != weapon.Damage
                 ||
-                AF != weapon.AF
+                SustainedFire != weapon.SustainedFire
                 ||
                 Radius != weapon.Radius
                 ||
@@ -233,7 +233,7 @@ namespace Universalis
             set;
         } = 0;
 
-        public EClass WK
+        public EClass Class
         {
             get;
             set;
@@ -263,7 +263,7 @@ namespace Universalis
             set;
         } = 1;
 
-        public int AF
+        public int SustainedFire
         {
             get;
             set;
@@ -368,7 +368,7 @@ namespace Universalis
         public string FormattedDamage => ( 0 == Damage ) ? "-" : Damage.ToString();
 
         [JsonIgnore]
-        public string FormattedAF => ( 0 == AF ) ? "-" : AF.ToString();
+        public string FormattedSustainedFire => ( 0 == SustainedFire ) ? "-" : SustainedFire.ToString();
 
         [JsonIgnore]
         public string FormattedRange
@@ -467,9 +467,9 @@ namespace Universalis
                 points *= Costs.WeaponDamageTypeLevelMultiplicator;
             }
 
-            for( int i = 0; i < AF; i++ )
+            for( int i = 0; i < SustainedFire; i++ )
             {
-                points *= Costs.WeaponAFMultiplicator;
+                points *= Costs.WeaponSustainedFireMultiplicator;
             }
 
             // TODO each DamageEffect has its own points
@@ -506,7 +506,7 @@ namespace Universalis
                 points *= Costs.WeaponUseOnceMultiplicator;
             }
 
-            points *= ( 1 + Math.Abs( 5 - (int)WK ) * 0.25f );
+            points *= ( 1 + Math.Abs( 5 - (int)Class ) * 0.25f );
 
             return ( (int)points );
         }
