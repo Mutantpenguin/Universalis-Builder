@@ -54,6 +54,16 @@ namespace Universalis
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewTraits );
         }
 
+        private void dataGridViewWeapons_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewWeapons );
+        }
+
+        private void dataGridViewEquipment_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewEquipment );
+        }
+
         private void FillOutfitsComboBox()
         {
             List<Actor.ActorOutfit> sortedActorOutfitsList = m_actorModified.ActorOutfitsList.OrderBy( x => x.Name ).ToList();
@@ -300,7 +310,7 @@ namespace Universalis
         {
             actorWeaponBindingSource.DataSource = CurrentOutfit().ActorWeaponsList.OrderBy( x => x.Weapon.Class )
                                                                                   .ThenBy( x => x.Weapon.RangeSort )
-                                                                                  .ThenBy( x => x.Name )
+                                                                                  .ThenBy( x => x.Weapon.Name )
                                                                                   .ToList();
             dataGridViewWeapons.ClearSelection();
         }
@@ -344,7 +354,7 @@ namespace Universalis
 #region equipment
         private void updateGridViewEquipment()
         {
-            actorEquipmentBindingSource.DataSource = CurrentOutfit().ActorEquipmentList.OrderBy( x => x.Name )
+            actorEquipmentBindingSource.DataSource = CurrentOutfit().ActorEquipmentList.OrderBy( x => x.Equipment.Name )
                                                                                        .ToList();
 
             dataGridViewEquipment.ClearSelection();
@@ -397,13 +407,13 @@ namespace Universalis
 
         private void dataGridViewTraits_CellBeginEdit( object sender, DataGridViewCellCancelEventArgs e )
         {
-            if( e.ColumnIndex == levelDataGridViewComboBoxColumn.Index )
+            if( e.ColumnIndex == traitLevelDataGridViewComboBoxColumn.Index )
             {
                 DataGridViewRow row = dataGridViewTraits.Rows[ e.RowIndex ];
 
                 Actor.ActorTrait actorTrait = (Actor.ActorTrait)row.DataBoundItem;
 
-                ( row.Cells[ levelDataGridViewComboBoxColumn.Index ] as DataGridViewComboBoxCell ).DataSource = actorTrait.Trait.TraitLevelList.Select( x => x.Level )
+                ( row.Cells[ traitLevelDataGridViewComboBoxColumn.Index ] as DataGridViewComboBoxCell ).DataSource = actorTrait.Trait.TraitLevelList.Select( x => x.Level )
                                                                                                                                                .Distinct()
                                                                                                                                                .ToList();
             }
@@ -411,7 +421,7 @@ namespace Universalis
 
         private void dataGridViewTraits_CurrentCellDirtyStateChanged( object sender, EventArgs e )
         {
-            if( dataGridViewTraits.CurrentCell.ColumnIndex == levelDataGridViewComboBoxColumn.Index )
+            if( dataGridViewTraits.CurrentCell.ColumnIndex == traitLevelDataGridViewComboBoxColumn.Index )
             {
                 dataGridViewTraits.CommitEdit( DataGridViewDataErrorContexts.Commit );
 

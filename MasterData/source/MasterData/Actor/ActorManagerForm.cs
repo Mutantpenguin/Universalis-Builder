@@ -293,5 +293,10 @@ namespace Universalis
                 editActor( (Actor)dataGridViewActors.CurrentRow.DataBoundItem );
             }
         }
+
+        private void dataGridViewActors_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewActors );
+        }
     }
 }

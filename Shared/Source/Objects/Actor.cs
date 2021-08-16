@@ -181,22 +181,6 @@ namespace Universalis
             set;
         } = Shared.Properties.Resources.empty;
 
-        [JsonIgnore]
-        public Bitmap FactionIcon
-        {
-            get
-            {
-                if( null != Faction )
-                {
-                    return ( Faction.Icon );
-                }
-                else
-                {
-                    return ( null );
-                }
-            }
-        }
-
         public class ActorOutfit
         {
             public ActorOutfit() { }
@@ -300,12 +284,12 @@ namespace Universalis
 
                     if( null != ActorWeaponsList )
                     {
-                        points += ActorWeaponsList.Sum( x => x.Points );
+                        points += ActorWeaponsList.Sum( x => x.Weapon.Points );
                     }
 
                     if( null != ActorEquipmentList )
                     {
-                        points += ActorEquipmentList.Sum( x => x.Points );
+                        points += ActorEquipmentList.Sum( x => x.Equipment.Points );
                     }
 
                     return ( points );
@@ -316,8 +300,8 @@ namespace Universalis
             {
                 float weight = 0.0f;
 
-                weight += ActorWeaponsList.Sum( x => x.Weight );
-                weight += ActorEquipmentList.Sum( x => x.Weight );
+                weight += ActorWeaponsList.Sum( x => x.Weapon.Weight );
+                weight += ActorEquipmentList.Sum( x => x.Equipment.Weight );
 
 
                 return ( weight );
@@ -405,15 +389,6 @@ namespace Universalis
                 get;
                 set;
             }
-
-            [JsonIgnore]
-            public string Name => Weapon.Name;
-
-            [JsonIgnore]
-            public float Weight => Weapon.Weight;
-
-            [JsonIgnore]
-            public int Points => Weapon.Points;
         }
 
         public class ActorEquipment
@@ -430,15 +405,6 @@ namespace Universalis
                 get;
                 set;
             }
-
-            [JsonIgnore]
-            public string Name => Equipment.Name;
-
-            [JsonIgnore]
-            public float Weight => Equipment.Weight;
-
-            [JsonIgnore]
-            public int Points => Equipment.Points;
         }
 
         #region members

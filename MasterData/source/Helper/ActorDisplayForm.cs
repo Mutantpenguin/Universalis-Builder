@@ -32,5 +32,10 @@ namespace Universalis
                 }
             }
         }
+
+        private void dataGridViewActors_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewActors );
+        }
     }
 }

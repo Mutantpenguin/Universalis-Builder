@@ -266,7 +266,7 @@
             // 
             // FactionIcon
             // 
-            this.FactionIcon.DataPropertyName = "FactionIcon";
+            this.FactionIcon.DataPropertyName = "Faction.Icon";
             this.FactionIcon.HeaderText = "";
             this.FactionIcon.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.FactionIcon.Name = "FactionIcon";

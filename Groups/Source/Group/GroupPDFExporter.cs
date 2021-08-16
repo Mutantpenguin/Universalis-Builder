@@ -135,7 +135,7 @@ namespace Universalis
             float factionImgWidth = CmToPixel( 1.0f );
             float groupImgWidth = CmToPixel( 1.0f );
             
-            Image factionImg = Image.GetInstance( group.FactionIcon, System.Drawing.Imaging.ImageFormat.Png );
+            Image factionImg = Image.GetInstance( group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
             factionImg.ScaleToFit( factionImgWidth, factionImgWidth );
             factionImg.SetAbsolutePosition( margin, margin );
             headerBarTemplate.AddImage( factionImg );
@@ -242,7 +242,7 @@ namespace Universalis
                                                       .OrderBy( x => x.actorOutfit.Name )
                                                       .ThenBy( x => x.actor.Name ) )
             {
-                Image actorImg = Image.GetInstance( entry.actor.Icon ?? group.FactionIcon, System.Drawing.Imaging.ImageFormat.Png );
+                Image actorImg = Image.GetInstance( entry.actor.Icon ?? group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
                 actorImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
                 actorTable.AddCell( new PdfPCell( actorImg )
                 {

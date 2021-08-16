@@ -32,10 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
-            this.factionIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pointsRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripCardManager = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
@@ -51,6 +47,10 @@
             this.toolStripButtonChangeFaction = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.factionIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pointsRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).BeginInit();
             this.toolStripCardManager.SuspendLayout();
@@ -83,45 +83,9 @@
             this.dataGridViewActors.Size = new System.Drawing.Size(505, 548);
             this.dataGridViewActors.TabIndex = 0;
             this.dataGridViewActors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewActors_CellDoubleClick);
+            this.dataGridViewActors.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewActors_CellFormatting);
             this.dataGridViewActors.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewActors_CellToolTipTextNeeded);
             this.dataGridViewActors.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewActors_KeyDown);
-            // 
-            // factionIconDataGridViewImageColumn
-            // 
-            this.factionIconDataGridViewImageColumn.DataPropertyName = "FactionIcon";
-            this.factionIconDataGridViewImageColumn.HeaderText = "";
-            this.factionIconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.factionIconDataGridViewImageColumn.Name = "factionIconDataGridViewImageColumn";
-            this.factionIconDataGridViewImageColumn.ReadOnly = true;
-            this.factionIconDataGridViewImageColumn.Width = 40;
-            // 
-            // iconDataGridViewImageColumn
-            // 
-            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
-            this.iconDataGridViewImageColumn.HeaderText = "";
-            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
-            this.iconDataGridViewImageColumn.ReadOnly = true;
-            this.iconDataGridViewImageColumn.Width = 40;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 125;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pointsRangeDataGridViewTextBoxColumn
-            // 
-            this.pointsRangeDataGridViewTextBoxColumn.DataPropertyName = "PointsRange";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.pointsRangeDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.pointsRangeDataGridViewTextBoxColumn.Name = "pointsRangeDataGridViewTextBoxColumn";
-            this.pointsRangeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pointsRangeDataGridViewTextBoxColumn.Width = 80;
             // 
             // actorBindingSource
             // 
@@ -149,6 +113,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -280,6 +245,43 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
+            // factionIconDataGridViewImageColumn
+            // 
+            this.factionIconDataGridViewImageColumn.DataPropertyName = "Faction.Icon";
+            this.factionIconDataGridViewImageColumn.HeaderText = "";
+            this.factionIconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.factionIconDataGridViewImageColumn.Name = "factionIconDataGridViewImageColumn";
+            this.factionIconDataGridViewImageColumn.ReadOnly = true;
+            this.factionIconDataGridViewImageColumn.Width = 40;
+            // 
+            // iconDataGridViewImageColumn
+            // 
+            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
+            this.iconDataGridViewImageColumn.HeaderText = "";
+            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
+            this.iconDataGridViewImageColumn.ReadOnly = true;
+            this.iconDataGridViewImageColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 125;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pointsRangeDataGridViewTextBoxColumn
+            // 
+            this.pointsRangeDataGridViewTextBoxColumn.DataPropertyName = "PointsRange";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.pointsRangeDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.pointsRangeDataGridViewTextBoxColumn.Name = "pointsRangeDataGridViewTextBoxColumn";
+            this.pointsRangeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pointsRangeDataGridViewTextBoxColumn.Width = 80;
+            // 
             // ActorManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,10 +323,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.ToolStripComboBox filterType;
         private System.Windows.Forms.ToolStripButton checkBoxFilterType;
+        private System.Windows.Forms.ToolStripButton toolStripButtonChangeFaction;
         private System.Windows.Forms.DataGridViewImageColumn factionIconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsRangeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripButton toolStripButtonChangeFaction;
     }
 }

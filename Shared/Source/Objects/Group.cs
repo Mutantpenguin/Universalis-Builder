@@ -117,22 +117,6 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public Bitmap FactionIcon
-        {
-            get
-            {
-                if( null != Faction )
-                {
-                    return ( Faction.Icon );
-                }
-                else
-                {
-                    return ( null );
-                }
-            }
-        }
-
-        [JsonIgnore]
         public int Points
         {
             get
