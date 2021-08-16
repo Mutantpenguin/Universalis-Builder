@@ -162,7 +162,14 @@ namespace Universalis
 
                 if( IsValid( group ) )
                 {
-                    GroupPDFExporter.GeneratePDF( m_universe, group, Path.ChangeExtension( Path.GetTempFileName(), "pdf" ) );
+                    string filename = group.Name + " - " + DateTime.Now.ToString( "yyyyMMdd_HHmmss" );
+
+                    foreach( char c in Path.GetInvalidFileNameChars() )
+                    {
+                        filename = filename.Replace( c.ToString(), "" );
+                    }
+
+                    GroupPDFExporter.GeneratePDF( m_universe, group, Path.ChangeExtension( filename, "pdf" ) );
                 }
             }
         }
