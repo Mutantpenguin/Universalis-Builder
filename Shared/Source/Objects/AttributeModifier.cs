@@ -11,11 +11,11 @@ namespace Universalis
         public AttributeModifier( AttributeModifier attributeModifier )
         {
             AGI = attributeModifier.AGI;
-            NK = attributeModifier.NK;
-            FK = attributeModifier.FK;
-            KO = attributeModifier.KO;
-            WN = attributeModifier.WN;
-            EH = attributeModifier.EH;
+            HTH = attributeModifier.HTH;
+            LRC = attributeModifier.LRC;
+            PHY = attributeModifier.PHY;
+            AWA = attributeModifier.AWA;
+            DET = attributeModifier.DET;
         }
 
         public bool Equals( AttributeModifier attributeModifier )
@@ -27,15 +27,15 @@ namespace Universalis
 
             if( AGI != attributeModifier.AGI
                 ||
-                NK != attributeModifier.NK
+                HTH != attributeModifier.HTH
                 ||
-                FK != attributeModifier.FK
+                LRC != attributeModifier.LRC
                 ||
-                KO != attributeModifier.KO
+                PHY != attributeModifier.PHY
                 ||
-                WN != attributeModifier.WN
+                AWA != attributeModifier.AWA
                 ||
-                EH != attributeModifier.EH )
+                DET != attributeModifier.DET )
             {
                 return ( false );
             }
@@ -52,29 +52,29 @@ namespace Universalis
                 text += $"AGI {Formatter.Modifier( AGI )}";
             }
 
-            if( NK != 0 )
+            if( HTH != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"NK {Formatter.Modifier( NK )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"NK {Formatter.Modifier( HTH )}";
             }
 
-            if( FK != 0 )
+            if( LRC != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"FK {Formatter.Modifier( FK )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"FK {Formatter.Modifier( LRC )}";
             }
 
-            if( KO != 0 )
+            if( PHY != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KO {Formatter.Modifier( KO )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KO {Formatter.Modifier( PHY )}";
             }
 
-            if( WN != 0 )
+            if( AWA != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"WN {Formatter.Modifier( WN )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"WN {Formatter.Modifier( AWA )}";
             }
 
-            if( EH != 0 )
+            if( DET != 0 )
             {
-                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"EH {Formatter.Modifier( EH )}";
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"EH {Formatter.Modifier( DET )}";
             }
 
             return ( text );
@@ -85,11 +85,11 @@ namespace Universalis
             if( null != modifier )
             {
                 AGI += modifier.AGI;
-                NK += modifier.NK;
-                FK += modifier.FK;
-                KO += modifier.KO;
-                WN += modifier.WN;
-                EH += modifier.EH;
+                HTH += modifier.HTH;
+                LRC += modifier.LRC;
+                PHY += modifier.PHY;
+                AWA += modifier.AWA;
+                DET += modifier.DET;
             }
         }
 
@@ -99,47 +99,65 @@ namespace Universalis
 
             // TODO higher costs for modifiers?
             points += AGI * Costs.AGI;
-            points += NK * Costs.NK;
-            points += FK * Costs.FK;
-            points += KO * Costs.KO;
-            points += WN * Costs.WN;
-            points += EH * Costs.EH;
+            points += HTH * Costs.HTH;
+            points += LRC * Costs.LRC;
+            points += PHY * Costs.PHY;
+            points += AWA * Costs.AWA;
+            points += DET * Costs.DET;
 
             return ( points );
         }
 
         #region attributes
+        /// <summary>
+        /// Agility / "Agilität"
+        /// </summary>
         public int AGI
         {
             get;
             set;
         }
 
-        public int KO
+        /// <summary>
+        /// Hand-To-Hand / "Nahkampf"
+        /// </summary>
+        public int HTH
         {
             get;
             set;
         }
 
-        public int NK
+        /// <summary>
+        /// Long-Range-Combat / "Fernkampf"
+        /// </summary>
+        public int LRC
         {
             get;
             set;
         }
 
-        public int FK
+        /// <summary>
+        /// Physique / "Konstitution"
+        /// </summary>
+        public int PHY
         {
             get;
             set;
         }
 
-        public int WN
+        /// <summary>
+        /// Awareness / "Wahrnehmung"
+        /// </summary>
+        public int AWA
         {
             get;
             set;
         }
 
-        public int EH
+        /// <summary>
+        /// Determination / "Entschlossenheit"
+        /// </summary>
+        public int DET
         {
             get;
             set;
@@ -152,19 +170,19 @@ namespace Universalis
         public string AGIString => Formatter.Modifier( AGI );
 
         [JsonIgnore]
-        public string KOString => Formatter.Modifier( KO );
+        public string HTHString => Formatter.Modifier( HTH );
 
         [JsonIgnore]
-        public string NKString => Formatter.Modifier( NK );
+        public string LRCString => Formatter.Modifier( LRC );
 
         [JsonIgnore]
-        public string FKString => Formatter.Modifier( FK );
+        public string PHYString => Formatter.Modifier( PHY );
 
         [JsonIgnore]
-        public string WNString => Formatter.Modifier( WN );
+        public string AWAString => Formatter.Modifier( AWA );
 
         [JsonIgnore]
-        public string EHString => Formatter.Modifier( EH );
+        public string DETString => Formatter.Modifier( DET );
 
         #endregion attribute_strings
     }

@@ -514,12 +514,7 @@ namespace Universalis
             }
         }
 
-        public int ModKO( ActorOutfit actorOutfit )
-        {
-            return ( Archetype.Profile.Attributes.ModKO( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
-        }
-
-        public int? ModNK( ActorOutfit actorOutfit )
+        public int? ModHTH( ActorOutfit actorOutfit )
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne )
             {
@@ -527,10 +522,10 @@ namespace Universalis
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModNK( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+                return ( Archetype.Profile.Attributes.ModHTH( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
             }
         }
-        public int? ModFK( ActorOutfit actorOutfit )
+        public int? ModLRC( ActorOutfit actorOutfit )
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne )
             {
@@ -538,16 +533,21 @@ namespace Universalis
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModFK( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+                return ( Archetype.Profile.Attributes.ModLRC( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
             }
         }
 
-        public int ModWN( ActorOutfit actorOutfit )
+        public int ModPHY( ActorOutfit actorOutfit )
         {
-            return ( Archetype.Profile.Attributes.ModWN( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+            return ( Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
         }
 
-        public int? ModEH( ActorOutfit actorOutfit )
+        public int ModAWA( ActorOutfit actorOutfit )
+        {
+            return ( Archetype.Profile.Attributes.ModAWA( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+        }
+
+        public int? ModDET( ActorOutfit actorOutfit )
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne )
             {
@@ -555,7 +555,7 @@ namespace Universalis
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModEH( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+                return ( Archetype.Profile.Attributes.ModDET( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
             }
         }
         #endregion profile
@@ -571,30 +571,30 @@ namespace Universalis
             return ( Archetype.Profile.AreaOfPerception( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
         }
 
-        public static string ThrowRange( int attributeKO, bool unwieldy )
+        public static string ThrowRange( int attributePHY, bool unwieldy )
         {
             if( unwieldy )
             {
-                return ( $"{Math.Ceiling( attributeKO * Presets.throwRangeLengthUnwieldyMultiplier )}/{Presets.throwRangeAmount}" );
+                return ( $"{Math.Ceiling( attributePHY * Presets.throwRangeLengthUnwieldyMultiplier )}/{Presets.throwRangeAmount}" );
             }
             else
             {
-                return ( $"{attributeKO * Presets.throwRangeLengthMultiplier}/{Presets.throwRangeAmount}" );
+                return ( $"{attributePHY * Presets.throwRangeLengthMultiplier}/{Presets.throwRangeAmount}" );
             }
         }
 
         public float ModMaxLoadCapacity( ActorOutfit actorOutfit )
         {
-            int modKO = Archetype.Profile.Attributes.ModKO( CurrentProfileModifier( actorOutfit ).AttributeModifier );
+            int modPHY = Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier( actorOutfit ).AttributeModifier );
 
             switch( this.Archetype.Profile.Type )
             {
                 case Profile.EType.Infanterie:
                 case Profile.EType.Drohne:
-                    return ( Convert.ToSingle( Math.Pow( modKO, 2 ) ) );
+                    return ( Convert.ToSingle( Math.Pow( modPHY, 2 ) ) );
 
                 case Profile.EType.Koloss:
-                    return ( Convert.ToSingle( Math.Pow( ( modKO * Presets.ColossusLoadCapacityMultiplier ), 2 ) ) );
+                    return ( Convert.ToSingle( Math.Pow( ( modPHY * Presets.ColossusLoadCapacityMultiplier ), 2 ) ) );
 
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
@@ -650,14 +650,14 @@ namespace Universalis
             }
             else
             {
-                int modKO = ModKO( actorOutfit );
+                int modPHY = ModPHY( actorOutfit );
 
                 Weapon weaponUnarmed = new Weapon()
                 {
                     Type = Weapon.EType.Nahkampf,
                     Name = "Unbewaffnet",
-                    Strength = modKO,
-                    Damage = Convert.ToInt32( Math.Round( modKO / 3.0f, 0 ) )
+                    Strength = modPHY,
+                    Damage = Convert.ToInt32( Math.Round( modPHY / 3.0f, 0 ) )
                 };
 
                 switch( this.Archetype.Profile.Type )

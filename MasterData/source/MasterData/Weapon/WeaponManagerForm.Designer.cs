@@ -61,6 +61,9 @@
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
+            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.WK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DamageTypeImage = new System.Windows.Forms.DataGridViewImageColumn();
@@ -78,16 +81,13 @@
             this.SpeedString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HitPointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AGIString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NKString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FKString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KOString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WNString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EHString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HTHString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LRCString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PHYString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AWAString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DETString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
@@ -269,11 +269,11 @@
             this.SpeedString,
             this.HitPointsString,
             this.AGIString,
-            this.NKString,
-            this.FKString,
-            this.KOString,
-            this.WNString,
-            this.EHString,
+            this.HTHString,
+            this.LRCString,
+            this.PHYString,
+            this.AWAString,
+            this.DETString,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewWeapons.DataSource = this.weaponBindingSource;
@@ -289,6 +289,25 @@
             this.dataGridViewWeapons.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewWeapons_CellFormatting);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWeapons_KeyDown);
+            // 
+            // weaponBindingSource
+            // 
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelCount});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1019, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelCount
+            // 
+            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
+            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
             // WK
             // 
@@ -457,55 +476,55 @@
             this.AGIString.ReadOnly = true;
             this.AGIString.Width = 35;
             // 
-            // NKString
+            // HTHString
             // 
-            this.NKString.DataPropertyName = "ProfileModifier.AttributeModifier.NKString";
+            this.HTHString.DataPropertyName = "ProfileModifier.AttributeModifier.HTHString";
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.NKString.DefaultCellStyle = dataGridViewCellStyle12;
-            this.NKString.HeaderText = "NK";
-            this.NKString.Name = "NKString";
-            this.NKString.ReadOnly = true;
-            this.NKString.Width = 35;
+            this.HTHString.DefaultCellStyle = dataGridViewCellStyle12;
+            this.HTHString.HeaderText = "NK";
+            this.HTHString.Name = "HTHString";
+            this.HTHString.ReadOnly = true;
+            this.HTHString.Width = 35;
             // 
-            // FKString
+            // LRCString
             // 
-            this.FKString.DataPropertyName = "ProfileModifier.AttributeModifier.FKString";
+            this.LRCString.DataPropertyName = "ProfileModifier.AttributeModifier.LRCString";
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.FKString.DefaultCellStyle = dataGridViewCellStyle13;
-            this.FKString.HeaderText = "FK";
-            this.FKString.Name = "FKString";
-            this.FKString.ReadOnly = true;
-            this.FKString.Width = 35;
+            this.LRCString.DefaultCellStyle = dataGridViewCellStyle13;
+            this.LRCString.HeaderText = "FK";
+            this.LRCString.Name = "LRCString";
+            this.LRCString.ReadOnly = true;
+            this.LRCString.Width = 35;
             // 
-            // KOString
+            // PHYString
             // 
-            this.KOString.DataPropertyName = "ProfileModifier.AttributeModifier.KOString";
+            this.PHYString.DataPropertyName = "ProfileModifier.AttributeModifier.PHYString";
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.KOString.DefaultCellStyle = dataGridViewCellStyle14;
-            this.KOString.HeaderText = "KO";
-            this.KOString.Name = "KOString";
-            this.KOString.ReadOnly = true;
-            this.KOString.Width = 35;
+            this.PHYString.DefaultCellStyle = dataGridViewCellStyle14;
+            this.PHYString.HeaderText = "KO";
+            this.PHYString.Name = "PHYString";
+            this.PHYString.ReadOnly = true;
+            this.PHYString.Width = 35;
             // 
-            // WNString
+            // AWAString
             // 
-            this.WNString.DataPropertyName = "ProfileModifier.AttributeModifier.WNString";
+            this.AWAString.DataPropertyName = "ProfileModifier.AttributeModifier.AWAString";
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.WNString.DefaultCellStyle = dataGridViewCellStyle15;
-            this.WNString.HeaderText = "WN";
-            this.WNString.Name = "WNString";
-            this.WNString.ReadOnly = true;
-            this.WNString.Width = 35;
+            this.AWAString.DefaultCellStyle = dataGridViewCellStyle15;
+            this.AWAString.HeaderText = "WN";
+            this.AWAString.Name = "AWAString";
+            this.AWAString.ReadOnly = true;
+            this.AWAString.Width = 35;
             // 
-            // EHString
+            // DETString
             // 
-            this.EHString.DataPropertyName = "ProfileModifier.AttributeModifier.EHString";
+            this.DETString.DataPropertyName = "ProfileModifier.AttributeModifier.DETString";
             dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.EHString.DefaultCellStyle = dataGridViewCellStyle16;
-            this.EHString.HeaderText = "EH";
-            this.EHString.Name = "EHString";
-            this.EHString.ReadOnly = true;
-            this.EHString.Width = 35;
+            this.DETString.DefaultCellStyle = dataGridViewCellStyle16;
+            this.DETString.HeaderText = "EH";
+            this.DETString.Name = "DETString";
+            this.DETString.ReadOnly = true;
+            this.DETString.Width = 35;
             // 
             // weightDataGridViewTextBoxColumn
             // 
@@ -527,25 +546,6 @@
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.pointsDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // weaponBindingSource
-            // 
-            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelCount});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1019, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabelCount
-            // 
-            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
-            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
             // WeaponManagerForm
             // 
@@ -607,11 +607,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SpeedString;
         private System.Windows.Forms.DataGridViewTextBoxColumn HitPointsString;
         private System.Windows.Forms.DataGridViewTextBoxColumn AGIString;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NKString;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FKString;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KOString;
-        private System.Windows.Forms.DataGridViewTextBoxColumn WNString;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EHString;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HTHString;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LRCString;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PHYString;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AWAString;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DETString;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }

@@ -240,12 +240,12 @@ namespace Universalis
         private static void DrawAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
         {
             DrawAttribute( g, XAttrFirstColumn, 0,                "AGI",    actor.ModAGI( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "NK",     actor.ModNK( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ),   "FK",     actor.ModFK( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "NK",     actor.ModHTH( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ),   "FK",     actor.ModLRC( actorOutfit ) );
 
-            DrawAttribute( g, XAttrSecondColumn, 0,                 "KO",   actor.ModKO( actorOutfit ) );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ),  "WN",   actor.ModWN( actorOutfit ) );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ),    "EH",   actor.ModEH( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, 0,                 "KO",   actor.ModPHY( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ),  "WN",   actor.ModAWA( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ),    "EH",   actor.ModDET( actorOutfit ) );
         }
 
         private static void DrawAttribute( Graphics g, int posX, int posY, string name, int? attribute )
@@ -705,7 +705,7 @@ namespace Universalis
 
             if( weapon.AdditiveStrength )
             {
-                Helpers.DrawStringCentered( g, ( weapon.Strength + actor.ModKO( actorOutfit ) ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponStrengthStart, posY, WeaponStrengthWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, ( weapon.Strength + actor.ModPHY( actorOutfit ) ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponStrengthStart, posY, WeaponStrengthWidth, SLineHeight ) );
             }
             else
             {
@@ -716,7 +716,7 @@ namespace Universalis
 
             if( Weapon.EType.Wurf == weapon.Type )
             {
-                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModKO( actorOutfit ), weapon.Unwieldy ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModPHY( actorOutfit ), weapon.Unwieldy ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
             }
             else
             {
@@ -837,7 +837,7 @@ namespace Universalis
 
                 if( armor.AdditiveProtection )
                 {
-                    Helpers.DrawStringCentered( g, ( armor.Protection + actor.ModKO( actorOutfit ) ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                    Helpers.DrawStringCentered( g, ( armor.Protection + actor.ModPHY( actorOutfit ) ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
                 }
                 else
                 {

@@ -147,15 +147,15 @@ namespace Universalis
                 if( Type != Profile.EType.Drohne )
                 {
                     points += Attributes.AGI * Costs.AGI;
-                    points += Attributes.NK * Costs.NK;
-                    points += Attributes.FK * Costs.FK;
-                    points += Attributes.EH * Costs.EH;
+                    points += Attributes.HTH * Costs.HTH;
+                    points += Attributes.LRC * Costs.LRC;
+                    points += Attributes.DET * Costs.DET;
                 }
 
                 points += Speed * Costs.Speed;
 
-                points += Attributes.KO * Costs.KO;
-                points += Attributes.WN * Costs.WN;
+                points += Attributes.PHY * Costs.PHY;
+                points += Attributes.AWA * Costs.AWA;
 
                 switch( Type )
                 {
@@ -229,7 +229,7 @@ namespace Universalis
                         throw new InvalidOperationException( "unkown " + nameof( Profile.ESize ) );
                 }
 
-                return ( Attributes.KO * typeMultiplicator * sizeMultiplicator );
+                return ( Attributes.PHY * typeMultiplicator * sizeMultiplicator );
             }
         }
 
@@ -241,7 +241,7 @@ namespace Universalis
             }
             else
             {
-                int lengthDangerArea = Presets.MaxLengthDangerArea - Attributes.ModEH( modifier );
+                int lengthDangerArea = Presets.MaxLengthDangerArea - Attributes.ModDET( modifier );
 
                 if( lengthDangerArea < 0 )
                 {
@@ -256,7 +256,7 @@ namespace Universalis
 
         public int AreaOfPerception( AttributeModifier modifier )
         {
-            return ( Presets.AreaOfPerceptionMultiplier * Attributes.ModWN( modifier ) );
+            return ( Presets.AreaOfPerceptionMultiplier * Attributes.ModAWA( modifier ) );
         }
     }
 }
