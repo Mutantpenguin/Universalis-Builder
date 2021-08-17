@@ -543,20 +543,5 @@ namespace Universalis
         {
             updateFields();
         }
-
-        private void toolStripButtonChangeArchetype_Click( object sender, EventArgs e )
-        {
-            using( ArchetypeSelectionForm archetypeSelectionForm = new ArchetypeSelectionForm( null ) )
-            {
-                if( archetypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
-                {
-                    m_actorModified.Archetype = archetypeSelectionForm.SelectedArchetype;
-
-                    archetypeBindingSource.DataSource = m_actorModified.Archetype;
-
-                    updateFields();
-                }
-            }
-        }
     }
 }
