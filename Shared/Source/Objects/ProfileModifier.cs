@@ -74,9 +74,8 @@ namespace Universalis
         {
             int points = 0;
 
-            // TODO higher costs for modifiers?
-            points += Speed * Costs.Speed;
-            points += HitPoints * Costs.HitPoints;
+            points += Speed * Convert.ToInt32( Costs.Speed * Costs.ModifierSurcharge );
+            points += HitPoints * Convert.ToInt32( Costs.HitPoints * Costs.ModifierSurcharge );
 
             if( AttributeModifier != null )
             {

@@ -12,6 +12,9 @@ namespace Universalis
         public const int AWA = 10; // Awareness         / "Wahrnehmung"
         public const int DET = 10; // Determination     / "Entschlossenheit"
 
+        // Profile and Attribute modifier
+        public const float ModifierSurcharge = 1.2f;
+
         // Actor
         public const int Speed = 10;
         public const int HitPoints = 15;

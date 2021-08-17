@@ -97,13 +97,12 @@ namespace Universalis
         {
             int points = 0;
 
-            // TODO higher costs for modifiers?
-            points += AGI * Costs.AGI;
-            points += HTH * Costs.HTH;
-            points += LRC * Costs.LRC;
-            points += PHY * Costs.PHY;
-            points += AWA * Costs.AWA;
-            points += DET * Costs.DET;
+            points += AGI * Convert.ToInt32( Costs.AGI * Costs.ModifierSurcharge );
+            points += HTH * Convert.ToInt32( Costs.HTH * Costs.ModifierSurcharge );
+            points += LRC * Convert.ToInt32( Costs.LRC * Costs.ModifierSurcharge );
+            points += PHY * Convert.ToInt32( Costs.PHY * Costs.ModifierSurcharge );
+            points += AWA * Convert.ToInt32( Costs.AWA * Costs.ModifierSurcharge );
+            points += DET * Convert.ToInt32( Costs.DET * Costs.ModifierSurcharge );
 
             return ( points );
         }
