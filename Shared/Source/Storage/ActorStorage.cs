@@ -95,6 +95,16 @@ namespace Universalis
             }
         }
 
+        public bool Exists( Actor actor )
+        {
+            if( null == actor )
+            {
+                throw new ArgumentNullException( nameof( actor ) );
+            }
+
+            return( m_actorList.Contains( actor ) );
+        }
+
         private string GetFilename( Actor actor )
         {
             return( Path.ChangeExtension( Path.Combine( s_path, actor.ID.ToString() ), Storage.fileExtension ) );
