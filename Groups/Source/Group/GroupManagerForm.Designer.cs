@@ -41,7 +41,6 @@
             this.toolStripButtonDeleteGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonPDF = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
@@ -123,7 +122,6 @@
             this.toolStripButtonDeleteGroup,
             this.toolStripTextBoxSearch,
             this.toolStripButtonClearSearch,
-            this.toolStripButtonCopy,
             this.toolStripButtonPDF});
             this.toolStripCardManager.Location = new System.Drawing.Point(0, 150);
             this.toolStripCardManager.Name = "toolStripCardManager";
@@ -174,18 +172,6 @@
             this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
             this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
-            // 
-            // toolStripButtonCopy
-            // 
-            this.toolStripButtonCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonCopy.Image = global::Universalis.Properties.Resources.copy;
-            this.toolStripButtonCopy.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonCopy.Name = "toolStripButtonCopy";
-            this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonCopy.ToolTipText = "Gruppe kopieren";
-            this.toolStripButtonCopy.Click += new System.EventHandler(this.toolStripButtonCopy_Click);
             // 
             // toolStripButtonPDF
             // 
@@ -282,7 +268,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonDeleteGroup;
         private System.Windows.Forms.BindingSource groupBindingSource;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearch;
-        private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
         private System.Windows.Forms.ToolStripButton toolStripButtonPDF;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCount;
