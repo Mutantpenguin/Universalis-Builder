@@ -80,7 +80,7 @@ namespace Universalis
             {
                 Trait trait = (Trait)dataGridViewTraits.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithTrait = MasterDataStorage.Actor.ActorsWithTrait( trait );
+                var actorsWithTrait = UserDataStorage.Actor.ActorsWithTrait( trait );
 
                 if( actorsWithTrait.Any() )
                 {
@@ -153,17 +153,6 @@ namespace Universalis
                 Trait trait = (Trait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem;
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( trait.Description );
-            }
-        }
-
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewTraits.SelectedRows.Count > 0 )
-            {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithTrait( (Trait)dataGridViewTraits.SelectedRows[ 0 ].DataBoundItem ) ) )
-                {
-                    actorDisplay.ShowDialog( this );
-                }
             }
         }
 

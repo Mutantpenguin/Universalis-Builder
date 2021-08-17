@@ -279,14 +279,6 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithArmor( m_originalArmor ) ) )
-            {
-                actorDisplay.ShowDialog( this );
-            }
-        }
-
         private void toolStripButtonProfileModEditor_Click( object sender, EventArgs e )
         {
             openProfileModEditor();

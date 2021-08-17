@@ -123,18 +123,17 @@ namespace Universalis
             {
                 int points = 0;
 
-                points += GroupActorList.Sum( x => x.Points );
+                points += GroupActorList.Sum( x => x.Actor.Points );
 
                 return ( points );
             }
         }
 
-        public void AddActor( Actor actor, Actor.ActorOutfit actorOutfit )
+        public void AddActor( Actor actor )
         {
             GroupActorList.Add( new GroupActor
             {
-                Actor = actor,
-                ActorOutfit = actorOutfit
+                Actor = actor
             } );
         }
 
@@ -160,16 +159,7 @@ namespace Universalis
                     return ( false );
                 }
 
-                if( Actor != groupActor.Actor
-                    ||
-                    ActorOutfit != groupActor.ActorOutfit
-                    ||
-                    CustomName != groupActor.CustomName )
-                {
-                    return ( false );
-                }
-
-                if( CustomImg != groupActor.CustomImg )
+                if( Actor != groupActor.Actor )
                 {
                     return ( false );
                 }
@@ -186,11 +176,7 @@ namespace Universalis
 
                 ID = groupActor.ID;
 
-                CustomName = groupActor.CustomName;
                 Actor = groupActor.Actor;
-                ActorOutfit = groupActor.ActorOutfit;
-
-                CustomImg = groupActor.CustomImg;
             }
 
             public Guid ID
@@ -199,86 +185,12 @@ namespace Universalis
                 set;
             } = Guid.NewGuid();
 
-            public string CustomName
-            {
-                get;
-                set;
-            }
-
-            [JsonConverter( typeof( JsonGroupActorConverter ) )]
+            [JsonConverter( typeof( JsonActorConverter ) )]
             public Actor Actor
             {
                 get;
                 set;
             }
-
-            [JsonConverter( typeof( JsonActorOutfitConverter ) )]
-            public Actor.ActorOutfit ActorOutfit
-            {
-                get;
-                set;
-            }
-
-            [JsonConverter( typeof( JsonJpegConverter ) )]
-            public Bitmap CustomImg
-            {
-                get;
-                set;
-            } = null;
-
-            [JsonIgnore]
-            public Bitmap Icon => ( Actor != null ) ? Actor.Icon : Shared.Properties.Resources.empty;
-
-            [JsonIgnore]
-            public string Name
-            {
-                get
-                {
-                    if( Actor != null )
-                    {
-                        string name = Actor.Name;
-
-                        if( !String.IsNullOrEmpty( CustomName ) )
-                        {
-                            name += " - " + CustomName;
-                        }
-
-                        if( ActorOutfit != null )
-                        {
-                            name += Environment.NewLine + ActorOutfit.Name;
-                        }
-
-                        return ( name );
-                    }
-                    else
-                    {
-                        return( "Modell nicht mehr vorhanden" );
-                    }
-                }
-            }
-
-            [JsonIgnore]
-            public int Points => ( Actor != null ) ? Actor.Points( ActorOutfit ) : 0;
-        }
-
-        public bool HasMissingActorOutfits()
-        {
-            if( GroupActorList.Exists( x => x.ActorOutfit == null ) )
-            {
-                return ( true );
-            }
-
-            return( false );
-        }
-
-        public bool HasMissingActors()
-        {
-            if( GroupActorList.Exists( x => x.Actor == null ) )
-            {
-                return ( true );
-            }
-
-            return( false );
         }
     }
 }

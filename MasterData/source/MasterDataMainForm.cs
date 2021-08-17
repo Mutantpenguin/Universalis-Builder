@@ -43,7 +43,6 @@ namespace Universalis
             this.Icon = Shared.Properties.Resources.icon;
         }
 
-        ActorManagerForm actorManager = null;
         WeaponManagerForm weaponManager = null;
         ArmorManagerForm armorManager = null;
         EquipmentManagerForm equipmentManager = null;
@@ -51,21 +50,6 @@ namespace Universalis
         FactionManagerForm factionManager = null;
         ArchetypeManagerForm archetypeManager = null;
         DamageEffectManagerForm damageEffectManager = null;
-
-        private void buttonActors_Click( object sender, EventArgs e )
-        {
-            actorManager = new ActorManagerForm();
-
-            actorManager.FormClosed += delegate
-            {
-                buttonActors.Enabled = true;
-                actorManager = null;
-            };
-
-            buttonActors.Enabled = false;
-
-            actorManager.Show( this );
-        }
 
         private void buttonWeapons_Click( object sender, EventArgs e )
         {
@@ -174,9 +158,7 @@ namespace Universalis
 
         private void MasterDataMainForm_FormClosing( object sender, FormClosingEventArgs e )
         {
-            if( actorManager != null
-                ||
-                weaponManager != null
+            if( weaponManager != null
                 ||
                 armorManager != null
                 ||

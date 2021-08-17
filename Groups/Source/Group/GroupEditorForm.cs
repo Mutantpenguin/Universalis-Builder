@@ -37,8 +37,7 @@ namespace Universalis
 
         private void updateGridViewActors()
         {
-            groupActorBindingSource.DataSource = m_groupModified.GroupActorList.OrderByDescending( x => ( x.Actor != null ) ? x.ActorOutfit.Name : "zzzzzzzzzzzzzz" )
-                                                                               .ThenBy( x => ( x.Actor != null ) ? x.Name : "zzzzzzzzzzzzzz" )
+            groupActorBindingSource.DataSource = m_groupModified.GroupActorList.OrderBy( x => x.Actor.Name )
                                                                                .ToList();
 
             dataGridViewActors.ClearSelection();
@@ -132,7 +131,7 @@ namespace Universalis
             {
                 Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                pictureBoxCard.Image = groupActor.Actor != null ? CardPainter.GetBitmap( groupActor ) : Shared.Properties.Resources.empty;
+                pictureBoxCard.Image = groupActor.Actor != null ? CardPainter.GetBitmap( groupActor.Actor ) : Shared.Properties.Resources.empty;
             }
             else
             {
@@ -150,20 +149,7 @@ namespace Universalis
                     {
                         foreach( Actor actor in addActorToGroup.SelectedActors )
                         {
-                            if( actor.ActorOutfitsList.Count == 1 )
-                            {
-                                m_groupModified.AddActor( actor, actor.ActorOutfitsList[ 0 ] );
-                            }
-                            else
-                            {
-                                using( SelectOutfitForActorForm selectOutfitForActorForm = new SelectOutfitForActorForm( actor ) )
-                                {
-                                    if( selectOutfitForActorForm.ShowDialog( this ) == DialogResult.OK )
-                                    {
-                                        m_groupModified.AddActor( actor, selectOutfitForActorForm.SelectedOutfit );
-                                    }
-                                }
-                            }
+                            m_groupModified.AddActor( actor );
                         }
 
                         updateGridViewActors();
@@ -211,11 +197,6 @@ namespace Universalis
                 }
                 else
                 {
-                    if( groupActor.ActorOutfit == null )
-                    {
-                        toolTipText += "Fehlendes Outfit!";
-                    }
-
                     if( !String.IsNullOrEmpty( groupActor.Actor.Description ) )
                     {
                         toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + ToolTipHelper.FormatMaxWidth( groupActor.Actor.Description );
@@ -254,23 +235,13 @@ namespace Universalis
             {
                 Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 
-                if( groupActor.Actor == null
-                    ||
-                    groupActor.ActorOutfit == null )
+                if( groupActor.Actor == null )
                 {
                     e.PaintBackground( e.CellBounds, true );
                     e.PaintContent( e.CellBounds );
 
-                    if( groupActor.Actor == null )
-                    {
-                        Image imgInactiveActors = Properties.Resources.error;
-                        e.Graphics.DrawImageUnscaled( imgInactiveActors, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveActors.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveActors.Height ) / 2 ) );
-                    }
-                    else
-                    {
-                        Image imgMissingActorOutfits = Properties.Resources.error_outline;
-                        e.Graphics.DrawImageUnscaled( imgMissingActorOutfits, e.CellBounds.X + e.CellBounds.Width - (int)( imgMissingActorOutfits.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgMissingActorOutfits.Height ) / 2 ) );
-                    }
+                    Image imgInactiveActors = Properties.Resources.error;
+                    e.Graphics.DrawImageUnscaled( imgInactiveActors, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveActors.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveActors.Height ) / 2 ) );
 
                     e.Handled = true;
                 }
@@ -292,109 +263,6 @@ namespace Universalis
                     }
                 }
             }
-        }
-
-        private void dataGridViewActors_RowContextMenuStripNeeded( object sender, DataGridViewRowContextMenuStripNeededEventArgs e )
-        {
-            Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem;
-
-            if( groupActor.Actor == null )
-            {
-                e.ContextMenuStrip = new ContextMenuStrip();
-            }
-            else
-            {
-                e.ContextMenuStrip = contextMenuStripActors;
-
-                if( groupActor.Actor.ActorOutfitsList.Count > 0 )
-                {
-                    outfitWechselnToolStripMenuItem.DropDownItems.Clear();
-
-                    foreach( Actor.ActorOutfit outfit in groupActor.Actor.ActorOutfitsList.OrderBy( x => x.Name ) )
-                    {
-                        outfitWechselnToolStripMenuItem.DropDownItems.Add( $"{outfit.Name} - {outfit.Points}pkt", null, delegate
-                                                                                                                        {
-                                                                                                                            groupActor.ActorOutfit = outfit;
-
-                                                                                                                            groupActorBindingSource.ResetBindings( false );
-
-                                                                                                                            UpdateCard();
-                                                                                                                        } );
-                    }
-                }
-                else
-                {
-                    outfitWechselnToolStripMenuItem.DropDownItems.Add( "Keine Outfits vorhanden" );
-                }
-
-                if( groupActor.CustomImg == null )
-                {
-                    eigenesBildHochladenToolStripMenuItem.Visible = true;
-                    eigenesBildEntfernenToolStripMenuItem.Visible = false;
-                }
-                else
-                {
-                    eigenesBildHochladenToolStripMenuItem.Visible = false;
-                    eigenesBildEntfernenToolStripMenuItem.Visible = true;
-                }
-            }
-        }
-
-        private void umbenennenToolStripMenuItem_Click( object sender, EventArgs e )
-        {
-            Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem;
-
-            using( EnterNameForm enterNameForm = new EnterNameForm( groupActor.CustomName, emptyNameAllowed: true ) )
-            {
-                if( enterNameForm.ShowDialog( this ) == DialogResult.OK )
-                {
-                    groupActor.CustomName = enterNameForm.NewName;
-
-                    groupActorBindingSource.ResetBindings( false );
-
-                    UpdateCard();
-                }
-            }
-        }
-
-        private void eigenesBildHochladenToolStripMenuItem_Click( object sender, EventArgs e )
-        {
-            using( OpenFileDialog iconFileDialog = new OpenFileDialog() )
-            {
-                iconFileDialog.InitialDirectory = Properties.Settings.Default.imageFilePath;
-
-                if( iconFileDialog.ShowDialog( this ) == DialogResult.OK )
-                {
-                    Properties.Settings.Default.imageFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
-                    Properties.Settings.Default.Save();
-
-                    Image img = ImageHelper.LoadImage( iconFileDialog.FileName );
-
-                    if( null != img )
-                    {
-                        using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Bild auswählen", img, ImageHelper.imageSize ) )
-                        {
-                            if( imageSelectionForm.ShowDialog( this ) == DialogResult.OK )
-                            {
-                                ( (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem ).CustomImg = new Bitmap( imageSelectionForm.Image );
-
-                                groupActorBindingSource.ResetBindings( false );
-
-                                UpdateCard();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private void eigenesBildEntfernenToolStripMenuItem_Click( object sender, EventArgs e )
-        {
-            ( (Group.GroupActor)dataGridViewActors.CurrentRow.DataBoundItem ).CustomImg = null;
-
-            groupActorBindingSource.ResetBindings( false );
-
-            UpdateCard();
         }
     }
 }

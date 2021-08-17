@@ -210,14 +210,6 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithArchetype( m_originalArchetype ) ) )
-            {
-                actorDisplay.ShowDialog( this );
-            }
-        }
-
         private void TypeDependantFields()
         {
             if( Profile.EType.Drohne == (Profile.EType)comboBoxType.SelectedItem )

@@ -45,16 +45,12 @@
             this.toolStripButtonArchetypeAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonArchetypeDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.filterFaction = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterFaction = new System.Windows.Forms.ToolStripButton();
             this.filterType = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewArchetypes = new System.Windows.Forms.DataGridView();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.FactionIcon = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +66,9 @@
             this.DETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
@@ -83,7 +82,6 @@
             this.toolStripButtonArchetypeAdd,
             this.toolStripButtonArchetypeDelete,
             this.toolStripButtonCopy,
-            this.toolStripButtonUsage,
             this.toolStripButtonClearSearch,
             this.filterFaction,
             this.checkBoxFilterFaction,
@@ -98,7 +96,6 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -140,17 +137,6 @@
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonCopy.ToolTipText = "Rüstung kopieren";
             this.toolStripButtonCopy.Click += new System.EventHandler(this.toolStripButtonCopy_Click);
-            // 
-            // toolStripButtonUsage
-            // 
-            this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.link;
-            this.toolStripButtonUsage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonUsage.Name = "toolStripButtonUsage";
-            this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonUsage.Click += new System.EventHandler(this.toolStripButtonUsage_Click);
             // 
             // toolStripButtonClearSearch
             // 
@@ -244,25 +230,6 @@
             this.dataGridViewArchetypes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewArchetypes_CellFormatting);
             this.dataGridViewArchetypes.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewArchetype_CellToolTipTextNeeded);
             this.dataGridViewArchetypes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewArchetype_KeyDown);
-            // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelCount});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(796, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabelCount
-            // 
-            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
-            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
             // FactionIcon
             // 
@@ -406,6 +373,25 @@
             this.Points.ReadOnly = true;
             this.Points.Width = 60;
             // 
+            // archetypeBindingSource
+            // 
+            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelCount});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(796, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelCount
+            // 
+            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
+            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
+            // 
             // ArchetypeManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,7 +427,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCount;
-        private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.ToolStripComboBox filterFaction;
         private System.Windows.Forms.ToolStripButton checkBoxFilterFaction;

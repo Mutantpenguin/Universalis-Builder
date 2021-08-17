@@ -114,7 +114,7 @@ namespace Universalis
             {
                 Weapon weapon = (Weapon)dataGridViewWeapons.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithWeapon = MasterDataStorage.Actor.ActorsWithWeapon( weapon );
+                var actorsWithWeapon = UserDataStorage.Actor.ActorsWithWeapon( weapon );
 
                 if( actorsWithWeapon.Any() )
                 {
@@ -187,17 +187,6 @@ namespace Universalis
                 Weapon weapon = (Weapon)dataGridViewWeapons.Rows[ e.RowIndex ].DataBoundItem;
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( weapon.Description );
-            }
-        }
-
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewWeapons.SelectedRows.Count > 0 )
-            {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithWeapon( (Weapon)dataGridViewWeapons.SelectedRows[ 0 ].DataBoundItem ) ) )
-                {
-                    actorDisplay.ShowDialog( this );
-                }
             }
         }
 

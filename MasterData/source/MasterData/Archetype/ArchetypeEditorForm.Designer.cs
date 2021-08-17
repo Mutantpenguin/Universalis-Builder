@@ -31,9 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxWeight = new System.Windows.Forms.TextBox();
+            this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -52,12 +54,12 @@
             this.Speed = new System.Windows.Forms.NumericUpDown();
             this.labelSpeed = new System.Windows.Forms.Label();
             this.toolStrip7 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonUsage = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanelAttribMods = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.numericUpDownAGI = new System.Windows.Forms.NumericUpDown();
+            this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.numericUpDownHTH = new System.Windows.Forms.NumericUpDown();
@@ -85,10 +87,9 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HitPoints)).BeginInit();
@@ -98,6 +99,7 @@
             this.tableLayoutPanelAttribMods.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHTH)).BeginInit();
             this.panel7.SuspendLayout();
@@ -111,9 +113,6 @@
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -141,6 +140,10 @@
             this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
             this.textBoxPoints.TabIndex = 38;
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // archetypeBindingSource
+            // 
+            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
             // 
             // label2
             // 
@@ -172,6 +175,10 @@
             this.textBoxWeight.Size = new System.Drawing.Size(56, 20);
             this.textBoxWeight.TabIndex = 35;
             this.textBoxWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // profileBindingSource
+            // 
+            this.profileBindingSource.DataSource = typeof(Universalis.Profile);
             // 
             // label1
             // 
@@ -360,24 +367,12 @@
             // toolStrip7
             // 
             this.toolStrip7.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonUsage,
             this.toolStripButtonSave});
             this.toolStrip7.Location = new System.Drawing.Point(0, 0);
             this.toolStrip7.Name = "toolStrip7";
             this.toolStrip7.Size = new System.Drawing.Size(484, 25);
             this.toolStrip7.TabIndex = 33;
             this.toolStrip7.Text = "toolStrip7";
-            // 
-            // toolStripButtonUsage
-            // 
-            this.toolStripButtonUsage.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonUsage.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonUsage.Image = global::Universalis.Properties.Resources.link;
-            this.toolStripButtonUsage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonUsage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonUsage.Name = "toolStripButtonUsage";
-            this.toolStripButtonUsage.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonUsage.Click += new System.EventHandler(this.toolStripButtonUsage_Click);
             // 
             // toolStripButtonSave
             // 
@@ -455,6 +450,10 @@
             0,
             0,
             0});
+            // 
+            // attributeBindingSource
+            // 
+            this.attributeBindingSource.DataSource = typeof(Universalis.Attributes);
             // 
             // label4
             // 
@@ -795,18 +794,6 @@
             this.comboBoxSize.TabIndex = 44;
             this.comboBoxSize.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSize_SelectionChangeCommitted);
             // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
-            // 
-            // attributeBindingSource
-            // 
-            this.attributeBindingSource.DataSource = typeof(Universalis.Attributes);
-            // 
-            // profileBindingSource
-            // 
-            this.profileBindingSource.DataSource = typeof(Universalis.Profile);
-            // 
             // ArchetypeEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -825,6 +812,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ArchetypeEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -840,6 +829,7 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHTH)).EndInit();
@@ -861,9 +851,6 @@
             this.toolStrip3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -882,7 +869,6 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStrip toolStrip7;
         private System.Windows.Forms.ToolStripButton toolStripButtonSave;
-        private System.Windows.Forms.ToolStripButton toolStripButtonUsage;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxWeight;
         private System.Windows.Forms.Panel panel3;

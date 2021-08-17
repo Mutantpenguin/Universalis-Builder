@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -40,7 +34,7 @@ namespace Universalis
 
         private void updateDataGridViewArchetypes()
         {
-            archetypeBindingSource.DataSource = MasterDataStorage.Archetype.Archetypes.Where( s => m_factionFilter == s.Faction )
+            archetypeBindingSource.DataSource = MasterDataStorage.Archetype.Archetypes.Where( s => ( m_factionFilter == null ) || ( m_factionFilter == s.Faction ) )
                                                                                       .Where( s => filterType.Enabled ? s.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
                                                                                       .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                                       .OrderBy( x => x.Name )

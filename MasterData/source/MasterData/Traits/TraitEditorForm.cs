@@ -166,7 +166,7 @@ namespace Universalis
             {
                 TraitLevel traitLevel = ( (TraitLevel)( dataGridViewLevel.Rows[ dataGridViewLevel.SelectedRows[ 0 ].Index ].DataBoundItem ) );
 
-                var actorsWithTraitLevel = MasterDataStorage.Actor.ActorsWithTraitLevel( m_originalTrait, traitLevel );
+                var actorsWithTraitLevel = UserDataStorage.Actor.ActorsWithTraitLevel( m_originalTrait, traitLevel );
 
                 if( actorsWithTraitLevel.Any() )
                 {
@@ -214,28 +214,9 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewLevel.SelectedRows.Count > 0 )
-            {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithTraitLevel( m_originalTrait, (TraitLevel)dataGridViewLevel.SelectedRows[ 0 ].DataBoundItem ) ) )
-                {
-                    actorDisplay.ShowDialog( this );
-                }
-            }
-        }
-
         private void toolStripButtonInsertLevelString_Click( object sender, EventArgs e )
         {
             textBoxRules.Paste( Trait.LevelString );
-        }
-
-        private void toolStripButton1_Click( object sender, EventArgs e )
-        {
-            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithTrait( m_originalTrait ) ) )
-            {
-                actorDisplay.ShowDialog( this );
-            }
         }
     }
 }

@@ -290,14 +290,6 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithWeapon( m_originalWeapon ) ) )
-            {
-                actorDisplay.ShowDialog( this );
-            }
-        }
-
         private void toolStripButtonProfileMod_Click( object sender, EventArgs e )
         {
             var weapon = (Weapon)weaponBindingSource.DataSource;

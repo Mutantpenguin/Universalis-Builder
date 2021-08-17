@@ -25,11 +25,11 @@ namespace Universalis
 
         private void updateDataGridViewActors()
         {
-            actorBindingSource.DataSource = MasterDataStorage.Actor.Actors.Where( x => x.Faction.ID == m_factionID )
-                                                                          .Where( s => filterType.Enabled ? s.Archetype.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
-                                                                          .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                          .OrderBy( x => x.Name )
-                                                                          .ToList();
+            actorBindingSource.DataSource = UserDataStorage.Actor.Actors.Where( x => x.Archetype.Faction.ID == m_factionID )
+                                                                        .Where( s => filterType.Enabled ? s.Archetype.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
+                                                                        .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                        .OrderBy( x => x.Name )
+                                                                        .ToList();
         }
 
         private void buttonCancel_Click( object sender, EventArgs e )

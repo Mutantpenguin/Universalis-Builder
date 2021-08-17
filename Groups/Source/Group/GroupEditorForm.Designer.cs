@@ -18,7 +18,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -34,14 +33,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupActorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStripActors = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.outfitWechselnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.umbenennenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eigenesBildHochladenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eigenesBildEntfernenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonActorsAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonActorsRemove = new System.Windows.Forms.ToolStripButton();
@@ -67,7 +60,6 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupActorBindingSource)).BeginInit();
-            this.contextMenuStripActors.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
             this.panel3.SuspendLayout();
@@ -235,7 +227,6 @@
             this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iconDataGridViewImageColumn,
-            this.nameDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewActors.DataSource = this.groupActorBindingSource;
             this.dataGridViewActors.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -245,7 +236,6 @@
             this.dataGridViewActors.Name = "dataGridViewActors";
             this.dataGridViewActors.ReadOnly = true;
             this.dataGridViewActors.RowHeadersVisible = false;
-            this.dataGridViewActors.RowTemplate.ContextMenuStrip = this.contextMenuStripActors;
             this.dataGridViewActors.RowTemplate.Height = 40;
             this.dataGridViewActors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewActors.Size = new System.Drawing.Size(290, 423);
@@ -253,7 +243,6 @@
             this.dataGridViewActors.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewActors_CellMouseDown);
             this.dataGridViewActors.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewActors_CellPainting);
             this.dataGridViewActors.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewActors_CellToolTipTextNeeded);
-            this.dataGridViewActors.RowContextMenuStripNeeded += new System.Windows.Forms.DataGridViewRowContextMenuStripNeededEventHandler(this.dataGridViewActors_RowContextMenuStripNeeded);
             this.dataGridViewActors.SelectionChanged += new System.EventHandler(this.dataGridViewActors_SelectionChanged);
             // 
             // iconDataGridViewImageColumn
@@ -265,21 +254,11 @@
             this.iconDataGridViewImageColumn.ReadOnly = true;
             this.iconDataGridViewImageColumn.Width = 40;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // pointsDataGridViewTextBoxColumn
             // 
             this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -288,47 +267,6 @@
             // groupActorBindingSource
             // 
             this.groupActorBindingSource.DataSource = typeof(Universalis.Group.GroupActor);
-            // 
-            // contextMenuStripActors
-            // 
-            this.contextMenuStripActors.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.outfitWechselnToolStripMenuItem,
-            this.umbenennenToolStripMenuItem,
-            this.eigenesBildHochladenToolStripMenuItem,
-            this.eigenesBildEntfernenToolStripMenuItem});
-            this.contextMenuStripActors.Name = "contextMenuStripActors";
-            this.contextMenuStripActors.Size = new System.Drawing.Size(197, 92);
-            // 
-            // outfitWechselnToolStripMenuItem
-            // 
-            this.outfitWechselnToolStripMenuItem.Image = global::Universalis.Properties.Resources.change_circle;
-            this.outfitWechselnToolStripMenuItem.Name = "outfitWechselnToolStripMenuItem";
-            this.outfitWechselnToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.outfitWechselnToolStripMenuItem.Text = "&Ausstattung wechseln";
-            // 
-            // umbenennenToolStripMenuItem
-            // 
-            this.umbenennenToolStripMenuItem.Image = global::Universalis.Properties.Resources.pencil;
-            this.umbenennenToolStripMenuItem.Name = "umbenennenToolStripMenuItem";
-            this.umbenennenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.umbenennenToolStripMenuItem.Text = "&Umbenennen";
-            this.umbenennenToolStripMenuItem.Click += new System.EventHandler(this.umbenennenToolStripMenuItem_Click);
-            // 
-            // eigenesBildHochladenToolStripMenuItem
-            // 
-            this.eigenesBildHochladenToolStripMenuItem.Image = global::Universalis.Properties.Resources.image;
-            this.eigenesBildHochladenToolStripMenuItem.Name = "eigenesBildHochladenToolStripMenuItem";
-            this.eigenesBildHochladenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.eigenesBildHochladenToolStripMenuItem.Text = "&Eigenes Bild hochladen";
-            this.eigenesBildHochladenToolStripMenuItem.Click += new System.EventHandler(this.eigenesBildHochladenToolStripMenuItem_Click);
-            // 
-            // eigenesBildEntfernenToolStripMenuItem
-            // 
-            this.eigenesBildEntfernenToolStripMenuItem.Image = global::Universalis.Properties.Resources.cross_circle;
-            this.eigenesBildEntfernenToolStripMenuItem.Name = "eigenesBildEntfernenToolStripMenuItem";
-            this.eigenesBildEntfernenToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.eigenesBildEntfernenToolStripMenuItem.Text = "Eigenes Bild entfernen";
-            this.eigenesBildEntfernenToolStripMenuItem.Click += new System.EventHandler(this.eigenesBildEntfernenToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -478,7 +416,6 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupActorBindingSource)).EndInit();
-            this.contextMenuStripActors.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
@@ -518,13 +455,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStripActors;
-        private System.Windows.Forms.ToolStripMenuItem umbenennenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eigenesBildHochladenToolStripMenuItem;
         private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripMenuItem outfitWechselnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem eigenesBildEntfernenToolStripMenuItem;
     }
 }

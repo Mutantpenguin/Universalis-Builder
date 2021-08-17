@@ -48,12 +48,6 @@ namespace Universalis
             private set;
         }
 
-        public static ActorStorage Actor
-        {
-            get;
-            private set;
-        }
-
         private static bool setupAlreadyCompleted = false;
 
         public static void Setup( string universePath, Storage.BackgroundWorkerProvider backgroundWorkerProvider )
@@ -84,9 +78,6 @@ namespace Universalis
             Armor = new ArmorStorage( universePath, backgroundWorkerProvider() );
             Weapon = new WeaponStorage( universePath, backgroundWorkerProvider() );
             Equipment = new EquipmentStorage( universePath, backgroundWorkerProvider() );
-
-            // always load actors after the other stuff was loaded
-            Actor = new ActorStorage( universePath, backgroundWorkerProvider() );
 
             setupAlreadyCompleted = true;
         }
