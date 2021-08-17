@@ -47,9 +47,9 @@
             this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.AvailableLevels = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PointsRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).BeginInit();
@@ -183,9 +183,9 @@
             this.dataGridViewTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Type,
             this.nameDataGridViewTextBoxColumn,
+            this.FormattedAP,
             this.UseOnce,
-            this.AvailableLevels,
-            this.PointsRange});
+            this.Points});
             this.dataGridViewTraits.DataSource = this.traitBindingSource;
             this.dataGridViewTraits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewTraits.Location = new System.Drawing.Point(0, 25);
@@ -223,6 +223,16 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // FormattedAP
+            // 
+            this.FormattedAP.DataPropertyName = "FormattedAP";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.FormattedAP.DefaultCellStyle = dataGridViewCellStyle3;
+            this.FormattedAP.HeaderText = "AP";
+            this.FormattedAP.Name = "FormattedAP";
+            this.FormattedAP.ReadOnly = true;
+            this.FormattedAP.Width = 35;
+            // 
             // UseOnce
             // 
             this.UseOnce.DataPropertyName = "UseOnce";
@@ -232,25 +242,15 @@
             this.UseOnce.ToolTipText = "Einmalnutzung";
             this.UseOnce.Width = 30;
             // 
-            // AvailableLevels
+            // Points
             // 
-            this.AvailableLevels.DataPropertyName = "AvailableLevels";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.AvailableLevels.DefaultCellStyle = dataGridViewCellStyle3;
-            this.AvailableLevels.HeaderText = "Stufen";
-            this.AvailableLevels.Name = "AvailableLevels";
-            this.AvailableLevels.ReadOnly = true;
-            this.AvailableLevels.Width = 45;
-            // 
-            // PointsRange
-            // 
-            this.PointsRange.DataPropertyName = "PointsRange";
+            this.Points.DataPropertyName = "Points";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PointsRange.DefaultCellStyle = dataGridViewCellStyle4;
-            this.PointsRange.HeaderText = "Punkte";
-            this.PointsRange.Name = "PointsRange";
-            this.PointsRange.ReadOnly = true;
-            this.PointsRange.Width = 80;
+            this.Points.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Points.HeaderText = "Punkte";
+            this.Points.Name = "Points";
+            this.Points.ReadOnly = true;
+            this.Points.Width = 80;
             // 
             // AddTraitToActorForm
             // 
@@ -292,8 +292,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAP;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AvailableLevels;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PointsRange;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Points;
     }
 }

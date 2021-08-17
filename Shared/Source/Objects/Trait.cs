@@ -5,48 +5,6 @@ using System.Linq;
 
 namespace Universalis
 {
-    public class TraitLevel
-    {
-        public static readonly IList<uint> LevelList = Enumerable.Range( 0, 21 ).Select( x => (uint)x ).ToList();
-
-        public TraitLevel() {}
-
-        public TraitLevel( TraitLevel traitLevel )
-        {
-            Level = traitLevel.Level;
-            Points = traitLevel.Points;
-        }
-
-        public bool Equals( TraitLevel traitLevel )
-        {
-            if( null == traitLevel )
-            {
-                throw new ArgumentNullException( nameof( traitLevel ) );
-            }
-
-            if( Level != traitLevel.Level
-                ||
-                Points != traitLevel.Points )
-            {
-                return ( false );
-            }
-
-            return ( true );
-        }
-
-        public uint Level
-        {
-            get;
-            set;
-        } = 0;
-
-        public int Points
-        {
-            get;
-            set;
-        } = 0;
-    }
-
     public class Trait
     {
         public Trait() { }
@@ -68,24 +26,10 @@ namespace Universalis
             Name = trait.Name;
             Description = trait.Description;
             Rules = trait.Rules;
+            AdditionalPoints = trait.AdditionalPoints;
             UseOnce = trait.UseOnce;
 
-            if( null != TraitLevelList )
-            {
-                TraitLevelList.Clear();
-            }
-            else
-            {
-                TraitLevelList = new List<TraitLevel>();
-            }
-
-            if( null != trait.TraitLevelList )
-            {
-                foreach( TraitLevel traitLevel in trait.TraitLevelList )
-                {
-                    TraitLevelList.Add( new TraitLevel( traitLevel ) );
-                }
-            }
+            AP = trait.AP;
         }
 
         public bool Equals( Trait trait )
@@ -103,31 +47,17 @@ namespace Universalis
                 ||
                 Rules != trait.Rules
                 ||
-                UseOnce != trait.UseOnce )
+                AdditionalPoints != trait.AdditionalPoints
+                ||
+                UseOnce != trait.UseOnce
+                ||
+                AP != trait.AP )
             {
                 return ( false );
             }
 
-            foreach( TraitLevel traitLevel in TraitLevelList )
-            {
-                if( trait.TraitLevelList.Find( x => x.Equals( traitLevel ) ) == null )
-                {
-                    return ( false );
-                }
-            }
-
-            foreach( TraitLevel traitLevel in trait.TraitLevelList )
-            {
-                if( TraitLevelList.Find( x => x.Equals( traitLevel ) ) == null )
-                {
-                    return ( false );
-                }
-            }
-
             return ( true );
         }
-
-        public const string LevelString = "[LVL]";
 
         public Guid ID
         {
@@ -159,24 +89,39 @@ namespace Universalis
             set;
         } = "Bitte Regeln eingeben";
 
+        public int AdditionalPoints
+        {
+            get;
+            set;
+        } = 0;
+
         public bool UseOnce
         {
             get;
             set;
         } = false;
 
+        public uint AP
+        {
+            get;
+            set;
+        } = 0;
+
+        [JsonIgnore]
+        public string FormattedAP => ( AP == 0 ) ? "" : AP.ToString();
+
         [JsonIgnore]
         public string Type
         {
             get
             {
-                var minPoints = TraitLevelList.Min( x => x.Points );
+                var points = Points;
 
-                if( minPoints > 0 )
+                if( points > 0 )
                 {
                     return "+";
                 }
-                else if ( minPoints < 0 )
+                else if ( points < 0 )
                 {
                     return "-";
                 }
@@ -187,73 +132,7 @@ namespace Universalis
             }
         }
 
-        public List<TraitLevel> TraitLevelList
-        {
-            get;
-            set;
-        } = new List<TraitLevel>();
-
         [JsonIgnore]
-        public string AvailableLevels
-        {
-            get
-            {
-                uint minLevel = TraitLevelList.Min( x => x.Level );
-
-                if( minLevel == 0 )
-                {
-                    return ( "-" );
-                }
-                else
-                {
-                    uint maxLevel = TraitLevelList.Max( x => x.Level );
-
-                    if( minLevel == maxLevel )
-                    {
-                        return ( minLevel.ToString() );
-                    }
-                    else
-                    {
-                        return ( minLevel + " - " + maxLevel );
-                    }
-                }
-            }
-        }
-
-        [JsonIgnore]
-        public string PointsRange
-        {
-            get
-            {
-                int minPoints = TraitLevelList.Min( x => x.Points );
-                int maxPoints = TraitLevelList.Max( x => x.Points );
-
-                if( minPoints == maxPoints )
-                {
-                    return ( minPoints.ToString() );
-                }
-                else
-                {
-                    return ( minPoints + " - " + maxPoints );
-                }
-            }
-        }
-
-        public int Points( uint level )
-        {
-            return ( TraitLevelList.Find( x => x.Level == level ).Points );
-        }
-
-        public string RulesWithLevel( uint lvl )
-        {
-            if( lvl == 0 )
-            {
-                return ( this.Rules.Replace( LevelString, "X" ) );
-            }
-            else
-            {
-                return ( this.Rules.Replace( LevelString, ( (int)lvl ).ToString() ) );
-            }
-        }
+        public int Points => AdditionalPoints;
     }
 }

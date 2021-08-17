@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -12,15 +11,11 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
-            levelBindingSource.DataSource = TraitLevel.LevelList;
-
             m_originalTrait = trait;
 
             Trait modifiedTrait = new Trait( trait );
 
             traitBindingSource.DataSource = modifiedTrait;
-
-            updateLevels();
         }
 
         private readonly Trait m_originalTrait;
@@ -39,53 +34,18 @@ namespace Universalis
                 return ( false );
             }
 
-            Trait traitModified = (Trait)traitBindingSource.DataSource;
-
-            if( traitModified.TraitLevelList.Count == 0 )
+            if( !String.IsNullOrEmpty( textBoxRules.Text )
+                &&
+                ( numericUpDownAdditionalPoints.Value == 0 ) )
             {
-                MessageBox.Show( "Sie müssen mindestens 1 Stufe anlegen!" );
-                return ( false );
+                MessageBox.Show( "Achtung, die zusätzlichen Punkte stehen auf '0', obwohl Regeln eingetragen wurden!" );
             }
 
-            foreach( TraitLevel traitLevel in traitModified.TraitLevelList )
+            if( String.IsNullOrEmpty( textBoxRules.Text )
+                &&
+                ( numericUpDownAdditionalPoints.Value > 0 ) )
             {
-                if( traitLevel.Points == 0 )
-                {
-                    MessageBox.Show( "Achtung, die Punkte bei mindestens einer Stufe stehen auf '0'!" );
-                    break;
-                }
-            }
-
-            if( traitModified.TraitLevelList.Find( x => x.Level == 0 ) != null )
-            {
-                if( traitModified.TraitLevelList.Find( x => x.Level != 0 ) != null )
-                {
-                    MessageBox.Show( $"Achtung, Sie haben die Stufe 0 mit mindestens einer Anderen kombiniert!" );
-                    return ( false );
-                }
-            }
-            else
-            {
-                foreach( uint level in TraitLevel.LevelList )
-                {
-                    if( traitModified.TraitLevelList.Count( x => x.Level == level ) > 1 )
-                    {
-                        MessageBox.Show( $"Achtung, Sie haben die Stufe '{level}' mehr als 1 Mal verwendet!" );
-                        return ( false );
-                    }
-                }
-            }
-
-            var minLevel = traitModified.TraitLevelList.Min( x => x.Level );
-            var maxLevel = traitModified.TraitLevelList.Max( x => x.Level );
-
-            for( uint i = minLevel; i <= maxLevel; i++ )
-            {
-                if( !traitModified.TraitLevelList.Exists( x => x.Level == i ) )
-                {
-                    MessageBox.Show( $"Achtung, es fehlt die Stufe '{i}'!" );
-                    return ( false );
-                }
+                MessageBox.Show( "Achtung, es sind keine Regeln eingetragen, die zusätzlichen Punkte stehen aber nicht auf '0'!" );
             }
 
             return ( true );
@@ -137,77 +97,6 @@ namespace Universalis
             {
                 this.Close();
             }
-        }
-
-        private void updateLevels()
-        {
-            Trait trait = (Trait)traitBindingSource.DataSource;
-
-            if( null != trait.TraitLevelList )
-            {
-                traitLevelsBindingSource.DataSource = trait.TraitLevelList.OrderBy( x => (int)x.Level )
-                                                                          .ToList();
-            }
-
-            dataGridViewLevel.ClearSelection();
-        }
-
-        private void dataGridViewLevel_CurrentCellDirtyStateChanged( object sender, EventArgs e )
-        {
-            if( dataGridViewLevel.CurrentCell.ColumnIndex == levelDataGridViewComboBoxColumn.Index )
-            {
-                dataGridViewLevel.CommitEdit( DataGridViewDataErrorContexts.Commit );
-            }
-        }
-
-        private void toolStripButtonRemoveLevel_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewLevel.SelectedRows.Count > 0 )
-            {
-                TraitLevel traitLevel = ( (TraitLevel)( dataGridViewLevel.Rows[ dataGridViewLevel.SelectedRows[ 0 ].Index ].DataBoundItem ) );
-
-                if( MessageBox.Show( $"Eigenschaftslevel '{traitLevel.Level}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    ( (Trait)traitBindingSource.DataSource ).TraitLevelList.RemoveAll( s => s == traitLevel );
-
-                    updateLevels();
-                }
-            }
-        }
-
-        private void toolStripButtonAddLevel_Click( object sender, EventArgs e )
-        {
-            Trait traitModified = (Trait)traitBindingSource.DataSource;
-
-            if( traitModified.TraitLevelList.Count == 0 )
-            {
-                traitModified.TraitLevelList.Add( new TraitLevel()
-                {
-                    Level = 0
-                } );
-
-                updateLevels();
-            }
-            else
-            {
-                foreach( var level in TraitLevel.LevelList.OrderBy( x => x ) )
-                {
-                    if( traitModified.TraitLevelList.Find( x => x.Level == level ) == null )
-                    {
-                        traitModified.TraitLevelList.Add( new TraitLevel()
-                        {
-                            Level = level
-                        } );
-                        updateLevels();
-                        break;
-                    }
-                }
-            }
-        }
-
-        private void toolStripButtonInsertLevelString_Click( object sender, EventArgs e )
-        {
-            textBoxRules.Paste( Trait.LevelString );
         }
     }
 }

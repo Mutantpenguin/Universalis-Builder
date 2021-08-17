@@ -197,7 +197,6 @@ namespace Universalis
                 }
 
                 Trait = actorTrait.Trait;
-                Level = actorTrait.Level;
             }
 
             public bool Equals( ActorTrait actorTrait )
@@ -207,9 +206,7 @@ namespace Universalis
                     throw new ArgumentNullException( nameof( actorTrait ) );
                 }
 
-                if( Trait != actorTrait.Trait
-                    ||
-                    Level != actorTrait.Level )
+                if( Trait != actorTrait.Trait )
                 {
                     return ( false );
                 }
@@ -223,21 +220,12 @@ namespace Universalis
                 set;
             } = Guid.NewGuid();
 
-            public uint Level
-            {
-                get;
-                set;
-            }
-
             [JsonConverter( typeof( JsonActorTraitConverter ) )]
             public Trait Trait
             {
                 get;
                 set;
             }
-
-            [JsonIgnore]
-            public int Points => ( Trait.Points( Level ) );
         }
 
         public class ActorWeapon
@@ -531,11 +519,11 @@ namespace Universalis
 
                 if( null != ActorTraitsList )
                 {
-                    var positiveTraits = ActorTraitsList.Where( x => x.Points >= 0 );
-                    var negativeTraits = ActorTraitsList.Where( x => x.Points < 0 );
+                    var positiveTraits = ActorTraitsList.Where( x => x.Trait.Points >= 0 );
+                    var negativeTraits = ActorTraitsList.Where( x => x.Trait.Points < 0 );
 
-                    float positiveTraitsPoints = positiveTraits.Sum( x => x.Points );
-                    float negativeTraitsPoints = negativeTraits.Sum( x => x.Points );
+                    float positiveTraitsPoints = positiveTraits.Sum( x => x.Trait.Points );
+                    float negativeTraitsPoints = negativeTraits.Sum( x => x.Trait.Points );
 
                     // scale points with the amount of different traits where negative traits have an diminishing effect
                     positiveTraitsPoints *= (float)Math.Pow( Costs.TraitsModifier, positiveTraits.Count() );

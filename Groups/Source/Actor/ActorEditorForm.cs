@@ -20,8 +20,6 @@ namespace Universalis
 
             this.Icon = Shared.Properties.Resources.icon;
 
-            traitLevelBindingSource.DataSource = TraitLevel.LevelList;
-
             archetypeBindingSource.DataSource = m_actorModified.Archetype;
 
             profileBindingSource.DataSource = m_actorModified.Archetype.Profile;
@@ -293,30 +291,6 @@ namespace Universalis
             dataGridViewTraits.ClearSelection();
         }
 
-        private void dataGridViewTraits_CellBeginEdit( object sender, DataGridViewCellCancelEventArgs e )
-        {
-            if( e.ColumnIndex == traitLevelDataGridViewComboBoxColumn.Index )
-            {
-                DataGridViewRow row = dataGridViewTraits.Rows[ e.RowIndex ];
-
-                Actor.ActorTrait actorTrait = (Actor.ActorTrait)row.DataBoundItem;
-
-                ( row.Cells[ traitLevelDataGridViewComboBoxColumn.Index ] as DataGridViewComboBoxCell ).DataSource = actorTrait.Trait.TraitLevelList.Select( x => x.Level )
-                                                                                                                                               .Distinct()
-                                                                                                                                               .ToList();
-            }
-        }
-
-        private void dataGridViewTraits_CurrentCellDirtyStateChanged( object sender, EventArgs e )
-        {
-            if( dataGridViewTraits.CurrentCell.ColumnIndex == traitLevelDataGridViewComboBoxColumn.Index )
-            {
-                dataGridViewTraits.CommitEdit( DataGridViewDataErrorContexts.Commit );
-
-                updateFields();
-            }
-        }
-
         private void toolStripButtonTraitAdd_Click( object sender, EventArgs e )
         {
             List<Trait> traitList = m_actorModified.ActorTraitsList.Select( x => x.Trait )
@@ -333,8 +307,7 @@ namespace Universalis
                         {
                             m_actorModified.ActorTraitsList.Add( new Actor.ActorTrait
                             {
-                                Trait = trait,
-                                Level = trait.TraitLevelList.Min( x => x.Level )
+                                Trait = trait
                             } );
                         }
 
@@ -462,7 +435,7 @@ namespace Universalis
             {
                 Actor.ActorTrait actorTrait = (Actor.ActorTrait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem;
 
-                e.ToolTipText = actorTrait.Trait.Name + ":" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( actorTrait.Trait.RulesWithLevel( actorTrait.Level ) );
+                e.ToolTipText = actorTrait.Trait.Name + ":" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( actorTrait.Trait.Rules );
             }
         }
 

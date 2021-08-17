@@ -114,7 +114,6 @@ namespace Universalis
         public Trait Create()
         {
             Trait trait = new Trait();
-            trait.TraitLevelList.Add( new TraitLevel() );
 
             return ( trait );
         }
