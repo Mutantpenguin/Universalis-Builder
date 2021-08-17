@@ -16,8 +16,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -31,7 +31,11 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridViewActors = new System.Windows.Forms.DataGridView();
+            this.dataGridViewGroupActors = new System.Windows.Forms.DataGridView();
+            this.groupActorIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupActorIconDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.groupActorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupActorPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupActorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonActorsAdd = new System.Windows.Forms.ToolStripButton();
@@ -44,10 +48,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupActorIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupActorIconDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.groupActorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupActorPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripButtonActorsCopy = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,7 +60,7 @@
             this.panel2.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupActors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupActorBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
@@ -206,7 +207,7 @@
             // panel5
             // 
             this.panel5.AutoSize = true;
-            this.panel5.Controls.Add(this.dataGridViewActors);
+            this.panel5.Controls.Add(this.dataGridViewGroupActors);
             this.panel5.Controls.Add(this.toolStrip1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 188);
@@ -214,38 +215,77 @@
             this.panel5.Size = new System.Drawing.Size(290, 448);
             this.panel5.TabIndex = 5;
             // 
-            // dataGridViewActors
+            // dataGridViewGroupActors
             // 
-            this.dataGridViewActors.AllowDrop = true;
-            this.dataGridViewActors.AllowUserToAddRows = false;
-            this.dataGridViewActors.AllowUserToDeleteRows = false;
-            this.dataGridViewActors.AllowUserToOrderColumns = true;
-            this.dataGridViewActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewActors.AutoGenerateColumns = false;
-            this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewGroupActors.AllowDrop = true;
+            this.dataGridViewGroupActors.AllowUserToAddRows = false;
+            this.dataGridViewGroupActors.AllowUserToDeleteRows = false;
+            this.dataGridViewGroupActors.AllowUserToOrderColumns = true;
+            this.dataGridViewGroupActors.AllowUserToResizeRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewGroupActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewGroupActors.AutoGenerateColumns = false;
+            this.dataGridViewGroupActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGroupActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.groupActorIdDataGridViewTextBoxColumn,
             this.groupActorIconDataGridViewTextBoxColumn,
             this.groupActorNameDataGridViewTextBoxColumn,
             this.groupActorPointsDataGridViewTextBoxColumn});
-            this.dataGridViewActors.DataSource = this.groupActorBindingSource;
-            this.dataGridViewActors.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewActors.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.dataGridViewActors.Location = new System.Drawing.Point(0, 25);
-            this.dataGridViewActors.MultiSelect = false;
-            this.dataGridViewActors.Name = "dataGridViewActors";
-            this.dataGridViewActors.ReadOnly = true;
-            this.dataGridViewActors.RowHeadersVisible = false;
-            this.dataGridViewActors.RowTemplate.Height = 40;
-            this.dataGridViewActors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewActors.Size = new System.Drawing.Size(290, 423);
-            this.dataGridViewActors.TabIndex = 5;
-            this.dataGridViewActors.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewActors_CellMouseDown);
-            this.dataGridViewActors.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewActors_CellPainting);
-            this.dataGridViewActors.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewActors_CellToolTipTextNeeded);
-            this.dataGridViewActors.SelectionChanged += new System.EventHandler(this.dataGridViewActors_SelectionChanged);
+            this.dataGridViewGroupActors.DataSource = this.groupActorBindingSource;
+            this.dataGridViewGroupActors.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewGroupActors.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
+            this.dataGridViewGroupActors.Location = new System.Drawing.Point(0, 25);
+            this.dataGridViewGroupActors.MultiSelect = false;
+            this.dataGridViewGroupActors.Name = "dataGridViewGroupActors";
+            this.dataGridViewGroupActors.ReadOnly = true;
+            this.dataGridViewGroupActors.RowHeadersVisible = false;
+            this.dataGridViewGroupActors.RowTemplate.Height = 40;
+            this.dataGridViewGroupActors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewGroupActors.Size = new System.Drawing.Size(290, 423);
+            this.dataGridViewGroupActors.TabIndex = 5;
+            this.dataGridViewGroupActors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupActors_CellDoubleClick);
+            this.dataGridViewGroupActors.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewGroupActors_CellFormatting);
+            this.dataGridViewGroupActors.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewActors_CellPainting);
+            this.dataGridViewGroupActors.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewActors_CellToolTipTextNeeded);
+            this.dataGridViewGroupActors.SelectionChanged += new System.EventHandler(this.dataGridViewActors_SelectionChanged);
+            this.dataGridViewGroupActors.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewActors_KeyDown);
+            // 
+            // groupActorIdDataGridViewTextBoxColumn
+            // 
+            this.groupActorIdDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.groupActorIdDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.groupActorIdDataGridViewTextBoxColumn.Name = "groupActorIdDataGridViewTextBoxColumn";
+            this.groupActorIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupActorIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // groupActorIconDataGridViewTextBoxColumn
+            // 
+            this.groupActorIconDataGridViewTextBoxColumn.DataPropertyName = "Actor.Icon";
+            this.groupActorIconDataGridViewTextBoxColumn.HeaderText = "";
+            this.groupActorIconDataGridViewTextBoxColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.groupActorIconDataGridViewTextBoxColumn.Name = "groupActorIconDataGridViewTextBoxColumn";
+            this.groupActorIconDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupActorIconDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.groupActorIconDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.groupActorIconDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // groupActorNameDataGridViewTextBoxColumn
+            // 
+            this.groupActorNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.groupActorNameDataGridViewTextBoxColumn.DataPropertyName = "Actor.Name";
+            this.groupActorNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.groupActorNameDataGridViewTextBoxColumn.Name = "groupActorNameDataGridViewTextBoxColumn";
+            this.groupActorNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // groupActorPointsDataGridViewTextBoxColumn
+            // 
+            this.groupActorPointsDataGridViewTextBoxColumn.DataPropertyName = "Actor.Points";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.groupActorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.groupActorPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.groupActorPointsDataGridViewTextBoxColumn.Name = "groupActorPointsDataGridViewTextBoxColumn";
+            this.groupActorPointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupActorPointsDataGridViewTextBoxColumn.Width = 50;
             // 
             // groupActorBindingSource
             // 
@@ -256,6 +296,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonActorsAdd,
             this.toolStripButtonActorsRemove,
+            this.toolStripButtonActorsCopy,
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -365,41 +406,17 @@
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
             // 
-            // groupActorIdDataGridViewTextBoxColumn
+            // toolStripButtonActorsCopy
             // 
-            this.groupActorIdDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.groupActorIdDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.groupActorIdDataGridViewTextBoxColumn.Name = "groupActorIdDataGridViewTextBoxColumn";
-            this.groupActorIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.groupActorIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // groupActorIconDataGridViewTextBoxColumn
-            // 
-            this.groupActorIconDataGridViewTextBoxColumn.DataPropertyName = "Actor.Icon";
-            this.groupActorIconDataGridViewTextBoxColumn.HeaderText = "";
-            this.groupActorIconDataGridViewTextBoxColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.groupActorIconDataGridViewTextBoxColumn.Name = "groupActorIconDataGridViewTextBoxColumn";
-            this.groupActorIconDataGridViewTextBoxColumn.ReadOnly = true;
-            this.groupActorIconDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.groupActorIconDataGridViewTextBoxColumn.Width = 40;
-            // 
-            // groupActorNameDataGridViewTextBoxColumn
-            // 
-            this.groupActorNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.groupActorNameDataGridViewTextBoxColumn.DataPropertyName = "Actor.Name";
-            this.groupActorNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.groupActorNameDataGridViewTextBoxColumn.Name = "groupActorNameDataGridViewTextBoxColumn";
-            this.groupActorNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // groupActorPointsDataGridViewTextBoxColumn
-            // 
-            this.groupActorPointsDataGridViewTextBoxColumn.DataPropertyName = "Actor.Points";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.groupActorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.groupActorPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.groupActorPointsDataGridViewTextBoxColumn.Name = "groupActorPointsDataGridViewTextBoxColumn";
-            this.groupActorPointsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.groupActorPointsDataGridViewTextBoxColumn.Width = 50;
+            this.toolStripButtonActorsCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonActorsCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonActorsCopy.Image = global::Universalis.Properties.Resources.copy;
+            this.toolStripButtonActorsCopy.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonActorsCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonActorsCopy.Name = "toolStripButtonActorsCopy";
+            this.toolStripButtonActorsCopy.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonActorsCopy.ToolTipText = "Ausrüstung kopieren";
+            this.toolStripButtonActorsCopy.Click += new System.EventHandler(this.toolStripButtonActorsCopy_Click);
             // 
             // GroupEditorForm
             // 
@@ -429,7 +446,7 @@
             this.toolStrip2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupActors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupActorBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -444,7 +461,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridViewActors;
+        private System.Windows.Forms.DataGridView dataGridViewGroupActors;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox textBoxName;
@@ -472,5 +489,6 @@
         private System.Windows.Forms.DataGridViewImageColumn groupActorIconDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupActorNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupActorPointsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton toolStripButtonActorsCopy;
     }
 }

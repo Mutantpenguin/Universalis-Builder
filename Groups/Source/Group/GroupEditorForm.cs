@@ -41,11 +41,11 @@ namespace Universalis
                                                                                .OrderBy( x => x.Actor.Name )
                                                                                .ToList();
 
-            dataGridViewActors.ClearSelection();
+            dataGridViewGroupActors.ClearSelection();
 
-            if( dataGridViewActors.RowCount > 0 )
+            if( dataGridViewGroupActors.RowCount > 0 )
             {
-                dataGridViewActors.Rows[ 0 ].Selected = true;
+                dataGridViewGroupActors.Rows[ 0 ].Selected = true;
             }
         }
 
@@ -128,9 +128,9 @@ namespace Universalis
 
         private void UpdateCard()
         {
-            if( dataGridViewActors.SelectedRows.Count > 0 )
+            if( dataGridViewGroupActors.SelectedRows.Count > 0 )
             {
-                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
+                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewGroupActors.SelectedRows[ 0 ].DataBoundItem;
 
                 pictureBoxCard.Image = CardPainter.GetBitmap( groupActor.Actor );
             }
@@ -140,16 +140,63 @@ namespace Universalis
             }
         }
 
+        private void toolStripButtonActorsCopy_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewGroupActors.SelectedRows.Count > 0 )
+            {
+                Actor actorSource = ((Group.GroupActor)dataGridViewGroupActors.SelectedRows[ 0 ].DataBoundItem).Actor;
+
+                Actor actorNew = UserDataStorage.Actor.Create( actorSource.Archetype );
+                actorNew.Set( actorSource );
+                actorNew.Name = $"(Kopie von) {actorSource.Name}";
+                UserDataStorage.Actor.Save( actorNew );
+
+                m_groupModified.AddActor( actorNew );
+                UserDataStorage.Group.Save( m_groupModified ); // BUG this triggers the question, if group should be saved after closing the window
+
+                updateGridViewActors();
+
+                editActor( actorNew );
+            }
+        }
+
         private void toolStripButtonActorsAdd_Click( object sender, EventArgs e )
         {
-            // TODO
+            using( ArchetypeSelectionForm archetypeSelectionForm = new ArchetypeSelectionForm( m_groupModified.Faction ) )
+            {
+                if( archetypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                {
+                    Actor actor = UserDataStorage.Actor.Create( archetypeSelectionForm.SelectedArchetype );
+
+                    dataGridViewGroupActors.ClearSelection();
+
+                    editActor( actor );
+
+                    if( UserDataStorage.Actor.Exists( actor ) )
+                    {
+                        m_groupModified.AddActor( actor );
+                        UserDataStorage.Group.Save( m_groupModified ); // BUG this triggers the question, if group should be saved after closing the window
+
+                        updateGridViewActors();
+
+                        foreach( DataGridViewRow row in dataGridViewGroupActors.Rows )
+                        {
+                            if( actor.ID == ( (Group.GroupActor)row.DataBoundItem ).Actor.ID )
+                            {
+                                row.Selected = true;
+                                break;
+                            }
+                        }
+                    }                    
+                }
+            }
         }
 
         private void toolStripButtonActorsRemove_Click( object sender, EventArgs e )
         {
-            if( dataGridViewActors.SelectedRows.Count > 0 )
+            if( dataGridViewGroupActors.SelectedRows.Count > 0 )
             {
-                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.Rows[ dataGridViewActors.SelectedRows[ 0 ].Index ].DataBoundItem;
+                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewGroupActors.Rows[ dataGridViewGroupActors.SelectedRows[ 0 ].Index ].DataBoundItem;
                 m_groupModified.GroupActorList.Remove( groupActor );
 
                 updateGridViewActors();
@@ -162,12 +209,12 @@ namespace Universalis
         {
             if( e.RowIndex > -1 )
             {
-                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
+                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewGroupActors.Rows[ e.RowIndex ].DataBoundItem;
 
                 string toolTipText = String.Empty;
 
                 // show only inactive, if both inactive and missing outfit
-                if( groupActor.Actor == null )
+                if( !groupActor.Actor.Active )
                 {
                     toolTipText += "Wurde gelöscht und darf nicht mehr verwendet werden!";
                 }
@@ -209,7 +256,7 @@ namespace Universalis
         {
             if( e.ColumnIndex == groupActorNameDataGridViewTextBoxColumn.Index && e.RowIndex != -1 )
             {
-                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
+                Group.GroupActor groupActor = (Group.GroupActor)dataGridViewGroupActors.Rows[ e.RowIndex ].DataBoundItem;
 
                 if( groupActor.Actor == null )
                 {
@@ -224,21 +271,40 @@ namespace Universalis
             }
         }
 
-        private void dataGridViewActors_CellMouseDown( object sender, DataGridViewCellMouseEventArgs e )
+        private void editActor( Actor actor )
         {
-            if( e.Button == MouseButtons.Right )
+            using( ActorEditorForm actorEditorForm = new ActorEditorForm( actor ) )
             {
-                if( ( e.ColumnIndex != -1 ) && ( e.RowIndex != -1 ) )
-                {
-                    DataGridViewRow row = dataGridViewActors.Rows[ e.RowIndex ];
-                    if( !row.Selected )
-                    {
-                        dataGridViewActors.ClearSelection();
-                        dataGridViewActors.CurrentCell = row.Cells[ e.ColumnIndex ];
-                        row.Selected = true;
-                    }
-                }
+                this.Hide();
+
+                actorEditorForm.ShowDialog( this );
+
+                this.Show();
             }
+
+            groupActorBindingSource.ResetBindings( false );
+        }
+
+        private void dataGridViewActors_KeyDown( object sender, KeyEventArgs e )
+        {
+            if( e.KeyCode == Keys.Return )
+            {
+                e.Handled = true;
+                editActor( ((Group.GroupActor)dataGridViewGroupActors.CurrentRow.DataBoundItem).Actor );
+            }
+        }
+
+        private void dataGridViewGroupActors_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
+        {
+            if( -1 != e.RowIndex )
+            {
+                editActor( ((Group.GroupActor)dataGridViewGroupActors.Rows[ e.RowIndex ].DataBoundItem).Actor );
+            }
+        }
+
+        private void dataGridViewGroupActors_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewGroupActors );
         }
     }
 }
