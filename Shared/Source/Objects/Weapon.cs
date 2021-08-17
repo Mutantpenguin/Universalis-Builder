@@ -482,7 +482,6 @@ namespace Universalis
                 points *= Costs.WeaponSustainedFireMultiplicator;
             }
 
-            // TODO each DamageEffect has its own points
             if( DamageEffectList != null )
             {
                 points += DamageEffectList.Sum( x => x.Points );
