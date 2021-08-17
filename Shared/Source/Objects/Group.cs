@@ -191,6 +191,12 @@ namespace Universalis
                 get;
                 set;
             }
+
+            public int Index
+            {
+                get;
+                set;
+            } = 0;
         }
     }
 }

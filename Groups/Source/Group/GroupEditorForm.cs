@@ -37,7 +37,8 @@ namespace Universalis
 
         private void updateGridViewActors()
         {
-            groupActorBindingSource.DataSource = m_groupModified.GroupActorList.OrderBy( x => x.Actor.Name )
+            groupActorBindingSource.DataSource = m_groupModified.GroupActorList.OrderBy( x => x.Index )
+                                                                               .OrderBy( x => x.Actor.Name )
                                                                                .ToList();
 
             dataGridViewActors.ClearSelection();
