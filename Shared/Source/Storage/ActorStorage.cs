@@ -171,14 +171,6 @@ namespace Universalis
                                 .AsReadOnly() );
         }
 
-        public IList<Actor> ActorsWithTraitLevel( Trait trait, TraitLevel traitLevel )
-        {
-            return ( m_actorList.Where( x => x.ActorTraitsList.Exists( y => y.Trait.ID == trait.ID && y.Level == traitLevel.Level ) )
-                                .OrderBy( x => x.Name )
-                                .ToList()
-                                .AsReadOnly() );
-        }
-
         private readonly List<Actor> m_actorList = new List<Actor>();
     }
 }

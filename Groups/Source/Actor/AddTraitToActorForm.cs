@@ -95,7 +95,7 @@ namespace Universalis
             {
                 Trait trait = (Trait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem;
 
-                e.ToolTipText = trait.Name + ":" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( trait.RulesWithLevel( 0 ) );
+                e.ToolTipText = trait.Name + ":" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( trait.Rules );
             }
         }
 
