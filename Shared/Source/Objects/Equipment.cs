@@ -19,6 +19,8 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( equipment ) );
             }
 
+            Active = equipment.Active;
+
             Name = equipment.Name;
             Description = equipment.Description;
             Rules = equipment.Rules;
@@ -48,7 +50,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( equipment ) );
             }
 
-            if( Name != equipment.Name
+            if( Active != equipment.Active
+                ||
+                Name != equipment.Name
                 ||
                 Description != equipment.Description
                 ||
@@ -93,6 +97,12 @@ namespace Universalis
             get;
             set;
         } = Guid.NewGuid();
+
+        public bool Active
+        {
+            get;
+            set;
+        } = true;
 
         public string Name
         {

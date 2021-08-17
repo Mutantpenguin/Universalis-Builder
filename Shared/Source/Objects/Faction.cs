@@ -22,6 +22,8 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( faction ) );
             }
 
+            Active = faction.Active;
+
             Name = faction.Name;
             Description = faction.Description;
             Icon = faction.Icon;
@@ -35,7 +37,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( faction ) );
             }
 
-            if( Name != faction.Name
+            if( Active != faction.Active
+                ||
+                Name != faction.Name
                 ||
                 Description != faction.Description
                 ||
@@ -54,6 +58,12 @@ namespace Universalis
             get;
             set;
         } = Guid.NewGuid();
+
+        public bool Active
+        {
+            get;
+            set;
+        } = true;
 
         public string Name
         {

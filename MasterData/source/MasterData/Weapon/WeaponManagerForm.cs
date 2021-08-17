@@ -42,7 +42,8 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Weapon> weapons = MasterDataStorage.Weapon.Weapons.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            List<Weapon> weapons = MasterDataStorage.Weapon.Weapons.Where( s => s.Active )
+                                                                   .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                    .Where( s => filterWeaponClass.Enabled ? s.Class == (Weapon.EClass)filterWeaponClass.ComboBox.SelectedItem : true )
                                                                    .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
                                                                    .Where( s => filterDamageType.Enabled ? s.DamageType.Type == (DamageType.EType)filterDamageType.ComboBox.SelectedItem : true )
@@ -114,16 +115,7 @@ namespace Universalis
             {
                 Weapon weapon = (Weapon)dataGridViewWeapons.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithWeapon = UserDataStorage.Actor.ActorsWithWeapon( weapon );
-
-                if( actorsWithWeapon.Any() )
-                {
-                    using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithWeapon ) )
-                    {
-                        actorDisplay.ShowDialog( this );
-                    }
-                }
-                else if( MessageBox.Show( $"Waffe '{weapon.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                if( MessageBox.Show( $"Waffe '{weapon.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     MasterDataStorage.Weapon.Delete( weapon );
 

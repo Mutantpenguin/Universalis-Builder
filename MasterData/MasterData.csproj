@@ -68,12 +68,6 @@
     <Compile Include="Source\Helper\WeaponDisplayForm.Designer.cs">
       <DependentUpon>WeaponDisplayForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Helper\ActorDisplayForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Helper\ActorDisplayForm.Designer.cs">
-      <DependentUpon>ActorDisplayForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\MasterDataMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,9 +183,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Helper\WeaponDisplayForm.resx">
       <DependentUpon>WeaponDisplayForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Helper\ActorDisplayForm.resx">
-      <DependentUpon>ActorDisplayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterDataMainForm.resx">
       <DependentUpon>MasterDataMainForm.cs</DependentUpon>

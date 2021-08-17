@@ -28,7 +28,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( actor ) );
             }
 
-            if( Name != actor.Name
+            if( Active != actor.Active
+                ||
+                Name != actor.Name
                 ||
                 Description != actor.Description )
             {
@@ -91,6 +93,8 @@ namespace Universalis
             {
                 throw new ArgumentNullException( nameof( actor ) );
             }
+
+            Active = actor.Active;
 
             Name = actor.Name;
 
@@ -155,6 +159,12 @@ namespace Universalis
             get;
             set;
         } = Guid.NewGuid();
+
+        public bool Active
+        {
+            get;
+            set;
+        } = true;
 
         public string Name
         {

@@ -12,12 +12,10 @@ namespace Universalis
         private const string s_folderName = "Factions";
 
         private readonly string s_path;
-        private readonly string s_pathTrash;
 
         public FactionStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
-            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
 
             if( !Directory.Exists( s_path ) )
             {
@@ -100,11 +98,6 @@ namespace Universalis
             return Path.ChangeExtension( Path.Combine( s_path, faction.ID.ToString() ), Storage.fileExtension );
         }
 
-        private string GetFilenameTrash( Faction faction )
-        {
-            return Path.ChangeExtension( Path.Combine( s_pathTrash, faction.ID.ToString() ), Storage.fileExtension );
-        }
-
         public Faction Get( Guid id )
         {
             Faction faction = m_factionList.Find( x => x.ID == id );
@@ -129,14 +122,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( faction ) );
             }
 
-            m_factionList.Remove( faction );
+            faction.Active = false;
 
-            if( !Directory.Exists( s_pathTrash ) )
-            {
-                Directory.CreateDirectory( s_pathTrash );
-            }
-
-            File.Move( GetFilename( faction ), GetFilenameTrash( faction ) );
+            Save( faction );
         }
 
         public IList<Faction> Factions => ( m_factionList.AsReadOnly() );

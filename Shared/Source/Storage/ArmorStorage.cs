@@ -13,12 +13,10 @@ namespace Universalis
         private const string s_folderName = "Armor";
 
         private readonly string s_path;
-        private readonly string s_pathTrash;
 
         public ArmorStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
-            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
 
             if( !Directory.Exists( s_path ) )
             {
@@ -101,12 +99,6 @@ namespace Universalis
         {
             return Path.ChangeExtension( Path.Combine( s_path, armor.ID.ToString() ), Storage.fileExtension );
         }
-
-        private string GetFilenameTrash( Armor armor )
-        {
-            return Path.ChangeExtension( Path.Combine( s_pathTrash, armor.ID.ToString() ), Storage.fileExtension );
-        }
-
         public Armor Get( Guid id )
         {
             Armor armor = m_armorList.Find( x => x.ID == id );
@@ -131,14 +123,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( armor ) );
             }
 
-            m_armorList.Remove( armor );
+            armor.Active = false;
 
-            if( !Directory.Exists( s_pathTrash ) )
-            {
-                Directory.CreateDirectory( s_pathTrash );
-            }
-
-            File.Move( GetFilename( armor ), GetFilenameTrash( armor ) );
+            Save( armor );
         }
 
         public IList<Armor> Armors => ( m_armorList.AsReadOnly() );

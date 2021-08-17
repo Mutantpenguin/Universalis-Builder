@@ -49,7 +49,8 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Archetype> archetype = MasterDataStorage.Archetype.Archetypes.Where( s => filterFaction.Enabled ? s.Faction.ID == ((Faction)filterFaction.ComboBox.SelectedValue).ID : true )
+            List<Archetype> archetype = MasterDataStorage.Archetype.Archetypes.Where( s => s.Active )
+                                                                              .Where( s => filterFaction.Enabled ? s.Faction.ID == ( (Faction)filterFaction.ComboBox.SelectedValue ).ID : true )
                                                                               .Where( s => filterType.Enabled ? s.Profile.Type == ((Profile.EType)filterType.ComboBox.SelectedValue) : true )
                                                                               .Where( s => s.Name.ToUpper().Contains(toolStripTextBoxSearch.Text.ToUpper()))
                                                                               .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
@@ -98,16 +99,7 @@ namespace Universalis
             {
                 Archetype archetype = (Archetype)dataGridViewArchetypes.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithArchetype = UserDataStorage.Actor.ActorsWithArchetype( archetype );
-
-                if( actorsWithArchetype.Any() )
-                {
-                    using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithArchetype ) )
-                    {
-                        actorDisplay.ShowDialog( this );
-                    }
-                }
-                else if( MessageBox.Show( $"Archetyp '{archetype.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                if( MessageBox.Show( $"Archetyp '{archetype.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     MasterDataStorage.Archetype.Delete( archetype );
 

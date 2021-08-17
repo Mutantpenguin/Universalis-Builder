@@ -17,10 +17,11 @@ namespace Universalis
 
         private void updateDataGridViewFactions()
         {
-            factionBindingSource.DataSource = MasterDataStorage.Faction.Factions.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                       .Where( s => ( m_excludeFaction != null ) ? s.ID != m_excludeFaction.ID : true )
-                                                                       .OrderBy( x => x.Name )
-                                                                       .ToList();
+            factionBindingSource.DataSource = MasterDataStorage.Faction.Factions.Where( s => s.Active )
+                                                                                .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                                .Where( s => ( m_excludeFaction != null ) ? s.ID != m_excludeFaction.ID : true )
+                                                                                .OrderBy( x => x.Name )
+                                                                                .ToList();
         }
 
         private readonly Faction m_excludeFaction;

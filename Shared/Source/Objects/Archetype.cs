@@ -21,6 +21,8 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( archetype ) );
             }
 
+            Active = archetype.Active;
+
             Name = archetype.Name;
             Description = archetype.Description;
             Faction = archetype.Faction;
@@ -35,7 +37,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( archetype ) );
             }
 
-            if( Name != archetype.Name
+            if( Active != archetype.Active
+                ||
+                Name != archetype.Name
                 ||
                 Description != archetype.Description
                 ||
@@ -59,6 +63,12 @@ namespace Universalis
             get;
             set;
         } = Guid.NewGuid();
+
+        public bool Active
+        {
+            get;
+            set;
+        } = true;
 
         public string Name
         {

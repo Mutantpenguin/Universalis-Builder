@@ -12,12 +12,10 @@ namespace Universalis
         private const string s_folderName = "Equipment";
 
         private readonly string s_path;
-        private readonly string s_pathTrash;
 
         public EquipmentStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
-            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
 
             if( !Directory.Exists( s_path ) )
             {
@@ -101,11 +99,6 @@ namespace Universalis
             return Path.ChangeExtension( Path.Combine( s_path, equipment.ID.ToString() ), Storage.fileExtension );
         }
 
-        private string GetFilenameTrash( Equipment equipment )
-        {
-            return Path.ChangeExtension( Path.Combine( s_pathTrash, equipment.ID.ToString() ), Storage.fileExtension );
-        }
-
         public Equipment Get( Guid id )
         {
             Equipment equipment = m_equipmentList.Find( x => x.ID == id );
@@ -130,14 +123,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( equipment ) );
             }
 
-            m_equipmentList.Remove( equipment );
+            equipment.Active = false;
 
-            if( !Directory.Exists( s_pathTrash ) )
-            {
-                Directory.CreateDirectory( s_pathTrash );
-            }
-
-            File.Move( GetFilename( equipment ), GetFilenameTrash( equipment ) );
+            Save( equipment );
         }
 
         public IList<Equipment> Equipments => ( m_equipmentList.AsReadOnly() );

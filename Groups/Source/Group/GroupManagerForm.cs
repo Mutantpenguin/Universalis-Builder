@@ -114,7 +114,8 @@ namespace Universalis
 
         private void RefreshGroupsGridView()
         {
-            List<Group> groups = UserDataStorage.Group.Groups.Where( s => s.Faction.ID == m_faction.ID )
+            List<Group> groups = UserDataStorage.Group.Groups.Where( s => s.Active )
+                                                             .Where( s => s.Faction.ID == m_faction.ID )
                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                              .OrderBy( x => x.Name ).ThenBy( x => x.Points )
                                                              .ToList();

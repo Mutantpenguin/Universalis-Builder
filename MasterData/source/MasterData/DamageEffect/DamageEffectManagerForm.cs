@@ -78,7 +78,8 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<DamageEffect> damageEffects = MasterDataStorage.DamageEffect.DamageEffects.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            List<DamageEffect> damageEffects = MasterDataStorage.DamageEffect.DamageEffects.Where( s => s.Active )
+                                                                                           .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                                            .OrderBy( x => x.Name )
                                                                                            .ToList();
 

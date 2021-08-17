@@ -35,7 +35,8 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Armor> armor = MasterDataStorage.Armor.Armors.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            List<Armor> armor = MasterDataStorage.Armor.Armors.Where( s => s.Active )
+                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                               .OrderBy( x => x.Name )
                                                               .ToList();
 
@@ -72,16 +73,7 @@ namespace Universalis
             {
                 Armor armor = (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithArmor = UserDataStorage.Actor.ActorsWithArmor( armor );
-
-                if( actorsWithArmor.Any() )
-                {
-                    using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithArmor ) )
-                    {
-                        actorDisplay.ShowDialog( this );
-                    }
-                }
-                else if( MessageBox.Show( $"Rüstung '{armor.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                if( MessageBox.Show( $"Rüstung '{armor.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     MasterDataStorage.Armor.Delete( armor );
 

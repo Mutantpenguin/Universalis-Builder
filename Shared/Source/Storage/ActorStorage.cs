@@ -13,12 +13,10 @@ namespace Universalis
         private const string s_folderName = "Models";
 
         private readonly string s_path;
-        private readonly string s_pathTrash;
 
         public ActorStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
-            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
 
             if( !Directory.Exists( s_path ) )
             {
@@ -102,11 +100,6 @@ namespace Universalis
             return( Path.ChangeExtension( Path.Combine( s_path, actor.ID.ToString() ), Storage.fileExtension ) );
         }
 
-        private string GetFilenameTrash( Actor actor )
-        {
-            return ( Path.ChangeExtension( Path.Combine( s_pathTrash, actor.ID.ToString() ), Storage.fileExtension ) );
-        }
-
         public Actor Get( Guid id )
         {
             return ( m_actorList.Find( x => x.ID == id ) );
@@ -131,14 +124,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( actor ) );
             }
 
-            m_actorList.Remove( actor );
+            actor.Active = false;
 
-            if( !Directory.Exists( s_pathTrash ) )
-            {
-                Directory.CreateDirectory( s_pathTrash );
-            }
-
-            File.Move( GetFilename( actor ), GetFilenameTrash( actor ) );
+            Save( actor );
         }
 
         public IList<Actor> Actors => ( m_actorList.AsReadOnly() );

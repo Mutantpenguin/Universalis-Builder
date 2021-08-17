@@ -27,7 +27,8 @@ namespace Universalis
 
         private void updateDataGridViewArmor()
         {
-            armorBindingSource.DataSource = MasterDataStorage.Armor.Armors.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            armorBindingSource.DataSource = MasterDataStorage.Armor.Armors.Where( s => s.Active )
+                                                                          .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                           .OrderBy( x => x.Name )
                                                                           .ToList();
         }

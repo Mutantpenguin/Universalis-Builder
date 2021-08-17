@@ -12,12 +12,10 @@ namespace Universalis
         private const string s_folderName = "Archetypes";
 
         private readonly string s_path;
-        private readonly string s_pathTrash;
 
         public ArchetypeStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
-            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
 
             if( !Directory.Exists( s_path ) )
             {
@@ -101,11 +99,6 @@ namespace Universalis
             return Path.ChangeExtension( Path.Combine( s_path, archetype.ID.ToString() ), Storage.fileExtension );
         }
 
-        private string GetFilenameTrash( Archetype archetype )
-        {
-            return Path.ChangeExtension( Path.Combine( s_pathTrash, archetype.ID.ToString() ), Storage.fileExtension );
-        }
-
         public Archetype Get( Guid id )
         {
             Archetype archetype = m_archetypeList.Find( x => x.ID == id );
@@ -140,14 +133,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( archetype ) );
             }
 
-            m_archetypeList.Remove( archetype );
+            archetype.Active = false;
 
-            if( !Directory.Exists( s_pathTrash ) )
-            {
-                Directory.CreateDirectory( s_pathTrash );
-            }
-
-            File.Move( GetFilename( archetype ), GetFilenameTrash( archetype ) );
+            Save( archetype );
         }
 
         public IList<Archetype> Archetypes => ( m_archetypeList.AsReadOnly() );

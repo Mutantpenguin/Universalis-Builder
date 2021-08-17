@@ -166,16 +166,7 @@ namespace Universalis
             {
                 TraitLevel traitLevel = ( (TraitLevel)( dataGridViewLevel.Rows[ dataGridViewLevel.SelectedRows[ 0 ].Index ].DataBoundItem ) );
 
-                var actorsWithTraitLevel = UserDataStorage.Actor.ActorsWithTraitLevel( m_originalTrait, traitLevel );
-
-                if( actorsWithTraitLevel.Any() )
-                {
-                    using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithTraitLevel ) )
-                    {
-                        actorDisplay.ShowDialog( this );
-                    }
-                }
-                else
+                if( MessageBox.Show( $"Eigenschaftslevel '{traitLevel.Level}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     ( (Trait)traitBindingSource.DataSource ).TraitLevelList.RemoveAll( s => s == traitLevel );
 

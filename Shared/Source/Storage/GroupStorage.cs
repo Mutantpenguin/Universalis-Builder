@@ -10,12 +10,10 @@ namespace Universalis
     public class GroupStorage
     {
         private readonly string s_path;
-        private readonly string s_pathTrash;
 
         public GroupStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName );
-            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName );
 
             if( !Directory.Exists( s_path ) )
             {
@@ -109,11 +107,6 @@ namespace Universalis
             return Path.ChangeExtension( Path.Combine( s_path, group.ID.ToString() ), Storage.fileExtension );
         }
 
-        private string GetFilenameTrash( Group group )
-        {
-            return Path.ChangeExtension( Path.Combine( s_pathTrash, group.ID.ToString() ), Storage.fileExtension );
-        }
-
         public void Export( Group group, string filename )
         {
             if( null == group )
@@ -171,14 +164,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( group ) );
             }
 
-            m_groupList.Remove( group );
+            group.Active = false;
 
-            if( !Directory.Exists( s_pathTrash ) )
-            {
-                Directory.CreateDirectory( s_pathTrash );
-            }
-
-            File.Move( GetFilename( group ), GetFilenameTrash( group ) );
+            Save( group );
         }
 
         public IList<Group> Groups => ( m_groupList.AsReadOnly() );
