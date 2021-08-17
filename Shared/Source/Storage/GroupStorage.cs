@@ -9,11 +9,13 @@ namespace Universalis
 {
     public class GroupStorage
     {
+        private const string s_folderName = "Groups";
+
         private readonly string s_path;
 
         public GroupStorage( string path, BackgroundWorker backgroundWorker )
         {
-            s_path = Path.Combine( path, Storage.dataSubfolderName );
+            s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
 
             if( !Directory.Exists( s_path ) )
             {

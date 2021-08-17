@@ -6,9 +6,9 @@ namespace Universalis
 {
     public static class UserDataStorage
     {
-        private static readonly string GroupsSubFolder = "Groups";
+        private static readonly string UserDataSubFolder = "UserData";
 
-        private static readonly string GroupsPath = Path.Combine( UniversalisSettings.UserAppFolder, GroupsSubFolder );
+        private static readonly string UserDataPath = Path.Combine( UniversalisSettings.UserAppFolder, UserDataSubFolder );
 
         public static ActorStorage Actor
         {
@@ -26,16 +26,16 @@ namespace Universalis
 
         public static void Setup( Guid universeId, Storage.BackgroundWorkerProvider backgroundWorkerProvider )
         {
-            if( !Directory.Exists( GroupsPath ) )
+            if( !Directory.Exists( UserDataPath ) )
             {
-                Directory.CreateDirectory( GroupsPath );
+                Directory.CreateDirectory( UserDataPath );
             }
 
-            String universeGroupsPath = Path.Combine( GroupsPath, universeId.ToString() );
+            String universeUserDataPath = Path.Combine( UserDataPath, universeId.ToString() );
 
-            if( !Directory.Exists( universeGroupsPath ) )
+            if( !Directory.Exists( universeUserDataPath ) )
             {
-                Directory.CreateDirectory( universeGroupsPath );
+                Directory.CreateDirectory( universeUserDataPath );
             }
 
             if( setupAlreadyCompleted )
@@ -48,9 +48,9 @@ namespace Universalis
                 throw new InvalidOperationException();
             }
 
-            Actor = new ActorStorage( GroupsPath, backgroundWorkerProvider() );
+            Actor = new ActorStorage( universeUserDataPath, backgroundWorkerProvider() );
 
-            Group = new GroupStorage( universeGroupsPath, backgroundWorkerProvider() );
+            Group = new GroupStorage( universeUserDataPath, backgroundWorkerProvider() );
 
             setupAlreadyCompleted = true;
         }
