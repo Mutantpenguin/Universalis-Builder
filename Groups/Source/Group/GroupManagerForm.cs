@@ -138,6 +138,7 @@ namespace Universalis
 
                 string toolTipText = String.Empty;
 
+                /* TODO check for "inactive"
                 if( group.HasMissingActors() )
                 {
                     toolTipText += "Gelöschte Modelle vorhanden!";
@@ -147,6 +148,7 @@ namespace Universalis
                 {
                     toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine : String.Empty ) + "Fehlende Outfits!";
                 }
+                */
 
                 toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + $"Anzahl Modelle: {group.GroupActorList.Count}{Environment.NewLine}{ToolTipHelper.FormatMaxWidth( group.Description )}";
 
@@ -209,13 +211,7 @@ namespace Universalis
 
         private static bool IsValid( Group group )
         {
-            if( group.GroupActorList.Exists( x => x.ActorOutfit == null ) )
-            {
-                MessageBox.Show( "Bei mindestens einem Modell fehlt noch ein Outfit!" );
-
-                return ( false );
-            }
-            else if( group.GroupActorList.Exists( x => x == null ) )
+            if( group.GroupActorList.Exists( x => x == null ) )
             {
                 MessageBox.Show( "Mindestens ein Modell wurde gelöscht!" );
 
@@ -247,6 +243,7 @@ namespace Universalis
                 Image imgInactiveActors = null;
                 Image imgMissingActorOutfits = null;
 
+                /* TODO check for "inactive"
                 if( group.HasMissingActors() )
                 {
                     imgInactiveActors = Properties.Resources.error;
@@ -256,6 +253,7 @@ namespace Universalis
                 {
                     imgMissingActorOutfits = Properties.Resources.error_outline;
                 }
+                */
 
                 if( imgInactiveActors != null || imgMissingActorOutfits != null )
                 {

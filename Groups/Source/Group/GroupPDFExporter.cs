@@ -174,7 +174,7 @@ namespace Universalis
 
             document.Add( Chunk.NEWLINE );
 
-            /*
+            /* TODO ???
             document.Add( new Paragraph( s_versionInfo, s_versionInfoFont )
             {
                 Alignment = Element.ALIGN_RIGHT
@@ -215,15 +215,6 @@ namespace Universalis
             // TableHeader
             actorTable.AddCell( new PdfPCell( new Phrase( "Modell", s_actorFontHeader ) )
             {
-                Border = Rectangle.NO_BORDER,
-                Colspan = 2
-            } );
-            actorTable.AddCell( new PdfPCell()
-            {
-                Border = Rectangle.NO_BORDER
-            } );
-            actorTable.AddCell( new PdfPCell( new Phrase( "Ausstattung", s_actorFontHeader ) )
-            {
                 Border = Rectangle.NO_BORDER
             } );
             actorTable.AddCell( new PdfPCell( new Phrase( "Punkte", s_actorFontHeader ) )
@@ -231,18 +222,10 @@ namespace Universalis
                 Border = Rectangle.NO_BORDER,
                 HorizontalAlignment = Element.ALIGN_RIGHT
             } );
-            actorTable.AddCell( new PdfPCell( new Phrase( "Gesamt", s_actorFontHeader ) )
-            {
-                Border = Rectangle.NO_BORDER,
-                HorizontalAlignment = Element.ALIGN_RIGHT
-            } );
 
-            foreach( var entry in group.GroupActorList.GroupBy( x => x.ActorOutfit.ID )
-                                                      .Select( x => new { actor = MasterDataStorage.Actor.Actors.First( y => y.ActorOutfitsList.Exists( z => z.ID == x.Key ) ), actorOutfit = MasterDataStorage.Actor.Actors.SelectMany( y => y.ActorOutfitsList ).First( z => z.ID == x.Key ), count = x.Count() } )
-                                                      .OrderBy( x => x.actorOutfit.Name )
-                                                      .ThenBy( x => x.actor.Name ) )
+            foreach( var entry in group.GroupActorList.OrderBy( x => x.Actor.Name ) )
             {
-                Image actorImg = Image.GetInstance( entry.actor.Icon ?? group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
+                Image actorImg = Image.GetInstance( entry.Actor.Icon ?? group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
                 actorImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
                 actorTable.AddCell( new PdfPCell( actorImg )
                 {
@@ -251,58 +234,18 @@ namespace Universalis
                     MinimumHeight = CmToPixel( 1 )
                 } );
 
-                actorTable.AddCell( new PdfPCell( new Phrase( $"{entry.count}x", s_actorFont ) )
-                {
-                    Border = Rectangle.TOP_BORDER,
-                    HorizontalAlignment = Element.ALIGN_RIGHT,
-                    VerticalAlignment = Element.ALIGN_MIDDLE
-                } );
-
-                actorTable.AddCell( new PdfPCell( new Phrase( entry.actor.Name, s_actorFont ) )
+                actorTable.AddCell( new PdfPCell( new Phrase( entry.Actor.Name, s_actorFont ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE
                 } );
 
-                actorTable.AddCell( new PdfPCell( new Phrase( entry.actorOutfit.Name, s_actorFont ) )
-                {
-                    Border = Rectangle.TOP_BORDER,
-                    VerticalAlignment = Element.ALIGN_MIDDLE
-                } );
-
-                actorTable.AddCell( new PdfPCell( new Phrase( entry.actor.Points( entry.actorOutfit ).ToString() ) )
+                actorTable.AddCell( new PdfPCell( new Phrase( entry.Actor.Points.ToString() ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE,
                     HorizontalAlignment = Element.ALIGN_RIGHT
                 } );
-
-                actorTable.AddCell( new PdfPCell( new Phrase( ( entry.count * entry.actor.Points( entry.actorOutfit ) ).ToString() ) )
-                {
-                    Border = Rectangle.TOP_BORDER,
-                    VerticalAlignment = Element.ALIGN_MIDDLE,
-                    HorizontalAlignment = Element.ALIGN_RIGHT
-                } );
-
-                var groupActorsWithCustomNames = group.GroupActorList.Where( x => x.Actor == entry.actor && x.ActorOutfit == entry.actorOutfit )
-                                                                     .Where( x => !String.IsNullOrEmpty( x.CustomName ) )
-                                                                     .OrderBy( x => x.CustomName );
-                if( groupActorsWithCustomNames.Any() )
-                {
-                    actorTable.AddCell( new PdfPCell()
-                    {
-                        Border = Rectangle.NO_BORDER
-                    } );
-
-                    string models = String.Join( ", ", groupActorsWithCustomNames.Select( x => x.CustomName ) );
-                    
-                    actorTable.AddCell( new PdfPCell( new Phrase( "Modelle: " + models, s_actorCustomNameFont ) )
-                    {
-                        Colspan = columnCount - 1,
-                        Border = Rectangle.NO_BORDER,
-                        HorizontalAlignment = Element.ALIGN_LEFT
-                    } );
-                }
             }
 
             actorTable.AddCell( new PdfPCell( new Phrase( "Gesamtpunkte", s_actorFontHeader ) )
@@ -339,9 +282,7 @@ namespace Universalis
             positions[ 1 ].X = ( 2 * distanceX ) + s_cardWidth;
             positions[ 1 ].Y = distanceY + s_cardHeight;
 
-            List<Group.GroupActor> sortedGroupActorList = group.GroupActorList.OrderBy( x => x.Name )
-                                                                              .ThenBy( x => x.ActorOutfit.Name )
-                                                                              .ThenBy( x => x.CustomName )
+            List<Group.GroupActor> sortedGroupActorList = group.GroupActorList.OrderBy( x => x.Actor.Name )
                                                                               .ToList();
 
             for( int i = 0; i < sortedGroupActorList.Count; i++ )
@@ -353,7 +294,7 @@ namespace Universalis
 
                 Group.GroupActor groupActor = sortedGroupActorList[ i ];
 
-                using( System.Drawing.Image img = CardPainter.GetBitmap( groupActor ) )
+                using( System.Drawing.Image img = CardPainter.GetBitmap( groupActor.Actor ) )
                 {
                     Image imgCard = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
                     imgCard.ScaleToFit( s_cardWidth, s_cardHeight );
@@ -387,20 +328,20 @@ namespace Universalis
                     flipsideBlocks.Add( new flipsideBlock() { Name = groupActor.Actor.Armor.Name, Rules = groupActor.Actor.Armor.Rules } );
                 }
 
-                foreach( Weapon weapon in groupActor.ActorOutfit.ActorWeaponsList.Select( x => x.Weapon )
-                                                                                 .Distinct()
-                                                                                 .Where( x => !String.IsNullOrEmpty( x.Rules ) )
-                                                                                 .OrderBy( x => x.Name ) )
+                foreach( Weapon weapon in groupActor.Actor.ActorWeaponsList.Select( x => x.Weapon )
+                                                                           .Distinct()
+                                                                           .Where( x => !String.IsNullOrEmpty( x.Rules ) )
+                                                                           .OrderBy( x => x.Name ) )
                 {
                     flipsideBlocks.Add( new flipsideBlock() { Name = weapon.Name, Rules = weapon.Rules } );
                 }
 
-                foreach( Equipment equipment in groupActor.ActorOutfit.ActorEquipmentList.Select( x => x.Equipment )
-                                                                                         .Distinct()
-                                                                                         .Where( x => ( !String.IsNullOrEmpty( x.Rules ) )
-                                                                                                      ||
-                                                                                                      ( x.UseOnce && ( !String.IsNullOrEmpty( x.ProfileModifier?.ToString() ) ) ) )
-                                                                                         .OrderBy( x => x.Name ) )
+                foreach( Equipment equipment in groupActor.Actor.ActorEquipmentList.Select( x => x.Equipment )
+                                                                                   .Distinct()
+                                                                                   .Where( x => ( !String.IsNullOrEmpty( x.Rules ) )
+                                                                                                ||
+                                                                                                ( x.UseOnce && ( !String.IsNullOrEmpty( x.ProfileModifier?.ToString() ) ) ) )
+                                                                                   .OrderBy( x => x.Name ) )
                 {
                     if( equipment.AP == 0 )
                     {
@@ -522,7 +463,7 @@ namespace Universalis
 
             foreach( var damageEffect in MasterDataStorage.DamageEffect.DamageEffects.OrderBy( x => x.Name ) )
             {
-                if( p_group.GroupActorList.Exists( x => x.ActorOutfit.ActorWeaponsList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
+                if( p_group.GroupActorList.Exists( x => x.Actor.ActorWeaponsList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
                                                         ||
                                                         ( ( x.Actor.Armor != null ) && x.Actor.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) ) )
                 {

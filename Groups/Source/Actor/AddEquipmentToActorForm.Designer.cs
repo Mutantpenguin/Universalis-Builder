@@ -1,6 +1,6 @@
 ﻿namespace Universalis
 {
-    partial class AddEquipmentToOutfitForm
+    partial class AddEquipmentToActorForm
     {
         /// <summary>
         /// Erforderliche Designervariable.

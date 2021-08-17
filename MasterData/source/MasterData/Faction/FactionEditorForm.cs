@@ -119,13 +119,5 @@ namespace Universalis
                 this.Close();
             }
         }
-
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithFaction( m_originalFaction ) ) )
-            {
-                actorDisplay.ShowDialog( this );
-            }
-        }
     }
 }

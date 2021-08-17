@@ -10,6 +10,12 @@ namespace Universalis
 
         private static readonly string GroupsPath = Path.Combine( UniversalisSettings.UserAppFolder, GroupsSubFolder );
 
+        public static ActorStorage Actor
+        {
+            get;
+            private set;
+        }
+
         public static GroupStorage Group
         {
             get;
@@ -50,6 +56,8 @@ namespace Universalis
             }
 
             File.SetAttributes( universeTrashPath, FileAttributes.Hidden );
+
+            Actor = new ActorStorage( GroupsPath, backgroundWorkerProvider() );
 
             Group = new GroupStorage( universeGroupsPath, backgroundWorkerProvider() );
 

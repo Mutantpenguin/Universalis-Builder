@@ -72,7 +72,7 @@ namespace Universalis
             {
                 Armor armor = (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithArmor = MasterDataStorage.Actor.ActorsWithArmor( armor );
+                var actorsWithArmor = UserDataStorage.Actor.ActorsWithArmor( armor );
 
                 if( actorsWithArmor.Any() )
                 {
@@ -145,17 +145,6 @@ namespace Universalis
                 Armor armor = (Armor)dataGridViewArmor.Rows[ e.RowIndex ].DataBoundItem;
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( armor.Description );
-            }
-        }
-
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewArmor.SelectedRows.Count > 0 )
-            {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithArmor( (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem ) ) )
-                {
-                    actorDisplay.ShowDialog( this );
-                }
             }
         }
 

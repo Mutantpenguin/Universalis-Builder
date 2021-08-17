@@ -121,6 +121,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Actor\ActorEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Actor\ActorEditorForm.Designer.cs">
+      <DependentUpon>ActorEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Actor\ActorManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Actor\ActorManagerForm.Designer.cs">
+      <DependentUpon>ActorManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Actor\AddArmorToActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Actor\AddArmorToActorForm.Designer.cs">
+      <DependentUpon>AddArmorToActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Actor\AddEquipmentToActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Actor\AddEquipmentToActorForm.Designer.cs">
+      <DependentUpon>AddEquipmentToActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Actor\AddTraitToActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Actor\AddTraitToActorForm.Designer.cs">
+      <DependentUpon>AddTraitToActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Actor\AddWeaponToActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Actor\AddWeaponToActorForm.Designer.cs">
+      <DependentUpon>AddWeaponToActorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Group\AddActorToGroupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +195,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Source\Actor\ActorEditorForm.resx">
+      <DependentUpon>ActorEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Actor\ActorManagerForm.resx">
+      <DependentUpon>ActorManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Actor\AddArmorToActorForm.resx">
+      <DependentUpon>AddArmorToActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Actor\AddEquipmentToActorForm.resx">
+      <DependentUpon>AddEquipmentToActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Actor\AddTraitToActorForm.resx">
+      <DependentUpon>AddTraitToActorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Actor\AddWeaponToActorForm.resx">
+      <DependentUpon>AddWeaponToActorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Group\AddActorToGroupForm.resx">
       <DependentUpon>AddActorToGroupForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +268,7 @@
     <None Include="Resources\empty.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\refresh.png" />
     <None Include="Resources\baseline_person_black_18dp.png" />
     <None Include="Resources\baseline_home_black_18dp.png" />
     <None Include="Resources\baseline_email_black_18dp.png" />

@@ -12,7 +12,7 @@ namespace Universalis
         public ActorEditorForm( Actor actor )
         {
             m_actorOriginal = actor;
-            m_actorModified = new Actor( actor, withOutfitID: true );
+            m_actorModified = new Actor( actor );
 
             InitializeComponent();
 
@@ -27,10 +27,8 @@ namespace Universalis
             profileBindingSource.DataSource = m_actorModified.Archetype.Profile;
             attributesBindingSource.DataSource = m_actorModified.Archetype.Profile.Attributes;
 
-            FillOutfitsComboBox();
-
-            pictureBoxFactionIcon.Image = m_actorModified.Faction.Icon;
-            toolTip.SetToolTip( pictureBoxFactionIcon, m_actorModified.Faction.Name );
+            pictureBoxFactionIcon.Image = m_actorModified.Archetype.Faction.Icon;
+            toolTip.SetToolTip( pictureBoxFactionIcon, m_actorModified.Archetype.Faction.Name );
 
             pictureBoxActorIcon.Image = m_actorModified.Icon;
 
@@ -64,17 +62,6 @@ namespace Universalis
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewEquipment );
         }
 
-        private void FillOutfitsComboBox()
-        {
-            List<Actor.ActorOutfit> sortedActorOutfitsList = m_actorModified.ActorOutfitsList.OrderBy( x => x.Name ).ToList();
-
-            outfitsBindingSource.DataSource = sortedActorOutfitsList;
-
-            int index = sortedActorOutfitsList.FindIndex( a => a == CurrentOutfit() ) + 1;
-
-            toolStripLabelOutfitCount.Text = index.ToString() + "/" + m_actorModified.ActorOutfitsList.Count.ToString();
-        }
-
         private readonly bool m_initialized = false;
 
         private readonly Actor m_actorModified;
@@ -99,10 +86,10 @@ namespace Universalis
 #region update
         private void updateFields()
         {
-            textBoxTragkraft.Text = $"{m_actorModified.ModMaxLoadCapacity( CurrentOutfit() ):n1} kg";
+            textBoxTragkraft.Text = $"{m_actorModified.ModMaxLoadCapacity():n1} kg";
 
-            textBoxBelastung.Text = $"{m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: false ):n1} kg";
-            if( m_actorModified.LoadoutWeight( CurrentOutfit(), withSelfSustaining: false ) > m_actorModified.ModMaxLoadCapacity( CurrentOutfit() ) )
+            textBoxBelastung.Text = $"{m_actorModified.LoadoutWeight(withSelfSustaining: false ):n1} kg";
+            if( m_actorModified.LoadoutWeight( withSelfSustaining: false ) > m_actorModified.ModMaxLoadCapacity() )
             {
                 textBoxBelastung.BackColor = Color.OrangeRed;
             }
@@ -111,12 +98,11 @@ namespace Universalis
                 textBoxBelastung.BackColor = SystemColors.Control;
             }
 
-            textBoxBaseCost.Text = m_actorModified.Points( actorOutfit: null ).ToString();
-            textBoxOutfitCost.Text = m_actorModified.Points( CurrentOutfit() ).ToString();
+            textBoxPointCost.Text = m_actorModified.Points.ToString();
 
             if( m_initialized )
             {
-                pictureBoxCard.Image = CardPainter.GetBitmap( m_actorModified, CurrentOutfit() );
+                pictureBoxCard.Image = CardPainter.GetBitmap( m_actorModified );
             }
         }
 #endregion update
@@ -126,8 +112,8 @@ namespace Universalis
         {
             if( checkValidity() )
             {
-                m_actorOriginal.SetWithOutfitID( m_actorModified );
-                MasterDataStorage.Actor.Save( m_actorOriginal );
+                m_actorOriginal.Set( m_actorModified );
+                UserDataStorage.Actor.Save( m_actorOriginal );
             }
         }
 
@@ -207,108 +193,10 @@ namespace Universalis
         }
 #endregion armor
 
-#region outfits
-        private void toolStripButtonOutfitRename_Click( object sender, EventArgs e )
-        {
-            Actor.ActorOutfit actorOutfit = (Actor.ActorOutfit)comboBoxOutfits.SelectedItem;
-
-            using( EnterNameForm enterNameForm = new EnterNameForm( actorOutfit.Name, emptyNameAllowed: false ) )
-            {
-                if( enterNameForm.ShowDialog( this ) == DialogResult.OK )
-                {
-                    if( m_actorModified.ActorOutfitsList.Exists( x => x.Name == enterNameForm.NewName ) )
-                    {
-                        MessageBox.Show( $"Ein Outfit mit dem Namen '{enterNameForm.NewName}' existiert bereits!" );
-                    }
-                    else
-                    {
-                        actorOutfit.Name = enterNameForm.NewName;
-
-                        outfitsBindingSource.ResetBindings( false );
-
-                        updateFields();
-                    }
-                }
-            }
-        }
-
-        private void toolStripButtonOutfitAdd_Click( object sender, EventArgs e )
-        {
-            Actor.ActorOutfit actorOutfit = new Actor.ActorOutfit();
-
-            using( EnterNameForm enterNameForm = new EnterNameForm( actorOutfit.Name, emptyNameAllowed: false ) )
-            {
-                if( enterNameForm.ShowDialog( this ) == DialogResult.OK )
-                {
-                    if( m_actorModified.ActorOutfitsList.Exists( x => x.Name == enterNameForm.NewName ) )
-                    {
-                        MessageBox.Show( $"Ein Outfit mit dem Namen '{enterNameForm.NewName}' existiert bereits!" );
-                    }
-                    else
-                    {
-                        actorOutfit.Name = enterNameForm.NewName;
-
-                        m_actorModified.ActorOutfitsList.Add( actorOutfit );
-
-                        FillOutfitsComboBox();
-
-                        comboBoxOutfits.SelectedItem = actorOutfit;
-
-                        updateGridViewWeapons();
-                        updateGridViewEquipment();
-
-                        updateFields();
-                    }
-                }
-            }
-        }
-
-        private void toolStripButtonOutfitRemove_Click( object sender, EventArgs e )
-        {
-            if( m_actorModified.ActorOutfitsList.Count < 2 )
-            {
-                MessageBox.Show( "Dieses Outfit kann nicht gelöscht werden, da es das letzte ist!" );
-            }
-            else
-            {
-                Actor.ActorOutfit actorOutfit = (Actor.ActorOutfit)comboBoxOutfits.SelectedItem;
-
-                if( MessageBox.Show( $"Wollen Sie wirklich das Outfit '{actorOutfit.Name}' löschen?",
-                                     "Ausstattung löschen",
-                                     MessageBoxButtons.OKCancel,
-                                     MessageBoxIcon.Warning,
-                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_actorModified.ActorOutfitsList.Remove( actorOutfit );
-
-                    FillOutfitsComboBox();
-
-                    updateGridViewWeapons();
-                    updateGridViewEquipment();
-
-                    updateFields();
-                }
-            }
-        }
-
-        private Actor.ActorOutfit CurrentOutfit()
-        {
-            return ( (Actor.ActorOutfit)comboBoxOutfits.SelectedItem );
-        }
-
-        private void comboBoxOutfits_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            updateGridViewWeapons();
-            updateGridViewEquipment();
-
-            updateFields();
-        }
-#endregion outfits
-
 #region weapons
         private void updateGridViewWeapons()
         {
-            actorWeaponBindingSource.DataSource = CurrentOutfit().ActorWeaponsList.OrderBy( x => x.Weapon.Class )
+            actorWeaponBindingSource.DataSource = m_actorModified.ActorWeaponsList.OrderBy( x => x.Weapon.Class )
                                                                                   .ThenBy( x => x.Weapon.RangeSort )
                                                                                   .ThenBy( x => x.Weapon.Name )
                                                                                   .ToList();
@@ -317,7 +205,7 @@ namespace Universalis
 
         private void toolStripButtonWeaponAdd_Click( object sender, EventArgs e )
         {
-            using( AddWeaponToOutfitForm addWeaponToActor = new AddWeaponToOutfitForm() )
+            using( AddWeaponToActorForm addWeaponToActor = new AddWeaponToActorForm() )
             {
                 if( addWeaponToActor.ShowDialog( this ) == DialogResult.OK )
                 {
@@ -325,7 +213,7 @@ namespace Universalis
                     {
                         foreach( Weapon weapon in addWeaponToActor.SelectedWeapons )
                         {
-                            CurrentOutfit().ActorWeaponsList.Add( new Actor.ActorWeapon
+                            m_actorModified.ActorWeaponsList.Add( new Actor.ActorWeapon
                             {
                                 Weapon = weapon
                             } );
@@ -343,7 +231,7 @@ namespace Universalis
             if( dataGridViewWeapons.SelectedRows.Count > 0 )
             {
                 Guid id = ( (Actor.ActorWeapon)( dataGridViewWeapons.Rows[ dataGridViewWeapons.SelectedRows[ 0 ].Index ].DataBoundItem ) ).ID;
-                CurrentOutfit().ActorWeaponsList.RemoveAll( s => s.ID == id );
+                m_actorModified.ActorWeaponsList.RemoveAll( s => s.ID == id );
 
                 updateGridViewWeapons();
                 updateFields();
@@ -354,7 +242,7 @@ namespace Universalis
 #region equipment
         private void updateGridViewEquipment()
         {
-            actorEquipmentBindingSource.DataSource = CurrentOutfit().ActorEquipmentList.OrderBy( x => x.Equipment.Name )
+            actorEquipmentBindingSource.DataSource = m_actorModified.ActorEquipmentList.OrderBy( x => x.Equipment.Name )
                                                                                        .ToList();
 
             dataGridViewEquipment.ClearSelection();
@@ -362,7 +250,7 @@ namespace Universalis
 
         private void toolStripButtonEquipmentAdd_Click( object sender, EventArgs e )
         {
-            using( AddEquipmentToOutfitForm addEquipmentToActor = new AddEquipmentToOutfitForm() )
+            using( AddEquipmentToActorForm addEquipmentToActor = new AddEquipmentToActorForm() )
             {
                 if( addEquipmentToActor.ShowDialog( this ) == DialogResult.OK )
                 {
@@ -370,7 +258,7 @@ namespace Universalis
                     {
                         foreach( Equipment equipment in addEquipmentToActor.SelectedEquipment )
                         {
-                            CurrentOutfit().ActorEquipmentList.Add( new Actor.ActorEquipment
+                            m_actorModified.ActorEquipmentList.Add( new Actor.ActorEquipment
                             {
                                 Equipment = equipment
                             } );
@@ -388,7 +276,7 @@ namespace Universalis
             if( dataGridViewEquipment.SelectedRows.Count > 0 )
             {
                 Guid id = ( (Actor.ActorEquipment)( dataGridViewEquipment.Rows[ dataGridViewEquipment.SelectedRows[ 0 ].Index ].DataBoundItem ) ).ID;
-                CurrentOutfit().ActorEquipmentList.RemoveAll( s => s.ID == id );
+                m_actorModified.ActorEquipmentList.RemoveAll( s => s.ID == id );
 
                 updateGridViewEquipment();
                 updateFields();
@@ -483,8 +371,8 @@ namespace Universalis
                     case DialogResult.Yes:
                         if( checkValidity() )
                         {
-                            m_actorOriginal.SetWithOutfitID( m_actorModified );
-                            MasterDataStorage.Actor.Save( m_actorOriginal );
+                            m_actorOriginal.Set( m_actorModified );
+                            UserDataStorage.Actor.Save( m_actorOriginal );
                         }
                         else
                         {
@@ -519,18 +407,7 @@ namespace Universalis
                 return ( false );
             }
 
-            if( null == m_actorModified.Faction )
-            {
-                MessageBox.Show( "Fraktion ist leer, bitte angeben!",
-                                 caption,
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.Stop );
-                return ( false );
-            }
-
-            Actor.ActorOutfit currentOutfit = CurrentOutfit();
-
-            if( m_actorModified.ModSpeed( currentOutfit ) < 0 )
+            if( m_actorModified.ModSpeed() < 0 )
             {
                 MessageBox.Show( "Geschwindigkeit darf nicht negativ sein!",
                                  caption,
@@ -539,7 +416,7 @@ namespace Universalis
                 return ( false );
             }
 
-            if( m_actorModified.ModHitPoints( currentOutfit ) <= 0 )
+            if( m_actorModified.ModHitPoints() <= 0 )
             {
                 MessageBox.Show( "Trefferpunkte dürfen nicht 0 oder negativ sein!",
                                  caption,
@@ -548,17 +425,17 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( m_actorModified.ModAGI( currentOutfit ) < 0 )
+            if( ( m_actorModified.ModAGI() < 0 )
                 ||
-                ( m_actorModified.ModHTH( currentOutfit ) < 0 )
+                ( m_actorModified.ModHTH() < 0 )
                 ||
-                ( m_actorModified.ModLRC( currentOutfit ) < 0 )
+                ( m_actorModified.ModLRC() < 0 )
                 ||
-                ( m_actorModified.ModPHY( currentOutfit ) < 0 )
+                ( m_actorModified.ModPHY() < 0 )
                 ||
-                ( m_actorModified.ModAWA( currentOutfit ) < 0 )
+                ( m_actorModified.ModAWA() < 0 )
                 ||
-                ( m_actorModified.ModDET( currentOutfit ) < 0 ) )
+                ( m_actorModified.ModDET() < 0 ) )
             {
                 MessageBox.Show( "Attribute dürfen nicht negativ sein!",
                                  caption,
@@ -567,7 +444,7 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( m_actorModified.ModSpeed( CurrentOutfit() ) <= 0 ) && ( EMovementType.Stationär != m_actorModified.Archetype.Profile.MovementType ) )
+            if( ( m_actorModified.ModSpeed() <= 0 ) && ( EMovementType.Stationär != m_actorModified.Archetype.Profile.MovementType ) )
             {
                 MessageBox.Show( "Geschwindigkeit ist gleich 0, die Bewegungsart ist aber nicht stationär. Speichern wird abgebrochen.",
                                  caption,
@@ -696,7 +573,7 @@ namespace Universalis
 
         private void toolStripButtonChangeArchetype_Click( object sender, EventArgs e )
         {
-            using( ArchetypeSelectionForm archetypeSelectionForm = new ArchetypeSelectionForm( m_actorModified.Faction ) )
+            using( ArchetypeSelectionForm archetypeSelectionForm = new ArchetypeSelectionForm( null ) )
             {
                 if( archetypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
                 {

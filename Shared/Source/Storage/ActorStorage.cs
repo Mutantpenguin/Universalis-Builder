@@ -112,24 +112,14 @@ namespace Universalis
             return ( m_actorList.Find( x => x.ID == id ) );
         }
 
-        public Actor Create( Faction faction, Archetype archetype )
+        public Actor Create( Archetype archetype )
         {
-            if( null == faction )
-            {
-                throw new ArgumentNullException( nameof( faction ) );
-            }
-
             if( null == archetype )
             {
                 throw new ArgumentNullException( nameof( archetype ) );
             }
 
-            Actor actor = new Actor( faction, archetype );
-
-            actor.ActorOutfitsList.Add( new Actor.ActorOutfit()
-            {
-                Name = "Bitte Namen eingeben"
-            } );
+            Actor actor = new Actor( archetype );
 
             return ( actor );
         }
@@ -163,7 +153,7 @@ namespace Universalis
 
         public IList<Actor> ActorsWithWeapon( Weapon weapon )
         {
-            return ( m_actorList.Where( x => x.ActorOutfitsList.Exists( y => y.ActorWeaponsList.Exists( z => z.Weapon.ID == weapon.ID ) ) )
+            return ( m_actorList.Where( x => x.ActorWeaponsList.Exists( z => z.Weapon.ID == weapon.ID ) )
                                 .OrderBy( x => x.Name )
                                 .ToList()
                                 .AsReadOnly() );
@@ -179,7 +169,7 @@ namespace Universalis
 
         public IList<Actor> ActorsWithEquipment( Equipment equipment )
         {
-            return ( m_actorList.Where( x => x.ActorOutfitsList.Exists( y => y.ActorEquipmentList.Exists( z => z.Equipment.ID == equipment.ID ) ) )
+            return ( m_actorList.Where( x => x.ActorEquipmentList.Exists( z => z.Equipment.ID == equipment.ID ) )
                                 .OrderBy( x => x.Name )
                                 .ToList()
                                 .AsReadOnly() );
@@ -196,14 +186,6 @@ namespace Universalis
         public IList<Actor> ActorsWithTraitLevel( Trait trait, TraitLevel traitLevel )
         {
             return ( m_actorList.Where( x => x.ActorTraitsList.Exists( y => y.Trait.ID == trait.ID && y.Level == traitLevel.Level ) )
-                                .OrderBy( x => x.Name )
-                                .ToList()
-                                .AsReadOnly() );
-        }
-
-        public IList<Actor> ActorsWithFaction( Faction faction )
-        {
-            return ( m_actorList.Where( x => x.Faction.ID == faction.ID )
                                 .OrderBy( x => x.Name )
                                 .ToList()
                                 .AsReadOnly() );

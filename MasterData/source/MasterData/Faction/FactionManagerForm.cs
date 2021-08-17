@@ -62,16 +62,7 @@ namespace Universalis
             {
                 Faction faction = (Faction)dataGridViewFactions.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithFaction = MasterDataStorage.Actor.ActorsWithFaction( faction );
-
-                if( actorsWithFaction.Any() )
-                {
-                    using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithFaction ) )
-                    {
-                        actorDisplay.ShowDialog( this );
-                    }
-                }
-                else if( MessageBox.Show( $"Fraktion '{faction.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                if( MessageBox.Show( $"Fraktion '{faction.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     MasterDataStorage.Faction.Delete( faction );
 
@@ -144,17 +135,6 @@ namespace Universalis
             {
                 e.Handled = true;
                 editFaction( (Faction)dataGridViewFactions.CurrentRow.DataBoundItem );
-            }
-        }
-
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewFactions.SelectedRows.Count > 0 )
-            {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithFaction( (Faction)dataGridViewFactions.SelectedRows[ 0 ].DataBoundItem ) ) )
-                {
-                    actorDisplay.ShowDialog( this );
-                }
             }
         }
     }

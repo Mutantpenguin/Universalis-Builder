@@ -9,16 +9,13 @@ namespace Universalis
 {
     public partial class ActorManagerForm : Form
     {
-        public ActorManagerForm()
+        public ActorManagerForm( Group group )
         {
             InitializeComponent();
 
-            this.Icon = Shared.Properties.Resources.icon;
+            m_group = group;
 
-            filterFaction.ComboBox.DataSource = MasterDataStorage.Faction.Factions.OrderBy( x => x.Name )
-                                                                                  .ToList();
-            filterFaction.ComboBox.DisplayMember = nameof( Faction.Name );
-            filterFaction.ComboBox.SelectionChangeCommitted += FilterFaction_SelectionChangeCommitted;
+            this.Icon = Shared.Properties.Resources.icon;
 
             filterType.ComboBox.DataSource = Profile.ETypeList;
             filterType.ComboBox.SelectionChangeCommitted += FilterType_SelectionChangeCommitted;
@@ -27,6 +24,8 @@ namespace Universalis
 
             toolStripTextBoxSearch.TextBox.Select();
         }
+
+        private Group m_group;
 
         private void dataGridViewActors_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
         {
@@ -62,11 +61,13 @@ namespace Universalis
                         {
                             if( archetypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
                             {
-                                Actor actor = MasterDataStorage.Actor.Create( factionSelectionForm.SelectedFaction, archetypeSelectionForm.SelectedArchetype );
+                                Actor actor = UserDataStorage.Actor.Create( archetypeSelectionForm.SelectedArchetype );
 
                                 toolStripTextBoxSearch.Text = String.Empty;
 
                                 editActor( actor );
+
+                                // TODO somehow add to group, but only when the actor was saved
 
                                 RefreshActorsGridView();
 
@@ -86,31 +87,19 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonDeleteActor_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewActors.SelectedRows.Count > 0 )
-            {
-                Actor actor = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
-
-                if( MessageBox.Show( $"Modell '{actor.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    MasterDataStorage.Actor.Delete( actor );
-
-                    RefreshActorsGridView();
-                }
-            }
-        }
-
         private void toolStripButtonCopy_Click( object sender, EventArgs e )
         {
             if( dataGridViewActors.SelectedRows.Count > 0 )
             {
                 Actor actorSource = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                Actor actorNew = MasterDataStorage.Actor.Create( actorSource.Faction, actorSource.Archetype );
+                Actor actorNew = UserDataStorage.Actor.Create( actorSource.Archetype );
                 actorNew.Set( actorSource );
                 actorNew.Name = $"(Kopie von) {actorSource.Name}";
-                MasterDataStorage.Actor.Save( actorNew );
+                UserDataStorage.Actor.Save( actorNew );
+
+                m_group.AddActor( actorNew );
+                UserDataStorage.Group.Save( m_group );
 
                 toolStripTextBoxSearch.Text = String.Empty;
                 RefreshActorsGridView();
@@ -131,25 +120,16 @@ namespace Universalis
 
         private void RefreshActorsGridView()
         {
-            List<Actor> actors = MasterDataStorage.Actor.Actors.Where( s => filterFaction.Enabled ? s.Faction.ID == ( (Faction)filterFaction.ComboBox.SelectedValue ).ID : true )
-                                                               .Where( s => filterType.Enabled ? s.Archetype.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
-                                                               .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                               .OrderBy( x => x.Name )
-                                                               .ToList();
+            List<Actor> actors = m_group.GroupActorList.Select( s => s.Actor )
+                                                       .Where( s => filterType.Enabled ? s.Archetype.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
+                                                       .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                       .OrderBy( x => x.Name )
+                                                       .ToList();
 
             actorBindingSource.DataSource = actors;
             dataGridViewActors.ClearSelection();
 
             toolStripStatusLabelCount.Text = $"Anzahl: {actors.Count}";
-        }
-
-        private void checkBoxFilterFaction_Click( object sender, EventArgs e )
-        {
-            filterFaction.Enabled = !filterFaction.Enabled;
-
-            checkBoxFilterFaction.Image = checkBoxFilterFaction.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
-
-            RefreshActorsGridView();
         }
 
         private void checkBoxFilterType_Click( object sender, EventArgs e )
@@ -181,60 +161,23 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonChangeFaction_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewActors.SelectedRows.Count > 0 )
-            {
-                Actor actor = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
-
-                using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm( actor.Faction ) )
-                {
-                    if( factionSelectionForm.ShowDialog( this ) == DialogResult.OK )
-                    {
-                        if( factionSelectionForm.SelectedFaction != null )
-                        {
-                            actor.Faction = factionSelectionForm.SelectedFaction;
-
-                            MasterDataStorage.Actor.Save( actor );
-
-                            RefreshActorsGridView();
-                        }
-                    }
-                }
-            }
-        }
-
         private void toolStripButtonExportImage_Click( object sender, EventArgs e )
         {
             if( dataGridViewActors.SelectedRows.Count > 0 )
             {
                 Actor actor = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                if( actor.ActorOutfitsList.Count == 1 )
-                {
-                    SaveActorWithOutfitAsJPEG( actor, actor.ActorOutfitsList[ 0 ] );
-                }
-                else
-                {
-                    using( SelectOutfitForActorForm selectOutfitForActorForm = new SelectOutfitForActorForm( actor ) )
-                    {
-                        if( selectOutfitForActorForm.ShowDialog( this ) == DialogResult.OK )
-                        {
-                            Actor.ActorOutfit actorOutfit = selectOutfitForActorForm.SelectedOutfit;
-                            SaveActorWithOutfitAsJPEG( actor, actorOutfit );
-                        }
-                    }
-                }
+                SaveActorAsJPEG( actor );
             }
         }
 
-        private static void SaveActorWithOutfitAsJPEG( Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void SaveActorAsJPEG( Actor actor )
         {
             using( SaveFileDialog cardSaveFileDialog = new SaveFileDialog() )
             {
                 cardSaveFileDialog.InitialDirectory = Properties.Settings.Default.cardSavePath;
                 cardSaveFileDialog.Filter = "JPEG (*.jpg)|*.jpg";
-                cardSaveFileDialog.FileName = $"{actor.Name} - {actorOutfit.Name} - {actor.Points( actorOutfit )}pts";
+                cardSaveFileDialog.FileName = $"{actor.Name} - {actor.Points}pts";
 
                 if( cardSaveFileDialog.ShowDialog() == DialogResult.OK )
                 {
@@ -251,7 +194,7 @@ namespace Universalis
                             {
                                 encoderParameters.Param[ 0 ] = new EncoderParameter( Encoder.Quality, 90L );
 
-                                CardPainter.GetBitmap( actor, actorOutfit ).Save( fs, jgpEncoder, encoderParameters );
+                                CardPainter.GetBitmap( actor ).Save( fs, jgpEncoder, encoderParameters );
                                 System.Diagnostics.Process.Start( cardSaveFileDialog.FileName );
                             }
                         }

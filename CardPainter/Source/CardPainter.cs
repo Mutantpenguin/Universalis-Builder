@@ -113,17 +113,7 @@ namespace Universalis
         private static readonly int WeaponRadiusMargin = SImageMargin + CmToPixel( 0.015f );
         #endregion
 
-        public static Bitmap GetBitmap( Group.GroupActor groupActor )
-        {
-            return( GetBitmap( groupActor.Actor, groupActor.ActorOutfit, groupActor.CustomName, groupActor.CustomImg ) );
-        }
-
-        public static Bitmap GetBitmap( Actor actor, Actor.ActorOutfit actorOutfit )
-        {
-            return ( GetBitmap( actor, actorOutfit, String.Empty ) );
-        }
-
-        private static Bitmap GetBitmap( Actor actor, Actor.ActorOutfit actorOutfit, string customName, Bitmap customImage = null )
+        public static Bitmap GetBitmap( Actor actor )
         {
             if( null == actor )
             {
@@ -137,31 +127,28 @@ namespace Universalis
 
                 g.Clear( Color.White );
 
-                DrawName( g, actor.Name, customName );
-                DrawFaction( g, actor.Faction );
+                DrawName( g, actor.Name );
+                DrawFaction( g, actor.Archetype.Faction );
 
-                DrawPicture( g, customImage ?? actor.Img );
+                DrawPicture( g, actor.Img );
 
-                DrawAttributes( g, actor, actorOutfit );
-                DrawCalculatedAttributes( g, actor, actorOutfit );
-                DrawMisc( g, actor, actorOutfit );
+                DrawAttributes( g, actor );
+                DrawCalculatedAttributes( g, actor );
+                DrawMisc( g, actor );
 
-                DrawHitPoints( g, actor, actorOutfit );
-                DrawPoints( g, actor, actorOutfit );
+                DrawHitPoints( g, actor );
+                DrawPoints( g, actor );
 
                 int traitsEndY = DrawTraits( g, actor.ActorTraitsList );
 
-                int weaponsCount = DrawWeapons( g, actor, actorOutfit, traitsEndY );
+                int weaponsCount = DrawWeapons( g, actor, traitsEndY );
 
                 int armorPosY = traitsEndY + ( SLineHeight * weaponsCount );
-                DrawArmor( g, actor, actorOutfit, actor.Armor, armorPosY );
+                DrawArmor( g, actor, actor.Armor, armorPosY );
 
                 int equipmentYPos = armorPosY + SLineHeight * ( ( null == actor.Armor ? 0 : 2 ) );
                 int equipmentEndY = equipmentYPos;
-                if( actorOutfit != null )
-                {
-                    equipmentEndY = DrawEquipment( g, actorOutfit.ActorEquipmentList, equipmentYPos );
-                }
+                equipmentEndY = DrawEquipment( g, actor.ActorEquipmentList, equipmentYPos );
 
                 // draw the structure last, otherwise "lower" elements could paint over it
                 DrawStructure( g, equipmentEndY );
@@ -206,20 +193,18 @@ namespace Universalis
             }
         }
 
-        private static void DrawName( Graphics g, String actorName, string customName )
+        private static void DrawName( Graphics g, String actorName )
         {
             int posX = CmToPixel( 0.5 );
             int posY = 0;
-
-            string name = actorName + ( String.IsNullOrEmpty( customName ) ? String.Empty : ( Environment.NewLine + customName ) );
 
             Size textSize = new Size( CmToPixel( 4 ) - posX, CmToPixel( 0.5 ) );
             Rectangle textRect = new Rectangle( new Point( posX, posY ), textSize );
 
             int charsFitted, linesFilled;
-            g.MeasureString( name, FontName, textSize, StringFormatHCenterVCenter, out charsFitted, out linesFilled );
+            g.MeasureString( actorName, FontName, textSize, StringFormatHCenterVCenter, out charsFitted, out linesFilled );
 
-            g.DrawString( name, linesFilled > 1 ? FontNameSmall : FontName, Brushes.Black, textRect, StringFormatHCenterVCenter );
+            g.DrawString( actorName, linesFilled > 1 ? FontNameSmall : FontName, Brushes.Black, textRect, StringFormatHCenterVCenter );
         }
 
         private static void DrawFaction( Graphics g, Faction faction )
@@ -237,15 +222,15 @@ namespace Universalis
             }
         }
 
-        private static void DrawAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void DrawAttributes( Graphics g, Actor actor )
         {
-            DrawAttribute( g, XAttrFirstColumn, 0,                "AGI",    actor.ModAGI( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "NK",     actor.ModHTH( actorOutfit ) );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ),   "FK",     actor.ModLRC( actorOutfit ) );
+            DrawAttribute( g, XAttrFirstColumn, 0,                "AGI",    actor.ModAGI() );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "NK",     actor.ModHTH() );
+            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ),   "FK",     actor.ModLRC() );
 
-            DrawAttribute( g, XAttrSecondColumn, 0,                 "KO",   actor.ModPHY( actorOutfit ) );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ),  "WN",   actor.ModAWA( actorOutfit ) );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ),    "EH",   actor.ModDET( actorOutfit ) );
+            DrawAttribute( g, XAttrSecondColumn, 0,                 "KO",   actor.ModPHY() );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ),  "WN",   actor.ModAWA() );
+            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ),    "EH",   actor.ModDET() );
         }
 
         private static void DrawAttribute( Graphics g, int posX, int posY, string name, int? attribute )
@@ -277,17 +262,17 @@ namespace Universalis
             }
         }
 
-        private static void DrawCalculatedAttributes( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void DrawCalculatedAttributes( Graphics g, Actor actor )
         {
             // WB - Wahrnehmungsbereich
             g.DrawImage( Properties.Resources.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
 
-            string fovAndModWbString = $"{(int)actor.Archetype.Profile.Fov}°/{actor.ModAreaOfPerception( actorOutfit )}cm";
+            string fovAndModWbString = $"{(int)actor.Archetype.Profile.Fov}°/{actor.ModAreaOfPerception()}cm";
             Size fovAndModWbSize = g.MeasureString( fovAndModWbString, FontStandard ).ToSize();
             Helpers.DrawStringCentered( g, fovAndModWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
 
             // GB - Gefahrenbereich
-            int? dangerArea = actor.ModDangerArea( actorOutfit );
+            int? dangerArea = actor.ModDangerArea();
             if( dangerArea.HasValue )
             {
                 g.DrawImage( Properties.Resources.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
@@ -295,7 +280,7 @@ namespace Universalis
             }
         }
 
-        private static void DrawHitPoints( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void DrawHitPoints( Graphics g, Actor actor )
         {
             int margin = CmToPixel( 0.1 );
 
@@ -306,7 +291,7 @@ namespace Universalis
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
 
-                    DrawHitPointCirclesVertical( g, actor.ModHitPoints( actorOutfit ), posX, posY, SHitPointSize );
+                    DrawHitPointCirclesVertical( g, actor.ModHitPoints(), posX, posY, SHitPointSize );
                     break;
 
                 case Profile.EType.Koloss:
@@ -325,9 +310,9 @@ namespace Universalis
                     int widthLegs = widthMain;
 
                     // main
-                    DrawHitPointCirclesHorizonzal( g, actor.ModHitPoints( actorOutfit ), posXMain, posYMain, widthMain, down: true );
+                    DrawHitPointCirclesHorizonzal( g, actor.ModHitPoints(), posXMain, posYMain, widthMain, down: true );
 
-                    int modHitZoneHitPoints = actor.ModHitZoneHitPoints( actorOutfit );
+                    int modHitZoneHitPoints = actor.ModHitZoneHitPoints();
 
                     // left arm
                     DrawHitPointCirclesVertical( g, modHitZoneHitPoints, posXArmLeft, posYArmLeft, SHitPointSize );
@@ -408,23 +393,18 @@ namespace Universalis
             }
         }
 
-        private static void DrawPoints( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit  )
+        private static void DrawPoints( Graphics g, Actor actor )
         {
-            string points = $"{actor.Points( actorOutfit )}pkt";
-
-            if( actorOutfit != null )
-            {
-                points = actorOutfit.Name + " - " + points;
-            }
+            string points = $"{actor.Points}pkt";
 
             g.DrawString( points, FontPoints, Brushes.Black, new Rectangle( 0, CmToPixel( 7.5 ), SSectionsPosX, CmToPixel( 0.5 ) ), StringFormatHCenterVCenter );
         }
 
-        private static void DrawMisc( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit )
+        private static void DrawMisc( Graphics g, Actor actor )
         {
             int sizeX = DrawType( g, XAttrThirdColumn, actor.Archetype.Profile.Type );
             int movementX = DrawSize( g, sizeX, actor.Archetype.Profile.Size );
-            int weightX = DrawMovement( g, movementX, actor.Archetype.Profile.MovementType, actor.ModSpeed( actorOutfit ) );
+            int weightX = DrawMovement( g, movementX, actor.Archetype.Profile.MovementType, actor.ModSpeed() );
         }
 
         private static int DrawType( Graphics g, int xOffset, Profile.EType type )
@@ -595,23 +575,18 @@ namespace Universalis
             return ( posY );
         }
 
-        private static int DrawWeapons( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, int posY )
+        private static int DrawWeapons( Graphics g, Actor actor, int posY )
         {
-            if( actorOutfit == null )
-            {
-                return ( 0 );
-            }
-
             int lineNumber = 1;
 
             Weapon weaponUnarmed = null;
 
-            if( actorOutfit.ActorWeaponsList.FirstOrDefault( s => s.Weapon.Type == Weapon.EType.Nahkampf ) == null )
+            if( actor.ActorWeaponsList.FirstOrDefault( s => s.Weapon.Type == Weapon.EType.Nahkampf ) == null )
             {
-                weaponUnarmed = actor.WeaponUnarmed( actorOutfit );
+                weaponUnarmed = actor.WeaponUnarmed();
             }
 
-            if( ( actorOutfit.ActorWeaponsList.Count == 0 ) && ( weaponUnarmed == null ) )
+            if( ( actor.ActorWeaponsList.Count == 0 ) && ( weaponUnarmed == null ) )
             {
                 return ( 0 );
             }
@@ -626,18 +601,18 @@ namespace Universalis
 
                 if( weaponUnarmed != null )
                 {
-                    DrawWeapon( g, actor, actorOutfit, weaponUnarmed, 1, posY + ( lineNumber * SLineHeight ) );
+                    DrawWeapon( g, actor, weaponUnarmed, 1, posY + ( lineNumber * SLineHeight ) );
 
                     lineNumber++;
                 }
 
-                foreach( var weaponEntry in actorOutfit.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
-                                                                    .Select( x => new { weapon = MasterDataStorage.Weapon.Get( x.Key ), count = x.Count() } )
-                                                                    .OrderBy( x => x.weapon.Class )
-                                                                    .ThenBy( x => x.weapon.RangeSort )
-                                                                    .ThenBy( x => x.weapon.Name ) )
+                foreach( var weaponEntry in actor.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
+                                                                  .Select( x => new { weapon = MasterDataStorage.Weapon.Get( x.Key ), count = x.Count() } )
+                                                                  .OrderBy( x => x.weapon.Class )
+                                                                  .ThenBy( x => x.weapon.RangeSort )
+                                                                  .ThenBy( x => x.weapon.Name ) )
                 {
-                    DrawWeapon( g, actor, actorOutfit, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * SLineHeight ) );
+                    DrawWeapon( g, actor, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * SLineHeight ) );
 
                     lineNumber++;
                 }
@@ -659,7 +634,7 @@ namespace Universalis
             }
         }
 
-        private static void DrawWeapon( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Weapon weapon, int count, int posY )
+        private static void DrawWeapon( Graphics g, Actor actor, Weapon weapon, int count, int posY )
         {
             g.DrawLine( SLinePenBlack, SSectionsPosX, posY + SLineHeight, SCardWidth, posY + SLineHeight );
 
@@ -705,7 +680,7 @@ namespace Universalis
 
             if( weapon.AdditiveStrength )
             {
-                Helpers.DrawStringCentered( g, ( weapon.Strength + actor.ModPHY( actorOutfit ) ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponStrengthStart, posY, WeaponStrengthWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, ( weapon.Strength + actor.ModPHY() ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponStrengthStart, posY, WeaponStrengthWidth, SLineHeight ) );
             }
             else
             {
@@ -716,7 +691,7 @@ namespace Universalis
 
             if( Weapon.EType.Wurf == weapon.Type )
             {
-                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModPHY( actorOutfit ), weapon.Unwieldy ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
+                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModPHY(), weapon.Unwieldy ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
             }
             else
             {
@@ -813,7 +788,7 @@ namespace Universalis
             g.DrawImage( typeImage, new Rectangle( endPosX - SImageMargin - typeImageWidthDraw, posY + SImageMargin, typeImageWidthDraw, SImageSize ) );
         }
 
-        private static void DrawArmor( Graphics g, Actor actor, Actor.ActorOutfit actorOutfit, Armor armor, int posY )
+        private static void DrawArmor( Graphics g, Actor actor, Armor armor, int posY )
         {
             if( armor != null )
             {
@@ -837,7 +812,7 @@ namespace Universalis
 
                 if( armor.AdditiveProtection )
                 {
-                    Helpers.DrawStringCentered( g, ( armor.Protection + actor.ModPHY( actorOutfit ) ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                    Helpers.DrawStringCentered( g, ( armor.Protection + actor.ModPHY() ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
                 }
                 else
                 {

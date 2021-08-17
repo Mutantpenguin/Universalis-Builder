@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonQuit = new System.Windows.Forms.Button();
             this.buttonFactions = new System.Windows.Forms.Button();
             this.buttonTraits = new System.Windows.Forms.Button();
             this.buttonArchetypes = new System.Windows.Forms.Button();
@@ -39,7 +37,8 @@
             this.buttonArmor = new System.Windows.Forms.Button();
             this.buttonEquipment = new System.Windows.Forms.Button();
             this.buttonDamageEffects = new System.Windows.Forms.Button();
-            this.buttonActors = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonQuit = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,12 +50,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.buttonFactions, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonTraits, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.buttonArchetypes, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonWeapons, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonArmor, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonEquipment, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.buttonDamageEffects, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.buttonActors, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.buttonArchetypes, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.buttonDamageEffects, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -67,21 +65,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(636, 537);
             this.tableLayoutPanel1.TabIndex = 7;
-            // 
-            // buttonQuit
-            // 
-            this.buttonQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonQuit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonQuit.Image = global::Universalis.Properties.Resources.cross_circle;
-            this.buttonQuit.Location = new System.Drawing.Point(0, 537);
-            this.buttonQuit.Name = "buttonQuit";
-            this.buttonQuit.Size = new System.Drawing.Size(636, 34);
-            this.buttonQuit.TabIndex = 6;
-            this.buttonQuit.Text = "&Beenden";
-            this.buttonQuit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonQuit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonQuit.UseVisualStyleBackColor = true;
-            this.buttonQuit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // buttonFactions
             // 
@@ -116,10 +99,11 @@
             this.buttonArchetypes.AutoSize = true;
             this.buttonArchetypes.BackgroundImage = global::Universalis.Properties.Resources.archetypes;
             this.buttonArchetypes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tableLayoutPanel1.SetColumnSpan(this.buttonArchetypes, 2);
             this.buttonArchetypes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonArchetypes.Location = new System.Drawing.Point(321, 3);
+            this.buttonArchetypes.Location = new System.Drawing.Point(3, 405);
             this.buttonArchetypes.Name = "buttonArchetypes";
-            this.buttonArchetypes.Size = new System.Drawing.Size(312, 128);
+            this.buttonArchetypes.Size = new System.Drawing.Size(630, 129);
             this.buttonArchetypes.TabIndex = 8;
             this.toolTip1.SetToolTip(this.buttonArchetypes, "Archetypen");
             this.buttonArchetypes.UseVisualStyleBackColor = true;
@@ -173,26 +157,28 @@
             this.buttonDamageEffects.BackgroundImage = global::Universalis.Properties.Resources.damage_effects;
             this.buttonDamageEffects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDamageEffects.Location = new System.Drawing.Point(321, 405);
+            this.buttonDamageEffects.Location = new System.Drawing.Point(321, 3);
             this.buttonDamageEffects.Name = "buttonDamageEffects";
-            this.buttonDamageEffects.Size = new System.Drawing.Size(312, 129);
+            this.buttonDamageEffects.Size = new System.Drawing.Size(312, 128);
             this.buttonDamageEffects.TabIndex = 9;
             this.toolTip1.SetToolTip(this.buttonDamageEffects, "Schadenseffekte");
             this.buttonDamageEffects.UseVisualStyleBackColor = true;
             this.buttonDamageEffects.Click += new System.EventHandler(this.buttonDamageEffects_Click);
             // 
-            // buttonActors
+            // buttonQuit
             // 
-            this.buttonActors.AutoSize = true;
-            this.buttonActors.BackgroundImage = global::Universalis.Properties.Resources.models;
-            this.buttonActors.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonActors.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonActors.Location = new System.Drawing.Point(3, 405);
-            this.buttonActors.Name = "buttonActors";
-            this.buttonActors.Size = new System.Drawing.Size(312, 129);
-            this.buttonActors.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.buttonActors, "Modelle");
-            this.buttonActors.Click += new System.EventHandler(this.buttonActors_Click);
+            this.buttonQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonQuit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonQuit.Image = global::Universalis.Properties.Resources.cross_circle;
+            this.buttonQuit.Location = new System.Drawing.Point(0, 537);
+            this.buttonQuit.Name = "buttonQuit";
+            this.buttonQuit.Size = new System.Drawing.Size(636, 34);
+            this.buttonQuit.TabIndex = 6;
+            this.buttonQuit.Text = "&Beenden";
+            this.buttonQuit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonQuit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonQuit.UseVisualStyleBackColor = true;
+            this.buttonQuit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // MasterDataMainForm
             // 
@@ -224,7 +210,6 @@
         private System.Windows.Forms.Button buttonTraits;
         private System.Windows.Forms.Button buttonEquipment;
         private System.Windows.Forms.Button buttonFactions;
-        private System.Windows.Forms.Button buttonActors;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button buttonArchetypes;

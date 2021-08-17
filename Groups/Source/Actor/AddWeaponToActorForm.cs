@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Universalis
 {
-    public partial class AddWeaponToOutfitForm : Form
+    public partial class AddWeaponToActorForm : Form
     {
-        public AddWeaponToOutfitForm()
+        public AddWeaponToActorForm()
         {
             InitializeComponent();
 

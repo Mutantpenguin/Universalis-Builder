@@ -11,15 +11,14 @@ namespace Universalis
         public Actor()
         { }
 
-        public Actor( Faction faction, Archetype archetype )
+        public Actor( Archetype archetype )
         {
-            Faction = faction;
             Archetype = archetype;
         }
 
-        public Actor( Actor actor, bool withOutfitID )
+        public Actor( Actor actor )
         {
-            Set( actor, withOutfitID );
+            Set( actor );
         }
 
         public bool Equals( Actor actor )
@@ -31,9 +30,7 @@ namespace Universalis
 
             if( Name != actor.Name
                 ||
-                Description != actor.Description
-                ||
-                Faction != actor.Faction )
+                Description != actor.Description )
             {
                 return ( false );
             }
@@ -55,20 +52,18 @@ namespace Universalis
                 return ( false );
             }
 
-            foreach( ActorOutfit actorOutfit in ActorOutfitsList )
+            if( ActorWeaponsList.Except( actor.ActorWeaponsList ).Any()
+                ||
+                actor.ActorWeaponsList.Except( ActorWeaponsList ).Any() )
             {
-                if( actor.ActorOutfitsList.Find( x => x.Equals( actorOutfit ) ) == null )
-                {
-                    return ( false );
-                }
+                return ( false );
             }
 
-            foreach( ActorOutfit actorOutfit in actor.ActorOutfitsList )
+            if( ActorEquipmentList.Except( actor.ActorEquipmentList ).Any()
+                ||
+                actor.ActorEquipmentList.Except( ActorEquipmentList ).Any() )
             {
-                if( ActorOutfitsList.Find( x => x.Equals( actorOutfit ) ) == null )
-                {
-                    return ( false );
-                }
+                return ( false );
             }
 
             foreach( ActorTrait actorTrait in ActorTraitsList )
@@ -90,17 +85,7 @@ namespace Universalis
             return ( true );
         }
 
-        public void SetWithOutfitID( Actor actor )
-        {
-            Set( actor, withOutfitID: true );
-        }
-
         public void Set( Actor actor )
-        {
-            Set( actor, withOutfitID: false );
-        }
-
-        private void Set( Actor actor, bool withOutfitID )
         {
             if( null == actor )
             {
@@ -111,29 +96,38 @@ namespace Universalis
 
             Description = actor.Description;
 
-            Faction = actor.Faction;
-
             Archetype = actor.Archetype;
 
             Icon = actor.Icon;
 
             Img = actor.Img;
 
-            if( null != ActorOutfitsList )
+            if( null != ActorWeaponsList )
             {
-                ActorOutfitsList.Clear();
+                ActorWeaponsList.Clear();
             }
             else
             {
-                ActorOutfitsList = new List<ActorOutfit>();
+                ActorWeaponsList = new List<ActorWeapon>();
             }
 
-            if( null != actor.ActorOutfitsList )
+            if( null != actor.ActorWeaponsList )
             {
-                foreach( ActorOutfit actorOutfit in actor.ActorOutfitsList )
-                {
-                    ActorOutfitsList.Add( new ActorOutfit( actorOutfit, withOutfitID ) );
-                }
+                ActorWeaponsList.AddRange( actor.ActorWeaponsList );
+            }
+
+            if( null != ActorEquipmentList )
+            {
+                ActorEquipmentList.Clear();
+            }
+            else
+            {
+                ActorEquipmentList = new List<ActorEquipment>();
+            }
+
+            if( null != actor.ActorEquipmentList )
+            {
+                ActorEquipmentList.AddRange( actor.ActorEquipmentList );
             }
 
             Armor = actor.Armor;
@@ -180,145 +174,6 @@ namespace Universalis
             get;
             set;
         } = Shared.Properties.Resources.empty;
-
-        public class ActorOutfit
-        {
-            public ActorOutfit() { }
-
-            public ActorOutfit( ActorOutfit actorOutfit, bool withOutfitID )
-                : this()
-            {
-                Set( actorOutfit, withOutfitID );
-            }
-
-            private void Set( ActorOutfit actorOutfit, bool withOutfitID )
-            {
-                if( null == actorOutfit )
-                {
-                    throw new ArgumentNullException( nameof( actorOutfit ) );
-                }
-
-                if( withOutfitID )
-                {
-                    ID = actorOutfit.ID;
-                }
-
-                Name = actorOutfit.Name;
-
-                if( null != ActorWeaponsList )
-                {
-                    ActorWeaponsList.Clear();
-                }
-                else
-                {
-                    ActorWeaponsList = new List<ActorWeapon>();
-                }
-
-                if( null != actorOutfit.ActorWeaponsList )
-                {
-                    ActorWeaponsList.AddRange( actorOutfit.ActorWeaponsList );
-                }
-
-                if( null != ActorEquipmentList )
-                {
-                    ActorEquipmentList.Clear();
-                }
-                else
-                {
-                    ActorEquipmentList = new List<ActorEquipment>();
-                }
-
-                if( null != actorOutfit.ActorEquipmentList )
-                {
-                    ActorEquipmentList.AddRange( actorOutfit.ActorEquipmentList );
-                }
-            }
-
-            public bool Equals( ActorOutfit actorOutfit )
-            {
-                if( null == actorOutfit )
-                {
-                    throw new ArgumentNullException( nameof( actorOutfit ) );
-                }
-
-                if( Name != actorOutfit.Name )
-                {
-                    return ( false );
-                }
-
-                if( ActorWeaponsList.Except( actorOutfit.ActorWeaponsList ).Any()
-                    ||
-                    actorOutfit.ActorWeaponsList.Except( ActorWeaponsList ).Any() )
-                {
-                    return ( false );
-                }
-
-                if( ActorEquipmentList.Except( actorOutfit.ActorEquipmentList ).Any()
-                    ||
-                    actorOutfit.ActorEquipmentList.Except( ActorEquipmentList ).Any() )
-                {
-                    return ( false );
-                }
-
-                return ( true );
-            }
-
-            public Guid ID
-            {
-                get;
-                set;
-            } = Guid.NewGuid();
-
-            public string Name
-            {
-                get;
-                set;
-            } = "Bitte Namen eingeben";
-
-            [JsonIgnore]
-            public int Points
-            {
-                get
-                {
-                    int points = 0;
-
-                    if( null != ActorWeaponsList )
-                    {
-                        points += ActorWeaponsList.Sum( x => x.Weapon.Points );
-                    }
-
-                    if( null != ActorEquipmentList )
-                    {
-                        points += ActorEquipmentList.Sum( x => x.Equipment.Points );
-                    }
-
-                    return ( points );
-                }
-            }
-
-            public float Weight()
-            {
-                float weight = 0.0f;
-
-                weight += ActorWeaponsList.Sum( x => x.Weapon.Weight );
-                weight += ActorEquipmentList.Sum( x => x.Equipment.Weight );
-
-
-                return ( weight );
-            }
-
-            public List<ActorWeapon> ActorWeaponsList
-            {
-                get;
-                set;
-            } = new List<ActorWeapon>();
-
-            public List<ActorEquipment> ActorEquipmentList
-            {
-                get;
-                set;
-            } = new List<ActorEquipment>();
-        }
 
         public class ActorTrait
         {
@@ -409,19 +264,6 @@ namespace Universalis
 
         #region members
 
-        [JsonConverter( typeof( JsonFactionConverter ) )]
-        public Faction Faction
-        {
-            get;
-            set;
-        }
-
-        public List<ActorOutfit> ActorOutfitsList
-        {
-            get;
-            set;
-        } = new List<ActorOutfit>();
-
         [JsonConverter( typeof( JsonArmorConverter ) )]
         public Armor Armor
         {
@@ -434,6 +276,18 @@ namespace Universalis
             get;
             set;
         } = new List<ActorTrait>();
+
+        public List<ActorWeapon> ActorWeaponsList
+        {
+            get;
+            set;
+        } = new List<ActorWeapon>();
+
+        public List<ActorEquipment> ActorEquipmentList
+        {
+            get;
+            set;
+        } = new List<ActorEquipment>();
 
         [JsonConverter( typeof( JsonArchetypeConverter ) )]
         public Archetype Archetype
@@ -453,22 +307,22 @@ namespace Universalis
 
 #region profile
 
-        public int ModSpeed( ActorOutfit actorOutfit )
+        public int ModSpeed()
         {
-            return ( Archetype.Profile.ModSpeed( CurrentProfileModifier( actorOutfit ) ) - ModLoadModifier( actorOutfit ) );
+            return ( Archetype.Profile.ModSpeed( CurrentProfileModifier() ) - ModLoadModifier() );
         }
 
-        public int ModHitPoints( ActorOutfit actorOutfit )
+        public int ModHitPoints()
         {
-            return ( Archetype.Profile.ModHitPoints( CurrentProfileModifier( actorOutfit ) ) );
+            return ( Archetype.Profile.ModHitPoints( CurrentProfileModifier() ) );
         }
 
-        public int ModHitZoneHitPoints( ActorOutfit actorOutfit )
+        public int ModHitZoneHitPoints()
         {
-            return ( Archetype.Profile.ModHitZoneHitPoints( CurrentProfileModifier( actorOutfit ) ) );
+            return ( Archetype.Profile.ModHitZoneHitPoints( CurrentProfileModifier() ) );
         }
 
-        public int? ModAGI( ActorOutfit actorOutfit )
+        public int? ModAGI()
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne )
             {
@@ -476,11 +330,11 @@ namespace Universalis
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModAGI( CurrentProfileModifier( actorOutfit ).AttributeModifier ) - ModLoadModifier( actorOutfit ) );
+                return ( Archetype.Profile.Attributes.ModAGI( CurrentProfileModifier().AttributeModifier ) - ModLoadModifier() );
             }
         }
 
-        public int? ModHTH( ActorOutfit actorOutfit )
+        public int? ModHTH()
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne )
             {
@@ -488,10 +342,10 @@ namespace Universalis
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModHTH( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+                return ( Archetype.Profile.Attributes.ModHTH( CurrentProfileModifier().AttributeModifier ) );
             }
         }
-        public int? ModLRC( ActorOutfit actorOutfit )
+        public int? ModLRC()
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne )
             {
@@ -499,21 +353,21 @@ namespace Universalis
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModLRC( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+                return ( Archetype.Profile.Attributes.ModLRC( CurrentProfileModifier().AttributeModifier ) );
             }
         }
 
-        public int ModPHY( ActorOutfit actorOutfit )
+        public int ModPHY()
         {
-            return ( Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+            return ( Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier().AttributeModifier ) );
         }
 
-        public int ModAWA( ActorOutfit actorOutfit )
+        public int ModAWA()
         {
-            return ( Archetype.Profile.Attributes.ModAWA( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+            return ( Archetype.Profile.Attributes.ModAWA( CurrentProfileModifier().AttributeModifier ) );
         }
 
-        public int? ModDET( ActorOutfit actorOutfit )
+        public int? ModDET()
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne )
             {
@@ -521,20 +375,20 @@ namespace Universalis
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModDET( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+                return ( Archetype.Profile.Attributes.ModDET( CurrentProfileModifier().AttributeModifier ) );
             }
         }
         #endregion profile
 
         #region calculated values
-        public int? ModDangerArea( ActorOutfit actorOutfit )
+        public int? ModDangerArea()
         {
-            return ( Archetype.Profile.DangerArea( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+            return ( Archetype.Profile.DangerArea( CurrentProfileModifier().AttributeModifier ) );
         }
 
-        public int ModAreaOfPerception( ActorOutfit actorOutfit )
+        public int ModAreaOfPerception()
         {
-            return ( Archetype.Profile.AreaOfPerception( CurrentProfileModifier( actorOutfit ).AttributeModifier ) );
+            return ( Archetype.Profile.AreaOfPerception( CurrentProfileModifier().AttributeModifier ) );
         }
 
         public static string ThrowRange( int attributePHY, bool unwieldy )
@@ -549,9 +403,9 @@ namespace Universalis
             }
         }
 
-        public float ModMaxLoadCapacity( ActorOutfit actorOutfit )
+        public float ModMaxLoadCapacity()
         {
-            int modPHY = Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier( actorOutfit ).AttributeModifier );
+            int modPHY = Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier().AttributeModifier );
 
             switch( this.Archetype.Profile.Type )
             {
@@ -567,14 +421,12 @@ namespace Universalis
             }
         }
 
-        public float LoadoutWeight( ActorOutfit actorOutfit, bool withSelfSustaining )
+        public float LoadoutWeight( bool withSelfSustaining )
         {
             float loadoutWeight = 0.0f;
 
-            if( actorOutfit != null )
-            {
-                loadoutWeight += actorOutfit.Weight();
-            }
+            loadoutWeight += ActorWeaponsList.Sum( x => x.Weapon.Weight );
+            loadoutWeight += ActorEquipmentList.Sum( x => x.Equipment.Weight );
 
             if( null != Armor )
             {
@@ -594,9 +446,9 @@ namespace Universalis
             return ( loadoutWeight );
         }
 
-        private int ModLoadModifier( ActorOutfit actorOutfit )
+        private int ModLoadModifier()
         {
-            int loadModifier = Convert.ToInt32( Math.Ceiling( LoadoutWeight( actorOutfit, withSelfSustaining: false ) / ModMaxLoadCapacity( actorOutfit ) ) );
+            int loadModifier = Convert.ToInt32( Math.Ceiling( LoadoutWeight( withSelfSustaining: false ) / ModMaxLoadCapacity() ) );
 
             if( loadModifier > 0 )
             {
@@ -608,7 +460,7 @@ namespace Universalis
             }
         }
 
-        public Weapon WeaponUnarmed( ActorOutfit actorOutfit )
+        public Weapon WeaponUnarmed()
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne ) 
             {
@@ -616,7 +468,7 @@ namespace Universalis
             }
             else
             {
-                int modPHY = ModPHY( actorOutfit );
+                int modPHY = ModPHY();
 
                 Weapon weaponUnarmed = new Weapon()
                 {
@@ -654,68 +506,50 @@ namespace Universalis
             }
         }
 
-        [JsonIgnore]
-        public string PointsRange
+        public int Points
         {
             get
             {
-                if( ActorOutfitsList.Count > 0 )
+                int points = 0;
+
+                points += Archetype.Points;
+
+                if( null != Armor )
                 {
-                    int minPoints = ActorOutfitsList.Min( this.Points );
-                    int maxPoints = ActorOutfitsList.Max( this.Points );
-
-                    if( minPoints == maxPoints )
-                    {
-                        return ( minPoints.ToString() );
-                    }
-                    else
-                    {
-                        return ( minPoints + " - " + maxPoints );
-                    }
+                    points += Armor.Points;
                 }
-                else
+
+                if( null != ActorTraitsList )
                 {
-                    return ( "-" );
+                    var positiveTraits = ActorTraitsList.Where( x => x.Points >= 0 );
+                    var negativeTraits = ActorTraitsList.Where( x => x.Points < 0 );
+
+                    float positiveTraitsPoints = positiveTraits.Sum( x => x.Points );
+                    float negativeTraitsPoints = negativeTraits.Sum( x => x.Points );
+
+                    // scale points with the amount of different traits where negative traits have an diminishing effect
+                    positiveTraitsPoints *= (float)Math.Pow( Costs.TraitsModifier, positiveTraits.Count() );
+                    negativeTraitsPoints /= (float)Math.Pow( Costs.TraitsModifier, negativeTraits.Count() );
+
+                    points += (int)positiveTraitsPoints + (int)negativeTraitsPoints;
                 }
+
+                if( null != ActorWeaponsList )
+                {
+                    points += ActorWeaponsList.Sum( x => x.Weapon.Points );
+                }
+
+                if( null != ActorEquipmentList )
+                {
+                    points += ActorEquipmentList.Sum( x => x.Equipment.Points );
+                }
+
+                return ( points );
             }
-        }
-
-        public int Points( ActorOutfit actorOutfit )
-        {
-            int points = 0;
-
-            points += Archetype.Points;
-
-            if( null != Armor )
-            {
-                points += Armor.Points;
-            }
-
-            if( null != ActorTraitsList )
-            {
-                var positiveTraits = ActorTraitsList.Where( x => x.Points >= 0 );
-                var negativeTraits = ActorTraitsList.Where( x => x.Points < 0 );
-
-                float positiveTraitsPoints = positiveTraits.Sum( x => x.Points );
-                float negativeTraitsPoints = negativeTraits.Sum( x => x.Points );
-
-                // scale points with the amount of different traits where negative traits have an diminishing effect
-                positiveTraitsPoints *= (float)Math.Pow( Costs.TraitsModifier, positiveTraits.Count() );
-                negativeTraitsPoints /= (float)Math.Pow( Costs.TraitsModifier, negativeTraits.Count() );
-
-                points += (int)positiveTraitsPoints + (int)negativeTraitsPoints;
-            }
-
-            if( actorOutfit != null )
-            {
-                points += actorOutfit.Points;
-            }
-
-            return ( points );
         }
 #endregion calculated values
 
-        private ProfileModifier CurrentProfileModifier( ActorOutfit actorOutfit )
+        private ProfileModifier CurrentProfileModifier()
         {
             ProfileModifier modifier = new ProfileModifier();
 
@@ -724,17 +558,14 @@ namespace Universalis
                 modifier.Add( Armor.ProfileModifier );
             }
 
-            if( actorOutfit != null )
+            foreach( ActorWeapon actorWeapon in ActorWeaponsList.Where( x => !x.Weapon.UseOnce ) )
             {
-                foreach( ActorWeapon actorWeapon in actorOutfit.ActorWeaponsList.Where( x => !x.Weapon.UseOnce ) )
-                {
-                    modifier.Add( actorWeapon.Weapon.ProfileModifier );
-                }
+                modifier.Add( actorWeapon.Weapon.ProfileModifier );
+            }
 
-                foreach( ActorEquipment actorEquipment in actorOutfit.ActorEquipmentList.Where( x => !x.Equipment.UseOnce ) )
-                {
-                    modifier.Add( actorEquipment.Equipment.ProfileModifier );
-                }
+            foreach( ActorEquipment actorEquipment in ActorEquipmentList.Where( x => !x.Equipment.UseOnce ) )
+            {
+                modifier.Add( actorEquipment.Equipment.ProfileModifier );
             }
 
             return ( modifier );

@@ -32,25 +32,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
-            this.actorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripCardManager = new System.Windows.Forms.ToolStrip();
-            this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButtonAddActor = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDeleteActor = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
-            this.filterFaction = new System.Windows.Forms.ToolStripComboBox();
-            this.checkBoxFilterFaction = new System.Windows.Forms.ToolStripButton();
-            this.filterType = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonExportImage = new System.Windows.Forms.ToolStripButton();
-            this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonChangeFaction = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.factionIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsRangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripCardManager = new System.Windows.Forms.ToolStrip();
+            this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonAddActor = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
+            this.filterType = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonExportImage = new System.Windows.Forms.ToolStripButton();
+            this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).BeginInit();
             this.toolStripCardManager.SuspendLayout();
@@ -87,6 +83,43 @@
             this.dataGridViewActors.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewActors_CellToolTipTextNeeded);
             this.dataGridViewActors.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewActors_KeyDown);
             // 
+            // factionIconDataGridViewImageColumn
+            // 
+            this.factionIconDataGridViewImageColumn.DataPropertyName = "Faction.Icon";
+            this.factionIconDataGridViewImageColumn.HeaderText = "";
+            this.factionIconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.factionIconDataGridViewImageColumn.Name = "factionIconDataGridViewImageColumn";
+            this.factionIconDataGridViewImageColumn.ReadOnly = true;
+            this.factionIconDataGridViewImageColumn.Width = 40;
+            // 
+            // iconDataGridViewImageColumn
+            // 
+            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
+            this.iconDataGridViewImageColumn.HeaderText = "";
+            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
+            this.iconDataGridViewImageColumn.ReadOnly = true;
+            this.iconDataGridViewImageColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 125;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pointsRangeDataGridViewTextBoxColumn
+            // 
+            this.pointsRangeDataGridViewTextBoxColumn.DataPropertyName = "PointsRange";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.pointsRangeDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.pointsRangeDataGridViewTextBoxColumn.Name = "pointsRangeDataGridViewTextBoxColumn";
+            this.pointsRangeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.pointsRangeDataGridViewTextBoxColumn.Width = 80;
+            // 
             // actorBindingSource
             // 
             this.actorBindingSource.DataSource = typeof(Universalis.Actor);
@@ -96,15 +129,11 @@
             this.toolStripCardManager.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBoxSearch,
             this.toolStripButtonAddActor,
-            this.toolStripButtonDeleteActor,
             this.toolStripButtonClearSearch,
-            this.filterFaction,
-            this.checkBoxFilterFaction,
             this.filterType,
             this.toolStripButtonCopy,
             this.toolStripButtonExportImage,
-            this.checkBoxFilterType,
-            this.toolStripButtonChangeFaction});
+            this.checkBoxFilterType});
             this.toolStripCardManager.Location = new System.Drawing.Point(0, 0);
             this.toolStripCardManager.Name = "toolStripCardManager";
             this.toolStripCardManager.Size = new System.Drawing.Size(505, 25);
@@ -113,7 +142,6 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -132,18 +160,6 @@
             this.toolStripButtonAddActor.ToolTipText = "neues Modell";
             this.toolStripButtonAddActor.Click += new System.EventHandler(this.toolStripButtonAddActor_Click);
             // 
-            // toolStripButtonDeleteActor
-            // 
-            this.toolStripButtonDeleteActor.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonDeleteActor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonDeleteActor.Image = global::Universalis.Properties.Resources.trash;
-            this.toolStripButtonDeleteActor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonDeleteActor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDeleteActor.Name = "toolStripButtonDeleteActor";
-            this.toolStripButtonDeleteActor.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonDeleteActor.ToolTipText = "Modell löschen";
-            this.toolStripButtonDeleteActor.Click += new System.EventHandler(this.toolStripButtonDeleteActor_Click);
-            // 
             // toolStripButtonClearSearch
             // 
             this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -154,26 +170,6 @@
             this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
             this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
-            // 
-            // filterFaction
-            // 
-            this.filterFaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filterFaction.Enabled = false;
-            this.filterFaction.Name = "filterFaction";
-            this.filterFaction.Size = new System.Drawing.Size(90, 25);
-            this.filterFaction.ToolTipText = "Fraktion";
-            // 
-            // checkBoxFilterFaction
-            // 
-            this.checkBoxFilterFaction.CheckOnClick = true;
-            this.checkBoxFilterFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterFaction.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
-            this.checkBoxFilterFaction.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.checkBoxFilterFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.checkBoxFilterFaction.Name = "checkBoxFilterFaction";
-            this.checkBoxFilterFaction.Size = new System.Drawing.Size(23, 22);
-            this.checkBoxFilterFaction.ToolTipText = "nach Fraktion filtern";
-            this.checkBoxFilterFaction.Click += new System.EventHandler(this.checkBoxFilterFaction_Click);
             // 
             // filterType
             // 
@@ -218,18 +214,6 @@
             this.checkBoxFilterType.ToolTipText = "nach Typ filtern";
             this.checkBoxFilterType.Click += new System.EventHandler(this.checkBoxFilterType_Click);
             // 
-            // toolStripButtonChangeFaction
-            // 
-            this.toolStripButtonChangeFaction.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonChangeFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonChangeFaction.Image = global::Universalis.Properties.Resources.pencil;
-            this.toolStripButtonChangeFaction.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonChangeFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonChangeFaction.Name = "toolStripButtonChangeFaction";
-            this.toolStripButtonChangeFaction.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonChangeFaction.Text = "in andere Fraktion verschieben";
-            this.toolStripButtonChangeFaction.Click += new System.EventHandler(this.toolStripButtonChangeFaction_Click);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -244,43 +228,6 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
-            // 
-            // factionIconDataGridViewImageColumn
-            // 
-            this.factionIconDataGridViewImageColumn.DataPropertyName = "Faction.Icon";
-            this.factionIconDataGridViewImageColumn.HeaderText = "";
-            this.factionIconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.factionIconDataGridViewImageColumn.Name = "factionIconDataGridViewImageColumn";
-            this.factionIconDataGridViewImageColumn.ReadOnly = true;
-            this.factionIconDataGridViewImageColumn.Width = 40;
-            // 
-            // iconDataGridViewImageColumn
-            // 
-            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
-            this.iconDataGridViewImageColumn.HeaderText = "";
-            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
-            this.iconDataGridViewImageColumn.ReadOnly = true;
-            this.iconDataGridViewImageColumn.Width = 40;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 125;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pointsRangeDataGridViewTextBoxColumn
-            // 
-            this.pointsRangeDataGridViewTextBoxColumn.DataPropertyName = "PointsRange";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.pointsRangeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.pointsRangeDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.pointsRangeDataGridViewTextBoxColumn.Name = "pointsRangeDataGridViewTextBoxColumn";
-            this.pointsRangeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.pointsRangeDataGridViewTextBoxColumn.Width = 80;
             // 
             // ActorManagerForm
             // 
@@ -312,9 +259,6 @@
         private System.Windows.Forms.DataGridView dataGridViewActors;
         private System.Windows.Forms.BindingSource actorBindingSource;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddActor;
-        private System.Windows.Forms.ToolStripButton toolStripButtonDeleteActor;
-        private System.Windows.Forms.ToolStripComboBox filterFaction;
-        private System.Windows.Forms.ToolStripButton checkBoxFilterFaction;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearch;
         private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
         private System.Windows.Forms.ToolStripButton toolStripButtonExportImage;
@@ -323,7 +267,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.ToolStripComboBox filterType;
         private System.Windows.Forms.ToolStripButton checkBoxFilterType;
-        private System.Windows.Forms.ToolStripButton toolStripButtonChangeFaction;
         private System.Windows.Forms.DataGridViewImageColumn factionIconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;

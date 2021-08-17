@@ -20,19 +20,6 @@ namespace Universalis
             }
         }
 
-        private void dataGridViewActors_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
-        {
-            if( -1 != e.RowIndex )
-            {
-                Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
-
-                using( ActorEditorForm actorEditorForm = new ActorEditorForm( actor ) )
-                {
-                    actorEditorForm.ShowDialog( this );
-                }
-            }
-        }
-
         private void dataGridViewActors_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewActors );

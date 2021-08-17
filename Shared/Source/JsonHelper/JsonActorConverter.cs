@@ -3,7 +3,7 @@ using System;
 
 namespace Universalis
 {
-    internal class JsonGroupActorConverter : JsonConverter
+    internal class JsonActorConverter : JsonConverter
     {
         public override bool CanConvert( Type objectType )
         {
@@ -19,7 +19,7 @@ namespace Universalis
 
             if( null != reader.Value )
             {
-                return ( MasterDataStorage.Actor.Get( new Guid( (string)reader.Value ) ) );
+                return ( UserDataStorage.Actor.Get( new Guid( (string)reader.Value ) ) );
             }
             else
             {

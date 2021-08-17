@@ -67,7 +67,7 @@ namespace Universalis
             {
                 Equipment equipment = (Equipment)dataGridViewEquipment.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithEquipment = MasterDataStorage.Actor.ActorsWithEquipment( equipment );
+                var actorsWithEquipment = UserDataStorage.Actor.ActorsWithEquipment( equipment );
 
                 if( actorsWithEquipment.Any() )
                 {
@@ -140,17 +140,6 @@ namespace Universalis
                 Equipment equipment = (Equipment)dataGridViewEquipment.Rows[ e.RowIndex ].DataBoundItem;
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( equipment.Description );
-            }
-        }
-
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewEquipment.SelectedRows.Count > 0 )
-            {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithEquipment( (Equipment)dataGridViewEquipment.SelectedRows[ 0 ].DataBoundItem ) ) )
-                {
-                    actorDisplay.ShowDialog( this );
-                }
             }
         }
 

@@ -98,7 +98,7 @@ namespace Universalis
             {
                 Archetype archetype = (Archetype)dataGridViewArchetypes.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithArchetype = MasterDataStorage.Actor.ActorsWithArchetype( archetype );
+                var actorsWithArchetype = UserDataStorage.Actor.ActorsWithArchetype( archetype );
 
                 if( actorsWithArchetype.Any() )
                 {
@@ -171,17 +171,6 @@ namespace Universalis
                 Archetype archetype = (Archetype)dataGridViewArchetypes.Rows[ e.RowIndex ].DataBoundItem;
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( archetype.Description );
-            }
-        }
-
-        private void toolStripButtonUsage_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewArchetypes.SelectedRows.Count > 0 )
-            {
-                using( ActorDisplayForm actorDisplay = new ActorDisplayForm( MasterDataStorage.Actor.ActorsWithArchetype( (Archetype)dataGridViewArchetypes.SelectedRows[ 0 ].DataBoundItem ) ) )
-                {
-                    actorDisplay.ShowDialog( this );
-                }
             }
         }
 

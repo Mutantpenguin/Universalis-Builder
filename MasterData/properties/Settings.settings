@@ -11,11 +11,5 @@
     <Setting Name="imageFilePath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">c:\\</Value>
     </Setting>
-    <Setting Name="cardSavePath" Roaming="true" Type="System.String" Scope="User">
-      <Value Profile="(Default)">c:\\</Value>
-    </Setting>
-    <Setting Name="ActorEditorWindowState" Roaming="true" Type="System.Windows.Forms.FormWindowState" Scope="User">
-      <Value Profile="(Default)">Normal</Value>
-    </Setting>
   </Settings>
 </SettingsFile>

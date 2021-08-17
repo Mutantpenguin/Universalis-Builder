@@ -80,42 +80,6 @@
     <Compile Include="Source\MasterDataMainForm.Designer.cs">
       <DependentUpon>MasterDataMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\MasterData\Actor\ActorEditorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\ActorEditorForm.Designer.cs">
-      <DependentUpon>ActorEditorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\ActorManagerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\ActorManagerForm.Designer.cs">
-      <DependentUpon>ActorManagerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\AddArmorToActorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\AddArmorToActorForm.Designer.cs">
-      <DependentUpon>AddArmorToActorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\AddEquipmentToOutfitForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\AddEquipmentToOutfitForm.Designer.cs">
-      <DependentUpon>AddEquipmentToOutfitForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\AddTraitToActorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\AddTraitToActorForm.Designer.cs">
-      <DependentUpon>AddTraitToActorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\AddWeaponToOutfitForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\MasterData\Actor\AddWeaponToOutfitForm.Designer.cs">
-      <DependentUpon>AddWeaponToOutfitForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\MasterData\Archetype\ArchetypeEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,26 +197,6 @@
       <DependentUpon>MasterDataMainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterData\Actor\ActorEditorForm.resx">
-      <DependentUpon>ActorEditorForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterData\Actor\ActorManagerForm.resx">
-      <DependentUpon>ActorManagerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterData\Actor\AddArmorToActorForm.resx">
-      <DependentUpon>AddArmorToActorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterData\Actor\AddEquipmentToOutfitForm.resx">
-      <DependentUpon>AddEquipmentToOutfitForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterData\Actor\AddTraitToActorForm.resx">
-      <DependentUpon>AddTraitToActorForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterData\Actor\AddWeaponToOutfitForm.resx">
-      <DependentUpon>AddWeaponToOutfitForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\Archetype\ArchetypeEditorForm.resx">
       <DependentUpon>ArchetypeEditorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -367,7 +311,6 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <None Include="Resources\damage_effects.png" />
-    <None Include="Resources\damage_effects.pngpng.png" />
     <None Include="Resources\ui-check-box-uncheck.png" />
     <None Include="Resources\ui-check-box.png" />
     <None Include="Resources\text_snippet.png" />
@@ -375,7 +318,6 @@
     <None Include="Resources\plus.png" />
     <None Include="Resources\trash.png" />
     <None Include="Resources\link.png" />
-    <None Include="Resources\refresh.png" />
     <None Include="Resources\cross-circle.png" />
     <None Include="Resources\disk.png" />
     <None Include="Resources\tick.png" />
