@@ -132,7 +132,7 @@ namespace Universalis
             {
                 Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                pictureBoxCard.Image = groupActor.Actor != null ? CardPainter.GetBitmap( groupActor.Actor ) : Shared.Properties.Resources.empty;
+                pictureBoxCard.Image = CardPainter.GetBitmap( groupActor.Actor );
             }
             else
             {
@@ -207,7 +207,7 @@ namespace Universalis
 
         private void dataGridViewActors_CellPainting( object sender, DataGridViewCellPaintingEventArgs e )
         {
-            if( e.ColumnIndex == nameDataGridViewTextBoxColumn.Index && e.RowIndex != -1 )
+            if( e.ColumnIndex == groupActorNameDataGridViewTextBoxColumn.Index && e.RowIndex != -1 )
             {
                 Group.GroupActor groupActor = (Group.GroupActor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 

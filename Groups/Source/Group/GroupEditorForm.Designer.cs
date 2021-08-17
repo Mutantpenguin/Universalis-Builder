@@ -17,6 +17,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -43,8 +44,10 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupActorIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupActorIconDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.groupActorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupActorPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -223,8 +226,10 @@
             this.dataGridViewActors.AutoGenerateColumns = false;
             this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.actorDataGridViewTextBoxColumn});
+            this.groupActorIdDataGridViewTextBoxColumn,
+            this.groupActorIconDataGridViewTextBoxColumn,
+            this.groupActorNameDataGridViewTextBoxColumn,
+            this.groupActorPointsDataGridViewTextBoxColumn});
             this.dataGridViewActors.DataSource = this.groupActorBindingSource;
             this.dataGridViewActors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewActors.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
@@ -360,19 +365,41 @@
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
             // 
-            // iDDataGridViewTextBoxColumn
+            // groupActorIdDataGridViewTextBoxColumn
             // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupActorIdDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.groupActorIdDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.groupActorIdDataGridViewTextBoxColumn.Name = "groupActorIdDataGridViewTextBoxColumn";
+            this.groupActorIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupActorIdDataGridViewTextBoxColumn.Visible = false;
             // 
-            // actorDataGridViewTextBoxColumn
+            // groupActorIconDataGridViewTextBoxColumn
             // 
-            this.actorDataGridViewTextBoxColumn.DataPropertyName = "Actor";
-            this.actorDataGridViewTextBoxColumn.HeaderText = "Actor";
-            this.actorDataGridViewTextBoxColumn.Name = "actorDataGridViewTextBoxColumn";
-            this.actorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupActorIconDataGridViewTextBoxColumn.DataPropertyName = "Actor.Icon";
+            this.groupActorIconDataGridViewTextBoxColumn.HeaderText = "";
+            this.groupActorIconDataGridViewTextBoxColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.groupActorIconDataGridViewTextBoxColumn.Name = "groupActorIconDataGridViewTextBoxColumn";
+            this.groupActorIconDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupActorIconDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.groupActorIconDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // groupActorNameDataGridViewTextBoxColumn
+            // 
+            this.groupActorNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.groupActorNameDataGridViewTextBoxColumn.DataPropertyName = "Actor.Name";
+            this.groupActorNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.groupActorNameDataGridViewTextBoxColumn.Name = "groupActorNameDataGridViewTextBoxColumn";
+            this.groupActorNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // groupActorPointsDataGridViewTextBoxColumn
+            // 
+            this.groupActorPointsDataGridViewTextBoxColumn.DataPropertyName = "Actor.Points";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.groupActorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.groupActorPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.groupActorPointsDataGridViewTextBoxColumn.Name = "groupActorPointsDataGridViewTextBoxColumn";
+            this.groupActorPointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.groupActorPointsDataGridViewTextBoxColumn.Width = 50;
             // 
             // GroupEditorForm
             // 
@@ -441,10 +468,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn actorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupActorIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn groupActorIconDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupActorNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupActorPointsDataGridViewTextBoxColumn;
     }
 }
