@@ -177,39 +177,6 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonExportFile_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewGroups.SelectedRows.Count > 0 )
-            {
-                Group group = (Group)dataGridViewGroups.SelectedRows[ 0 ].DataBoundItem;
-
-                if( IsValid( group ) )
-                {
-                    using( SaveFileDialog groupSaveFileDialog = new SaveFileDialog() )
-                    {
-                        groupSaveFileDialog.InitialDirectory = Properties.Settings.Default.groupSavePath;
-                        groupSaveFileDialog.Filter = "Gruppe (*.unigrp)|*.unigrp";
-                        groupSaveFileDialog.FileName = $"{group.Faction.Name} - {group.Name} - {group.Points}pts";
-
-                        if( groupSaveFileDialog.ShowDialog() == DialogResult.OK )
-                        {
-                            Properties.Settings.Default.groupSavePath = Path.GetDirectoryName( groupSaveFileDialog.FileName );
-                            Properties.Settings.Default.Save();
-
-                            try
-                            {
-                                UserDataStorage.Group.Export( group, groupSaveFileDialog.FileName );
-                            }
-                            catch( Exception ex )
-                            {
-                                MessageBox.Show( "Die Gruppe konnte nicht exportiert werden: " + ex.Message );
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
         private static bool IsValid( Group group )
         {
             if( group.GroupActorList.Exists( x => x == null ) )
