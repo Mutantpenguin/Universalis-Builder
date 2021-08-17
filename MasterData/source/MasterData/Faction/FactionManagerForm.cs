@@ -20,7 +20,8 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Faction> factions = MasterDataStorage.Faction.Factions.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            List<Faction> factions = MasterDataStorage.Faction.Factions.Where( s => s.Active )
+                                                                       .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                        .OrderBy( x => x.Name )
                                                                        .ToList();
 

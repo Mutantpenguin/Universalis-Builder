@@ -23,6 +23,8 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( armor ) );
             }
 
+            Active = armor.Active;
+
             Name = armor.Name;
             Description = armor.Description;
             Rules = armor.Rules;
@@ -62,7 +64,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( armor ) );
             }
 
-            if( Name != armor.Name
+            if( Active != armor.Active
+                ||
+                Name != armor.Name
                 ||
                 Description != armor.Description
                 ||
@@ -142,6 +146,12 @@ namespace Universalis
             get;
             set;
         } = Guid.NewGuid();
+
+        public bool Active
+        {
+            get;
+            set;
+        } = true;
 
         public string Name
         {

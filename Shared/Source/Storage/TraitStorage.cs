@@ -12,12 +12,10 @@ namespace Universalis
         private const string s_folderName = "Traits";
 
         private readonly string s_path;
-        private readonly string s_pathTrash;
 
         public TraitStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
-            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
 
             if( !Directory.Exists( s_path ) )
             {
@@ -101,11 +99,6 @@ namespace Universalis
             return Path.ChangeExtension( Path.Combine( s_path, trait.ID.ToString() ), Storage.fileExtension );
         }
 
-        private string GetFilenameTrash( Trait trait )
-        {
-            return Path.ChangeExtension( Path.Combine( s_pathTrash, trait.ID.ToString() ), Storage.fileExtension );
-        }
-
         public Trait Get( Guid id )
         {
             Trait trait = m_traitsList.Find( x => x.ID == id );
@@ -133,14 +126,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( trait ) );
             }
 
-            m_traitsList.Remove( trait );
+            trait.Active = false;
 
-            if( !Directory.Exists( s_pathTrash ) )
-            {
-                Directory.CreateDirectory( s_pathTrash );
-            }
-
-            File.Move( GetFilename( trait ), GetFilenameTrash( trait ) );
+            Save( trait );
         }
 
         public IList<Trait> Traits => ( m_traitsList.AsReadOnly() );

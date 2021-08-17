@@ -53,7 +53,8 @@ namespace Universalis
             imageListFactions.Images.Clear();
             listViewFactions.Clear();
 
-            foreach( string type in MasterDataStorage.Faction.Factions.Select( x => x.Type )
+            foreach( string type in MasterDataStorage.Faction.Factions.Where( s => s.Active )
+                                                                      .Select( x => x.Type )
                                                                       .Distinct()
                                                                       .OrderBy( x => x ) )
             {
@@ -61,14 +62,16 @@ namespace Universalis
                 
                 listViewFactions.Groups.Add( group );
 
-                foreach( Faction faction in MasterDataStorage.Faction.Factions.Where( x => x.Type == type )
+                foreach( Faction faction in MasterDataStorage.Faction.Factions.Where( s => s.Active )
+                                                                              .Where( x => x.Type == type )
                                                                               .OrderBy( x => x.Name ) )
                 {
                     imageListFactions.Images.Add( faction.ID.ToString(), faction.Icon );
 
                     ListViewItem lvi = new ListViewItem()
                     {
-                        Text = faction.Name + " ( " + UserDataStorage.Group.Groups.Count( x => x.Faction == faction ) + " )",
+                        Text = faction.Name + " ( " + UserDataStorage.Group.Groups.Where( s => s.Active )
+                                                                                  .Count( x => x.Faction == faction ) + " )",
                         ImageKey = faction.ID.ToString(),
                         ToolTipText = faction.Description,
                         Group = group

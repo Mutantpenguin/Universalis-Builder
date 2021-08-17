@@ -22,6 +22,8 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( damageEffect ) );
             }
 
+            Active = damageEffect.Active;
+
             Name = damageEffect.Name;
             Description = damageEffect.Description;
             UsageType = damageEffect.UsageType;
@@ -37,7 +39,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( damageEffect ) );
             }
 
-            if( Name != damageEffect.Name
+            if( Active != damageEffect.Active
+                ||
+                Name != damageEffect.Name
                 ||
                 Description != damageEffect.Description
                 ||
@@ -63,6 +67,12 @@ namespace Universalis
             get;
             set;
         } = Guid.NewGuid();
+
+        public bool Active
+        {
+            get;
+            set;
+        } = true;
 
         public string Name
         {

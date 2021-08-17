@@ -63,6 +63,8 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( trait ) );
             }
 
+            Active = trait.Active;
+
             Name = trait.Name;
             Description = trait.Description;
             Rules = trait.Rules;
@@ -93,7 +95,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( trait ) );
             }
 
-            if( Name != trait.Name
+            if( Active != trait.Active
+                ||
+                Name != trait.Name
                 ||
                 Description != trait.Description
                 ||
@@ -130,6 +134,12 @@ namespace Universalis
             get;
             set;
         } = Guid.NewGuid();
+
+        public bool Active
+        {
+            get;
+            set;
+        } = true;
 
         public string Name
         {

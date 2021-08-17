@@ -62,15 +62,6 @@ namespace Universalis
                 throw new InvalidOperationException();
             }
 
-            var universeTrashPath = Path.Combine( universePath, Storage.trashSubfolderName );
-
-            if( !Directory.Exists( universeTrashPath ) )
-            {
-                Directory.CreateDirectory( universeTrashPath );
-            }
-
-            File.SetAttributes( universeTrashPath, FileAttributes.Hidden );
-
             Faction = new FactionStorage( universePath, backgroundWorkerProvider() );
             Archetype = new ArchetypeStorage( universePath, backgroundWorkerProvider() );
             Trait = new TraitStorage( universePath, backgroundWorkerProvider() );

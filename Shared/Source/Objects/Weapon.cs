@@ -26,6 +26,8 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( weapon ) );
             }
 
+            Active = weapon.Active;
+
             Name = weapon.Name;
             Description = weapon.Description;
             Rules = weapon.Rules;
@@ -82,7 +84,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( weapon ) );
             }
 
-            if( Name != weapon.Name
+            if( Active != weapon.Active
+                ||
+                Name != weapon.Name
                 ||
                 Description != weapon.Description
                 ||
@@ -202,6 +206,12 @@ namespace Universalis
             get;
             set;
         } = Guid.NewGuid();
+
+        public bool Active
+        {
+            get;
+            set;
+        } = true;
 
         public string Name
         {

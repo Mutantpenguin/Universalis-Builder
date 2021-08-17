@@ -9,7 +9,6 @@ namespace Universalis
         public const Formatting formatting = Formatting.Indented;
 
         public const string dataSubfolderName = "Data";
-        public const string trashSubfolderName = "Trash";
 
         public const string fileExtension = "json";
 

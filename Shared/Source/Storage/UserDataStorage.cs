@@ -48,15 +48,6 @@ namespace Universalis
                 throw new InvalidOperationException();
             }
 
-            var universeTrashPath = Path.Combine( universeGroupsPath, Storage.trashSubfolderName );
-
-            if( !Directory.Exists( universeTrashPath ) )
-            {
-                Directory.CreateDirectory( universeTrashPath );
-            }
-
-            File.SetAttributes( universeTrashPath, FileAttributes.Hidden );
-
             Actor = new ActorStorage( GroupsPath, backgroundWorkerProvider() );
 
             Group = new GroupStorage( universeGroupsPath, backgroundWorkerProvider() );

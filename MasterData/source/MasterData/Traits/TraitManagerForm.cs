@@ -20,7 +20,8 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Trait> traits = MasterDataStorage.Trait.Traits.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            List<Trait> traits = MasterDataStorage.Trait.Traits.Where( s => s.Active )
+                                                               .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.Type != "+" ) )
                                                                .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.Type != "-" ) )
                                                                .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.Type != "=" ) )
@@ -80,16 +81,7 @@ namespace Universalis
             {
                 Trait trait = (Trait)dataGridViewTraits.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithTrait = UserDataStorage.Actor.ActorsWithTrait( trait );
-
-                if( actorsWithTrait.Any() )
-                {
-                    using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithTrait ) )
-                    {
-                        actorDisplay.ShowDialog( this );
-                    }
-                }
-                else if( MessageBox.Show( $"Eigenschaft '{trait.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                if( MessageBox.Show( $"Eigenschaft '{trait.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     MasterDataStorage.Trait.Delete( trait );
 

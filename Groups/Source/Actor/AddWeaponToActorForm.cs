@@ -35,7 +35,8 @@ namespace Universalis
 
         private void updateDataGridViewWeapons()
         {
-            weaponBindingSource.DataSource = MasterDataStorage.Weapon.Weapons.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            weaponBindingSource.DataSource = MasterDataStorage.Weapon.Weapons.Where( s => s.Active )
+                                                                             .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                              .Where( s => filterWeaponClass.Enabled ? s.Class == (Weapon.EClass)filterWeaponClass.ComboBox.SelectedItem : true )
                                                                              .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
                                                                              .Where( s => filterDamageType.Enabled ? s.DamageType.Type == (DamageType.EType)filterDamageType.ComboBox.SelectedItem : true )

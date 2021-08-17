@@ -23,7 +23,8 @@ namespace Universalis
 
         private void updateDataGridViewEquipment()
         {
-            equipmentBindingSource.DataSource = MasterDataStorage.Equipment.Equipments.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            equipmentBindingSource.DataSource = MasterDataStorage.Equipment.Equipments.Where( s => s.Active )
+                                                                                      .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                                       .OrderBy( x => x.Name )
                                                                                       .ToList();
         }

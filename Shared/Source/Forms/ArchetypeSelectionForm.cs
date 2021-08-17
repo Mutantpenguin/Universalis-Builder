@@ -34,7 +34,8 @@ namespace Universalis
 
         private void updateDataGridViewArchetypes()
         {
-            archetypeBindingSource.DataSource = MasterDataStorage.Archetype.Archetypes.Where( s => ( m_factionFilter == null ) || ( m_factionFilter == s.Faction ) )
+            archetypeBindingSource.DataSource = MasterDataStorage.Archetype.Archetypes.Where( s => s.Active )
+                                                                                      .Where( s => ( m_factionFilter == null ) || ( m_factionFilter == s.Faction ) )
                                                                                       .Where( s => filterType.Enabled ? s.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
                                                                                       .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                                       .OrderBy( x => x.Name )

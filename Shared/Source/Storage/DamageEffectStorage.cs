@@ -12,12 +12,10 @@ namespace Universalis
         private const string s_folderName = "DamageEffects";
 
         private readonly string s_path;
-        private readonly string s_pathTrash;
 
         public DamageEffectStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
-            s_pathTrash = Path.Combine( path, Storage.trashSubfolderName, s_folderName );
 
             if( !Directory.Exists( s_path ) )
             {
@@ -100,12 +98,6 @@ namespace Universalis
         {
             return Path.ChangeExtension( Path.Combine( s_path, damageEffect.ID.ToString() ), Storage.fileExtension );
         }
-
-        private string GetFilenameTrash( DamageEffect damageEffect )
-        {
-            return Path.ChangeExtension( Path.Combine( s_pathTrash, damageEffect.ID.ToString() ), Storage.fileExtension );
-        }
-
         public DamageEffect Get( Guid id )
         {
             DamageEffect damageEffect = m_damageEffectList.Find( x => x.ID == id );
@@ -130,14 +122,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( damageEffect ) );
             }
 
-            m_damageEffectList.Remove( damageEffect );
+            damageEffect.Active = false;
 
-            if( !Directory.Exists( s_pathTrash ) )
-            {
-                Directory.CreateDirectory( s_pathTrash );
-            }
-
-            File.Move( GetFilename( damageEffect ), GetFilenameTrash( damageEffect ) );
+            Save( damageEffect );
         }
 
         public IList<DamageEffect> DamageEffects => ( m_damageEffectList.AsReadOnly() );

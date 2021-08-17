@@ -25,7 +25,8 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            List<Equipment> equipment = MasterDataStorage.Equipment.Equipments.Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+            List<Equipment> equipment = MasterDataStorage.Equipment.Equipments.Where( s => s.Active )
+                                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                               .OrderBy( x => x.Name )
                                                                               .ToList();
 
@@ -67,16 +68,7 @@ namespace Universalis
             {
                 Equipment equipment = (Equipment)dataGridViewEquipment.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorsWithEquipment = UserDataStorage.Actor.ActorsWithEquipment( equipment );
-
-                if( actorsWithEquipment.Any() )
-                {
-                    using( ActorDisplayForm actorDisplay = new ActorDisplayForm( actorsWithEquipment ) )
-                    {
-                        actorDisplay.ShowDialog( this );
-                    }
-                }
-                else if( MessageBox.Show( $"Ausrüstung '{equipment.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                if( MessageBox.Show( $"Ausrüstung '{equipment.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     MasterDataStorage.Equipment.Delete( equipment );
 

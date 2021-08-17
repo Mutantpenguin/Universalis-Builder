@@ -26,7 +26,9 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( group ) );
             }
 
-            if( Name != group.Name
+            if( Active != group.Active
+                ||
+                Name != group.Name
                 ||
                 Description != group.Description
                 ||
@@ -66,6 +68,8 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( group ) );
             }
 
+            Active = group.Active;
+
             Name = group.Name;
             Description = group.Description;
             Icon = group.Icon;
@@ -83,6 +87,12 @@ namespace Universalis
             get;
             set;
         } = Guid.NewGuid();
+
+        public bool Active
+        {
+            get;
+            set;
+        } = true;
 
         public string Name
         {
