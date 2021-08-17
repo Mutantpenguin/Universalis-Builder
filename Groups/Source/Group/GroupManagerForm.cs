@@ -91,27 +91,6 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonCopy_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewGroups.SelectedRows.Count > 0 )
-            {
-                Group groupSource = (Group)dataGridViewGroups.SelectedRows[ 0 ].DataBoundItem;
-
-                if( IsValid( groupSource ) )
-                {
-                    Group groupNew = UserDataStorage.Group.Create( groupSource.Faction );
-                    groupNew.Set( groupSource );
-                    groupNew.Name = $"(Kopie von) {groupSource.Name}";
-                    UserDataStorage.Group.Save( groupNew );
-
-                    toolStripTextBoxSearch.Text = String.Empty;
-                    RefreshGroupsGridView();
-
-                    editGroup( groupNew );
-                }
-            }
-        }
-
         private void RefreshGroupsGridView()
         {
             List<Group> groups = UserDataStorage.Group.Groups.Where( s => s.Active )
