@@ -142,32 +142,7 @@ namespace Universalis
 
         private void toolStripButtonActorsAdd_Click( object sender, EventArgs e )
         {
-            using( AddActorToGroupForm addActorToGroup = new AddActorToGroupForm( m_groupModified.Faction.ID ) )
-            {
-                if( addActorToGroup.ShowDialog( this ) == DialogResult.OK )
-                {
-                    if( addActorToGroup.SelectedActors.Count > 0 )
-                    {
-                        foreach( Actor actor in addActorToGroup.SelectedActors )
-                        {
-                            m_groupModified.AddActor( actor );
-                        }
-
-                        updateGridViewActors();
-
-                        foreach( DataGridViewRow row in dataGridViewActors.Rows )
-                        {
-                            if( ( (Group.GroupActor)row.DataBoundItem ).Actor.ID == addActorToGroup.SelectedActors[ 0 ].ID )
-                            {
-                                row.Selected = true;
-                                break;
-                            }
-                        }
-
-                        update();
-                    }
-                }
-            }
+            // TODO
         }
 
         private void toolStripButtonActorsRemove_Click( object sender, EventArgs e )

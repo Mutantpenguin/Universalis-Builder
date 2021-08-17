@@ -157,12 +157,6 @@
     <Compile Include="Source\Actor\AddWeaponToActorForm.Designer.cs">
       <DependentUpon>AddWeaponToActorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Group\AddActorToGroupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Group\AddActorToGroupForm.Designer.cs">
-      <DependentUpon>AddActorToGroupForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\FactionOverviewForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,9 +208,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Actor\AddWeaponToActorForm.resx">
       <DependentUpon>AddWeaponToActorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Group\AddActorToGroupForm.resx">
-      <DependentUpon>AddActorToGroupForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\FactionOverviewForm.resx">
       <DependentUpon>FactionOverviewForm.cs</DependentUpon>
