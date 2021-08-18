@@ -130,7 +130,7 @@ namespace Universalis
                 }
                 */
 
-                toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + $"Anzahl Modelle: {group.GroupActorList.Count}{Environment.NewLine}{ToolTipHelper.FormatMaxWidth( group.Description )}";
+                toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + $"Anzahl Modelle: {group.ActorList.Count}{Environment.NewLine}{ToolTipHelper.FormatMaxWidth( group.Description )}";
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( toolTipText );
             }
@@ -158,7 +158,8 @@ namespace Universalis
 
         private static bool IsValid( Group group )
         {
-            if( group.GroupActorList.Exists( x => x == null ) )
+            // TODO can't be deleted anymore, but could be "dead"?
+            if( group.ActorList.Exists( x => x == null ) )
             {
                 MessageBox.Show( "Mindestens ein Modell wurde gelöscht!" );
 

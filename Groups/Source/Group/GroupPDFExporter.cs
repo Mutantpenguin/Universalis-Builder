@@ -221,9 +221,9 @@ namespace Universalis
                 HorizontalAlignment = Element.ALIGN_RIGHT
             } );
 
-            foreach( var entry in group.GroupActorList.OrderBy( x => x.Actor.Name ) )
+            foreach( var actor in group.ActorList.OrderBy( x => x.Name ) )
             {
-                Image actorImg = Image.GetInstance( entry.Actor.Icon ?? group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
+                Image actorImg = Image.GetInstance( actor.Icon ?? group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
                 actorImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
                 actorTable.AddCell( new PdfPCell( actorImg )
                 {
@@ -232,13 +232,13 @@ namespace Universalis
                     MinimumHeight = CmToPixel( 1 )
                 } );
 
-                actorTable.AddCell( new PdfPCell( new Phrase( entry.Actor.Name, s_actorFont ) )
+                actorTable.AddCell( new PdfPCell( new Phrase( actor.Name, s_actorFont ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE
                 } );
 
-                actorTable.AddCell( new PdfPCell( new Phrase( entry.Actor.Points.ToString() ) )
+                actorTable.AddCell( new PdfPCell( new Phrase( actor.Points.ToString() ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE,
@@ -280,19 +280,19 @@ namespace Universalis
             positions[ 1 ].X = ( 2 * distanceX ) + s_cardWidth;
             positions[ 1 ].Y = distanceY + s_cardHeight;
 
-            List<Group.GroupActor> sortedGroupActorList = group.GroupActorList.OrderBy( x => x.Actor.Name )
-                                                                              .ToList();
+            List<Actor> sortedActorList = group.ActorList.OrderBy( x => x.Name )
+                                                         .ToList();
 
-            for( int i = 0; i < sortedGroupActorList.Count; i++ )
+            for( int i = 0; i < sortedActorList.Count; i++ )
             {
                 if( i % 2 == 0 )
                 {
                     document.NewPage();
                 }
 
-                Group.GroupActor groupActor = sortedGroupActorList[ i ];
+                Actor actor = sortedActorList[ i ];
 
-                using( System.Drawing.Image img = CardPainter.GetBitmap( groupActor.Actor ) )
+                using( System.Drawing.Image img = CardPainter.GetBitmap( actor ) )
                 {
                     Image imgCard = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
                     imgCard.ScaleToFit( s_cardWidth, s_cardHeight );
@@ -303,10 +303,10 @@ namespace Universalis
 
                 List<flipsideBlock> flipsideBlocks = new List<flipsideBlock>();
 
-                foreach( var trait in groupActor.Actor.ActorTraitsList.GroupBy( x => x.Trait.ID )
-                                                                      .Select( x => MasterDataStorage.Trait.Get( x.Key ) )
-                                                                      .Where( x => !String.IsNullOrEmpty( x.Rules ) )
-                                                                      .OrderBy( x => x.Name ) )
+                foreach( var trait in actor.ActorTraitsList.GroupBy( x => x.Trait.ID )
+                                                           .Select( x => MasterDataStorage.Trait.Get( x.Key ) )
+                                                           .Where( x => !String.IsNullOrEmpty( x.Rules ) )
+                                                           .OrderBy( x => x.Name ) )
                 {
                     string name = trait.Name;
                     string rules = trait.Rules;
@@ -314,27 +314,27 @@ namespace Universalis
                     flipsideBlocks.Add( new flipsideBlock() { Name = name, Rules = rules } );
                 }
 
-                if( ( groupActor.Actor.Armor != null )
+                if( ( actor.Armor != null )
                     &&
-                    ( !String.IsNullOrEmpty( groupActor.Actor.Armor.Rules ) ) )
+                    ( !String.IsNullOrEmpty( actor.Armor.Rules ) ) )
                 {
-                    flipsideBlocks.Add( new flipsideBlock() { Name = groupActor.Actor.Armor.Name, Rules = groupActor.Actor.Armor.Rules } );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = actor.Armor.Name, Rules = actor.Armor.Rules } );
                 }
 
-                foreach( Weapon weapon in groupActor.Actor.ActorWeaponsList.Select( x => x.Weapon )
-                                                                           .Distinct()
-                                                                           .Where( x => !String.IsNullOrEmpty( x.Rules ) )
-                                                                           .OrderBy( x => x.Name ) )
+                foreach( Weapon weapon in actor.ActorWeaponsList.Select( x => x.Weapon )
+                                                                .Distinct()
+                                                                .Where( x => !String.IsNullOrEmpty( x.Rules ) )
+                                                                .OrderBy( x => x.Name ) )
                 {
                     flipsideBlocks.Add( new flipsideBlock() { Name = weapon.Name, Rules = weapon.Rules } );
                 }
 
-                foreach( Equipment equipment in groupActor.Actor.ActorEquipmentList.Select( x => x.Equipment )
-                                                                                   .Distinct()
-                                                                                   .Where( x => ( !String.IsNullOrEmpty( x.Rules ) )
-                                                                                                ||
-                                                                                                ( x.UseOnce && ( !String.IsNullOrEmpty( x.ProfileModifier?.ToString() ) ) ) )
-                                                                                   .OrderBy( x => x.Name ) )
+                foreach( Equipment equipment in actor.ActorEquipmentList.Select( x => x.Equipment )
+                                                                        .Distinct()
+                                                                        .Where( x => ( !String.IsNullOrEmpty( x.Rules ) )
+                                                                                     ||
+                                                                                     ( x.UseOnce && ( !String.IsNullOrEmpty( x.ProfileModifier?.ToString() ) ) ) )
+                                                                        .OrderBy( x => x.Name ) )
                 {
                     if( equipment.AP == 0 )
                     {
@@ -456,9 +456,9 @@ namespace Universalis
 
             foreach( var damageEffect in MasterDataStorage.DamageEffect.DamageEffects.OrderBy( x => x.Name ) )
             {
-                if( p_group.GroupActorList.Exists( x => x.Actor.ActorWeaponsList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
-                                                        ||
-                                                        ( ( x.Actor.Armor != null ) && x.Actor.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) ) )
+                if( p_group.ActorList.Exists( x => x.ActorWeaponsList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
+                                                  ||
+                                                  ( ( x.Armor != null ) && x.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) ) )
                 {
                     damageEffectsToPrint.Add( damageEffect );
                 }

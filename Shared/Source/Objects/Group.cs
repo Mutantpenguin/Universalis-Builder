@@ -16,7 +16,7 @@ namespace Universalis
 
         public Group()
         {
-            GroupActorList = new List<GroupActor>();
+            ActorList = new List<Actor>();
         }
 
         public bool Equals( Group group )
@@ -42,17 +42,17 @@ namespace Universalis
                 return ( false );
             }
 
-            foreach( GroupActor groupActor in GroupActorList )
+            foreach( Actor actor in ActorList )
             {
-                if( group.GroupActorList.Find( x => x.Equals( groupActor ) ) == null )
+                if( group.ActorList.Find( x => x.Equals( actor ) ) == null )
                 {
                     return ( false );
                 }
             }
 
-            foreach( GroupActor groupActor in group.GroupActorList )
+            foreach( Actor actor in group.ActorList )
             {
-                if( GroupActorList.Find( x => x.Equals( groupActor ) ) == null )
+                if( ActorList.Find( x => x.Equals( actor ) ) == null )
                 {
                     return ( false );
                 }
@@ -75,10 +75,10 @@ namespace Universalis
             Icon = group.Icon;
             Faction = group.Faction;
 
-            GroupActorList.Clear();
-            foreach( GroupActor groupActor in group.GroupActorList )
+            ActorList.Clear();
+            foreach( Actor actor in group.ActorList )
             {
-                GroupActorList.Add( new GroupActor( groupActor ) );
+                ActorList.Add( new Actor( actor ) );
             }
         }
 
@@ -120,7 +120,7 @@ namespace Universalis
             set;
         }
 
-        public List<GroupActor> GroupActorList
+        public List<Actor> ActorList
         {
             get;
             set;
@@ -133,80 +133,10 @@ namespace Universalis
             {
                 int points = 0;
 
-                points += GroupActorList.Sum( x => x.Actor.Points );
+                points += ActorList.Sum( x => x.Points );
 
                 return ( points );
             }
-        }
-
-        public void AddActor( Actor actor )
-        {
-            GroupActorList.Add( new GroupActor
-            {
-                Actor = actor
-            } );
-        }
-
-        public class GroupActor
-        {
-            public GroupActor(){}
-
-            public GroupActor( GroupActor groupActor )
-                : this()
-            {
-                Set( groupActor );
-            }
-
-            public bool Equals( GroupActor groupActor )
-            {
-                if( null == groupActor )
-                {
-                    throw new ArgumentNullException( nameof( groupActor ) );
-                }
-
-                if( ID != groupActor.ID )
-                {
-                    return ( false );
-                }
-
-                if( Actor != groupActor.Actor )
-                {
-                    return ( false );
-                }
-
-                return ( true );
-            }
-
-            public void Set( GroupActor groupActor )
-            {
-                if( null == groupActor )
-                {
-                    throw new ArgumentNullException( nameof( groupActor ) );
-                }
-
-                ID = groupActor.ID;
-
-                Actor = groupActor.Actor;
-            }
-
-            public Guid ID
-            {
-                get;
-                set;
-            } = Guid.NewGuid();
-
-            [JsonConverter( typeof( JsonActorConverter ) )]
-            public Actor Actor
-            {
-                get;
-                set;
-            }
-
-            public int Index
-            {
-                get;
-                set;
-            } = 0;
         }
     }
 }

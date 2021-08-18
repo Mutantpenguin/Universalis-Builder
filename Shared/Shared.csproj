@@ -136,7 +136,6 @@
     <Compile Include="Source\JsonHelper\JsonArmorConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonDamageEffectListConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonFactionConverter.cs" />
-    <Compile Include="Source\JsonHelper\JsonActorConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonActorTraitConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonPngConverter.cs" />
     <Compile Include="Source\Objects\Actor.cs" />
@@ -162,7 +161,6 @@
     <Compile Include="Source\Objects\Universe.cs" />
     <Compile Include="Source\Objects\Weapon.cs" />
     <Compile Include="Source\Objects\WeaponRange.cs" />
-    <Compile Include="Source\Storage\ActorStorage.cs" />
     <Compile Include="Source\Storage\ArchetypeStorage.cs" />
     <Compile Include="Source\Storage\ArmorStorage.cs" />
     <Compile Include="Source\Storage\DamageEffectStorage.cs" />

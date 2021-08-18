@@ -111,7 +111,6 @@ namespace Universalis
             if( checkValidity() )
             {
                 m_actorOriginal.Set( m_actorModified );
-                UserDataStorage.Actor.Save( m_actorOriginal );
             }
         }
 
@@ -350,7 +349,6 @@ namespace Universalis
                         if( checkValidity() )
                         {
                             m_actorOriginal.Set( m_actorModified );
-                            UserDataStorage.Actor.Save( m_actorOriginal );
                         }
                         else
                         {

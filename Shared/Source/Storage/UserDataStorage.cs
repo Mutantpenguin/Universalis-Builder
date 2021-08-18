@@ -10,12 +10,6 @@ namespace Universalis
 
         private static readonly string UserDataPath = Path.Combine( UniversalisSettings.UserAppFolder, UserDataSubFolder );
 
-        public static ActorStorage Actor
-        {
-            get;
-            private set;
-        }
-
         public static GroupStorage Group
         {
             get;
@@ -47,8 +41,6 @@ namespace Universalis
 
                 throw new InvalidOperationException();
             }
-
-            Actor = new ActorStorage( universeUserDataPath, backgroundWorkerProvider() );
 
             Group = new GroupStorage( universeUserDataPath, backgroundWorkerProvider() );
 
