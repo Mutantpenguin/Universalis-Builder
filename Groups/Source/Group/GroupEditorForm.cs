@@ -130,6 +130,11 @@ namespace Universalis
             {
                 Actor actor = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
+                if( pictureBoxCard.Image != null )
+                {
+                    pictureBoxCard.Image.Dispose();
+                }
+
                 pictureBoxCard.Image = CardPainter.GetBitmap( actor );
             }
             else
