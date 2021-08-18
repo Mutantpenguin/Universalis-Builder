@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -126,14 +126,14 @@ namespace Universalis
 
         private void UpdateCard()
         {
-            if( dataGridViewActors.SelectedRows.Count > 0 )
-            {
-                Actor actor = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
-
                 if( pictureBoxCard.Image != null )
                 {
                     pictureBoxCard.Image.Dispose();
                 }
+
+            if( dataGridViewActors.SelectedRows.Count > 0 )
+            {
+                Actor actor = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
                 pictureBoxCard.Image = CardPainter.GetBitmap( actor );
             }
