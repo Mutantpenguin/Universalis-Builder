@@ -117,11 +117,16 @@ namespace Universalis
 
         private void buttonImages_Click( object sender, EventArgs e )
         {
+            SelectImages();
+        }
+
+        private void SelectImages()
+        {
             using( OpenFileDialog iconFileDialog = new OpenFileDialog() )
             {
                 iconFileDialog.InitialDirectory = Properties.Settings.Default.imageFilePath;
 
-                if( iconFileDialog.ShowDialog(this ) == DialogResult.OK )
+                if( iconFileDialog.ShowDialog( this ) == DialogResult.OK )
                 {
                     Properties.Settings.Default.imageFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
                     Properties.Settings.Default.Save();
@@ -145,9 +150,9 @@ namespace Universalis
                 }
             }
         }
-#endregion buttons
+        #endregion buttons
 
-#region armor
+        #region armor
         private void updateGridViewArmor()
         {
             armorBindingSource.DataSource = m_actorModified.Armor;
@@ -516,12 +521,21 @@ namespace Universalis
 
         private void SelectActorIcon()
         {
-            using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Icon auswählen", m_actorModified.Img, ImageHelper.iconSize ) )
+            if( m_actorModified.Img == null )
             {
-                if( imageSelectionForm.ShowDialog() == DialogResult.OK )
+                MessageBox.Show( "Sie müssen zunächst ein Bild auswählen bevor Sie ein Icon daraus extrahieren können." );
+
+                SelectImages();
+            }
+            else
+            {
+                using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Icon auswählen", m_actorModified.Img, ImageHelper.iconSize ) )
                 {
-                    pictureBoxActorIcon.Image = imageSelectionForm.Image;
-                    m_actorModified.Icon = new Bitmap( imageSelectionForm.Image );
+                    if( imageSelectionForm.ShowDialog() == DialogResult.OK )
+                    {
+                        pictureBoxActorIcon.Image = imageSelectionForm.Image;
+                        m_actorModified.Icon = new Bitmap( imageSelectionForm.Image );
+                    }
                 }
             }
         }
