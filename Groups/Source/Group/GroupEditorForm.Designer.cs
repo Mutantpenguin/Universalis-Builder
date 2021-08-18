@@ -16,8 +16,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -40,6 +40,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonActorsAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonActorsRemove = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonActorsCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.pictureBoxCard = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -48,7 +49,6 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripButtonActorsCopy = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -217,13 +217,12 @@
             // 
             // dataGridViewGroupActors
             // 
-            this.dataGridViewGroupActors.AllowDrop = true;
             this.dataGridViewGroupActors.AllowUserToAddRows = false;
             this.dataGridViewGroupActors.AllowUserToDeleteRows = false;
             this.dataGridViewGroupActors.AllowUserToOrderColumns = true;
             this.dataGridViewGroupActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewGroupActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewGroupActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGroupActors.AutoGenerateColumns = false;
             this.dataGridViewGroupActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGroupActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -280,8 +279,8 @@
             // groupActorPointsDataGridViewTextBoxColumn
             // 
             this.groupActorPointsDataGridViewTextBoxColumn.DataPropertyName = "Actor.Points";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.groupActorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.groupActorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.groupActorPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.groupActorPointsDataGridViewTextBoxColumn.Name = "groupActorPointsDataGridViewTextBoxColumn";
             this.groupActorPointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -327,6 +326,18 @@
             this.toolStripButtonActorsRemove.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonActorsRemove.ToolTipText = "Modell entfernen";
             this.toolStripButtonActorsRemove.Click += new System.EventHandler(this.toolStripButtonActorsRemove_Click);
+            // 
+            // toolStripButtonActorsCopy
+            // 
+            this.toolStripButtonActorsCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonActorsCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonActorsCopy.Image = global::Universalis.Properties.Resources.copy;
+            this.toolStripButtonActorsCopy.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonActorsCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonActorsCopy.Name = "toolStripButtonActorsCopy";
+            this.toolStripButtonActorsCopy.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonActorsCopy.ToolTipText = "Ausrüstung kopieren";
+            this.toolStripButtonActorsCopy.Click += new System.EventHandler(this.toolStripButtonActorsCopy_Click);
             // 
             // toolStripLabel1
             // 
@@ -405,18 +416,6 @@
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
-            // 
-            // toolStripButtonActorsCopy
-            // 
-            this.toolStripButtonActorsCopy.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonActorsCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonActorsCopy.Image = global::Universalis.Properties.Resources.copy;
-            this.toolStripButtonActorsCopy.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonActorsCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonActorsCopy.Name = "toolStripButtonActorsCopy";
-            this.toolStripButtonActorsCopy.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonActorsCopy.ToolTipText = "Ausrüstung kopieren";
-            this.toolStripButtonActorsCopy.Click += new System.EventHandler(this.toolStripButtonActorsCopy_Click);
             // 
             // GroupEditorForm
             // 
