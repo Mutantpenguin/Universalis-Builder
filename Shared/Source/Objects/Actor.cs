@@ -68,20 +68,11 @@ namespace Universalis
                 return ( false );
             }
 
-            foreach( ActorTrait actorTrait in TraitsList )
+            if( TraitsList.Except( actor.TraitsList ).Any()
+                ||
+                actor.TraitsList.Except( TraitsList ).Any() )
             {
-                if( actor.TraitsList.Find( x => x.Equals( actorTrait ) ) == null )
-                {
-                    return ( false );
-                }
-            }
-
-            foreach( ActorTrait actorTrait in actor.TraitsList )
-            {
-                if( TraitsList.Find( x => x.Equals( actorTrait ) ) == null )
-                {
-                    return ( false );
-                }
+                return ( false );
             }
 
             return ( true );
@@ -147,10 +138,7 @@ namespace Universalis
 
             if( null != actor.TraitsList )
             {
-                foreach( ActorTrait actorTrait in actor.TraitsList )
-                {
-                    TraitsList.Add( new ActorTrait( actorTrait ) );
-                }
+                TraitsList.AddRange( actor.TraitsList );
             }
         }
 
@@ -187,33 +175,6 @@ namespace Universalis
 
         public class ActorTrait
         {
-            public ActorTrait() {}
-
-            public ActorTrait( ActorTrait actorTrait )
-            {
-                if( null == actorTrait )
-                {
-                    throw new ArgumentNullException( nameof( actorTrait ) );
-                }
-
-                Trait = actorTrait.Trait;
-            }
-
-            public bool Equals( ActorTrait actorTrait )
-            {
-                if( null == actorTrait )
-                {
-                    throw new ArgumentNullException( nameof( actorTrait ) );
-                }
-
-                if( Trait != actorTrait.Trait )
-                {
-                    return ( false );
-                }
-
-                return ( true );
-            }
-
             public Guid ID
             {
                 get;
