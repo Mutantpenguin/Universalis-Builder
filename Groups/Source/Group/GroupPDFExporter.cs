@@ -197,15 +197,12 @@ namespace Universalis
         {
             float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
             float actorImgWidth = CmToPixel( 1 );
-            float countWidth = CmToPixel( 1 );
             float pointsWidth = CmToPixel( 2 );
-            float totalPointsWidth = CmToPixel( 2 );
-            float outfitWidth = CmToPixel( 5 );
-            float modelNameWidth = printableWidth - ( actorImgWidth + pointsWidth + totalPointsWidth + outfitWidth );
+            float modelNameWidth = printableWidth - ( actorImgWidth + pointsWidth );
 
-            const int columnCount = 6;
+            const int columnCount = 3;
 
-            PdfPTable actorTable = new PdfPTable( new float[ columnCount ] { actorImgWidth, countWidth, modelNameWidth, outfitWidth, pointsWidth, totalPointsWidth } )
+            PdfPTable actorTable = new PdfPTable( new float[ columnCount ] { actorImgWidth, modelNameWidth, pointsWidth } )
             {
                 WidthPercentage = 100,
                 SpacingBefore = 0f,
@@ -215,7 +212,8 @@ namespace Universalis
             // TableHeader
             actorTable.AddCell( new PdfPCell( new Phrase( "Modell", s_actorFontHeader ) )
             {
-                Border = Rectangle.NO_BORDER
+                Border = Rectangle.NO_BORDER,
+                Colspan = 2
             } );
             actorTable.AddCell( new PdfPCell( new Phrase( "Punkte", s_actorFontHeader ) )
             {
