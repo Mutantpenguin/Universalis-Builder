@@ -48,6 +48,8 @@
             this.actorIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.actorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actorPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actorUpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.actorDownDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -227,7 +229,9 @@
             this.dataGridViewActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.actorIconDataGridViewImageColumn,
             this.actorNameDataGridViewTextBoxColumn,
-            this.actorPointsDataGridViewTextBoxColumn});
+            this.actorPointsDataGridViewTextBoxColumn,
+            this.actorUpDataGridViewTextBoxColumn,
+            this.actorDownDataGridViewTextBoxColumn});
             this.dataGridViewActors.DataSource = this.actorBindingSource;
             this.dataGridViewActors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewActors.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
@@ -240,6 +244,7 @@
             this.dataGridViewActors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewActors.Size = new System.Drawing.Size(290, 423);
             this.dataGridViewActors.TabIndex = 5;
+            this.dataGridViewActors.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewActors_CellContentClick);
             this.dataGridViewActors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupActors_CellDoubleClick);
             this.dataGridViewActors.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewGroupActors_CellFormatting);
             this.dataGridViewActors.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewActors_CellPainting);
@@ -405,6 +410,26 @@
             this.actorPointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.actorPointsDataGridViewTextBoxColumn.Width = 50;
             // 
+            // actorUpDataGridViewTextBoxColumn
+            // 
+            this.actorUpDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.actorUpDataGridViewTextBoxColumn.HeaderText = "";
+            this.actorUpDataGridViewTextBoxColumn.Name = "actorUpDataGridViewTextBoxColumn";
+            this.actorUpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actorUpDataGridViewTextBoxColumn.Text = "↑";
+            this.actorUpDataGridViewTextBoxColumn.UseColumnTextForButtonValue = true;
+            this.actorUpDataGridViewTextBoxColumn.Width = 15;
+            // 
+            // actorDownDataGridViewTextBoxColumn
+            // 
+            this.actorDownDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.actorDownDataGridViewTextBoxColumn.HeaderText = "";
+            this.actorDownDataGridViewTextBoxColumn.Name = "actorDownDataGridViewTextBoxColumn";
+            this.actorDownDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actorDownDataGridViewTextBoxColumn.Text = "↓";
+            this.actorDownDataGridViewTextBoxColumn.UseColumnTextForButtonValue = true;
+            this.actorDownDataGridViewTextBoxColumn.Width = 15;
+            // 
             // GroupEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,5 +501,7 @@
         private System.Windows.Forms.DataGridViewImageColumn actorIconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actorNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actorPointsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn actorUpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn actorDownDataGridViewTextBoxColumn;
     }
 }

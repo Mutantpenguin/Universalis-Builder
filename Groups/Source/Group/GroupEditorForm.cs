@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -126,10 +126,10 @@ namespace Universalis
 
         private void UpdateCard()
         {
-                if( pictureBoxCard.Image != null )
-                {
-                    pictureBoxCard.Image.Dispose();
-                }
+            if( pictureBoxCard.Image != null )
+            {
+                pictureBoxCard.Image.Dispose();
+            }
 
             if( dataGridViewActors.SelectedRows.Count > 0 )
             {
@@ -299,6 +299,41 @@ namespace Universalis
         private void dataGridViewGroupActors_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewActors );
+        }
+
+        private void dataGridViewActors_CellContentClick( object sender, DataGridViewCellEventArgs e )
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if( senderGrid.Columns[ e.ColumnIndex ] is DataGridViewButtonColumn && e.RowIndex >= 0 )
+            {
+                if( e.ColumnIndex == actorUpDataGridViewTextBoxColumn.Index )
+                {
+                    if( e.RowIndex > 0 )
+                    {
+                        var tmp = m_groupModified.ModelList[ e.RowIndex ];
+                        m_groupModified.ModelList[ e.RowIndex ] = m_groupModified.ModelList[ e.RowIndex - 1 ];
+                        m_groupModified.ModelList[ e.RowIndex - 1 ] = tmp;
+
+                        updateGridViewActors();
+
+                        dataGridViewActors.Rows[ e.RowIndex - 1 ].Selected = true;
+                    }
+                }
+                else if( e.ColumnIndex == actorDownDataGridViewTextBoxColumn.Index )
+                {
+                    if( e.RowIndex < ( m_groupModified.ModelList.Count - 1 ) )
+                    {
+                        var tmp = m_groupModified.ModelList[ e.RowIndex ];
+                        m_groupModified.ModelList[ e.RowIndex ] = m_groupModified.ModelList[ e.RowIndex + 1 ];
+                        m_groupModified.ModelList[ e.RowIndex + 1 ] = tmp;
+
+                        updateGridViewActors();
+
+                        dataGridViewActors.Rows[ e.RowIndex + 1 ].Selected = true;
+                    }
+                }
+            }
         }
     }
 }
