@@ -175,12 +175,6 @@ namespace Universalis
 
         public class ActorTrait
         {
-            public Guid ID
-            {
-                get;
-                set;
-            } = Guid.NewGuid();
-
             [JsonConverter( typeof( JsonActorTraitConverter ) )]
             public Trait Trait
             {
@@ -191,12 +185,6 @@ namespace Universalis
 
         public class ActorWeapon
         {
-            public Guid ID
-            {
-                get;
-                set;
-            } = Guid.NewGuid();
-
             [JsonConverter( typeof( JsonActorWeaponConverter ) )]
             public Weapon Weapon
             {
@@ -207,12 +195,6 @@ namespace Universalis
 
         public class ActorEquipment
         {
-            public Guid ID
-            {
-                get;
-                set;
-            } = Guid.NewGuid();
-
             [JsonConverter( typeof( JsonActorEquipmentConverter ) )]
             public Equipment Equipment
             {

@@ -232,8 +232,8 @@ namespace Universalis
         {
             if( dataGridViewWeapons.SelectedRows.Count > 0 )
             {
-                Guid id = ( (Actor.ActorWeapon)( dataGridViewWeapons.Rows[ dataGridViewWeapons.SelectedRows[ 0 ].Index ].DataBoundItem ) ).ID;
-                m_actorModified.WeaponsList.RemoveAll( s => s.ID == id );
+                var weapon = (Actor.ActorWeapon)dataGridViewWeapons.Rows[ dataGridViewWeapons.SelectedRows[ 0 ].Index ].DataBoundItem;
+                m_actorModified.WeaponsList.Remove( weapon );
 
                 updateGridViewWeapons();
                 updateFields();
@@ -277,8 +277,8 @@ namespace Universalis
         {
             if( dataGridViewEquipment.SelectedRows.Count > 0 )
             {
-                Guid id = ( (Actor.ActorEquipment)( dataGridViewEquipment.Rows[ dataGridViewEquipment.SelectedRows[ 0 ].Index ].DataBoundItem ) ).ID;
-                m_actorModified.EquipmentList.RemoveAll( s => s.ID == id );
+                var equipment = (Actor.ActorEquipment)dataGridViewEquipment.Rows[ dataGridViewEquipment.SelectedRows[ 0 ].Index ].DataBoundItem;
+                m_actorModified.EquipmentList.Remove( equipment );
 
                 updateGridViewEquipment();
                 updateFields();
@@ -326,8 +326,8 @@ namespace Universalis
         {
             if( dataGridViewTraits.SelectedRows.Count > 0 )
             {
-                Guid id = ( (Actor.ActorTrait)( dataGridViewTraits.Rows[ dataGridViewTraits.SelectedRows[ 0 ].Index ].DataBoundItem ) ).ID;
-                m_actorModified.TraitsList.Remove( m_actorModified.TraitsList.Single( s => s.ID == id ) );
+                var trait = (Actor.ActorTrait)dataGridViewTraits.Rows[ dataGridViewTraits.SelectedRows[ 0 ].Index ].DataBoundItem;
+                m_actorModified.TraitsList.Remove( trait );
 
                 updateGridViewTraits();
                 updateFields();
