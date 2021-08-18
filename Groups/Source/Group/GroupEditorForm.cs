@@ -268,11 +268,7 @@ namespace Universalis
         {
             using( ActorEditorForm actorEditorForm = new ActorEditorForm( actor ) )
             {
-                this.Hide();
-
                 actorEditorForm.ShowDialog( this );
-
-                this.Show();
             }
 
             actorBindingSource.ResetBindings( false );
