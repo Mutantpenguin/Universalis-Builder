@@ -32,7 +32,6 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridViewActors = new System.Windows.Forms.DataGridView();
-            this.actorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonActorsAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonActorsRemove = new System.Windows.Forms.ToolStripButton();
@@ -45,7 +44,8 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actorIconDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.actorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.actorIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.actorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actorPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -60,10 +60,10 @@
             this.toolStrip2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -225,7 +225,7 @@
             this.dataGridViewActors.AutoGenerateColumns = false;
             this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.actorIconDataGridViewTextBoxColumn,
+            this.actorIconDataGridViewImageColumn,
             this.actorNameDataGridViewTextBoxColumn,
             this.actorPointsDataGridViewTextBoxColumn});
             this.dataGridViewActors.DataSource = this.actorBindingSource;
@@ -246,10 +246,6 @@
             this.dataGridViewActors.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewActors_CellToolTipTextNeeded);
             this.dataGridViewActors.SelectionChanged += new System.EventHandler(this.dataGridViewActors_SelectionChanged);
             this.dataGridViewActors.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewActors_KeyDown);
-            // 
-            // actorBindingSource
-            // 
-            this.actorBindingSource.DataSource = typeof(Universalis.Actor);
             // 
             // toolStrip1
             // 
@@ -378,16 +374,18 @@
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Visible = false;
             // 
-            // actorIconDataGridViewTextBoxColumn
+            // actorBindingSource
             // 
-            this.actorIconDataGridViewTextBoxColumn.DataPropertyName = "Icon";
-            this.actorIconDataGridViewTextBoxColumn.HeaderText = "";
-            this.actorIconDataGridViewTextBoxColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.actorIconDataGridViewTextBoxColumn.Name = "actorIconDataGridViewTextBoxColumn";
-            this.actorIconDataGridViewTextBoxColumn.ReadOnly = true;
-            this.actorIconDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.actorIconDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.actorIconDataGridViewTextBoxColumn.Width = 40;
+            this.actorBindingSource.DataSource = typeof(Universalis.Actor);
+            // 
+            // actorIconDataGridViewImageColumn
+            // 
+            this.actorIconDataGridViewImageColumn.DataPropertyName = "Icon";
+            this.actorIconDataGridViewImageColumn.HeaderText = "";
+            this.actorIconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.actorIconDataGridViewImageColumn.Name = "actorIconDataGridViewImageColumn";
+            this.actorIconDataGridViewImageColumn.ReadOnly = true;
+            this.actorIconDataGridViewImageColumn.Width = 40;
             // 
             // actorNameDataGridViewTextBoxColumn
             // 
@@ -436,11 +434,11 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,7 +473,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ToolStripButton toolStripButtonActorsCopy;
-        private System.Windows.Forms.DataGridViewImageColumn actorIconDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn actorIconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actorNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actorPointsDataGridViewTextBoxColumn;
     }
