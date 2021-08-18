@@ -140,14 +140,23 @@ namespace Universalis
                     Properties.Settings.Default.factionIconFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
                     Properties.Settings.Default.Save();
 
-                    // TODO make sure the image is square
                     // TODO resize if too big?
                     using( FileStream fs = new FileStream( iconFileDialog.FileName, FileMode.Open, FileAccess.Read ) )
                     {
                         Bitmap img = new Bitmap( fs );
 
-                        pictureBoxIcon.Image = img;
-                        ( (DamageEffect)damageEffectBindingSource.DataSource ).Icon = new Bitmap( img );
+                        if( img.Width != img.Height )
+                        {
+                            MessageBox.Show( "Es sind nur quadratische Bilder erlaubt!",
+                                             "",
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Stop );
+                        }
+                        else
+                        {
+                            pictureBoxIcon.Image = img;
+                            ( (DamageEffect)damageEffectBindingSource.DataSource ).Icon = new Bitmap( img );
+                        }
                     }
                 }
             }
