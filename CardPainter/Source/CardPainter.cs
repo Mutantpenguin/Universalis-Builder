@@ -139,7 +139,7 @@ namespace Universalis
                 DrawHitPoints( g, actor );
                 DrawPoints( g, actor );
 
-                int traitsEndY = DrawTraits( g, actor.ActorTraitsList );
+                int traitsEndY = DrawTraits( g, actor.TraitsList );
 
                 int weaponsCount = DrawWeapons( g, actor, traitsEndY );
 
@@ -148,7 +148,7 @@ namespace Universalis
 
                 int equipmentYPos = armorPosY + SLineHeight * ( ( null == actor.Armor ? 0 : 2 ) );
                 int equipmentEndY = equipmentYPos;
-                equipmentEndY = DrawEquipment( g, actor.ActorEquipmentList, equipmentYPos );
+                equipmentEndY = DrawEquipment( g, actor.EquipmentList, equipmentYPos );
 
                 // draw the structure last, otherwise "lower" elements could paint over it
                 DrawStructure( g, equipmentEndY );
@@ -580,12 +580,12 @@ namespace Universalis
 
             Weapon weaponUnarmed = null;
 
-            if( actor.ActorWeaponsList.FirstOrDefault( s => s.Weapon.Type == Weapon.EType.Nahkampf ) == null )
+            if( actor.WeaponsList.FirstOrDefault( s => s.Weapon.Type == Weapon.EType.Nahkampf ) == null )
             {
                 weaponUnarmed = actor.WeaponUnarmed();
             }
 
-            if( ( actor.ActorWeaponsList.Count == 0 ) && ( weaponUnarmed == null ) )
+            if( ( actor.WeaponsList.Count == 0 ) && ( weaponUnarmed == null ) )
             {
                 return ( 0 );
             }
@@ -605,11 +605,11 @@ namespace Universalis
                     lineNumber++;
                 }
 
-                foreach( var weaponEntry in actor.ActorWeaponsList.GroupBy( x => x.Weapon.ID )
-                                                                  .Select( x => new { weapon = MasterDataStorage.Weapon.Get( x.Key ), count = x.Count() } )
-                                                                  .OrderBy( x => x.weapon.Class )
-                                                                  .ThenBy( x => x.weapon.RangeSort )
-                                                                  .ThenBy( x => x.weapon.Name ) )
+                foreach( var weaponEntry in actor.WeaponsList.GroupBy( x => x.Weapon.ID )
+                                                             .Select( x => new { weapon = MasterDataStorage.Weapon.Get( x.Key ), count = x.Count() } )
+                                                             .OrderBy( x => x.weapon.Class )
+                                                             .ThenBy( x => x.weapon.RangeSort )
+                                                             .ThenBy( x => x.weapon.Name ) )
                 {
                     DrawWeapon( g, actor, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * SLineHeight ) );
 

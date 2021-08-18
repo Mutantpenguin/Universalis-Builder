@@ -37,7 +37,7 @@ namespace Universalis
 
         private void updateGridViewActors()
         {
-            actorBindingSource.DataSource = m_groupModified.ActorList.ToList();
+            actorBindingSource.DataSource = m_groupModified.ModelList.ToList();
 
             dataGridViewActors.ClearSelection();
 
@@ -148,7 +148,7 @@ namespace Universalis
                 actorNew.Set( actorSource );
                 actorNew.Name = $"(Kopie von) {actorSource.Name}";
 
-                m_groupModified.ActorList.Add( actorNew );
+                m_groupModified.ModelList.Add( actorNew );
 
                 updateGridViewActors();
 
@@ -168,7 +168,7 @@ namespace Universalis
 
                     editActor( actor );
 
-                    m_groupModified.ActorList.Add( actor );
+                    m_groupModified.ModelList.Add( actor );
 
                     updateGridViewActors();
 
@@ -189,7 +189,7 @@ namespace Universalis
             if( dataGridViewActors.SelectedRows.Count > 0 )
             {
                 Actor actor = (Actor)dataGridViewActors.Rows[ dataGridViewActors.SelectedRows[ 0 ].Index ].DataBoundItem;
-                m_groupModified.ActorList.Remove( actor );
+                m_groupModified.ModelList.Remove( actor );
 
                 updateGridViewActors();
                 update();

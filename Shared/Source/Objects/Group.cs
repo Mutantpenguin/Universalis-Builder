@@ -16,7 +16,7 @@ namespace Universalis
 
         public Group()
         {
-            ActorList = new List<Actor>();
+            ModelList = new List<Actor>();
         }
 
         public bool Equals( Group group )
@@ -42,17 +42,17 @@ namespace Universalis
                 return ( false );
             }
 
-            foreach( Actor actor in ActorList )
+            foreach( Actor actor in ModelList )
             {
-                if( group.ActorList.Find( x => x.Equals( actor ) ) == null )
+                if( group.ModelList.Find( x => x.Equals( actor ) ) == null )
                 {
                     return ( false );
                 }
             }
 
-            foreach( Actor actor in group.ActorList )
+            foreach( Actor actor in group.ModelList )
             {
-                if( ActorList.Find( x => x.Equals( actor ) ) == null )
+                if( ModelList.Find( x => x.Equals( actor ) ) == null )
                 {
                     return ( false );
                 }
@@ -75,10 +75,10 @@ namespace Universalis
             Icon = group.Icon;
             Faction = group.Faction;
 
-            ActorList.Clear();
-            foreach( Actor actor in group.ActorList )
+            ModelList.Clear();
+            foreach( Actor actor in group.ModelList )
             {
-                ActorList.Add( new Actor( actor ) );
+                ModelList.Add( new Actor( actor ) );
             }
         }
 
@@ -120,7 +120,7 @@ namespace Universalis
             set;
         }
 
-        public List<Actor> ActorList
+        public List<Actor> ModelList
         {
             get;
             set;
@@ -133,7 +133,7 @@ namespace Universalis
             {
                 int points = 0;
 
-                points += ActorList.Sum( x => x.Points );
+                points += ModelList.Sum( x => x.Points );
 
                 return ( points );
             }
