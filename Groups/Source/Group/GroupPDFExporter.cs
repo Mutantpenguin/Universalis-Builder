@@ -174,13 +174,6 @@ namespace Universalis
 
             document.Add( Chunk.NEWLINE );
 
-            /* TODO ???
-            document.Add( new Paragraph( s_versionInfo, s_versionInfoFont )
-            {
-                Alignment = Element.ALIGN_RIGHT
-            } );
-            */
-
             if( !String.IsNullOrEmpty( group.Description ) )
             {
                 document.Add( Chunk.NEWLINE );
