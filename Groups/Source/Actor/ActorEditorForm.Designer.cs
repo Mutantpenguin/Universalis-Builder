@@ -16,17 +16,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -86,7 +86,6 @@
             this.pictureBoxCard = new System.Windows.Forms.PictureBox();
             this.buttonBack = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.textBoxBelastung = new System.Windows.Forms.TextBox();
@@ -262,8 +261,8 @@
             this.dataGridViewTraits.AllowUserToDeleteRows = false;
             this.dataGridViewTraits.AllowUserToOrderColumns = true;
             this.dataGridViewTraits.AllowUserToResizeRows = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewTraits.AutoGenerateColumns = false;
             this.dataGridViewTraits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -289,9 +288,9 @@
             // traitTypeDataGridViewTextBoxColumn
             // 
             this.traitTypeDataGridViewTextBoxColumn.DataPropertyName = "Trait.Type";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.traitTypeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.traitTypeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle24;
             this.traitTypeDataGridViewTextBoxColumn.HeaderText = "";
             this.traitTypeDataGridViewTextBoxColumn.Name = "traitTypeDataGridViewTextBoxColumn";
             this.traitTypeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -318,8 +317,8 @@
             // traitPointsDataGridViewTextBoxColumn
             // 
             this.traitPointsDataGridViewTextBoxColumn.DataPropertyName = "Trait.Points";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.traitPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.traitPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle25;
             this.traitPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.traitPointsDataGridViewTextBoxColumn.Name = "traitPointsDataGridViewTextBoxColumn";
             this.traitPointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -495,8 +494,8 @@
             this.dataGridViewWeapons.AllowUserToDeleteRows = false;
             this.dataGridViewWeapons.AllowUserToOrderColumns = true;
             this.dataGridViewWeapons.AllowUserToResizeRows = false;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewWeapons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewWeapons.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewWeapons.AutoGenerateColumns = false;
             this.dataGridViewWeapons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewWeapons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -529,9 +528,9 @@
             // weaponWeightDataGridViewTextBoxColumn
             // 
             this.weaponWeightDataGridViewTextBoxColumn.DataPropertyName = "Weapon.Weight";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.Format = "N1";
-            this.weaponWeightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle27.Format = "N1";
+            this.weaponWeightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle27;
             this.weaponWeightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
             this.weaponWeightDataGridViewTextBoxColumn.Name = "weaponWeightDataGridViewTextBoxColumn";
             this.weaponWeightDataGridViewTextBoxColumn.ReadOnly = true;
@@ -540,8 +539,8 @@
             // weaponPointsDataGridViewTextBoxColumn
             // 
             this.weaponPointsDataGridViewTextBoxColumn.DataPropertyName = "Weapon.Points";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.weaponPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.weaponPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle28;
             this.weaponPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.weaponPointsDataGridViewTextBoxColumn.Name = "weaponPointsDataGridViewTextBoxColumn";
             this.weaponPointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -686,8 +685,8 @@
             this.dataGridViewEquipment.AllowUserToDeleteRows = false;
             this.dataGridViewEquipment.AllowUserToOrderColumns = true;
             this.dataGridViewEquipment.AllowUserToResizeRows = false;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewEquipment.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewEquipment.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewEquipment.AutoGenerateColumns = false;
             this.dataGridViewEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -720,9 +719,9 @@
             // equipmentWeightDataGridViewTextBoxColumn
             // 
             this.equipmentWeightDataGridViewTextBoxColumn.DataPropertyName = "Equipment.Weight";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.Format = "N1";
-            this.equipmentWeightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle30.Format = "N1";
+            this.equipmentWeightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle30;
             this.equipmentWeightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
             this.equipmentWeightDataGridViewTextBoxColumn.Name = "equipmentWeightDataGridViewTextBoxColumn";
             this.equipmentWeightDataGridViewTextBoxColumn.ReadOnly = true;
@@ -731,9 +730,9 @@
             // equipmentPointsDataGridViewTextBoxColumn
             // 
             this.equipmentPointsDataGridViewTextBoxColumn.DataPropertyName = "Equipment.Points";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle20.Format = "N1";
-            this.equipmentPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle31.Format = "N1";
+            this.equipmentPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle31;
             this.equipmentPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.equipmentPointsDataGridViewTextBoxColumn.Name = "equipmentPointsDataGridViewTextBoxColumn";
             this.equipmentPointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -811,7 +810,6 @@
             // panel3
             // 
             this.panel3.AutoSize = true;
-            this.panel3.Controls.Add(this.buttonRefresh);
             this.panel3.Controls.Add(this.buttonBack);
             this.panel3.Controls.Add(this.buttonSave);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -819,19 +817,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1264, 32);
             this.panel3.TabIndex = 1;
-            // 
-            // buttonRefresh
-            // 
-            this.buttonRefresh.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonRefresh.Image = global::Universalis.Properties.Resources.refresh;
-            this.buttonRefresh.Location = new System.Drawing.Point(574, 3);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(116, 26);
-            this.buttonRefresh.TabIndex = 1;
-            this.buttonRefresh.Text = "Auffrischen";
-            this.buttonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonRefresh.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonRefresh.UseVisualStyleBackColor = true;
             // 
             // buttonSave
             // 
@@ -987,9 +972,9 @@
             // weightDataGridViewTextBoxColumn2
             // 
             this.weightDataGridViewTextBoxColumn2.DataPropertyName = "Weight";
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle21.Format = "N1";
-            this.weightDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle32.Format = "N1";
+            this.weightDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle32;
             this.weightDataGridViewTextBoxColumn2.HeaderText = "Gewicht";
             this.weightDataGridViewTextBoxColumn2.Name = "weightDataGridViewTextBoxColumn2";
             this.weightDataGridViewTextBoxColumn2.ReadOnly = true;
@@ -998,8 +983,8 @@
             // pointsDataGridViewTextBoxColumn2
             // 
             this.pointsDataGridViewTextBoxColumn2.DataPropertyName = "Points";
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle33;
             this.pointsDataGridViewTextBoxColumn2.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn2.Name = "pointsDataGridViewTextBoxColumn2";
             this.pointsDataGridViewTextBoxColumn2.ReadOnly = true;
@@ -1173,7 +1158,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.BindingSource profileBindingSource;
