@@ -551,11 +551,6 @@ namespace Universalis
             }
         }
 
-        private void buttonRefresh_Click( object sender, EventArgs e )
-        {
-            updateFields();
-        }
-
         private void dataGridViewTraits_RowPrePaint( object sender, DataGridViewRowPrePaintEventArgs e )
         {
             var trait = ((Actor.ActorTrait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem).Trait;
