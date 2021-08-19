@@ -58,6 +58,16 @@ namespace Universalis
                 }
             }
 
+            // when we get to here it is safe to assume that the actors didn't change at all
+            // thus we can check if their order changed
+            for( int i = 0; i < ModelList.Count; i++ )
+            {
+                if( !ModelList[ i ].Equals( group.ModelList[ i ] ) )
+                {
+                    return ( false );
+                }
+            }
+
             return ( true );
         }
 
