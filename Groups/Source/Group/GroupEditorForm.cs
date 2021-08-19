@@ -209,17 +209,19 @@ namespace Universalis
 
                 string toolTipText = String.Empty;
 
-                // show only inactive, if both inactive and missing outfit
                 if( !actor.Active )
                 {
                     toolTipText += "Wurde gelöscht und darf nicht mehr verwendet werden!";
                 }
-                else
+
+                if( actor.HasInactiveComposition() )
                 {
-                    if( !String.IsNullOrEmpty( actor.Description ) )
-                    {
-                        toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + ToolTipHelper.FormatMaxWidth( actor.Description );
-                    }
+                    toolTipText += "Inaktive Ausstattung vorhanden!";
+                }
+
+                if( !String.IsNullOrEmpty( actor.Description ) )
+                {
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + ToolTipHelper.FormatMaxWidth( actor.Description );
                 }
 
                 e.ToolTipText = toolTipText;
@@ -254,14 +256,13 @@ namespace Universalis
             {
                 Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 
-                // TODO what does this do?
-                if( actor == null )
+                if( actor.HasInactiveComposition() )
                 {
                     e.PaintBackground( e.CellBounds, true );
                     e.PaintContent( e.CellBounds );
 
-                    Image imgInactiveActors = Properties.Resources.error;
-                    e.Graphics.DrawImageUnscaled( imgInactiveActors, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveActors.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveActors.Height ) / 2 ) );
+                    Image imgInactiveComposition = Properties.Resources.error_outline;
+                    e.Graphics.DrawImageUnscaled( imgInactiveComposition, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveComposition.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveComposition.Height ) / 2 ) );
 
                     e.Handled = true;
                 }

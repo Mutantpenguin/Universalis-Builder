@@ -259,7 +259,6 @@
     <None Include="Resources\ui-check-box.png" />
     <None Include="Resources\change_circle.png" />
     <None Include="Resources\error_outline.png" />
-    <None Include="Resources\error.png" />
     <None Include="Resources\file_download.png" />
     <None Include="Resources\document-pdf.png" />
     <None Include="Resources\plus.png" />

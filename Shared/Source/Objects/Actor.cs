@@ -530,5 +530,42 @@ namespace Universalis
 
             return ( modifier );
         }
+
+        public bool HasInactiveComposition()
+        {
+            if( null != Armor )
+            {
+                if( !Armor.Active )
+                {
+                    return ( true );
+                }
+            }
+
+            if( null != TraitsList )
+            {
+                if( TraitsList.Exists( x => x.Trait.Active ) )
+                {
+                    return ( true );
+                }
+            }
+
+            if( null != WeaponsList )
+            {
+                if( WeaponsList.Exists( x => x.Weapon.Active ) )
+                {
+                    return ( true );
+                }
+            }
+
+            if( null != EquipmentList )
+            {
+                if( EquipmentList.Exists( x => x.Equipment.Active ) )
+                {
+                    return ( true );
+                }
+            }
+
+            return ( false );
+        }
     }
 }

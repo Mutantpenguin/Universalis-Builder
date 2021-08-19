@@ -148,5 +148,15 @@ namespace Universalis
                 return ( points );
             }
         }
+
+        public bool HasInactiveComposition()
+        {
+            if( ModelList.Exists( x => x.HasInactiveComposition() ) )
+            {
+                return ( true );
+            }
+
+            return ( false );
+        }
     }
 }

@@ -555,5 +555,53 @@ namespace Universalis
         {
             updateFields();
         }
+
+        private void dataGridViewTraits_RowPrePaint( object sender, DataGridViewRowPrePaintEventArgs e )
+        {
+            var trait = ((Actor.ActorTrait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem).Trait;
+
+            if( !trait.Active )
+            {
+                dataGridViewTraits.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.DarkOrange;
+            }
+        }
+
+        private void dataGridViewArmor_RowPrePaint( object sender, DataGridViewRowPrePaintEventArgs e )
+        {
+            var armor = (Armor)dataGridViewArmor.Rows[ e.RowIndex ].DataBoundItem;
+
+            if( !armor.Active )
+            {
+                dataGridViewArmor.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.DarkOrange;
+            }
+        }
+
+        private void dataGridViewWeapons_RowPrePaint( object sender, DataGridViewRowPrePaintEventArgs e )
+        {
+            var weapon = ((Actor.ActorWeapon)dataGridViewWeapons.Rows[ e.RowIndex ].DataBoundItem).Weapon;
+
+            if( !weapon.Active )
+            {
+                dataGridViewWeapons.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.DarkOrange;
+            }
+        }
+
+        private void dataGridViewEquipment_RowPrePaint( object sender, DataGridViewRowPrePaintEventArgs e )
+        {
+            var equipment = ((Actor.ActorEquipment)dataGridViewEquipment.Rows[ e.RowIndex ].DataBoundItem ).Equipment;
+
+            if( !equipment.Active )
+            {
+                dataGridViewEquipment.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.DarkOrange;
+            }
+        }
+
+        private void ActorEditorForm_Shown( object sender, EventArgs e )
+        {
+            dataGridViewTraits.ClearSelection();
+            dataGridViewArmor.ClearSelection();
+            dataGridViewWeapons.ClearSelection();
+            dataGridViewEquipment.ClearSelection();
+        }
     }
 }

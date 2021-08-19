@@ -118,17 +118,10 @@ namespace Universalis
 
                 string toolTipText = String.Empty;
 
-                /* TODO check for "inactive"
-                if( group.HasMissingActors() )
+                if( group.HasInactiveComposition() )
                 {
-                    toolTipText += "Gelöschte Modelle vorhanden!";
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine : String.Empty ) + "Inaktive Ausstattung vorhanden!";
                 }
-
-                if( group.HasMissingActorOutfits() )
-                {
-                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine : String.Empty ) + "Fehlende Outfits!";
-                }
-                */
 
                 toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + $"Anzahl Modelle: {group.ModelList.Count}{Environment.NewLine}{ToolTipHelper.FormatMaxWidth( group.Description )}";
 
@@ -188,39 +181,14 @@ namespace Universalis
             {
                 Group group = (Group)dataGridViewGroups.Rows[ e.RowIndex ].DataBoundItem;
 
-                Image imgInactiveActors = null;
-                Image imgMissingActorOutfits = null;
-
-                /* TODO check for "inactive"
-                if( group.HasMissingActors() )
+                if( group.HasInactiveComposition() )
                 {
-                    imgInactiveActors = Properties.Resources.error;
-                }
+                    Image imgInactiveComposition = Properties.Resources.error_outline;
 
-                if( group.HasMissingActorOutfits() )
-                {
-                    imgMissingActorOutfits = Properties.Resources.error_outline;
-                }
-                */
-
-                if( imgInactiveActors != null || imgMissingActorOutfits != null )
-                {
                     e.PaintBackground( e.CellBounds, true );
                     e.PaintContent( e.CellBounds );
 
-                    if( imgInactiveActors != null && imgMissingActorOutfits != null )
-                    {
-                        e.Graphics.DrawImageUnscaled( imgMissingActorOutfits, e.CellBounds.X + e.CellBounds.Width - (int)( imgMissingActorOutfits.Width * 1.5 ) - imgInactiveActors.Width, e.CellBounds.Y + ( ( e.CellBounds.Height - imgMissingActorOutfits.Height ) / 2 ) );
-                        e.Graphics.DrawImageUnscaled( imgInactiveActors, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveActors.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveActors.Height ) / 2 ) );
-                    }
-                    else if( imgInactiveActors != null && imgMissingActorOutfits == null )
-                    {
-                        e.Graphics.DrawImageUnscaled( imgInactiveActors, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveActors.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveActors.Height ) / 2 ) );
-                    }
-                    else if( imgInactiveActors == null && imgMissingActorOutfits != null )
-                    {
-                        e.Graphics.DrawImageUnscaled( imgMissingActorOutfits, e.CellBounds.X + e.CellBounds.Width - (int)( imgMissingActorOutfits.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgMissingActorOutfits.Height ) / 2 ) );
-                    }
+                    e.Graphics.DrawImageUnscaled( imgInactiveComposition, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveComposition.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveComposition.Height ) / 2 ) );
 
                     e.Handled = true;
                 }
