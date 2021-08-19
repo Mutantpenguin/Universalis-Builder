@@ -557,7 +557,7 @@ namespace Universalis
 
             if( !trait.Active )
             {
-                dataGridViewTraits.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dataGridViewTraits.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.Firebrick;
             }
         }
 
@@ -567,7 +567,7 @@ namespace Universalis
 
             if( !armor.Active )
             {
-                dataGridViewArmor.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dataGridViewArmor.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.Firebrick;
             }
         }
 
@@ -577,7 +577,7 @@ namespace Universalis
 
             if( !weapon.Active )
             {
-                dataGridViewWeapons.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dataGridViewWeapons.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.Firebrick;
             }
         }
 
@@ -587,7 +587,7 @@ namespace Universalis
 
             if( !equipment.Active )
             {
-                dataGridViewEquipment.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.DarkOrange;
+                dataGridViewEquipment.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.Firebrick;
             }
         }
 
