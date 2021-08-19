@@ -21,11 +21,25 @@ namespace Universalis
             Set( actor );
         }
 
+        public Actor Copy()
+        {
+            var newActor = new Actor();
+
+            newActor.Set( this, withID: false );
+
+            return ( newActor );
+        }
+
         public bool Equals( Actor actor )
         {
             if( null == actor )
             {
                 throw new ArgumentNullException( nameof( actor ) );
+            }
+
+            if( ID != actor.ID )
+            {
+                return ( false );
             }
 
             if( Active != actor.Active
@@ -78,11 +92,16 @@ namespace Universalis
             return ( true );
         }
 
-        public void Set( Actor actor )
+        public void Set( Actor actor, bool withID = true )
         {
             if( null == actor )
             {
                 throw new ArgumentNullException( nameof( actor ) );
+            }
+
+            if( withID )
+            {
+                ID = actor.ID;
             }
 
             Active = actor.Active;

@@ -149,8 +149,7 @@ namespace Universalis
             {
                 Actor actorSource = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                var actorNew = new Actor( actorSource.Archetype );
-                actorNew.Set( actorSource );
+                var actorNew = actorSource.Copy();
                 actorNew.Name = $"(Kopie von) {actorSource.Name}";
 
                 m_groupModified.ModelList.Add( actorNew );
