@@ -50,6 +50,7 @@ namespace Universalis
         FactionManagerForm factionManager = null;
         ArchetypeManagerForm archetypeManager = null;
         DamageEffectManagerForm damageEffectManager = null;
+        GroupTraitManagerForm groupTraitManager = null;
 
         private void buttonWeapons_Click( object sender, EventArgs e )
         {
@@ -154,6 +155,21 @@ namespace Universalis
             buttonDamageEffects.Enabled = false;
 
             damageEffectManager.Show( this );
+        }
+
+        private void buttonGroupTraits_Click( object sender, EventArgs e )
+        {
+            groupTraitManager = new GroupTraitManagerForm();
+
+            groupTraitManager.FormClosed += delegate
+            {
+                buttonGroupTraits.Enabled = true;
+                groupTraitManager = null;
+            };
+
+            buttonGroupTraits.Enabled = false;
+
+            groupTraitManager.Show( this );
         }
 
         private void MasterDataMainForm_FormClosing( object sender, FormClosingEventArgs e )

@@ -110,6 +110,18 @@
     <Compile Include="Source\MasterData\DamageEffect\DamageEffectEditorForm.Designer.cs">
       <DependentUpon>DamageEffectEditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\MasterData\GroupTrait\GroupTraitEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\MasterData\GroupTrait\GroupTraitEditorForm.Designer.cs">
+      <DependentUpon>GroupTraitEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\MasterData\GroupTrait\GroupTraitManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\MasterData\GroupTrait\GroupTraitManagerForm.Designer.cs">
+      <DependentUpon>GroupTraitManagerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Misc\DamageTypeSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +219,14 @@
       <DependentUpon>DamageEffectEditorForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\MasterData\GroupTrait\GroupTraitEditorForm.resx">
+      <DependentUpon>GroupTraitEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\MasterData\GroupTrait\GroupTraitManagerForm.resx">
+      <DependentUpon>GroupTraitManagerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Misc\DamageTypeSelectionForm.resx">
       <DependentUpon>DamageTypeSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -268,6 +288,7 @@
     <None Include="Properties\DataSources\DamageType.EType.datasource" />
     <None Include="Properties\DataSources\Equipment.datasource" />
     <None Include="Properties\DataSources\Faction.datasource" />
+    <None Include="Properties\DataSources\GroupTrait.datasource" />
     <None Include="Properties\DataSources\Profile.datasource" />
     <None Include="Properties\DataSources\ProfileModifier.datasource" />
     <None Include="Properties\DataSources\Trait.datasource" />
@@ -301,6 +322,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\grouptraits.png" />
     <None Include="Resources\damage_effects.png" />
     <None Include="Resources\ui-check-box-uncheck.png" />
     <None Include="Resources\ui-check-box.png" />
