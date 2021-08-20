@@ -130,6 +130,13 @@ namespace Universalis
             set;
         }
 
+        [JsonConverter( typeof( JsonGroupTraitConverter ) )]
+        public GroupTrait GroupTrait
+        {
+            get;
+            set;
+        }
+
         public List<Actor> ModelList
         {
             get;
@@ -142,6 +149,11 @@ namespace Universalis
             get
             {
                 int points = 0;
+
+                if( GroupTrait != null )
+                {
+                    points += GroupTrait.Points( ModelList.Count );
+                }
 
                 points += ModelList.Sum( x => x.Points );
 

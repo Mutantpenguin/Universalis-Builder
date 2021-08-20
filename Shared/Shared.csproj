@@ -67,6 +67,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Source\Fonts\UniversalisFont.cs" />
+    <Compile Include="Source\Forms\GroupTraitSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\GroupTraitSelectionForm.Designer.cs">
+      <DependentUpon>GroupTraitSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Forms\ArchetypeSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\GroupTraitSelectionForm.resx">
+      <DependentUpon>GroupTraitSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\ArchetypeSelectionForm.resx">
       <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +238,7 @@
     <None Include="Properties\DataSources\Universalis.Archetype.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\DataSources\Universalis.GroupTrait.datasource" />
     <None Include="Resources\NovaRound-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
