@@ -48,6 +48,12 @@ namespace Universalis
             private set;
         }
 
+        public static GroupTraitStorage GroupTrait
+        {
+            get;
+            private set;
+        }
+
         private static bool setupAlreadyCompleted = false;
 
         public static void Setup( string universePath, Storage.BackgroundWorkerProvider backgroundWorkerProvider )
@@ -69,6 +75,7 @@ namespace Universalis
             Armor = new ArmorStorage( universePath, backgroundWorkerProvider() );
             Weapon = new WeaponStorage( universePath, backgroundWorkerProvider() );
             Equipment = new EquipmentStorage( universePath, backgroundWorkerProvider() );
+            GroupTrait = new GroupTraitStorage( universePath, backgroundWorkerProvider() );
 
             setupAlreadyCompleted = true;
         }
