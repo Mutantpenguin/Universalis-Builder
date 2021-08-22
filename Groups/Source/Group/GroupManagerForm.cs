@@ -144,7 +144,7 @@ namespace Universalis
                         filename = filename.Replace( c.ToString(), "" );
                     }
 
-                    GroupPDFExporter.GeneratePDF( m_universe, group, Path.ChangeExtension( filename, "pdf" ) );
+                    GroupPDFExporter.GeneratePDF( m_universe, group, Path.Combine( Path.GetTempPath(), Path.ChangeExtension( filename, "pdf" ) ) );
                 }
             }
         }
