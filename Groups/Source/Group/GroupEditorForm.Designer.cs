@@ -16,8 +16,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -25,7 +25,8 @@
             this.pictureBoxFactionIcon = new System.Windows.Forms.PictureBox();
             this.pictureBoxGroupIcon = new System.Windows.Forms.PictureBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.textBoxCost = new System.Windows.Forms.TextBox();
+            this.groupBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
@@ -37,12 +38,19 @@
             this.actorPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actorUpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.actorDownDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.actorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.actorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonActorsAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonActorsRemove = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonActorsCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButtonGroupTraitAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonGroupTraitRemove = new System.Windows.Forms.ToolStripButton();
             this.pictureBoxCard = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.buttonBack = new System.Windows.Forms.Button();
@@ -58,12 +66,15 @@
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGroupIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actorsBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.toolStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -94,14 +105,16 @@
             this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(296, 639);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -112,7 +125,7 @@
             this.panel7.Controls.Add(this.pictureBoxFactionIcon);
             this.panel7.Controls.Add(this.pictureBoxGroupIcon);
             this.panel7.Controls.Add(this.textBoxName);
-            this.panel7.Controls.Add(this.textBoxCost);
+            this.panel7.Controls.Add(this.textBoxPoints);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
@@ -154,20 +167,25 @@
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxName.Location = new System.Drawing.Point(135, 3);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(155, 20);
             this.textBoxName.TabIndex = 14;
-            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
-            // textBoxCost
+            // groupBindingSource
             // 
-            this.textBoxCost.Location = new System.Drawing.Point(135, 29);
-            this.textBoxCost.Name = "textBoxCost";
-            this.textBoxCost.ReadOnly = true;
-            this.textBoxCost.Size = new System.Drawing.Size(59, 20);
-            this.textBoxCost.TabIndex = 29;
-            this.textBoxCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.groupBindingSource.DataSource = typeof(Universalis.Group);
+            // 
+            // textBoxPoints
+            // 
+            this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Points", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxPoints.Location = new System.Drawing.Point(135, 29);
+            this.textBoxPoints.Name = "textBoxPoints";
+            this.textBoxPoints.ReadOnly = true;
+            this.textBoxPoints.Size = new System.Drawing.Size(59, 20);
+            this.textBoxPoints.TabIndex = 29;
+            this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel2
             // 
@@ -176,19 +194,19 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 75);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(290, 56);
+            this.panel2.Size = new System.Drawing.Size(290, 88);
             this.panel2.TabIndex = 9;
             // 
             // textBoxDescription
             // 
+            this.textBoxDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxDescription.Location = new System.Drawing.Point(0, 25);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(290, 31);
+            this.textBoxDescription.Size = new System.Drawing.Size(290, 63);
             this.textBoxDescription.TabIndex = 7;
-            this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
             // toolStrip2
             // 
@@ -212,9 +230,9 @@
             this.panel5.Controls.Add(this.dataGridViewActors);
             this.panel5.Controls.Add(this.toolStrip1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 388);
+            this.panel5.Location = new System.Drawing.Point(3, 263);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(290, 248);
+            this.panel5.Size = new System.Drawing.Size(290, 373);
             this.panel5.TabIndex = 5;
             // 
             // dataGridViewActors
@@ -223,8 +241,8 @@
             this.dataGridViewActors.AllowUserToDeleteRows = false;
             this.dataGridViewActors.AllowUserToOrderColumns = true;
             this.dataGridViewActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewActors.AutoGenerateColumns = false;
             this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -233,7 +251,7 @@
             this.actorPointsDataGridViewTextBoxColumn,
             this.actorUpDataGridViewTextBoxColumn,
             this.actorDownDataGridViewTextBoxColumn});
-            this.dataGridViewActors.DataSource = this.actorBindingSource;
+            this.dataGridViewActors.DataSource = this.actorsBindingSource;
             this.dataGridViewActors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewActors.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dataGridViewActors.Location = new System.Drawing.Point(0, 25);
@@ -243,7 +261,7 @@
             this.dataGridViewActors.RowHeadersVisible = false;
             this.dataGridViewActors.RowTemplate.Height = 40;
             this.dataGridViewActors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewActors.Size = new System.Drawing.Size(290, 223);
+            this.dataGridViewActors.Size = new System.Drawing.Size(290, 348);
             this.dataGridViewActors.TabIndex = 5;
             this.dataGridViewActors.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewActors_CellContentClick);
             this.dataGridViewActors.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupActors_CellDoubleClick);
@@ -273,8 +291,8 @@
             // actorPointsDataGridViewTextBoxColumn
             // 
             this.actorPointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.actorPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.actorPointsDataGridViewTextBoxColumn.Name = "actorPointsDataGridViewTextBoxColumn";
             this.actorPointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -300,9 +318,9 @@
             this.actorDownDataGridViewTextBoxColumn.UseColumnTextForButtonValue = true;
             this.actorDownDataGridViewTextBoxColumn.Width = 15;
             // 
-            // actorBindingSource
+            // actorsBindingSource
             // 
-            this.actorBindingSource.DataSource = typeof(Universalis.Actor);
+            this.actorsBindingSource.DataSource = typeof(Universalis.Actor);
             // 
             // toolStrip1
             // 
@@ -358,6 +376,82 @@
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(50, 22);
             this.toolStripLabel1.Text = "Modelle";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.toolStrip3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 169);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(290, 88);
+            this.panel1.TabIndex = 10;
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "GroupTrait.Rules", true));
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox2.Location = new System.Drawing.Point(0, 45);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(290, 43);
+            this.textBox2.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "GroupTrait.Name", true));
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBox1.Location = new System.Drawing.Point(0, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(290, 20);
+            this.textBox1.TabIndex = 2;
+            // 
+            // toolStrip3
+            // 
+            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel3,
+            this.toolStripButtonGroupTraitAdd,
+            this.toolStripButtonGroupTraitRemove});
+            this.toolStrip3.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip3.Name = "toolStrip3";
+            this.toolStrip3.Size = new System.Drawing.Size(290, 25);
+            this.toolStrip3.TabIndex = 1;
+            this.toolStrip3.Text = "toolStrip3";
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(114, 22);
+            this.toolStripLabel3.Text = "Gruppeneigenschaft";
+            // 
+            // toolStripButtonGroupTraitAdd
+            // 
+            this.toolStripButtonGroupTraitAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonGroupTraitAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonGroupTraitAdd.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonGroupTraitAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonGroupTraitAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonGroupTraitAdd.Name = "toolStripButtonGroupTraitAdd";
+            this.toolStripButtonGroupTraitAdd.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonGroupTraitAdd.ToolTipText = "Gruppeneigenschaft hinzufügen";
+            this.toolStripButtonGroupTraitAdd.Click += new System.EventHandler(this.toolStripButtonGroupTraitAdd_Click);
+            // 
+            // toolStripButtonGroupTraitRemove
+            // 
+            this.toolStripButtonGroupTraitRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonGroupTraitRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonGroupTraitRemove.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonGroupTraitRemove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonGroupTraitRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonGroupTraitRemove.Name = "toolStripButtonGroupTraitRemove";
+            this.toolStripButtonGroupTraitRemove.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonGroupTraitRemove.ToolTipText = "Gruppeneigenschaft entfernen";
+            this.toolStripButtonGroupTraitRemove.Click += new System.EventHandler(this.toolStripButtonGroupTraitRemove_Click);
             // 
             // pictureBoxCard
             // 
@@ -453,6 +547,7 @@
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxGroupIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
@@ -460,9 +555,13 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewActors)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.actorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actorsBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.toolStrip3.ResumeLayout(false);
+            this.toolStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -478,12 +577,12 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.TextBox textBoxCost;
+        private System.Windows.Forms.TextBox textBoxPoints;
         private System.Windows.Forms.PictureBox pictureBoxCard;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.BindingSource actorBindingSource;
+        private System.Windows.Forms.BindingSource actorsBindingSource;
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.PictureBox pictureBoxGroupIcon;
@@ -504,5 +603,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn actorPointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn actorUpDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn actorDownDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStrip toolStrip3;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.BindingSource groupBindingSource;
+        private System.Windows.Forms.ToolStripButton toolStripButtonGroupTraitAdd;
+        private System.Windows.Forms.ToolStripButton toolStripButtonGroupTraitRemove;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

@@ -32,7 +32,9 @@ namespace Universalis
                 ||
                 Description != group.Description
                 ||
-                Faction != group.Faction )
+                Faction != group.Faction
+                ||
+                GroupTrait != group.GroupTrait )
             {
                 return ( false );
             }
@@ -84,6 +86,7 @@ namespace Universalis
             Description = group.Description;
             Icon = group.Icon;
             Faction = group.Faction;
+            GroupTrait = group.GroupTrait;
 
             ModelList.Clear();
             foreach( Actor actor in group.ModelList )

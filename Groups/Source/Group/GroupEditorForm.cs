@@ -27,9 +27,9 @@ namespace Universalis
             textBoxName.Text = m_groupModified.Name;
             textBoxDescription.Text = m_groupModified.Description;
 
-            updateGridViewActors();
+            groupBindingSource.DataSource = m_groupModified;
 
-            update();
+            updateGridViewActors();
         }
 
         private readonly Group m_groupModified;
@@ -37,7 +37,7 @@ namespace Universalis
 
         private void updateGridViewActors()
         {
-            actorBindingSource.DataSource = m_groupModified.ModelList.ToList();
+            actorsBindingSource.DataSource = m_groupModified.ModelList.ToList();
 
             dataGridViewActors.ClearSelection();
 
@@ -45,11 +45,6 @@ namespace Universalis
             {
                 dataGridViewActors.Rows[ 0 ].Selected = true;
             }
-        }
-
-        private void update()
-        {
-            textBoxCost.Text = m_groupModified.Points.ToString();
         }
 
         private void buttonSave_Click( object sender, EventArgs e )
@@ -70,18 +65,6 @@ namespace Universalis
             }
 
             return ( true );
-        }
-
-        private void textBoxName_TextChanged( object sender, EventArgs e )
-        {
-            m_groupModified.Name = textBoxName.Text;
-
-            update();
-        }
-
-        private void textBoxDescription_TextChanged( object sender, EventArgs e )
-        {
-            m_groupModified.Description = textBoxDescription.Text;
         }
 
 #region events
@@ -196,7 +179,6 @@ namespace Universalis
                 m_groupModified.ModelList.Remove( actor );
 
                 updateGridViewActors();
-                update();
             }
         }
         #endregion actors
@@ -276,7 +258,7 @@ namespace Universalis
                 actorEditorForm.ShowDialog( this );
             }
 
-            actorBindingSource.ResetBindings( false );
+            actorsBindingSource.ResetBindings( false );
         }
 
         private void dataGridViewActors_KeyDown( object sender, KeyEventArgs e )
@@ -333,6 +315,39 @@ namespace Universalis
                         dataGridViewActors.Rows[ e.RowIndex + 1 ].Selected = true;
                     }
                 }
+            }
+        }
+
+        private void toolStripButtonGroupTraitAdd_Click( object sender, EventArgs e )
+        {
+            if( null != m_groupModified.GroupTrait )
+            {
+                MessageBox.Show( "Es ist bereits eine Gruppeneigenschaft vorhanden!" );
+            }
+            else
+            {
+                using( var groupTraitSelectionForm = new GroupTraitSelectionForm( m_groupModified.Faction ) )
+                {
+                    if( groupTraitSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                    {
+                        if( groupTraitSelectionForm.SelectedGroupTrait != null )
+                        {
+                            m_groupModified.GroupTrait = groupTraitSelectionForm.SelectedGroupTrait;
+
+                            groupBindingSource.ResetBindings( false );
+                        }
+                    }
+                }
+            }
+        }
+
+        private void toolStripButtonGroupTraitRemove_Click( object sender, EventArgs e )
+        {
+            if( m_groupModified.GroupTrait != null )
+            {
+                m_groupModified.GroupTrait = null;
+
+                groupBindingSource.ResetBindings( false );
             }
         }
     }
