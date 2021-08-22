@@ -159,7 +159,7 @@ namespace Universalis
             dataGridViewArmor.ClearSelection();
         }
 
-        private void toolStripButtonArmorAdd_Click( object sender, EventArgs e )
+        private void toolStripButtonArmorSelect_Click( object sender, EventArgs e )
         {
             if( null != m_actorModified.Armor )
             {

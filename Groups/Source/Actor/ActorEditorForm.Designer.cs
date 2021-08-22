@@ -17,16 +17,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -37,6 +37,11 @@
             this.buttonImages = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dataGridViewTraits = new System.Windows.Forms.DataGridView();
+            this.traitTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traitUseOnceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.traitPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actorTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripTraits = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
@@ -56,6 +61,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
+            this.weaponNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weaponWeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weaponPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weaponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actorWeaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripWeapons = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -69,10 +78,14 @@
             this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripArmor = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButtonArmorAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonArmorSelect = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonArmorRemove = new System.Windows.Forms.ToolStripButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewEquipment = new System.Windows.Forms.DataGridView();
+            this.equipmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipmentWeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipmentPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actorEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripEquipment = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
@@ -97,16 +110,6 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.attributesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.weaponNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weaponWeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weaponPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipmentWeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipmentPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traitTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traitUseOnceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.traitPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
@@ -266,7 +269,8 @@
             this.traitTypeDataGridViewTextBoxColumn,
             this.traitNameDataGridViewTextBoxColumn,
             this.traitUseOnceDataGridViewTextBoxColumn,
-            this.traitPointsDataGridViewTextBoxColumn});
+            this.traitPointsDataGridViewTextBoxColumn,
+            this.traitDataGridViewTextBoxColumn});
             this.dataGridViewTraits.DataSource = this.actorTraitBindingSource;
             this.dataGridViewTraits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewTraits.Location = new System.Drawing.Point(0, 25);
@@ -280,6 +284,52 @@
             this.dataGridViewTraits.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewTraits_CellFormatting);
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
             this.dataGridViewTraits.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewTraits_RowPrePaint);
+            // 
+            // traitTypeDataGridViewTextBoxColumn
+            // 
+            this.traitTypeDataGridViewTextBoxColumn.DataPropertyName = "Trait.Type";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.traitTypeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.traitTypeDataGridViewTextBoxColumn.HeaderText = "";
+            this.traitTypeDataGridViewTextBoxColumn.Name = "traitTypeDataGridViewTextBoxColumn";
+            this.traitTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.traitTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.traitTypeDataGridViewTextBoxColumn.Width = 24;
+            // 
+            // traitNameDataGridViewTextBoxColumn
+            // 
+            this.traitNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.traitNameDataGridViewTextBoxColumn.DataPropertyName = "Trait.Name";
+            this.traitNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.traitNameDataGridViewTextBoxColumn.Name = "traitNameDataGridViewTextBoxColumn";
+            this.traitNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // traitUseOnceDataGridViewTextBoxColumn
+            // 
+            this.traitUseOnceDataGridViewTextBoxColumn.DataPropertyName = "Trait.UseOnce";
+            this.traitUseOnceDataGridViewTextBoxColumn.HeaderText = "E";
+            this.traitUseOnceDataGridViewTextBoxColumn.Name = "traitUseOnceDataGridViewTextBoxColumn";
+            this.traitUseOnceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.traitUseOnceDataGridViewTextBoxColumn.ToolTipText = "Einmalnutzung";
+            this.traitUseOnceDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // traitPointsDataGridViewTextBoxColumn
+            // 
+            this.traitPointsDataGridViewTextBoxColumn.DataPropertyName = "Trait.Points";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.traitPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.traitPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.traitPointsDataGridViewTextBoxColumn.Name = "traitPointsDataGridViewTextBoxColumn";
+            this.traitPointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.traitPointsDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // traitDataGridViewTextBoxColumn
+            // 
+            this.traitDataGridViewTextBoxColumn.DataPropertyName = "Trait";
+            this.traitDataGridViewTextBoxColumn.HeaderText = "Trait";
+            this.traitDataGridViewTextBoxColumn.Name = "traitDataGridViewTextBoxColumn";
+            this.traitDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // actorTraitBindingSource
             // 
@@ -462,7 +512,8 @@
             this.dataGridViewWeapons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.weaponNameDataGridViewTextBoxColumn,
             this.weaponWeightDataGridViewTextBoxColumn,
-            this.weaponPointsDataGridViewTextBoxColumn});
+            this.weaponPointsDataGridViewTextBoxColumn,
+            this.weaponDataGridViewTextBoxColumn});
             this.dataGridViewWeapons.DataSource = this.actorWeaponBindingSource;
             this.dataGridViewWeapons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewWeapons.Location = new System.Drawing.Point(0, 25);
@@ -476,6 +527,42 @@
             this.dataGridViewWeapons.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewWeapons_CellFormatting);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewWeapons_RowPrePaint);
+            // 
+            // weaponNameDataGridViewTextBoxColumn
+            // 
+            this.weaponNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.weaponNameDataGridViewTextBoxColumn.DataPropertyName = "Weapon.Name";
+            this.weaponNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.weaponNameDataGridViewTextBoxColumn.Name = "weaponNameDataGridViewTextBoxColumn";
+            this.weaponNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // weaponWeightDataGridViewTextBoxColumn
+            // 
+            this.weaponWeightDataGridViewTextBoxColumn.DataPropertyName = "Weapon.Weight";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N1";
+            this.weaponWeightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.weaponWeightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
+            this.weaponWeightDataGridViewTextBoxColumn.Name = "weaponWeightDataGridViewTextBoxColumn";
+            this.weaponWeightDataGridViewTextBoxColumn.ReadOnly = true;
+            this.weaponWeightDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // weaponPointsDataGridViewTextBoxColumn
+            // 
+            this.weaponPointsDataGridViewTextBoxColumn.DataPropertyName = "Weapon.Points";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.weaponPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.weaponPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.weaponPointsDataGridViewTextBoxColumn.Name = "weaponPointsDataGridViewTextBoxColumn";
+            this.weaponPointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.weaponPointsDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // weaponDataGridViewTextBoxColumn
+            // 
+            this.weaponDataGridViewTextBoxColumn.DataPropertyName = "Weapon";
+            this.weaponDataGridViewTextBoxColumn.HeaderText = "Weapon";
+            this.weaponDataGridViewTextBoxColumn.Name = "weaponDataGridViewTextBoxColumn";
+            this.weaponDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // actorWeaponBindingSource
             // 
@@ -596,7 +683,7 @@
             // 
             this.toolStripArmor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel3,
-            this.toolStripButtonArmorAdd,
+            this.toolStripButtonArmorSelect,
             this.toolStripButtonArmorRemove});
             this.toolStripArmor.Location = new System.Drawing.Point(0, 0);
             this.toolStripArmor.Name = "toolStripArmor";
@@ -610,17 +697,17 @@
             this.toolStripLabel3.Size = new System.Drawing.Size(51, 22);
             this.toolStripLabel3.Text = "Rüstung";
             // 
-            // toolStripButtonArmorAdd
+            // toolStripButtonArmorSelect
             // 
-            this.toolStripButtonArmorAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonArmorAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonArmorAdd.Image = global::Universalis.Properties.Resources.plus;
-            this.toolStripButtonArmorAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonArmorAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonArmorAdd.Name = "toolStripButtonArmorAdd";
-            this.toolStripButtonArmorAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonArmorAdd.ToolTipText = "Rüstung hinzufügen";
-            this.toolStripButtonArmorAdd.Click += new System.EventHandler(this.toolStripButtonArmorAdd_Click);
+            this.toolStripButtonArmorSelect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonArmorSelect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonArmorSelect.Image = global::Universalis.Properties.Resources.change_circle;
+            this.toolStripButtonArmorSelect.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonArmorSelect.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonArmorSelect.Name = "toolStripButtonArmorSelect";
+            this.toolStripButtonArmorSelect.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonArmorSelect.ToolTipText = "Rüstung hinzufügen";
+            this.toolStripButtonArmorSelect.Click += new System.EventHandler(this.toolStripButtonArmorSelect_Click);
             // 
             // toolStripButtonArmorRemove
             // 
@@ -657,7 +744,8 @@
             this.dataGridViewEquipment.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.equipmentNameDataGridViewTextBoxColumn,
             this.equipmentWeightDataGridViewTextBoxColumn,
-            this.equipmentPointsDataGridViewTextBoxColumn});
+            this.equipmentPointsDataGridViewTextBoxColumn,
+            this.equipmentDataGridViewTextBoxColumn});
             this.dataGridViewEquipment.DataSource = this.actorEquipmentBindingSource;
             this.dataGridViewEquipment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewEquipment.Location = new System.Drawing.Point(0, 25);
@@ -671,6 +759,43 @@
             this.dataGridViewEquipment.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewEquipment_CellFormatting);
             this.dataGridViewEquipment.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewEquipment_CellToolTipTextNeeded);
             this.dataGridViewEquipment.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewEquipment_RowPrePaint);
+            // 
+            // equipmentNameDataGridViewTextBoxColumn
+            // 
+            this.equipmentNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.equipmentNameDataGridViewTextBoxColumn.DataPropertyName = "Equipment.Name";
+            this.equipmentNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.equipmentNameDataGridViewTextBoxColumn.Name = "equipmentNameDataGridViewTextBoxColumn";
+            this.equipmentNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // equipmentWeightDataGridViewTextBoxColumn
+            // 
+            this.equipmentWeightDataGridViewTextBoxColumn.DataPropertyName = "Equipment.Weight";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Format = "N1";
+            this.equipmentWeightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
+            this.equipmentWeightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
+            this.equipmentWeightDataGridViewTextBoxColumn.Name = "equipmentWeightDataGridViewTextBoxColumn";
+            this.equipmentWeightDataGridViewTextBoxColumn.ReadOnly = true;
+            this.equipmentWeightDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // equipmentPointsDataGridViewTextBoxColumn
+            // 
+            this.equipmentPointsDataGridViewTextBoxColumn.DataPropertyName = "Equipment.Points";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "N1";
+            this.equipmentPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+            this.equipmentPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.equipmentPointsDataGridViewTextBoxColumn.Name = "equipmentPointsDataGridViewTextBoxColumn";
+            this.equipmentPointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.equipmentPointsDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // equipmentDataGridViewTextBoxColumn
+            // 
+            this.equipmentDataGridViewTextBoxColumn.DataPropertyName = "Equipment";
+            this.equipmentDataGridViewTextBoxColumn.HeaderText = "Equipment";
+            this.equipmentDataGridViewTextBoxColumn.Name = "equipmentDataGridViewTextBoxColumn";
+            this.equipmentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // actorEquipmentBindingSource
             // 
@@ -902,104 +1027,6 @@
             // 
             this.attributesBindingSource.DataSource = typeof(Universalis.Attributes);
             // 
-            // weaponNameDataGridViewTextBoxColumn
-            // 
-            this.weaponNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.weaponNameDataGridViewTextBoxColumn.DataPropertyName = "Weapon.Name";
-            this.weaponNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.weaponNameDataGridViewTextBoxColumn.Name = "weaponNameDataGridViewTextBoxColumn";
-            this.weaponNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // weaponWeightDataGridViewTextBoxColumn
-            // 
-            this.weaponWeightDataGridViewTextBoxColumn.DataPropertyName = "Weapon.Weight";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "N1";
-            this.weaponWeightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.weaponWeightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
-            this.weaponWeightDataGridViewTextBoxColumn.Name = "weaponWeightDataGridViewTextBoxColumn";
-            this.weaponWeightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.weaponWeightDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // weaponPointsDataGridViewTextBoxColumn
-            // 
-            this.weaponPointsDataGridViewTextBoxColumn.DataPropertyName = "Weapon.Points";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.weaponPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.weaponPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.weaponPointsDataGridViewTextBoxColumn.Name = "weaponPointsDataGridViewTextBoxColumn";
-            this.weaponPointsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.weaponPointsDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // equipmentNameDataGridViewTextBoxColumn
-            // 
-            this.equipmentNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.equipmentNameDataGridViewTextBoxColumn.DataPropertyName = "Equipment.Name";
-            this.equipmentNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.equipmentNameDataGridViewTextBoxColumn.Name = "equipmentNameDataGridViewTextBoxColumn";
-            this.equipmentNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // equipmentWeightDataGridViewTextBoxColumn
-            // 
-            this.equipmentWeightDataGridViewTextBoxColumn.DataPropertyName = "Equipment.Weight";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.Format = "N1";
-            this.equipmentWeightDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
-            this.equipmentWeightDataGridViewTextBoxColumn.HeaderText = "Gewicht";
-            this.equipmentWeightDataGridViewTextBoxColumn.Name = "equipmentWeightDataGridViewTextBoxColumn";
-            this.equipmentWeightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.equipmentWeightDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // equipmentPointsDataGridViewTextBoxColumn
-            // 
-            this.equipmentPointsDataGridViewTextBoxColumn.DataPropertyName = "Equipment.Points";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "N1";
-            this.equipmentPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
-            this.equipmentPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.equipmentPointsDataGridViewTextBoxColumn.Name = "equipmentPointsDataGridViewTextBoxColumn";
-            this.equipmentPointsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.equipmentPointsDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // traitTypeDataGridViewTextBoxColumn
-            // 
-            this.traitTypeDataGridViewTextBoxColumn.DataPropertyName = "Trait.Type";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.traitTypeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.traitTypeDataGridViewTextBoxColumn.HeaderText = "";
-            this.traitTypeDataGridViewTextBoxColumn.Name = "traitTypeDataGridViewTextBoxColumn";
-            this.traitTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.traitTypeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.traitTypeDataGridViewTextBoxColumn.Width = 24;
-            // 
-            // traitNameDataGridViewTextBoxColumn
-            // 
-            this.traitNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.traitNameDataGridViewTextBoxColumn.DataPropertyName = "Trait.Name";
-            this.traitNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.traitNameDataGridViewTextBoxColumn.Name = "traitNameDataGridViewTextBoxColumn";
-            this.traitNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // traitUseOnceDataGridViewTextBoxColumn
-            // 
-            this.traitUseOnceDataGridViewTextBoxColumn.DataPropertyName = "Trait.UseOnce";
-            this.traitUseOnceDataGridViewTextBoxColumn.HeaderText = "E";
-            this.traitUseOnceDataGridViewTextBoxColumn.Name = "traitUseOnceDataGridViewTextBoxColumn";
-            this.traitUseOnceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.traitUseOnceDataGridViewTextBoxColumn.ToolTipText = "Einmalnutzung";
-            this.traitUseOnceDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // traitPointsDataGridViewTextBoxColumn
-            // 
-            this.traitPointsDataGridViewTextBoxColumn.DataPropertyName = "Trait.Points";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.traitPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.traitPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.traitPointsDataGridViewTextBoxColumn.Name = "traitPointsDataGridViewTextBoxColumn";
-            this.traitPointsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.traitPointsDataGridViewTextBoxColumn.Width = 50;
-            // 
             // ActorEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1106,7 +1133,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStrip toolStripArmor;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.ToolStripButton toolStripButtonArmorAdd;
+        private System.Windows.Forms.ToolStripButton toolStripButtonArmorSelect;
         private System.Windows.Forms.ToolStripButton toolStripButtonArmorRemove;
         private System.Windows.Forms.ToolStrip toolStripEquipment;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
@@ -1154,5 +1181,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn equipmentNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn equipmentWeightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn equipmentPointsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn traitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weaponDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn equipmentDataGridViewTextBoxColumn;
     }
 }

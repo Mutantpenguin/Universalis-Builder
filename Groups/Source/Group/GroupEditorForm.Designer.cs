@@ -16,8 +16,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -49,7 +49,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButtonGroupTraitAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonGroupTraitSelect = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGroupTraitRemove = new System.Windows.Forms.ToolStripButton();
             this.pictureBoxCard = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -241,8 +241,8 @@
             this.dataGridViewActors.AllowUserToDeleteRows = false;
             this.dataGridViewActors.AllowUserToOrderColumns = true;
             this.dataGridViewActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewActors.AutoGenerateColumns = false;
             this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -291,8 +291,8 @@
             // actorPointsDataGridViewTextBoxColumn
             // 
             this.actorPointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.actorPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.actorPointsDataGridViewTextBoxColumn.Name = "actorPointsDataGridViewTextBoxColumn";
             this.actorPointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -415,7 +415,7 @@
             // 
             this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel3,
-            this.toolStripButtonGroupTraitAdd,
+            this.toolStripButtonGroupTraitSelect,
             this.toolStripButtonGroupTraitRemove});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
@@ -429,17 +429,17 @@
             this.toolStripLabel3.Size = new System.Drawing.Size(114, 22);
             this.toolStripLabel3.Text = "Gruppeneigenschaft";
             // 
-            // toolStripButtonGroupTraitAdd
+            // toolStripButtonGroupTraitSelect
             // 
-            this.toolStripButtonGroupTraitAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonGroupTraitAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonGroupTraitAdd.Image = global::Universalis.Properties.Resources.plus;
-            this.toolStripButtonGroupTraitAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonGroupTraitAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonGroupTraitAdd.Name = "toolStripButtonGroupTraitAdd";
-            this.toolStripButtonGroupTraitAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonGroupTraitAdd.ToolTipText = "Gruppeneigenschaft hinzufügen";
-            this.toolStripButtonGroupTraitAdd.Click += new System.EventHandler(this.toolStripButtonGroupTraitAdd_Click);
+            this.toolStripButtonGroupTraitSelect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonGroupTraitSelect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonGroupTraitSelect.Image = global::Universalis.Properties.Resources.change_circle;
+            this.toolStripButtonGroupTraitSelect.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonGroupTraitSelect.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonGroupTraitSelect.Name = "toolStripButtonGroupTraitSelect";
+            this.toolStripButtonGroupTraitSelect.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonGroupTraitSelect.ToolTipText = "Gruppeneigenschaft auswählen";
+            this.toolStripButtonGroupTraitSelect.Click += new System.EventHandler(this.toolStripButtonGroupTraitSelect_Click);
             // 
             // toolStripButtonGroupTraitRemove
             // 
@@ -608,7 +608,7 @@
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.BindingSource groupBindingSource;
-        private System.Windows.Forms.ToolStripButton toolStripButtonGroupTraitAdd;
+        private System.Windows.Forms.ToolStripButton toolStripButtonGroupTraitSelect;
         private System.Windows.Forms.ToolStripButton toolStripButtonGroupTraitRemove;
         private System.Windows.Forms.TextBox textBox2;
     }

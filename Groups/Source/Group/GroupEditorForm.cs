@@ -318,7 +318,7 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonGroupTraitAdd_Click( object sender, EventArgs e )
+        private void toolStripButtonGroupTraitSelect_Click( object sender, EventArgs e )
         {
             if( null != m_groupModified.GroupTrait )
             {
