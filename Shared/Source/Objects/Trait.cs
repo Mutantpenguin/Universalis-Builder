@@ -30,6 +30,15 @@ namespace Universalis
             UseOnce = trait.UseOnce;
 
             AP = trait.AP;
+
+            if( null != trait.ProfileModifier )
+            {
+                ProfileModifier = new ProfileModifier( trait.ProfileModifier );
+            }
+            else
+            {
+                ProfileModifier = null;
+            }
         }
 
         public bool Equals( Trait trait )
@@ -54,6 +63,24 @@ namespace Universalis
                 AP != trait.AP )
             {
                 return ( false );
+            }
+
+            if( ( null != ProfileModifier ) && ( null == trait.ProfileModifier ) )
+            {
+                return ( false );
+            }
+
+            if( ( null == ProfileModifier ) && ( null != trait.ProfileModifier ) )
+            {
+                return ( false );
+            }
+
+            if( ( null != ProfileModifier ) && ( null != trait.ProfileModifier ) )
+            {
+                if( !ProfileModifier.Equals( trait.ProfileModifier ) )
+                {
+                    return ( false );
+                }
             }
 
             return ( true );
@@ -107,8 +134,48 @@ namespace Universalis
             set;
         } = 0;
 
+        public ProfileModifier ProfileModifier
+        {
+            get;
+            set;
+        } = null;
+
         [JsonIgnore]
         public string FormattedAP => ( AP == 0 ) ? "" : AP.ToString();
+
+        public override string ToString()
+        {
+            string text = String.Empty;
+
+            if( null != this.ProfileModifier )
+            {
+                string attributeModifierString = this.ProfileModifier.ToString();
+
+                if( !String.IsNullOrEmpty( attributeModifierString ) )
+                {
+                    if( this.UseOnce )
+                    {
+                        text += "Bei Verwendung: " + attributeModifierString;
+                    }
+                    else
+                    {
+                        text += "Dauerhaft: " + attributeModifierString;
+                    }
+                }
+            }
+
+            if( !String.IsNullOrEmpty( this.Rules ) )
+            {
+                if( !String.IsNullOrEmpty( text ) )
+                {
+                    text += Environment.NewLine;
+                }
+
+                text += this.Rules;
+            }
+
+            return ( text );
+        }
 
         [JsonIgnore]
         public string Type
@@ -121,7 +188,7 @@ namespace Universalis
                 {
                     return "+";
                 }
-                else if ( points < 0 )
+                else if( points < 0 )
                 {
                     return "-";
                 }
@@ -133,6 +200,21 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public int Points => AdditionalPoints;
+        public int Points => CalculatedPoints() + AdditionalPoints;
+
+        private int CalculatedPoints()
+        {
+            float points = 0;
+
+            // TODO calculate points with values
+            // AP
+
+            if( ProfileModifier != null )
+            {
+                points += ProfileModifier.Points();
+            }
+
+            return ( (int)points );
+        }
     }
 }
