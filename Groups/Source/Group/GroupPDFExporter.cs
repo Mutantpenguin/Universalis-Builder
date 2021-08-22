@@ -299,15 +299,12 @@ namespace Universalis
 
                 List<flipsideBlock> flipsideBlocks = new List<flipsideBlock>();
 
-                foreach( var trait in actor.TraitsList.GroupBy( x => x.Trait.ID )
-                                                      .Select( x => MasterDataStorage.Trait.Get( x.Key ) )
-                                                      .Where( x => !String.IsNullOrEmpty( x.Rules ) )
+                foreach( var trait in actor.TraitsList.Select( x => x.Trait )
+                                                      .Distinct()
+                                                      .Where( x => !String.IsNullOrEmpty( x.ToString() ) )
                                                       .OrderBy( x => x.Name ) )
                 {
-                    string name = trait.Name;
-                    string rules = trait.Rules;
-
-                    flipsideBlocks.Add( new flipsideBlock() { Name = name, Rules = rules } );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = trait.Name, Rules = trait.ToString() } );
                 }
 
                 if( ( actor.Armor != null )
@@ -319,27 +316,18 @@ namespace Universalis
 
                 foreach( Weapon weapon in actor.WeaponsList.Select( x => x.Weapon )
                                                            .Distinct()
-                                                           .Where( x => !String.IsNullOrEmpty( x.Rules ) )
+                                                           .Where( x => !String.IsNullOrEmpty( x.ToString() ) )
                                                            .OrderBy( x => x.Name ) )
                 {
-                    flipsideBlocks.Add( new flipsideBlock() { Name = weapon.Name, Rules = weapon.Rules } );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = weapon.Name, Rules = weapon.ToString() } );
                 }
 
                 foreach( Equipment equipment in actor.EquipmentList.Select( x => x.Equipment )
                                                                    .Distinct()
-                                                                   .Where( x => ( !String.IsNullOrEmpty( x.Rules ) )
-                                                                                ||
-                                                                                ( x.UseOnce && ( !String.IsNullOrEmpty( x.ProfileModifier?.ToString() ) ) ) )
+                                                                   .Where( x => !String.IsNullOrEmpty( x.ToString() ) )
                                                                    .OrderBy( x => x.Name ) )
                 {
-                    if( equipment.AP == 0 )
-                    {
-                        flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.ToString() } );
-                    }
-                    else
-                    {
-                        flipsideBlocks.Add( new flipsideBlock() { Name = $"{equipment.Name} - {equipment.AP}AP", Rules = equipment.ToString() } );
-                    }
+                    flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.ToString() } );
                 }
 
                 if( flipsideBlocks.Count > 0 )
