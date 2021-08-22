@@ -26,6 +26,8 @@ namespace Universalis
         private static readonly Font s_actorFontHeader = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ), Font.BOLD );
         private static readonly Font s_actorCustomNameFont = new Font( s_baseFontUniversalis, CmToPixel( 0.2f ), Font.NORMAL, Color.GRAY );
 
+        private static readonly Font s_groupTraitFontHeader = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ), Font.BOLD );
+
         private static readonly Font s_flipsideHeaderFont = new Font( s_baseFontUniversalis, CmToPixel( 0.35f ), Font.NORMAL, Color.WHITE );
         private static readonly Font s_nameFlipsideFont = new Font( s_baseFontUniversalis, CmToPixel( 0.2f ), Font.BOLD );
         private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2f ) );
@@ -157,7 +159,7 @@ namespace Universalis
             {
                 WidthPercentage = 100,
                 SpacingBefore = 0f,
-                SpacingAfter = 0f,
+                SpacingAfter = CmToPixel( 0.5f ),
             };
 
             infoTable.AddCell( new PdfPCell( new Phrase( $"Für das Universum \"{universe.NameWithVersion()}\"", s_versionInfoFont ) )
@@ -172,18 +174,19 @@ namespace Universalis
 
             document.Add( infoTable );
 
-            document.Add( Chunk.NEWLINE );
-
             if( !String.IsNullOrEmpty( group.Description ) )
             {
-                document.Add( Chunk.NEWLINE );
-
                 document.Add( new Paragraph( group.Description ) );
             }
 
-            document.Add( Chunk.NEWLINE );
-
             ShowActors( document, group );
+
+            if( group.GroupTrait != null )
+            {
+                document.Add( new LineSeparator( 0.3f, 100, Color.BLACK, Element.ALIGN_LEFT, -2 ) );
+                document.Add( new Paragraph( group.GroupTrait.Name, s_groupTraitFontHeader ) );
+                document.Add( new Paragraph( group.GroupTrait.Rules ) );
+            }
         }
 
         private static void ShowActors( Document document, Group group )
@@ -198,8 +201,8 @@ namespace Universalis
             PdfPTable actorTable = new PdfPTable( new float[ columnCount ] { actorImgWidth, modelNameWidth, pointsWidth } )
             {
                 WidthPercentage = 100,
-                SpacingBefore = 0f,
-                SpacingAfter = 0f,
+                SpacingBefore = CmToPixel( 1.0f ),
+                SpacingAfter = CmToPixel( 1.0f ),
             };
 
             // TableHeader
