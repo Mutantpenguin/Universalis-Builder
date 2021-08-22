@@ -436,9 +436,22 @@ namespace Universalis
         {
             if( e.RowIndex > -1 )
             {
-                Actor.ActorTrait actorTrait = (Actor.ActorTrait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem;
+                Trait trait = ( (Actor.ActorTrait)dataGridViewWeapons.Rows[ e.RowIndex ].DataBoundItem ).Trait;
 
-                e.ToolTipText = actorTrait.Trait.Name + ":" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( actorTrait.Trait.Rules );
+                string traitString = trait.ToString();
+
+                if( !String.IsNullOrEmpty( traitString ) )
+                {
+                    string text = trait.Name + ":";
+
+                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( traitString );
+
+                    e.ToolTipText = text;
+                }
+                else
+                {
+                    e.ToolTipText = String.Empty;
+                }
             }
         }
 
@@ -447,7 +460,6 @@ namespace Universalis
             if( e.RowIndex > -1 )
             {
                 Weapon weapon = ((Actor.ActorWeapon)dataGridViewWeapons.Rows[ e.RowIndex ].DataBoundItem).Weapon;
-
 
                 string weaponString = weapon.ToString();
 
