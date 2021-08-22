@@ -101,11 +101,11 @@ namespace Universalis
 
             if( AttributeModifier != null )
             {
-                string attributeModifierString = AttributeModifier.ToString();
+                string profileModifierString = AttributeModifier.ToString();
 
-                if( !String.IsNullOrEmpty( attributeModifierString ) )
+                if( !String.IsNullOrEmpty( profileModifierString ) )
                 {
-                    text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + attributeModifierString;
+                    text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + profileModifierString;
                 }
             }
 

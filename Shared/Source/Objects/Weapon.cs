@@ -526,11 +526,11 @@ namespace Universalis
 
             if( null != this.ProfileModifier )
             {
-                string attributeModifierString = this.ProfileModifier.ToString();
+                string profileModifierString = this.ProfileModifier.ToString();
 
-                if( !String.IsNullOrEmpty( attributeModifierString ) )
+                if( !String.IsNullOrEmpty( profileModifierString ) )
                 {
-                    text += attributeModifierString;
+                    text += profileModifierString;
                 }
             }
 

@@ -149,17 +149,17 @@ namespace Universalis
 
             if( null != this.ProfileModifier )
             {
-                string attributeModifierString = this.ProfileModifier.ToString();
+                string profileModifierString = this.ProfileModifier.ToString();
 
-                if( !String.IsNullOrEmpty( attributeModifierString ) )
+                if( !String.IsNullOrEmpty( profileModifierString ) )
                 {
                     if( this.UseOnce )
                     {
-                        text += "Bei Verwendung: " + attributeModifierString;
+                        text += "Bei Verwendung: " + profileModifierString;
                     }
                     else
                     {
-                        text += "Dauerhaft: " + attributeModifierString;
+                        text += "Dauerhaft: " + profileModifierString;
                     }
                 }
             }
