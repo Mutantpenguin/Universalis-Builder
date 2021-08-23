@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.numericUpDownPoints = new System.Windows.Forms.NumericUpDown();
+            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxType = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,17 +47,14 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.numericUpDownPoints = new System.Windows.Forms.NumericUpDown();
-            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPoints)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPoints)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,6 +71,30 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(434, 39);
             this.panel1.TabIndex = 1;
+            // 
+            // numericUpDownPoints
+            // 
+            this.numericUpDownPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownPoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.groupTraitBindingSource, "PointsPerModel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownPoints.Location = new System.Drawing.Point(375, 16);
+            this.numericUpDownPoints.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDownPoints.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownPoints.Name = "numericUpDownPoints";
+            this.numericUpDownPoints.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownPoints.TabIndex = 48;
+            this.numericUpDownPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // groupTraitBindingSource
+            // 
+            this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
             // 
             // label3
             // 
@@ -219,30 +242,6 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
-            // numericUpDownPoints
-            // 
-            this.numericUpDownPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownPoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.groupTraitBindingSource, "PointsPerModel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownPoints.Location = new System.Drawing.Point(375, 16);
-            this.numericUpDownPoints.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDownPoints.Minimum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDownPoints.Name = "numericUpDownPoints";
-            this.numericUpDownPoints.Size = new System.Drawing.Size(56, 20);
-            this.numericUpDownPoints.TabIndex = 48;
-            this.numericUpDownPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // groupTraitBindingSource
-            // 
-            this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
-            // 
             // GroupTraitEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,6 +259,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TraitEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPoints)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -270,8 +271,6 @@
             this.toolStrip2.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPoints)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,7 +295,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxType;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.NumericUpDown numericUpDownPoints;
     }
 }
