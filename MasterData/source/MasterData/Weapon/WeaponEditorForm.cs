@@ -331,13 +331,14 @@ namespace Universalis
         {
             var armor = (Weapon)weaponBindingSource.DataSource;
 
-            var profileModifierEditor = new ProfileModifierEditor( armor.ProfileModifier );
-
-            if( profileModifierEditor.ShowDialog( this ) == DialogResult.OK )
+            using( var profileModifierEditor = new ProfileModifierEditor( armor.ProfileModifier ) )
             {
-                armor.ProfileModifier = profileModifierEditor.ProfileModifier;
-                textBoxProfileModifier.Text = armor.ProfileModifier.ToString();
-                weaponBindingSource.ResetBindings( false );
+                if( profileModifierEditor.ShowDialog( this ) == DialogResult.OK )
+                {
+                    armor.ProfileModifier = profileModifierEditor.ProfileModifier;
+                    textBoxProfileModifier.Text = armor.ProfileModifier.ToString();
+                    weaponBindingSource.ResetBindings( false );
+                }
             }
         }
     }

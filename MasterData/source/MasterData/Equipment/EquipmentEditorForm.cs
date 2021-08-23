@@ -151,13 +151,14 @@ namespace Universalis
         {
             var armor = (Equipment)equipmentBindingSource.DataSource;
 
-            var profileModifierEditor = new ProfileModifierEditor( armor.ProfileModifier );
-
-            if( profileModifierEditor.ShowDialog( this ) == DialogResult.OK )
+            using( var profileModifierEditor = new ProfileModifierEditor( armor.ProfileModifier ) )
             {
-                armor.ProfileModifier = profileModifierEditor.ProfileModifier;
-                textBoxProfileModifier.Text = armor.ProfileModifier.ToString();
-                equipmentBindingSource.ResetBindings( false );
+                if( profileModifierEditor.ShowDialog( this ) == DialogResult.OK )
+                {
+                    armor.ProfileModifier = profileModifierEditor.ProfileModifier;
+                    textBoxProfileModifier.Text = armor.ProfileModifier.ToString();
+                    equipmentBindingSource.ResetBindings( false );
+                }
             }
         }
     }
