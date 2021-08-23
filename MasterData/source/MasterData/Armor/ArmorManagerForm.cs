@@ -43,7 +43,7 @@ namespace Universalis
 
         private void toolStripButtonArmorAdd_Click( object sender, EventArgs e )
         {
-            Armor armor = MasterDataStorage.Armor.Create();
+            Armor armor = ArmorStorage.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
 
@@ -83,7 +83,7 @@ namespace Universalis
             {
                 Armor armorSource = (Armor)dataGridViewArmor.SelectedRows[ 0 ].DataBoundItem;
 
-                Armor armorNew = MasterDataStorage.Armor.Create();
+                Armor armorNew = ArmorStorage.Create();
                 armorNew.Set( armorSource );
                 armorNew.Name = $"(Kopie von) {armorSource.Name}";
                 MasterDataStorage.Armor.Save( armorNew );

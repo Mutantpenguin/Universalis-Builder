@@ -134,7 +134,7 @@ namespace Universalis
                 {
                     try
                     {
-                        Group groupLoaded = UserDataStorage.Group.Load( fileName );
+                        Group groupLoaded = GroupStorage.Load( fileName );
 
                         Group group = UserDataStorage.Group.FindByID( groupLoaded.ID );
 
@@ -176,7 +176,7 @@ namespace Universalis
                                                          MessageBoxIcon.Question ) == DialogResult.Yes )
                                     {
                                         // create as new Group
-                                        Group groupNew = UserDataStorage.Group.Create( groupLoaded.Faction );
+                                        Group groupNew = GroupStorage.Create( groupLoaded.Faction );
                                         groupNew.Set( groupLoaded );
                                         groupNew.Name = $"(Neuer Import von) {groupLoaded.Name}";
                                         UserDataStorage.Group.Save( groupNew );

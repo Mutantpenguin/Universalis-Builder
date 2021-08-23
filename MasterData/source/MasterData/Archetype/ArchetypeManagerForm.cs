@@ -71,7 +71,7 @@ namespace Universalis
                 {
                     if( factionSelectionForm.SelectedFaction != null )
                     {
-                        Archetype archetype = MasterDataStorage.Archetype.Create( factionSelectionForm.SelectedFaction );
+                        Archetype archetype = ArchetypeStorage.Create( factionSelectionForm.SelectedFaction );
 
                         toolStripTextBoxSearch.Text = String.Empty;
 
@@ -114,7 +114,7 @@ namespace Universalis
             {
                 Archetype archetypeSource = (Archetype)dataGridViewArchetypes.SelectedRows[ 0 ].DataBoundItem;
 
-                Archetype archetypeNew = MasterDataStorage.Archetype.Create( archetypeSource.Faction );
+                Archetype archetypeNew = ArchetypeStorage.Create( archetypeSource.Faction );
                 archetypeNew.Set( archetypeSource );
                 archetypeNew.Name = $"(Kopie von) {archetypeSource.Name}";
                 MasterDataStorage.Archetype.Save( archetypeNew );

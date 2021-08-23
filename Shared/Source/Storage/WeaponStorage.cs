@@ -112,7 +112,7 @@ namespace Universalis
             return ( weapon );
         }
 
-        public Weapon Create()
+        public static Weapon Create()
         {
             return ( new Weapon() );
         }

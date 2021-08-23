@@ -111,7 +111,7 @@ namespace Universalis
             return ( groupTrait );
         }
 
-        public GroupTrait Create()
+        public static GroupTrait Create()
         {
             return ( new GroupTrait() );
         }

@@ -56,7 +56,7 @@ namespace Universalis
 
         private void toolStripButtonTraitAdd_Click( object sender, EventArgs e )
         {
-            Trait trait = MasterDataStorage.Trait.Create();
+            Trait trait = TraitStorage.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
 
@@ -96,7 +96,7 @@ namespace Universalis
             {
                 Trait traitSource = (Trait)dataGridViewTraits.SelectedRows[ 0 ].DataBoundItem;
 
-                Trait traitNew = MasterDataStorage.Trait.Create();
+                Trait traitNew = TraitStorage.Create();
                 traitNew.Set( traitSource );
                 traitNew.Name = $"(Kopie von) {traitSource.Name}";
                 MasterDataStorage.Trait.Save( traitNew );

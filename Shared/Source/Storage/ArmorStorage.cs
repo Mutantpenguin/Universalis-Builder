@@ -111,7 +111,7 @@ namespace Universalis
             return ( armor );
         }
 
-        public Armor Create()
+        public static Armor Create()
         {
             return ( new Armor() );
         }

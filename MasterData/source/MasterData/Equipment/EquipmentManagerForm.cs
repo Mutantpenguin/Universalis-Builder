@@ -43,7 +43,7 @@ namespace Universalis
 
         private void toolStripButtonEquipmentAdd_Click( object sender, EventArgs e )
         {
-            Equipment equipment = MasterDataStorage.Equipment.Create();
+            Equipment equipment = EquipmentStorage.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
 
@@ -83,7 +83,7 @@ namespace Universalis
             {
                 Equipment equipmentSource = (Equipment)dataGridViewEquipment.SelectedRows[ 0 ].DataBoundItem;
 
-                Equipment equipmentNew = MasterDataStorage.Equipment.Create();
+                Equipment equipmentNew = EquipmentStorage.Create();
                 equipmentNew.Set( equipmentSource );
                 equipmentNew.Name = $"(Kopie von) {equipmentSource.Name}";
                 MasterDataStorage.Equipment.Save( equipmentNew );

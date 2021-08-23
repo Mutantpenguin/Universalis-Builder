@@ -63,7 +63,7 @@ namespace Universalis
             };
         }
 
-        public Group Load( string file )
+        public static Group Load( string file )
         {
             return( JsonConvert.DeserializeObject<Group>( File.ReadAllText( file ) ) );
         }
@@ -109,36 +109,7 @@ namespace Universalis
             return Path.ChangeExtension( Path.Combine( s_path, group.ID.ToString() ), Storage.fileExtension );
         }
 
-        public void Export( Group group, string filename )
-        {
-            if( null == group )
-            {
-                throw new ArgumentNullException( nameof( group ) );
-            }
-
-            if( File.Exists( filename ) )
-            {
-                if( MessageBox.Show( "Die Datei existiert bereits. Überschreiben?",
-                                     "Asdasd",
-                                     MessageBoxButtons.OKCancel,
-                                     MessageBoxIcon.Warning,
-                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    try
-                    {
-                        File.Delete( filename );
-
-                        File.WriteAllText( filename, JsonConvert.SerializeObject( group, Storage.formatting ) );
-                    }
-                    catch( Exception ex )
-                    {
-                        MessageBox.Show( $"Fehler beim Exportieren der Datei '{filename}':\n{ex.Message}" );
-                    }
-                }
-            }
-        }
-
-        public Group Create( Faction faction )
+        public static Group Create( Faction faction )
         {
             if( null == faction )
             {

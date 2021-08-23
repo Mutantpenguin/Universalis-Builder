@@ -111,7 +111,7 @@ namespace Universalis
             return ( archetype );
         }
 
-        public Archetype Create( Faction faction )
+        public static Archetype Create( Faction faction )
         {
             if( null == faction )
             {

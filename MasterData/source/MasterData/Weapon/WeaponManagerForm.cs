@@ -90,7 +90,7 @@ namespace Universalis
 
         private void toolStripButtonWeaponAdd_Click( object sender, EventArgs e )
         {
-            Weapon weapon = MasterDataStorage.Weapon.Create();
+            Weapon weapon = WeaponStorage.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
 
@@ -130,7 +130,7 @@ namespace Universalis
             {
                 Weapon weaponSource = (Weapon)dataGridViewWeapons.SelectedRows[ 0 ].DataBoundItem;
 
-                Weapon weaponNew = MasterDataStorage.Weapon.Create();
+                Weapon weaponNew = WeaponStorage.Create();
                 weaponNew.Set( weaponSource );
                 weaponNew.Name = $"(Kopie von) {weaponSource.Name}";
                 MasterDataStorage.Weapon.Save( weaponNew );

@@ -57,7 +57,7 @@ namespace Universalis
 
         private void toolStripButtonAddGroups_Click( object sender, EventArgs e )
         {
-            Group group = UserDataStorage.Group.Create( m_faction );
+            Group group = GroupStorage.Create( m_faction );
 
             toolStripTextBoxSearch.Text = String.Empty;
 

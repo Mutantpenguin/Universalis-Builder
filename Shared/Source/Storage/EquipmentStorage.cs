@@ -111,7 +111,7 @@ namespace Universalis
             return ( equipment );
         }
 
-        public Equipment Create()
+        public static Equipment Create()
         {
             return ( new Equipment() );
         }

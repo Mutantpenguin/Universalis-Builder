@@ -56,7 +56,7 @@ namespace Universalis
 
         private void toolStripButtonGroupTraitAdd_Click( object sender, EventArgs e )
         {
-            GroupTrait groupTrait = MasterDataStorage.GroupTrait.Create();
+            GroupTrait groupTrait = GroupTraitStorage.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
 
@@ -96,7 +96,7 @@ namespace Universalis
             {
                 GroupTrait groupTraitSource = (GroupTrait)dataGridViewGroupTraits.SelectedRows[ 0 ].DataBoundItem;
 
-                GroupTrait groupTraitNew = MasterDataStorage.GroupTrait.Create();
+                GroupTrait groupTraitNew = GroupTraitStorage.Create();
                 groupTraitNew.Set( groupTraitSource );
                 groupTraitNew.Name = $"(Kopie von) {groupTraitSource.Name}";
                 MasterDataStorage.GroupTrait.Save( groupTraitNew );

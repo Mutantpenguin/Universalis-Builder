@@ -110,7 +110,7 @@ namespace Universalis
             return( faction );
         }
 
-        public Faction Create()
+        public static Faction Create()
         {
             return ( new Faction() );
         }

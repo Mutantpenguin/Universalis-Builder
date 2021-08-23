@@ -42,7 +42,7 @@ namespace Universalis
 
         private void toolStripButtonAddDamageEffect_Click( object sender, EventArgs e )
         {
-            DamageEffect damageEffect = MasterDataStorage.DamageEffect.Create();
+            DamageEffect damageEffect = DamageEffectStorage.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
 

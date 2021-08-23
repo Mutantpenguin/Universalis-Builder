@@ -38,7 +38,7 @@ namespace Universalis
 
         private void toolStripButtonAddFaction_Click( object sender, EventArgs e )
         {
-            Faction faction = MasterDataStorage.Faction.Create();
+            Faction faction = FactionStorage.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
 

@@ -111,7 +111,7 @@ namespace Universalis
             return ( trait );
         }
 
-        public Trait Create()
+        public static Trait Create()
         {
             Trait trait = new Trait();
 

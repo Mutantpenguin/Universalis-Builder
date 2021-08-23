@@ -110,7 +110,7 @@ namespace Universalis
             return ( damageEffect );
         }
 
-        public DamageEffect Create()
+        public static DamageEffect Create()
         {
             return ( new DamageEffect() );
         }
