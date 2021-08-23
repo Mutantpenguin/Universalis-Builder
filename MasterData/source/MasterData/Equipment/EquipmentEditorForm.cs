@@ -31,11 +31,6 @@ namespace Universalis
             }
         }
 
-        private void ChildBindingSource_CurrentItemChanged( object sender, EventArgs e )
-        {
-            equipmentBindingSource.ResetCurrentItem();
-        }
-
         private readonly Equipment m_originalEquipment;
         private Equipment m_modifiedEquipment;
 

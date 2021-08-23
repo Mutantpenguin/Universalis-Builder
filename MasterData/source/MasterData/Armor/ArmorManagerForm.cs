@@ -23,11 +23,6 @@ namespace Universalis
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewArmor );
         }
 
-        private void ComboBox_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            refreshGridView();
-        }
-
         private void toolStripTextBoxSearch_TextChanged( object sender, EventArgs e )
         {
             refreshGridView();
