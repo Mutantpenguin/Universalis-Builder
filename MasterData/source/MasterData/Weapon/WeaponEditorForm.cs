@@ -37,7 +37,14 @@ namespace Universalis
                 panelProfileModifier.Visible = false;
             }
 
-            weaponRangeBindingSource.DataSource = modifiedWeapon.WeaponRange;
+            if( modifiedWeapon.Range != null )
+            {
+                weaponRangeBindingSource.DataSource = modifiedWeapon.Range;
+            }
+            else
+            {
+                weaponRangeBindingSource.DataSource = new WeaponRange();
+            }
 
             comboBoxWeaponClass.DataSource = Weapon.EClassList;
             comboBoxWeaponClass.SelectedItem = weapon.Class;
@@ -126,7 +133,45 @@ namespace Universalis
 
         private void comboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            ( (Weapon)weaponBindingSource.DataSource ).Type = (Weapon.EType)comboBoxType.SelectedItem;
+            Weapon weapon = (Weapon)weaponBindingSource.DataSource;
+
+            weapon.Type = (Weapon.EType)comboBoxType.SelectedItem;
+
+            switch( weapon.Type )
+            {
+                case Weapon.EType.Fernkampf:
+                    if( m_originalWeapon.Range != null )
+                    {
+                        weapon.Range = new WeaponRange()
+                        {
+                            Length = m_originalWeapon.Range.Length,
+                            Amount = m_originalWeapon.Range.Amount
+                        };
+                    }
+                    else
+                    {
+                        weapon.Range = new WeaponRange()
+                        {
+                            Length = 10,
+                            Amount = 1
+                        };
+                    }
+                    break;
+
+                case Weapon.EType.Nahkampf:
+                case Weapon.EType.Wurf:
+                    weapon.Range = null;
+                    break;
+            }
+
+            if( weapon.Range != null )
+            {
+                weaponRangeBindingSource.DataSource = weapon.Range;
+            }
+            else
+            {
+                weaponRangeBindingSource.DataSource = new WeaponRange();
+            }
 
             updateMaxRange();
         }

@@ -52,17 +52,17 @@ namespace Universalis
                 ProfileModifier = null;
             }
 
-            if( null != weapon.WeaponRange )
+            if( null != weapon.Range )
             {
-                WeaponRange = new WeaponRange
+                Range = new WeaponRange
                 {
-                    Length = weapon.WeaponRange.Length,
-                    Amount = weapon.WeaponRange.Amount
+                    Length = weapon.Range.Length,
+                    Amount = weapon.Range.Amount
                 };
             }
             else
             {
-                WeaponRange = null;
+                Range = null;
             }
 
             UseOnce = weapon.UseOnce;
@@ -161,11 +161,24 @@ namespace Universalis
                 }
             }
 
-            if( WeaponRange.Amount != weapon.WeaponRange.Amount
-                ||
-                WeaponRange.Length != weapon.WeaponRange.Length )
+            if( ( Range != null ) && ( weapon.Range == null ) )
             {
-                return( false );
+                return ( false );
+            }
+
+            if( ( Range == null ) && ( weapon.Range != null ) )
+            {
+                return ( false );
+            }
+
+            if( ( Range != null ) && ( weapon.Range != null ) )
+            {
+                if( Range.Amount != weapon.Range.Amount
+                ||
+                Range.Length != weapon.Range.Length )
+                {
+                    return ( false );
+                }
             }
 
             if( UseOnce != weapon.UseOnce )
@@ -326,15 +339,11 @@ namespace Universalis
             set;
         }
 
-        public WeaponRange WeaponRange
+        public WeaponRange Range
         {
             get;
             set;
-        } = new WeaponRange()
-        {
-            Length = 10,
-            Amount = 1
-        };
+        }
 
         public bool UseOnce
         {
@@ -388,15 +397,15 @@ namespace Universalis
                 switch( Type )
                 {
                     case EType.Fernkampf:
-                        if( WeaponRange.Length == 0
+                        if( Range.Length == 0
                             ||
-                            WeaponRange.Amount == 0 )
+                            Range.Amount == 0 )
                         {
                             return ( "-" );
                         }
                         else
                         {
-                            return ( WeaponRange.Length + "/" + WeaponRange.Amount );
+                            return ( Range.Length + "/" + Range.Amount );
                         }
 
                     case EType.Nahkampf:
@@ -418,11 +427,19 @@ namespace Universalis
             {
                 switch( Type )
                 {
+                    // close combat first
                     case EType.Nahkampf:
                         return ( -1 );
 
+                    case EType.Fernkampf:
+                        return ( Range.Length * Range.Amount );
+
+                    // throwable last
+                    case EType.Wurf:
+                        return ( 999999 );
+
                     default:
-                        return ( WeaponRange.Length * WeaponRange.Amount );
+                        throw new InvalidOperationException( "unkown Weapon.EType" );
                 }
             }
         }
@@ -435,7 +452,7 @@ namespace Universalis
                 switch( Type )
                 {
                     case EType.Fernkampf:
-                        return( ( WeaponRange.Length * WeaponRange.Amount ) + "cm" );
+                        return( ( Range.Length * Range.Amount ) + "cm" );
 
                     case EType.Nahkampf:
                         return( "NK" );
