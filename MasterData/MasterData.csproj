@@ -276,7 +276,6 @@
     <None Include="masterdata.sh">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Properties\DataSources\Actor.ActorOutfit.datasource" />
     <None Include="Properties\DataSources\Actor.ActorTrait.datasource" />
     <None Include="Properties\DataSources\Actor.datasource" />
     <None Include="Properties\DataSources\Archetype.datasource" />
@@ -292,8 +291,6 @@
     <None Include="Properties\DataSources\Profile.datasource" />
     <None Include="Properties\DataSources\ProfileModifier.datasource" />
     <None Include="Properties\DataSources\Trait.datasource" />
-    <None Include="Properties\DataSources\TraitLevel.datasource" />
-    <None Include="Properties\DataSources\TraitLevel.ELevel.datasource" />
     <None Include="Properties\DataSources\Weapon.datasource" />
     <None Include="Properties\DataSources\DamageType.datasource" />
     <None Include="Properties\DataSources\WeaponRange.datasource" />

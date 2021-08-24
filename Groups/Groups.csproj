@@ -234,7 +234,6 @@
     <None Include="Properties\DataSources\Equipment.datasource" />
     <None Include="Properties\DataSources\Faction.datasource" />
     <None Include="Properties\DataSources\Group.datasource" />
-    <None Include="Properties\DataSources\Group.GroupActor.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -232,9 +232,6 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\DataSources\Universalis.Actor+ActorOutfit.datasource">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Properties\DataSources\Universalis.Archetype.datasource" />
   </ItemGroup>
   <ItemGroup>
