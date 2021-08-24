@@ -176,9 +176,17 @@ namespace Universalis
             if( dataGridViewActors.SelectedRows.Count > 0 )
             {
                 Actor actor = (Actor)dataGridViewActors.Rows[ dataGridViewActors.SelectedRows[ 0 ].Index ].DataBoundItem;
-                m_groupModified.ModelList.Remove( actor );
 
-                updateGridViewActors();
+                if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich löschen?",
+                                     "Model löschen",
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Warning,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    m_groupModified.ModelList.Remove( actor );
+
+                    updateGridViewActors();
+                }
             }
         }
         #endregion actors
