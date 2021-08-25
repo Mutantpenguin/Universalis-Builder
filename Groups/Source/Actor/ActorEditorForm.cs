@@ -16,6 +16,12 @@ namespace Universalis
 
             InitializeComponent();
 
+            if( actor.Dead )
+            {
+                panelMain.Enabled = false;
+                buttonSave.Enabled = false;
+            }
+
             this.WindowState = Properties.Settings.Default.ActorEditorWindowState;
 
             this.Icon = Shared.Properties.Resources.icon;

@@ -97,7 +97,7 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.textBoxBelastung = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -137,7 +137,7 @@
             this.toolStripEquipment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelMain.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -910,16 +910,16 @@
             this.textBoxBelastung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip.SetToolTip(this.textBoxBelastung, "aktuelle Belastung");
             // 
-            // panel1
+            // panelMain
             // 
-            this.panel1.Controls.Add(this.pictureBoxCard);
-            this.panel1.Controls.Add(this.tableLayoutPanel2);
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1264, 639);
-            this.panel1.TabIndex = 2;
+            this.panelMain.Controls.Add(this.pictureBoxCard);
+            this.panelMain.Controls.Add(this.tableLayoutPanel2);
+            this.panelMain.Controls.Add(this.tableLayoutPanel1);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(0, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(1264, 639);
+            this.panelMain.TabIndex = 2;
             // 
             // tableLayoutPanel2
             // 
@@ -1032,7 +1032,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 671);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panel3);
             this.KeyPreview = true;
             this.Name = "ActorEditorForm";
@@ -1082,8 +1082,8 @@
             this.toolStripEquipment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelMain.ResumeLayout(false);
+            this.panelMain.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -1139,7 +1139,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
         private System.Windows.Forms.ToolStripButton toolStripButtonEquipmentAdd;
         private System.Windows.Forms.ToolStripButton toolStripButtonEquipmentRemove;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox textBoxBelastung;
         private System.Windows.Forms.Label label10;
