@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -137,9 +137,9 @@ namespace Universalis
 
                     dataGridViewActors.ClearSelection();
 
-                    editActor( actor );
-
                     m_groupModified.ModelList.Add( actor );
+
+                    editActor( actor );
 
                     updateGridViewActors();
                     
@@ -279,6 +279,7 @@ namespace Universalis
                 actorEditorForm.ShowDialog( this );
             }
 
+            groupBindingSource.ResetBindings( false );
             actorsBindingSource.ResetBindings( false );
         }
 
@@ -384,11 +385,13 @@ namespace Universalis
                 {
                     dieToolStripMenuItem.Visible = false;
                     resurrectToolStripMenuItem.Visible = true;
+                    kopierenToolStripMenuItem.Visible = false;
                 }
                 else
                 {
                     dieToolStripMenuItem.Visible = true;
                     resurrectToolStripMenuItem.Visible = false;
+                    kopierenToolStripMenuItem.Visible = true;
                 }
             }
             else
@@ -438,6 +441,8 @@ namespace Universalis
                     updateGridViewActors();
 
                     SelectActor( actor );
+
+                    groupBindingSource.ResetBindings( false );
                 }
             }
         }
@@ -466,6 +471,8 @@ namespace Universalis
                     updateGridViewActors();
 
                     SelectActor( actor );
+
+                    groupBindingSource.ResetBindings( false );
                 }
             }
         }
@@ -499,6 +506,8 @@ namespace Universalis
                 m_groupModified.ModelList.Remove( actor );
 
                 updateGridViewActors();
+
+                groupBindingSource.ResetBindings( false );
             }
         }
     }
