@@ -249,6 +249,8 @@
     <None Include="Resources\empty.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\medical-bag.png" />
+    <None Include="Resources\coffin.png" />
     <None Include="Resources\refresh.png" />
     <None Include="Resources\baseline_person_black_18dp.png" />
     <None Include="Resources\baseline_home_black_18dp.png" />

@@ -217,7 +217,8 @@ namespace Universalis
                 HorizontalAlignment = Element.ALIGN_RIGHT
             } );
 
-            foreach( var actor in group.ModelList.OrderBy( x => x.Name ) )
+            foreach( var actor in group.ModelList.Where( x => !x.Dead )
+                                                 .OrderBy( x => x.Name ) )
             {
                 Image actorImg = Image.GetInstance( actor.Icon ?? group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
                 actorImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
@@ -276,7 +277,8 @@ namespace Universalis
             positions[ 1 ].X = ( 2 * distanceX ) + s_cardWidth;
             positions[ 1 ].Y = distanceY + s_cardHeight;
 
-            List<Actor> sortedActorList = group.ModelList.OrderBy( x => x.Name )
+            List<Actor> sortedActorList = group.ModelList.Where( x => !x.Dead )
+                                                         .OrderBy( x => x.Name )
                                                          .ToList();
 
             for( int i = 0; i < sortedActorList.Count; i++ )
@@ -440,9 +442,9 @@ namespace Universalis
 
             foreach( var damageEffect in MasterDataStorage.DamageEffect.DamageEffects.OrderBy( x => x.Name ) )
             {
-                if( p_group.ModelList.Exists( x => x.WeaponsList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
-                                                   ||
-                                                   ( ( x.Armor != null ) && x.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) ) )
+                if( p_group.ModelList.Exists( x => !x.Dead && ( x.WeaponsList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
+                                                              ||
+                                                              ( ( x.Armor != null ) && x.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) ) ) )
                 {
                     damageEffectsToPrint.Add( damageEffect );
                 }

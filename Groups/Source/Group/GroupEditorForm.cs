@@ -126,23 +126,6 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonActorsCopy_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewActors.SelectedRows.Count > 0 )
-            {
-                Actor actorSource = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
-
-                var actorNew = actorSource.Copy();
-                actorNew.Name = $"(Kopie von) {actorSource.Name}";
-
-                m_groupModified.ModelList.Add( actorNew );
-
-                updateGridViewActors();
-
-                editActor( actorNew );
-            }
-        }
-
         private void toolStripButtonActorsAdd_Click( object sender, EventArgs e )
         {
             using( ArchetypeSelectionForm archetypeSelectionForm = new ArchetypeSelectionForm( m_groupModified.Faction ) )
@@ -199,9 +182,9 @@ namespace Universalis
 
                 string toolTipText = String.Empty;
 
-                if( !actor.Active )
+                if( !actor.Dead )
                 {
-                    toolTipText += "Wurde gelöscht und darf nicht mehr verwendet werden!";
+                    toolTipText += "Ist tot und kann nicht mehr verwendet werden!";
                 }
 
                 if( actor.HasInactiveComposition() )
@@ -356,6 +339,121 @@ namespace Universalis
                 m_groupModified.GroupTrait = null;
 
                 groupBindingSource.ResetBindings( false );
+            }
+        }
+
+        private void dataGridViewActors_RowContextMenuStripNeeded( object sender, DataGridViewRowContextMenuStripNeededEventArgs e )
+        {
+            Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
+
+            if( actor.Dead )
+            {
+                dieToolStripMenuItem.Visible = false;
+                resurrectToolStripMenuItem.Visible = true;
+            }
+            else
+            {
+                dieToolStripMenuItem.Visible = true;
+                resurrectToolStripMenuItem.Visible = false;
+            }
+        }
+
+        private void dataGridViewActors_CellMouseDown( object sender, DataGridViewCellMouseEventArgs e )
+        {
+            if( e.Button == MouseButtons.Right )
+            {
+                if( ( e.ColumnIndex != -1 ) && ( e.RowIndex != -1 ) )
+                {
+                    DataGridViewRow row = dataGridViewActors.Rows[ e.RowIndex ];
+                    if( !row.Selected )
+                    {
+                        dataGridViewActors.ClearSelection();
+                        dataGridViewActors.CurrentCell = row.Cells[ e.ColumnIndex ];
+                        row.Selected = true;
+                    }
+                }
+            }
+        }
+
+        private void dieToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
+
+            if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich sterben lasse?",
+                                 "Model löschen",
+                                 MessageBoxButtons.OKCancel,
+                                 MessageBoxIcon.Warning,
+                                 MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+            {
+                if( actor.Dead )
+                {
+                    MessageBox.Show( $"Das Model '{actor.Name}' ist bereits tot.",
+                                     String.Empty,
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Information );
+                }
+                else
+                {
+                    actor.Dead = true;
+
+                    updateGridViewActors();
+                }
+            }
+        }
+
+        private void resurrectToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
+
+            if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich wiederbeleben?",
+                                 "Model löschen",
+                                 MessageBoxButtons.OKCancel,
+                                 MessageBoxIcon.Warning,
+                                 MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+            {
+                if( !actor.Dead )
+                {
+                    MessageBox.Show( $"Das Model '{actor.Name}' lebt bereits.",
+                                     String.Empty,
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Information );
+                }
+                else
+                {
+                    actor.Dead = false;
+
+                    updateGridViewActors();
+                }
+            }
+        }
+
+        private void kopierenToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            Actor actorSource = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
+
+            var actorNew = actorSource.Copy();
+            actorNew.Name = $"(Kopie von) {actorSource.Name}";
+
+            m_groupModified.ModelList.Add( actorNew );
+
+            updateGridViewActors();
+
+            editActor( actorNew );
+        }
+
+        private void löschenToolStripMenuItem_Click( object sender, EventArgs e )
+        {
+            Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
+
+            if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich löschen?\n\nDies kann nicht rückgängig gemacht werden.",
+                                 "Model löschen",
+                                 MessageBoxButtons.OKCancel,
+                                 MessageBoxIcon.Warning,
+                                 MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+            {
+                m_groupModified.ModelList.Remove( actor );
+
+                updateGridViewActors();
             }
         }
     }

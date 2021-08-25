@@ -42,7 +42,7 @@ namespace Universalis
                 return ( false );
             }
 
-            if( Active != actor.Active
+            if( Dead != actor.Dead
                 ||
                 Name != actor.Name
                 ||
@@ -104,7 +104,7 @@ namespace Universalis
                 ID = actor.ID;
             }
 
-            Active = actor.Active;
+            Dead = actor.Dead;
 
             Name = actor.Name;
 
@@ -167,11 +167,11 @@ namespace Universalis
             set;
         } = Guid.NewGuid();
 
-        public bool Active
+        public bool Dead
         {
             get;
             set;
-        } = true;
+        } = false;
 
         public string Name
         {
