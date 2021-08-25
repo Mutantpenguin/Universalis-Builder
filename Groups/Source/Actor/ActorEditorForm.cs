@@ -43,7 +43,7 @@ namespace Universalis
             }
             else
             {
-                var rowStyle = tableLayoutPanelLeft.RowStyles[ 2 ];
+                var rowStyle = tableLayoutPanelLeft.RowStyles[ 1 ];
 
                 rowStyle.SizeType = SizeType.Absolute;
                 rowStyle.Height = 0;
