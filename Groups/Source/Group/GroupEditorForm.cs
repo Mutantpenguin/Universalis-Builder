@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -158,25 +158,6 @@ namespace Universalis
                 {
                     row.Selected = true;
                     break;
-                }
-            }
-        }
-
-        private void toolStripButtonActorsRemove_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewActors.SelectedRows.Count > 0 )
-            {
-                Actor actor = (Actor)dataGridViewActors.Rows[ dataGridViewActors.SelectedRows[ 0 ].Index ].DataBoundItem;
-
-                if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich löschen?",
-                                     "Model löschen",
-                                     MessageBoxButtons.OKCancel,
-                                     MessageBoxIcon.Warning,
-                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    m_groupModified.ModelList.Remove( actor );
-
-                    updateGridViewActors();
                 }
             }
         }
