@@ -190,7 +190,7 @@ namespace Universalis
         {
             get;
             set;
-        } = Shared.Properties.Resources.empty;
+        } = Shared.Properties.Resources.empty_model;
 
         public class ActorTrait
         {
