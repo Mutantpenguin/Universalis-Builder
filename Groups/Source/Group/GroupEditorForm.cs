@@ -249,9 +249,7 @@ namespace Universalis
 
                     if( actor.Dead )
                     {
-                        var bounds = e.CellBounds;
-
-                        var drawRect = new Rectangle( bounds.X + 1, bounds.Y, bounds.Width - 2, bounds.Height - 1 );
+                        var drawRect = new Rectangle( e.CellBounds.X + 1, e.CellBounds.Y, e.CellBounds.Width - 2, e.CellBounds.Height - 1 );
 
                         using( ImageAttributes attributes = new ImageAttributes() )
                         {
