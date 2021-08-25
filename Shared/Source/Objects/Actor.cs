@@ -42,11 +42,13 @@ namespace Universalis
                 return ( false );
             }
 
-            if( Dead != actor.Dead
+            if( Name != actor.Name
                 ||
-                Name != actor.Name
+                Description != actor.Description
                 ||
-                Description != actor.Description )
+                Disabled != actor.Disabled
+                ||
+                DisabledReason != actor.DisabledReason )
             {
                 return ( false );
             }
@@ -104,11 +106,12 @@ namespace Universalis
                 ID = actor.ID;
             }
 
-            Dead = actor.Dead;
-
             Name = actor.Name;
 
             Description = actor.Description;
+
+            Disabled = actor.Disabled;
+            DisabledReason = actor.DisabledReason;
 
             Archetype = actor.Archetype;
 
@@ -167,17 +170,23 @@ namespace Universalis
             set;
         } = Guid.NewGuid();
 
-        public bool Dead
-        {
-            get;
-            set;
-        } = false;
-
         public string Name
         {
             get;
             set;
         } = "Bitte Namen eingeben";
+
+        public bool Disabled
+        {
+            get;
+            set;
+        } = false;
+
+        public string DisabledReason
+        {
+            get;
+            set;
+        }
 
         public string Description
         {

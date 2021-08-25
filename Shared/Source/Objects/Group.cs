@@ -158,7 +158,7 @@ namespace Universalis
                     points += GroupTrait.Points( ModelList.Count );
                 }
 
-                points += ModelList.Where( x => !x.Dead )
+                points += ModelList.Where( x => !x.Disabled )
                                    .Sum( x => x.Points );
 
                 return ( points );

@@ -181,7 +181,7 @@ namespace Universalis
 
                 string toolTipText = String.Empty;
 
-                if( !actor.Dead )
+                if( !actor.Disabled )
                 {
                     toolTipText += "Ist tot und kann nicht mehr verwendet werden!";
                 }
@@ -247,7 +247,7 @@ namespace Universalis
 
                     Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 
-                    if( actor.Dead )
+                    if( actor.Disabled )
                     {
                         var drawRect = new Rectangle( e.CellBounds.X + 1, e.CellBounds.Y, e.CellBounds.Width - 2, e.CellBounds.Height - 1 );
 
@@ -258,7 +258,7 @@ namespace Universalis
                             e.Graphics.DrawImage( actor.Icon, drawRect, 0, 0, actor.Icon.Width, actor.Icon.Height, GraphicsUnit.Pixel, attributes );
                         }
 
-                        e.Graphics.DrawImage( Properties.Resources.dead_overlay, new Rectangle( drawRect.X + ( drawRect.Width / 2 ), drawRect.Y + ( drawRect.Height / 2 ), drawRect.Width / 2, drawRect.Height / 2 ) );
+                        e.Graphics.DrawImage( Properties.Resources.disabled_overlay, new Rectangle( drawRect.X + ( drawRect.Width / 2 ), drawRect.Y + ( drawRect.Height / 2 ), drawRect.Width / 2, drawRect.Height / 2 ) );
                     }
                     else
                     {
@@ -379,16 +379,16 @@ namespace Universalis
 
                 Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
-                if( actor.Dead )
+                if( actor.Disabled )
                 {
-                    dieToolStripMenuItem.Visible = false;
-                    resurrectToolStripMenuItem.Visible = true;
+                    disableToolStripMenuItem.Visible = false;
+                    enableToolStripMenuItem.Visible = true;
                     copyToolStripMenuItem.Visible = false;
                 }
                 else
                 {
-                    dieToolStripMenuItem.Visible = true;
-                    resurrectToolStripMenuItem.Visible = false;
+                    disableToolStripMenuItem.Visible = true;
+                    enableToolStripMenuItem.Visible = false;
                     copyToolStripMenuItem.Visible = true;
                 }
             }
@@ -415,56 +415,64 @@ namespace Universalis
             }
         }
 
-        private void dieToolStripMenuItem_Click( object sender, EventArgs e )
+        private void disableToolStripMenuItem_Click( object sender, EventArgs e )
         {
             Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
-            if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich sterben lasse?",
-                                 "Model löschen",
+            if( MessageBox.Show( $"Wurde das Model '{actor.Name}' wirklich endgültig ausgeschaltet?",
+                                 "Endgültig ausgeschaltet",
                                  MessageBoxButtons.OKCancel,
                                  MessageBoxIcon.Warning,
                                  MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
             {
-                if( actor.Dead )
+                if( actor.Disabled )
                 {
-                    MessageBox.Show( $"Das Model '{actor.Name}' ist bereits tot.",
+                    MessageBox.Show( $"Das Model '{actor.Name}' ist bereits endgültig ausgeschaltet.",
                                      String.Empty,
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Information );
                 }
                 else
                 {
-                    actor.Dead = true;
+                    using( var disabledReasonForm = new DisabledReasonForm() )
+                    {
+                        if( disabledReasonForm.ShowDialog() == DialogResult.OK )
+                        {
+                            actor.Disabled = true;
+                            actor.DisabledReason = disabledReasonForm.DisabledReason;
 
-                    updateGridViewActors();
+                            updateGridViewActors();
 
-                    SelectActor( actor );
+                            SelectActor( actor );
 
-                    groupBindingSource.ResetBindings( false );
+                            groupBindingSource.ResetBindings( false );
+                        }
+                    }
                 }
             }
         }
 
-        private void resurrectToolStripMenuItem_Click( object sender, EventArgs e )
+        private void enableToolStripMenuItem_Click( object sender, EventArgs e )
         {
             Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
-            if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich wiederbeleben?",
-                                 "Model löschen",
+            if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich wiederauferstehen lassen?",
+                                 "Wiederauferstehen",
                                  MessageBoxButtons.OKCancel,
                                  MessageBoxIcon.Warning,
                                  MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
             {
-                if( !actor.Dead )
+                if( !actor.Disabled )
                 {
-                    MessageBox.Show( $"Das Model '{actor.Name}' lebt bereits.",
+                    MessageBox.Show( $"Das Model '{actor.Name}' ist nicht endgültig ausgeschaltet.",
                                      String.Empty,
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Information );
                 }
                 else
                 {
-                    actor.Dead = false;
+                    actor.Disabled = false;
+                    actor.DisabledReason = String.Empty;
 
                     updateGridViewActors();
 

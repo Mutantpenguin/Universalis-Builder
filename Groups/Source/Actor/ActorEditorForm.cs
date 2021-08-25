@@ -16,7 +16,7 @@ namespace Universalis
 
             InitializeComponent();
 
-            if( actor.Dead )
+            if( actor.Disabled )
             {
                 panelMain.Enabled = false;
                 buttonSave.Enabled = false;
@@ -39,6 +39,18 @@ namespace Universalis
             textBoxName.Text = m_actorModified.Name;
 
             textBoxDescription.Text = m_actorModified.Description;
+
+            if( m_actorModified.Disabled )
+            {
+                textBoxDisabledReason.Text = m_actorModified.DisabledReason;
+            }
+            else
+            {
+                var rowStyle = tableLayoutPanelLeft.RowStyles[ 2 ];
+
+                rowStyle.SizeType = SizeType.Absolute;
+                rowStyle.Height = 0;
+            }
 
             updateGridViewWeapons();
             updateGridViewEquipment();

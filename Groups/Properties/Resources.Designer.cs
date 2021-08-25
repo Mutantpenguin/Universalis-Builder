@@ -153,9 +153,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dead_overlay {
+        internal static System.Drawing.Bitmap disabled_overlay {
             get {
-                object obj = ResourceManager.GetObject("dead_overlay", resourceCulture);
+                object obj = ResourceManager.GetObject("disabled_overlay", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
