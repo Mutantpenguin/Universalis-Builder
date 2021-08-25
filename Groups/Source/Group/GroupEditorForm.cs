@@ -36,6 +36,16 @@ namespace Universalis
         private readonly Group m_groupModified;
         private readonly Group m_groupOriginal;
 
+        // grey and "lighter"
+        private readonly ColorMatrix m_colorMatrix = new ColorMatrix( new float[][]
+                            {
+                                new float[] { 0.3f,  0.3f,  0.3f,  0, 0 },
+                                new float[] { 0.59f, 0.59f, 0.59f, 0, 0 },
+                                new float[] { 0.11f, 0.11f, 0.11f, 0, 0 },
+                                new float[] { 0,     0,     0,     1, 0 },
+                                new float[] { 0.25f, 0.25f, 0.25f, 0, 1 }
+                            } );
+
         private void updateGridViewActors()
         {
             actorsBindingSource.DataSource = m_groupModified.ModelList.ToList();
@@ -239,23 +249,13 @@ namespace Universalis
 
                     if( actor.Dead )
                     {
-                        // grey and "lighter"
-                        ColorMatrix colorMatrix = new ColorMatrix( new float[][]
-                        {
-                            new float[] { 0.3f,  0.3f,  0.3f,  0, 0 },
-                            new float[] { 0.59f, 0.59f, 0.59f, 0, 0 },
-                            new float[] { 0.11f, 0.11f, 0.11f, 0, 0 },
-                            new float[] { 0,     0,     0,     1, 0 },
-                            new float[] { 0.25f, 0.25f, 0.25f, 0, 1 }
-                        } );
-
                         var bounds = e.CellBounds;
 
                         var drawRect = new Rectangle( bounds.X + 1, bounds.Y, bounds.Width - 2, bounds.Height - 1 );
 
                         using( ImageAttributes attributes = new ImageAttributes() )
                         {
-                            attributes.SetColorMatrix( colorMatrix );
+                            attributes.SetColorMatrix( m_colorMatrix );
 
                             e.Graphics.DrawImage( actor.Icon, drawRect, 0, 0, actor.Icon.Width, actor.Icon.Height, GraphicsUnit.Pixel, attributes );
                         }
