@@ -28,9 +28,6 @@ namespace Universalis
 
             archetypeBindingSource.DataSource = m_actorModified.Archetype;
 
-            profileBindingSource.DataSource = m_actorModified.Archetype.Profile;
-            attributesBindingSource.DataSource = m_actorModified.Archetype.Profile.Attributes;
-
             pictureBoxFactionIcon.Image = m_actorModified.Archetype.Faction.Icon;
             toolTip.SetToolTip( pictureBoxFactionIcon, m_actorModified.Archetype.Faction.Name );
 
