@@ -135,31 +135,15 @@ namespace Universalis
             {
                 Group group = (Group)dataGridViewGroups.SelectedRows[ 0 ].DataBoundItem;
 
-                if( IsValid( group ) )
+                string filename = group.Name + " - " + DateTime.Now.ToString( "yyyyMMdd_HHmmss" );
+
+                foreach( char c in Path.GetInvalidFileNameChars() )
                 {
-                    string filename = group.Name + " - " + DateTime.Now.ToString( "yyyyMMdd_HHmmss" );
-
-                    foreach( char c in Path.GetInvalidFileNameChars() )
-                    {
-                        filename = filename.Replace( c.ToString(), "" );
-                    }
-
-                    GroupPDFExporter.GeneratePDF( m_universe, group, Path.Combine( Path.GetTempPath(), Path.ChangeExtension( filename, "pdf" ) ) );
+                    filename = filename.Replace( c.ToString(), "" );
                 }
+
+                GroupPDFExporter.GeneratePDF( m_universe, group, Path.Combine( Path.GetTempPath(), Path.ChangeExtension( filename, "pdf" ) ) );
             }
-        }
-
-        private static bool IsValid( Group group )
-        {
-            // TODO can't be deleted anymore, but could be "dead"?
-            if( group.ModelList.Exists( x => x == null ) )
-            {
-                MessageBox.Show( "Mindestens ein Modell wurde gelöscht!" );
-
-                return ( false );
-            }
-
-            return ( true );
         }
 
         private void GroupManagerForm_KeyDown( object sender, KeyEventArgs e )
