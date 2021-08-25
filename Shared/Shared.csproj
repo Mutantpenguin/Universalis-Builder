@@ -67,29 +67,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Source\Fonts\UniversalisFont.cs" />
-    <Compile Include="Source\Forms\GroupTraitSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\GroupTraitSelectionForm.Designer.cs">
-      <DependentUpon>GroupTraitSelectionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Forms\ArchetypeSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\ArchetypeSelectionForm.Designer.cs">
-      <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\Forms\CloneForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Forms\CloneForm.Designer.cs">
       <DependentUpon>CloneForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Forms\EnterNameForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\EnterNameForm.Designer.cs">
-      <DependentUpon>EnterNameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\FactionSelectionForm.cs">
       <SubType>Form</SubType>
@@ -193,17 +175,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\GroupTraitSelectionForm.resx">
-      <DependentUpon>GroupTraitSelectionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\ArchetypeSelectionForm.resx">
-      <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\CloneForm.resx">
       <DependentUpon>CloneForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\EnterNameForm.resx">
-      <DependentUpon>EnterNameForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\FactionSelectionForm.resx">
       <DependentUpon>FactionSelectionForm.cs</DependentUpon>

@@ -157,6 +157,12 @@
     <Compile Include="Source\FactionOverviewForm.Designer.cs">
       <DependentUpon>FactionOverviewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Group\ArchetypeSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Group\ArchetypeSelectionForm.Designer.cs">
+      <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Group\DisabledReasonForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,12 @@
       <DependentUpon>GroupManagerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Group\GroupPDFExporter.cs" />
+    <Compile Include="Source\Group\GroupTraitSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Group\GroupTraitSelectionForm.Designer.cs">
+      <DependentUpon>GroupTraitSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\InfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +221,9 @@
     <EmbeddedResource Include="Source\FactionOverviewForm.resx">
       <DependentUpon>FactionOverviewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Group\ArchetypeSelectionForm.resx">
+      <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Group\DisabledReasonForm.resx">
       <DependentUpon>DisabledReasonForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +238,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Group\GroupTraitSelectionForm.resx">
+      <DependentUpon>GroupTraitSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\InfoForm.resx">
       <DependentUpon>InfoForm.cs</DependentUpon>
