@@ -47,20 +47,20 @@
             this.pictureBoxGroupIcon = new System.Windows.Forms.PictureBox();
             this.dieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resurrectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kopierenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.löschenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButtonActorsAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGroupTraitSelect = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGroupTraitRemove = new System.Windows.Forms.ToolStripButton();
             this.pictureBoxCard = new System.Windows.Forms.PictureBox();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.actorUpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.actorDownDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.actorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.actorIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.actorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actorPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.actorUpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.actorDownDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.actorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -258,10 +258,10 @@
             this.contextMenuStripActor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dieToolStripMenuItem,
             this.resurrectToolStripMenuItem,
-            this.kopierenToolStripMenuItem,
-            this.löschenToolStripMenuItem});
+            this.copyToolStripMenuItem,
+            this.deleteToolStripMenuItem});
             this.contextMenuStripActor.Name = "contextMenuStripActor";
-            this.contextMenuStripActor.Size = new System.Drawing.Size(156, 100);
+            this.contextMenuStripActor.Size = new System.Drawing.Size(183, 122);
             // 
             // toolStrip1
             // 
@@ -407,7 +407,7 @@
             this.dieToolStripMenuItem.Image = global::Universalis.Properties.Resources.coffin;
             this.dieToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.dieToolStripMenuItem.Name = "dieToolStripMenuItem";
-            this.dieToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.dieToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
             this.dieToolStripMenuItem.Text = "Sterben";
             this.dieToolStripMenuItem.Click += new System.EventHandler(this.dieToolStripMenuItem_Click);
             // 
@@ -416,27 +416,27 @@
             this.resurrectToolStripMenuItem.Image = global::Universalis.Properties.Resources.medical_bag;
             this.resurrectToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.resurrectToolStripMenuItem.Name = "resurrectToolStripMenuItem";
-            this.resurrectToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.resurrectToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
             this.resurrectToolStripMenuItem.Text = "Wiederbeleben";
             this.resurrectToolStripMenuItem.Click += new System.EventHandler(this.resurrectToolStripMenuItem_Click);
             // 
-            // kopierenToolStripMenuItem
+            // copyToolStripMenuItem
             // 
-            this.kopierenToolStripMenuItem.Image = global::Universalis.Properties.Resources.copy;
-            this.kopierenToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.kopierenToolStripMenuItem.Name = "kopierenToolStripMenuItem";
-            this.kopierenToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
-            this.kopierenToolStripMenuItem.Text = "Kopieren";
-            this.kopierenToolStripMenuItem.Click += new System.EventHandler(this.kopierenToolStripMenuItem_Click);
+            this.copyToolStripMenuItem.Image = global::Universalis.Properties.Resources.copy;
+            this.copyToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.copyToolStripMenuItem.Text = "Kopieren";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
-            // löschenToolStripMenuItem
+            // deleteToolStripMenuItem
             // 
-            this.löschenToolStripMenuItem.Image = global::Universalis.Properties.Resources.trash;
-            this.löschenToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.löschenToolStripMenuItem.Name = "löschenToolStripMenuItem";
-            this.löschenToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
-            this.löschenToolStripMenuItem.Text = "Löschen";
-            this.löschenToolStripMenuItem.Click += new System.EventHandler(this.löschenToolStripMenuItem_Click);
+            this.deleteToolStripMenuItem.Image = global::Universalis.Properties.Resources.trash;
+            this.deleteToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.deleteToolStripMenuItem.Text = "Löschen";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // toolStripButtonActorsAdd
             // 
@@ -498,13 +498,29 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // actorUpDataGridViewTextBoxColumn
+            // 
+            this.actorUpDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.actorUpDataGridViewTextBoxColumn.HeaderText = "";
+            this.actorUpDataGridViewTextBoxColumn.Name = "actorUpDataGridViewTextBoxColumn";
+            this.actorUpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actorUpDataGridViewTextBoxColumn.Text = "↑";
+            this.actorUpDataGridViewTextBoxColumn.UseColumnTextForButtonValue = true;
+            this.actorUpDataGridViewTextBoxColumn.Width = 15;
+            // 
+            // actorDownDataGridViewTextBoxColumn
+            // 
+            this.actorDownDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.actorDownDataGridViewTextBoxColumn.HeaderText = "";
+            this.actorDownDataGridViewTextBoxColumn.Name = "actorDownDataGridViewTextBoxColumn";
+            this.actorDownDataGridViewTextBoxColumn.ReadOnly = true;
+            this.actorDownDataGridViewTextBoxColumn.Text = "↓";
+            this.actorDownDataGridViewTextBoxColumn.UseColumnTextForButtonValue = true;
+            this.actorDownDataGridViewTextBoxColumn.Width = 15;
+            // 
             // groupBindingSource
             // 
             this.groupBindingSource.DataSource = typeof(Universalis.Group);
-            // 
-            // actorsBindingSource
-            // 
-            this.actorsBindingSource.DataSource = typeof(Universalis.Actor);
             // 
             // actorIconDataGridViewImageColumn
             // 
@@ -535,25 +551,9 @@
             this.actorPointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.actorPointsDataGridViewTextBoxColumn.Width = 50;
             // 
-            // actorUpDataGridViewTextBoxColumn
+            // actorsBindingSource
             // 
-            this.actorUpDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.actorUpDataGridViewTextBoxColumn.HeaderText = "";
-            this.actorUpDataGridViewTextBoxColumn.Name = "actorUpDataGridViewTextBoxColumn";
-            this.actorUpDataGridViewTextBoxColumn.ReadOnly = true;
-            this.actorUpDataGridViewTextBoxColumn.Text = "↑";
-            this.actorUpDataGridViewTextBoxColumn.UseColumnTextForButtonValue = true;
-            this.actorUpDataGridViewTextBoxColumn.Width = 15;
-            // 
-            // actorDownDataGridViewTextBoxColumn
-            // 
-            this.actorDownDataGridViewTextBoxColumn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.actorDownDataGridViewTextBoxColumn.HeaderText = "";
-            this.actorDownDataGridViewTextBoxColumn.Name = "actorDownDataGridViewTextBoxColumn";
-            this.actorDownDataGridViewTextBoxColumn.ReadOnly = true;
-            this.actorDownDataGridViewTextBoxColumn.Text = "↓";
-            this.actorDownDataGridViewTextBoxColumn.UseColumnTextForButtonValue = true;
-            this.actorDownDataGridViewTextBoxColumn.Width = 15;
+            this.actorsBindingSource.DataSource = typeof(Universalis.Actor);
             // 
             // GroupEditorForm
             // 
@@ -638,8 +638,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripActor;
         private System.Windows.Forms.ToolStripMenuItem dieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resurrectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem löschenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem kopierenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.DataGridViewImageColumn actorIconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actorNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actorPointsDataGridViewTextBoxColumn;

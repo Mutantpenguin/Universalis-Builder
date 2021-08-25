@@ -383,13 +383,13 @@ namespace Universalis
                 {
                     dieToolStripMenuItem.Visible = false;
                     resurrectToolStripMenuItem.Visible = true;
-                    kopierenToolStripMenuItem.Visible = false;
+                    copyToolStripMenuItem.Visible = false;
                 }
                 else
                 {
                     dieToolStripMenuItem.Visible = true;
                     resurrectToolStripMenuItem.Visible = false;
-                    kopierenToolStripMenuItem.Visible = true;
+                    copyToolStripMenuItem.Visible = true;
                 }
             }
             else
@@ -475,7 +475,7 @@ namespace Universalis
             }
         }
 
-        private void kopierenToolStripMenuItem_Click( object sender, EventArgs e )
+        private void copyToolStripMenuItem_Click( object sender, EventArgs e )
         {
             Actor actorSource = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
@@ -491,7 +491,7 @@ namespace Universalis
             editActor( actorNew );
         }
 
-        private void löschenToolStripMenuItem_Click( object sender, EventArgs e )
+        private void deleteToolStripMenuItem_Click( object sender, EventArgs e )
         {
             Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
