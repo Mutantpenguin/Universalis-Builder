@@ -391,19 +391,28 @@ namespace Universalis
             }
         }
 
-        private void dataGridViewActors_RowContextMenuStripNeeded( object sender, DataGridViewRowContextMenuStripNeededEventArgs e )
+        private void dataGridViewActors_CellContextMenuStripNeeded( object sender, DataGridViewCellContextMenuStripNeededEventArgs e )
         {
-            Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
-
-            if( actor.Dead )
+            if( e.RowIndex >= 0 && e.ColumnIndex >= 0 )
             {
-                dieToolStripMenuItem.Visible = false;
-                resurrectToolStripMenuItem.Visible = true;
+                e.ContextMenuStrip = contextMenuStripActor;
+
+                Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
+
+                if( actor.Dead )
+                {
+                    dieToolStripMenuItem.Visible = false;
+                    resurrectToolStripMenuItem.Visible = true;
+                }
+                else
+                {
+                    dieToolStripMenuItem.Visible = true;
+                    resurrectToolStripMenuItem.Visible = false;
+                }
             }
             else
             {
-                dieToolStripMenuItem.Visible = true;
-                resurrectToolStripMenuItem.Visible = false;
+                e.ContextMenuStrip = new ContextMenuStrip();
             }
         }
 
