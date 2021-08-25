@@ -246,6 +246,7 @@
     <None Include="Properties\DataSources\Weapon.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\dead_overlay.png" />
     <None Include="Resources\medical-bag.png" />
     <None Include="Resources\coffin.png" />
     <None Include="Resources\refresh.png" />

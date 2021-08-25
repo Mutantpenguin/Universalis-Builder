@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -141,15 +142,22 @@ namespace Universalis
                     m_groupModified.ModelList.Add( actor );
 
                     updateGridViewActors();
+                    
+                    SelectActor( actor );
+                }
+            }
+        }
 
-                    foreach( DataGridViewRow row in dataGridViewActors.Rows )
-                    {
-                        if( actor.ID == ((Actor)row.DataBoundItem).ID )
-                        {
-                            row.Selected = true;
-                            break;
-                        }
-                    }                    
+        private void SelectActor( Actor actor )
+        {
+            dataGridViewActors.ClearSelection();
+
+            foreach( DataGridViewRow row in dataGridViewActors.Rows )
+            {
+                if( actor.ID == ( (Actor)row.DataBoundItem ).ID )
+                {
+                    row.Selected = true;
+                    break;
                 }
             }
         }
@@ -225,17 +233,58 @@ namespace Universalis
 
         private void dataGridViewActors_CellPainting( object sender, DataGridViewCellPaintingEventArgs e )
         {
-            if( e.ColumnIndex == actorNameDataGridViewTextBoxColumn.Index && e.RowIndex != -1 )
+            if( e.RowIndex != -1 )
             {
-                Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
+                if( e.ColumnIndex == actorNameDataGridViewTextBoxColumn.Index )
+                {
+                    Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 
-                if( actor.HasInactiveComposition() )
+                    if( actor.HasInactiveComposition() )
+                    {
+                        e.PaintBackground( e.CellBounds, true );
+                        e.PaintContent( e.CellBounds );
+
+                        Image imgInactiveComposition = Properties.Resources.error_outline;
+                        e.Graphics.DrawImageUnscaled( imgInactiveComposition, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveComposition.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveComposition.Height ) / 2 ) );
+
+                        e.Handled = true;
+                    }
+                }
+                else if( e.ColumnIndex == actorIconDataGridViewImageColumn.Index )
                 {
                     e.PaintBackground( e.CellBounds, true );
-                    e.PaintContent( e.CellBounds );
 
-                    Image imgInactiveComposition = Properties.Resources.error_outline;
-                    e.Graphics.DrawImageUnscaled( imgInactiveComposition, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveComposition.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveComposition.Height ) / 2 ) );
+                    Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
+
+                    if( actor.Dead )
+                    {
+                        // grey and "lighter"
+                        ColorMatrix colorMatrix = new ColorMatrix( new float[][]
+                        {
+                            new float[] { 0.3f,  0.3f,  0.3f,  0, 0 },
+                            new float[] { 0.59f, 0.59f, 0.59f, 0, 0 },
+                            new float[] { 0.11f, 0.11f, 0.11f, 0, 0 },
+                            new float[] { 0,     0,     0,     1, 0 },
+                            new float[] { 0.25f, 0.25f, 0.25f, 0, 1 }
+                        } );
+
+                        var bounds = e.CellBounds;
+
+                        var drawRect = new Rectangle( bounds.X + 1, bounds.Y, bounds.Width - 2, bounds.Height - 1 );
+
+                        using( ImageAttributes attributes = new ImageAttributes() )
+                        {
+                            attributes.SetColorMatrix( colorMatrix );
+
+                            e.Graphics.DrawImage( actor.Icon, drawRect, 0, 0, actor.Icon.Width, actor.Icon.Height, GraphicsUnit.Pixel, attributes );
+                        }
+
+                        e.Graphics.DrawImage( Properties.Resources.dead_overlay, new Rectangle( drawRect.X + ( drawRect.Width / 2 ), drawRect.Y + ( drawRect.Height / 2 ), drawRect.Width / 2, drawRect.Height / 2 ) );
+                    }
+                    else
+                    {
+                        e.PaintContent( e.CellBounds );
+                    }
 
                     e.Handled = true;
                 }
@@ -397,6 +446,8 @@ namespace Universalis
                     actor.Dead = true;
 
                     updateGridViewActors();
+
+                    SelectActor( actor );
                 }
             }
         }
@@ -423,6 +474,8 @@ namespace Universalis
                     actor.Dead = false;
 
                     updateGridViewActors();
+
+                    SelectActor( actor );
                 }
             }
         }
@@ -437,6 +490,8 @@ namespace Universalis
             m_groupModified.ModelList.Add( actorNew );
 
             updateGridViewActors();
+
+            SelectActor( actorNew );
 
             editActor( actorNew );
         }
