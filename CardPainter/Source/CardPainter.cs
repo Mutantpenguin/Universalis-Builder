@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 
@@ -130,7 +131,7 @@ namespace Universalis
                 DrawName( g, actor.Name );
                 DrawFaction( g, actor.Archetype.Faction );
 
-                DrawPicture( g, actor.Img );
+                DrawPicture( g, actor.Img, actor.Disabled );
 
                 DrawAttributes( g, actor );
                 DrawCalculatedAttributes( g, actor );
@@ -214,11 +215,23 @@ namespace Universalis
             g.DrawImage( faction.Icon, rect );
         }
 
-        private static void DrawPicture( Graphics g, Bitmap image )
+        private static void DrawPicture( Graphics g, Bitmap image, bool disabled )
         {
             if( image != null )
             {
-                g.DrawImage( image, SPictureRect );
+                if( disabled )
+                {
+                    using( ImageAttributes attributes = new ImageAttributes() )
+                    {
+                        attributes.SetColorMatrix( ImageHelper.colorMatrixGreyAndLight );
+
+                        g.DrawImage( image, SPictureRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, attributes );
+                    }
+                }
+                else
+                {
+                    g.DrawImage( image, SPictureRect );
+                }
             }
         }
 
