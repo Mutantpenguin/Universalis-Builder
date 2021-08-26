@@ -101,5 +101,15 @@ namespace Universalis
                 return ( image_colorized );
             }
         }
+
+        // grey and "lighter"
+        public static readonly ColorMatrix colorMatrixGreyAndLight = new ColorMatrix( new float[][]
+        {
+            new float[] { 0.3f,  0.3f,  0.3f,  0, 0 },
+            new float[] { 0.59f, 0.59f, 0.59f, 0, 0 },
+            new float[] { 0.11f, 0.11f, 0.11f, 0, 0 },
+            new float[] { 0,     0,     0,     1, 0 },
+            new float[] { 0.25f, 0.25f, 0.25f, 0, 1 }
+        } );
     }
 }
