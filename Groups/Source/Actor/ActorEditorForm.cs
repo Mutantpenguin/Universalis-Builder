@@ -60,6 +60,18 @@ namespace Universalis
             updateFields();
         }
 
+        protected override void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                components?.Dispose();
+                
+                pictureBoxCard.Image?.Dispose();
+            }
+
+            base.Dispose( disposing );
+        }
+
         private void DataGridViewTraits_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewTraits );
@@ -115,6 +127,7 @@ namespace Universalis
 
             if( m_initialized )
             {
+                pictureBoxCard.Image?.Dispose();
                 pictureBoxCard.Image = CardPainter.GetBitmap( m_actorModified );
             }
         }

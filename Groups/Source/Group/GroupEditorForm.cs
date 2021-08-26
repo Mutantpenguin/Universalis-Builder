@@ -33,6 +33,19 @@ namespace Universalis
             updateGridViewActors();
         }
 
+
+        protected override void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                components?.Dispose();
+
+                pictureBoxCard.Image?.Dispose();
+            }
+
+            base.Dispose( disposing );
+        }
+
         private readonly Group m_groupModified;
         private readonly Group m_groupOriginal;
 
@@ -110,10 +123,7 @@ namespace Universalis
 
         private void UpdateCard()
         {
-            if( pictureBoxCard.Image != null )
-            {
-                pictureBoxCard.Image.Dispose();
-            }
+            pictureBoxCard.Image?.Dispose();
 
             if( dataGridViewActors.SelectedRows.Count > 0 )
             {
