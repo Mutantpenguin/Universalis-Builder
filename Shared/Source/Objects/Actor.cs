@@ -552,7 +552,7 @@ namespace Universalis
 
             if( null != TraitsList )
             {
-                if( TraitsList.Exists( x => x.Trait.Active ) )
+                if( TraitsList.Exists( x => !x.Trait.Active ) )
                 {
                     return ( true );
                 }
@@ -560,7 +560,7 @@ namespace Universalis
 
             if( null != WeaponsList )
             {
-                if( WeaponsList.Exists( x => x.Weapon.Active ) )
+                if( WeaponsList.Exists( x => !x.Weapon.Active ) )
                 {
                     return ( true );
                 }
@@ -568,7 +568,7 @@ namespace Universalis
 
             if( null != EquipmentList )
             {
-                if( EquipmentList.Exists( x => x.Equipment.Active ) )
+                if( EquipmentList.Exists( x => !x.Equipment.Active ) )
                 {
                     return ( true );
                 }
