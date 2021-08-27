@@ -181,7 +181,7 @@ namespace Universalis
 
                 string toolTipText = String.Empty;
 
-                if( !actor.Disabled )
+                if( actor.Disabled )
                 {
                     toolTipText += "Ist tot und kann nicht mehr verwendet werden!";
                 }
