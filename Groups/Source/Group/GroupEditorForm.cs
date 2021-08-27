@@ -188,7 +188,7 @@ namespace Universalis
 
                 if( actor.HasInactiveComposition() )
                 {
-                    toolTipText += "Inaktive Ausstattung vorhanden!";
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Inaktive Ausstattung vorhanden!";
                 }
 
                 if( !String.IsNullOrEmpty( actor.Description ) )
