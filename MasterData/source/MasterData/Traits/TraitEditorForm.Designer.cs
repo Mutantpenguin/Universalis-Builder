@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.numericUpDownAP = new System.Windows.Forms.NumericUpDown();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.checkBoxUseOnce = new System.Windows.Forms.CheckBox();
@@ -53,9 +54,16 @@
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panelProfileModifier = new System.Windows.Forms.Panel();
+            this.textBoxProfileModifier = new System.Windows.Forms.TextBox();
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonProfileMod = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButtonProfileModEditor = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -63,7 +71,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
+            this.panel5.SuspendLayout();
+            this.panelProfileModifier.SuspendLayout();
+            this.toolStrip4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -106,6 +116,10 @@
             this.numericUpDownAP.Size = new System.Drawing.Size(39, 20);
             this.numericUpDownAP.TabIndex = 38;
             this.numericUpDownAP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // textBoxPoints
             // 
@@ -188,7 +202,7 @@
             this.panel3.Controls.Add(this.textBoxDescription);
             this.panel3.Controls.Add(this.toolStrip1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 265);
+            this.panel3.Location = new System.Drawing.Point(0, 345);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(434, 187);
             this.panel3.TabIndex = 0;
@@ -225,9 +239,9 @@
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Controls.Add(this.toolStrip2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 90);
+            this.panel4.Location = new System.Drawing.Point(0, 144);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(434, 175);
+            this.panel4.Size = new System.Drawing.Size(434, 201);
             this.panel4.TabIndex = 1;
             // 
             // panel2
@@ -238,7 +252,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(434, 150);
+            this.panel2.Size = new System.Drawing.Size(434, 176);
             this.panel2.TabIndex = 1;
             // 
             // label12
@@ -260,7 +274,7 @@
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRules.Size = new System.Drawing.Size(428, 115);
+            this.textBoxRules.Size = new System.Drawing.Size(428, 141);
             this.textBoxRules.TabIndex = 0;
             // 
             // numericUpDownAdditionalPoints
@@ -319,16 +333,84 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
-            // traitBindingSource
+            // panel5
             // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
+            this.panel5.AutoSize = true;
+            this.panel5.Controls.Add(this.panelProfileModifier);
+            this.panel5.Controls.Add(this.toolStrip4);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 90);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(434, 54);
+            this.panel5.TabIndex = 3;
+            // 
+            // panelProfileModifier
+            // 
+            this.panelProfileModifier.AutoSize = true;
+            this.panelProfileModifier.Controls.Add(this.textBoxProfileModifier);
+            this.panelProfileModifier.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProfileModifier.Location = new System.Drawing.Point(0, 25);
+            this.panelProfileModifier.Name = "panelProfileModifier";
+            this.panelProfileModifier.Padding = new System.Windows.Forms.Padding(5);
+            this.panelProfileModifier.Size = new System.Drawing.Size(434, 29);
+            this.panelProfileModifier.TabIndex = 47;
+            // 
+            // textBoxProfileModifier
+            // 
+            this.textBoxProfileModifier.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxProfileModifier.Location = new System.Drawing.Point(6, 8);
+            this.textBoxProfileModifier.Name = "textBoxProfileModifier";
+            this.textBoxProfileModifier.ReadOnly = true;
+            this.textBoxProfileModifier.Size = new System.Drawing.Size(472, 13);
+            this.textBoxProfileModifier.TabIndex = 45;
+            // 
+            // toolStrip4
+            // 
+            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonProfileMod,
+            this.toolStripLabel3,
+            this.toolStripButtonProfileModEditor});
+            this.toolStrip4.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip4.Name = "toolStrip4";
+            this.toolStrip4.Size = new System.Drawing.Size(434, 25);
+            this.toolStrip4.TabIndex = 0;
+            this.toolStrip4.Text = "toolStrip4";
+            // 
+            // toolStripButtonProfileMod
+            // 
+            this.toolStripButtonProfileMod.CheckOnClick = true;
+            this.toolStripButtonProfileMod.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonProfileMod.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.toolStripButtonProfileMod.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonProfileMod.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonProfileMod.Name = "toolStripButtonProfileMod";
+            this.toolStripButtonProfileMod.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonProfileMod.Click += new System.EventHandler(this.toolStripButtonProfileMod_Click);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(115, 22);
+            this.toolStripLabel3.Text = "Profil-Modifikatoren";
+            // 
+            // toolStripButtonProfileModEditor
+            // 
+            this.toolStripButtonProfileModEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonProfileModEditor.Image = global::Universalis.Properties.Resources.pencil;
+            this.toolStripButtonProfileModEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonProfileModEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonProfileModEditor.Name = "toolStripButtonProfileModEditor";
+            this.toolStripButtonProfileModEditor.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonProfileModEditor.Text = "editieren";
+            this.toolStripButtonProfileModEditor.Click += new System.EventHandler(this.toolStripButtonProfileModEditor_Click);
             // 
             // TraitEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 452);
+            this.ClientSize = new System.Drawing.Size(434, 532);
             this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip3);
@@ -341,6 +423,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -354,7 +437,12 @@
             this.toolStrip2.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panelProfileModifier.ResumeLayout(false);
+            this.panelProfileModifier.PerformLayout();
+            this.toolStrip4.ResumeLayout(false);
+            this.toolStrip4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,5 +475,12 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown numericUpDownAP;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panelProfileModifier;
+        private System.Windows.Forms.TextBox textBoxProfileModifier;
+        private System.Windows.Forms.ToolStrip toolStrip4;
+        private System.Windows.Forms.ToolStripButton toolStripButtonProfileMod;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.ToolStripButton toolStripButtonProfileModEditor;
     }
 }

@@ -13,12 +13,26 @@ namespace Universalis
 
             m_originalTrait = trait;
 
-            Trait modifiedTrait = new Trait( trait );
+            m_modifiedTrait = new Trait( trait );
 
-            traitBindingSource.DataSource = modifiedTrait;
+            traitBindingSource.DataSource = m_modifiedTrait;
+
+            if( null != m_modifiedTrait.ProfileModifier )
+            {
+                toolStripButtonProfileMod.Checked = true;
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
+
+                textBoxProfileModifier.Text = m_modifiedTrait.ProfileModifier.ToString();
+            }
+            else
+            {
+                toolStripButtonProfileModEditor.Enabled = false;
+                panelProfileModifier.Visible = false;
+            }
         }
 
         private readonly Trait m_originalTrait;
+        private Trait m_modifiedTrait;
 
         private bool mandatoryFieldsFilled()
         {
@@ -96,6 +110,56 @@ namespace Universalis
             if( e.KeyCode == Keys.Escape )
             {
                 this.Close();
+            }
+        }
+
+        private void toolStripButtonProfileMod_Click( object sender, EventArgs e )
+        {
+            if( toolStripButtonProfileMod.Checked )
+            {
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
+
+                var profileModifier = new ProfileModifier();
+
+                m_modifiedTrait.ProfileModifier = profileModifier;
+
+                toolStripButtonProfileModEditor.Enabled = true;
+                panelProfileModifier.Visible = true;
+
+                openProfileModEditor();
+            }
+            else
+            {
+                toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box_uncheck;
+
+                m_modifiedTrait.ProfileModifier = null;
+
+                toolStripButtonProfileModEditor.Enabled = false;
+                panelProfileModifier.Visible = false;
+
+                textBoxProfileModifier.Text = String.Empty;
+
+                traitBindingSource.ResetBindings( false );
+            }
+        }
+
+        private void toolStripButtonProfileModEditor_Click( object sender, EventArgs e )
+        {
+            openProfileModEditor();
+        }
+
+        private void openProfileModEditor()
+        {
+            var trait = (Trait)traitBindingSource.DataSource;
+
+            using( var profileModifierEditor = new ProfileModifierEditor( trait.ProfileModifier ) )
+            {
+                if( profileModifierEditor.ShowDialog( this ) == DialogResult.OK )
+                {
+                    trait.ProfileModifier = profileModifierEditor.ProfileModifier;
+                    textBoxProfileModifier.Text = trait.ProfileModifier.ToString();
+                    traitBindingSource.ResetBindings( false );
+                }
             }
         }
     }
