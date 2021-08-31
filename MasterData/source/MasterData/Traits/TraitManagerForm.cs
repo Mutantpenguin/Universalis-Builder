@@ -174,5 +174,10 @@ namespace Universalis
                 editTrait( (Trait)dataGridViewTraits.CurrentRow.DataBoundItem );
             }
         }
+
+        private void dataGridViewTraits_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewTraits );
+        }
     }
 }
