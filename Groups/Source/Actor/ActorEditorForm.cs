@@ -464,7 +464,7 @@ namespace Universalis
         {
             if( e.RowIndex > -1 )
             {
-                Trait trait = ( (Actor.ActorTrait)dataGridViewWeapons.Rows[ e.RowIndex ].DataBoundItem ).Trait;
+                Trait trait = ( (Actor.ActorTrait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem ).Trait;
 
                 string traitString = trait.ToString();
 
