@@ -273,6 +273,7 @@
     <None Include="Properties\DataSources\Weapon.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\baseline_image_search_black_24dp.png" />
     <None Include="Resources\disabled_overlay.png" />
     <None Include="Resources\medical-bag.png" />
     <None Include="Resources\coffin.png" />

@@ -83,6 +83,16 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap baseline_image_search_black_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_image_search_black_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baseline_info_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_info_black_24dp", resourceCulture);
