@@ -226,10 +226,10 @@ namespace Universalis
 #region weapons
         private void updateGridViewWeapons()
         {
-            actorWeaponBindingSource.DataSource = m_actorModified.WeaponsList.OrderBy( x => x.Weapon.Class )
-                                                                             .ThenBy( x => x.Weapon.RangeSort )
-                                                                             .ThenBy( x => x.Weapon.Name )
-                                                                             .ToList();
+            actorWeaponBindingSource.DataSource = m_actorModified.WeaponList.OrderBy( x => x.Weapon.Class )
+                                                                            .ThenBy( x => x.Weapon.RangeSort )
+                                                                            .ThenBy( x => x.Weapon.Name )
+                                                                            .ToList();
             dataGridViewWeapons.ClearSelection();
         }
 
@@ -243,7 +243,7 @@ namespace Universalis
                     {
                         foreach( Weapon weapon in addWeaponToActor.SelectedWeapons )
                         {
-                            m_actorModified.WeaponsList.Add( new Actor.ActorWeapon
+                            m_actorModified.WeaponList.Add( new Actor.ActorWeapon
                             {
                                 Weapon = weapon
                             } );
@@ -261,7 +261,7 @@ namespace Universalis
             if( dataGridViewWeapons.SelectedRows.Count > 0 )
             {
                 var weapon = (Actor.ActorWeapon)dataGridViewWeapons.Rows[ dataGridViewWeapons.SelectedRows[ 0 ].Index ].DataBoundItem;
-                m_actorModified.WeaponsList.Remove( weapon );
+                m_actorModified.WeaponList.Remove( weapon );
 
                 updateGridViewWeapons();
                 updateFields();
@@ -317,17 +317,17 @@ namespace Universalis
 #region traits
         private void updateGridViewTraits()
         {
-            actorTraitBindingSource.DataSource = m_actorModified.TraitsList.OrderBy( x => x.Trait.Name )
-                                                                           .ToList();
+            actorTraitBindingSource.DataSource = m_actorModified.TraitList.OrderBy( x => x.Trait.Name )
+                                                                          .ToList();
 
             dataGridViewTraits.ClearSelection();
         }
 
         private void toolStripButtonTraitAdd_Click( object sender, EventArgs e )
         {
-            List<Trait> traitList = m_actorModified.TraitsList.Select( x => x.Trait )
-                                                              .Distinct()
-                                                              .ToList();
+            List<Trait> traitList = m_actorModified.TraitList.Select( x => x.Trait )
+                                                             .Distinct()
+                                                             .ToList();
 
             using( AddTraitToActorForm addTraitToActor = new AddTraitToActorForm( traitList ) )
             {
@@ -337,7 +337,7 @@ namespace Universalis
                     {
                         foreach( Trait trait in addTraitToActor.SelectedTraits )
                         {
-                            m_actorModified.TraitsList.Add( new Actor.ActorTrait
+                            m_actorModified.TraitList.Add( new Actor.ActorTrait
                             {
                                 Trait = trait
                             } );
@@ -355,7 +355,7 @@ namespace Universalis
             if( dataGridViewTraits.SelectedRows.Count > 0 )
             {
                 var trait = (Actor.ActorTrait)dataGridViewTraits.Rows[ dataGridViewTraits.SelectedRows[ 0 ].Index ].DataBoundItem;
-                m_actorModified.TraitsList.Remove( trait );
+                m_actorModified.TraitList.Remove( trait );
 
                 updateGridViewTraits();
                 updateFields();

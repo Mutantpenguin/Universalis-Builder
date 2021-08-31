@@ -70,9 +70,9 @@ namespace Universalis
                 return ( false );
             }
 
-            if( WeaponsList.Except( actor.WeaponsList ).Any()
+            if( WeaponList.Except( actor.WeaponList ).Any()
                 ||
-                actor.WeaponsList.Except( WeaponsList ).Any() )
+                actor.WeaponList.Except( WeaponList ).Any() )
             {
                 return ( false );
             }
@@ -84,9 +84,9 @@ namespace Universalis
                 return ( false );
             }
 
-            if( TraitsList.Except( actor.TraitsList ).Any()
+            if( TraitList.Except( actor.TraitList ).Any()
                 ||
-                actor.TraitsList.Except( TraitsList ).Any() )
+                actor.TraitList.Except( TraitList ).Any() )
             {
                 return ( false );
             }
@@ -119,18 +119,18 @@ namespace Universalis
 
             Img = actor.Img;
 
-            if( null != WeaponsList )
+            if( null != WeaponList )
             {
-                WeaponsList.Clear();
+                WeaponList.Clear();
             }
             else
             {
-                WeaponsList = new List<ActorWeapon>();
+                WeaponList = new List<ActorWeapon>();
             }
 
-            if( null != actor.WeaponsList )
+            if( null != actor.WeaponList )
             {
-                WeaponsList.AddRange( actor.WeaponsList );
+                WeaponList.AddRange( actor.WeaponList );
             }
 
             if( null != EquipmentList )
@@ -149,18 +149,18 @@ namespace Universalis
 
             Armor = actor.Armor;
 
-            if( null != TraitsList )
+            if( null != TraitList )
             {
-                TraitsList.Clear();
+                TraitList.Clear();
             }
             else
             {
-                TraitsList = new List<ActorTrait>();
+                TraitList = new List<ActorTrait>();
             }
 
-            if( null != actor.TraitsList )
+            if( null != actor.TraitList )
             {
-                TraitsList.AddRange( actor.TraitsList );
+                TraitList.AddRange( actor.TraitList );
             }
         }
 
@@ -240,13 +240,13 @@ namespace Universalis
             set;
         }
 
-        public List<ActorTrait> TraitsList
+        public List<ActorTrait> TraitList
         {
             get;
             set;
         } = new List<ActorTrait>();
 
-        public List<ActorWeapon> WeaponsList
+        public List<ActorWeapon> WeaponList
         {
             get;
             set;
@@ -394,7 +394,7 @@ namespace Universalis
         {
             float loadoutWeight = 0.0f;
 
-            loadoutWeight += WeaponsList.Sum( x => x.Weapon.Weight );
+            loadoutWeight += WeaponList.Sum( x => x.Weapon.Weight );
             loadoutWeight += EquipmentList.Sum( x => x.Equipment.Weight );
 
             if( null != Armor )
@@ -488,10 +488,10 @@ namespace Universalis
                     points += Armor.Points;
                 }
 
-                if( null != TraitsList )
+                if( null != TraitList )
                 {
-                    var positiveTraits = TraitsList.Where( x => x.Trait.Points >= 0 );
-                    var negativeTraits = TraitsList.Where( x => x.Trait.Points < 0 );
+                    var positiveTraits = TraitList.Where( x => x.Trait.Points >= 0 );
+                    var negativeTraits = TraitList.Where( x => x.Trait.Points < 0 );
 
                     float positiveTraitsPoints = positiveTraits.Sum( x => x.Trait.Points );
                     float negativeTraitsPoints = negativeTraits.Sum( x => x.Trait.Points );
@@ -503,9 +503,9 @@ namespace Universalis
                     points += (int)positiveTraitsPoints + (int)negativeTraitsPoints;
                 }
 
-                if( null != WeaponsList )
+                if( null != WeaponList )
                 {
-                    points += WeaponsList.Sum( x => x.Weapon.Points );
+                    points += WeaponList.Sum( x => x.Weapon.Points );
                 }
 
                 if( null != EquipmentList )
@@ -527,7 +527,7 @@ namespace Universalis
                 modifier.Add( Armor.ProfileModifier );
             }
 
-            foreach( ActorWeapon actorWeapon in WeaponsList.Where( x => !x.Weapon.UseOnce ) )
+            foreach( ActorWeapon actorWeapon in WeaponList.Where( x => !x.Weapon.UseOnce ) )
             {
                 modifier.Add( actorWeapon.Weapon.ProfileModifier );
             }
@@ -537,7 +537,7 @@ namespace Universalis
                 modifier.Add( actorEquipment.Equipment.ProfileModifier );
             }
 
-            foreach( ActorTrait actorTrait in TraitsList.Where( x => !x.Trait.UseOnce ) )
+            foreach( ActorTrait actorTrait in TraitList.Where( x => !x.Trait.UseOnce ) )
             {
                 modifier.Add( actorTrait.Trait.ProfileModifier );
             }
@@ -555,17 +555,17 @@ namespace Universalis
                 }
             }
 
-            if( null != TraitsList )
+            if( null != TraitList )
             {
-                if( TraitsList.Exists( x => !x.Trait.Active ) )
+                if( TraitList.Exists( x => !x.Trait.Active ) )
                 {
                     return ( true );
                 }
             }
 
-            if( null != WeaponsList )
+            if( null != WeaponList )
             {
-                if( WeaponsList.Exists( x => !x.Weapon.Active ) )
+                if( WeaponList.Exists( x => !x.Weapon.Active ) )
                 {
                     return ( true );
                 }

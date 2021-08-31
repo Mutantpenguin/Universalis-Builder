@@ -301,10 +301,10 @@ namespace Universalis
 
                 List<flipsideBlock> flipsideBlocks = new List<flipsideBlock>();
 
-                foreach( var trait in actor.TraitsList.Select( x => x.Trait )
-                                                      .Distinct()
-                                                      .Where( x => !String.IsNullOrEmpty( x.ToString() ) )
-                                                      .OrderBy( x => x.Name ) )
+                foreach( var trait in actor.TraitList.Select( x => x.Trait )
+                                                     .Distinct()
+                                                     .Where( x => !String.IsNullOrEmpty( x.ToString() ) )
+                                                     .OrderBy( x => x.Name ) )
                 {
                     flipsideBlocks.Add( new flipsideBlock() { Name = trait.Name, Rules = trait.ToString() } );
                 }
@@ -316,10 +316,10 @@ namespace Universalis
                     flipsideBlocks.Add( new flipsideBlock() { Name = actor.Armor.Name, Rules = actor.Armor.Rules } );
                 }
 
-                foreach( Weapon weapon in actor.WeaponsList.Select( x => x.Weapon )
-                                                           .Distinct()
-                                                           .Where( x => !String.IsNullOrEmpty( x.ToString() ) )
-                                                           .OrderBy( x => x.Name ) )
+                foreach( Weapon weapon in actor.WeaponList.Select( x => x.Weapon )
+                                                          .Distinct()
+                                                          .Where( x => !String.IsNullOrEmpty( x.ToString() ) )
+                                                          .OrderBy( x => x.Name ) )
                 {
                     flipsideBlocks.Add( new flipsideBlock() { Name = weapon.Name, Rules = weapon.ToString() } );
                 }
@@ -442,9 +442,9 @@ namespace Universalis
 
             foreach( var damageEffect in MasterDataStorage.DamageEffect.DamageEffects.OrderBy( x => x.Name ) )
             {
-                if( p_group.ModelList.Exists( x => !x.Disabled && ( x.WeaponsList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
-                                                              ||
-                                                              ( ( x.Armor != null ) && x.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) ) ) )
+                if( p_group.ModelList.Exists( x => !x.Disabled && ( x.WeaponList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
+                                                                  ||
+                                                                  ( ( x.Armor != null ) && x.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) ) ) )
                 {
                     damageEffectsToPrint.Add( damageEffect );
                 }
