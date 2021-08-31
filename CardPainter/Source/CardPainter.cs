@@ -38,7 +38,6 @@ namespace Universalis
         private static readonly Font Font0Dot35 = new Font( UniversalisFont.Family, CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
         private static readonly Font FontStandard = Font0Dot35;
-        private static readonly Font FontStandardSmall = Font0Dot2;
         private static readonly Font FontName = Font0Dot3;
         private static readonly Font FontNameSmall = Font0Dot2;
         private static readonly Font FontSize = Font0Dot3;
@@ -280,7 +279,7 @@ namespace Universalis
             // WB - Wahrnehmungsbereich
             g.DrawImage( Properties.Resources.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
 
-            string fovAndModWbString = $"{(int)actor.Archetype.Profile.Fov}°/{actor.ModAreaOfPerception()}cm";
+            string fovAndModWbString = $"{(int)actor.Archetype.Profile.Fov}°/{actor.ModAreaOfPerception()}";
             Size fovAndModWbSize = g.MeasureString( fovAndModWbString, FontStandard ).ToSize();
             Helpers.DrawStringCentered( g, fovAndModWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
 
@@ -289,7 +288,7 @@ namespace Universalis
             if( dangerArea.HasValue )
             {
                 g.DrawImage( Properties.Resources.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
-                Helpers.DrawStringCentered( g, $"{dangerArea.Value}cm", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
+                Helpers.DrawStringCentered( g, dangerArea.Value.ToString(), FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
             }
         }
 
@@ -523,7 +522,7 @@ namespace Universalis
 
             g.DrawImage( img, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
 
-            Helpers.DrawStringCentered( g, $"{BW}cm", FontStandardSmall, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, movementStringWidth, SLineHeight ) );
+            Helpers.DrawStringCentered( g, BW.ToString(), FontStandard, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, movementStringWidth, SLineHeight ) );
 
             g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );
 
