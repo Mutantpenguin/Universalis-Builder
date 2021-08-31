@@ -537,6 +537,11 @@ namespace Universalis
                 modifier.Add( actorEquipment.Equipment.ProfileModifier );
             }
 
+            foreach( ActorTrait actorTrait in TraitsList.Where( x => !x.Trait.UseOnce ) )
+            {
+                modifier.Add( actorTrait.Trait.ProfileModifier );
+            }
+
             return ( modifier );
         }
 
