@@ -121,5 +121,10 @@ namespace Universalis
                 e.Handled = true;
             }
         }
+
+        private void dataGridViewTraits_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewTraits );
+        }
     }
 }
