@@ -592,7 +592,7 @@ namespace Universalis
 
             Weapon weaponUnarmed = null;
 
-            if( actor.WeaponList.FirstOrDefault( s => s.Weapon.Type == Weapon.EType.Nahkampf ) == null )
+            if( !actor.WeaponList.Any( s => s.Weapon.Type == Weapon.EType.Nahkampf ) )
             {
                 weaponUnarmed = actor.WeaponUnarmed();
             }
