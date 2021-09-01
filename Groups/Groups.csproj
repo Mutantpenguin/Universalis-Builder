@@ -255,7 +255,6 @@
     <None Include="Properties\DataSources\Armor.datasource" />
     <None Include="Properties\DataSources\AttributeModifier.datasource" />
     <None Include="Properties\DataSources\Trait.datasource" />
-    <None Include="Properties\DataSources\Actor.ActorEquipment.datasource" />
     <None Include="Properties\DataSources\Actor.ActorWeapon.datasource" />
     <None Include="Properties\DataSources\Actor.datasource" />
     <None Include="Properties\DataSources\Equipment.datasource" />

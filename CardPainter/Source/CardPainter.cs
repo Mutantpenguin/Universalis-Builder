@@ -845,19 +845,19 @@ namespace Universalis
             }
         }
 
-        private static int DrawEquipment( Graphics g, List<Actor.ActorEquipment> actorEquipmentList, int posY )
+        private static int DrawEquipment( Graphics g, List<Equipment> equipmentList, int posY )
         {
-            var equipList = actorEquipmentList.GroupBy( x => x.Equipment.ID )
-                                              .Select( x => new { equipment = MasterDataStorage.Equipment.Get( x.Key ), count = x.Count() } )
-                                              .Where( x => ( x.equipment.AP > 0 )
-                                                           ||
-                                                           ( x.equipment.UseOnce )
-                                                           ||
-                                                           ( x.equipment.Unwieldy )
-                                                           ||
-                                                           ( !String.IsNullOrEmpty( x.equipment.Rules ) ) )
-                                              .OrderBy( x => x.equipment.Name )
-                                              .ToList();
+            var equipList = equipmentList.GroupBy( x => x )
+                                         .Select( x => new { equipment = x.Key, count = x.Count() } )
+                                         .Where( x => ( x.equipment.AP > 0 )
+                                                      ||
+                                                      ( x.equipment.UseOnce )
+                                                      ||
+                                                      ( x.equipment.Unwieldy )
+                                                      ||
+                                                      ( !String.IsNullOrEmpty( x.equipment.Rules ) ) )
+                                         .OrderBy( x => x.equipment.Name )
+                                         .ToList();
 
             if( equipList.Count > 0 )
             {

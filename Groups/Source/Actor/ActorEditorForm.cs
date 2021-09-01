@@ -272,7 +272,7 @@ namespace Universalis
 #region equipment
         private void updateGridViewEquipment()
         {
-            actorEquipmentBindingSource.DataSource = m_actorModified.EquipmentList.OrderBy( x => x.Equipment.Name )
+            actorEquipmentBindingSource.DataSource = m_actorModified.EquipmentList.OrderBy( x => x.Name )
                                                                                   .ToList();
 
             dataGridViewEquipment.ClearSelection();
@@ -288,10 +288,7 @@ namespace Universalis
                     {
                         foreach( Equipment equipment in addEquipmentToActor.SelectedEquipment )
                         {
-                            m_actorModified.EquipmentList.Add( new Actor.ActorEquipment
-                            {
-                                Equipment = equipment
-                            } );
+                            m_actorModified.EquipmentList.Add( equipment );
                         }
 
                         updateGridViewEquipment();
@@ -305,7 +302,7 @@ namespace Universalis
         {
             if( dataGridViewEquipment.SelectedRows.Count > 0 )
             {
-                var equipment = (Actor.ActorEquipment)dataGridViewEquipment.Rows[ dataGridViewEquipment.SelectedRows[ 0 ].Index ].DataBoundItem;
+                var equipment = (Equipment)dataGridViewEquipment.Rows[ dataGridViewEquipment.SelectedRows[ 0 ].Index ].DataBoundItem;
                 m_actorModified.EquipmentList.Remove( equipment );
 
                 updateGridViewEquipment();
@@ -533,7 +530,7 @@ namespace Universalis
         {
             if( e.RowIndex > -1 )
             {
-                Equipment equipment = ( (Actor.ActorEquipment)dataGridViewEquipment.Rows[ e.RowIndex ].DataBoundItem ).Equipment;
+                var equipment = (Equipment)dataGridViewEquipment.Rows[ e.RowIndex ].DataBoundItem;
 
                 string equipmentString = equipment.ToString();
 
@@ -623,7 +620,7 @@ namespace Universalis
 
         private void dataGridViewEquipment_RowPrePaint( object sender, DataGridViewRowPrePaintEventArgs e )
         {
-            var equipment = ((Actor.ActorEquipment)dataGridViewEquipment.Rows[ e.RowIndex ].DataBoundItem ).Equipment;
+            var equipment = (Equipment)dataGridViewEquipment.Rows[ e.RowIndex ].DataBoundItem;
 
             if( !equipment.Active )
             {

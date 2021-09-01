@@ -139,7 +139,7 @@ namespace Universalis
             }
             else
             {
-                EquipmentList = new List<ActorEquipment>();
+                EquipmentList = new List<Equipment>();
             }
 
             if( null != actor.EquipmentList )
@@ -221,16 +221,6 @@ namespace Universalis
             }
         }
 
-        public class ActorEquipment
-        {
-            [JsonConverter( typeof( JsonActorEquipmentConverter ) )]
-            public Equipment Equipment
-            {
-                get;
-                set;
-            }
-        }
-
         #region members
 
         [JsonConverter( typeof( JsonArmorConverter ) )]
@@ -252,11 +242,12 @@ namespace Universalis
             set;
         } = new List<ActorWeapon>();
 
-        public List<ActorEquipment> EquipmentList
+        [JsonConverter( typeof( JsonEquipmentListConverter ) )]
+        public List<Equipment> EquipmentList
         {
             get;
             set;
-        } = new List<ActorEquipment>();
+        } = new List<Equipment>();
 
         [JsonConverter( typeof( JsonArchetypeConverter ) )]
         public Archetype Archetype
@@ -395,7 +386,7 @@ namespace Universalis
             float loadoutWeight = 0.0f;
 
             loadoutWeight += WeaponList.Sum( x => x.Weapon.Weight );
-            loadoutWeight += EquipmentList.Sum( x => x.Equipment.Weight );
+            loadoutWeight += EquipmentList.Sum( x => x.Weight );
 
             if( null != Armor )
             {
@@ -510,7 +501,7 @@ namespace Universalis
 
                 if( null != EquipmentList )
                 {
-                    points += EquipmentList.Sum( x => x.Equipment.Points );
+                    points += EquipmentList.Sum( x => x.Points );
                 }
 
                 return ( points );
@@ -532,9 +523,9 @@ namespace Universalis
                 modifier.Add( actorWeapon.Weapon.ProfileModifier );
             }
 
-            foreach( ActorEquipment actorEquipment in EquipmentList.Where( x => !x.Equipment.UseOnce ) )
+            foreach( Equipment equipment in EquipmentList.Where( x => !x.UseOnce ) )
             {
-                modifier.Add( actorEquipment.Equipment.ProfileModifier );
+                modifier.Add( equipment.ProfileModifier );
             }
 
             foreach( ActorTrait actorTrait in TraitList.Where( x => !x.Trait.UseOnce ) )
@@ -573,7 +564,7 @@ namespace Universalis
 
             if( null != EquipmentList )
             {
-                if( EquipmentList.Exists( x => !x.Equipment.Active ) )
+                if( EquipmentList.Exists( x => !x.Active ) )
                 {
                     return ( true );
                 }
