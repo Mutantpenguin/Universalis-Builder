@@ -291,6 +291,11 @@ namespace Universalis
             return ( Archetype.Profile.ModHitZoneHitPoints( CurrentProfileModifier() ) );
         }
 
+        public int ModCritThresholdModifier()
+        {
+            return ( CurrentProfileModifier().CritThreshold );
+        }
+
         public int? ModAGI()
         {
             if( this.Archetype.Profile.Type == Profile.EType.Drohne )

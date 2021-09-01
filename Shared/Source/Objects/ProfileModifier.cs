@@ -15,6 +15,7 @@ namespace Universalis
         {
             Speed = profileModifier.Speed;
             HitPoints = profileModifier.HitPoints;
+            CritThreshold = profileModifier.CritThreshold;
 
             AttributeModifier = new AttributeModifier( profileModifier.AttributeModifier );
         }
@@ -28,7 +29,9 @@ namespace Universalis
 
             if( Speed != profileModifier.Speed
                 ||
-                HitPoints != profileModifier.HitPoints )
+                HitPoints != profileModifier.HitPoints
+                ||
+                CritThreshold != profileModifier.CritThreshold )
             {
                 return ( false );
             }
@@ -53,6 +56,12 @@ namespace Universalis
             set;
         }
 
+        public int CritThreshold
+        {
+            get;
+            set;
+        }
+
         public AttributeModifier AttributeModifier
         {
             get;
@@ -65,6 +74,7 @@ namespace Universalis
             {
                 Speed += modifier.Speed;
                 HitPoints += modifier.HitPoints;
+                CritThreshold += modifier.CritThreshold;
 
                 AttributeModifier.Add( modifier.AttributeModifier );
             }
@@ -76,6 +86,8 @@ namespace Universalis
 
             points += Speed * Convert.ToInt32( Costs.Speed * Costs.ModifierSurcharge );
             points += HitPoints * Convert.ToInt32( Costs.HitPoints * Costs.ModifierSurcharge );
+            
+            points += CritThreshold * Costs.Crit;
 
             if( AttributeModifier != null )
             {
@@ -99,6 +111,11 @@ namespace Universalis
                 text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"TP {Formatter.Modifier( HitPoints )}";
             }
 
+            if( CritThreshold != 0 )
+            {
+                text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"KS {Formatter.Modifier( CritThreshold )}";
+            }
+
             if( AttributeModifier != null )
             {
                 string profileModifierString = AttributeModifier.ToString();
@@ -117,5 +134,8 @@ namespace Universalis
 
         [JsonIgnore]
         public string HitPointsString => Formatter.Modifier( HitPoints );
+
+        [JsonIgnore]
+        public string CritThresholdString => Formatter.Modifier( CritThreshold );
     }
 }

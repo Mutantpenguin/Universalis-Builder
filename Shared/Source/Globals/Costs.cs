@@ -18,6 +18,7 @@ namespace Universalis
         // Actor
         public const int Speed = 10;
         public const int HitPoints = 15;
+        public const int Crit = 15;
 
         public const int FOV = 2;
 
