@@ -31,11 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxWeight = new System.Windows.Forms.TextBox();
-            this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -59,7 +57,6 @@
             this.tableLayoutPanelAttribMods = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.numericUpDownAGI = new System.Windows.Forms.NumericUpDown();
-            this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.numericUpDownHTH = new System.Windows.Forms.NumericUpDown();
@@ -87,9 +84,14 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
+            this.textBoxTragkraft = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label14 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HitPoints)).BeginInit();
@@ -99,7 +101,6 @@
             this.tableLayoutPanelAttribMods.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHTH)).BeginInit();
             this.panel7.SuspendLayout();
@@ -113,6 +114,9 @@
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -120,14 +124,12 @@
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.textBoxPoints);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBoxWeight);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(484, 65);
+            this.panel1.Size = new System.Drawing.Size(484, 39);
             this.panel1.TabIndex = 1;
             // 
             // textBoxPoints
@@ -140,10 +142,6 @@
             this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
             this.textBoxPoints.TabIndex = 38;
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
             // 
             // label2
             // 
@@ -159,7 +157,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 45);
+            this.label3.Location = new System.Drawing.Point(267, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 36;
@@ -169,16 +167,12 @@
             // 
             this.textBoxWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxWeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.profileBindingSource, "Weight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxWeight.Location = new System.Drawing.Point(3, 42);
+            this.textBoxWeight.Location = new System.Drawing.Point(323, 81);
             this.textBoxWeight.Name = "textBoxWeight";
             this.textBoxWeight.ReadOnly = true;
-            this.textBoxWeight.Size = new System.Drawing.Size(56, 20);
+            this.textBoxWeight.Size = new System.Drawing.Size(50, 20);
             this.textBoxWeight.TabIndex = 35;
             this.textBoxWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // profileBindingSource
-            // 
-            this.profileBindingSource.DataSource = typeof(Universalis.Profile);
             // 
             // label1
             // 
@@ -205,9 +199,9 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 349);
+            this.panel4.Location = new System.Drawing.Point(0, 323);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(484, 226);
+            this.panel4.Size = new System.Drawing.Size(484, 252);
             this.panel4.TabIndex = 5;
             // 
             // textBoxDescription
@@ -218,7 +212,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(484, 201);
+            this.textBoxDescription.Size = new System.Drawing.Size(484, 227);
             this.textBoxDescription.TabIndex = 1;
             // 
             // toolStrip1
@@ -296,7 +290,7 @@
             // 
             // AreaOfPerception
             // 
-            this.AreaOfPerception.Location = new System.Drawing.Point(323, 62);
+            this.AreaOfPerception.Location = new System.Drawing.Point(323, 55);
             this.AreaOfPerception.Name = "AreaOfPerception";
             this.AreaOfPerception.ReadOnly = true;
             this.AreaOfPerception.Size = new System.Drawing.Size(50, 20);
@@ -307,7 +301,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(292, 65);
+            this.label16.Location = new System.Drawing.Point(267, 58);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(25, 13);
             this.label16.TabIndex = 59;
@@ -327,7 +321,7 @@
             // labelGB
             // 
             this.labelGB.AutoSize = true;
-            this.labelGB.Location = new System.Drawing.Point(292, 31);
+            this.labelGB.Location = new System.Drawing.Point(267, 31);
             this.labelGB.Name = "labelGB";
             this.labelGB.Size = new System.Drawing.Size(22, 13);
             this.labelGB.TabIndex = 57;
@@ -390,7 +384,7 @@
             this.panel3.Controls.Add(this.tableLayoutPanelAttribMods);
             this.panel3.Controls.Add(this.toolStrip2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 275);
+            this.panel3.Location = new System.Drawing.Point(0, 249);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(484, 74);
             this.panel3.TabIndex = 37;
@@ -450,10 +444,6 @@
             0,
             0,
             0});
-            // 
-            // attributeBindingSource
-            // 
-            this.attributeBindingSource.DataSource = typeof(Universalis.Attributes);
             // 
             // label4
             // 
@@ -714,9 +704,15 @@
             // panel2
             // 
             this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.textBoxTragkraft);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.comboBoxFOV);
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.AreaOfPerception);
+            this.panel2.Controls.Add(this.textBoxWeight);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.DangerArea);
             this.panel2.Controls.Add(this.labelGB);
@@ -732,7 +728,7 @@
             this.panel2.Controls.Add(this.comboBoxSize);
             this.panel2.Controls.Add(this.toolStrip3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 90);
+            this.panel2.Location = new System.Drawing.Point(0, 64);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(484, 185);
             this.panel2.TabIndex = 39;
@@ -794,6 +790,59 @@
             this.comboBoxSize.TabIndex = 44;
             this.comboBoxSize.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSize_SelectionChangeCommitted);
             // 
+            // textBoxTragkraft
+            // 
+            this.textBoxTragkraft.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxTragkraft.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.profileBindingSource, "MaxLoadCapacity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxTragkraft.Location = new System.Drawing.Point(323, 107);
+            this.textBoxTragkraft.Name = "textBoxTragkraft";
+            this.textBoxTragkraft.ReadOnly = true;
+            this.textBoxTragkraft.Size = new System.Drawing.Size(50, 20);
+            this.textBoxTragkraft.TabIndex = 63;
+            this.textBoxTragkraft.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip.SetToolTip(this.textBoxTragkraft, "maximale Tragkraft bei der keine Beeinträchtigung herrscht");
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(267, 110);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 64;
+            this.label5.Text = "Tragkraft";
+            // 
+            // archetypeBindingSource
+            // 
+            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
+            // 
+            // attributeBindingSource
+            // 
+            this.attributeBindingSource.DataSource = typeof(Universalis.Attributes);
+            // 
+            // profileBindingSource
+            // 
+            this.profileBindingSource.DataSource = typeof(Universalis.Profile);
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(375, 84);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(19, 13);
+            this.label14.TabIndex = 65;
+            this.label14.Text = "kg";
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(375, 110);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(19, 13);
+            this.label18.TabIndex = 66;
+            this.label18.Text = "kg";
+            // 
             // ArchetypeEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -812,8 +861,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ArchetypeEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -829,7 +876,6 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHTH)).EndInit();
@@ -851,6 +897,9 @@
             this.toolStrip3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -916,5 +965,9 @@
         private System.Windows.Forms.NumericUpDown Speed;
         private System.Windows.Forms.Label labelSpeed;
         private System.Windows.Forms.BindingSource profileBindingSource;
+        private System.Windows.Forms.TextBox textBoxTragkraft;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label14;
     }
 }

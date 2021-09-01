@@ -233,6 +233,15 @@ namespace Universalis
             }
         }
 
+        [JsonIgnore]
+        public float MaxLoadCapacity
+        {
+            get
+            {
+                return ( LoadCapacity.Max( Type, Attributes.PHY ) );
+            }
+        }
+
         public int? DangerArea( AttributeModifier modifier )
         {
             if( Type == EType.Drohne )
