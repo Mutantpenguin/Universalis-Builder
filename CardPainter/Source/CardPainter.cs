@@ -296,6 +296,8 @@ namespace Universalis
         {
             int margin = CmToPixel( 0.1 );
 
+            int critThresholdModifier = actor.ModCritThresholdModifier();
+
             switch( actor.Archetype.Profile.Type )
             {
                 case Profile.EType.Infanterie:
@@ -303,7 +305,7 @@ namespace Universalis
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
 
-                    DrawHitPointCirclesVertical( g, actor.ModHitPoints(), posX, posY, SHitPointSize );
+                    DrawHitPointCirclesVertical( g, actor.ModHitPoints(), critThresholdModifier, posX, posY, SHitPointSize );
                     break;
 
                 case Profile.EType.Koloss:
@@ -322,18 +324,18 @@ namespace Universalis
                     int widthLegs = widthMain;
 
                     // main
-                    DrawHitPointCirclesHorizonzal( g, actor.ModHitPoints(), posXMain, posYMain, widthMain, down: true );
+                    DrawHitPointCirclesHorizonzal( g, actor.ModHitPoints(), critThresholdModifier, posXMain, posYMain, widthMain, down: true );
 
                     int modHitZoneHitPoints = actor.ModHitZoneHitPoints();
 
                     // left arm
-                    DrawHitPointCirclesVertical( g, modHitZoneHitPoints, posXArmLeft, posYArmLeft, SHitPointSize );
+                    DrawHitPointCirclesVertical( g, modHitZoneHitPoints, critThresholdModifier, posXArmLeft, posYArmLeft, SHitPointSize );
 
                     // right arm
-                    DrawHitPointCirclesVertical( g, modHitZoneHitPoints, posXArmRight, posYArmRight, SHitPointSize );
+                    DrawHitPointCirclesVertical( g, modHitZoneHitPoints, critThresholdModifier, posXArmRight, posYArmRight, SHitPointSize );
 
                     // legs
-                    DrawHitPointCirclesHorizonzal( g, modHitZoneHitPoints, posXLegs, posYLegs, widthLegs, down: false );
+                    DrawHitPointCirclesHorizonzal( g, modHitZoneHitPoints, critThresholdModifier, posXLegs, posYLegs, widthLegs, down: false );
                     break;
 
                 default:
@@ -341,7 +343,7 @@ namespace Universalis
             }            
         }
 
-        private static void DrawHitPointCirclesHorizonzal( Graphics g, int count, int x, int y, int width, bool down )
+        private static void DrawHitPointCirclesHorizonzal( Graphics g, int count, int critThresholdModifier, int x, int y, int width, bool down )
         {
             int maxColumns = Math.Min( Convert.ToInt32( Math.Floor( (float)width / (float)SHitPointSize ) ), count );
             int maxRows = Convert.ToInt32( Math.Ceiling( (float)count / (float)maxColumns ) );
@@ -352,7 +354,7 @@ namespace Universalis
             int row = 0;
             int col = 0;
 
-            int crit = Convert.ToInt32( Math.Ceiling( count / 2.0f ) );
+            int crit = Convert.ToInt32( Math.Ceiling( count / ( 100.0f / ( 50.0f + critThresholdModifier ) ) ) );
 
             for( int i = 1; i <= count; i++ )
             {
@@ -372,7 +374,7 @@ namespace Universalis
             }
         }
 
-        private static void DrawHitPointCirclesVertical( Graphics g, int count, int x, int y, int width )
+        private static void DrawHitPointCirclesVertical( Graphics g, int count, int critThresholdModifier, int x, int y, int width )
         {
             int maxColumns = Convert.ToInt32( Math.Floor( (float)width / SHitPointSize ) );
             int maxRows = Convert.ToInt32( Math.Ceiling( (float)count / (float)maxColumns ) );
@@ -380,7 +382,7 @@ namespace Universalis
             int row = 0;
             int col = 0;
 
-            int crit = Convert.ToInt32( Math.Ceiling( count / 2.0f ) );
+            int crit = Convert.ToInt32( Math.Ceiling( count / ( 100.0f / ( 50.0f + critThresholdModifier ) ) ) );
 
             for( int i = 1; i <= count; i++ )
             {
