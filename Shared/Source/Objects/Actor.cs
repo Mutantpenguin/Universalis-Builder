@@ -376,18 +376,7 @@ namespace Universalis
         {
             int modPHY = Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier().AttributeModifier );
 
-            switch( this.Archetype.Profile.Type )
-            {
-                case Profile.EType.Infanterie:
-                case Profile.EType.Drohne:
-                    return ( Convert.ToSingle( Math.Pow( modPHY, 2 ) ) );
-
-                case Profile.EType.Koloss:
-                    return ( Convert.ToSingle( Math.Pow( ( modPHY * Presets.ColossusLoadCapacityMultiplier ), 2 ) ) );
-
-                default:
-                    throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
-            }
+            return ( LoadCapacity.Max( Archetype.Profile.Type, modPHY ) );
         }
 
         public float LoadoutWeight( bool withSelfSustaining )

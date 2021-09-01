@@ -115,6 +115,7 @@
     <Compile Include="Source\Helper\DataGridViewHelper.cs" />
     <Compile Include="Source\Helper\Formatter.cs" />
     <Compile Include="Source\Helper\ImageHelper.cs" />
+    <Compile Include="Source\Helper\LoadCapacity.cs" />
     <Compile Include="Source\Helper\RepositoryHelper.cs" />
     <Compile Include="Source\Helper\UniversalisSettings.cs" />
     <Compile Include="Source\Helper\ToolTipHelper.cs" />
