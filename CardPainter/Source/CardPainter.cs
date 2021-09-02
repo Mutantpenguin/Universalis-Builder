@@ -54,6 +54,7 @@ namespace Universalis
 
         private static readonly Brush HitPointCritBrush = new SolidBrush( Color.Orange );
         private static readonly Brush HitPointNormalBrush = new SolidBrush( Color.White );
+        private static readonly Brush HitPointCritTooLowBrush = new SolidBrush( Color.Red );
 
         private static readonly Brush WeaponFontBrush = new SolidBrush( DamageColor.red );
         private static readonly Brush ArmorFontBrush = new SolidBrush( DamageColor.green );
@@ -388,7 +389,9 @@ namespace Universalis
             {
                 Rectangle rect = new Rectangle( x + ( SHitPointSize * col ), y + ( SHitPointSize * row ), SHitPointSize, SHitPointSize );
 
-                g.FillEllipse( i > crit ? HitPointCritBrush : HitPointNormalBrush, rect );
+                var brush = critThresholdModifier < -50 ? HitPointCritTooLowBrush : i > crit ? HitPointCritBrush : HitPointNormalBrush;
+
+                g.FillEllipse( brush, rect );
 
                 g.DrawEllipse( SHitPointBorderPen, rect );
 
