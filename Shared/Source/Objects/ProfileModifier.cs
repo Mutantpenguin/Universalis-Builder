@@ -136,6 +136,14 @@ namespace Universalis
         public string HitPointsString => Formatter.Modifier( HitPoints );
 
         [JsonIgnore]
-        public string CritThresholdString => Formatter.Modifier( CritThreshold );
+        public string CritThresholdString
+        {
+            get
+            {
+                string critThreshold = Formatter.Modifier( CritThreshold );
+
+                return ( String.IsNullOrEmpty( critThreshold ) ? String.Empty : critThreshold + "%" );
+            }
+        }
     }
 }
