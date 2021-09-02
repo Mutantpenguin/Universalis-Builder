@@ -429,6 +429,15 @@ namespace Universalis
                 return ( false );
             }
 
+            if( m_actorModified.ModCritThresholdModifier() > 50 )
+            {
+                MessageBox.Show( "Die kritische Schwelle darf insgesamt nicht größer als 50 sein!",
+                                 caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
+                return ( false );
+            }
+
             if( ( m_actorModified.ModAGI() < 0 )
                 ||
                 ( m_actorModified.ModHTH() < 0 )
