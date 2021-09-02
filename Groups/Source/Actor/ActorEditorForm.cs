@@ -226,6 +226,8 @@ namespace Universalis
 #region weapons
         private void updateGridViewWeapons()
         {
+            // if we don't do this, CellFormatting for the Datagrid will throw an exception because it's still working with the old content
+            actorWeaponBindingSource.DataSource = null;
             actorWeaponBindingSource.DataSource = m_actorModified.WeaponList.OrderBy( x => x.Weapon.Class )
                                                                             .ThenBy( x => x.Weapon.RangeSort )
                                                                             .ThenBy( x => x.Weapon.Name )
@@ -272,6 +274,8 @@ namespace Universalis
 #region equipment
         private void updateGridViewEquipment()
         {
+            // if we don't do this, CellFormatting for the Datagrid will throw an exception because it's still working with the old content
+            actorEquipmentBindingSource.DataSource = null;
             actorEquipmentBindingSource.DataSource = m_actorModified.EquipmentList.OrderBy( x => x.Equipment.Name )
                                                                                   .ToList();
 
@@ -317,6 +321,8 @@ namespace Universalis
 #region traits
         private void updateGridViewTraits()
         {
+            // if we don't do this, CellFormatting for the Datagrid will throw an exception because it's still working with the old content
+            actorTraitBindingSource.DataSource = null;
             actorTraitBindingSource.DataSource = m_actorModified.TraitList.OrderBy( x => x.Trait.Name )
                                                                           .ToList();
 
