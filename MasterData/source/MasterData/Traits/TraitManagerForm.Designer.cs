@@ -41,6 +41,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonTraitAdd = new System.Windows.Forms.ToolStripButton();
@@ -61,6 +62,7 @@
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.SpeedString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HitPointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CritThresholdString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AGIString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HTHString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LRCString = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -205,6 +207,7 @@
             this.UseOnce,
             this.SpeedString,
             this.HitPointsString,
+            this.CritThresholdString,
             this.AGIString,
             this.HTHString,
             this.LRCString,
@@ -305,11 +308,22 @@
             this.HitPointsString.ReadOnly = true;
             this.HitPointsString.Width = 35;
             // 
+            // CritThresholdString
+            // 
+            this.CritThresholdString.DataPropertyName = "ProfileModifier.CritThresholdString";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.CritThresholdString.DefaultCellStyle = dataGridViewCellStyle6;
+            this.CritThresholdString.HeaderText = "KS";
+            this.CritThresholdString.Name = "CritThresholdString";
+            this.CritThresholdString.ReadOnly = true;
+            this.CritThresholdString.ToolTipText = "Kritische Schwelle";
+            this.CritThresholdString.Width = 35;
+            // 
             // AGIString
             // 
             this.AGIString.DataPropertyName = "ProfileModifier.AttributeModifier.AGIString";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.AGIString.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.AGIString.DefaultCellStyle = dataGridViewCellStyle7;
             this.AGIString.HeaderText = "AGI";
             this.AGIString.Name = "AGIString";
             this.AGIString.ReadOnly = true;
@@ -318,8 +332,8 @@
             // HTHString
             // 
             this.HTHString.DataPropertyName = "ProfileModifier.AttributeModifier.HTHString";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.HTHString.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.HTHString.DefaultCellStyle = dataGridViewCellStyle8;
             this.HTHString.HeaderText = "NK";
             this.HTHString.Name = "HTHString";
             this.HTHString.ReadOnly = true;
@@ -328,8 +342,8 @@
             // LRCString
             // 
             this.LRCString.DataPropertyName = "ProfileModifier.AttributeModifier.LRCString";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.LRCString.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.LRCString.DefaultCellStyle = dataGridViewCellStyle9;
             this.LRCString.HeaderText = "FK";
             this.LRCString.Name = "LRCString";
             this.LRCString.ReadOnly = true;
@@ -338,8 +352,8 @@
             // PHYString
             // 
             this.PHYString.DataPropertyName = "ProfileModifier.AttributeModifier.PHYString";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.PHYString.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.PHYString.DefaultCellStyle = dataGridViewCellStyle10;
             this.PHYString.HeaderText = "KO";
             this.PHYString.Name = "PHYString";
             this.PHYString.ReadOnly = true;
@@ -348,8 +362,8 @@
             // AWAString
             // 
             this.AWAString.DataPropertyName = "ProfileModifier.AttributeModifier.AWAString";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.AWAString.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.AWAString.DefaultCellStyle = dataGridViewCellStyle11;
             this.AWAString.HeaderText = "WN";
             this.AWAString.Name = "AWAString";
             this.AWAString.ReadOnly = true;
@@ -358,8 +372,8 @@
             // DETString
             // 
             this.DETString.DataPropertyName = "ProfileModifier.AttributeModifier.DETString";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.DETString.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.DETString.DefaultCellStyle = dataGridViewCellStyle12;
             this.DETString.HeaderText = "EH";
             this.DETString.Name = "DETString";
             this.DETString.ReadOnly = true;
@@ -368,12 +382,12 @@
             // Points
             // 
             this.Points.DataPropertyName = "Points";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Points.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Points.DefaultCellStyle = dataGridViewCellStyle13;
             this.Points.HeaderText = "Punkte";
             this.Points.Name = "Points";
             this.Points.ReadOnly = true;
-            this.Points.Width = 80;
+            this.Points.Width = 50;
             // 
             // TraitsManagerForm
             // 
@@ -421,6 +435,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
         private System.Windows.Forms.DataGridViewTextBoxColumn SpeedString;
         private System.Windows.Forms.DataGridViewTextBoxColumn HitPointsString;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CritThresholdString;
         private System.Windows.Forms.DataGridViewTextBoxColumn AGIString;
         private System.Windows.Forms.DataGridViewTextBoxColumn HTHString;
         private System.Windows.Forms.DataGridViewTextBoxColumn LRCString;
