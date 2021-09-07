@@ -44,7 +44,7 @@ namespace Universalis
 
             if( Name != actor.Name
                 ||
-                Description != actor.Description
+                Biography != actor.Biography
                 ||
                 Disabled != actor.Disabled
                 ||
@@ -108,7 +108,7 @@ namespace Universalis
 
             Name = actor.Name;
 
-            Description = actor.Description;
+            Biography = actor.Biography;
 
             Disabled = actor.Disabled;
             DisabledReason = actor.DisabledReason;
@@ -188,11 +188,11 @@ namespace Universalis
             set;
         }
 
-        public string Description
+        public string Biography
         {
             get;
             set;
-        } = "Bitte Beschreibung eingeben";
+        }
 
         [JsonConverter( typeof( JsonJpegConverter ) )]
         public Bitmap Icon

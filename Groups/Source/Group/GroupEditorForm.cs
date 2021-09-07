@@ -191,9 +191,9 @@ namespace Universalis
                     toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Inaktive Ausstattung vorhanden!";
                 }
 
-                if( !String.IsNullOrEmpty( actor.Description ) )
+                if( !String.IsNullOrEmpty( actor.Biography ) )
                 {
-                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + ToolTipHelper.FormatMaxWidth( actor.Description );
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + ToolTipHelper.FormatMaxWidth( actor.Biography );
                 }
 
                 e.ToolTipText = toolTipText;

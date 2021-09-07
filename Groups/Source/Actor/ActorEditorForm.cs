@@ -35,7 +35,7 @@ namespace Universalis
 
             textBoxName.Text = m_actorModified.Name;
 
-            textBoxDescription.Text = m_actorModified.Description;
+            textBoxBiography.Text = m_actorModified.Biography;
 
             if( m_actorModified.Disabled )
             {
@@ -103,7 +103,7 @@ namespace Universalis
 
         private void textBoxDescription_TextChanged( object sender, EventArgs e )
         {
-            m_actorModified.Description = textBoxDescription.Text;
+            m_actorModified.Biography = textBoxBiography.Text;
         }
 
 #endregion values changed
