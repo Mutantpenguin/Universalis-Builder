@@ -197,7 +197,7 @@ namespace Universalis
 
         private void pictureBoxInfo_Click( object sender, EventArgs e )
         {
-            using( var infoForm = new InfoForm( m_universe ) )
+            using( var infoForm = new UniverseInfoForm( m_universe ) )
             {
                 infoForm.ShowDialog();
             }

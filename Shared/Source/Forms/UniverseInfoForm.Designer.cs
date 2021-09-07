@@ -1,6 +1,6 @@
 ﻿namespace Universalis
 {
-    partial class InfoForm
+    partial class UniverseInfoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -155,7 +155,7 @@
             // pictureBoxAuthor
             // 
             this.pictureBoxAuthor.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxAuthor.Image = global::Universalis.Properties.Resources.baseline_person_black_18dp;
+            this.pictureBoxAuthor.Image = global::Shared.Properties.Resources.baseline_person_black_18dp;
             this.pictureBoxAuthor.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxAuthor.Margin = new System.Windows.Forms.Padding(30, 3, 3, 3);
             this.pictureBoxAuthor.Name = "pictureBoxAuthor";
@@ -167,7 +167,7 @@
             // pictureBoxContact
             // 
             this.pictureBoxContact.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxContact.Image = global::Universalis.Properties.Resources.baseline_email_black_18dp;
+            this.pictureBoxContact.Image = global::Shared.Properties.Resources.baseline_email_black_18dp;
             this.pictureBoxContact.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxContact.Name = "pictureBoxContact";
             this.pictureBoxContact.Size = new System.Drawing.Size(18, 24);
@@ -178,7 +178,7 @@
             // pictureBoxWebsite
             // 
             this.pictureBoxWebsite.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxWebsite.Image = global::Universalis.Properties.Resources.baseline_home_black_18dp;
+            this.pictureBoxWebsite.Image = global::Shared.Properties.Resources.baseline_home_black_18dp;
             this.pictureBoxWebsite.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxWebsite.Name = "pictureBoxWebsite";
             this.pictureBoxWebsite.Size = new System.Drawing.Size(18, 24);
@@ -190,7 +190,7 @@
             // 
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonClose.Image = global::Universalis.Properties.Resources.cross_circle;
+            this.buttonClose.Image = global::Shared.Properties.Resources.cross_circle;
             this.buttonClose.Location = new System.Drawing.Point(0, 401);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(384, 26);

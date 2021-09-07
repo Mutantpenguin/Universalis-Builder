@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Universalis
 {
-    public partial class InfoForm : Form
+    public partial class UniverseInfoForm : Form
     {
-        public InfoForm( Universe universe )
+        public UniverseInfoForm( Universe universe )
         {
             InitializeComponent();
 
