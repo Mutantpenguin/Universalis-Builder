@@ -53,20 +53,20 @@
             // 
             // labelAuthor
             // 
-            this.labelAuthor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelAuthor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelAuthor.Location = new System.Drawing.Point(18, 0);
             this.labelAuthor.Name = "labelAuthor";
-            this.labelAuthor.Size = new System.Drawing.Size(238, 24);
+            this.labelAuthor.Size = new System.Drawing.Size(366, 24);
             this.labelAuthor.TabIndex = 5;
             this.labelAuthor.Text = "labelAuthor";
             this.labelAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // linkLabelContact
             // 
-            this.linkLabelContact.Dock = System.Windows.Forms.DockStyle.Left;
+            this.linkLabelContact.Dock = System.Windows.Forms.DockStyle.Fill;
             this.linkLabelContact.Location = new System.Drawing.Point(18, 0);
             this.linkLabelContact.Name = "linkLabelContact";
-            this.linkLabelContact.Size = new System.Drawing.Size(238, 24);
+            this.linkLabelContact.Size = new System.Drawing.Size(366, 24);
             this.linkLabelContact.TabIndex = 4;
             this.linkLabelContact.TabStop = true;
             this.linkLabelContact.Text = "linkLabelContact";
@@ -75,10 +75,10 @@
             // 
             // linkLabelWebsite
             // 
-            this.linkLabelWebsite.Dock = System.Windows.Forms.DockStyle.Left;
+            this.linkLabelWebsite.Dock = System.Windows.Forms.DockStyle.Fill;
             this.linkLabelWebsite.Location = new System.Drawing.Point(18, 0);
             this.linkLabelWebsite.Name = "linkLabelWebsite";
-            this.linkLabelWebsite.Size = new System.Drawing.Size(238, 24);
+            this.linkLabelWebsite.Size = new System.Drawing.Size(366, 24);
             this.linkLabelWebsite.TabIndex = 3;
             this.linkLabelWebsite.TabStop = true;
             this.linkLabelWebsite.Text = "linkLabelWebsite";
@@ -88,7 +88,7 @@
             // textBoxDescription
             // 
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxDescription.Location = new System.Drawing.Point(0, 201);
+            this.textBoxDescription.Location = new System.Drawing.Point(0, 277);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
@@ -104,13 +104,13 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(384, 201);
+            this.panelLogo.Size = new System.Drawing.Size(384, 205);
             this.panelLogo.TabIndex = 7;
             // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(92, 0);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(92, 2);
             this.pictureBoxLogo.MaximumSize = new System.Drawing.Size(200, 200);
             this.pictureBoxLogo.MinimumSize = new System.Drawing.Size(150, 150);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
@@ -124,7 +124,7 @@
             this.panelAuthor.Controls.Add(this.labelAuthor);
             this.panelAuthor.Controls.Add(this.pictureBoxAuthor);
             this.panelAuthor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAuthor.Location = new System.Drawing.Point(0, 374);
+            this.panelAuthor.Location = new System.Drawing.Point(0, 205);
             this.panelAuthor.Name = "panelAuthor";
             this.panelAuthor.Size = new System.Drawing.Size(384, 24);
             this.panelAuthor.TabIndex = 8;
@@ -147,7 +147,7 @@
             this.panelContact.Controls.Add(this.linkLabelContact);
             this.panelContact.Controls.Add(this.pictureBoxContact);
             this.panelContact.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelContact.Location = new System.Drawing.Point(0, 398);
+            this.panelContact.Location = new System.Drawing.Point(0, 229);
             this.panelContact.Name = "panelContact";
             this.panelContact.Size = new System.Drawing.Size(384, 24);
             this.panelContact.TabIndex = 9;
@@ -169,7 +169,7 @@
             this.panelWebsite.Controls.Add(this.linkLabelWebsite);
             this.panelWebsite.Controls.Add(this.pictureBoxWebsite);
             this.panelWebsite.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelWebsite.Location = new System.Drawing.Point(0, 422);
+            this.panelWebsite.Location = new System.Drawing.Point(0, 253);
             this.panelWebsite.Name = "panelWebsite";
             this.panelWebsite.Size = new System.Drawing.Size(384, 24);
             this.panelWebsite.TabIndex = 10;
@@ -191,7 +191,7 @@
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonClose.Image = global::Shared.Properties.Resources.cross_circle;
-            this.buttonClose.Location = new System.Drawing.Point(0, 446);
+            this.buttonClose.Location = new System.Drawing.Point(0, 450);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(384, 26);
             this.buttonClose.TabIndex = 1;
@@ -208,15 +208,15 @@
             this.CancelButton = this.buttonClose;
             this.ClientSize = new System.Drawing.Size(384, 450);
             this.Controls.Add(this.buttonClose);
+            this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.panelWebsite);
             this.Controls.Add(this.panelContact);
             this.Controls.Add(this.panelAuthor);
-            this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.panelLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(300, 39);
+            this.MinimumSize = new System.Drawing.Size(400, 39);
             this.Name = "UniverseInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Info";
