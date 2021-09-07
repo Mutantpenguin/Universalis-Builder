@@ -475,10 +475,14 @@ namespace Universalis
             if( listViewUniverses.SelectedItems.Count > 0 )
             {
                 buttonInfo.Enabled = true;
+                buttonOpenFolder.Enabled = true;
+                buttonDelete.Enabled = true;
             }
             else
             {
                 buttonInfo.Enabled = false;
+                buttonOpenFolder.Enabled = false;
+                buttonDelete.Enabled = false;
             }
         }
     }

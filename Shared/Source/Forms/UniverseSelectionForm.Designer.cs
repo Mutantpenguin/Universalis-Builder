@@ -38,6 +38,7 @@
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelHeader = new System.Windows.Forms.Label();
             this.panelControl = new System.Windows.Forms.Panel();
+            this.buttonInfo = new System.Windows.Forms.Button();
             this.buttonAddUniverse = new System.Windows.Forms.Button();
             this.buttonOpenFolder = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.pictureBoxSpinner = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonInfo = new System.Windows.Forms.Button();
             this.panelNoUniverses.SuspendLayout();
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -167,6 +167,21 @@
             this.panelControl.TabIndex = 3;
             this.panelControl.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl_Paint);
             // 
+            // buttonInfo
+            // 
+            this.buttonInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonInfo.Enabled = false;
+            this.buttonInfo.FlatAppearance.BorderSize = 0;
+            this.buttonInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInfo.Image = global::Shared.Properties.Resources.baseline_info_black_48dp;
+            this.buttonInfo.Location = new System.Drawing.Point(647, 3);
+            this.buttonInfo.Name = "buttonInfo";
+            this.buttonInfo.Size = new System.Drawing.Size(50, 50);
+            this.buttonInfo.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.buttonInfo, "Infos zum Universum");
+            this.buttonInfo.UseVisualStyleBackColor = false;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
+            // 
             // buttonAddUniverse
             // 
             this.buttonAddUniverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -185,6 +200,7 @@
             // buttonOpenFolder
             // 
             this.buttonOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOpenFolder.Enabled = false;
             this.buttonOpenFolder.FlatAppearance.BorderSize = 0;
             this.buttonOpenFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOpenFolder.Image = global::Shared.Properties.Resources.baseline_folder_black_48dp;
@@ -199,6 +215,7 @@
             // buttonDelete
             // 
             this.buttonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonDelete.Enabled = false;
             this.buttonDelete.FlatAppearance.BorderSize = 0;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Image = global::Shared.Properties.Resources.baseline_delete_black_48dp;
@@ -255,21 +272,6 @@
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(868, 332);
             this.panelMain.TabIndex = 3;
-            // 
-            // buttonInfo
-            // 
-            this.buttonInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonInfo.Enabled = false;
-            this.buttonInfo.FlatAppearance.BorderSize = 0;
-            this.buttonInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInfo.Image = global::Shared.Properties.Resources.baseline_info_black_48dp;
-            this.buttonInfo.Location = new System.Drawing.Point(647, 3);
-            this.buttonInfo.Name = "buttonInfo";
-            this.buttonInfo.Size = new System.Drawing.Size(50, 50);
-            this.buttonInfo.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.buttonInfo, "Infos zum Universum");
-            this.buttonInfo.UseVisualStyleBackColor = false;
-            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
             // 
             // UniverseSelectionForm
             // 
