@@ -456,5 +456,30 @@ namespace Universalis
         {
             MessageBox.Show( "Not Implemented Yet" );
         }
+
+        private void buttonInfo_Click( object sender, EventArgs e )
+        {
+            if( listViewUniverses.SelectedItems.Count > 0 )
+            {
+                var universeItem = listViewUniverses.SelectedItems[ 0 ] as UniverseListViewItem;
+
+                using( var infoForm = new UniverseInfoForm( universeItem.Universe ) )
+                {
+                    infoForm.ShowDialog();
+                }
+            }
+        }
+
+        private void listViewUniverses_ItemSelectionChanged( object sender, ListViewItemSelectionChangedEventArgs e )
+        {
+            if( listViewUniverses.SelectedItems.Count > 0 )
+            {
+                buttonInfo.Enabled = true;
+            }
+            else
+            {
+                buttonInfo.Enabled = false;
+            }
+        }
     }
 }

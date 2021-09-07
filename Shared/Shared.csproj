@@ -317,6 +317,9 @@
   <ItemGroup>
     <None Include="Resources\baseline_info_black_24dp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baseline_info_black_48dp.png" />
+  </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

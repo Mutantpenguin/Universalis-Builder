@@ -46,6 +46,7 @@
             this.pictureBoxSpinner = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonInfo = new System.Windows.Forms.Button();
             this.panelNoUniverses.SuspendLayout();
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -76,6 +77,7 @@
             this.listViewUniverses.TabIndex = 1;
             this.listViewUniverses.UseCompatibleStateImageBehavior = false;
             this.listViewUniverses.ItemActivate += new System.EventHandler(this.listViewUniverses_ItemActivate);
+            this.listViewUniverses.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listViewUniverses_ItemSelectionChanged);
             // 
             // panelNoUniverses
             // 
@@ -152,6 +154,7 @@
             // panelControl
             // 
             this.panelControl.AutoSize = true;
+            this.panelControl.Controls.Add(this.buttonInfo);
             this.panelControl.Controls.Add(this.buttonAddUniverse);
             this.panelControl.Controls.Add(this.buttonOpenFolder);
             this.panelControl.Controls.Add(this.buttonDelete);
@@ -170,7 +173,7 @@
             this.buttonAddUniverse.FlatAppearance.BorderSize = 0;
             this.buttonAddUniverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddUniverse.Image = global::Shared.Properties.Resources.baseline_add_box_black_48dp;
-            this.buttonAddUniverse.Location = new System.Drawing.Point(647, 3);
+            this.buttonAddUniverse.Location = new System.Drawing.Point(591, 3);
             this.buttonAddUniverse.Name = "buttonAddUniverse";
             this.buttonAddUniverse.Size = new System.Drawing.Size(50, 50);
             this.buttonAddUniverse.TabIndex = 4;
@@ -253,6 +256,21 @@
             this.panelMain.Size = new System.Drawing.Size(868, 332);
             this.panelMain.TabIndex = 3;
             // 
+            // buttonInfo
+            // 
+            this.buttonInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonInfo.Enabled = false;
+            this.buttonInfo.FlatAppearance.BorderSize = 0;
+            this.buttonInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInfo.Image = global::Shared.Properties.Resources.baseline_info_black_48dp;
+            this.buttonInfo.Location = new System.Drawing.Point(647, 3);
+            this.buttonInfo.Name = "buttonInfo";
+            this.buttonInfo.Size = new System.Drawing.Size(50, 50);
+            this.buttonInfo.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.buttonInfo, "Infos zum Universum");
+            this.buttonInfo.UseVisualStyleBackColor = false;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
+            // 
             // UniverseSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,5 +320,6 @@
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Button buttonAddUniverse;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button buttonInfo;
     }
 }
