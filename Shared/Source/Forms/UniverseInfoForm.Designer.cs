@@ -35,19 +35,19 @@
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelAuthor = new System.Windows.Forms.Panel();
-            this.panelContact = new System.Windows.Forms.Panel();
-            this.panelWebsite = new System.Windows.Forms.Panel();
             this.pictureBoxAuthor = new System.Windows.Forms.PictureBox();
+            this.panelContact = new System.Windows.Forms.Panel();
             this.pictureBoxContact = new System.Windows.Forms.PictureBox();
+            this.panelWebsite = new System.Windows.Forms.Panel();
             this.pictureBoxWebsite = new System.Windows.Forms.PictureBox();
             this.buttonClose = new System.Windows.Forms.Button();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelAuthor.SuspendLayout();
-            this.panelContact.SuspendLayout();
-            this.panelWebsite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAuthor)).BeginInit();
+            this.panelContact.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContact)).BeginInit();
+            this.panelWebsite.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebsite)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +88,7 @@
             // textBoxDescription
             // 
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxDescription.Location = new System.Drawing.Point(0, 156);
+            this.textBoxDescription.Location = new System.Drawing.Point(0, 201);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
@@ -104,17 +104,17 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(384, 156);
+            this.panelLogo.Size = new System.Drawing.Size(384, 201);
             this.panelLogo.TabIndex = 7;
             // 
             // pictureBoxLogo
             // 
             this.pictureBoxLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(117, 3);
-            this.pictureBoxLogo.MaximumSize = new System.Drawing.Size(150, 150);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(92, 0);
+            this.pictureBoxLogo.MaximumSize = new System.Drawing.Size(200, 200);
             this.pictureBoxLogo.MinimumSize = new System.Drawing.Size(150, 150);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(150, 150);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(200, 200);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
@@ -124,33 +124,11 @@
             this.panelAuthor.Controls.Add(this.labelAuthor);
             this.panelAuthor.Controls.Add(this.pictureBoxAuthor);
             this.panelAuthor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAuthor.Location = new System.Drawing.Point(0, 329);
+            this.panelAuthor.Location = new System.Drawing.Point(0, 374);
             this.panelAuthor.Name = "panelAuthor";
             this.panelAuthor.Size = new System.Drawing.Size(384, 24);
             this.panelAuthor.TabIndex = 8;
             this.panelAuthor.Visible = false;
-            // 
-            // panelContact
-            // 
-            this.panelContact.Controls.Add(this.linkLabelContact);
-            this.panelContact.Controls.Add(this.pictureBoxContact);
-            this.panelContact.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelContact.Location = new System.Drawing.Point(0, 353);
-            this.panelContact.Name = "panelContact";
-            this.panelContact.Size = new System.Drawing.Size(384, 24);
-            this.panelContact.TabIndex = 9;
-            this.panelContact.Visible = false;
-            // 
-            // panelWebsite
-            // 
-            this.panelWebsite.Controls.Add(this.linkLabelWebsite);
-            this.panelWebsite.Controls.Add(this.pictureBoxWebsite);
-            this.panelWebsite.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelWebsite.Location = new System.Drawing.Point(0, 377);
-            this.panelWebsite.Name = "panelWebsite";
-            this.panelWebsite.Size = new System.Drawing.Size(384, 24);
-            this.panelWebsite.TabIndex = 10;
-            this.panelWebsite.Visible = false;
             // 
             // pictureBoxAuthor
             // 
@@ -164,6 +142,17 @@
             this.pictureBoxAuthor.TabIndex = 6;
             this.pictureBoxAuthor.TabStop = false;
             // 
+            // panelContact
+            // 
+            this.panelContact.Controls.Add(this.linkLabelContact);
+            this.panelContact.Controls.Add(this.pictureBoxContact);
+            this.panelContact.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelContact.Location = new System.Drawing.Point(0, 398);
+            this.panelContact.Name = "panelContact";
+            this.panelContact.Size = new System.Drawing.Size(384, 24);
+            this.panelContact.TabIndex = 9;
+            this.panelContact.Visible = false;
+            // 
             // pictureBoxContact
             // 
             this.pictureBoxContact.Dock = System.Windows.Forms.DockStyle.Left;
@@ -174,6 +163,17 @@
             this.pictureBoxContact.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxContact.TabIndex = 7;
             this.pictureBoxContact.TabStop = false;
+            // 
+            // panelWebsite
+            // 
+            this.panelWebsite.Controls.Add(this.linkLabelWebsite);
+            this.panelWebsite.Controls.Add(this.pictureBoxWebsite);
+            this.panelWebsite.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelWebsite.Location = new System.Drawing.Point(0, 422);
+            this.panelWebsite.Name = "panelWebsite";
+            this.panelWebsite.Size = new System.Drawing.Size(384, 24);
+            this.panelWebsite.TabIndex = 10;
+            this.panelWebsite.Visible = false;
             // 
             // pictureBoxWebsite
             // 
@@ -191,7 +191,7 @@
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonClose.Image = global::Shared.Properties.Resources.cross_circle;
-            this.buttonClose.Location = new System.Drawing.Point(0, 401);
+            this.buttonClose.Location = new System.Drawing.Point(0, 446);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(384, 26);
             this.buttonClose.TabIndex = 1;
@@ -199,7 +199,7 @@
             this.buttonClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             // 
-            // InfoForm
+            // UniverseInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -217,16 +217,16 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(300, 39);
-            this.Name = "InfoForm";
+            this.Name = "UniverseInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Info";
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelAuthor.ResumeLayout(false);
-            this.panelContact.ResumeLayout(false);
-            this.panelWebsite.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAuthor)).EndInit();
+            this.panelContact.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxContact)).EndInit();
+            this.panelWebsite.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWebsite)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
