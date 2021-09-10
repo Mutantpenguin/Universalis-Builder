@@ -146,7 +146,6 @@
     <Compile Include="Source\Objects\DamageType.cs" />
     <Compile Include="Source\Objects\Equipment.cs" />
     <Compile Include="Source\Objects\Faction.cs" />
-    <Compile Include="Source\Objects\FieldOfView.cs" />
     <Compile Include="Source\Objects\Group.cs" />
     <Compile Include="Source\JsonHelper\JsonJpegConverter.cs" />
     <Compile Include="Source\Objects\GroupTrait.cs" />

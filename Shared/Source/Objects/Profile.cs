@@ -17,9 +17,7 @@ namespace Universalis
                 ||
                 ( MovementType != profile.MovementType )
                 ||
-                ( Type != profile.Type )
-                ||
-                ( Fov != profile.Fov ) )
+                ( Type != profile.Type ) )
             {
                 return( false );
             }
@@ -39,7 +37,6 @@ namespace Universalis
             HitPoints = profile.HitPoints;
             MovementType = profile.MovementType;
             Type = profile.Type;
-            Fov = profile.Fov;
 
             Attributes = new Attributes( profile.Attributes );
         }
@@ -94,12 +91,6 @@ namespace Universalis
         }
 
         public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
-
-        public EFieldOfView Fov
-        {
-            get;
-            set;
-        } = EFieldOfView._90;
 
         public Attributes Attributes
         {
@@ -171,8 +162,6 @@ namespace Universalis
                     default:
                         throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
                 }
-
-                points += (int)Fov * Costs.FOV;
 
                 points += Costs.movementCost( MovementType );
 

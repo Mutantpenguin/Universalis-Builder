@@ -20,8 +20,6 @@ namespace Universalis
         public const int HitPoints = 15;
         public const int Crit = 15;
 
-        public const int FOV = 2;
-
         public static int movementCost( EMovementType movementType )
         {
             switch( movementType )

@@ -34,10 +34,6 @@ namespace Universalis
             comboBoxMovementType.DataSource = Enum.GetValues( typeof( EMovementType ) );
             comboBoxMovementType.SelectedItem = archetype.Profile.MovementType;
 
-            // fill the combobox for the FieldOfView
-            comboBoxFOV.DataSource = Enum.GetValues( typeof( EFieldOfView ) );
-            comboBoxFOV.SelectedItem = archetype.Profile.Fov;
-
             TypeDependantFields();
         }
 
@@ -289,13 +285,6 @@ namespace Universalis
         private void comboBoxMovementType_SelectionChangeCommitted( object sender, EventArgs e )
         {
             ( (Profile)profileBindingSource.DataSource ).MovementType = (EMovementType)comboBoxMovementType.SelectedItem;
-
-            profileBindingSource.ResetCurrentItem();
-        }
-
-        private void comboBoxFOV_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            ( (Profile)profileBindingSource.DataSource ).Fov = (EFieldOfView)comboBoxFOV.SelectedItem;
 
             profileBindingSource.ResetCurrentItem();
         }
