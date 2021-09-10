@@ -191,21 +191,31 @@ namespace Universalis
         {
             if( null != m_actorModified.Armor )
             {
-                MessageBox.Show( "Es ist bereits eine Rüstung vorhanden!" );
-            }
-            else
-            {
-                using( AddArmorToActorForm addArmorToActor = new AddArmorToActorForm() )
+                if( MessageBox.Show( "Es ist bereits eine Rüstung vorhanden! Soll sie entfernt werden?",
+                                     "Rüstung vorhanden",
+                                     MessageBoxButtons.YesNo,
+                                     MessageBoxIcon.Question,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.No )
                 {
-                    if( addArmorToActor.ShowDialog( this ) == DialogResult.OK )
-                    {
-                        if( addArmorToActor.SelectedArmor != null )
-                        {
-                            m_actorModified.Armor = addArmorToActor.SelectedArmor;
+                    return;
+                }
 
-                            updateGridViewArmor();
-                            updateFields();
-                        }
+                m_actorModified.Armor = null;
+
+                updateGridViewArmor();
+                updateFields();
+            }
+            
+            using( AddArmorToActorForm addArmorToActor = new AddArmorToActorForm() )
+            {
+                if( addArmorToActor.ShowDialog( this ) == DialogResult.OK )
+                {
+                    if( addArmorToActor.SelectedArmor != null )
+                    {
+                        m_actorModified.Armor = addArmorToActor.SelectedArmor;
+
+                        updateGridViewArmor();
+                        updateFields();
                     }
                 }
             }
@@ -213,7 +223,7 @@ namespace Universalis
 
         private void toolStripButtonArmorRemove_Click( object sender, EventArgs e )
         {
-            if( dataGridViewArmor.RowCount > 0 )
+            if( null != m_actorModified.Armor )
             {
                 m_actorModified.Armor = null;
 
