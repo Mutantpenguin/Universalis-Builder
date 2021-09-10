@@ -63,6 +63,16 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap baseline_block_black_18dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_block_black_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baseline_image_search_black_24dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_image_search_black_24dp", resourceCulture);
@@ -96,16 +106,6 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap clear {
             get {
                 object obj = ResourceManager.GetObject("clear", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap coffin {
-            get {
-                object obj = ResourceManager.GetObject("coffin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,16 +196,6 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap image {
             get {
                 object obj = ResourceManager.GetObject("image", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap medical_bag {
-            get {
-                object obj = ResourceManager.GetObject("medical_bag", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -46,9 +46,9 @@ namespace Universalis
                 ||
                 Biography != actor.Biography
                 ||
-                Disabled != actor.Disabled
+                Active != actor.Active
                 ||
-                DisabledReason != actor.DisabledReason )
+                InactiveReason != actor.InactiveReason )
             {
                 return ( false );
             }
@@ -110,8 +110,8 @@ namespace Universalis
 
             Biography = actor.Biography;
 
-            Disabled = actor.Disabled;
-            DisabledReason = actor.DisabledReason;
+            Active = actor.Active;
+            InactiveReason = actor.InactiveReason;
 
             Archetype = actor.Archetype;
 
@@ -176,13 +176,13 @@ namespace Universalis
             set;
         } = "Bitte Namen eingeben";
 
-        public bool Disabled
+        public bool Active
         {
             get;
             set;
-        } = false;
+        } = true;
 
-        public string DisabledReason
+        public string InactiveReason
         {
             get;
             set;

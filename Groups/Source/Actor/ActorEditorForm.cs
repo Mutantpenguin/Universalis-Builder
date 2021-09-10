@@ -16,7 +16,7 @@ namespace Universalis
 
             InitializeComponent();
 
-            if( actor.Disabled )
+            if( !actor.Active )
             {
                 panelMain.Enabled = false;
                 buttonSave.Enabled = false;
@@ -37,9 +37,9 @@ namespace Universalis
 
             textBoxBiography.Text = m_actorModified.Biography;
 
-            if( m_actorModified.Disabled )
+            if( !m_actorModified.Active )
             {
-                textBoxDisabledReason.Text = m_actorModified.DisabledReason;
+                textBoxInactiveReason.Text = m_actorModified.InactiveReason;
             }
             else
             {

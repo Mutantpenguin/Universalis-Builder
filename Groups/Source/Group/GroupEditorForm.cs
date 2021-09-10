@@ -181,9 +181,9 @@ namespace Universalis
 
                 string toolTipText = String.Empty;
 
-                if( actor.Disabled )
+                if( !actor.Active )
                 {
-                    toolTipText += "Ist tot und kann nicht mehr verwendet werden!";
+                    toolTipText += "Ist inaktiv und kann nicht mehr verwendet werden!";
                 }
 
                 if( actor.HasInactiveComposition() )
@@ -247,7 +247,7 @@ namespace Universalis
 
                     Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 
-                    if( actor.Disabled )
+                    if( !actor.Active )
                     {
                         var drawRect = new Rectangle( e.CellBounds.X + 1, e.CellBounds.Y, e.CellBounds.Width - 2, e.CellBounds.Height - 1 );
 
@@ -379,7 +379,7 @@ namespace Universalis
 
                 Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
-                if( actor.Disabled )
+                if( !actor.Active )
                 {
                     disableToolStripMenuItem.Visible = false;
                     enableToolStripMenuItem.Visible = true;
@@ -419,27 +419,27 @@ namespace Universalis
         {
             Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
-            if( MessageBox.Show( $"Wurde das Model '{actor.Name}' wirklich endgültig ausgeschaltet?",
-                                 "Endgültig ausgeschaltet",
+            if( MessageBox.Show( $"Ist das Model '{actor.Name}' wirklich inaktiv?",
+                                 "Inaktiv",
                                  MessageBoxButtons.OKCancel,
                                  MessageBoxIcon.Warning,
                                  MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
             {
-                if( actor.Disabled )
+                if( !actor.Active )
                 {
-                    MessageBox.Show( $"Das Model '{actor.Name}' ist bereits endgültig ausgeschaltet.",
+                    MessageBox.Show( $"Das Model '{actor.Name}' ist bereits inaktiv.",
                                      String.Empty,
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Information );
                 }
                 else
                 {
-                    using( var disabledReasonForm = new DisabledReasonForm() )
+                    using( var inactiveReasonForm = new InactiveReasonForm() )
                     {
-                        if( disabledReasonForm.ShowDialog() == DialogResult.OK )
+                        if( inactiveReasonForm.ShowDialog() == DialogResult.OK )
                         {
-                            actor.Disabled = true;
-                            actor.DisabledReason = disabledReasonForm.DisabledReason;
+                            actor.Active = false;
+                            actor.InactiveReason = inactiveReasonForm.InactiveReason;
 
                             updateGridViewActors();
 
@@ -456,23 +456,24 @@ namespace Universalis
         {
             Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
-            if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich wiederauferstehen lassen?",
+            // TODO show reason?
+            if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich wieder aktivieren?",
                                  "Wiederauferstehen",
                                  MessageBoxButtons.OKCancel,
                                  MessageBoxIcon.Warning,
                                  MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
             {
-                if( !actor.Disabled )
+                if( actor.Active )
                 {
-                    MessageBox.Show( $"Das Model '{actor.Name}' ist nicht endgültig ausgeschaltet.",
+                    MessageBox.Show( $"Das Model '{actor.Name}' ist bereits aktiv.",
                                      String.Empty,
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Information );
                 }
                 else
                 {
-                    actor.Disabled = false;
-                    actor.DisabledReason = String.Empty;
+                    actor.Active = true;
+                    actor.InactiveReason = String.Empty;
 
                     updateGridViewActors();
 

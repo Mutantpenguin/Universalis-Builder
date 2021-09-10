@@ -121,6 +121,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Source\Actor\ActorEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,11 +168,11 @@
     <Compile Include="Source\Group\ArchetypeSelectionForm.Designer.cs">
       <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Group\DisabledReasonForm.cs">
+    <Compile Include="Source\Group\InactiveReasonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Group\DisabledReasonForm.Designer.cs">
-      <DependentUpon>DisabledReasonForm.cs</DependentUpon>
+    <Compile Include="Source\Group\InactiveReasonForm.Designer.cs">
+      <DependentUpon>InactiveReasonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Group\GroupEditorForm.cs">
       <SubType>Form</SubType>
@@ -190,11 +195,6 @@
     </Compile>
     <Compile Include="Source\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Source\Actor\ActorEditorForm.resx">
       <DependentUpon>ActorEditorForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -218,8 +218,8 @@
     <EmbeddedResource Include="Source\Group\ArchetypeSelectionForm.resx">
       <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Group\DisabledReasonForm.resx">
-      <DependentUpon>DisabledReasonForm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Group\InactiveReasonForm.resx">
+      <DependentUpon>InactiveReasonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Group\GroupEditorForm.resx">
       <DependentUpon>GroupEditorForm.cs</DependentUpon>
@@ -264,12 +264,10 @@
     <None Include="Properties\DataSources\Weapon.datasource" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\baseline_image_search_black_24dp.png" />
     <None Include="Resources\disabled_overlay.png" />
-    <None Include="Resources\medical-bag.png" />
-    <None Include="Resources\coffin.png" />
+    <None Include="Resources\baseline_block_black_18dp.png" />
+    <None Include="Resources\baseline_image_search_black_24dp.png" />
     <None Include="Resources\refresh.png" />
-    <None Include="Resources\baseline_info_black_24dp.png" />
     <None Include="Resources\ui-check-box-uncheck.png" />
     <None Include="Resources\ui-check-box.png" />
     <None Include="Resources\change_circle.png" />

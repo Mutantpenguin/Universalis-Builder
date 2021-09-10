@@ -131,7 +131,7 @@ namespace Universalis
                 DrawName( g, actor.Name );
                 DrawFaction( g, actor.Archetype.Faction );
 
-                DrawPicture( g, actor.Img, actor.Disabled );
+                DrawPicture( g, actor.Img, actor.Active );
 
                 DrawAttributes( g, actor );
                 DrawCalculatedAttributes( g, actor );
@@ -215,11 +215,11 @@ namespace Universalis
             g.DrawImage( faction.Icon, rect );
         }
 
-        private static void DrawPicture( Graphics g, Bitmap image, bool disabled )
+        private static void DrawPicture( Graphics g, Bitmap image, bool active )
         {
             if( image != null )
             {
-                if( disabled )
+                if( !active )
                 {
                     using( ImageAttributes attributes = new ImageAttributes() )
                     {

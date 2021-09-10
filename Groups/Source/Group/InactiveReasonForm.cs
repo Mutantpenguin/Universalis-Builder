@@ -1,34 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Universalis
 {
-    public partial class DisabledReasonForm : Form
+    public partial class InactiveReasonForm : Form
     {
-        public DisabledReasonForm()
+        public InactiveReasonForm()
         {
             InitializeComponent();
 
             textBoxDisabledReason.Select();
         }
 
-        public string DisabledReason;
+        public string InactiveReason;
 
-        private void DisabledReasonForm_FormClosing( object sender, FormClosingEventArgs e )
+        private void InactiveReasonForm_FormClosing( object sender, FormClosingEventArgs e )
         {
             if( DialogResult == DialogResult.OK )
             {
                 if( String.IsNullOrEmpty( textBoxDisabledReason.Text ) )
                 {
-                    // TODO
-                    MessageBox.Show( "TODO",
+                    MessageBox.Show( "Bitte zuerst einen Grund eingeben, warum das Modell inaktiv ist!",
                                      String.Empty,
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Warning );
@@ -37,7 +29,7 @@ namespace Universalis
                 }
                 else
                 {
-                    DisabledReason = textBoxDisabledReason.Text;
+                    InactiveReason = textBoxDisabledReason.Text;
                 }
             }
         }

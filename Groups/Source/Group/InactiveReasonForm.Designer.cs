@@ -1,7 +1,7 @@
 ﻿
 namespace Universalis
 {
-    partial class DisabledReasonForm
+    partial class InactiveReasonForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,8 +31,8 @@ namespace Universalis
         {
             this.textBoxDisabledReason = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonOk = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,19 @@ namespace Universalis
             this.panel2.Size = new System.Drawing.Size(483, 32);
             this.panel2.TabIndex = 3;
             // 
+            // buttonCancel
+            // 
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Image = global::Universalis.Properties.Resources.cross_circle;
+            this.buttonCancel.Location = new System.Drawing.Point(3, 3);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(100, 26);
+            this.buttonCancel.TabIndex = 3;
+            this.buttonCancel.Text = "Abbrechen";
+            this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            // 
             // buttonOk
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -71,20 +84,7 @@ namespace Universalis
             this.buttonOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonOk.UseVisualStyleBackColor = true;
             // 
-            // buttonCancel
-            // 
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Image = global::Universalis.Properties.Resources.cross_circle;
-            this.buttonCancel.Location = new System.Drawing.Point(3, 3);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 26);
-            this.buttonCancel.TabIndex = 3;
-            this.buttonCancel.Text = "Abbrechen";
-            this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // DisabledReasonForm
+            // InactiveReasonForm
             // 
             this.AcceptButton = this.buttonOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,10 +94,10 @@ namespace Universalis
             this.ControlBox = false;
             this.Controls.Add(this.textBoxDisabledReason);
             this.Controls.Add(this.panel2);
-            this.Name = "DisabledReasonForm";
+            this.Name = "InactiveReasonForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Endgültig ausgeschaltet - Grund:";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DisabledReasonForm_FormClosing);
+            this.Text = "Modell ist inaktiv - Grund:";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InactiveReasonForm_FormClosing);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

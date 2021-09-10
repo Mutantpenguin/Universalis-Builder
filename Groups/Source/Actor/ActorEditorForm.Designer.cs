@@ -40,7 +40,7 @@
             this.toolStripDescription = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxDisabledReason = new System.Windows.Forms.TextBox();
+            this.textBoxInactiveReason = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -149,6 +149,15 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.equipmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weaponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -336,7 +345,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBoxDisabledReason);
+            this.panel1.Controls.Add(this.textBoxInactiveReason);
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 75);
@@ -344,16 +353,16 @@
             this.panel1.Size = new System.Drawing.Size(294, 96);
             this.panel1.TabIndex = 12;
             // 
-            // textBoxDisabledReason
+            // textBoxInactiveReason
             // 
-            this.textBoxDisabledReason.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDisabledReason.Location = new System.Drawing.Point(0, 25);
-            this.textBoxDisabledReason.Multiline = true;
-            this.textBoxDisabledReason.Name = "textBoxDisabledReason";
-            this.textBoxDisabledReason.ReadOnly = true;
-            this.textBoxDisabledReason.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDisabledReason.Size = new System.Drawing.Size(294, 71);
-            this.textBoxDisabledReason.TabIndex = 8;
+            this.textBoxInactiveReason.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxInactiveReason.Location = new System.Drawing.Point(0, 25);
+            this.textBoxInactiveReason.Multiline = true;
+            this.textBoxInactiveReason.Name = "textBoxInactiveReason";
+            this.textBoxInactiveReason.ReadOnly = true;
+            this.textBoxInactiveReason.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxInactiveReason.Size = new System.Drawing.Size(294, 71);
+            this.textBoxInactiveReason.TabIndex = 8;
             // 
             // toolStrip1
             // 
@@ -368,8 +377,8 @@
             // toolStripLabel6
             // 
             this.toolStripLabel6.Name = "toolStripLabel6";
-            this.toolStripLabel6.Size = new System.Drawing.Size(180, 22);
-            this.toolStripLabel6.Text = "Endgültig ausgeschaltet - Grund:";
+            this.toolStripLabel6.Size = new System.Drawing.Size(144, 22);
+            this.toolStripLabel6.Text = "Modell ist inaktiv - Grund:";
             // 
             // panel9
             // 
@@ -1428,6 +1437,78 @@
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.Visible = false;
             // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "Equipment";
+            this.dataGridViewTextBoxColumn15.HeaderText = "Equipment";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Weapon";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Weapon";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Trait";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Trait";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Equipment";
+            this.dataGridViewTextBoxColumn18.HeaderText = "Equipment";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Weapon";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Weapon";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Trait";
+            this.dataGridViewTextBoxColumn20.HeaderText = "Trait";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            this.dataGridViewTextBoxColumn20.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "Equipment";
+            this.dataGridViewTextBoxColumn21.HeaderText = "Equipment";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            this.dataGridViewTextBoxColumn21.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "Weapon";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Weapon";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            this.dataGridViewTextBoxColumn22.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "Trait";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Trait";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            this.dataGridViewTextBoxColumn23.Visible = false;
+            // 
             // equipmentDataGridViewTextBoxColumn
             // 
             this.equipmentDataGridViewTextBoxColumn.DataPropertyName = "Equipment";
@@ -1637,7 +1718,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBoxDisabledReason;
+        private System.Windows.Forms.TextBox textBoxInactiveReason;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.DataGridViewTextBoxColumn traitDataGridViewTextBoxColumn;
@@ -1698,5 +1779,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
     }
 }
