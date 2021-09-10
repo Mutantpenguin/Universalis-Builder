@@ -280,9 +280,9 @@ namespace Universalis
             // WB - Wahrnehmungsbereich
             g.DrawImage( Properties.Resources.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
 
-            string fovAndModWbString = actor.ModAreaOfPerception().ToString();
-            Size fovAndModWbSize = g.MeasureString( fovAndModWbString, FontStandard ).ToSize();
-            Helpers.DrawStringCentered( g, fovAndModWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, fovAndModWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
+            string modWbString = actor.ModAreaOfPerception().ToString();
+            Size modWbSize = g.MeasureString( modWbString, FontStandard ).ToSize();
+            Helpers.DrawStringCentered( g, modWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, modWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
 
             // GB - Gefahrenbereich
             int? dangerArea = actor.ModDangerArea();
