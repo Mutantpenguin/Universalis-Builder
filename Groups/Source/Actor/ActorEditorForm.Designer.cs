@@ -22,11 +22,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanelLeft = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -45,13 +45,47 @@
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.textBoxArchetypeDescription = new System.Windows.Forms.TextBox();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxArchetypeName = new System.Windows.Forms.TextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxBaseHP = new System.Windows.Forms.TextBox();
+            this.textBoxBaseCS = new System.Windows.Forms.TextBox();
+            this.textBoxBaseDET = new System.Windows.Forms.TextBox();
+            this.textBoxBaseAWA = new System.Windows.Forms.TextBox();
+            this.textBoxBasePHY = new System.Windows.Forms.TextBox();
+            this.textBoxBaseLRC = new System.Windows.Forms.TextBox();
+            this.textBoxBaseHTH = new System.Windows.Forms.TextBox();
+            this.textBoxBaseAGI = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.dataGridViewTraits = new System.Windows.Forms.DataGridView();
-            this.traitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traitTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traitUseOnceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -65,7 +99,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
-            this.weaponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weaponNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weaponWeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weaponPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,17 +109,12 @@
             this.toolStripButtonWeaponRemove = new System.Windows.Forms.ToolStripButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dataGridViewArmor = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weightDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pointsDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripArmor = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonArmorSelect = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonArmorRemove = new System.Windows.Forms.ToolStripButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewEquipment = new System.Windows.Forms.DataGridView();
-            this.equipmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.equipmentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.equipmentWeightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.equipmentPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,42 +146,17 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBoxBaseAGI = new System.Windows.Forms.TextBox();
-            this.textBoxBaseHTH = new System.Windows.Forms.TextBox();
-            this.textBoxBaseLRC = new System.Windows.Forms.TextBox();
-            this.textBoxBasePHY = new System.Windows.Forms.TextBox();
-            this.textBoxBaseAWA = new System.Windows.Forms.TextBox();
-            this.textBoxBaseDET = new System.Windows.Forms.TextBox();
-            this.textBoxBaseCS = new System.Windows.Forms.TextBox();
-            this.textBoxBaseHP = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weaponDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.traitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weightDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pointsDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanelLeft.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
@@ -163,8 +166,8 @@
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorTraitBindingSource)).BeginInit();
@@ -175,7 +178,6 @@
             this.toolStripWeapons.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArmor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).BeginInit();
             this.toolStripArmor.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEquipment)).BeginInit();
@@ -188,7 +190,8 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelLeft
@@ -392,10 +395,6 @@
             this.textBoxArchetypeDescription.Size = new System.Drawing.Size(294, 17);
             this.textBoxArchetypeDescription.TabIndex = 47;
             // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
-            // 
             // textBoxArchetypeName
             // 
             this.textBoxArchetypeName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -421,6 +420,317 @@
             this.toolStripLabel7.Name = "toolStripLabel7";
             this.toolStripLabel7.Size = new System.Drawing.Size(55, 22);
             this.toolStripLabel7.Text = "Archetyp";
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.textBox17);
+            this.panel2.Controls.Add(this.textBox18);
+            this.panel2.Controls.Add(this.textBox19);
+            this.panel2.Controls.Add(this.textBox20);
+            this.panel2.Controls.Add(this.textBox21);
+            this.panel2.Controls.Add(this.textBox22);
+            this.panel2.Controls.Add(this.textBox23);
+            this.panel2.Controls.Add(this.textBox24);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.textBox9);
+            this.panel2.Controls.Add(this.textBox10);
+            this.panel2.Controls.Add(this.textBox11);
+            this.panel2.Controls.Add(this.textBox12);
+            this.panel2.Controls.Add(this.textBox13);
+            this.panel2.Controls.Add(this.textBox14);
+            this.panel2.Controls.Add(this.textBox15);
+            this.panel2.Controls.Add(this.textBox16);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.textBoxBaseHP);
+            this.panel2.Controls.Add(this.textBoxBaseCS);
+            this.panel2.Controls.Add(this.textBoxBaseDET);
+            this.panel2.Controls.Add(this.textBoxBaseAWA);
+            this.panel2.Controls.Add(this.textBoxBasePHY);
+            this.panel2.Controls.Add(this.textBoxBaseLRC);
+            this.panel2.Controls.Add(this.textBoxBaseHTH);
+            this.panel2.Controls.Add(this.textBoxBaseAGI);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 415);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(294, 221);
+            this.panel2.TabIndex = 13;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(167, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(43, 13);
+            this.label14.TabIndex = 34;
+            this.label14.Text = "Gesamt";
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(170, 172);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(60, 20);
+            this.textBox17.TabIndex = 33;
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(170, 198);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(60, 20);
+            this.textBox18.TabIndex = 32;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(170, 146);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(60, 20);
+            this.textBox19.TabIndex = 31;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(170, 120);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(60, 20);
+            this.textBox20.TabIndex = 30;
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(170, 94);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(60, 20);
+            this.textBox21.TabIndex = 29;
+            // 
+            // textBox22
+            // 
+            this.textBox22.Location = new System.Drawing.Point(170, 68);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(60, 20);
+            this.textBox22.TabIndex = 28;
+            // 
+            // textBox23
+            // 
+            this.textBox23.Location = new System.Drawing.Point(170, 42);
+            this.textBox23.Name = "textBox23";
+            this.textBox23.Size = new System.Drawing.Size(60, 20);
+            this.textBox23.TabIndex = 27;
+            // 
+            // textBox24
+            // 
+            this.textBox24.Location = new System.Drawing.Point(170, 16);
+            this.textBox24.Name = "textBox24";
+            this.textBox24.Size = new System.Drawing.Size(60, 20);
+            this.textBox24.TabIndex = 26;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(0, 201);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(21, 13);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "KS";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(0, 175);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(21, 13);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "TP";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(0, 149);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(22, 13);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "EH";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(0, 123);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "WN";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(0, 97);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(22, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "KO";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(0, 71);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(20, 13);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "FK";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(0, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(22, 13);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "NK";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(0, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "AGI";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(101, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "Modifikator";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(104, 172);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(60, 20);
+            this.textBox9.TabIndex = 16;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(104, 198);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(60, 20);
+            this.textBox10.TabIndex = 15;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(104, 146);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(60, 20);
+            this.textBox11.TabIndex = 14;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(104, 120);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(60, 20);
+            this.textBox12.TabIndex = 13;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(104, 94);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(60, 20);
+            this.textBox13.TabIndex = 12;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(104, 68);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(60, 20);
+            this.textBox14.TabIndex = 11;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(104, 42);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(60, 20);
+            this.textBox15.TabIndex = 10;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(104, 16);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(60, 20);
+            this.textBox16.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Basis";
+            // 
+            // textBoxBaseHP
+            // 
+            this.textBoxBaseHP.Location = new System.Drawing.Point(38, 172);
+            this.textBoxBaseHP.Name = "textBoxBaseHP";
+            this.textBoxBaseHP.Size = new System.Drawing.Size(60, 20);
+            this.textBoxBaseHP.TabIndex = 7;
+            // 
+            // textBoxBaseCS
+            // 
+            this.textBoxBaseCS.Location = new System.Drawing.Point(38, 198);
+            this.textBoxBaseCS.Name = "textBoxBaseCS";
+            this.textBoxBaseCS.Size = new System.Drawing.Size(60, 20);
+            this.textBoxBaseCS.TabIndex = 6;
+            // 
+            // textBoxBaseDET
+            // 
+            this.textBoxBaseDET.Location = new System.Drawing.Point(38, 146);
+            this.textBoxBaseDET.Name = "textBoxBaseDET";
+            this.textBoxBaseDET.Size = new System.Drawing.Size(60, 20);
+            this.textBoxBaseDET.TabIndex = 5;
+            // 
+            // textBoxBaseAWA
+            // 
+            this.textBoxBaseAWA.Location = new System.Drawing.Point(38, 120);
+            this.textBoxBaseAWA.Name = "textBoxBaseAWA";
+            this.textBoxBaseAWA.Size = new System.Drawing.Size(60, 20);
+            this.textBoxBaseAWA.TabIndex = 4;
+            // 
+            // textBoxBasePHY
+            // 
+            this.textBoxBasePHY.Location = new System.Drawing.Point(38, 94);
+            this.textBoxBasePHY.Name = "textBoxBasePHY";
+            this.textBoxBasePHY.Size = new System.Drawing.Size(60, 20);
+            this.textBoxBasePHY.TabIndex = 3;
+            // 
+            // textBoxBaseLRC
+            // 
+            this.textBoxBaseLRC.Location = new System.Drawing.Point(38, 68);
+            this.textBoxBaseLRC.Name = "textBoxBaseLRC";
+            this.textBoxBaseLRC.Size = new System.Drawing.Size(60, 20);
+            this.textBoxBaseLRC.TabIndex = 2;
+            // 
+            // textBoxBaseHTH
+            // 
+            this.textBoxBaseHTH.Location = new System.Drawing.Point(38, 42);
+            this.textBoxBaseHTH.Name = "textBoxBaseHTH";
+            this.textBoxBaseHTH.Size = new System.Drawing.Size(60, 20);
+            this.textBoxBaseHTH.TabIndex = 1;
+            // 
+            // textBoxBaseAGI
+            // 
+            this.textBoxBaseAGI.Location = new System.Drawing.Point(38, 16);
+            this.textBoxBaseAGI.Name = "textBoxBaseAGI";
+            this.textBoxBaseAGI.Size = new System.Drawing.Size(60, 20);
+            this.textBoxBaseAGI.TabIndex = 0;
             // 
             // panel10
             // 
@@ -462,14 +772,6 @@
             this.dataGridViewTraits.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewTraits_CellFormatting);
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
             this.dataGridViewTraits.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewTraits_RowPrePaint);
-            // 
-            // traitDataGridViewTextBoxColumn
-            // 
-            this.traitDataGridViewTextBoxColumn.DataPropertyName = "Trait";
-            this.traitDataGridViewTextBoxColumn.HeaderText = "Trait";
-            this.traitDataGridViewTextBoxColumn.Name = "traitDataGridViewTextBoxColumn";
-            this.traitDataGridViewTextBoxColumn.ReadOnly = true;
-            this.traitDataGridViewTextBoxColumn.Visible = false;
             // 
             // traitTypeDataGridViewTextBoxColumn
             // 
@@ -581,9 +883,9 @@
             this.panel5.Controls.Add(this.dataGridViewWeapons);
             this.panel5.Controls.Add(this.toolStripWeapons);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 247);
+            this.panel5.Location = new System.Drawing.Point(3, 172);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(244, 164);
+            this.panel5.Size = new System.Drawing.Size(244, 163);
             this.panel5.TabIndex = 5;
             // 
             // dataGridViewWeapons
@@ -609,19 +911,11 @@
             this.dataGridViewWeapons.ReadOnly = true;
             this.dataGridViewWeapons.RowHeadersVisible = false;
             this.dataGridViewWeapons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewWeapons.Size = new System.Drawing.Size(244, 139);
+            this.dataGridViewWeapons.Size = new System.Drawing.Size(244, 138);
             this.dataGridViewWeapons.TabIndex = 5;
             this.dataGridViewWeapons.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewWeapons_CellFormatting);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewWeapons_RowPrePaint);
-            // 
-            // weaponDataGridViewTextBoxColumn
-            // 
-            this.weaponDataGridViewTextBoxColumn.DataPropertyName = "Weapon";
-            this.weaponDataGridViewTextBoxColumn.HeaderText = "Weapon";
-            this.weaponDataGridViewTextBoxColumn.Name = "weaponDataGridViewTextBoxColumn";
-            this.weaponDataGridViewTextBoxColumn.ReadOnly = true;
-            this.weaponDataGridViewTextBoxColumn.Visible = false;
             // 
             // weaponNameDataGridViewTextBoxColumn
             // 
@@ -702,7 +996,8 @@
             // 
             this.panel6.Controls.Add(this.dataGridViewArmor);
             this.panel6.Controls.Add(this.toolStripArmor);
-            this.panel6.Location = new System.Drawing.Point(3, 172);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 341);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(244, 69);
             this.panel6.TabIndex = 0;
@@ -732,40 +1027,6 @@
             this.dataGridViewArmor.TabIndex = 1;
             this.dataGridViewArmor.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewArmor_CellToolTipTextNeeded);
             this.dataGridViewArmor.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewArmor_RowPrePaint);
-            // 
-            // nameDataGridViewTextBoxColumn2
-            // 
-            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn2.MinimumWidth = 95;
-            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
-            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // weightDataGridViewTextBoxColumn2
-            // 
-            this.weightDataGridViewTextBoxColumn2.DataPropertyName = "Weight";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "N1";
-            this.weightDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle7;
-            this.weightDataGridViewTextBoxColumn2.HeaderText = "Gewicht";
-            this.weightDataGridViewTextBoxColumn2.Name = "weightDataGridViewTextBoxColumn2";
-            this.weightDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.weightDataGridViewTextBoxColumn2.Width = 50;
-            // 
-            // pointsDataGridViewTextBoxColumn2
-            // 
-            this.pointsDataGridViewTextBoxColumn2.DataPropertyName = "Points";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.pointsDataGridViewTextBoxColumn2.HeaderText = "Punkte";
-            this.pointsDataGridViewTextBoxColumn2.Name = "pointsDataGridViewTextBoxColumn2";
-            this.pointsDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.pointsDataGridViewTextBoxColumn2.Width = 50;
-            // 
-            // armorBindingSource
-            // 
-            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
             // 
             // toolStripArmor
             // 
@@ -814,7 +1075,7 @@
             this.panel4.Controls.Add(this.dataGridViewEquipment);
             this.panel4.Controls.Add(this.toolStripEquipment);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 417);
+            this.panel4.Location = new System.Drawing.Point(3, 416);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(244, 164);
             this.panel4.TabIndex = 4;
@@ -847,14 +1108,6 @@
             this.dataGridViewEquipment.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewEquipment_CellFormatting);
             this.dataGridViewEquipment.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewEquipment_CellToolTipTextNeeded);
             this.dataGridViewEquipment.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewEquipment_RowPrePaint);
-            // 
-            // equipmentDataGridViewTextBoxColumn
-            // 
-            this.equipmentDataGridViewTextBoxColumn.DataPropertyName = "Equipment";
-            this.equipmentDataGridViewTextBoxColumn.HeaderText = "Equipment";
-            this.equipmentDataGridViewTextBoxColumn.Name = "equipmentDataGridViewTextBoxColumn";
-            this.equipmentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.equipmentDataGridViewTextBoxColumn.Visible = false;
             // 
             // equipmentNameDataGridViewTextBoxColumn
             // 
@@ -1015,20 +1268,19 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel10, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(1014, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33112F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33167F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33444F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33444F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.335F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 639);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
@@ -1041,11 +1293,11 @@
             this.tableLayoutPanel3.Controls.Add(this.panel11, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel12, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 587);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 586);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(244, 49);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(244, 50);
             this.tableLayoutPanel3.TabIndex = 36;
             // 
             // panel11
@@ -1056,7 +1308,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(3, 3);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(116, 43);
+            this.panel11.Size = new System.Drawing.Size(116, 44);
             this.panel11.TabIndex = 0;
             // 
             // panel12
@@ -1067,7 +1319,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(125, 3);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(116, 43);
+            this.panel12.Size = new System.Drawing.Size(116, 44);
             this.panel12.TabIndex = 1;
             // 
             // label10
@@ -1155,316 +1407,88 @@
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             this.dataGridViewTextBoxColumn11.Visible = false;
             // 
-            // panel2
-            // 
-            this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.textBox17);
-            this.panel2.Controls.Add(this.textBox18);
-            this.panel2.Controls.Add(this.textBox19);
-            this.panel2.Controls.Add(this.textBox20);
-            this.panel2.Controls.Add(this.textBox21);
-            this.panel2.Controls.Add(this.textBox22);
-            this.panel2.Controls.Add(this.textBox23);
-            this.panel2.Controls.Add(this.textBox24);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox9);
-            this.panel2.Controls.Add(this.textBox10);
-            this.panel2.Controls.Add(this.textBox11);
-            this.panel2.Controls.Add(this.textBox12);
-            this.panel2.Controls.Add(this.textBox13);
-            this.panel2.Controls.Add(this.textBox14);
-            this.panel2.Controls.Add(this.textBox15);
-            this.panel2.Controls.Add(this.textBox16);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBoxBaseHP);
-            this.panel2.Controls.Add(this.textBoxBaseCS);
-            this.panel2.Controls.Add(this.textBoxBaseDET);
-            this.panel2.Controls.Add(this.textBoxBaseAWA);
-            this.panel2.Controls.Add(this.textBoxBasePHY);
-            this.panel2.Controls.Add(this.textBoxBaseLRC);
-            this.panel2.Controls.Add(this.textBoxBaseHTH);
-            this.panel2.Controls.Add(this.textBoxBaseAGI);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 415);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(294, 221);
-            this.panel2.TabIndex = 13;
-            // 
-            // textBoxBaseAGI
-            // 
-            this.textBoxBaseAGI.Location = new System.Drawing.Point(38, 16);
-            this.textBoxBaseAGI.Name = "textBoxBaseAGI";
-            this.textBoxBaseAGI.Size = new System.Drawing.Size(60, 20);
-            this.textBoxBaseAGI.TabIndex = 0;
-            // 
-            // textBoxBaseHTH
-            // 
-            this.textBoxBaseHTH.Location = new System.Drawing.Point(38, 42);
-            this.textBoxBaseHTH.Name = "textBoxBaseHTH";
-            this.textBoxBaseHTH.Size = new System.Drawing.Size(60, 20);
-            this.textBoxBaseHTH.TabIndex = 1;
-            // 
-            // textBoxBaseLRC
-            // 
-            this.textBoxBaseLRC.Location = new System.Drawing.Point(38, 68);
-            this.textBoxBaseLRC.Name = "textBoxBaseLRC";
-            this.textBoxBaseLRC.Size = new System.Drawing.Size(60, 20);
-            this.textBoxBaseLRC.TabIndex = 2;
-            // 
-            // textBoxBasePHY
-            // 
-            this.textBoxBasePHY.Location = new System.Drawing.Point(38, 94);
-            this.textBoxBasePHY.Name = "textBoxBasePHY";
-            this.textBoxBasePHY.Size = new System.Drawing.Size(60, 20);
-            this.textBoxBasePHY.TabIndex = 3;
-            // 
-            // textBoxBaseAWA
-            // 
-            this.textBoxBaseAWA.Location = new System.Drawing.Point(38, 120);
-            this.textBoxBaseAWA.Name = "textBoxBaseAWA";
-            this.textBoxBaseAWA.Size = new System.Drawing.Size(60, 20);
-            this.textBoxBaseAWA.TabIndex = 4;
-            // 
-            // textBoxBaseDET
-            // 
-            this.textBoxBaseDET.Location = new System.Drawing.Point(38, 146);
-            this.textBoxBaseDET.Name = "textBoxBaseDET";
-            this.textBoxBaseDET.Size = new System.Drawing.Size(60, 20);
-            this.textBoxBaseDET.TabIndex = 5;
-            // 
-            // textBoxBaseCS
-            // 
-            this.textBoxBaseCS.Location = new System.Drawing.Point(38, 198);
-            this.textBoxBaseCS.Name = "textBoxBaseCS";
-            this.textBoxBaseCS.Size = new System.Drawing.Size(60, 20);
-            this.textBoxBaseCS.TabIndex = 6;
-            // 
-            // textBoxBaseHP
-            // 
-            this.textBoxBaseHP.Location = new System.Drawing.Point(38, 172);
-            this.textBoxBaseHP.Name = "textBoxBaseHP";
-            this.textBoxBaseHP.Size = new System.Drawing.Size(60, 20);
-            this.textBoxBaseHP.TabIndex = 7;
-            // 
-            // label1
+            // dataGridViewTextBoxColumn12
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Basis";
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Equipment";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Equipment";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Visible = false;
             // 
-            // label2
+            // dataGridViewTextBoxColumn13
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(101, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Modifikator";
-            // 
-            // textBox9
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Weapon";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Weapon";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Visible = false;
             // 
-            this.textBox9.Location = new System.Drawing.Point(104, 172);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(60, 20);
-            this.textBox9.TabIndex = 16;
+            // dataGridViewTextBoxColumn14
             // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(104, 198);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(60, 20);
-            this.textBox10.TabIndex = 15;
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Trait";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Trait";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Visible = false;
             // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(104, 146);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(60, 20);
-            this.textBox11.TabIndex = 14;
-            // 
-            // textBox12
+            // equipmentDataGridViewTextBoxColumn
             // 
-            this.textBox12.Location = new System.Drawing.Point(104, 120);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(60, 20);
-            this.textBox12.TabIndex = 13;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(104, 94);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(60, 20);
-            this.textBox13.TabIndex = 12;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(104, 68);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(60, 20);
-            this.textBox14.TabIndex = 11;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(104, 42);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(60, 20);
-            this.textBox15.TabIndex = 10;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(104, 16);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(60, 20);
-            this.textBox16.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "AGI";
-            // 
-            // label4
+            this.equipmentDataGridViewTextBoxColumn.DataPropertyName = "Equipment";
+            this.equipmentDataGridViewTextBoxColumn.HeaderText = "Equipment";
+            this.equipmentDataGridViewTextBoxColumn.Name = "equipmentDataGridViewTextBoxColumn";
+            this.equipmentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.equipmentDataGridViewTextBoxColumn.Visible = false;
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(22, 13);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "NK";
+            // weaponDataGridViewTextBoxColumn
             // 
-            // label5
+            this.weaponDataGridViewTextBoxColumn.DataPropertyName = "Weapon";
+            this.weaponDataGridViewTextBoxColumn.HeaderText = "Weapon";
+            this.weaponDataGridViewTextBoxColumn.Name = "weaponDataGridViewTextBoxColumn";
+            this.weaponDataGridViewTextBoxColumn.ReadOnly = true;
+            this.weaponDataGridViewTextBoxColumn.Visible = false;
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(0, 71);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 13);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "FK";
+            // traitDataGridViewTextBoxColumn
             // 
-            // label6
+            this.traitDataGridViewTextBoxColumn.DataPropertyName = "Trait";
+            this.traitDataGridViewTextBoxColumn.HeaderText = "Trait";
+            this.traitDataGridViewTextBoxColumn.Name = "traitDataGridViewTextBoxColumn";
+            this.traitDataGridViewTextBoxColumn.ReadOnly = true;
+            this.traitDataGridViewTextBoxColumn.Visible = false;
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(0, 97);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "KO";
+            // nameDataGridViewTextBoxColumn2
             // 
-            // label7
+            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.MinimumWidth = 95;
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(0, 123);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 13);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "WN";
+            // weightDataGridViewTextBoxColumn2
             // 
-            // label8
+            this.weightDataGridViewTextBoxColumn2.DataPropertyName = "Weight";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "N1";
+            this.weightDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle7;
+            this.weightDataGridViewTextBoxColumn2.HeaderText = "Gewicht";
+            this.weightDataGridViewTextBoxColumn2.Name = "weightDataGridViewTextBoxColumn2";
+            this.weightDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.weightDataGridViewTextBoxColumn2.Width = 50;
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(0, 149);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(22, 13);
-            this.label8.TabIndex = 23;
-            this.label8.Text = "EH";
+            // pointsDataGridViewTextBoxColumn2
             // 
-            // label11
+            this.pointsDataGridViewTextBoxColumn2.DataPropertyName = "Points";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            this.pointsDataGridViewTextBoxColumn2.HeaderText = "Punkte";
+            this.pointsDataGridViewTextBoxColumn2.Name = "pointsDataGridViewTextBoxColumn2";
+            this.pointsDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.pointsDataGridViewTextBoxColumn2.Width = 50;
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(0, 175);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(21, 13);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "TP";
+            // armorBindingSource
             // 
-            // label13
+            this.armorBindingSource.DataSource = typeof(Universalis.Armor);
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(0, 201);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(21, 13);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "KS";
+            // archetypeBindingSource
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(167, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(43, 13);
-            this.label14.TabIndex = 34;
-            this.label14.Text = "Gesamt";
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(170, 172);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(60, 20);
-            this.textBox17.TabIndex = 33;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(170, 198);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(60, 20);
-            this.textBox18.TabIndex = 32;
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(170, 146);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(60, 20);
-            this.textBox19.TabIndex = 31;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(170, 120);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(60, 20);
-            this.textBox20.TabIndex = 30;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(170, 94);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(60, 20);
-            this.textBox21.TabIndex = 29;
-            // 
-            // textBox22
-            // 
-            this.textBox22.Location = new System.Drawing.Point(170, 68);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(60, 20);
-            this.textBox22.TabIndex = 28;
-            // 
-            // textBox23
-            // 
-            this.textBox23.Location = new System.Drawing.Point(170, 42);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(60, 20);
-            this.textBox23.TabIndex = 27;
-            // 
-            // textBox24
-            // 
-            this.textBox24.Location = new System.Drawing.Point(170, 16);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(60, 20);
-            this.textBox24.TabIndex = 26;
+            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
             // 
             // ActorEditorForm
             // 
@@ -1496,9 +1520,10 @@
             this.toolStrip1.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).EndInit();
@@ -1514,7 +1539,6 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArmor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).EndInit();
             this.toolStripArmor.ResumeLayout(false);
             this.toolStripArmor.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -1535,8 +1559,8 @@
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1671,5 +1695,8 @@
         private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
     }
 }
