@@ -40,6 +40,7 @@ namespace Universalis
             if( !m_actorModified.Active )
             {
                 textBoxInactiveReason.Text = m_actorModified.InactiveReason;
+                toolStripLabelInactiveType.Text = m_actorModified.InactiveType.ToString();
             }
             else
             {

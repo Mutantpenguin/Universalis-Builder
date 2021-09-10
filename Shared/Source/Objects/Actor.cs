@@ -48,7 +48,9 @@ namespace Universalis
                 ||
                 Active != actor.Active
                 ||
-                InactiveReason != actor.InactiveReason )
+                InactiveReason != actor.InactiveReason
+                ||
+                InactiveType  != actor.InactiveType )
             {
                 return ( false );
             }
@@ -112,6 +114,7 @@ namespace Universalis
 
             Active = actor.Active;
             InactiveReason = actor.InactiveReason;
+            InactiveType = actor.InactiveType;
 
             Archetype = actor.Archetype;
 
@@ -188,6 +191,12 @@ namespace Universalis
             set;
         }
 
+        public EInactiveType InactiveType
+        {
+            get;
+            set;
+        }
+
         public string Biography
         {
             get;
@@ -230,6 +239,19 @@ namespace Universalis
                 set;
             }
         }
+
+        public enum EInactiveType
+        {
+            Kein = 0,
+            Tot = 1,
+            Kaputt = 2,
+            Ruhestand = 3,
+            Desertiert = 4,
+            Vermisst = 5,
+            Gefangen = 6
+        }
+
+        public static readonly IList<EInactiveType> EInactiveTypeList = Enum.GetValues( typeof( EInactiveType ) ).Cast<EInactiveType>().ToList().AsReadOnly();
 
         #region members
 

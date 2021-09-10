@@ -183,7 +183,7 @@ namespace Universalis
 
                 if( !actor.Active )
                 {
-                    toolTipText += "Ist inaktiv und kann nicht mehr verwendet werden!";
+                    toolTipText += $"Ist inaktiv und kann nicht verwendet werden: {actor.InactiveType}";
                 }
 
                 if( actor.HasInactiveComposition() )
@@ -439,6 +439,7 @@ namespace Universalis
                         if( inactiveReasonForm.ShowDialog() == DialogResult.OK )
                         {
                             actor.Active = false;
+                            actor.InactiveType = inactiveReasonForm.InactiveType;
                             actor.InactiveReason = inactiveReasonForm.InactiveReason;
 
                             updateGridViewActors();
@@ -457,8 +458,8 @@ namespace Universalis
             Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
             // TODO show reason?
-            if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich wieder aktivieren?",
-                                 "Wiederauferstehen",
+            if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich reaktivieren?\n\nGrund für Inaktivierung: {actor.InactiveType}",
+                                 "Reaktivieren",
                                  MessageBoxButtons.OKCancel,
                                  MessageBoxIcon.Warning,
                                  MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
@@ -473,6 +474,7 @@ namespace Universalis
                 else
                 {
                     actor.Active = true;
+                    actor.InactiveType = Actor.EInactiveType.Kein;
                     actor.InactiveReason = String.Empty;
 
                     updateGridViewActors();
