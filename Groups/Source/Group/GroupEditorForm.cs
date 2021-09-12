@@ -457,7 +457,6 @@ namespace Universalis
         {
             Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
-            // TODO show reason?
             if( MessageBox.Show( $"Das Model '{actor.Name}' wirklich reaktivieren?\n\nGrund für Inaktivierung: {actor.InactiveType}",
                                  "Reaktivieren",
                                  MessageBoxButtons.OKCancel,
