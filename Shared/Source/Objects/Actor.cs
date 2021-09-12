@@ -321,7 +321,7 @@ namespace Universalis
 
         public int? ModAGI()
         {
-            if( this.Archetype.Profile.Type == Profile.EType.Drohne )
+            if( this.Archetype.Type == Archetype.EType.Drohne )
             {
                 return ( null );
             }
@@ -333,7 +333,7 @@ namespace Universalis
 
         public int? ModHTH()
         {
-            if( this.Archetype.Profile.Type == Profile.EType.Drohne )
+            if( this.Archetype.Type == Archetype.EType.Drohne )
             {
                 return ( null );
             }
@@ -344,7 +344,7 @@ namespace Universalis
         }
         public int? ModLRC()
         {
-            if( this.Archetype.Profile.Type == Profile.EType.Drohne )
+            if( this.Archetype.Type == Archetype.EType.Drohne )
             {
                 return ( null );
             }
@@ -366,7 +366,7 @@ namespace Universalis
 
         public int? ModDET()
         {
-            if( this.Archetype.Profile.Type == Profile.EType.Drohne )
+            if( this.Archetype.Type == Archetype.EType.Drohne )
             {
                 return ( null );
             }
@@ -380,12 +380,12 @@ namespace Universalis
         #region calculated values
         public int? ModDangerArea()
         {
-            return ( Archetype.Profile.DangerArea( CurrentProfileModifier().AttributeModifier ) );
+            return ( Archetype.DangerArea( CurrentProfileModifier().AttributeModifier ) );
         }
 
         public int ModAreaOfPerception()
         {
-            return ( Archetype.Profile.AreaOfPerception( CurrentProfileModifier().AttributeModifier ) );
+            return ( Archetype.AreaOfPerception( CurrentProfileModifier().AttributeModifier ) );
         }
 
         public static string ThrowRange( int attributePHY, bool unwieldy )
@@ -404,7 +404,7 @@ namespace Universalis
         {
             int modPHY = Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier().AttributeModifier );
 
-            return ( LoadCapacity.Max( Archetype.Profile.Type, modPHY ) );
+            return ( LoadCapacity.Max( Archetype.Type, modPHY ) );
         }
 
         public float LoadoutWeight( bool withSelfSustaining )
@@ -448,7 +448,7 @@ namespace Universalis
 
         public Weapon WeaponUnarmed()
         {
-            if( this.Archetype.Profile.Type == Profile.EType.Drohne ) 
+            if( this.Archetype.Type == Archetype.EType.Drohne ) 
             {
                 return ( null );
             }
@@ -464,9 +464,9 @@ namespace Universalis
                     Damage = Convert.ToInt32( Math.Round( modPHY / 3.0f, 0 ) )
                 };
 
-                switch( this.Archetype.Profile.Type )
+                switch( this.Archetype.Type )
                 {
-                    case Profile.EType.Infanterie:
+                    case Archetype.EType.Infanterie:
                         weaponUnarmed.Class = Weapon.EClass.I;
                         weaponUnarmed.DamageType = new DamageType()
                         {
@@ -475,7 +475,7 @@ namespace Universalis
                         };
                         break;
 
-                    case Profile.EType.Koloss:
+                    case Archetype.EType.Koloss:
                         weaponUnarmed.Class = Weapon.EClass.II;
                         weaponUnarmed.DamageType = new DamageType()
                         {
@@ -485,7 +485,7 @@ namespace Universalis
                         break;
 
                     default:
-                        throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
+                        throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
                 }
 
                 return ( weaponUnarmed );

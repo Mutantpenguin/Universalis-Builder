@@ -19,7 +19,7 @@ namespace Universalis
             filterFaction.ComboBox.DisplayMember = nameof(Faction.Name);
             filterFaction.ComboBox.SelectionChangeCommitted += FilterFaction_SelectionChangeCommitted;
 
-            filterType.ComboBox.DataSource = Profile.ETypeList;
+            filterType.ComboBox.DataSource = Archetype.ETypeList;
             filterType.ComboBox.SelectionChangeCommitted += FilterType_SelectionChangeCommitted;
 
             refreshGridView();
@@ -51,12 +51,13 @@ namespace Universalis
         {
             List<Archetype> archetype = MasterDataStorage.Archetype.Archetypes.Where( s => s.Active )
                                                                               .Where( s => filterFaction.Enabled ? s.Faction.ID == ( (Faction)filterFaction.ComboBox.SelectedValue ).ID : true )
-                                                                              .Where( s => filterType.Enabled ? s.Profile.Type == ((Profile.EType)filterType.ComboBox.SelectedValue) : true )
+                                                                              .Where( s => filterType.Enabled ? s.Type == ((Archetype.EType)filterType.ComboBox.SelectedValue) : true )
                                                                               .Where( s => s.Name.ToUpper().Contains(toolStripTextBoxSearch.Text.ToUpper()))
                                                                               .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                               .OrderBy( x => x.Name )
                                                                               .ToList();
 
+            archetypeBindingSource.DataSource = null;
             archetypeBindingSource.DataSource = archetype;
             dataGridViewArchetypes.ClearSelection();
 

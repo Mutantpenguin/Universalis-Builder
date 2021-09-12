@@ -20,26 +20,26 @@ namespace Universalis
         public const int HitPoints = 15;
         public const int Crit = 15;
 
-        public static int movementCost( EMovementType movementType )
+        public static int movementCost( Archetype.EMovementType movementType )
         {
             switch( movementType )
             {
-                case EMovementType.Schweben:
+                case Archetype.EMovementType.Schweben:
                     return ( 100 );
 
-                case EMovementType.Flug:
+                case Archetype.EMovementType.Flug:
                     return ( 80 );
 
-                case EMovementType.Beine:
+                case Archetype.EMovementType.Beine:
                     return ( 50 );
 
-                case EMovementType.Kette:
+                case Archetype.EMovementType.Kette:
                     return ( 70 );
 
-                case EMovementType.Rad:
+                case Archetype.EMovementType.Rad:
                     return ( 70 );
 
-                case EMovementType.Stationär:
+                case Archetype.EMovementType.Stationär:
                     return ( 0 );
 
                 default:

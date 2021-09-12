@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Universalis
 {
@@ -25,6 +27,9 @@ namespace Universalis
             Name = archetype.Name;
             Description = archetype.Description;
             Faction = archetype.Faction;
+            Size = archetype.Size;
+            MovementType = archetype.MovementType;
+            Type = archetype.Type;
 
             Profile.Set( archetype.Profile );
         }
@@ -42,7 +47,13 @@ namespace Universalis
                 ||
                 Description != archetype.Description
                 ||
-                Faction != archetype.Faction )
+                Faction != archetype.Faction
+                ||
+                Size != archetype.Size
+                ||
+                MovementType != archetype.MovementType
+                ||
+                Type != archetype.Type )
             {
                 return ( false );
             }
@@ -88,6 +99,24 @@ namespace Universalis
             set;
         }
 
+        public EType Type
+        {
+            get;
+            set;
+        } = EType.Infanterie;
+
+        public ESize Size
+        {
+            get;
+            set;
+        } = ESize.Mittel;
+
+        public EMovementType MovementType
+        {
+            get;
+            set;
+        } = EMovementType.Beine;
+
         public Profile Profile
         {
             get;
@@ -103,10 +132,130 @@ namespace Universalis
             {
                 int points = 0;
 
-                points += Profile.Points;
+                points += Profile.Points( Type, MovementType );
 
                 return ( points );
             }
         }
+
+        [JsonIgnore]
+        public float Weight
+        {
+            get
+            {
+                float typeMultiplicator = 0.0f;
+
+                switch( Type )
+                {
+                    case EType.Infanterie:
+                        typeMultiplicator = 17.5f;
+                        break;
+
+                    case EType.Koloss:
+                        typeMultiplicator = 30.0f;
+                        break;
+
+                    case EType.Drohne:
+                        typeMultiplicator = 10.0f;
+                        break;
+
+                    default:
+                        throw new InvalidOperationException( "unkown " + nameof( EType ) );
+                }
+
+                float sizeMultiplicator = 0.0f;
+
+                switch( Size )
+                {
+                    case ESize.Klein:
+                        sizeMultiplicator = 0.7f;
+                        break;
+
+                    case ESize.Mittel:
+                        sizeMultiplicator = 1.0f;
+                        break;
+
+                    case ESize.Groß:
+                        sizeMultiplicator = 2.0f;
+                        break;
+
+                    case ESize.Riesig:
+                        sizeMultiplicator = 3.0f;
+                        break;
+
+                    default:
+                        throw new InvalidOperationException( "unkown " + nameof( ESize ) );
+                }
+
+                return ( Profile.Attributes.PHY * typeMultiplicator * sizeMultiplicator );
+            }
+        }
+
+        [JsonIgnore]
+        public float MaxLoadCapacity
+        {
+            get
+            {
+                return ( LoadCapacity.Max( Type, Profile.Attributes.PHY ) );
+            }
+        }
+
+        public int? DangerArea( AttributeModifier modifier )
+        {
+            if( Type == EType.Drohne )
+            {
+                return ( null );
+            }
+            else
+            {
+                int lengthDangerArea = Presets.MaxLengthDangerArea - Profile.Attributes.ModDET( modifier );
+
+                if( lengthDangerArea < 0 )
+                {
+                    return ( 0 );
+                }
+                else
+                {
+                    return ( lengthDangerArea );
+                }
+            }
+        }
+
+        public int AreaOfPerception( AttributeModifier modifier )
+        {
+            return ( Presets.AreaOfPerceptionMultiplier * Profile.Attributes.ModAWA( modifier ) );
+        }
+
+        #region enums
+        public enum ESize
+        {
+            Klein = 1,
+            Mittel = 2,
+            Groß = 3,
+            Riesig = 4
+        }
+
+        public static readonly IList<ESize> ESizeList = Enum.GetValues( typeof( ESize ) ).Cast<ESize>().ToList().AsReadOnly();
+
+        public enum EType
+        {
+            Infanterie = 1,
+            Koloss = 2,
+            Drohne = 3
+        }
+
+        public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
+
+        public enum EMovementType
+        {
+            Stationär = 0,
+            Schweben = 1,
+            Beine = 2,
+            Flug = 3,
+            Kette = 4,
+            Rad = 5
+        }
+
+#endregion enums
     }
 }

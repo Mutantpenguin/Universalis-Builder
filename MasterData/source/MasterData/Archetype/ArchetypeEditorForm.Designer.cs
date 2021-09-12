@@ -187,7 +187,7 @@
             // textBoxWeight
             // 
             this.textBoxWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxWeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.profileBindingSource, "Weight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxWeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "Weight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxWeight.Location = new System.Drawing.Point(323, 81);
             this.textBoxWeight.Name = "textBoxWeight";
             this.textBoxWeight.ReadOnly = true;
@@ -346,7 +346,7 @@
             // textBoxTragkraft
             // 
             this.textBoxTragkraft.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxTragkraft.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.profileBindingSource, "MaxLoadCapacity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxTragkraft.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "MaxLoadCapacity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxTragkraft.Location = new System.Drawing.Point(323, 107);
             this.textBoxTragkraft.Name = "textBoxTragkraft";
             this.textBoxTragkraft.ReadOnly = true;

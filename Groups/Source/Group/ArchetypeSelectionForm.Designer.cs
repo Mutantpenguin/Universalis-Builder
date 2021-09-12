@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArchetypeSelectionForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,13 +49,13 @@
             this.filterType = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewArchetypes = new System.Windows.Forms.DataGridView();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.movementTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hitPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpeedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.movementTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AGIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HTHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LRCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +74,7 @@
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOk.Image = global::Shared.Properties.Resources.tick;
+            this.buttonOk.Image = ((System.Drawing.Image)(resources.GetObject("buttonOk.Image")));
             this.buttonOk.Location = new System.Drawing.Point(697, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 26);
@@ -88,7 +88,7 @@
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Image = global::Shared.Properties.Resources.cross_circle;
+            this.buttonCancel.Image = ((System.Drawing.Image)(resources.GetObject("buttonCancel.Image")));
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(100, 26);
@@ -134,7 +134,7 @@
             // toolStripButtonClearSearch
             // 
             this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonClearSearch.Image = global::Shared.Properties.Resources.clear;
+            this.toolStripButtonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonClearSearch.Image")));
             this.toolStripButtonClearSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
@@ -154,7 +154,7 @@
             // 
             this.checkBoxFilterType.CheckOnClick = true;
             this.checkBoxFilterType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterType.Image = global::Shared.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterType.Image = ((System.Drawing.Image)(resources.GetObject("checkBoxFilterType.Image")));
             this.checkBoxFilterType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.checkBoxFilterType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.checkBoxFilterType.Name = "checkBoxFilterType";
@@ -176,9 +176,9 @@
             this.nameDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn,
             this.sizeDataGridViewTextBoxColumn,
+            this.movementTypeDataGridViewTextBoxColumn,
             this.hitPointsDataGridViewTextBoxColumn,
             this.SpeedDataGridViewTextBoxColumn,
-            this.movementTypeDataGridViewTextBoxColumn,
             this.AGIDataGridViewTextBoxColumn,
             this.HTHDataGridViewTextBoxColumn,
             this.LRCDataGridViewTextBoxColumn,
@@ -217,7 +217,7 @@
             // 
             // typeDataGridViewTextBoxColumn
             // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Profile.Type";
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
             this.typeDataGridViewTextBoxColumn.HeaderText = "Typ";
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
             this.typeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -225,11 +225,19 @@
             // 
             // sizeDataGridViewTextBoxColumn
             // 
-            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Profile.Size";
+            this.sizeDataGridViewTextBoxColumn.DataPropertyName = "Size";
             this.sizeDataGridViewTextBoxColumn.HeaderText = "Größe";
             this.sizeDataGridViewTextBoxColumn.Name = "sizeDataGridViewTextBoxColumn";
             this.sizeDataGridViewTextBoxColumn.ReadOnly = true;
             this.sizeDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // movementTypeDataGridViewTextBoxColumn
+            // 
+            this.movementTypeDataGridViewTextBoxColumn.DataPropertyName = "MovementType";
+            this.movementTypeDataGridViewTextBoxColumn.HeaderText = "Bewegungsart";
+            this.movementTypeDataGridViewTextBoxColumn.Name = "movementTypeDataGridViewTextBoxColumn";
+            this.movementTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.movementTypeDataGridViewTextBoxColumn.Width = 80;
             // 
             // hitPointsDataGridViewTextBoxColumn
             // 
@@ -250,14 +258,6 @@
             this.SpeedDataGridViewTextBoxColumn.Name = "SpeedDataGridViewTextBoxColumn";
             this.SpeedDataGridViewTextBoxColumn.ReadOnly = true;
             this.SpeedDataGridViewTextBoxColumn.Width = 35;
-            // 
-            // movementTypeDataGridViewTextBoxColumn
-            // 
-            this.movementTypeDataGridViewTextBoxColumn.DataPropertyName = "Profile.MovementType";
-            this.movementTypeDataGridViewTextBoxColumn.HeaderText = "Bewegungsart";
-            this.movementTypeDataGridViewTextBoxColumn.Name = "movementTypeDataGridViewTextBoxColumn";
-            this.movementTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.movementTypeDataGridViewTextBoxColumn.Width = 80;
             // 
             // AGIDataGridViewTextBoxColumn
             // 
@@ -321,7 +321,7 @@
             // 
             // Weight
             // 
-            this.Weight.DataPropertyName = "Profile.Weight";
+            this.Weight.DataPropertyName = "Weight";
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle10.Format = "N1";
             this.Weight.DefaultCellStyle = dataGridViewCellStyle10;
@@ -379,9 +379,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn movementTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn hitPointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SpeedDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn movementTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AGIDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn HTHDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LRCDataGridViewTextBoxColumn;

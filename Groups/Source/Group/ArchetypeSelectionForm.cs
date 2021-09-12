@@ -12,7 +12,7 @@ namespace Universalis
 
             m_factionFilter = faction;
 
-            filterType.ComboBox.DataSource = Profile.ETypeList;
+            filterType.ComboBox.DataSource = Archetype.ETypeList;
             filterType.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
 
             updateDataGridViewArchetypes();
@@ -36,7 +36,7 @@ namespace Universalis
         {
             archetypeBindingSource.DataSource = MasterDataStorage.Archetype.Archetypes.Where( s => s.Active )
                                                                                       .Where( s => ( m_factionFilter == null ) || ( m_factionFilter == s.Faction ) )
-                                                                                      .Where( s => filterType.Enabled ? s.Profile.Type == ( (Profile.EType)filterType.ComboBox.SelectedValue ) : true )
+                                                                                      .Where( s => filterType.Enabled ? s.Type == ( (Archetype.EType)filterType.ComboBox.SelectedValue ) : true )
                                                                                       .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                                       .OrderBy( x => x.Name )
                                                                                       .ToList();

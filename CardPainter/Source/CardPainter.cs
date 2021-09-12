@@ -299,17 +299,17 @@ namespace Universalis
 
             int critThreshold = actor.ModCritThreshold();
 
-            switch( actor.Archetype.Profile.Type )
+            switch( actor.Archetype.Type )
             {
-                case Profile.EType.Infanterie:
-                case Profile.EType.Drohne:
+                case Archetype.EType.Infanterie:
+                case Archetype.EType.Drohne:
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
 
                     DrawHitPointCirclesVertical( g, actor.ModHitPoints(), critThreshold, posX, posY, SHitPointSize );
                     break;
 
-                case Profile.EType.Koloss:
+                case Archetype.EType.Koloss:
                     int posXArmLeft = SPictureRect.X + margin;
                     int posYArmLeft = SPictureRect.Y + margin;
 
@@ -340,7 +340,7 @@ namespace Universalis
                     break;
 
                 default:
-                    throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
+                    throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
             }            
         }
 
@@ -419,12 +419,12 @@ namespace Universalis
 
         private static void DrawMisc( Graphics g, Actor actor )
         {
-            int sizeX = DrawType( g, XAttrThirdColumn, actor.Archetype.Profile.Type );
-            int movementX = DrawSize( g, sizeX, actor.Archetype.Profile.Size );
-            int weightX = DrawMovement( g, movementX, actor.Archetype.Profile.MovementType, actor.ModSpeed() );
+            int sizeX = DrawType( g, XAttrThirdColumn, actor.Archetype.Type );
+            int movementX = DrawSize( g, sizeX, actor.Archetype.Size );
+            int weightX = DrawMovement( g, movementX, actor.Archetype.MovementType, actor.ModSpeed() );
         }
 
-        private static int DrawType( Graphics g, int xOffset, Profile.EType type )
+        private static int DrawType( Graphics g, int xOffset, Archetype.EType type )
         {
             int width = SLineHeight;
 
@@ -432,20 +432,20 @@ namespace Universalis
 
             switch( type )
             {
-                case Profile.EType.Infanterie:
+                case Archetype.EType.Infanterie:
                     g.DrawImage( Properties.Resources.Infanterie, rect );
                     break;
 
-                case Profile.EType.Koloss:
+                case Archetype.EType.Koloss:
                     g.DrawImage( Properties.Resources.Koloss, rect );
                     break;
 
-                case Profile.EType.Drohne:
+                case Archetype.EType.Drohne:
                     g.DrawImage( Properties.Resources.Drohne, rect );
                     break;
 
                 default:
-                    throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
+                    throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
             }
 
             g.DrawRectangle( SLinePenBlack, rect );
@@ -453,30 +453,30 @@ namespace Universalis
             return ( xOffset + width );
         }
 
-        private static int DrawSize( Graphics g, int xOffset, Profile.ESize size )
+        private static int DrawSize( Graphics g, int xOffset, Archetype.ESize size )
         {
             Bitmap img;
 
             switch( size )
             {
-                case Profile.ESize.Klein :
+                case Archetype.ESize.Klein :
                     img = Properties.Resources.klein;
                     break;
 
-                case Profile.ESize.Mittel :
+                case Archetype.ESize.Mittel :
                     img = Properties.Resources.mittel;
                     break;
 
-                case Profile.ESize.Groß :
+                case Archetype.ESize.Groß :
                     img = Properties.Resources.groß;
                     break;
 
-                case Profile.ESize.Riesig:
+                case Archetype.ESize.Riesig:
                     img = Properties.Resources.riesig;
                     break;
 
                 default:
-                    throw new InvalidOperationException( "unkown " + nameof( Profile.ESize ) );
+                    throw new InvalidOperationException( "unkown " + nameof( Archetype.ESize ) );
             }
 
             int width = SLineHeight;
@@ -488,38 +488,38 @@ namespace Universalis
             return ( xOffset + width );
         }
 
-        private static int DrawMovement( Graphics g, int xOffset, EMovementType movementType, int BW )
+        private static int DrawMovement( Graphics g, int xOffset, Archetype.EMovementType movementType, int BW )
         {
             Bitmap img;
 
             switch( movementType )
             {
-                case EMovementType.Stationär:
+                case Archetype.EMovementType.Stationär:
                     img = Properties.ResourcesBewegung.bewegung_stationär;
                     break;
 
-                case EMovementType.Schweben:
+                case Archetype.EMovementType.Schweben:
                     img = Properties.ResourcesBewegung.bewegung_schweben;
                     break;
 
-                case EMovementType.Beine:
+                case Archetype.EMovementType.Beine:
                     img = Properties.ResourcesBewegung.bewegung_beine;
                     break;
 
-                case EMovementType.Flug:
+                case Archetype.EMovementType.Flug:
                     img = Properties.ResourcesBewegung.bewegung_flug;
                     break;
 
-                case EMovementType.Kette:
+                case Archetype.EMovementType.Kette:
                     img = Properties.ResourcesBewegung.bewegung_kette;
                     break;
 
-                case EMovementType.Rad:
+                case Archetype.EMovementType.Rad:
                     img = Properties.ResourcesBewegung.bewegung_rad;
                     break;
 
                 default:
-                    throw new InvalidOperationException( "unkown " + nameof( EMovementType ) );
+                    throw new InvalidOperationException( "unkown " + nameof( Archetype.EMovementType ) );
             }
 
             int movementStringWidth = CmToPixel( 0.6 );

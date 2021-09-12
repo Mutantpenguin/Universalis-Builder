@@ -149,7 +149,6 @@
     <Compile Include="Source\Objects\Group.cs" />
     <Compile Include="Source\JsonHelper\JsonJpegConverter.cs" />
     <Compile Include="Source\Objects\GroupTrait.cs" />
-    <Compile Include="Source\Objects\MovementType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Objects\Profile.cs" />
     <Compile Include="Source\Objects\ProfileModifier.cs" />

@@ -23,16 +23,16 @@ namespace Universalis
             attributeBindingSource.DataSource = m_modifiedArchetype.Profile.Attributes;
 
             // fill the combobox for the size
-            comboBoxSize.DataSource = Profile.ESizeList;
-            comboBoxSize.SelectedItem = archetype.Profile.Size;
+            comboBoxSize.DataSource = Archetype.ESizeList;
+            comboBoxSize.SelectedItem = archetype.Size;
 
             // fill the combobox for the type
-            comboBoxType.DataSource = Profile.ETypeList;
-            comboBoxType.SelectedItem = archetype.Profile.Type;
+            comboBoxType.DataSource = Archetype.ETypeList;
+            comboBoxType.SelectedItem = archetype.Type;
 
             // fill the combobox for the MovementType
-            comboBoxMovementType.DataSource = Enum.GetValues( typeof( EMovementType ) );
-            comboBoxMovementType.SelectedItem = archetype.Profile.MovementType;
+            comboBoxMovementType.DataSource = Enum.GetValues( typeof( Archetype.EMovementType ) );
+            comboBoxMovementType.SelectedItem = archetype.MovementType;
 
             TypeDependantFields();
         }
@@ -41,8 +41,8 @@ namespace Universalis
         {
             archetypeBindingSource.ResetCurrentItem();
 
-            AreaOfPerception.Text = Convert.ToString( ( (Profile)profileBindingSource.DataSource ).AreaOfPerception( new AttributeModifier() ) );
-            DangerArea.Text = Convert.ToString( ( (Profile)profileBindingSource.DataSource ).DangerArea( new AttributeModifier() ) );
+            AreaOfPerception.Text = Convert.ToString( m_modifiedArchetype.AreaOfPerception( new AttributeModifier() ) );
+            DangerArea.Text = Convert.ToString( m_modifiedArchetype.DangerArea( new AttributeModifier() ) );
         }
 
         private void AttributeBindingSource_CurrentItemChanged( object sender, EventArgs e )
@@ -75,24 +75,24 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( m_modifiedArchetype.Profile.Speed > 0 ) && ( EMovementType.Stationär == m_modifiedArchetype.Profile.MovementType ) )
+            if( ( m_modifiedArchetype.Profile.Speed > 0 ) && ( Archetype.EMovementType.Stationär == m_modifiedArchetype.MovementType ) )
             {
-                MessageBox.Show( "Geschwindigkeit ist größer als 0. Daher bitte eine andere Bewegungsart als " + EMovementType.Stationär.ToString() + " auswählen!",
+                MessageBox.Show( "Geschwindigkeit ist größer als 0. Daher bitte eine andere Bewegungsart als " + Archetype.EMovementType.Stationär.ToString() + " auswählen!",
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
                 return ( false );
             }
 
-            if( ( m_modifiedArchetype.Profile.Speed == 0 ) && ( EMovementType.Stationär != m_modifiedArchetype.Profile.MovementType ) )
+            if( ( m_modifiedArchetype.Profile.Speed == 0 ) && ( Archetype.EMovementType.Stationär != m_modifiedArchetype.MovementType ) )
             {
-                if( MessageBox.Show( "Geschwindigkeit ist gleich 0. Die Bewegungsart auf '" + EMovementType.Stationär.ToString() + "' setzen?",
+                if( MessageBox.Show( "Geschwindigkeit ist gleich 0. Die Bewegungsart auf '" + Archetype.EMovementType.Stationär.ToString() + "' setzen?",
                                      caption,
                                      MessageBoxButtons.OKCancel,
                                      MessageBoxIcon.Stop,
                                      MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
-                    m_modifiedArchetype.Profile.MovementType = EMovementType.Stationär;
+                    m_modifiedArchetype.MovementType = Archetype.EMovementType.Stationär;
                 }
                 else
                 {
@@ -101,16 +101,16 @@ namespace Universalis
             }
 
             {
-                Profile.ESize size = (Profile.ESize)comboBoxSize.SelectedItem;
+                Archetype.ESize size = (Archetype.ESize)comboBoxSize.SelectedItem;
 
-                switch( (Profile.EType)comboBoxType.SelectedItem )
+                switch( (Archetype.EType)comboBoxType.SelectedItem )
                 {
-                    case Profile.EType.Infanterie:
-                        if( ( size != Profile.ESize.Klein )
+                    case Archetype.EType.Infanterie:
+                        if( ( size != Archetype.ESize.Klein )
                             &&
-                            ( size != Profile.ESize.Mittel )
+                            ( size != Archetype.ESize.Mittel )
                             &&
-                            ( size != Profile.ESize.Groß ) )
+                            ( size != Archetype.ESize.Groß ) )
                         {
                             MessageBox.Show( "Infanterie darf nur klein, mittel oder groß sein!",
                                              caption,
@@ -120,14 +120,14 @@ namespace Universalis
                         }
                         break;
 
-                    case Profile.EType.Drohne:
-                        if( ( size != Profile.ESize.Klein )
+                    case Archetype.EType.Drohne:
+                        if( ( size != Archetype.ESize.Klein )
                             &&
-                            ( size != Profile.ESize.Mittel )
+                            ( size != Archetype.ESize.Mittel )
                             &&
-                            ( size != Profile.ESize.Groß )
+                            ( size != Archetype.ESize.Groß )
                             &&
-                            ( size != Profile.ESize.Riesig ) )
+                            ( size != Archetype.ESize.Riesig ) )
                         {
                             MessageBox.Show( "Drohnen dürfen nur klein, mittel, groß oder riesig sein!",
                                              caption,
@@ -137,10 +137,10 @@ namespace Universalis
                         }
                         break;
 
-                    case Profile.EType.Koloss:
-                        if( ( size != Profile.ESize.Groß )
+                    case Archetype.EType.Koloss:
+                        if( ( size != Archetype.ESize.Groß )
                             &&
-                            ( size != Profile.ESize.Riesig ) )
+                            ( size != Archetype.ESize.Riesig ) )
                         {
                             MessageBox.Show( "Kolosse müssen immer groß oder riesig sein!",
                                              caption,
@@ -151,7 +151,7 @@ namespace Universalis
                         break;
 
                     default:
-                        throw new InvalidOperationException( "unkown " + nameof( Profile.EType ) );
+                        throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
                 }
             }
 
@@ -208,7 +208,7 @@ namespace Universalis
 
         private void TypeDependantFields()
         {
-            if( Profile.EType.Drohne == (Profile.EType)comboBoxType.SelectedItem )
+            if( Archetype.EType.Drohne == (Archetype.EType)comboBoxType.SelectedItem )
             {
                 numericUpDownAGI.Minimum = 0;
                 numericUpDownHTH.Minimum = 0;
@@ -238,11 +238,9 @@ namespace Universalis
 
         private void comboBoxType_SelectedValueChanged( object sender, EventArgs e )
         {
-            Profile profile = (Profile)profileBindingSource.DataSource;
-
-            switch( profile.Type )
+            switch( m_modifiedArchetype.Type )
             {
-                case Profile.EType.Drohne:
+                case Archetype.EType.Drohne:
                     DangerArea.Visible = false;
                     labelGB.Visible = false;
 
@@ -268,25 +266,23 @@ namespace Universalis
 
         private void comboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            ( (Profile)profileBindingSource.DataSource ).Type = (Profile.EType)comboBoxType.SelectedItem;
+            m_modifiedArchetype.Type = (Archetype.EType)comboBoxType.SelectedItem;
 
-            profileBindingSource.ResetCurrentItem();
+            archetypeBindingSource.ResetCurrentItem();
 
             TypeDependantFields();
         }
 
         private void comboBoxSize_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            ( (Profile)profileBindingSource.DataSource ).Size = (Profile.ESize)comboBoxSize.SelectedItem;
+            m_modifiedArchetype.Size = (Archetype.ESize)comboBoxSize.SelectedItem;
 
-            profileBindingSource.ResetCurrentItem();
+            archetypeBindingSource.ResetCurrentItem();
         }
 
         private void comboBoxMovementType_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            ( (Profile)profileBindingSource.DataSource ).MovementType = (EMovementType)comboBoxMovementType.SelectedItem;
-
-            profileBindingSource.ResetCurrentItem();
+            m_modifiedArchetype.MovementType = (Archetype.EMovementType)comboBoxMovementType.SelectedItem;
         }
     }
 }
