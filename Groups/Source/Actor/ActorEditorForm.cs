@@ -37,6 +37,8 @@ namespace Universalis
 
             textBoxBiography.Text = m_actorModified.Biography;
 
+            toolStripLabelArchetypeName.Text = m_actorModified.Archetype.Name;
+
             if( !m_actorModified.Active )
             {
                 textBoxInactiveReason.Text = m_actorModified.InactiveReason;
@@ -44,7 +46,7 @@ namespace Universalis
             }
             else
             {
-                var rowStyle = tableLayoutPanelLeft.RowStyles[ 1 ];
+                var rowStyle = tableLayoutPanelLeft.RowStyles[ 2 ];
 
                 rowStyle.SizeType = SizeType.Absolute;
                 rowStyle.Height = 0;
