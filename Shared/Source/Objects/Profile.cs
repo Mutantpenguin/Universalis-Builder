@@ -80,7 +80,7 @@ namespace Universalis
             return ( Convert.ToInt32( Math.Ceiling( ModHitPoints( modifier ) * Presets.HitZoneHitPointsMultiplier ) ) );
         }
 
-        public int Points( Archetype.EType type, Archetype.EMovementType movementType )
+        public int Points( Archetype.EType type )
         {
             int points = 0;
 
@@ -111,8 +111,6 @@ namespace Universalis
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
             }
-
-            points += Costs.movementCost( movementType );
 
             return ( points );
         }
