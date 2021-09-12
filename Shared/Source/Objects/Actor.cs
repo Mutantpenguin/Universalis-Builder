@@ -507,17 +507,7 @@ namespace Universalis
 
                 if( null != TraitList )
                 {
-                    var positiveTraits = TraitList.Where( x => x.Trait.Points >= 0 );
-                    var negativeTraits = TraitList.Where( x => x.Trait.Points < 0 );
-
-                    float positiveTraitsPoints = positiveTraits.Sum( x => x.Trait.Points );
-                    float negativeTraitsPoints = negativeTraits.Sum( x => x.Trait.Points );
-
-                    // scale points with the amount of different traits where negative traits have an diminishing effect
-                    positiveTraitsPoints *= (float)Math.Pow( Costs.TraitsModifier, positiveTraits.Count() );
-                    negativeTraitsPoints /= (float)Math.Pow( Costs.TraitsModifier, negativeTraits.Count() );
-
-                    points += (int)positiveTraitsPoints + (int)negativeTraitsPoints;
+                    points += TraitList.Sum( x => x.Trait.Points );
                 }
 
                 if( null != WeaponList )

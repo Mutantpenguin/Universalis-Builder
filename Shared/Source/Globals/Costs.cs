@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Universalis
 {
@@ -76,8 +76,5 @@ namespace Universalis
         // Equipment
         public const float EquipmentUseOnceMultiplicator = 0.35f;
         public const float EquipmentUnwieldyMultiplicator = 0.8f;
-
-        // Traits
-        public const float TraitsModifier = 1.1f;
     }
 }
