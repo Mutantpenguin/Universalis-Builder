@@ -313,9 +313,9 @@ namespace Universalis
             return ( Archetype.Profile.ModHitZoneHitPoints( CurrentProfileModifier() ) );
         }
 
-        public int ModCritThresholdModifier()
+        public int ModCritThreshold()
         {
-            return ( CurrentProfileModifier().CritThreshold );
+            return ( 50 + CurrentProfileModifier().CritThreshold );
         }
 
         public int? ModAGI()
