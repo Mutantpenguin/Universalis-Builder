@@ -306,10 +306,6 @@ namespace Universalis
 
                         RefreshUniverses();
                     }
-                    else
-                    {
-                        OpenUniverse();
-                    }
 
                     break;
 
