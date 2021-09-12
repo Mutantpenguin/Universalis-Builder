@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Universalis
 {
@@ -20,27 +20,35 @@ namespace Universalis
         public const int HitPoints = 15;
         public const int Crit = 15;
 
+        // Movement
+        private const int MovementHover = 100;
+        private const int MovementFly = 80;
+        private const int MovementWalk = 50;
+        private const int MovementTracks = 70;
+        private const int MovementWheels = 70;
+        private const int MovementStationary = 0;
+
         public static int movementCost( Archetype.EMovementType movementType )
         {
             switch( movementType )
             {
                 case Archetype.EMovementType.Schweben:
-                    return ( 100 );
+                    return ( MovementHover );
 
                 case Archetype.EMovementType.Flug:
-                    return ( 80 );
+                    return ( MovementFly );
 
                 case Archetype.EMovementType.Beine:
-                    return ( 50 );
+                    return ( MovementWalk );
 
                 case Archetype.EMovementType.Kette:
-                    return ( 70 );
+                    return ( MovementTracks );
 
                 case Archetype.EMovementType.Rad:
-                    return ( 70 );
+                    return ( MovementWheels );
 
                 case Archetype.EMovementType.Stationär:
-                    return ( 0 );
+                    return ( MovementStationary );
 
                 default:
                     throw new ArgumentException( "unkown movementType", nameof( movementType ) );
