@@ -86,8 +86,8 @@ namespace Universalis
         public enum EType
         {
             Infanterie = 1,
-            Koloss = 3,
-            Drohne = 5
+            Koloss = 2,
+            Drohne = 3
         }
 
         public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
