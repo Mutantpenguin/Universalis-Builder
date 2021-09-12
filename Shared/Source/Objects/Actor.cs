@@ -534,7 +534,7 @@ namespace Universalis
         }
 #endregion calculated values
 
-        private ProfileModifier CurrentProfileModifier()
+        public ProfileModifier CurrentProfileModifier()
         {
             ProfileModifier modifier = new ProfileModifier();
 

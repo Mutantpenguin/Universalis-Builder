@@ -131,6 +131,43 @@ namespace Universalis
                 pictureBoxCard.Image?.Dispose();
                 pictureBoxCard.Image = CardPainter.GetBitmap( m_actorModified );
             }
+
+
+            // base values
+            var profile = m_actorModified.Archetype.Profile;
+            var attributes = profile.Attributes;
+
+            textBoxBaseAGI.Text = attributes.AGI.ToString();
+            textBoxBaseHTH.Text = attributes.HTH.ToString();
+            textBoxBaseLRC.Text = attributes.LRC.ToString();
+            textBoxBasePHY.Text = attributes.PHY.ToString();
+            textBoxBaseAWA.Text = attributes.AWA.ToString();
+            textBoxBaseDET.Text = attributes.DET.ToString();
+            textBoxBaseHP.Text = profile.HitPoints.ToString();
+            textBoxBaseCS.Text = "50%";
+
+            // modifications
+            var currentProfileModifier = m_actorModified.CurrentProfileModifier();
+            var currentAttributeModifier = currentProfileModifier.AttributeModifier;
+
+            textBoxModAGI.Text = currentAttributeModifier.AGIString;
+            textBoxModHTH.Text = currentAttributeModifier.HTHString;
+            textBoxModLRC.Text = currentAttributeModifier.LRCString;
+            textBoxModPHY.Text = currentAttributeModifier.PHYString;
+            textBoxModAWA.Text = currentAttributeModifier.AWAString;
+            textBoxModDET.Text = currentAttributeModifier.DETString;
+            textBoxModHP.Text = currentProfileModifier.HitPointsString;
+            textBoxModCS.Text = currentProfileModifier.CritThresholdString;
+
+            // final values
+            textBoxResultAGI.Text = m_actorModified.ModAGI().ToString();
+            textBoxResultHTH.Text = m_actorModified.ModHTH().ToString();
+            textBoxResultLRC.Text = m_actorModified.ModLRC().ToString();
+            textBoxResultPHY.Text = m_actorModified.ModPHY().ToString();
+            textBoxResultAWA.Text = m_actorModified.ModAWA().ToString();
+            textBoxResultDET.Text = m_actorModified.ModDET().ToString();
+            textBoxResultHP.Text = m_actorModified.ModHitPoints().ToString();
+            textBoxResultCS.Text = m_actorModified.ModCritThreshold().ToString() + "%";
         }
 #endregion update
 
@@ -446,9 +483,9 @@ namespace Universalis
                 return ( false );
             }
 
-            if( m_actorModified.ModCritThresholdModifier() > 50 )
+            if( m_actorModified.ModCritThreshold() < 0 )
             {
-                MessageBox.Show( "Die kritische Schwelle darf insgesamt nicht größer als 50 sein!",
+                MessageBox.Show( "Die kritische Schwelle darf nicht kleiner als 0 sein!",
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
