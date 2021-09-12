@@ -82,30 +82,32 @@ namespace Universalis
 
         public int Points( Archetype.EType type )
         {
+            var costs = Costs.Get();
+
             int points = 0;
 
             if( type != Archetype.EType.Drohne )
             {
-                points += Attributes.AGI * Costs.AGI;
-                points += Attributes.HTH * Costs.HTH;
-                points += Attributes.LRC * Costs.LRC;
-                points += Attributes.DET * Costs.DET;
+                points += Attributes.AGI * costs.AGI;
+                points += Attributes.HTH * costs.HTH;
+                points += Attributes.LRC * costs.LRC;
+                points += Attributes.DET * costs.DET;
             }
 
-            points += Speed * Costs.Speed;
+            points += Speed * costs.Speed;
 
-            points += Attributes.PHY * Costs.PHY;
-            points += Attributes.AWA * Costs.AWA;
+            points += Attributes.PHY * costs.PHY;
+            points += Attributes.AWA * costs.AWA;
 
             switch( type )
             {
                 case Archetype.EType.Infanterie:
                 case Archetype.EType.Drohne:
-                    points += HitPoints * Costs.HitPoints;
+                    points += HitPoints * costs.HitPoints;
                     break;
 
                 case Archetype.EType.Koloss:
-                    points += ( HitPoints * Costs.HitPoints ) + ( 3 * HitZoneHitPoints * Costs.HitPoints );
+                    points += ( HitPoints * costs.HitPoints ) + ( 3 * HitZoneHitPoints * costs.HitPoints );
                     break;
 
                 default:

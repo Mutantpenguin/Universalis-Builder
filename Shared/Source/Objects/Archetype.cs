@@ -130,9 +130,11 @@ namespace Universalis
         {
             get
             {
+                var costs = Costs.Get();
+
                 int points = 0;
 
-                points += Costs.movementCost( MovementType );
+                points += costs.movementCost( MovementType );
 
                 points += Profile.Points( Type );
 

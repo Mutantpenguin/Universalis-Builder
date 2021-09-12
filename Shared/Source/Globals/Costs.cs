@@ -1,34 +1,288 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Universalis
 {
-    static class Costs
+    public class Costs
     {
-        // Attributes
-        public const int AGI = 10; // Agility           / "Agilität"
-        public const int HTH = 10; // Hand-To-Hand      / "Nahkampf"
-        public const int LRC = 10; // Long-Range-Combat / "Fernkampf"
-        public const int PHY = 15; // Physique          / "Konstitution"
-        public const int AWA = 10; // Awareness         / "Wahrnehmung"
-        public const int DET = 10; // Determination     / "Entschlossenheit"
+        public static void Initialize( Costs costs )
+        {
+            if( costs == null )
+            {
+                throw new ArgumentNullException( nameof( costs ) );
+            }
 
-        // Profile and Attribute modifier
-        public const float ModifierSurcharge = 1.2f;
+            m_costs = costs;
+        }
 
-        // Actor
-        public const int Speed = 10;
-        public const int HitPoints = 15;
-        public const int Crit = 15;
+        public static Costs Get()
+        {
+            if( m_costs == null )
+            {
+                throw new InvalidOperationException( "Die Kosten wurden noch nicht initialisiert!" );
+            }
 
-        // Movement
-        private const int MovementHover = 100;
-        private const int MovementFly = 80;
-        private const int MovementWalk = 50;
-        private const int MovementTracks = 70;
-        private const int MovementWheels = 70;
-        private const int MovementStationary = 0;
+            return ( m_costs );
+        }
 
-        public static int movementCost( Archetype.EMovementType movementType )
+        private static Costs m_costs = null;
+
+#region attributes
+
+        // Agility / "Agilität"
+        [JsonProperty]
+        public int AGI
+        {
+            get;
+            private set;
+        }
+
+        // Hand-To-Hand / "Nahkampf"
+        [JsonProperty]
+        public int HTH
+        {
+            get;
+            private set;
+        }
+
+        // Long-Range-Combat / "Fernkampf"
+        [JsonProperty]
+        public int LRC
+        {
+            get;
+            private set;
+        }
+
+        // Physique / "Konstitution"
+        [JsonProperty]
+        public int PHY
+        {
+            get;
+            private set;
+        }
+
+        // Awareness / "Wahrnehmung"
+        [JsonProperty]
+        public int AWA
+        {
+            get;
+            private set;
+        }
+
+        // Determination / "Entschlossenheit"
+        [JsonProperty]
+        public int DET
+        {
+            get;
+            private set;
+        }
+#endregion attributes
+
+#region profile and attribute
+        [JsonProperty]
+        public float ModifierSurcharge
+        {
+            get;
+            private set;
+        }
+#endregion profile and attribute
+
+#region profile
+        [JsonProperty]
+        public int Speed
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public int HitPoints
+        {
+            get;
+            private set;
+        }
+#endregion profile
+
+#region archetype
+        [JsonProperty]
+        public int CritThreshold
+        {
+            get;
+            private set;
+        }
+#endregion archetype
+
+#region movement
+        [JsonProperty]
+        public int MovementHover
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public int MovementFly
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public int MovementWalk
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public int MovementTracks
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public int MovementWheels
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public int MovementStationary
+        {
+            get;
+            private set;
+        }
+#endregion movement
+
+#region weapon
+        [JsonProperty]
+        public int WeaponStrength
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public int WeaponDamage
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float WeaponDamageTypeLevelMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float WeaponUseOnceMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float WeaponUnwieldyMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float WeaponReloadMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float WeaponIndirectFireMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float WeaponDamageEffectMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float WeaponSustainedFireMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float WeaponAdditiveStrengthMultiplicator
+        {
+            get;
+            private set;
+        }
+#endregion weapon
+
+#region armor
+        [JsonProperty]
+        public int ArmorProtection
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float ArmorDamageTypeLevelMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float ArmorDamageEffectMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float ArmorSelfSustainingMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float ArmorAdditiveProtectionMultiplicator
+        {
+            get;
+            private set;
+        }
+#endregion armor
+
+#region equipment
+        [JsonProperty]
+        public float EquipmentUseOnceMultiplicator
+        {
+            get;
+            private set;
+        }
+
+        [JsonProperty]
+        public float EquipmentUnwieldyMultiplicator
+        {
+            get;
+            private set;
+        }
+#endregion equipment
+
+
+        public int movementCost( Archetype.EMovementType movementType )
         {
             switch( movementType )
             {
@@ -54,35 +308,5 @@ namespace Universalis
                     throw new ArgumentException( "unkown movementType", nameof( movementType ) );
             }
         }
-
-        // Weapon
-        public const int WeaponStrength = 10;
-        public const int WeaponDamage = 20;
-
-        public const float WeaponDamageTypeLevelMultiplicator = 1.4f;
-
-        public const float WeaponUseOnceMultiplicator = 0.35f;
-        public const float WeaponUnwieldyMultiplicator = 0.8f;
-        public const float WeaponReloadMultiplicator = 0.7f;
-        public const float WeaponIndirectFireMultiplicator = 1.4f;
-
-        public const float WeaponDamageEffectMultiplicator = 1.1f;
-        public const float WeaponSustainedFireMultiplicator = 1.1f;
-        public const float WeaponAdditiveStrengthMultiplicator = 1.2f;
-
-        // Armor
-        public const int ArmorProtection = 10;
-
-        public const float ArmorDamageTypeLevelMultiplicator = 1.3f;
-
-        public const float ArmorDamageEffectMultiplicator = 1.1f;
-
-        public const float ArmorSelfSustainingMultiplicator = 1.3f;
-
-        public const float ArmorAdditiveProtectionMultiplicator = 1.2f;
-
-        // Equipment
-        public const float EquipmentUseOnceMultiplicator = 0.35f;
-        public const float EquipmentUnwieldyMultiplicator = 0.8f;
     }
 }

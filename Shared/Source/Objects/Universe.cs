@@ -112,6 +112,13 @@ namespace Universalis
             set;
         }
 
+        [JsonProperty( "costs" )]
+        public Costs Costs
+        {
+            get;
+            set;
+        } = new Costs();
+
         [JsonIgnore]
         public Image Logo
         {

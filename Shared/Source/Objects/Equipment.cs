@@ -200,6 +200,8 @@ namespace Universalis
 
         private int CalculatedPoints()
         {
+            var costs = Costs.Get();
+
             float points = 0;
 
             // TODO calculate points with values
@@ -213,12 +215,12 @@ namespace Universalis
 
             if( UseOnce )
             {
-                points *= Costs.EquipmentUseOnceMultiplicator;
+                points *= costs.EquipmentUseOnceMultiplicator;
             }
 
             if( Unwieldy )
             {
-                points *= Costs.EquipmentUnwieldyMultiplicator;
+                points *= costs.EquipmentUnwieldyMultiplicator;
             }
 
             return ( (int)points );

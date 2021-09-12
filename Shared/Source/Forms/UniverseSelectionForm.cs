@@ -271,6 +271,8 @@ namespace Universalis
 
             void OpenUniverse()
             {
+                Costs.Initialize( universeItem.Universe.Costs );
+
                 this.Hide();
 
                 formToOpen( universeItem.ImageKey, universeItem.Universe ).ShowDialog( this );

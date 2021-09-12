@@ -16,7 +16,8 @@
 		"contact": {
 			"type": "string",
 			"format": "email"
-		}
+		},
+		"costs": {}
 	},
 	"required": [ "name", "description", "id" ],
 	"additionalProperties": false
