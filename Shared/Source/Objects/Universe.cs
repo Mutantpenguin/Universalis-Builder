@@ -8,6 +8,7 @@ using System.IO;
 
 namespace Universalis
 {
+    [JsonObject( ItemNullValueHandling = NullValueHandling.Ignore )]
     public class Universe
     {
         public Universe() { }
@@ -62,42 +63,49 @@ namespace Universalis
             return ( Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - " + Version ) );
         }
 
+        [JsonProperty( "id" )]
         public Guid ID
         {
             get;
             set;
         } = Guid.NewGuid();
 
+        [JsonProperty( "name" )]
         public string Name
         {
             get;
             set;
-        } = "Bitte Namen eingeben";
+        }
 
+        [JsonProperty( "description" )]
         public string Description
         {
             get;
             set;
-        } = "Bitte Beschreibung eingeben";
+        } = String.Empty;
 
+        [JsonProperty( "version" )]
         public string Version
         {
             get;
             set;
         }
 
+        [JsonProperty( "author" )]
         public string Author
         {
             get;
             set;
         }
 
+        [JsonProperty( "contact" )]
         public string Contact
         {
             get;
             set;
         }
 
+        [JsonProperty( "website" )]
         public string Website
         {
             get;
@@ -143,6 +151,27 @@ namespace Universalis
             {
                 return (null, ex.Message);
             }
+        }
+
+        public static string Create( string universePath )
+        {
+            var universeID = Guid.NewGuid();
+
+            var universeDirectoryPath = Path.Combine( universePath, universeID.ToString() );
+
+            var universeFullPath = Path.Combine( universeDirectoryPath, Universe.universeSettingsFilename );
+
+            var universe = new Universe()
+            {
+                ID = universeID,
+                Name = "Neues Universum - " + DateTime.Now.ToString()
+            };
+
+            Directory.CreateDirectory( universeDirectoryPath );
+
+            File.WriteAllText( universeFullPath, JsonConvert.SerializeObject( universe, Storage.formatting ) );
+
+            return ( universeFullPath );
         }
     }
 }

@@ -132,7 +132,10 @@ namespace Universalis
                         lvi.State = UniverseListViewItem.EState.ERROR;
                         lvi.ToolTipText = error;
 
-                        imageListUniverses.Images.Add( universePath, ImageHelper.Colorize( Shared.Properties.Resources.empty, s_colorMatrixUniverserLoadingError ) );
+                        this.Invoke( new MethodInvoker( () =>
+                        {
+                            imageListUniverses.Images.Add( universePath, ImageHelper.Colorize( Shared.Properties.Resources.empty, s_colorMatrixUniverserLoadingError ) );
+                        } ) );
                     }
                     else
                     {
@@ -190,6 +193,10 @@ namespace Universalis
                             {
                                 universe.Logo = new Bitmap( bmpTemp );
                             }
+                        }
+                        else
+                        {
+                            universe.Logo = Shared.Properties.Resources.empty;
                         }
 
                         Image overlayImage = null;
@@ -450,7 +457,18 @@ namespace Universalis
 
         private void buttonAddUniverse_Click( object sender, EventArgs e )
         {
-            MessageBox.Show( "Not Implemented Yet" );
+            if( MessageBox.Show( $"Wirklich ein neues Universum erzeugen?",
+                                 "Wirklich erzeugen?",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question,
+                                 MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
+            {
+                var path = Universe.Create( UniversesPath );
+
+                Process.Start( "notepad.exe", path );
+
+                RefreshUniverses();
+            }
         }
 
         private void buttonInfo_Click( object sender, EventArgs e )
