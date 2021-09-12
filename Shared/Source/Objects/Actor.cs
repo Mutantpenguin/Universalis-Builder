@@ -244,11 +244,12 @@ namespace Universalis
         {
             Kein = 0,
             Tot = 1,
-            Kaputt = 2,
+            Zerstört = 2,
             Ruhestand = 3,
             Desertiert = 4,
             Vermisst = 5,
-            Gefangen = 6
+            Gefangen = 6,
+            Defekt = 7
         }
 
         public static readonly IList<EInactiveType> EInactiveTypeList = Enum.GetValues( typeof( EInactiveType ) ).Cast<EInactiveType>().ToList().AsReadOnly();
