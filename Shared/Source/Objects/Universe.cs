@@ -26,6 +26,10 @@ namespace Universalis
 
             Name = universe.Name;
             Description = universe.Description;
+            Version = universe.Version;
+            Author = universe.Author;
+            Contact = universe.Contact;
+            Website = universe.Website;
         }
 
         public bool Equals( Universe universe )
@@ -39,7 +43,13 @@ namespace Universalis
                 ||
                 Description != universe.Description
                 ||
-                Version != universe.Version )
+                Version != universe.Version
+                ||
+                Author != universe.Author
+                ||
+                Contact != universe.Contact
+                ||
+                Website != universe.Website )
             {
                 return ( false );
             }
