@@ -909,7 +909,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(244, 163);
+            this.panel10.Size = new System.Drawing.Size(244, 167);
             this.panel10.TabIndex = 10;
             // 
             // dataGridViewTraits
@@ -936,7 +936,7 @@
             this.dataGridViewTraits.ReadOnly = true;
             this.dataGridViewTraits.RowHeadersVisible = false;
             this.dataGridViewTraits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTraits.Size = new System.Drawing.Size(244, 138);
+            this.dataGridViewTraits.Size = new System.Drawing.Size(244, 142);
             this.dataGridViewTraits.TabIndex = 1;
             this.dataGridViewTraits.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewTraits_CellFormatting);
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
@@ -1037,11 +1037,13 @@
             // 
             // textBoxTragkraft
             // 
+            this.textBoxTragkraft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTragkraft.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxTragkraft.Location = new System.Drawing.Point(3, 19);
             this.textBoxTragkraft.Name = "textBoxTragkraft";
             this.textBoxTragkraft.ReadOnly = true;
-            this.textBoxTragkraft.Size = new System.Drawing.Size(110, 20);
+            this.textBoxTragkraft.Size = new System.Drawing.Size(119, 20);
             this.textBoxTragkraft.TabIndex = 33;
             this.textBoxTragkraft.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip.SetToolTip(this.textBoxTragkraft, "maximale Tragkraft bei der keine Beeinträchtigung herrscht");
@@ -1060,9 +1062,9 @@
             this.panel5.Controls.Add(this.dataGridViewWeapons);
             this.panel5.Controls.Add(this.toolStripWeapons);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 172);
+            this.panel5.Location = new System.Drawing.Point(3, 176);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(244, 163);
+            this.panel5.Size = new System.Drawing.Size(244, 167);
             this.panel5.TabIndex = 5;
             // 
             // dataGridViewWeapons
@@ -1088,7 +1090,7 @@
             this.dataGridViewWeapons.ReadOnly = true;
             this.dataGridViewWeapons.RowHeadersVisible = false;
             this.dataGridViewWeapons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewWeapons.Size = new System.Drawing.Size(244, 138);
+            this.dataGridViewWeapons.Size = new System.Drawing.Size(244, 142);
             this.dataGridViewWeapons.TabIndex = 5;
             this.dataGridViewWeapons.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewWeapons_CellFormatting);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
@@ -1182,7 +1184,7 @@
             this.panel6.Controls.Add(this.dataGridViewArmor);
             this.panel6.Controls.Add(this.toolStripArmor);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 341);
+            this.panel6.Location = new System.Drawing.Point(3, 349);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(244, 69);
             this.panel6.TabIndex = 0;
@@ -1294,9 +1296,9 @@
             this.panel4.Controls.Add(this.dataGridViewEquipment);
             this.panel4.Controls.Add(this.toolStripEquipment);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 416);
+            this.panel4.Location = new System.Drawing.Point(3, 424);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(244, 164);
+            this.panel4.Size = new System.Drawing.Size(244, 168);
             this.panel4.TabIndex = 4;
             // 
             // dataGridViewEquipment
@@ -1322,7 +1324,7 @@
             this.dataGridViewEquipment.ReadOnly = true;
             this.dataGridViewEquipment.RowHeadersVisible = false;
             this.dataGridViewEquipment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEquipment.Size = new System.Drawing.Size(244, 139);
+            this.dataGridViewEquipment.Size = new System.Drawing.Size(244, 143);
             this.dataGridViewEquipment.TabIndex = 5;
             this.dataGridViewEquipment.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewEquipment_CellFormatting);
             this.dataGridViewEquipment.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewEquipment_CellToolTipTextNeeded);
@@ -1460,11 +1462,13 @@
             // 
             // textBoxBelastung
             // 
+            this.textBoxBelastung.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxBelastung.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxBelastung.Location = new System.Drawing.Point(3, 19);
             this.textBoxBelastung.Name = "textBoxBelastung";
             this.textBoxBelastung.ReadOnly = true;
-            this.textBoxBelastung.Size = new System.Drawing.Size(110, 20);
+            this.textBoxBelastung.Size = new System.Drawing.Size(119, 20);
             this.textBoxBelastung.TabIndex = 35;
             this.textBoxBelastung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip.SetToolTip(this.textBoxBelastung, "aktuelle Belastung");
@@ -1520,11 +1524,12 @@
             this.tableLayoutPanel3.Controls.Add(this.panel11, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel12, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 586);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 595);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(244, 50);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(250, 44);
             this.tableLayoutPanel3.TabIndex = 36;
             // 
             // panel11
@@ -1533,9 +1538,10 @@
             this.panel11.Controls.Add(this.label9);
             this.panel11.Controls.Add(this.textBoxTragkraft);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(116, 44);
+            this.panel11.Size = new System.Drawing.Size(125, 44);
             this.panel11.TabIndex = 0;
             // 
             // panel12
@@ -1544,9 +1550,10 @@
             this.panel12.Controls.Add(this.label10);
             this.panel12.Controls.Add(this.textBoxBelastung);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(125, 3);
+            this.panel12.Location = new System.Drawing.Point(125, 0);
+            this.panel12.Margin = new System.Windows.Forms.Padding(0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(116, 44);
+            this.panel12.Size = new System.Drawing.Size(125, 44);
             this.panel12.TabIndex = 1;
             // 
             // label10
