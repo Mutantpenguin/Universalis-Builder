@@ -287,7 +287,11 @@ namespace Universalis
         {
             using( ActorEditorForm actorEditorForm = new ActorEditorForm( actor ) )
             {
+                pictureBoxCard.Hide();
+
                 actorEditorForm.ShowDialog( this );
+
+                pictureBoxCard.Show();
             }
 
             groupBindingSource.ResetBindings( false );
