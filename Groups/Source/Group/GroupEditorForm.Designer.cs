@@ -49,7 +49,6 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonGroupTraitSelect = new System.Windows.Forms.ToolStripButton();
@@ -59,6 +58,7 @@
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripLabelGroupTrait = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -409,7 +409,6 @@
             // 
             this.panel1.AutoSize = true;
             this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.toolStrip3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 169);
@@ -421,30 +420,21 @@
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "GroupTrait.Rules", true));
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(0, 45);
+            this.textBox2.Location = new System.Drawing.Point(0, 25);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(290, 43);
+            this.textBox2.Size = new System.Drawing.Size(290, 63);
             this.textBox2.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "GroupTrait.Name", true));
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBox1.Location = new System.Drawing.Point(0, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(290, 20);
-            this.textBox1.TabIndex = 2;
             // 
             // toolStrip3
             // 
             this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel3,
             this.toolStripButtonGroupTraitSelect,
-            this.toolStripButtonGroupTraitRemove});
+            this.toolStripButtonGroupTraitRemove,
+            this.toolStripLabelGroupTrait});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.Size = new System.Drawing.Size(290, 25);
@@ -454,8 +444,8 @@
             // toolStripLabel3
             // 
             this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(114, 22);
-            this.toolStripLabel3.Text = "Gruppeneigenschaft";
+            this.toolStripLabel3.Size = new System.Drawing.Size(71, 22);
+            this.toolStripLabel3.Text = "Eigenschaft:";
             // 
             // toolStripButtonGroupTraitSelect
             // 
@@ -538,6 +528,11 @@
             this.toolTip.ReshowDelay = 500;
             this.toolTip.ShowAlways = true;
             // 
+            // toolStripLabelGroupTrait
+            // 
+            this.toolStripLabelGroupTrait.Name = "toolStripLabelGroupTrait";
+            this.toolStripLabelGroupTrait.Size = new System.Drawing.Size(0, 22);
+            // 
             // GroupEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -609,7 +604,6 @@
         private System.Windows.Forms.PictureBox pictureBoxFactionIcon;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.BindingSource groupBindingSource;
@@ -626,5 +620,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn actorPointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn actorUpDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn actorDownDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripLabel toolStripLabelGroupTrait;
     }
 }

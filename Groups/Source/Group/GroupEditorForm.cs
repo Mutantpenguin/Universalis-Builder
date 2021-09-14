@@ -29,10 +29,23 @@ namespace Universalis
             textBoxDescription.Text = m_groupModified.Description;
 
             groupBindingSource.DataSource = m_groupModified;
+            
+            updateGroupTrait();
 
             updateGridViewActors();
         }
 
+        private void updateGroupTrait()
+        {
+            if( m_groupModified.GroupTrait != null )
+            {
+                toolStripLabelGroupTrait.Text = m_groupModified.GroupTrait.Name;
+            }
+            else
+            {
+                toolStripLabelGroupTrait.Text = String.Empty;
+            }
+        }
 
         protected override void Dispose( bool disposing )
         {
@@ -355,6 +368,8 @@ namespace Universalis
                             m_groupModified.GroupTrait = groupTraitSelectionForm.SelectedGroupTrait;
 
                             groupBindingSource.ResetBindings( false );
+
+                            updateGroupTrait();
                         }
                     }
                 }
@@ -368,6 +383,8 @@ namespace Universalis
                 m_groupModified.GroupTrait = null;
 
                 groupBindingSource.ResetBindings( false );
+
+                updateGroupTrait();
             }
         }
 
