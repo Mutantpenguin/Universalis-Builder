@@ -343,7 +343,7 @@ namespace Universalis
         {
             get;
             set;
-        }
+        } = new WeaponRange();
 
         public bool UseOnce
         {
