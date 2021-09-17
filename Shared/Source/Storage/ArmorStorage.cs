@@ -14,6 +14,15 @@ namespace Universalis
 
         private readonly string s_path;
 
+        private readonly Armor m_nullArmor = new Armor()
+        {
+            ID = Guid.Empty,
+            Active = false,
+            Name = "--- GELÖSCHT ---",
+            AdditionalPoints = 10000,
+            Description = "Diese Rüstung gibt es nicht (mehr)."
+        };
+
         public ArmorStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
@@ -103,12 +112,7 @@ namespace Universalis
         {
             Armor armor = m_armorList.Find( x => x.ID == id );
 
-            if( null == armor )
-            {
-                throw new InvalidOperationException( $"Die Rüstung mit der ID {id} konnte nicht gefunden werden!" );
-            }
-
-            return ( armor );
+            return ( armor ?? m_nullArmor );
         }
 
         public static Armor Create()

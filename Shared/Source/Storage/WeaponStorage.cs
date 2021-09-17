@@ -14,6 +14,15 @@ namespace Universalis
 
         private readonly string s_path;
 
+        private readonly Weapon m_nullWeapon = new Weapon()
+        {
+            ID = Guid.Empty,
+            Active = false,
+            Name = "--- GELÖSCHT ---",
+            AdditionalPoints = 10000,
+            Description = "Dies Waffe gibt es nicht (mehr)."
+        };
+
         public WeaponStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
@@ -104,12 +113,7 @@ namespace Universalis
         {
             Weapon weapon = m_weaponList.Find( x => x.ID == id );
 
-            if( null == weapon )
-            {
-                throw new InvalidOperationException( $"Die Waffe mit der ID {id} konnte nicht gefunden werden!" );
-            }
-
-            return ( weapon );
+            return ( weapon ?? m_nullWeapon );
         }
 
         public static Weapon Create()

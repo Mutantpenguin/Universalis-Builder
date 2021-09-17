@@ -14,6 +14,15 @@ namespace Universalis
 
         private readonly string s_path;
 
+        private readonly GroupTrait m_nullGroupTrait = new GroupTrait()
+        {
+            ID = Guid.Empty,
+            Active = false,
+            Name = "--- GELÖSCHT ---",
+            PointsPerModel = 10000,
+            Description = "Diese Gruppeneigenschaft gibt es nicht (mehr)."
+        };
+
         public GroupTraitStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
@@ -103,12 +112,7 @@ namespace Universalis
         {
             GroupTrait groupTrait = m_groupTraitList.Find( x => x.ID == id );
 
-            if( null == groupTrait )
-            {
-                throw new InvalidOperationException( $"Die Gruppeneigenschaft mit der ID {id} konnte nicht gefunden werden!" );
-            }
-
-            return ( groupTrait );
+            return ( groupTrait ?? m_nullGroupTrait );
         }
 
         public static GroupTrait Create()

@@ -13,6 +13,15 @@ namespace Universalis
 
         private readonly string s_path;
 
+        private readonly DamageEffect m_nullDamageEffect = new DamageEffect()
+        {
+            ID = Guid.Empty,
+            Active = false,
+            Name = "--- GELÖSCHT ---",
+            Points = 10000,
+            Description = "Diesen Schadenseffekt gibt es nicht (mehr)."
+        };
+
         public DamageEffectStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
@@ -102,12 +111,7 @@ namespace Universalis
         {
             DamageEffect damageEffect = m_damageEffectList.Find( x => x.ID == id );
 
-            if( null == damageEffect )
-            {
-                throw new InvalidOperationException( $"Die Eigenschaft mit der ID {id} konnte nicht gefunden werden!" );
-            }
-
-            return ( damageEffect );
+            return ( damageEffect ?? m_nullDamageEffect );
         }
 
         public static DamageEffect Create()

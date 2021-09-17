@@ -13,6 +13,14 @@ namespace Universalis
 
         private readonly string s_path;
 
+        private readonly Archetype m_nullArchetype = new Archetype()
+        {
+            ID = Guid.Empty,
+            Active = false,
+            Name = "--- GELÖSCHT ---",
+            Description = "Diesen Archetyp gibt es nicht (mehr)."
+        };
+
         public ArchetypeStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
@@ -103,12 +111,7 @@ namespace Universalis
         {
             Archetype archetype = m_archetypeList.Find( x => x.ID == id );
 
-            if( null == archetype )
-            {
-                throw new InvalidOperationException( $"Der Archetyp mit der ID {id} konnte nicht gefunden werden!" );
-            }
-
-            return ( archetype );
+            return ( archetype ?? m_nullArchetype );
         }
 
         public static Archetype Create( Faction faction )

@@ -13,6 +13,15 @@ namespace Universalis
 
         private readonly string s_path;
 
+        private readonly Equipment m_nullEquipment = new Equipment()
+        {
+            ID = Guid.Empty,
+            Active = false,
+            Name = "--- GELÖSCHT ---",
+            AdditionalPoints = 10000,
+            Description = "Diese Ausrüstung gibt es nicht (mehr)."
+        };
+
         public EquipmentStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
@@ -103,12 +112,7 @@ namespace Universalis
         {
             Equipment equipment = m_equipmentList.Find( x => x.ID == id );
 
-            if( null == equipment )
-            {
-                throw new InvalidOperationException( $"Die Ausrüstung mit der ID {id} konnte nicht gefunden werden!" );
-            }
-
-            return ( equipment );
+            return ( equipment ?? m_nullEquipment );
         }
 
         public static Equipment Create()

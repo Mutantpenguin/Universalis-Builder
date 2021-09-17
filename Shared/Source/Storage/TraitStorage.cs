@@ -13,6 +13,15 @@ namespace Universalis
 
         private readonly string s_path;
 
+        private readonly Trait m_nullTrait = new Trait()
+        {
+            ID = Guid.Empty,
+            Active = false,
+            Name = "--- GELÖSCHT ---",
+            AdditionalPoints = 10000,
+            Description = "Diese Eigenschaft gibt es nicht (mehr)."
+        };
+
         public TraitStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
@@ -103,12 +112,7 @@ namespace Universalis
         {
             Trait trait = m_traitsList.Find( x => x.ID == id );
 
-            if( null == trait )
-            {
-                throw new InvalidOperationException( $"Die Eigenschaft mit der ID {id} konnte nicht gefunden werden!" );
-            }
-
-            return ( trait );
+            return ( trait ?? m_nullTrait );
         }
 
         public static Trait Create()

@@ -13,6 +13,14 @@ namespace Universalis
 
         private readonly string s_path;
 
+        private readonly Faction m_nullFaction = new Faction()
+        {
+            ID = Guid.Empty,
+            Active = false,
+            Name = "--- GELÖSCHT ---",
+            Description = "Diese Fraktion gibt es nicht (mehr)."
+        };
+
         public FactionStorage( string path, BackgroundWorker backgroundWorker )
         {
             s_path = Path.Combine( path, Storage.dataSubfolderName, s_folderName );
@@ -102,12 +110,7 @@ namespace Universalis
         {
             Faction faction = m_factionList.Find( x => x.ID == id );
 
-            if( null == faction )
-            {
-                throw new InvalidOperationException( $"Die Fraktion mit der ID {id} konnte nicht gefunden werden!" );
-            }
-
-            return( faction );
+            return ( faction ?? m_nullFaction );
         }
 
         public static Faction Create()
