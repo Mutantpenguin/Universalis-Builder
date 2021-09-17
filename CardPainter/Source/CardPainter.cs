@@ -552,8 +552,8 @@ namespace Universalis
                 const String delimiter = ", ";
 
                 StringBuilder builder = new StringBuilder();
-                foreach( var entry in actorTraitList.GroupBy( x => new { x.Trait.ID, x.Trait.UseOnce } )
-                                                    .Select( x => new { trait = MasterDataStorage.Trait.Get( x.Key.ID ), useOnce = x.Key.UseOnce, use_once_count = x.Count() } )
+                foreach( var entry in actorTraitList.GroupBy( x => x.Trait )
+                                                    .Select( x => new { trait = x.Key, count = x.Count() } )
                                                     .OrderBy( x => x.trait.Name )
                                                     .ToList() )
                 {
@@ -564,10 +564,10 @@ namespace Universalis
                         builder.Append( " ⊙" + entry.trait.AP );
                     }
 
-                    if( entry.useOnce )
+                    if( entry.trait.UseOnce )
                     {
                         builder.Append( NonBreakingSpace );
-                        for( int j = 0; j < entry.use_once_count; j++ )
+                        for( int j = 0; j < entry.count; j++ )
                         {
                             builder.Append( "○" );
                         }
@@ -622,8 +622,8 @@ namespace Universalis
                     lineNumber++;
                 }
 
-                foreach( var weaponEntry in actor.WeaponList.GroupBy( x => x.Weapon.ID )
-                                                            .Select( x => new { weapon = MasterDataStorage.Weapon.Get( x.Key ), count = x.Count() } )
+                foreach( var weaponEntry in actor.WeaponList.GroupBy( x => x.Weapon )
+                                                            .Select( x => new { weapon = x.Key, count = x.Count() } )
                                                             .OrderBy( x => x.weapon.Class )
                                                             .ThenBy( x => x.weapon.RangeSort )
                                                             .ThenBy( x => x.weapon.Name ) )
@@ -852,8 +852,8 @@ namespace Universalis
 
         private static int DrawEquipment( Graphics g, List<Actor.ActorEquipment> actorEquipmentList, int posY )
         {
-            var equipList = actorEquipmentList.GroupBy( x => x.Equipment.ID )
-                                              .Select( x => new { equipment = MasterDataStorage.Equipment.Get( x.Key ), count = x.Count() } )
+            var equipList = actorEquipmentList.GroupBy( x => x.Equipment )
+                                              .Select( x => new { equipment = x.Key, count = x.Count() } )
                                               .Where( x => ( x.equipment.AP > 0 )
                                                            ||
                                                            ( x.equipment.UseOnce )
