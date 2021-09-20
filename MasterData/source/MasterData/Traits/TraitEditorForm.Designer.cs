@@ -45,10 +45,12 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
             this.textBoxRules = new System.Windows.Forms.TextBox();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.numericUpDownAdditionalPoints = new System.Windows.Forms.NumericUpDown();
+            this.labelMaxLevel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.numericUpDownMaxLevel = new System.Windows.Forms.NumericUpDown();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
@@ -67,8 +69,9 @@
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -201,8 +204,8 @@
             // 
             this.panel3.Controls.Add(this.textBoxDescription);
             this.panel3.Controls.Add(this.toolStrip1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 345);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 268);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(434, 187);
             this.panel3.TabIndex = 0;
@@ -236,50 +239,44 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.panel2);
+            this.panel4.AutoSize = true;
+            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel4.Controls.Add(this.textBoxRules);
+            this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.toolStrip2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 144);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(434, 201);
+            this.panel4.Size = new System.Drawing.Size(434, 124);
             this.panel4.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.textBoxRules);
-            this.panel2.Controls.Add(this.numericUpDownAdditionalPoints);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(434, 176);
-            this.panel2.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(65, 5);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 13);
-            this.label12.TabIndex = 48;
-            this.label12.Text = "Zusatzpunkte";
             // 
             // textBoxRules
             // 
-            this.textBoxRules.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.traitBindingSource, "Rules", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxRules.Location = new System.Drawing.Point(3, 29);
+            this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Visible", this.traitBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxRules.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxRules.Location = new System.Drawing.Point(0, 51);
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRules.Size = new System.Drawing.Size(428, 141);
+            this.textBoxRules.Size = new System.Drawing.Size(434, 73);
             this.textBoxRules.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.AutoSize = true;
+            this.panel6.Controls.Add(this.numericUpDownAdditionalPoints);
+            this.panel6.Controls.Add(this.labelMaxLevel);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Controls.Add(this.numericUpDownMaxLevel);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 25);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(434, 26);
+            this.panel6.TabIndex = 51;
             // 
             // numericUpDownAdditionalPoints
             // 
-            this.numericUpDownAdditionalPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownAdditionalPoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.traitBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDownAdditionalPoints.Location = new System.Drawing.Point(3, 3);
             this.numericUpDownAdditionalPoints.Maximum = new decimal(new int[] {
@@ -296,6 +293,41 @@
             this.numericUpDownAdditionalPoints.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownAdditionalPoints.TabIndex = 47;
             this.numericUpDownAdditionalPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownAdditionalPoints.ValueChanged += new System.EventHandler(this.numericUpDownAdditionalPoints_ValueChanged);
+            // 
+            // labelMaxLevel
+            // 
+            this.labelMaxLevel.AutoSize = true;
+            this.labelMaxLevel.DataBindings.Add(new System.Windows.Forms.Binding("Visible", this.traitBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.labelMaxLevel.Location = new System.Drawing.Point(205, 5);
+            this.labelMaxLevel.Name = "labelMaxLevel";
+            this.labelMaxLevel.Size = new System.Drawing.Size(85, 13);
+            this.labelMaxLevel.TabIndex = 50;
+            this.labelMaxLevel.Text = "Maximales Level";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(65, 5);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(72, 13);
+            this.label12.TabIndex = 48;
+            this.label12.Text = "Zusatzpunkte";
+            // 
+            // numericUpDownMaxLevel
+            // 
+            this.numericUpDownMaxLevel.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.traitBindingSource, "MaxLevel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownMaxLevel.DataBindings.Add(new System.Windows.Forms.Binding("Visible", this.traitBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownMaxLevel.Location = new System.Drawing.Point(143, 3);
+            this.numericUpDownMaxLevel.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownMaxLevel.Name = "numericUpDownMaxLevel";
+            this.numericUpDownMaxLevel.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownMaxLevel.TabIndex = 49;
+            this.numericUpDownMaxLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // toolStrip2
             // 
@@ -408,13 +440,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 532);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(434, 529);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip3);
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(450, 0);
             this.Name = "TraitEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Eigenschaften Editor";
@@ -430,9 +465,10 @@
             this.toolStrip1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxLevel)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
@@ -471,7 +507,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown numericUpDownAdditionalPoints;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown numericUpDownAP;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -482,5 +517,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonProfileMod;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripButton toolStripButtonProfileModEditor;
+        private System.Windows.Forms.Label labelMaxLevel;
+        private System.Windows.Forms.NumericUpDown numericUpDownMaxLevel;
+        private System.Windows.Forms.Panel panel6;
     }
 }

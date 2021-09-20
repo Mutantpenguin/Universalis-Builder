@@ -28,8 +28,8 @@ namespace Universalis
             Rules = trait.Rules;
             AdditionalPoints = trait.AdditionalPoints;
             UseOnce = trait.UseOnce;
-
             AP = trait.AP;
+            MaxLevel = trait.MaxLevel;
 
             if( null != trait.ProfileModifier )
             {
@@ -60,7 +60,9 @@ namespace Universalis
                 ||
                 UseOnce != trait.UseOnce
                 ||
-                AP != trait.AP )
+                AP != trait.AP
+                ||
+                MaxLevel != trait.MaxLevel )
             {
                 return ( false );
             }
@@ -134,6 +136,12 @@ namespace Universalis
             set;
         } = 0;
 
+        public uint MaxLevel
+        {
+            get;
+            set;
+        } = 1;
+
         public ProfileModifier ProfileModifier
         {
             get;
@@ -200,11 +208,23 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public int Points => CalculatedPoints() + AdditionalPoints;
+        public int MinPoints => CalculatedPoints( 0 );
 
-        private int CalculatedPoints()
+        [JsonIgnore]
+        public int MaxPoints => CalculatedPoints( MaxLevel );
+
+        private int CalculatedPoints( uint level )
         {
             float points = 0;
+
+            if( level == 0 )
+            {
+                points += AdditionalPoints;
+            }
+            else
+            {
+                points += level * AdditionalPoints;
+            }
 
             // TODO calculate points with values
             // AP

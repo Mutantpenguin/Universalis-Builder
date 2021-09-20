@@ -42,26 +42,6 @@ namespace Universalis
                 return ( false );
             }
 
-            if( String.IsNullOrEmpty( textBoxRules.Text ) )
-            {
-                MessageBox.Show( "Regeln sind leer, bitte angeben!" );
-                return ( false );
-            }
-
-            if( !String.IsNullOrEmpty( textBoxRules.Text )
-                &&
-                ( numericUpDownAdditionalPoints.Value == 0 ) )
-            {
-                MessageBox.Show( "Achtung, die zusätzlichen Punkte stehen auf '0', obwohl Regeln eingetragen wurden!" );
-            }
-
-            if( String.IsNullOrEmpty( textBoxRules.Text )
-                &&
-                ( numericUpDownAdditionalPoints.Value > 0 ) )
-            {
-                MessageBox.Show( "Achtung, es sind keine Regeln eingetragen, die zusätzlichen Punkte stehen aber nicht auf '0'!" );
-            }
-
             return ( true );
         }
 
@@ -159,6 +139,26 @@ namespace Universalis
                     trait.ProfileModifier = profileModifierEditor.ProfileModifier;
                     textBoxProfileModifier.Text = trait.ProfileModifier.ToString();
                     traitBindingSource.ResetBindings( false );
+                }
+            }
+        }
+
+        private void numericUpDownAdditionalPoints_ValueChanged( object sender, EventArgs e )
+        {
+            if( numericUpDownAdditionalPoints.Value == 0 )
+            {
+                if( MessageBox.Show( "asdasd",
+                                     "",
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Question,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    textBoxRules.Text = String.Empty;
+                    numericUpDownMaxLevel.Value = 0;
+                }
+                else
+                {
+                    numericUpDownAdditionalPoints.Value = 999;
                 }
             }
         }
