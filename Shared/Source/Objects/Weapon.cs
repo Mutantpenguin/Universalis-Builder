@@ -534,6 +534,7 @@ namespace Universalis
                 points *= costs.WeaponUseOnceMultiplicator;
             }
 
+            // the lower the class the higher the points
             points *= ( 1 + ( 5 - (int)Class ) * 0.25f );
 
             return ( (int)points );
