@@ -534,7 +534,7 @@ namespace Universalis
                 points *= costs.WeaponUseOnceMultiplicator;
             }
 
-            points *= ( 1 + Math.Abs( 5 - (int)Class ) * 0.25f );
+            points *= ( 1 + ( 5 - (int)Class ) * 0.25f );
 
             return ( (int)points );
         }
