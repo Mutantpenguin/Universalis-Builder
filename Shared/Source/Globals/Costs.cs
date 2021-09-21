@@ -279,8 +279,16 @@ namespace Universalis
             get;
             private set;
         }
-#endregion equipment
+        #endregion equipment
 
+#region trait
+        [JsonProperty]
+        public float TraitUseOnceMultiplicator
+        {
+            get;
+            private set;
+        }
+#endregion
 
         public int movementCost( Archetype.EMovementType movementType )
         {

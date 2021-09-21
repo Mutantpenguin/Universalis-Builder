@@ -147,14 +147,14 @@ namespace Universalis
         {
             if( numericUpDownAdditionalPoints.Value == 0 )
             {
-                if( MessageBox.Show( "asdasd",
-                                     "",
+                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln verwendet werden. Weiter und Regeln löschen?",
+                                     "Ohne Punkte keine Regeln",
                                      MessageBoxButtons.OKCancel,
                                      MessageBoxIcon.Question,
                                      MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     textBoxRules.Text = String.Empty;
-                    numericUpDownMaxLevel.Value = 0;
+                    numericUpDownMaxLevel.Value = 1;
                 }
                 else
                 {

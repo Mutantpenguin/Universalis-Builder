@@ -31,9 +31,9 @@ namespace Universalis
             traitBindingSource.DataSource = MasterDataStorage.Trait.Traits.Where( s => s.Active )
                                                                           .Where( s => s.UseOnce || ( m_TraitsList.Find( x => x.ID == s.ID ) == null ) )
                                                                           .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                          .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.Type != "+" ) )
-                                                                          .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.Type != "-" ) )
-                                                                          .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.Type != "=" ) )
+                                                                          .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.MinPoints <= 0 ) )
+                                                                          .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.MinPoints >= 0 ) )
+                                                                          .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.MinPoints != 0 ) )
                                                                           .OrderBy( x => x.Name )
                                                                           .ToList();
         }

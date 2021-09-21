@@ -71,7 +71,7 @@
             this.PHYString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AWAString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DETString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -89,7 +89,7 @@
             this.toolStripDropDownButtonFilter});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(730, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(780, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -217,7 +217,7 @@
             this.PHYString,
             this.AWAString,
             this.DETString,
-            this.Points});
+            this.PointsString});
             this.dataGridViewTraits.DataSource = this.traitBindingSource;
             this.dataGridViewTraits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewTraits.Location = new System.Drawing.Point(0, 25);
@@ -226,7 +226,7 @@
             this.dataGridViewTraits.ReadOnly = true;
             this.dataGridViewTraits.RowHeadersVisible = false;
             this.dataGridViewTraits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTraits.Size = new System.Drawing.Size(730, 379);
+            this.dataGridViewTraits.Size = new System.Drawing.Size(780, 379);
             this.dataGridViewTraits.TabIndex = 0;
             this.dataGridViewTraits.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTraits_CellDoubleClick);
             this.dataGridViewTraits.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewTraits_CellFormatting);
@@ -239,7 +239,7 @@
             this.toolStripStatusLabelCount});
             this.statusStrip1.Location = new System.Drawing.Point(0, 404);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(730, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(780, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -392,21 +392,21 @@
             this.DETString.ReadOnly = true;
             this.DETString.Width = 35;
             // 
-            // Points
+            // PointsString
             // 
-            this.Points.DataPropertyName = "Points";
+            this.PointsString.DataPropertyName = "PointsString";
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Points.DefaultCellStyle = dataGridViewCellStyle14;
-            this.Points.HeaderText = "Punkte";
-            this.Points.Name = "Points";
-            this.Points.ReadOnly = true;
-            this.Points.Width = 50;
+            this.PointsString.DefaultCellStyle = dataGridViewCellStyle14;
+            this.PointsString.HeaderText = "Punkte";
+            this.PointsString.Name = "PointsString";
+            this.PointsString.ReadOnly = true;
+            this.PointsString.Width = 80;
             // 
             // TraitsManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 426);
+            this.ClientSize = new System.Drawing.Size(780, 426);
             this.Controls.Add(this.dataGridViewTraits);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -456,6 +456,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PHYString;
         private System.Windows.Forms.DataGridViewTextBoxColumn AWAString;
         private System.Windows.Forms.DataGridViewTextBoxColumn DETString;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Points;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PointsString;
     }
 }

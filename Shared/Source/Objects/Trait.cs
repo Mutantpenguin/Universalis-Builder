@@ -88,6 +88,8 @@ namespace Universalis
             return ( true );
         }
 
+        public const string LevelPlaceholder = "[LVL]";
+
         public Guid ID
         {
             get;
@@ -151,7 +153,7 @@ namespace Universalis
         [JsonIgnore]
         public string FormattedAP => ( AP == 0 ) ? "" : AP.ToString();
 
-        public override string ToString()
+        public string ToString( uint level )
         {
             string text = String.Empty;
 
@@ -179,62 +181,75 @@ namespace Universalis
                     text += Environment.NewLine;
                 }
 
-                text += this.Rules;
+                if( MaxLevel > 1 )
+                {
+                    text += this.Rules.Replace( LevelPlaceholder, level.ToString() );
+                }
+                else
+                {
+                    text += this.Rules;
+                }
             }
 
             return ( text );
         }
 
         [JsonIgnore]
-        public string Type
-        {
-            get
-            {
-                var points = Points;
-
-                if( points > 0 )
-                {
-                    return "+";
-                }
-                else if( points < 0 )
-                {
-                    return "-";
-                }
-                else
-                {
-                    return "=";
-                }
-            }
-        }
+        public int MinPoints => Points( 1 );
 
         [JsonIgnore]
-        public int MinPoints => CalculatedPoints( 0 );
+        public int MaxPoints => Points( MaxLevel );
 
-        [JsonIgnore]
-        public int MaxPoints => CalculatedPoints( MaxLevel );
-
-        private int CalculatedPoints( uint level )
+        public int Points( uint level )
         {
+            var costs = Costs.Get();
+
             float points = 0;
 
-            if( level == 0 )
-            {
-                points += AdditionalPoints;
-            }
-            else
-            {
-                points += level * AdditionalPoints;
-            }
-
-            // TODO calculate points with values
-            // AP
+            points += level * AdditionalPoints;
 
             if( ProfileModifier != null )
             {
                 points += ProfileModifier.Points();
             }
 
+            if( UseOnce )
+            {
+                points *= costs.TraitUseOnceMultiplicator;
+            }
+
+            // the lower the needed AP the higher the points
+            points *= ( 1 + ( 6 - AP ) * 0.25f );
+
             return ( (int)points );
+        }
+
+        [JsonIgnore]
+        public string PointsString
+        {
+            get
+            {
+                if( MaxLevel == 1 )
+                {
+                    return ( Points( 1 ).ToString() );
+                }
+                else
+                {
+                    return ( $"{Points( 1 )} bis {Points( MaxLevel )}" );
+                }
+            }
+        }
+
+        public string FormattedName( uint level )
+        {
+            if( MaxLevel == 1 )
+            {
+                return ( Name );
+            }
+            else
+            {
+                return ( $"{Name} {level}" );
+            }
         }
     }
 }

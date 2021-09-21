@@ -218,6 +218,21 @@ namespace Universalis
                 get;
                 set;
             }
+
+            public uint Level
+            {
+                get;
+                set;
+            } = 1;
+
+            [JsonIgnore]
+            public int Points
+            {
+                get
+                {
+                    return( Trait.Points( Level ) );
+                }
+            }
         }
 
         public class ActorWeapon
@@ -507,7 +522,7 @@ namespace Universalis
 
                 if( null != TraitList )
                 {
-                    points += TraitList.Sum( x => x.Trait.Points );
+                    points += TraitList.Sum( x => x.Points );
                 }
 
                 if( null != WeaponList )
