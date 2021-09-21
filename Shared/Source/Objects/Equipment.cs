@@ -205,7 +205,6 @@ namespace Universalis
             float points = 0;
 
             // TODO calculate points with values
-            // AP
             // Weight - especially since it can be negative
 
             if( ProfileModifier != null )
@@ -222,6 +221,9 @@ namespace Universalis
             {
                 points *= costs.EquipmentUnwieldyMultiplicator;
             }
+
+            // the lower the needed AP the higher the points
+            points *= ( 1 + ( 6 - AP ) * 0.25f );
 
             return ( (int)points );
         }
