@@ -112,7 +112,7 @@ namespace Universalis
             set;
         }
 
-        [JsonProperty( "costs" )]
+        [JsonProperty( "costs", Required = Required.Always )]
         public Costs Costs
         {
             get;
