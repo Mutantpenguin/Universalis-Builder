@@ -93,7 +93,6 @@ namespace Universalis
         private static readonly int XAttrThirdColumn = CmToPixel( 8.5 );
 
         private const String UnwieldyMarker = "»";
-        private const String NonBreakingSpace = "\u00a0";
         #endregion members
 
         #region weaponMembers
@@ -566,7 +565,7 @@ namespace Universalis
 
                     if( entry.trait.UseOnce )
                     {
-                        builder.Append( NonBreakingSpace );
+                        builder.Append( StringHelper.NonBreakingSpace );
                         for( int j = 0; j < entry.count; j++ )
                         {
                             builder.Append( "○" );
@@ -885,7 +884,7 @@ namespace Universalis
 
                     if( entry.equipment.UseOnce )
                     {
-                        builder.Append( NonBreakingSpace );
+                        builder.Append( StringHelper.NonBreakingSpace );
                         for( int i = 0; i < entry.count; i++ )
                         {
                             builder.Append( "○" );
@@ -895,7 +894,7 @@ namespace Universalis
                     {
                         if( entry.count > 1 )
                         {
-                            builder.Append( NonBreakingSpace + $"[x{entry.count}]" );
+                            builder.Append( StringHelper.NonBreakingSpace + $"[x{entry.count}]" );
                         }
                     }
 
