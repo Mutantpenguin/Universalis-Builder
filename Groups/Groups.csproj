@@ -282,7 +282,6 @@
     <None Include="Resources\clear.png" />
     <None Include="Resources\copy.png" />
     <None Include="Resources\disk.png" />
-    <None Include="Resources\pencil.png" />
     <None Include="Resources\funnel.png" />
     <None Include="Resources\trash.png" />
     <None Include="Resources\blue-folder-horizontal-open.png" />
