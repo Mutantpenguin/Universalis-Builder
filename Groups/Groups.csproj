@@ -264,6 +264,7 @@
     <None Include="Properties\DataSources\Weapon.datasource" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\plus.png" />
     <None Include="Resources\baseline_engineering_black_48dp.png" />
     <None Include="Resources\disabled_overlay.png" />
     <None Include="Resources\baseline_block_black_18dp.png" />
@@ -275,18 +276,14 @@
     <None Include="Resources\error_outline.png" />
     <None Include="Resources\file_download.png" />
     <None Include="Resources\document-pdf.png" />
-    <None Include="Resources\plus.png" />
     <None Include="Resources\cross-circle.png" />
     <None Include="Resources\tick.png" />
-    <None Include="Resources\image.png" />
     <None Include="Resources\clear.png" />
     <None Include="Resources\copy.png" />
     <None Include="Resources\disk.png" />
     <None Include="Resources\funnel.png" />
     <None Include="Resources\trash.png" />
     <None Include="Resources\blue-folder-horizontal-open.png" />
-    <None Include="Resources\application-list.png" />
-    <None Include="Resources\minus.png" />
     <Content Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
