@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Universalis
 {
@@ -7,6 +8,8 @@ namespace Universalis
         public ProfileModifierEditor( ProfileModifier profileModifier )
         {
             InitializeComponent();
+
+            this.Icon = Shared.Properties.Resources.icon;
 
             ProfileModifier = new ProfileModifier( profileModifier );
 
