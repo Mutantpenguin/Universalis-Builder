@@ -28,6 +28,10 @@ namespace Universalis
 
             archetypeBindingSource.DataSource = m_actorModified.Archetype;
 
+            traitLevelBindingSource.DataSource = Enumerable.Range( 1, 10 )
+                                                           .Select( i => (uint)i )
+                                                           .ToList();
+
             pictureBoxFactionIcon.Image = m_actorModified.Archetype.Faction.Icon;
             toolTip.SetToolTip( pictureBoxFactionIcon, m_actorModified.Archetype.Faction.Name );
 
@@ -705,6 +709,30 @@ namespace Universalis
             dataGridViewArmor.ClearSelection();
             dataGridViewWeapons.ClearSelection();
             dataGridViewEquipment.ClearSelection();
+        }
+
+        private void dataGridViewTraits_CellBeginEdit( object sender, DataGridViewCellCancelEventArgs e )
+        {
+            if( e.ColumnIndex == traitLevelDataGridViewComboBoxColumn.Index )
+            {
+                DataGridViewRow row = dataGridViewTraits.Rows[ e.RowIndex ];
+
+                Trait trait = ( (Actor.ActorTrait)row.DataBoundItem ).Trait;
+
+                ( row.Cells[ traitLevelDataGridViewComboBoxColumn.Index ] as DataGridViewComboBoxCell ).DataSource = Enumerable.Range( 1, (int)trait.MaxLevel )
+                                                                                                                               .Select( i => (uint)i )
+                                                                                                                               .ToList();
+            }
+        }
+
+        private void dataGridViewTraits_CurrentCellDirtyStateChanged( object sender, EventArgs e )
+        {
+            if( dataGridViewTraits.CurrentCell.ColumnIndex == traitLevelDataGridViewComboBoxColumn.Index )
+            {
+                dataGridViewTraits.CommitEdit( DataGridViewDataErrorContexts.Commit );
+
+                updateFields();
+            }
         }
     }
 }
