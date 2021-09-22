@@ -861,7 +861,7 @@
             // toolStripButtonProfileModEditor
             // 
             this.toolStripButtonProfileModEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonProfileModEditor.Image = global::Universalis.Properties.Resources.pencil;
+            this.toolStripButtonProfileModEditor.Image = global::Universalis.Properties.Resources.baseline_tune_black_18dp;
             this.toolStripButtonProfileModEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButtonProfileModEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonProfileModEditor.Name = "toolStripButtonProfileModEditor";
