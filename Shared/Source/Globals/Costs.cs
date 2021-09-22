@@ -30,7 +30,7 @@ namespace Universalis
 #region attributes
 
         // Agility / "Agilität"
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int AGI
         {
             get;
@@ -38,7 +38,7 @@ namespace Universalis
         }
 
         // Hand-To-Hand / "Nahkampf"
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int HTH
         {
             get;
@@ -46,7 +46,7 @@ namespace Universalis
         }
 
         // Long-Range-Combat / "Fernkampf"
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int LRC
         {
             get;
@@ -54,7 +54,7 @@ namespace Universalis
         }
 
         // Physique / "Konstitution"
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int PHY
         {
             get;
@@ -62,7 +62,7 @@ namespace Universalis
         }
 
         // Awareness / "Wahrnehmung"
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int AWA
         {
             get;
@@ -70,7 +70,7 @@ namespace Universalis
         }
 
         // Determination / "Entschlossenheit"
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int DET
         {
             get;
@@ -79,7 +79,7 @@ namespace Universalis
 #endregion attributes
 
 #region profile and attribute
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float ModifierSurcharge
         {
             get;
@@ -88,14 +88,14 @@ namespace Universalis
 #endregion profile and attribute
 
 #region profile
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int Speed
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int HitPoints
         {
             get;
@@ -104,7 +104,7 @@ namespace Universalis
 #endregion profile
 
 #region archetype
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int CritThreshold
         {
             get;
@@ -113,42 +113,42 @@ namespace Universalis
 #endregion archetype
 
 #region movement
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int MovementHover
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int MovementFly
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int MovementWalk
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int MovementTracks
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int MovementWheels
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int MovementStationary
         {
             get;
@@ -157,70 +157,70 @@ namespace Universalis
 #endregion movement
 
 #region weapon
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int WeaponStrength
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int WeaponDamage
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float WeaponDamageTypeLevelMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float WeaponUseOnceMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float WeaponUnwieldyMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float WeaponReloadMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float WeaponIndirectFireMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float WeaponDamageEffectMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float WeaponSustainedFireMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float WeaponAdditiveStrengthMultiplicator
         {
             get;
@@ -229,35 +229,35 @@ namespace Universalis
 #endregion weapon
 
 #region armor
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public int ArmorProtection
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float ArmorDamageTypeLevelMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float ArmorDamageEffectMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float ArmorSelfSustainingMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float ArmorAdditiveProtectionMultiplicator
         {
             get;
@@ -266,14 +266,14 @@ namespace Universalis
 #endregion armor
 
 #region equipment
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float EquipmentUseOnceMultiplicator
         {
             get;
             private set;
         }
 
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float EquipmentUnwieldyMultiplicator
         {
             get;
@@ -282,7 +282,7 @@ namespace Universalis
         #endregion equipment
 
 #region trait
-        [JsonProperty]
+        [JsonProperty(Required = Required.Always)]
         public float TraitUseOnceMultiplicator
         {
             get;
