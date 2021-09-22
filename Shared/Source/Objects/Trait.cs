@@ -202,7 +202,7 @@ namespace Universalis
 
         public int Points( uint level )
         {
-            var costs = Costs.Get();
+            var traitCosts = Costs.Get().Traits;
 
             float points = 0;
 
@@ -215,7 +215,7 @@ namespace Universalis
 
             if( UseOnce )
             {
-                points *= costs.TraitUseOnceMultiplicator;
+                points *= traitCosts.UseOnceMultiplicator;
             }
 
             // the lower the needed AP the higher the points

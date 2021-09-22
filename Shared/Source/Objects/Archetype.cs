@@ -134,7 +134,7 @@ namespace Universalis
 
                 int points = 0;
 
-                points += costs.movementCost( MovementType );
+                points += costs.Movement.movementCost( MovementType );
 
                 points += Profile.Points( Type );
 

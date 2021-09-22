@@ -474,7 +474,7 @@ namespace Universalis
 
         private int CalculatedPoints()
         {
-            var costs = Costs.Get();
+            var weaponCosts = Costs.Get().Weapons;
 
             float points = 0;
 
@@ -483,22 +483,22 @@ namespace Universalis
             // Range
             // Weight
 
-            points += Strength * costs.WeaponStrength;
-            points += Damage * costs.WeaponDamage;
+            points += Strength * weaponCosts.Strength;
+            points += Damage * weaponCosts.Damage;
 
             if( AdditiveStrength )
             {
-                points *= costs.WeaponAdditiveStrengthMultiplicator;
+                points *= weaponCosts.AdditiveStrengthMultiplicator;
             }
 
             for( int i = 0; i < (int)DamageType.Level; i++ )
             {
-                points *= costs.WeaponDamageTypeLevelMultiplicator;
+                points *= weaponCosts.DamageTypeLevelMultiplicator;
             }
 
             for( int i = 0; i < SustainedFire; i++ )
             {
-                points *= costs.WeaponSustainedFireMultiplicator;
+                points *= weaponCosts.SustainedFireMultiplicator;
             }
 
             if( DamageEffectList != null )
@@ -506,7 +506,7 @@ namespace Universalis
                 points += DamageEffectList.Sum( x => x.Points );
 
                 // scale points with the amount of different damage effects
-                points *= (float)Math.Pow( costs.WeaponDamageEffectMultiplicator, DamageEffectList.Count );
+                points *= (float)Math.Pow( weaponCosts.DamageEffectMultiplicator, DamageEffectList.Count );
             }
 
             if( ProfileModifier != null )
@@ -516,22 +516,22 @@ namespace Universalis
 
             if( Unwieldy )
             {
-                points *= costs.WeaponUnwieldyMultiplicator;
+                points *= weaponCosts.UnwieldyMultiplicator;
             }
 
             if( Reloadable )
             {
-                points *= costs.WeaponReloadMultiplicator;
+                points *= weaponCosts.ReloadMultiplicator;
             }
 
             if( IndirectFire )
             {
-                points *= costs.WeaponIndirectFireMultiplicator;
+                points *= weaponCosts.IndirectFireMultiplicator;
             }
 
             if( UseOnce )
             {
-                points *= costs.WeaponUseOnceMultiplicator;
+                points *= weaponCosts.UseOnceMultiplicator;
             }
 
             // the lower the class the higher the points

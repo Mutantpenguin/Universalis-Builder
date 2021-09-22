@@ -248,18 +248,18 @@ namespace Universalis
 
         private int CalculatedPoints()
         {
-            var costs = Costs.Get();
+            var armorCosts = Costs.Get().Armors;
             
             float points = 0;
 
             // TODO calculate points with values
             // Weight
 
-            points += Protection * costs.ArmorProtection;
+            points += Protection * armorCosts.Protection;
 
             if( AdditiveProtection )
             {
-                points *= costs.ArmorAdditiveProtectionMultiplicator;
+                points *= armorCosts.AdditiveProtectionMultiplicator;
             }
 
             if( DamageTypeList != null )
@@ -268,7 +268,7 @@ namespace Universalis
                 {
                     for( int i = 0; i < (int)damageType.Level; i++ )
                     {
-                        points *= costs.ArmorDamageTypeLevelMultiplicator;
+                        points *= armorCosts.DamageTypeLevelMultiplicator;
                     }
                 }
             }
@@ -278,12 +278,12 @@ namespace Universalis
                 points += DamageEffectList.Sum( x => x.Points );
 
                 // scale points with the amount of different damage effects
-                points *= (float)Math.Pow( costs.ArmorDamageEffectMultiplicator, DamageEffectList.Count );
+                points *= (float)Math.Pow( armorCosts.DamageEffectMultiplicator, DamageEffectList.Count );
             }
 
             if( SelfSustaining )
             {
-                points *= costs.ArmorSelfSustainingMultiplicator;
+                points *= armorCosts.SelfSustainingMultiplicator;
             }
 
             if( ProfileModifier != null )

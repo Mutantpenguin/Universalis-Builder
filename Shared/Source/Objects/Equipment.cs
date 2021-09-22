@@ -200,7 +200,7 @@ namespace Universalis
 
         private int CalculatedPoints()
         {
-            var costs = Costs.Get();
+            var equipmentCosts = Costs.Get().Equipment;
 
             float points = 0;
 
@@ -214,12 +214,12 @@ namespace Universalis
 
             if( UseOnce )
             {
-                points *= costs.EquipmentUseOnceMultiplicator;
+                points *= equipmentCosts.UseOnceMultiplicator;
             }
 
             if( Unwieldy )
             {
-                points *= costs.EquipmentUnwieldyMultiplicator;
+                points *= equipmentCosts.UnwieldyMultiplicator;
             }
 
             // the lower the needed AP the higher the points

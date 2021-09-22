@@ -83,13 +83,15 @@ namespace Universalis
         public int Points()
         {
             var costs = Costs.Get();
+            var profileCosts = costs.Profiles;
+            var modifierCosts = costs.Modifier;
 
             int points = 0;
 
-            points += Speed * Convert.ToInt32( costs.Speed * costs.ModifierSurcharge );
-            points += HitPoints * Convert.ToInt32( costs.HitPoints * costs.ModifierSurcharge );
+            points += Speed * Convert.ToInt32( profileCosts.Speed * modifierCosts.Surcharge );
+            points += HitPoints * Convert.ToInt32( profileCosts.HitPoints * modifierCosts.Surcharge );
             
-            points += CritThreshold * costs.CritThreshold;
+            points += CritThreshold * profileCosts.CritThreshold;
 
             if( AttributeModifier != null )
             {
