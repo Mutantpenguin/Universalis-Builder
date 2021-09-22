@@ -44,6 +44,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBoxRules = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.buttonInsertLevelPlaceholder = new System.Windows.Forms.Button();
             this.numericUpDownAdditionalPoints = new System.Windows.Forms.NumericUpDown();
             this.labelMaxLevel = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -51,17 +52,16 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelProfileModifier = new System.Windows.Forms.Panel();
             this.textBoxProfileModifier = new System.Windows.Forms.TextBox();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonProfileMod = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButtonProfileModEditor = new System.Windows.Forms.ToolStripButton();
             this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.toolStripButtonProfileMod = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonProfileModEditor = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
             this.panel3.SuspendLayout();
@@ -175,7 +175,7 @@
             this.panel3.Controls.Add(this.textBoxDescription);
             this.panel3.Controls.Add(this.toolStrip1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 271);
+            this.panel3.Location = new System.Drawing.Point(0, 274);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(434, 187);
             this.panel3.TabIndex = 0;
@@ -217,7 +217,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 144);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(434, 127);
+            this.panel4.Size = new System.Drawing.Size(434, 130);
             this.panel4.TabIndex = 1;
             // 
             // textBoxRules
@@ -225,7 +225,7 @@
             this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.traitBindingSource, "Rules", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Visible", this.traitBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxRules.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxRules.Location = new System.Drawing.Point(0, 54);
+            this.textBoxRules.Location = new System.Drawing.Point(0, 57);
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -235,7 +235,7 @@
             // panel6
             // 
             this.panel6.AutoSize = true;
-            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.buttonInsertLevelPlaceholder);
             this.panel6.Controls.Add(this.numericUpDownAdditionalPoints);
             this.panel6.Controls.Add(this.labelMaxLevel);
             this.panel6.Controls.Add(this.label12);
@@ -243,8 +243,20 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 25);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(434, 29);
+            this.panel6.Size = new System.Drawing.Size(434, 32);
             this.panel6.TabIndex = 51;
+            // 
+            // buttonInsertLevelPlaceholder
+            // 
+            this.buttonInsertLevelPlaceholder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonInsertLevelPlaceholder.Image = global::Universalis.Properties.Resources.baseline_post_add_black_18dp;
+            this.buttonInsertLevelPlaceholder.Location = new System.Drawing.Point(405, 3);
+            this.buttonInsertLevelPlaceholder.Name = "buttonInsertLevelPlaceholder";
+            this.buttonInsertLevelPlaceholder.Size = new System.Drawing.Size(26, 26);
+            this.buttonInsertLevelPlaceholder.TabIndex = 51;
+            this.toolTip1.SetToolTip(this.buttonInsertLevelPlaceholder, "Platzhalter für Level einfügen");
+            this.buttonInsertLevelPlaceholder.UseVisualStyleBackColor = true;
+            this.buttonInsertLevelPlaceholder.Click += new System.EventHandler(this.buttonInsertLevelPlaceholder_Click);
             // 
             // numericUpDownAdditionalPoints
             // 
@@ -336,16 +348,6 @@
             this.toolStrip3.TabIndex = 1;
             this.toolStrip3.Text = "toolStrip3";
             // 
-            // toolStripButtonSave
-            // 
-            this.toolStripButtonSave.Image = global::Universalis.Properties.Resources.disk;
-            this.toolStripButtonSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSave.Name = "toolStripButtonSave";
-            this.toolStripButtonSave.Size = new System.Drawing.Size(81, 22);
-            this.toolStripButtonSave.Text = "Speichern";
-            this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
-            // 
             // panel5
             // 
             this.panel5.AutoSize = true;
@@ -389,6 +391,16 @@
             this.toolStrip4.TabIndex = 0;
             this.toolStrip4.Text = "toolStrip4";
             // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(115, 22);
+            this.toolStripLabel3.Text = "Profil-Modifikatoren";
+            // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
+            // 
             // toolStripButtonProfileMod
             // 
             this.toolStripButtonProfileMod.CheckOnClick = true;
@@ -399,12 +411,6 @@
             this.toolStripButtonProfileMod.Name = "toolStripButtonProfileMod";
             this.toolStripButtonProfileMod.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonProfileMod.Click += new System.EventHandler(this.toolStripButtonProfileMod_Click);
-            // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(115, 22);
-            this.toolStripLabel3.Text = "Profil-Modifikatoren";
             // 
             // toolStripButtonProfileModEditor
             // 
@@ -417,19 +423,15 @@
             this.toolStripButtonProfileModEditor.Text = "editieren";
             this.toolStripButtonProfileModEditor.Click += new System.EventHandler(this.toolStripButtonProfileModEditor_Click);
             // 
-            // traitBindingSource
+            // toolStripButtonSave
             // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(356, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 51;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.toolStripButtonSave.Image = global::Universalis.Properties.Resources.disk;
+            this.toolStripButtonSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSave.Name = "toolStripButtonSave";
+            this.toolStripButtonSave.Size = new System.Drawing.Size(81, 22);
+            this.toolStripButtonSave.Text = "Speichern";
+            this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
             // TraitEditorForm
             // 
@@ -513,6 +515,6 @@
         private System.Windows.Forms.Label labelMaxLevel;
         private System.Windows.Forms.NumericUpDown numericUpDownMaxLevel;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonInsertLevelPlaceholder;
     }
 }

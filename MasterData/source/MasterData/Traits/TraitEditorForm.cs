@@ -162,5 +162,12 @@ namespace Universalis
                 }
             }
         }
+
+        private void buttonInsertLevelPlaceholder_Click( object sender, EventArgs e )
+        {
+            textBoxRules.Paste( Trait.LevelPlaceholder );
+
+            textBoxRules.Focus();
+        }
     }
 }
