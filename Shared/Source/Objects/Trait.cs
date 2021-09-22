@@ -248,7 +248,7 @@ namespace Universalis
             }
             else
             {
-                return ( $"{Name} {level}" );
+                return ( $"{Name}{StringHelper.NonBreakingSpace}{level}" );
             }
         }
     }
