@@ -301,12 +301,13 @@ namespace Universalis
 
                 List<flipsideBlock> flipsideBlocks = new List<flipsideBlock>();
 
-                foreach( var trait in actor.TraitList.Select( x => x.Trait )
+                foreach( var entry in actor.TraitList.Select( x => new { x.Trait, x.Level } )
                                                      .Distinct()
-                                                     .Where( x => !String.IsNullOrEmpty( x.ToString() ) )
+                                                     .Select( x => new { Name = x.Trait.FormattedName( x.Level ), Rules = x.Trait.ToString( x.Level ) } )
+                                                     .Where( x => !String.IsNullOrEmpty( x.Rules ) )
                                                      .OrderBy( x => x.Name ) )
                 {
-                    flipsideBlocks.Add( new flipsideBlock() { Name = trait.Name, Rules = trait.ToString() } );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = entry.Name, Rules = entry.Rules } );
                 }
 
                 if( ( actor.Armor != null )

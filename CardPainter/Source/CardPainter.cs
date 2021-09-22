@@ -551,22 +551,24 @@ namespace Universalis
                 const String delimiter = ", ";
 
                 StringBuilder builder = new StringBuilder();
-                foreach( var entry in actorTraitList.GroupBy( x => x.Trait )
-                                                    .Select( x => new { trait = x.Key, count = x.Count() } )
-                                                    .OrderBy( x => x.trait.Name )
+
+                foreach( var entry in actorTraitList.Select( x => new { x.Trait, x.Level } )
+                                                    .GroupBy( x => x )
+                                                    .Select( x => new { Name = x.Key.Trait.FormattedName( x.Key.Level ), Rules = x.Key.Trait.ToString( x.Key.Level ), x.Key.Trait, Count = x.Count() } )
+                                                    .OrderBy( x => x.Name )
                                                     .ToList() )
                 {
-                    builder.Append( entry.trait.Name );
+                    builder.Append( entry.Name );
 
-                    if( entry.trait.AP > 0 )
+                    if( entry.Trait.AP > 0 )
                     {
-                        builder.Append( " ⊙" + entry.trait.AP );
+                        builder.Append( StringHelper.NonBreakingSpace + "⊙" + entry.Trait.AP );
                     }
 
-                    if( entry.trait.UseOnce )
+                    if( entry.Trait.UseOnce )
                     {
                         builder.Append( StringHelper.NonBreakingSpace );
-                        for( int j = 0; j < entry.count; j++ )
+                        for( int j = 0; j < entry.Count; j++ )
                         {
                             builder.Append( "○" );
                         }
