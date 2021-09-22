@@ -248,7 +248,7 @@ namespace Universalis
             }
             else
             {
-                return ( $"{Name}{StringHelper.NonBreakingSpace}{level}" );
+                return ( $"{Name}{StringHelper.NonBreakingSpace}{StringHelper.ToRoman((int)level)}" );
             }
         }
     }
