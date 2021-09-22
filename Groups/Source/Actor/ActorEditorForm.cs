@@ -532,13 +532,13 @@ namespace Universalis
         {
             if( e.RowIndex > -1 )
             {
-                Trait trait = ( (Actor.ActorTrait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem ).Trait;
+                Actor.ActorTrait actorTrait = (Actor.ActorTrait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem;
 
-                string traitString = trait.ToString();
+                string traitString = actorTrait.Trait.ToString( actorTrait.Level );
 
                 if( !String.IsNullOrEmpty( traitString ) )
                 {
-                    string text = trait.Name + ":";
+                    string text = actorTrait.Trait.FormattedName( actorTrait.Level ) + ":";
 
                     text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( traitString );
 
