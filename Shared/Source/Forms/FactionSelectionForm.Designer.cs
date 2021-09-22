@@ -97,7 +97,6 @@
             this.buttonCancel.Text = "Abbrechen";
             this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonOk
             // 
@@ -111,7 +110,6 @@
             this.buttonOk.Text = "Übernehmen";
             this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
             // dataGridViewFactions
