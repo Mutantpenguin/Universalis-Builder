@@ -319,6 +319,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\baseline_tune_black_18dp.png" />
     <None Include="Resources\baseline_post_add_black_18dp.png" />
     <None Include="Resources\grouptraits.png" />
     <None Include="Resources\damage_effects.png" />
@@ -332,7 +333,6 @@
     <None Include="Resources\disk.png" />
     <None Include="Resources\tick.png" />
     <None Include="Resources\funnel.png" />
-    <None Include="Resources\pencil.png" />
     <None Include="Resources\image.png" />
     <None Include="Resources\copy.png" />
     <None Include="Resources\clear.png" />
