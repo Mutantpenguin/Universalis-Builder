@@ -39,6 +39,20 @@ namespace Universalis
 
             damageEffectsBindingSource.CurrentItemChanged += DamageEffectsBindingSource_CurrentItemChanged;
             damageTypeBindingSource.CurrentItemChanged += DamageTypeBindingSource_CurrentItemChanged;
+
+            SetupPermittedConditions();
+        }
+
+        private void SetupPermittedConditions()
+        {
+            if( numericUpDownAdditionalPoints.Value == 0 )
+            {
+                textBoxRules.Visible = false;
+            }
+            else
+            {
+                textBoxRules.Visible = true;
+            }
         }
 
         private void DamageTypeBindingSource_CurrentItemChanged( object sender, EventArgs e )
@@ -62,23 +76,25 @@ namespace Universalis
                 return ( false );
             }
 
-            if( !String.IsNullOrEmpty( textBoxRules.Text )
-                &&
-                ( numericUpDownAdditionalPoints.Value == 0 ) )
-            {
-                MessageBox.Show( "Achtung, die zusätzlichen Punkte stehen auf '0', obwohl Regeln eingetragen wurden!" );
-            }
-
-            if( String.IsNullOrEmpty( textBoxRules.Text )
-                &&
-                ( numericUpDownAdditionalPoints.Value > 0 ) )
-            {
-                MessageBox.Show( "Achtung, es sind keine Regeln eingetragen, die zusätzlichen Punkte stehen aber nicht auf '0'!" );
-            }
-
             if( numericUpDownWeight.Value == 0 )
             {
                 MessageBox.Show( "Achtung, das Gewicht steht auf '0'!" );
+            }
+
+            if( ( numericUpDownAdditionalPoints.Value == 0 ) && !String.IsNullOrEmpty( textBoxRules.Text ) )
+            {
+                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln verwendet werden. Weiter und Regeln löschen?",
+                                     "Ohne Punkte keine Regeln",
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Question,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    textBoxRules.Text = String.Empty;
+                }
+                else
+                {
+                    return ( false );
+                }
             }
 
             return ( true );
@@ -185,6 +201,8 @@ namespace Universalis
 
                 armorBindingSource.ResetBindings( false );
             }
+
+            SetupPermittedConditions();
         }
 
         private void toolStripButtonAddType_Click( object sender, EventArgs e )
@@ -297,6 +315,11 @@ namespace Universalis
                     armorBindingSource.ResetBindings( false );
                 }
             }
+        }
+
+        private void numericUpDownAdditionalPoints_ValueChanged( object sender, EventArgs e )
+        {
+            SetupPermittedConditions();
         }
     }
 }
