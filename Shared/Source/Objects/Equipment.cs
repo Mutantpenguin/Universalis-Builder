@@ -171,14 +171,7 @@ namespace Universalis
 
                 if( !String.IsNullOrEmpty( profileModifierString ) )
                 {
-                    if( this.UseOnce )
-                    {
-                        text += "Bei Verwendung: " + profileModifierString;
-                    }
-                    else
-                    {
-                        text += "Dauerhaft: " + profileModifierString;
-                    }
+                    text += "Dauerhaft: " + profileModifierString;
                 }
             }
 
