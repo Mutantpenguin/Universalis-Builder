@@ -61,6 +61,39 @@ namespace Universalis
             updateEffects();
 
             damageEffectsBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
+
+            SetupPermittedConditions();
+        }
+
+        private void SetupPermittedConditions()
+        {
+            if( numericUpDownAdditionalPoints.Value == 0 )
+            {
+                textBoxRules.Visible = false;
+            }
+            else
+            {
+                textBoxRules.Visible = true;
+            }
+
+            if( checkBoxUseOnce.Checked )
+            {
+                checkBoxUseOnce.Enabled = true;
+
+                toolStripButtonProfileMod.Enabled = false;
+            }
+            else if( toolStripButtonProfileMod.Checked )
+            {
+                checkBoxUseOnce.Enabled = false;
+
+                toolStripButtonProfileMod.Enabled = true;
+            }
+            else
+            {
+                checkBoxUseOnce.Enabled = true;
+
+                toolStripButtonProfileMod.Enabled = true;
+            }
         }
 
         private void ChildBindingSource_CurrentItemChanged( object sender, EventArgs e )
@@ -76,20 +109,6 @@ namespace Universalis
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!" );
                 return ( false );
-            }
-
-            if( !String.IsNullOrEmpty( textBoxRules.Text )
-                &&
-                ( numericUpDownAdditionalPoints.Value == 0 ) )
-            {
-                MessageBox.Show( "Achtung, die zusätzlichen Punkte stehen auf '0', obwohl Regeln eingetragen wurden!" );
-            }
-
-            if( String.IsNullOrEmpty( textBoxRules.Text )
-                &&
-                ( numericUpDownAdditionalPoints.Value > 0 ) )
-            {
-                MessageBox.Show( "Achtung, es sind keine Regeln eingetragen, die zusätzlichen Punkte stehen aber nicht auf '0'!" );
             }
 
             if( numericUpDownWeight.Value == 0 )
@@ -109,6 +128,22 @@ namespace Universalis
             {
                 MessageBox.Show( "Einmalnutzung darf nicht mit Profil-Modifikatoren kombiniert werden!" );
                 return ( false );
+            }
+
+            if( ( numericUpDownAdditionalPoints.Value == 0 ) && !String.IsNullOrEmpty( textBoxRules.Text ) )
+            {
+                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln verwendet werden. Weiter und Regeln löschen?",
+                                     "Ohne Punkte keine Regeln",
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Question,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    textBoxRules.Text = String.Empty;
+                }
+                else
+                {
+                    return ( false );
+                }
             }
 
             return ( true );
@@ -365,6 +400,8 @@ namespace Universalis
 
                 weaponBindingSource.ResetBindings( false );
             }
+
+            SetupPermittedConditions();
         }
 
         private void toolStripButtonProfileModEditor_Click( object sender, EventArgs e )
@@ -385,6 +422,16 @@ namespace Universalis
                     weaponBindingSource.ResetBindings( false );
                 }
             }
+        }
+
+        private void checkBoxUseOnce_CheckedChanged( object sender, EventArgs e )
+        {
+            SetupPermittedConditions();
+        }
+
+        private void numericUpDownAdditionalPoints_ValueChanged( object sender, EventArgs e )
+        {
+            SetupPermittedConditions();
         }
     }
 }
