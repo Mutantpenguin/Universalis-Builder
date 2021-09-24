@@ -29,6 +29,44 @@ namespace Universalis
                 toolStripButtonProfileModEditor.Enabled = false;
                 panelProfileModifier.Visible = false;
             }
+
+            SetupPermittedConditions();
+        }
+
+        private void SetupPermittedConditions()
+        {
+            if( numericUpDownAdditionalPoints.Value == 0 )
+            {
+                textBoxRules.Visible = false;
+            }
+            else
+            {
+                textBoxRules.Visible = true;
+            }
+
+            if( ( numericUpDownAP.Value > 0 )
+                ||
+                ( checkBoxUseOnce.Checked ) )
+            {
+                numericUpDownAP.Enabled = true;
+                checkBoxUseOnce.Enabled = true;
+
+                toolStripButtonProfileMod.Enabled = false;
+            }
+            else if( toolStripButtonProfileMod.Checked )
+            {
+                numericUpDownAP.Enabled = false;
+                checkBoxUseOnce.Enabled = false;
+
+                toolStripButtonProfileMod.Enabled = true;
+            }
+            else
+            {
+                numericUpDownAP.Enabled = true;
+                checkBoxUseOnce.Enabled = true;
+
+                toolStripButtonProfileMod.Enabled = true;
+            }
         }
 
         private readonly Equipment m_originalEquipment;
@@ -42,23 +80,25 @@ namespace Universalis
                 return ( false );
             }
 
-            if( !String.IsNullOrEmpty( textBoxRules.Text )
-                &&
-                ( numericUpDownAdditionalPoints.Value == 0 ) )
-            {
-                MessageBox.Show( "Achtung, die zusätzlichen Punkte stehen auf '0', obwohl Regeln eingetragen wurden!" );
-            }
-
-            if( String.IsNullOrEmpty( textBoxRules.Text )
-                &&
-                ( numericUpDownAdditionalPoints.Value > 0 ) )
-            {
-                MessageBox.Show( "Achtung, es sind keine Regeln eingetragen, die zusätzlichen Punkte stehen aber nicht auf '0'!" );
-            }
-
             if( numericUpDownWeight.Value == 0 )
             {
                 MessageBox.Show( "Achtung, das Gewicht steht auf '0'!" );
+            }
+
+            if( ( numericUpDownAdditionalPoints.Value == 0 ) && !String.IsNullOrEmpty( textBoxRules.Text ) )
+            {
+                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln verwendet werden. Weiter und Regeln löschen?",
+                                     "Ohne Punkte keine Regeln",
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Question,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    textBoxRules.Text = String.Empty;
+                }
+                else
+                {
+                    return ( false );
+                }
             }
 
             return ( true );
@@ -92,6 +132,8 @@ namespace Universalis
 
                 equipmentBindingSource.ResetBindings( false );
             }
+
+            SetupPermittedConditions();
         }
 
         private void EquipmentEditorForm_FormClosing( object sender, FormClosingEventArgs e )
@@ -160,6 +202,21 @@ namespace Universalis
                     equipmentBindingSource.ResetBindings( false );
                 }
             }
+        }
+
+        private void numericUpDownAdditionalPoints_ValueChanged( object sender, EventArgs e )
+        {
+            SetupPermittedConditions();
+        }
+
+        private void numericUpDownAP_ValueChanged( object sender, EventArgs e )
+        {
+            SetupPermittedConditions();
+        }
+
+        private void checkBoxUseOnce_CheckedChanged( object sender, EventArgs e )
+        {
+            SetupPermittedConditions();
         }
     }
 }
