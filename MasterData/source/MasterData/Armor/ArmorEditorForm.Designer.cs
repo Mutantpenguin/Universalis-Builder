@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -82,10 +82,10 @@
             this.toolStripButtonProfileModEditor = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.textBoxRules = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.numericUpDownAdditionalPoints = new System.Windows.Forms.NumericUpDown();
-            this.textBoxRules = new System.Windows.Forms.TextBox();
             this.toolStrip6 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip7 = new System.Windows.Forms.ToolStrip();
@@ -351,8 +351,8 @@
             this.dataGridViewDamageTypes.AllowUserToDeleteRows = false;
             this.dataGridViewDamageTypes.AllowUserToResizeColumns = false;
             this.dataGridViewDamageTypes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageTypes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDamageTypes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDamageTypes.AutoGenerateColumns = false;
             this.dataGridViewDamageTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageTypes.ColumnHeadersVisible = false;
@@ -464,8 +464,8 @@
             this.dataGridViewDamageEffects.AllowUserToAddRows = false;
             this.dataGridViewDamageEffects.AllowUserToDeleteRows = false;
             this.dataGridViewDamageEffects.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewDamageEffects.AutoGenerateColumns = false;
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
@@ -661,6 +661,17 @@
             this.panel14.Size = new System.Drawing.Size(484, 124);
             this.panel14.TabIndex = 6;
             // 
+            // textBoxRules
+            // 
+            this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.armorBindingSource, "Rules", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxRules.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxRules.Location = new System.Drawing.Point(0, 51);
+            this.textBoxRules.Multiline = true;
+            this.textBoxRules.Name = "textBoxRules";
+            this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxRules.Size = new System.Drawing.Size(484, 73);
+            this.textBoxRules.TabIndex = 1;
+            // 
             // panel2
             // 
             this.panel2.AutoSize = true;
@@ -690,22 +701,16 @@
             0,
             0,
             0});
+            this.numericUpDownAdditionalPoints.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
             this.numericUpDownAdditionalPoints.Name = "numericUpDownAdditionalPoints";
             this.numericUpDownAdditionalPoints.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownAdditionalPoints.TabIndex = 44;
             this.numericUpDownAdditionalPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownAdditionalPoints.ValueChanged += new System.EventHandler(this.numericUpDownAdditionalPoints_ValueChanged);
-            // 
-            // textBoxRules
-            // 
-            this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.armorBindingSource, "Rules", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxRules.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxRules.Location = new System.Drawing.Point(0, 51);
-            this.textBoxRules.Multiline = true;
-            this.textBoxRules.Name = "textBoxRules";
-            this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRules.Size = new System.Drawing.Size(484, 73);
-            this.textBoxRules.TabIndex = 1;
             // 
             // toolStrip6
             // 
@@ -759,7 +764,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip7);
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(500, 0);
+            this.MinimumSize = new System.Drawing.Size(500, 39);
             this.Name = "ArmorEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rüstungs Editor";

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -83,9 +83,9 @@
             this.damageEffectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.textBoxRules = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBoxRules = new System.Windows.Forms.TextBox();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip5 = new System.Windows.Forms.ToolStrip();
@@ -249,6 +249,11 @@
             0,
             0,
             0});
+            this.numericUpDownAdditionalPoints.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
             this.numericUpDownAdditionalPoints.Name = "numericUpDownAdditionalPoints";
             this.numericUpDownAdditionalPoints.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownAdditionalPoints.TabIndex = 4;
@@ -658,8 +663,8 @@
             this.dataGridViewDamageEffects.AllowUserToAddRows = false;
             this.dataGridViewDamageEffects.AllowUserToDeleteRows = false;
             this.dataGridViewDamageEffects.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDamageEffects.AutoGenerateColumns = false;
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
@@ -716,6 +721,17 @@
             this.panel5.Size = new System.Drawing.Size(484, 124);
             this.panel5.TabIndex = 6;
             // 
+            // textBoxRules
+            // 
+            this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.weaponBindingSource, "Rules", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxRules.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxRules.Location = new System.Drawing.Point(0, 51);
+            this.textBoxRules.Multiline = true;
+            this.textBoxRules.Name = "textBoxRules";
+            this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxRules.Size = new System.Drawing.Size(484, 73);
+            this.textBoxRules.TabIndex = 1;
+            // 
             // panel2
             // 
             this.panel2.AutoSize = true;
@@ -735,17 +751,6 @@
             this.label12.Size = new System.Drawing.Size(72, 13);
             this.label12.TabIndex = 47;
             this.label12.Text = "Zusatzpunkte";
-            // 
-            // textBoxRules
-            // 
-            this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.weaponBindingSource, "Rules", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxRules.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxRules.Location = new System.Drawing.Point(0, 51);
-            this.textBoxRules.Multiline = true;
-            this.textBoxRules.Name = "textBoxRules";
-            this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRules.Size = new System.Drawing.Size(484, 73);
-            this.textBoxRules.TabIndex = 1;
             // 
             // toolStrip4
             // 
@@ -868,7 +873,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip5);
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(500, 0);
+            this.MinimumSize = new System.Drawing.Size(500, 39);
             this.Name = "WeaponEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Waffen Editor";
