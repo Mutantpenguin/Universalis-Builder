@@ -44,25 +44,20 @@ namespace Universalis
                 textBoxRules.Visible = true;
             }
 
-            if( ( numericUpDownAP.Value > 0 )
-                ||
-                ( checkBoxUseOnce.Checked ) )
+            if( checkBoxUseOnce.Checked )
             {
-                numericUpDownAP.Enabled = true;
                 checkBoxUseOnce.Enabled = true;
 
                 toolStripButtonProfileMod.Enabled = false;
             }
             else if( toolStripButtonProfileMod.Checked )
             {
-                numericUpDownAP.Enabled = false;
                 checkBoxUseOnce.Enabled = false;
 
                 toolStripButtonProfileMod.Enabled = true;
             }
             else
             {
-                numericUpDownAP.Enabled = true;
                 checkBoxUseOnce.Enabled = true;
 
                 toolStripButtonProfileMod.Enabled = true;
