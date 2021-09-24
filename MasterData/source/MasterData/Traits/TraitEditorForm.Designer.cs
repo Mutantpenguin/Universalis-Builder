@@ -30,13 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.numericUpDownAP = new System.Windows.Forms.NumericUpDown();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBoxUseOnce = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.numericUpDownAP = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxUseOnce = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -61,8 +62,8 @@
             this.toolStripButtonProfileMod = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonProfileModEditor = new System.Windows.Forms.ToolStripButton();
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -75,7 +76,6 @@
             this.panel5.SuspendLayout();
             this.panelProfileModifier.SuspendLayout();
             this.toolStrip4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -91,30 +91,6 @@
             this.panel1.Size = new System.Drawing.Size(434, 39);
             this.panel1.TabIndex = 1;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(65, 31);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(21, 13);
-            this.label10.TabIndex = 39;
-            this.label10.Text = "AP";
-            // 
-            // numericUpDownAP
-            // 
-            this.numericUpDownAP.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.traitBindingSource, "AP", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownAP.Location = new System.Drawing.Point(3, 29);
-            this.numericUpDownAP.Maximum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
-            this.numericUpDownAP.Name = "numericUpDownAP";
-            this.numericUpDownAP.Size = new System.Drawing.Size(56, 20);
-            this.numericUpDownAP.TabIndex = 38;
-            this.numericUpDownAP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownAP.ValueChanged += new System.EventHandler(this.numericUpDownAP_ValueChanged);
-            // 
             // textBoxPoints
             // 
             this.textBoxPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -127,6 +103,10 @@
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.textBoxPoints, "pro Modell");
             // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
+            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -136,19 +116,6 @@
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 36;
             this.label3.Text = "Punkte";
-            // 
-            // checkBoxUseOnce
-            // 
-            this.checkBoxUseOnce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkBoxUseOnce.AutoSize = true;
-            this.checkBoxUseOnce.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.traitBindingSource, "UseOnce", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxUseOnce.Location = new System.Drawing.Point(143, 30);
-            this.checkBoxUseOnce.Name = "checkBoxUseOnce";
-            this.checkBoxUseOnce.Size = new System.Drawing.Size(95, 17);
-            this.checkBoxUseOnce.TabIndex = 33;
-            this.checkBoxUseOnce.Text = "Einmalnutzung";
-            this.checkBoxUseOnce.UseVisualStyleBackColor = true;
-            this.checkBoxUseOnce.CheckedChanged += new System.EventHandler(this.checkBoxUseOnce_CheckedChanged);
             // 
             // label1
             // 
@@ -168,6 +135,43 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(342, 20);
             this.textBoxName.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(65, 31);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(21, 13);
+            this.label10.TabIndex = 39;
+            this.label10.Text = "AP";
+            // 
+            // numericUpDownAP
+            // 
+            this.numericUpDownAP.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.traitBindingSource, "AP", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownAP.Location = new System.Drawing.Point(3, 29);
+            this.numericUpDownAP.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericUpDownAP.Name = "numericUpDownAP";
+            this.numericUpDownAP.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownAP.TabIndex = 38;
+            this.numericUpDownAP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownAP.ValueChanged += new System.EventHandler(this.numericUpDownAP_ValueChanged);
+            // 
+            // checkBoxUseOnce
+            // 
+            this.checkBoxUseOnce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxUseOnce.AutoSize = true;
+            this.checkBoxUseOnce.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.traitBindingSource, "UseOnce", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBoxUseOnce.Location = new System.Drawing.Point(143, 30);
+            this.checkBoxUseOnce.Name = "checkBoxUseOnce";
+            this.checkBoxUseOnce.Size = new System.Drawing.Size(95, 17);
+            this.checkBoxUseOnce.TabIndex = 33;
+            this.checkBoxUseOnce.Text = "Einmalnutzung";
+            this.checkBoxUseOnce.UseVisualStyleBackColor = true;
+            this.checkBoxUseOnce.CheckedChanged += new System.EventHandler(this.checkBoxUseOnce_CheckedChanged);
             // 
             // panel3
             // 
@@ -428,10 +432,6 @@
             this.toolStripButtonProfileModEditor.Text = "editieren";
             this.toolStripButtonProfileModEditor.Click += new System.EventHandler(this.toolStripButtonProfileModEditor_Click);
             // 
-            // traitBindingSource
-            // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
-            // 
             // TraitEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,6 +453,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TraitEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -474,7 +475,6 @@
             this.panelProfileModifier.PerformLayout();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
