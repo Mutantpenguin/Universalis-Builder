@@ -86,7 +86,7 @@ namespace Universalis
                 return ( false );
             }
 
-            if( numericUpDownAdditionalPoints.Value == 0 )
+            if( ( numericUpDownAdditionalPoints.Value == 0 ) && !String.IsNullOrEmpty( textBoxRules.Text ) )
             {
                 if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln verwendet werden. Weiter und Regeln löschen?",
                                      "Ohne Punkte keine Regeln",
