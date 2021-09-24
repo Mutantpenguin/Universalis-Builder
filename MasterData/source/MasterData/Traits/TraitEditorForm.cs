@@ -29,6 +29,50 @@ namespace Universalis
                 toolStripButtonProfileModEditor.Enabled = false;
                 panelProfileModifier.Visible = false;
             }
+
+            SetupPermittedConditions();
+        }
+
+        private void SetupPermittedConditions()
+        {
+            if( numericUpDownAdditionalPoints.Value == 0 )
+            {
+                textBoxRules.Visible = false;
+                numericUpDownMaxLevel.Enabled = false;
+                labelMaxLevel.Enabled = false;
+                buttonInsertLevelPlaceholder.Enabled = false;
+            }
+            else
+            {
+                textBoxRules.Visible = true;
+                numericUpDownMaxLevel.Enabled = true;
+                labelMaxLevel.Enabled = true;
+                buttonInsertLevelPlaceholder.Enabled = true;
+            }
+
+            if( ( numericUpDownAP.Value > 0 )
+                ||
+                ( checkBoxUseOnce.Checked ) )
+            {
+                numericUpDownAP.Enabled = true;
+                checkBoxUseOnce.Enabled = true;
+
+                toolStripButtonProfileMod.Enabled = false;
+            }
+            else if( toolStripButtonProfileMod.Checked )
+            {
+                numericUpDownAP.Enabled = false;
+                checkBoxUseOnce.Enabled = false;
+
+                toolStripButtonProfileMod.Enabled = true;
+            }
+            else
+            {
+                numericUpDownAP.Enabled = true;
+                checkBoxUseOnce.Enabled = true;
+
+                toolStripButtonProfileMod.Enabled = true;
+            }
         }
 
         private readonly Trait m_originalTrait;
@@ -42,21 +86,36 @@ namespace Universalis
                 return ( false );
             }
 
+            if( numericUpDownAdditionalPoints.Value == 0 )
+            {
+                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln verwendet werden. Weiter und Regeln löschen?",
+                                     "Ohne Punkte keine Regeln",
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Question,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    textBoxRules.Text = String.Empty;
+                    numericUpDownMaxLevel.Value = 1;
+                }
+                else
+                {
+                    return ( false );
+                }
+            }
+
             return ( true );
         }
 
         private void TraitEditorForm_FormClosing( object sender, FormClosingEventArgs e )
         {
-            Trait traitModified = (Trait)traitBindingSource.DataSource;
-
-            if( !traitModified.Equals( m_originalTrait ) )
+            if( !m_modifiedTrait.Equals( m_originalTrait ) )
             {
                 switch( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3 ) )
                 {
                     case DialogResult.Yes:
                         if( mandatoryFieldsFilled() )
                         {
-                            m_originalTrait.Set( traitModified );
+                            m_originalTrait.Set( m_modifiedTrait );
                             MasterDataStorage.Trait.Save( m_originalTrait );
                         }
                         else
@@ -121,6 +180,8 @@ namespace Universalis
 
                 traitBindingSource.ResetBindings( false );
             }
+
+            SetupPermittedConditions();
         }
 
         private void toolStripButtonProfileModEditor_Click( object sender, EventArgs e )
@@ -143,31 +204,26 @@ namespace Universalis
             }
         }
 
-        private void numericUpDownAdditionalPoints_ValueChanged( object sender, EventArgs e )
-        {
-            if( numericUpDownAdditionalPoints.Value == 0 )
-            {
-                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln verwendet werden. Weiter und Regeln löschen?",
-                                     "Ohne Punkte keine Regeln",
-                                     MessageBoxButtons.OKCancel,
-                                     MessageBoxIcon.Question,
-                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
-                {
-                    textBoxRules.Text = String.Empty;
-                    numericUpDownMaxLevel.Value = 1;
-                }
-                else
-                {
-                    numericUpDownAdditionalPoints.Value = 999;
-                }
-            }
-        }
-
         private void buttonInsertLevelPlaceholder_Click( object sender, EventArgs e )
         {
             textBoxRules.Paste( Trait.LevelPlaceholder );
 
             textBoxRules.Focus();
+        }
+
+        private void numericUpDownAdditionalPoints_ValueChanged( object sender, EventArgs e )
+        {
+            SetupPermittedConditions();
+        }
+
+        private void numericUpDownAP_ValueChanged( object sender, EventArgs e )
+        {
+            SetupPermittedConditions();
+        }
+
+        private void checkBoxUseOnce_CheckedChanged( object sender, EventArgs e )
+        {
+            SetupPermittedConditions();
         }
     }
 }

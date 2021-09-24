@@ -52,16 +52,16 @@
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelProfileModifier = new System.Windows.Forms.Panel();
             this.textBoxProfileModifier = new System.Windows.Forms.TextBox();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripButtonProfileMod = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonProfileModEditor = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
             this.panel3.SuspendLayout();
@@ -81,23 +81,20 @@
             // panel1
             // 
             this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.numericUpDownAP);
             this.panel1.Controls.Add(this.textBoxPoints);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.checkBoxUseOnce);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 65);
+            this.panel1.Size = new System.Drawing.Size(434, 39);
             this.panel1.TabIndex = 1;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(48, 44);
+            this.label10.Location = new System.Drawing.Point(65, 31);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(21, 13);
             this.label10.TabIndex = 39;
@@ -106,16 +103,17 @@
             // numericUpDownAP
             // 
             this.numericUpDownAP.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.traitBindingSource, "AP", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownAP.Location = new System.Drawing.Point(3, 42);
+            this.numericUpDownAP.Location = new System.Drawing.Point(3, 29);
             this.numericUpDownAP.Maximum = new decimal(new int[] {
             9,
             0,
             0,
             0});
             this.numericUpDownAP.Name = "numericUpDownAP";
-            this.numericUpDownAP.Size = new System.Drawing.Size(39, 20);
+            this.numericUpDownAP.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownAP.TabIndex = 38;
             this.numericUpDownAP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownAP.ValueChanged += new System.EventHandler(this.numericUpDownAP_ValueChanged);
             // 
             // textBoxPoints
             // 
@@ -144,12 +142,13 @@
             this.checkBoxUseOnce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxUseOnce.AutoSize = true;
             this.checkBoxUseOnce.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.traitBindingSource, "UseOnce", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxUseOnce.Location = new System.Drawing.Point(95, 43);
+            this.checkBoxUseOnce.Location = new System.Drawing.Point(143, 30);
             this.checkBoxUseOnce.Name = "checkBoxUseOnce";
             this.checkBoxUseOnce.Size = new System.Drawing.Size(95, 17);
             this.checkBoxUseOnce.TabIndex = 33;
             this.checkBoxUseOnce.Text = "Einmalnutzung";
             this.checkBoxUseOnce.UseVisualStyleBackColor = true;
+            this.checkBoxUseOnce.CheckedChanged += new System.EventHandler(this.checkBoxUseOnce_CheckedChanged);
             // 
             // label1
             // 
@@ -175,7 +174,7 @@
             this.panel3.Controls.Add(this.textBoxDescription);
             this.panel3.Controls.Add(this.toolStrip1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 274);
+            this.panel3.Location = new System.Drawing.Point(0, 268);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(434, 187);
             this.panel3.TabIndex = 0;
@@ -215,17 +214,16 @@
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.toolStrip2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 144);
+            this.panel4.Location = new System.Drawing.Point(0, 64);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(434, 130);
+            this.panel4.Size = new System.Drawing.Size(434, 150);
             this.panel4.TabIndex = 1;
             // 
             // textBoxRules
             // 
             this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.traitBindingSource, "Rules", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Visible", this.traitBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxRules.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxRules.Location = new System.Drawing.Point(0, 57);
+            this.textBoxRules.Location = new System.Drawing.Point(0, 77);
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -235,7 +233,10 @@
             // panel6
             // 
             this.panel6.AutoSize = true;
+            this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.buttonInsertLevelPlaceholder);
+            this.panel6.Controls.Add(this.checkBoxUseOnce);
+            this.panel6.Controls.Add(this.numericUpDownAP);
             this.panel6.Controls.Add(this.numericUpDownAdditionalPoints);
             this.panel6.Controls.Add(this.labelMaxLevel);
             this.panel6.Controls.Add(this.label12);
@@ -243,7 +244,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 25);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(434, 32);
+            this.panel6.Size = new System.Drawing.Size(434, 52);
             this.panel6.TabIndex = 51;
             // 
             // buttonInsertLevelPlaceholder
@@ -281,7 +282,6 @@
             // labelMaxLevel
             // 
             this.labelMaxLevel.AutoSize = true;
-            this.labelMaxLevel.DataBindings.Add(new System.Windows.Forms.Binding("Visible", this.traitBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.labelMaxLevel.Location = new System.Drawing.Point(205, 5);
             this.labelMaxLevel.Name = "labelMaxLevel";
             this.labelMaxLevel.Size = new System.Drawing.Size(85, 13);
@@ -300,7 +300,6 @@
             // numericUpDownMaxLevel
             // 
             this.numericUpDownMaxLevel.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.traitBindingSource, "MaxLevel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownMaxLevel.DataBindings.Add(new System.Windows.Forms.Binding("Visible", this.traitBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDownMaxLevel.Location = new System.Drawing.Point(143, 3);
             this.numericUpDownMaxLevel.Maximum = new decimal(new int[] {
             10,
@@ -348,13 +347,23 @@
             this.toolStrip3.TabIndex = 1;
             this.toolStrip3.Text = "toolStrip3";
             // 
+            // toolStripButtonSave
+            // 
+            this.toolStripButtonSave.Image = global::Universalis.Properties.Resources.disk;
+            this.toolStripButtonSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonSave.Name = "toolStripButtonSave";
+            this.toolStripButtonSave.Size = new System.Drawing.Size(81, 22);
+            this.toolStripButtonSave.Text = "Speichern";
+            this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
+            // 
             // panel5
             // 
             this.panel5.AutoSize = true;
             this.panel5.Controls.Add(this.panelProfileModifier);
             this.panel5.Controls.Add(this.toolStrip4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 90);
+            this.panel5.Location = new System.Drawing.Point(0, 214);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(434, 54);
             this.panel5.TabIndex = 3;
@@ -391,16 +400,6 @@
             this.toolStrip4.TabIndex = 0;
             this.toolStrip4.Text = "toolStrip4";
             // 
-            // toolStripLabel3
-            // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(115, 22);
-            this.toolStripLabel3.Text = "Profil-Modifikatoren";
-            // 
-            // traitBindingSource
-            // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
-            // 
             // toolStripButtonProfileMod
             // 
             this.toolStripButtonProfileMod.CheckOnClick = true;
@@ -411,6 +410,12 @@
             this.toolStripButtonProfileMod.Name = "toolStripButtonProfileMod";
             this.toolStripButtonProfileMod.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonProfileMod.Click += new System.EventHandler(this.toolStripButtonProfileMod_Click);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(115, 22);
+            this.toolStripLabel3.Text = "Profil-Modifikatoren";
             // 
             // toolStripButtonProfileModEditor
             // 
@@ -423,15 +428,9 @@
             this.toolStripButtonProfileModEditor.Text = "editieren";
             this.toolStripButtonProfileModEditor.Click += new System.EventHandler(this.toolStripButtonProfileModEditor_Click);
             // 
-            // toolStripButtonSave
+            // traitBindingSource
             // 
-            this.toolStripButtonSave.Image = global::Universalis.Properties.Resources.disk;
-            this.toolStripButtonSave.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonSave.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSave.Name = "toolStripButtonSave";
-            this.toolStripButtonSave.Size = new System.Drawing.Size(81, 22);
-            this.toolStripButtonSave.Text = "Speichern";
-            this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // TraitEditorForm
             // 
@@ -441,8 +440,8 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(434, 529);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip3);
             this.KeyPreview = true;
