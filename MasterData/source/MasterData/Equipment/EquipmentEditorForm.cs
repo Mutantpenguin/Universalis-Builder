@@ -38,29 +38,25 @@ namespace Universalis
             if( numericUpDownAdditionalPoints.Value == 0 )
             {
                 textBoxRules.Visible = false;
+                numericUpDownAP.Enabled = false;
+                checkBoxUseOnce.Enabled = false;
             }
             else
             {
                 textBoxRules.Visible = true;
+                numericUpDownAP.Enabled = true;
+                checkBoxUseOnce.Enabled = true;
             }
+
+            toolStripButtonProfileMod.Enabled = true;
 
             if( checkBoxUseOnce.Checked )
             {
-                checkBoxUseOnce.Enabled = true;
-
                 toolStripButtonProfileMod.Enabled = false;
             }
             else if( toolStripButtonProfileMod.Checked )
             {
                 checkBoxUseOnce.Enabled = false;
-
-                toolStripButtonProfileMod.Enabled = true;
-            }
-            else
-            {
-                checkBoxUseOnce.Enabled = true;
-
-                toolStripButtonProfileMod.Enabled = true;
             }
         }
 
@@ -80,15 +76,21 @@ namespace Universalis
                 MessageBox.Show( "Achtung, das Gewicht steht auf '0'!" );
             }
 
-            if( ( numericUpDownAdditionalPoints.Value == 0 ) && !String.IsNullOrEmpty( textBoxRules.Text ) )
+            if( ( numericUpDownAdditionalPoints.Value == 0 ) && ( !String.IsNullOrEmpty( textBoxRules.Text )
+                                                                  ||
+                                                                  ( numericUpDownAP.Value > 0 )
+                                                                  ||
+                                                                  checkBoxUseOnce.Checked ) )
             {
-                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln verwendet werden. Weiter und Regeln löschen?",
+                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln/AP/Einmalnutzung verwendet werden. Weiter und Regeln/AP/Einmalnutzung löschen?",
                                      "Ohne Punkte keine Regeln",
                                      MessageBoxButtons.OKCancel,
                                      MessageBoxIcon.Question,
                                      MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
                 {
                     textBoxRules.Text = String.Empty;
+                    numericUpDownAP.Value = 0;
+                    checkBoxUseOnce.Checked = false;
                 }
                 else
                 {

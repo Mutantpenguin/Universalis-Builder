@@ -182,7 +182,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(65, 31);
+            this.label10.Location = new System.Drawing.Point(205, 5);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(21, 13);
             this.label10.TabIndex = 14;
@@ -192,7 +192,7 @@
             // 
             this.checkBoxUseOnce.AutoSize = true;
             this.checkBoxUseOnce.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.equipmentBindingSource, "UseOnce", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxUseOnce.Location = new System.Drawing.Point(156, 30);
+            this.checkBoxUseOnce.Location = new System.Drawing.Point(242, 4);
             this.checkBoxUseOnce.Name = "checkBoxUseOnce";
             this.checkBoxUseOnce.Size = new System.Drawing.Size(95, 17);
             this.checkBoxUseOnce.TabIndex = 3;
@@ -203,7 +203,7 @@
             // numericUpDownAP
             // 
             this.numericUpDownAP.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.equipmentBindingSource, "AP", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownAP.Location = new System.Drawing.Point(3, 29);
+            this.numericUpDownAP.Location = new System.Drawing.Point(143, 3);
             this.numericUpDownAP.Maximum = new decimal(new int[] {
             6,
             0,
@@ -225,6 +225,11 @@
             0,
             0,
             0});
+            this.numericUpDownAdditionalPoints.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
             this.numericUpDownAdditionalPoints.Name = "numericUpDownAdditionalPoints";
             this.numericUpDownAdditionalPoints.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownAdditionalPoints.TabIndex = 4;
@@ -237,7 +242,7 @@
             this.panel3.Controls.Add(this.panelProfileModifier);
             this.panel3.Controls.Add(this.toolStrip2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 240);
+            this.panel3.Location = new System.Drawing.Point(0, 214);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(484, 54);
             this.panel3.TabIndex = 2;
@@ -307,7 +312,7 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 294);
+            this.panel4.Location = new System.Drawing.Point(0, 268);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(484, 211);
             this.panel4.TabIndex = 3;
@@ -349,14 +354,14 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 90);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(484, 150);
+            this.panel11.Size = new System.Drawing.Size(484, 124);
             this.panel11.TabIndex = 4;
             // 
             // textBoxRules
             // 
             this.textBoxRules.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.equipmentBindingSource, "Rules", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxRules.Dock = System.Windows.Forms.DockStyle.Top;
-            this.textBoxRules.Location = new System.Drawing.Point(0, 77);
+            this.textBoxRules.Location = new System.Drawing.Point(0, 51);
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -374,7 +379,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(484, 52);
+            this.panel2.Size = new System.Drawing.Size(484, 26);
             this.panel2.TabIndex = 2;
             // 
             // label12

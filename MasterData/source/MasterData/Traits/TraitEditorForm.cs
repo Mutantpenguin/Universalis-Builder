@@ -41,6 +41,8 @@ namespace Universalis
                 numericUpDownMaxLevel.Enabled = false;
                 labelMaxLevel.Enabled = false;
                 buttonInsertLevelPlaceholder.Enabled = false;
+                numericUpDownAP.Enabled = false;
+                checkBoxUseOnce.Enabled = false;
             }
             else
             {
@@ -48,25 +50,19 @@ namespace Universalis
                 numericUpDownMaxLevel.Enabled = true;
                 labelMaxLevel.Enabled = true;
                 buttonInsertLevelPlaceholder.Enabled = true;
+                numericUpDownAP.Enabled = true;
+                checkBoxUseOnce.Enabled = true;
             }
+
+            toolStripButtonProfileMod.Enabled = true;
 
             if( checkBoxUseOnce.Checked )
             {
-                checkBoxUseOnce.Enabled = true;
-
                 toolStripButtonProfileMod.Enabled = false;
             }
             else if( toolStripButtonProfileMod.Checked )
             {
                 checkBoxUseOnce.Enabled = false;
-
-                toolStripButtonProfileMod.Enabled = true;
-            }
-            else
-            {
-                checkBoxUseOnce.Enabled = true;
-
-                toolStripButtonProfileMod.Enabled = true;
             }
         }
 
@@ -81,9 +77,13 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( numericUpDownAdditionalPoints.Value == 0 ) && !String.IsNullOrEmpty( textBoxRules.Text ) )
+            if( ( numericUpDownAdditionalPoints.Value == 0 ) && ( !String.IsNullOrEmpty( textBoxRules.Text )
+                                                                  ||
+                                                                  ( numericUpDownAP.Value > 0 )
+                                                                  ||
+                                                                  checkBoxUseOnce.Checked ) )
             {
-                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln verwendet werden. Weiter und Regeln löschen?",
+                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln/AP/Einmalnutzung verwendet werden. Weiter und Regeln/AP/Einmalnutzung löschen?",
                                      "Ohne Punkte keine Regeln",
                                      MessageBoxButtons.OKCancel,
                                      MessageBoxIcon.Question,
@@ -91,6 +91,8 @@ namespace Universalis
                 {
                     textBoxRules.Text = String.Empty;
                     numericUpDownMaxLevel.Value = 1;
+                    numericUpDownAP.Value = 0;
+                    checkBoxUseOnce.Checked = false;
                 }
                 else
                 {

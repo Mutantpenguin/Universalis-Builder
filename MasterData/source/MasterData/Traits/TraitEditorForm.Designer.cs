@@ -139,7 +139,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(65, 31);
+            this.label10.Location = new System.Drawing.Point(204, 5);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(21, 13);
             this.label10.TabIndex = 39;
@@ -148,7 +148,7 @@
             // numericUpDownAP
             // 
             this.numericUpDownAP.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.traitBindingSource, "AP", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownAP.Location = new System.Drawing.Point(3, 29);
+            this.numericUpDownAP.Location = new System.Drawing.Point(142, 3);
             this.numericUpDownAP.Maximum = new decimal(new int[] {
             6,
             0,
@@ -162,10 +162,9 @@
             // 
             // checkBoxUseOnce
             // 
-            this.checkBoxUseOnce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBoxUseOnce.AutoSize = true;
             this.checkBoxUseOnce.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.traitBindingSource, "UseOnce", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxUseOnce.Location = new System.Drawing.Point(143, 30);
+            this.checkBoxUseOnce.Location = new System.Drawing.Point(244, 4);
             this.checkBoxUseOnce.Name = "checkBoxUseOnce";
             this.checkBoxUseOnce.Size = new System.Drawing.Size(95, 17);
             this.checkBoxUseOnce.TabIndex = 33;
@@ -255,9 +254,9 @@
             // 
             this.buttonInsertLevelPlaceholder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonInsertLevelPlaceholder.Image = global::Universalis.Properties.Resources.baseline_post_add_black_18dp;
-            this.buttonInsertLevelPlaceholder.Location = new System.Drawing.Point(405, 3);
+            this.buttonInsertLevelPlaceholder.Location = new System.Drawing.Point(156, 29);
             this.buttonInsertLevelPlaceholder.Name = "buttonInsertLevelPlaceholder";
-            this.buttonInsertLevelPlaceholder.Size = new System.Drawing.Size(26, 26);
+            this.buttonInsertLevelPlaceholder.Size = new System.Drawing.Size(26, 20);
             this.buttonInsertLevelPlaceholder.TabIndex = 51;
             this.toolTip1.SetToolTip(this.buttonInsertLevelPlaceholder, "Platzhalter für Level einfügen");
             this.buttonInsertLevelPlaceholder.UseVisualStyleBackColor = true;
@@ -286,7 +285,7 @@
             // labelMaxLevel
             // 
             this.labelMaxLevel.AutoSize = true;
-            this.labelMaxLevel.Location = new System.Drawing.Point(205, 5);
+            this.labelMaxLevel.Location = new System.Drawing.Point(65, 31);
             this.labelMaxLevel.Name = "labelMaxLevel";
             this.labelMaxLevel.Size = new System.Drawing.Size(85, 13);
             this.labelMaxLevel.TabIndex = 50;
@@ -304,7 +303,7 @@
             // numericUpDownMaxLevel
             // 
             this.numericUpDownMaxLevel.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.traitBindingSource, "MaxLevel", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownMaxLevel.Location = new System.Drawing.Point(143, 3);
+            this.numericUpDownMaxLevel.Location = new System.Drawing.Point(3, 29);
             this.numericUpDownMaxLevel.Maximum = new decimal(new int[] {
             10,
             0,
