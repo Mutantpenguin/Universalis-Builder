@@ -122,7 +122,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(71, 31);
+            this.label10.Location = new System.Drawing.Point(65, 31);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(21, 13);
             this.label10.TabIndex = 14;
@@ -143,7 +143,7 @@
             // numericUpDownAP
             // 
             this.numericUpDownAP.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.equipmentBindingSource, "AP", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownAP.Location = new System.Drawing.Point(9, 29);
+            this.numericUpDownAP.Location = new System.Drawing.Point(3, 29);
             this.numericUpDownAP.Maximum = new decimal(new int[] {
             9,
             0,
@@ -219,7 +219,7 @@
             // 
             this.numericUpDownAdditionalPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownAdditionalPoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.equipmentBindingSource, "AdditionalPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownAdditionalPoints.Location = new System.Drawing.Point(9, 3);
+            this.numericUpDownAdditionalPoints.Location = new System.Drawing.Point(3, 3);
             this.numericUpDownAdditionalPoints.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -369,7 +369,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(71, 5);
+            this.label12.Location = new System.Drawing.Point(65, 5);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 13);
             this.label12.TabIndex = 46;
@@ -426,6 +426,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(484, 577);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -433,6 +435,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip4);
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(500, 0);
             this.Name = "EquipmentEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ausrüstungs Editor";
