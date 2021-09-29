@@ -126,13 +126,13 @@
     <Compile Include="Source\Helper\StringHelper.cs" />
     <Compile Include="Source\Helper\UniversalisSettings.cs" />
     <Compile Include="Source\Helper\ToolTipHelper.cs" />
-    <Compile Include="Source\JsonHelper\JsonActorEquipmentConverter.cs" />
-    <Compile Include="Source\JsonHelper\JsonActorWeaponConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonEquipmentConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonWeaponConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonArchetypeConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonArmorConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonDamageEffectListConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonFactionConverter.cs" />
-    <Compile Include="Source\JsonHelper\JsonActorTraitConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonTraitConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonGroupTraitorConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonPngConverter.cs" />
     <Compile Include="Source\Objects\Actor.cs" />
