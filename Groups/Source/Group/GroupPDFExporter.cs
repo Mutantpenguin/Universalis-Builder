@@ -304,8 +304,7 @@ namespace Universalis
                 foreach( var entry in actor.TraitList.Select( x => new { x.Trait, x.Level } )
                                                      .Distinct()
                                                      .Select( x => new { Name = x.Trait.FormattedName( x.Level ), Rules = x.Trait.FormattedRules( x.Level ) } )
-                                                     .Where( x => !String.IsNullOrEmpty( x.Rules ) )
-                                                     .OrderBy( x => x.Name ) )
+                                                     .Where( x => !String.IsNullOrEmpty( x.Rules ) ) )
                 {
                     flipsideBlocks.Add( new flipsideBlock() { Name = entry.Name, Rules = entry.Rules } );
                 }
@@ -319,16 +318,14 @@ namespace Universalis
 
                 foreach( Weapon weapon in actor.WeaponList.Select( x => x.Weapon )
                                                           .Distinct()
-                                                          .Where( x => !String.IsNullOrEmpty( x.Rules ) )
-                                                          .OrderBy( x => x.Name ) )
+                                                          .Where( x => !String.IsNullOrEmpty( x.Rules ) ) )
                 {
                     flipsideBlocks.Add( new flipsideBlock() { Name = weapon.Name, Rules = weapon.Rules } );
                 }
 
                 foreach( Equipment equipment in actor.EquipmentList.Select( x => x.Equipment )
                                                                    .Distinct()
-                                                                   .Where( x => !String.IsNullOrEmpty( x.Rules ) )
-                                                                   .OrderBy( x => x.Name ) )
+                                                                   .Where( x => !String.IsNullOrEmpty( x.Rules ) ) )
                 {
                     flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.Rules } );
                 }
@@ -366,7 +363,7 @@ namespace Universalis
                             ColumnText columnText = new ColumnText( flipsideTemplate );
                             columnText.SetSimpleColumn( s_flipsideColumns[ columnIndex ][ 0 ], s_flipsideColumns[ columnIndex ][ 1 ], s_flipsideColumns[ columnIndex ][ 2 ], s_flipsideColumns[ columnIndex ][ 3 ] );
 
-                            foreach( var block in flipsideBlocks )
+                            foreach( var block in flipsideBlocks.OrderBy( x => x.Name ) )
                             {
                                 NewFlipsideEntryBlock( columnText, ref columnIndex, block );
                             }
