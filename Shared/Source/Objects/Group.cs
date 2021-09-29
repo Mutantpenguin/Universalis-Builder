@@ -46,7 +46,7 @@ namespace Universalis
 
             foreach( Actor actor in ModelList )
             {
-                if( group.ModelList.Find( x => x.Equals( actor ) ) == null )
+                if( !group.ModelList.Any( x => x.Equals( actor ) ) )
                 {
                     return ( false );
                 }
@@ -54,7 +54,7 @@ namespace Universalis
 
             foreach( Actor actor in group.ModelList )
             {
-                if( ModelList.Find( x => x.Equals( actor ) ) == null )
+                if( !ModelList.Any( x => x.Equals( actor ) ) )
                 {
                     return ( false );
                 }

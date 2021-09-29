@@ -12,7 +12,7 @@ namespace Universalis
             InitializeComponent();
 
             damageEffectBindingSource.DataSource = MasterDataStorage.DamageEffect.DamageEffects.Where( s => s.Active )
-                                                                                               .Where( s => damageEffectList.Find( x => x.ID == s.ID ) == null )
+                                                                                               .Where( s => !damageEffectList.Any( x => x.ID == s.ID )
                                                                                                .Where( x => ( x.UsageType == usageType ) || ( x.UsageType == DamageEffect.EUsageType.Alle ) )
                                                                                                .OrderBy( x => x.Name )
                                                                                                .ToList();

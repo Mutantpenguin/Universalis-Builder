@@ -108,7 +108,7 @@ namespace Universalis
 
             foreach( DamageType damageType in DamageTypeList )
             {
-                if( armor.DamageTypeList.Find( x => x.Equals( damageType ) ) == null )
+                if( !armor.DamageTypeList.Any( x => x.Equals( damageType ) ) )
                 {
                     return ( false );
                 }
@@ -116,7 +116,7 @@ namespace Universalis
 
             foreach( DamageType damageType in armor.DamageTypeList )
             {
-                if( DamageTypeList.Find( x => x.Equals( damageType ) ) == null )
+                if( !DamageTypeList.Any( x => x.Equals( damageType ) )
                 {
                     return ( false );
                 }
@@ -124,7 +124,7 @@ namespace Universalis
 
             foreach( DamageEffect damageEffect in DamageEffectList )
             {
-                if( armor.DamageEffectList.Find( x => x.Equals( damageEffect ) ) == null )
+                if( !armor.DamageEffectList.Any( x => x.Equals( damageEffect ) ) )
                 {
                     return ( false );
                 }
@@ -132,7 +132,7 @@ namespace Universalis
 
             foreach( DamageEffect damageEffect in armor.DamageEffectList )
             {
-                if( DamageEffectList.Find( x => x.Equals( damageEffect ) ) == null )
+                if( !DamageEffectList.Any( x => x.Equals( damageEffect ) ) )
                 {
                     return ( false );
                 }
