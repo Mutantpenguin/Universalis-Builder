@@ -86,11 +86,20 @@ namespace Universalis
                 return ( false );
             }
 
-            if( TraitList.Except( actor.TraitList ).Any()
-                ||
-                actor.TraitList.Except( TraitList ).Any() )
+            foreach( ActorTrait actorTrait in TraitList )
             {
-                return ( false );
+                if( !actor.TraitList.Any( x => x.Equals( actorTrait ) ) )
+                {
+                    return ( false );
+                }
+            }
+
+            foreach( ActorTrait actorTrait in actor.TraitList )
+            {
+                if( !TraitList.Any( x => x.Equals( actorTrait ) ) )
+                {
+                    return ( false );
+                }
             }
 
             return ( true );
@@ -163,7 +172,10 @@ namespace Universalis
 
             if( null != actor.TraitList )
             {
-                TraitList.AddRange( actor.TraitList );
+                foreach( ActorTrait actorTrait in actor.TraitList )
+                {
+                    TraitList.Add( new ActorTrait( actorTrait ) );
+                }
             }
         }
 
@@ -212,6 +224,46 @@ namespace Universalis
 
         public class ActorTrait
         {
+            public ActorTrait() {}
+
+            public ActorTrait( ActorTrait actorTrait )
+            {
+                if( null == actorTrait )
+                {
+                    throw new ArgumentNullException( nameof( actorTrait ) );
+                }
+
+                ID = actorTrait.ID;
+
+                Trait = actorTrait.Trait;
+                Level = actorTrait.Level;
+            }
+
+            public bool Equals( ActorTrait actorTrait )
+            {
+                if( null == actorTrait )
+                {
+                    throw new ArgumentNullException( nameof( actorTrait ) );
+                }
+
+                if( ID != actorTrait.ID
+                    ||
+                    Trait != actorTrait.Trait
+                    ||
+                    Level != actorTrait.Level )
+                {
+                    return ( false );
+                }
+
+                return ( true );
+            }
+
+            public Guid ID
+            {
+                get;
+                set;
+            } = Guid.NewGuid();
+
             [JsonConverter( typeof( JsonTraitConverter ) )]
             public Trait Trait
             {

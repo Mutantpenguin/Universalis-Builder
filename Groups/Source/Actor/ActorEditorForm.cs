@@ -400,7 +400,7 @@ namespace Universalis
                     {
                         foreach( Trait trait in addTraitToActor.SelectedTraits )
                         {
-                            m_actorModified.TraitList.Add( new Actor.ActorTrait
+                            m_actorModified.TraitList.Add( new Actor.ActorTrait()
                             {
                                 Trait = trait
                             } );
