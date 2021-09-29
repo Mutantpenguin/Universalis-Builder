@@ -15,7 +15,7 @@ namespace Universalis
 
             foreach( DamageType.EType type in DamageType.ETypeList.OrderBy( x => x.ToString() ) )
             {
-                if( ( null == damageTypeList ) || ( null == damageTypeList.Find( x => x.Type == type ) ) )
+                if( ( null == damageTypeList ) || !damageTypeList.Any( x => x.Type == type ) )
                 {
                     typeList.Add( new DamageType() { Type = type, Level = DamageType.ELevel.I } );
                 }

@@ -129,7 +129,7 @@ namespace Universalis
 
             foreach( DamageEffect damageEffect in DamageEffectList )
             {
-                if( weapon.DamageEffectList.Find( x => x.Equals( damageEffect ) ) == null )
+                if( !weapon.DamageEffectList.Any( x => x.Equals( damageEffect ) ) )
                 {
                     return ( false );
                 }
@@ -137,7 +137,7 @@ namespace Universalis
 
             foreach( DamageEffect damageEffect in weapon.DamageEffectList )
             {
-                if( DamageEffectList.Find( x => x.Equals( damageEffect ) ) == null )
+                if( !DamageEffectList.Any( x => x.Equals( damageEffect ) ) )
                 {
                     return ( false );
                 }
