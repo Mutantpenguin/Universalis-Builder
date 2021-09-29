@@ -26,7 +26,7 @@ namespace Universalis
                 toolStripButtonProfileMod.Checked = true;
                 toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
 
-                textBoxProfileModifier.Text = m_modifiedArmor.ProfileModifier.ToString();
+                textBoxProfileModifier.Text = m_modifiedArmor.ProfileModifier.Summary();
             }
             else
             {
@@ -311,7 +311,7 @@ namespace Universalis
                 if( profileModifierEditor.ShowDialog( this ) == DialogResult.OK )
                 {
                     armor.ProfileModifier = profileModifierEditor.ProfileModifier;
-                    textBoxProfileModifier.Text = armor.ProfileModifier.ToString();
+                    textBoxProfileModifier.Text = armor.ProfileModifier.Summary();
                     armorBindingSource.ResetBindings( false );
                 }
             }

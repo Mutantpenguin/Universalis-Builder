@@ -101,7 +101,7 @@ namespace Universalis
             return( points );
         }
 
-        public override string ToString()
+        public string Summary()
         {
             string text = String.Empty;
 
@@ -122,7 +122,7 @@ namespace Universalis
 
             if( AttributeModifier != null )
             {
-                string profileModifierString = AttributeModifier.ToString();
+                string profileModifierString = AttributeModifier.Summary();
 
                 if( !String.IsNullOrEmpty( profileModifierString ) )
                 {

@@ -161,23 +161,23 @@ namespace Universalis
         [JsonIgnore]
         public string FormattedAP => ( AP == 0 ) ? "" : AP.ToString();
         
-        public override string ToString()
+        public string Summary()
         {
             string text = String.Empty;
 
             if( null != this.ProfileModifier )
             {
-                string profileModifierString = this.ProfileModifier.ToString();
+                string profileModifierSummary = ProfileModifier.Summary();
 
-                if( !String.IsNullOrEmpty( profileModifierString ) )
+                if( !String.IsNullOrEmpty( profileModifierSummary ) )
                 {
-                    text += "Dauerhaft: " + profileModifierString;
+                    text += profileModifierSummary;
                 }
             }
 
             if( !String.IsNullOrEmpty( this.Rules ) )
             {
-                if( !String.IsNullOrEmpty( text  ) )
+                if( !String.IsNullOrEmpty( text ) )
                 { 
                     text += Environment.NewLine;
                 }

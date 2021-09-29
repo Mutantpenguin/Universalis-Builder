@@ -153,17 +153,17 @@ namespace Universalis
         [JsonIgnore]
         public string FormattedAP => ( AP == 0 ) ? "" : AP.ToString();
 
-        public string ToString( uint level )
+        public string Summary( uint level )
         {
             string text = String.Empty;
 
             if( null != this.ProfileModifier )
             {
-                string profileModifierString = this.ProfileModifier.ToString();
+                string profileModifierSummary = ProfileModifier.Summary();
 
-                if( !String.IsNullOrEmpty( profileModifierString ) )
+                if( !String.IsNullOrEmpty( profileModifierSummary ) )
                 {
-                    text += "Dauerhaft: " + profileModifierString;
+                    text += profileModifierSummary;
                 }
             }
 
@@ -174,14 +174,7 @@ namespace Universalis
                     text += Environment.NewLine;
                 }
 
-                if( MaxLevel > 1 )
-                {
-                    text += this.Rules.Replace( LevelPlaceholder, level.ToString() );
-                }
-                else
-                {
-                    text += this.Rules;
-                }
+                text += FormattedRules( level );
             }
 
             return ( text );
@@ -242,6 +235,18 @@ namespace Universalis
             else
             {
                 return ( $"{Name}{StringHelper.NonBreakingSpace}{StringHelper.ToRoman((int)level)}" );
+            }
+        }
+
+        public string FormattedRules( uint level )
+        {
+            if( MaxLevel > 1 )
+            {
+                return Rules.Replace( LevelPlaceholder, level.ToString() );
+            }
+            else
+            {
+                return Rules;
             }
         }
     }

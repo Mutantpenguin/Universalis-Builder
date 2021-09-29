@@ -554,7 +554,12 @@ namespace Universalis
 
                 foreach( var entry in actorTraitList.Select( x => new { x.Trait, x.Level } )
                                                     .GroupBy( x => x )
-                                                    .Select( x => new { Name = x.Key.Trait.FormattedName( x.Key.Level ), Rules = x.Key.Trait.ToString( x.Key.Level ), x.Key.Trait, Count = x.Count() } )
+                                                    .Select( x => new { Name = x.Key.Trait.FormattedName( x.Key.Level ), x.Key.Trait, Count = x.Count() } )
+                                                    .Where( x => ( x.Trait.AP > 0 )
+                                                                 ||
+                                                                 ( x.Trait.UseOnce )
+                                                                 ||
+                                                                 ( !String.IsNullOrEmpty( x.Trait.Rules ) ) )
                                                     .OrderBy( x => x.Name )
                                                     .ToList() )
                 {

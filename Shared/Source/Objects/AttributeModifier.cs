@@ -43,7 +43,7 @@ namespace Universalis
             return ( true );
         }
 
-        public override string ToString()
+        public string Summary()
         {
             string text = String.Empty;
 

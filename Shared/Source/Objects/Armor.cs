@@ -303,17 +303,17 @@ namespace Universalis
         [JsonIgnore]
         public string EffectsString => DamageEffect.GetEffectListString( DamageEffectList );
 
-        public override string ToString()
+        public string Summary()
         {
             string text = String.Empty;
 
             if( null != this.ProfileModifier )
             {
-                string profileModifierString = this.ProfileModifier.ToString();
+                string profileModifierSummary = ProfileModifier.Summary();
 
-                if( !String.IsNullOrEmpty( profileModifierString ) )
+                if( !String.IsNullOrEmpty( profileModifierSummary ) )
                 {
-                    text += profileModifierString;
+                    text += profileModifierSummary;
                 }
             }
 

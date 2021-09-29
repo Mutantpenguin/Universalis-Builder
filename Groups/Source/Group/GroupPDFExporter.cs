@@ -303,7 +303,7 @@ namespace Universalis
 
                 foreach( var entry in actor.TraitList.Select( x => new { x.Trait, x.Level } )
                                                      .Distinct()
-                                                     .Select( x => new { Name = x.Trait.FormattedName( x.Level ), Rules = x.Trait.ToString( x.Level ) } )
+                                                     .Select( x => new { Name = x.Trait.FormattedName( x.Level ), Rules = x.Trait.FormattedRules( x.Level ) } )
                                                      .Where( x => !String.IsNullOrEmpty( x.Rules ) )
                                                      .OrderBy( x => x.Name ) )
                 {
@@ -319,18 +319,18 @@ namespace Universalis
 
                 foreach( Weapon weapon in actor.WeaponList.Select( x => x.Weapon )
                                                           .Distinct()
-                                                          .Where( x => !String.IsNullOrEmpty( x.ToString() ) )
+                                                          .Where( x => !String.IsNullOrEmpty( x.Rules ) )
                                                           .OrderBy( x => x.Name ) )
                 {
-                    flipsideBlocks.Add( new flipsideBlock() { Name = weapon.Name, Rules = weapon.ToString() } );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = weapon.Name, Rules = weapon.Rules } );
                 }
 
                 foreach( Equipment equipment in actor.EquipmentList.Select( x => x.Equipment )
                                                                    .Distinct()
-                                                                   .Where( x => !String.IsNullOrEmpty( x.ToString() ) )
+                                                                   .Where( x => !String.IsNullOrEmpty( x.Rules ) )
                                                                    .OrderBy( x => x.Name ) )
                 {
-                    flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.ToString() } );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.Rules } );
                 }
 
                 if( flipsideBlocks.Count > 0 )

@@ -22,7 +22,7 @@ namespace Universalis
                 toolStripButtonProfileMod.Checked = true;
                 toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;
 
-                textBoxProfileModifier.Text = m_modifiedTrait.ProfileModifier.ToString();
+                textBoxProfileModifier.Text = m_modifiedTrait.ProfileModifier.Summary();
             }
             else
             {
@@ -195,7 +195,7 @@ namespace Universalis
                 if( profileModifierEditor.ShowDialog( this ) == DialogResult.OK )
                 {
                     trait.ProfileModifier = profileModifierEditor.ProfileModifier;
-                    textBoxProfileModifier.Text = trait.ProfileModifier.ToString();
+                    textBoxProfileModifier.Text = trait.ProfileModifier.Summary();
                     traitBindingSource.ResetBindings( false );
                 }
             }

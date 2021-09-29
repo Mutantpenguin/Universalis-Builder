@@ -538,13 +538,13 @@ namespace Universalis
             {
                 Actor.ActorTrait actorTrait = (Actor.ActorTrait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem;
 
-                string traitString = actorTrait.Trait.ToString( actorTrait.Level );
+                string traitSummary = actorTrait.Trait.Summary( actorTrait.Level );
 
-                if( !String.IsNullOrEmpty( traitString ) )
+                if( !String.IsNullOrEmpty( traitSummary ) )
                 {
                     string text = actorTrait.Trait.FormattedName( actorTrait.Level ) + ":";
 
-                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( traitString );
+                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( traitSummary );
 
                     e.ToolTipText = text;
                 }
@@ -561,13 +561,13 @@ namespace Universalis
             {
                 Weapon weapon = ((Actor.ActorWeapon)dataGridViewWeapons.Rows[ e.RowIndex ].DataBoundItem).Weapon;
 
-                string weaponString = weapon.ToString();
+                string weaponSummary = weapon.Summary();
 
-                if( !String.IsNullOrEmpty( weaponString ) )
+                if( !String.IsNullOrEmpty( weaponSummary ) )
                 {
                     string text = weapon.Name + ":";
 
-                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( weaponString );
+                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( weaponSummary );
 
                     e.ToolTipText = text;
                 }
@@ -584,13 +584,13 @@ namespace Universalis
             {
                 Armor armor = (Armor)dataGridViewArmor.Rows[ e.RowIndex ].DataBoundItem;
 
-                string armorString = armor.ToString();
+                string armorSummary = armor.Summary();
 
-                if( !String.IsNullOrEmpty( armorString ) )
+                if( !String.IsNullOrEmpty( armorSummary ) )
                 {
                     string text = armor.Name + ":";
 
-                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( armorString );
+                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( armorSummary );
 
                     e.ToolTipText = text;
                 }
@@ -607,13 +607,13 @@ namespace Universalis
             {
                 Equipment equipment = ( (Actor.ActorEquipment)dataGridViewEquipment.Rows[ e.RowIndex ].DataBoundItem ).Equipment;
 
-                string equipmentString = equipment.ToString();
+                string equipmentSummary = equipment.Summary();
 
-                if( !String.IsNullOrEmpty( equipmentString ) )
+                if( !String.IsNullOrEmpty( equipmentSummary ) )
                 {
                     string text = equipment.Name + ":";
 
-                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( equipmentString );
+                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( equipmentSummary );
 
                     e.ToolTipText = text;
                 }
