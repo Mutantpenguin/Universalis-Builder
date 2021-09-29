@@ -32,6 +32,23 @@ namespace Universalis
             Type = archetype.Type;
 
             Profile.Set( archetype.Profile );
+
+            if( null != TraitList )
+            {
+                TraitList.Clear();
+            }
+            else
+            {
+                TraitList = new List<ArchetypeTrait>();
+            }
+
+            if( null != archetype.TraitList )
+            {
+                foreach( ArchetypeTrait archetypeTrait in archetype.TraitList )
+                {
+                    TraitList.Add( new ArchetypeTrait( archetypeTrait ) );
+                }
+            }
         }
 
         public bool Equals( Archetype archetype )
@@ -61,6 +78,22 @@ namespace Universalis
             if( !Profile.Equals( archetype.Profile ) )
             {
                 return ( false );
+            }
+
+            foreach( ArchetypeTrait archetypeTrait in TraitList )
+            {
+                if( !archetype.TraitList.Any( x => x.Equals( archetypeTrait ) ) )
+                {
+                    return ( false );
+                }
+            }
+
+            foreach( ArchetypeTrait archetypeTrait in archetype.TraitList )
+            {
+                if( !TraitList.Any( x => x.Equals( archetypeTrait ) ) )
+                {
+                    return ( false );
+                }
             }
 
             return ( true );
@@ -125,6 +158,77 @@ namespace Universalis
 
         #endregion members
 
+        public class ArchetypeTrait
+        {
+            public ArchetypeTrait() { }
+
+            public ArchetypeTrait( ArchetypeTrait archetypeTrait )
+            {
+                if( null == archetypeTrait )
+                {
+                    throw new ArgumentNullException( nameof( archetypeTrait ) );
+                }
+
+                ID = archetypeTrait.ID;
+
+                Trait = archetypeTrait.Trait;
+                Level = archetypeTrait.Level;
+            }
+
+            public bool Equals( ArchetypeTrait archetypeTrait )
+            {
+                if( null == archetypeTrait )
+                {
+                    throw new ArgumentNullException( nameof( archetypeTrait ) );
+                }
+
+                if( ID != archetypeTrait.ID
+                    ||
+                    Trait != archetypeTrait.Trait
+                    ||
+                    Level != archetypeTrait.Level )
+                {
+                    return ( false );
+                }
+
+                return ( true );
+            }
+
+            public Guid ID
+            {
+                get;
+                set;
+            } = Guid.NewGuid();
+
+            [JsonConverter( typeof( JsonTraitConverter ) )]
+            public Trait Trait
+            {
+                get;
+                set;
+            }
+
+            public uint Level
+            {
+                get;
+                set;
+            } = 1;
+
+            [JsonIgnore]
+            public int Points
+            {
+                get
+                {
+                    return ( Trait.Points( Level ) );
+                }
+            }
+        }
+
+        public List<ArchetypeTrait> TraitList
+        {
+            get;
+            set;
+        } = new List<ArchetypeTrait>();
+
         [JsonIgnore]
         public int Points
         {
@@ -137,6 +241,11 @@ namespace Universalis
                 points += costs.Movement.movementCost( MovementType );
 
                 points += Profile.Points( Type );
+
+                if( null != TraitList )
+                {
+                    points += TraitList.Sum( x => x.Points );
+                }
 
                 return ( points );
             }
