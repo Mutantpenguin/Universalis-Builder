@@ -3,11 +3,11 @@ using System;
 
 namespace Universalis
 {
-    internal class JsonEquipmentConverter : JsonConverter
+    internal class JsonActorTraitConverter : JsonConverter
     {
         public override bool CanConvert( Type objectType )
         {
-            return ( objectType == typeof( Equipment ) );
+            return ( objectType == typeof( Trait ) );
         }
 
         public override object ReadJson( JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer )
@@ -19,7 +19,7 @@ namespace Universalis
 
             if( null != reader.Value )
             {
-                return ( MasterDataStorage.Equipment.Get( new Guid( (string)reader.Value ) ) );
+                return ( MasterDataStorage.Trait.Get( new Guid( (string)reader.Value ) ) );
             }
             else
             {
@@ -36,7 +36,7 @@ namespace Universalis
 
             if( null != value )
             {
-                writer.WriteValue( ( (Equipment)value ).ID );
+                writer.WriteValue( ( (Trait)value ).ID );
             }
         }
     }

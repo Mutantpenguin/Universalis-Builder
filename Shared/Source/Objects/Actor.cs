@@ -212,7 +212,7 @@ namespace Universalis
 
         public class ActorTrait
         {
-            [JsonConverter( typeof( JsonTraitConverter ) )]
+            [JsonConverter( typeof( JsonActorTraitConverter ) )]
             public Trait Trait
             {
                 get;
@@ -237,7 +237,7 @@ namespace Universalis
 
         public class ActorWeapon
         {
-            [JsonConverter( typeof( JsonWeaponConverter ) )]
+            [JsonConverter( typeof( JsonActorWeaponConverter ) )]
             public Weapon Weapon
             {
                 get;
@@ -247,7 +247,7 @@ namespace Universalis
 
         public class ActorEquipment
         {
-            [JsonConverter( typeof( JsonEquipmentConverter ) )]
+            [JsonConverter( typeof( JsonActorEquipmentConverter ) )]
             public Equipment Equipment
             {
                 get;
