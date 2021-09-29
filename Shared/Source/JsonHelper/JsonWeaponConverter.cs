@@ -3,7 +3,7 @@ using System;
 
 namespace Universalis
 {
-    internal class JsonActorWeaponConverter : JsonConverter
+    internal class JsonWeaponConverter : JsonConverter
     {
         public override bool CanConvert( Type objectType )
         {
