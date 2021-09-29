@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -22,6 +24,10 @@ namespace Universalis
             profileBindingSource.DataSource = m_modifiedArchetype.Profile;
             attributeBindingSource.DataSource = m_modifiedArchetype.Profile.Attributes;
 
+            traitLevelBindingSource.DataSource = Enumerable.Range( 1, 10 )
+                                                           .Select( i => (uint)i )
+                                                           .ToList();
+
             // fill the combobox for the size
             comboBoxSize.DataSource = Archetype.ESizeList;
             comboBoxSize.SelectedItem = archetype.Size;
@@ -35,6 +41,18 @@ namespace Universalis
             comboBoxMovementType.SelectedItem = archetype.MovementType;
 
             TypeDependantFields();
+
+            updateGridViewTraits();
+        }
+
+        private void updateGridViewTraits()
+        {
+            // if we don't do this, CellFormatting for the Datagrid will throw an exception because it's still working with the old content
+            archetypeTraitBindingSource.DataSource = null;
+            archetypeTraitBindingSource.DataSource = m_modifiedArchetype.TraitList.OrderBy( x => x.Trait.Name )
+                                                                                  .ToList();
+
+            dataGridViewTraits.ClearSelection();
         }
 
         private void ProfileBindingSource_CurrentItemChanged( object sender, EventArgs e )
@@ -283,6 +301,93 @@ namespace Universalis
         private void comboBoxMovementType_SelectionChangeCommitted( object sender, EventArgs e )
         {
             m_modifiedArchetype.MovementType = (Archetype.EMovementType)comboBoxMovementType.SelectedItem;
+        }
+
+        private void toolStripButtonTraitRemove_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewTraits.SelectedRows.Count > 0 )
+            {
+                var trait = (Archetype.ArchetypeTrait)dataGridViewTraits.Rows[ dataGridViewTraits.SelectedRows[ 0 ].Index ].DataBoundItem;
+                m_modifiedArchetype.TraitList.Remove( trait );
+
+                updateGridViewTraits();
+            }
+        }
+
+        private void toolStripButtonTraitAdd_Click( object sender, EventArgs e )
+        {
+            List<Trait> traitList = m_modifiedArchetype.TraitList.Select( x => x.Trait )
+                                                                 .Distinct()
+                                                                 .ToList();
+
+            using( AddTraitToArchetypeForm addTraitToArchetype = new AddTraitToArchetypeForm( traitList ) )
+            {
+                if( addTraitToArchetype.ShowDialog( this ) == DialogResult.OK )
+                {
+                    if( addTraitToArchetype.SelectedTraits.Count > 0 )
+                    {
+                        foreach( Trait trait in addTraitToArchetype.SelectedTraits )
+                        {
+                            m_modifiedArchetype.TraitList.Add( new Archetype.ArchetypeTrait()
+                            {
+                                Trait = trait
+                            } );
+                        }
+
+                        updateGridViewTraits();
+                    }
+                }
+            }
+        }
+
+        private void dataGridViewTraits_CellBeginEdit( object sender, DataGridViewCellCancelEventArgs e )
+        {
+            if( e.ColumnIndex == traitLevelDataGridViewComboBoxColumn.Index )
+            {
+                DataGridViewRow row = dataGridViewTraits.Rows[ e.RowIndex ];
+
+                Trait trait = ( (Archetype.ArchetypeTrait)row.DataBoundItem ).Trait;
+
+                ( row.Cells[ traitLevelDataGridViewComboBoxColumn.Index ] as DataGridViewComboBoxCell ).DataSource = Enumerable.Range( 1, (int)trait.MaxLevel )
+                                                                                                                               .Select( i => (uint)i )
+                                                                                                                               .ToList();
+            }
+        }
+
+        private void dataGridViewTraits_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewTraits );
+        }
+
+        private void dataGridViewTraits_CellToolTipTextNeeded( object sender, DataGridViewCellToolTipTextNeededEventArgs e )
+        {
+            if( e.RowIndex > -1 )
+            {
+                Archetype.ArchetypeTrait archetypeTrait = (Archetype.ArchetypeTrait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem;
+
+                string traitSummary = archetypeTrait.Trait.Summary( archetypeTrait.Level );
+
+                if( !String.IsNullOrEmpty( traitSummary ) )
+                {
+                    string text = archetypeTrait.Trait.FormattedName( archetypeTrait.Level ) + ":";
+
+                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( traitSummary );
+
+                    e.ToolTipText = text;
+                }
+                else
+                {
+                    e.ToolTipText = String.Empty;
+                }
+            }
+        }
+
+        private void dataGridViewTraits_CurrentCellDirtyStateChanged( object sender, EventArgs e )
+        {
+            if( dataGridViewTraits.CurrentCell.ColumnIndex == traitLevelDataGridViewComboBoxColumn.Index )
+            {
+                dataGridViewTraits.CommitEdit( DataGridViewDataErrorContexts.Commit );
+            }
         }
     }
 }

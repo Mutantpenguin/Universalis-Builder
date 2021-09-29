@@ -69,8 +69,8 @@ namespace Universalis
             }
 
             Faction = new FactionStorage( universePath, backgroundWorkerProvider() );
-            Archetype = new ArchetypeStorage( universePath, backgroundWorkerProvider() );
             Trait = new TraitStorage( universePath, backgroundWorkerProvider() );
+            Archetype = new ArchetypeStorage( universePath, backgroundWorkerProvider() );
             DamageEffect = new DamageEffectStorage( universePath, backgroundWorkerProvider() );
             Armor = new ArmorStorage( universePath, backgroundWorkerProvider() );
             Weapon = new WeaponStorage( universePath, backgroundWorkerProvider() );
