@@ -116,7 +116,7 @@ namespace Universalis
 
             foreach( DamageType damageType in armor.DamageTypeList )
             {
-                if( !DamageTypeList.Any( x => x.Equals( damageType ) )
+                if( !DamageTypeList.Any( x => x.Equals( damageType ) ) )
                 {
                     return ( false );
                 }
