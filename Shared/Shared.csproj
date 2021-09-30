@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props" Condition="Exists('..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -44,9 +43,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LibGit2Sharp, Version=0.26.0.0, Culture=neutral, PublicKeyToken=7cbde695407f0333, processorArchitecture=MSIL">
-      <HintPath>..\packages\LibGit2Sharp.0.26.2\lib\net46\LibGit2Sharp.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -67,54 +63,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Source\Fonts\UniversalisFont.cs" />
-    <Compile Include="Source\Forms\CloneForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\CloneForm.Designer.cs">
-      <DependentUpon>CloneForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Forms\FactionSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\FactionSelectionForm.Designer.cs">
-      <DependentUpon>FactionSelectionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Forms\FormSplash.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\FormSplash.Designer.cs">
-      <DependentUpon>FormSplash.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Forms\ImageSelectionForm2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\ImageSelectionForm2.Designer.cs">
-      <DependentUpon>ImageSelectionForm2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Forms\ImageSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\ImageSelectionForm.Designer.cs">
-      <DependentUpon>ImageSelectionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Forms\RepoUrlForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\RepoUrlForm.Designer.cs">
-      <DependentUpon>RepoUrlForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Forms\UniverseInfoForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\UniverseInfoForm.Designer.cs">
-      <DependentUpon>UniverseInfoForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Forms\UniverseSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\UniverseSelectionForm.Designer.cs">
-      <DependentUpon>UniverseSelectionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\Globals\Presets.cs" />
     <Compile Include="Source\Graphics\SectionHeader.cs" />
     <Compile Include="Source\Helper\ColorHelper.cs" />
@@ -164,12 +112,6 @@
     <Compile Include="Source\Storage\EquipmentStorage.cs" />
     <Compile Include="Source\Storage\FactionStorage.cs" />
     <Compile Include="Source\Storage\GroupStorage.cs" />
-    <Compile Include="Source\Forms\ProgressForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Forms\ProgressForm.Designer.cs">
-      <DependentUpon>ProgressForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\Storage\Storage.cs" />
     <Compile Include="Source\Storage\UserDataStorage.cs" />
     <Compile Include="Source\Storage\TraitStorage.cs" />
@@ -180,33 +122,6 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\CloneForm.resx">
-      <DependentUpon>CloneForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\FactionSelectionForm.resx">
-      <DependentUpon>FactionSelectionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\FormSplash.resx">
-      <DependentUpon>FormSplash.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\ImageSelectionForm2.resx">
-      <DependentUpon>ImageSelectionForm2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\ImageSelectionForm.resx">
-      <DependentUpon>ImageSelectionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\ProgressForm.resx">
-      <DependentUpon>ProgressForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\RepoUrlForm.resx">
-      <DependentUpon>RepoUrlForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\UniverseInfoForm.resx">
-      <DependentUpon>UniverseInfoForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\UniverseSelectionForm.resx">
-      <DependentUpon>UniverseSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -324,12 +239,6 @@
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -5,10 +5,9 @@ namespace Universalis
 {
     public partial class FormSplash : Form
     {
-        public FormSplash( UniverseSelectionForm.FormToOpen formToOpen, bool allowNewUniverse )
+        public FormSplash( Options options )
         {
-            this.formToOpen = formToOpen;
-            this.allowNewUniverse = allowNewUniverse;
+            Options = options;
 
             using( var player = new System.Media.SoundPlayer( Shared.Properties.Resources.startup_sound ) )
             {
@@ -22,8 +21,7 @@ namespace Universalis
             timerFadeIn.Start();
         }
 
-        private readonly UniverseSelectionForm.FormToOpen formToOpen;
-        private readonly bool allowNewUniverse;
+        private readonly Options Options;
 
         const double fadeInTime = 2500.0;
         const double fadeOutTime = 2000.0;
@@ -63,7 +61,7 @@ namespace Universalis
         {
             this.Hide();
 
-            using( var form = new UniverseSelectionForm( formToOpen, allowNewUniverse ) )
+            using( var form = new UniverseSelectionForm( Options ) )
             {
                 form.ShowDialog( this );
             }

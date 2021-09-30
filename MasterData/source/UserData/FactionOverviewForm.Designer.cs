@@ -32,8 +32,8 @@
             this.listViewFactions = new System.Windows.Forms.ListView();
             this.imageListFactions = new System.Windows.Forms.ImageList(this.components);
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.labelHeader = new System.Windows.Forms.Label();
             this.pictureBoxInfo = new System.Windows.Forms.PictureBox();
+            this.labelHeader = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
             this.SuspendLayout();
@@ -69,17 +69,6 @@
             this.panelHeader.Size = new System.Drawing.Size(728, 50);
             this.panelHeader.TabIndex = 2;
             // 
-            // labelHeader
-            // 
-            this.labelHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelHeader.AutoSize = true;
-            this.labelHeader.Location = new System.Drawing.Point(325, 19);
-            this.labelHeader.Name = "labelHeader";
-            this.labelHeader.Size = new System.Drawing.Size(79, 13);
-            this.labelHeader.TabIndex = 1;
-            this.labelHeader.Text = "universe_name";
-            this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pictureBoxInfo
             // 
             this.pictureBoxInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -91,6 +80,17 @@
             this.pictureBoxInfo.TabStop = false;
             this.pictureBoxInfo.Click += new System.EventHandler(this.pictureBoxInfo_Click);
             // 
+            // labelHeader
+            // 
+            this.labelHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelHeader.AutoSize = true;
+            this.labelHeader.Location = new System.Drawing.Point(325, 19);
+            this.labelHeader.Name = "labelHeader";
+            this.labelHeader.Size = new System.Drawing.Size(79, 13);
+            this.labelHeader.TabIndex = 1;
+            this.labelHeader.Text = "universe_name";
+            this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FactionOverviewForm
             // 
             this.AllowDrop = true;
@@ -101,7 +101,7 @@
             this.Controls.Add(this.panelHeader);
             this.KeyPreview = true;
             this.Name = "FactionOverviewForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Wählen Sie Ihre Fraktion";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FactionOverviewForm_FormClosing);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FactionOverviewForm_DragDrop);

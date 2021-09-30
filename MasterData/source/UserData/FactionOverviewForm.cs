@@ -8,26 +8,8 @@ namespace Universalis
 {
     public partial class FactionOverviewForm : Form
     {
-        public FactionOverviewForm( string universePath, Universe universe )
+        public FactionOverviewForm( Universe universe )
         {
-            if( Properties.Settings.Default.UpgradeSettings )
-            {
-                Properties.Settings.Default.Upgrade();
-                Properties.Settings.Default.UpgradeSettings = false;
-                Properties.Settings.Default.Save();
-            }
-
-            using( ProgressForm progressForm = new ProgressForm( universe.Logo ) )
-            {
-                Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
-
-                MasterDataStorage.Setup( universePath, backgroundWorkerProvider );
-
-                UserDataStorage.Setup( universe.ID, backgroundWorkerProvider );
-
-                progressForm.ShowDialog();
-            }
-
             InitializeComponent();
 
             m_universe = universe;

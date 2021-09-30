@@ -42,6 +42,8 @@ namespace Universalis
                 }
                 else
                 {
+                    MessageBox.Show( "AAAAARGH TODO" );
+                    /* TODO
                     using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Icon auswählen", img, ImageHelper.iconSize ) )
                     {
                         if( imageSelectionForm.ShowDialog() == DialogResult.OK )
@@ -49,6 +51,7 @@ namespace Universalis
                             return( imageSelectionForm.Image );
                         }
                     }
+                    */
                 }
             }
 

@@ -11,5 +11,20 @@
     <Setting Name="imageFilePath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">c:\\</Value>
     </Setting>
+    <Setting Name="groupIconFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\\</Value>
+    </Setting>
+    <Setting Name="GroupEditorWindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
+    <Setting Name="groupSavePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\\</Value>
+    </Setting>
+    <Setting Name="cardSavePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ActorEditorWindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -61,5 +61,65 @@ namespace Universalis.Properties {
                 this["imageFilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("c:\\\\")]
+        public string groupIconFilePath {
+            get {
+                return ((string)(this["groupIconFilePath"]));
+            }
+            set {
+                this["groupIconFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState GroupEditorWindowState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["GroupEditorWindowState"]));
+            }
+            set {
+                this["GroupEditorWindowState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("c:\\\\")]
+        public string groupSavePath {
+            get {
+                return ((string)(this["groupSavePath"]));
+            }
+            set {
+                this["groupSavePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string cardSavePath {
+            get {
+                return ((string)(this["cardSavePath"]));
+            }
+            set {
+                this["cardSavePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState ActorEditorWindowState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["ActorEditorWindowState"]));
+            }
+            set {
+                this["ActorEditorWindowState"] = value;
+            }
+        }
     }
 }

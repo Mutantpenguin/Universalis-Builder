@@ -32,14 +32,14 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.buttonQuit = new System.Windows.Forms.Button();
-            this.buttonGroupTraits = new System.Windows.Forms.Button();
             this.buttonFactions = new System.Windows.Forms.Button();
             this.buttonTraits = new System.Windows.Forms.Button();
             this.buttonWeapons = new System.Windows.Forms.Button();
             this.buttonArmor = new System.Windows.Forms.Button();
-            this.buttonEquipment = new System.Windows.Forms.Button();
-            this.buttonArchetypes = new System.Windows.Forms.Button();
             this.buttonDamageEffects = new System.Windows.Forms.Button();
+            this.buttonArchetypes = new System.Windows.Forms.Button();
+            this.buttonEquipment = new System.Windows.Forms.Button();
+            this.buttonGroupTraits = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,20 +82,6 @@
             this.buttonQuit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonQuit.UseVisualStyleBackColor = true;
             this.buttonQuit.Click += new System.EventHandler(this.buttonExit_Click);
-            // 
-            // buttonGroupTraits
-            // 
-            this.buttonGroupTraits.AutoSize = true;
-            this.buttonGroupTraits.BackgroundImage = global::Universalis.Properties.Resources.grouptraits;
-            this.buttonGroupTraits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonGroupTraits.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonGroupTraits.Location = new System.Drawing.Point(321, 271);
-            this.buttonGroupTraits.Name = "buttonGroupTraits";
-            this.buttonGroupTraits.Size = new System.Drawing.Size(312, 128);
-            this.buttonGroupTraits.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.buttonGroupTraits, "Gruppeneigenschaften");
-            this.buttonGroupTraits.UseVisualStyleBackColor = true;
-            this.buttonGroupTraits.Click += new System.EventHandler(this.buttonGroupTraits_Click);
             // 
             // buttonFactions
             // 
@@ -153,19 +139,19 @@
             this.buttonArmor.UseVisualStyleBackColor = true;
             this.buttonArmor.Click += new System.EventHandler(this.buttonArmor_Click);
             // 
-            // buttonEquipment
+            // buttonDamageEffects
             // 
-            this.buttonEquipment.AutoSize = true;
-            this.buttonEquipment.BackgroundImage = global::Universalis.Properties.Resources.equipment;
-            this.buttonEquipment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonEquipment.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonEquipment.Location = new System.Drawing.Point(3, 405);
-            this.buttonEquipment.Name = "buttonEquipment";
-            this.buttonEquipment.Size = new System.Drawing.Size(312, 129);
-            this.buttonEquipment.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.buttonEquipment, "Ausrüstung");
-            this.buttonEquipment.UseVisualStyleBackColor = true;
-            this.buttonEquipment.Click += new System.EventHandler(this.buttonEquipment_Click);
+            this.buttonDamageEffects.AutoSize = true;
+            this.buttonDamageEffects.BackgroundImage = global::Universalis.Properties.Resources.damage_effects;
+            this.buttonDamageEffects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonDamageEffects.Location = new System.Drawing.Point(321, 3);
+            this.buttonDamageEffects.Name = "buttonDamageEffects";
+            this.buttonDamageEffects.Size = new System.Drawing.Size(312, 128);
+            this.buttonDamageEffects.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.buttonDamageEffects, "Schadenseffekte");
+            this.buttonDamageEffects.UseVisualStyleBackColor = true;
+            this.buttonDamageEffects.Click += new System.EventHandler(this.buttonDamageEffects_Click);
             // 
             // buttonArchetypes
             // 
@@ -181,19 +167,33 @@
             this.buttonArchetypes.UseVisualStyleBackColor = true;
             this.buttonArchetypes.Click += new System.EventHandler(this.buttonArchetypes_Click);
             // 
-            // buttonDamageEffects
+            // buttonEquipment
             // 
-            this.buttonDamageEffects.AutoSize = true;
-            this.buttonDamageEffects.BackgroundImage = global::Universalis.Properties.Resources.damage_effects;
-            this.buttonDamageEffects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDamageEffects.Location = new System.Drawing.Point(321, 3);
-            this.buttonDamageEffects.Name = "buttonDamageEffects";
-            this.buttonDamageEffects.Size = new System.Drawing.Size(312, 128);
-            this.buttonDamageEffects.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.buttonDamageEffects, "Schadenseffekte");
-            this.buttonDamageEffects.UseVisualStyleBackColor = true;
-            this.buttonDamageEffects.Click += new System.EventHandler(this.buttonDamageEffects_Click);
+            this.buttonEquipment.AutoSize = true;
+            this.buttonEquipment.BackgroundImage = global::Universalis.Properties.Resources.equipment;
+            this.buttonEquipment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonEquipment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonEquipment.Location = new System.Drawing.Point(3, 405);
+            this.buttonEquipment.Name = "buttonEquipment";
+            this.buttonEquipment.Size = new System.Drawing.Size(312, 129);
+            this.buttonEquipment.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.buttonEquipment, "Ausrüstung");
+            this.buttonEquipment.UseVisualStyleBackColor = true;
+            this.buttonEquipment.Click += new System.EventHandler(this.buttonEquipment_Click);
+            // 
+            // buttonGroupTraits
+            // 
+            this.buttonGroupTraits.AutoSize = true;
+            this.buttonGroupTraits.BackgroundImage = global::Universalis.Properties.Resources.grouptraits;
+            this.buttonGroupTraits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonGroupTraits.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonGroupTraits.Location = new System.Drawing.Point(321, 271);
+            this.buttonGroupTraits.Name = "buttonGroupTraits";
+            this.buttonGroupTraits.Size = new System.Drawing.Size(312, 128);
+            this.buttonGroupTraits.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.buttonGroupTraits, "Gruppeneigenschaften");
+            this.buttonGroupTraits.UseVisualStyleBackColor = true;
+            this.buttonGroupTraits.Click += new System.EventHandler(this.buttonGroupTraits_Click);
             // 
             // MasterDataMainForm
             // 
@@ -208,7 +208,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MasterDataMainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MasterDataMainForm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

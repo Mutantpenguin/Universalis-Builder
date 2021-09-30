@@ -126,115 +126,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Source\Actor\ActorEditorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Actor\ActorEditorForm.Designer.cs">
-      <DependentUpon>ActorEditorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Actor\AddArmorToActorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Actor\AddArmorToActorForm.Designer.cs">
-      <DependentUpon>AddArmorToActorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Actor\AddEquipmentToActorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Actor\AddEquipmentToActorForm.Designer.cs">
-      <DependentUpon>AddEquipmentToActorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Actor\AddTraitToActorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Actor\AddTraitToActorForm.Designer.cs">
-      <DependentUpon>AddTraitToActorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Actor\AddWeaponToActorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Actor\AddWeaponToActorForm.Designer.cs">
-      <DependentUpon>AddWeaponToActorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\FactionOverviewForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\FactionOverviewForm.Designer.cs">
-      <DependentUpon>FactionOverviewForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Group\ArchetypeSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Group\ArchetypeSelectionForm.Designer.cs">
-      <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Group\InactiveReasonForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Group\InactiveReasonForm.Designer.cs">
-      <DependentUpon>InactiveReasonForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Group\GroupEditorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Group\GroupEditorForm.Designer.cs">
-      <DependentUpon>GroupEditorForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Group\GroupManagerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Group\GroupManagerForm.Designer.cs">
-      <DependentUpon>GroupManagerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Group\GroupPDFExporter.cs" />
-    <Compile Include="Source\Group\GroupTraitSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Group\GroupTraitSelectionForm.Designer.cs">
-      <DependentUpon>GroupTraitSelectionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Source\Actor\ActorEditorForm.resx">
-      <DependentUpon>ActorEditorForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Actor\AddArmorToActorForm.resx">
-      <DependentUpon>AddArmorToActorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Actor\AddEquipmentToActorForm.resx">
-      <DependentUpon>AddEquipmentToActorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Actor\AddTraitToActorForm.resx">
-      <DependentUpon>AddTraitToActorForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Actor\AddWeaponToActorForm.resx">
-      <DependentUpon>AddWeaponToActorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\FactionOverviewForm.resx">
-      <DependentUpon>FactionOverviewForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Group\ArchetypeSelectionForm.resx">
-      <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Group\InactiveReasonForm.resx">
-      <DependentUpon>InactiveReasonForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Group\GroupEditorForm.resx">
-      <DependentUpon>GroupEditorForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Group\GroupManagerForm.resx">
-      <DependentUpon>GroupManagerForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Group\GroupTraitSelectionForm.resx">
-      <DependentUpon>GroupTraitSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="groups.sh">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -243,15 +140,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\DataSources\Armor.datasource" />
-    <None Include="Properties\DataSources\AttributeModifier.datasource" />
-    <None Include="Properties\DataSources\Trait.datasource" />
-    <None Include="Properties\DataSources\Actor.ActorEquipment.datasource" />
-    <None Include="Properties\DataSources\Actor.ActorWeapon.datasource" />
-    <None Include="Properties\DataSources\Actor.datasource" />
-    <None Include="Properties\DataSources\Equipment.datasource" />
-    <None Include="Properties\DataSources\Faction.datasource" />
-    <None Include="Properties\DataSources\Group.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -261,7 +149,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Properties\DataSources\Weapon.datasource" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\plus.png" />
@@ -317,6 +204,9 @@
       <Project>{7993deb0-5b56-4ef6-9bd0-507cd6fa6660}</Project>
       <Name>Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

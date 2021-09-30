@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props" Condition="Exists('..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -20,6 +21,8 @@
     <SccProvider>
     </SccProvider>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,12 +53,29 @@
     <StartupObject>Universalis.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="iTextSharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <HintPath>..\packages\iTextSharp-LGPL.4.1.6\lib\iTextSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LibGit2Sharp, Version=0.26.0.0, Culture=neutral, PublicKeyToken=7cbde695407f0333, processorArchitecture=MSIL">
+      <HintPath>..\packages\LibGit2Sharp.0.26.2\lib\net46\LibGit2Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Options, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Options.6.12.0.148\lib\net40\Mono.Options.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\GodModeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\GodModeForm.Designer.cs">
+      <DependentUpon>GodModeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Helper\ArmorDisplayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,10 +88,10 @@
     <Compile Include="Source\Helper\WeaponDisplayForm.Designer.cs">
       <DependentUpon>WeaponDisplayForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\MasterDataMainForm.cs">
+    <Compile Include="Source\MasterData\MasterDataMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\MasterDataMainForm.Designer.cs">
+    <Compile Include="Source\MasterData\MasterDataMainForm.Designer.cs">
       <DependentUpon>MasterDataMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\MasterData\Archetype\AddTraitToArchetypeForm.cs">
@@ -127,6 +147,12 @@
     </Compile>
     <Compile Include="Source\MasterData\GroupTrait\GroupTraitManagerForm.Designer.cs">
       <DependentUpon>GroupTraitManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Misc\CloneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\CloneForm.Designer.cs">
+      <DependentUpon>CloneForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Misc\DamageTypeSelectionForm.cs">
       <SubType>Form</SubType>
@@ -188,21 +214,140 @@
     <Compile Include="Source\MasterData\Weapon\WeaponManagerForm.Designer.cs">
       <DependentUpon>WeaponManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Misc\FactionSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\FactionSelectionForm.Designer.cs">
+      <DependentUpon>FactionSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Misc\FormSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\FormSplash.Designer.cs">
+      <DependentUpon>FormSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Misc\ImageSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\ImageSelectionForm.Designer.cs">
+      <DependentUpon>ImageSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Misc\ImageSelectionForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\ImageSelectionForm2.Designer.cs">
+      <DependentUpon>ImageSelectionForm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Misc\ProfileModifierEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Misc\ProfileModifierEditor.Designer.cs">
       <DependentUpon>ProfileModifierEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Misc\ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Misc\RepoUrlForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\RepoUrlForm.Designer.cs">
+      <DependentUpon>RepoUrlForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Misc\UniverseInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\UniverseInfoForm.Designer.cs">
+      <DependentUpon>UniverseInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Misc\UniverseSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\UniverseSelectionForm.Designer.cs">
+      <DependentUpon>UniverseSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Options.cs" />
     <Compile Include="Source\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\UserData\Actor\ActorEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\ActorEditorForm.Designer.cs">
+      <DependentUpon>ActorEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\AddArmorToActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\AddArmorToActorForm.Designer.cs">
+      <DependentUpon>AddArmorToActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\AddEquipmentToActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\AddEquipmentToActorForm.Designer.cs">
+      <DependentUpon>AddEquipmentToActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\AddTraitToActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\AddTraitToActorForm.Designer.cs">
+      <DependentUpon>AddTraitToActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\AddWeaponToActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\AddWeaponToActorForm.Designer.cs">
+      <DependentUpon>AddWeaponToActorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserData\FactionOverviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\FactionOverviewForm.Designer.cs">
+      <DependentUpon>FactionOverviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserData\Group\ArchetypeSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Group\ArchetypeSelectionForm.Designer.cs">
+      <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserData\Group\GroupEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Group\GroupEditorForm.Designer.cs">
+      <DependentUpon>GroupEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserData\Group\GroupManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Group\GroupManagerForm.Designer.cs">
+      <DependentUpon>GroupManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserData\Group\GroupPDFExporter.cs" />
+    <Compile Include="Source\UserData\Group\GroupTraitSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Group\GroupTraitSelectionForm.Designer.cs">
+      <DependentUpon>GroupTraitSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\UserData\Group\InactiveReasonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Group\InactiveReasonForm.Designer.cs">
+      <DependentUpon>InactiveReasonForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Source\GodModeForm.resx">
+      <DependentUpon>GodModeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Helper\ArmorDisplayForm.resx">
       <DependentUpon>ArmorDisplayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Helper\WeaponDisplayForm.resx">
       <DependentUpon>WeaponDisplayForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterDataMainForm.resx">
+    <EmbeddedResource Include="Source\MasterData\MasterDataMainForm.resx">
       <DependentUpon>MasterDataMainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -236,6 +381,9 @@
     <EmbeddedResource Include="Source\MasterData\GroupTrait\GroupTraitManagerForm.resx">
       <DependentUpon>GroupTraitManagerForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Misc\CloneForm.resx">
+      <DependentUpon>CloneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Misc\DamageTypeSelectionForm.resx">
       <DependentUpon>DamageTypeSelectionForm.cs</DependentUpon>
@@ -280,13 +428,76 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Source\Misc\FactionSelectionForm.resx">
+      <DependentUpon>FactionSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Misc\FormSplash.resx">
+      <DependentUpon>FormSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Misc\ImageSelectionForm.resx">
+      <DependentUpon>ImageSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Misc\ImageSelectionForm2.resx">
+      <DependentUpon>ImageSelectionForm2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Misc\ProfileModifierEditor.resx">
       <DependentUpon>ProfileModifierEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Misc\ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Misc\RepoUrlForm.resx">
+      <DependentUpon>RepoUrlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Misc\UniverseInfoForm.resx">
+      <DependentUpon>UniverseInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Misc\UniverseSelectionForm.resx">
+      <DependentUpon>UniverseSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Actor\ActorEditorForm.resx">
+      <DependentUpon>ActorEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Actor\AddArmorToActorForm.resx">
+      <DependentUpon>AddArmorToActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Actor\AddEquipmentToActorForm.resx">
+      <DependentUpon>AddEquipmentToActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Actor\AddTraitToActorForm.resx">
+      <DependentUpon>AddTraitToActorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Actor\AddWeaponToActorForm.resx">
+      <DependentUpon>AddWeaponToActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\FactionOverviewForm.resx">
+      <DependentUpon>FactionOverviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Group\ArchetypeSelectionForm.resx">
+      <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Group\GroupEditorForm.resx">
+      <DependentUpon>GroupEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Group\GroupManagerForm.resx">
+      <DependentUpon>GroupManagerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Group\GroupTraitSelectionForm.resx">
+      <DependentUpon>GroupTraitSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Group\InactiveReasonForm.resx">
+      <DependentUpon>InactiveReasonForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="masterdata.sh">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Actor.ActorEquipment.datasource" />
     <None Include="Properties\DataSources\Actor.ActorTrait.datasource" />
+    <None Include="Properties\DataSources\Actor.ActorWeapon.datasource" />
     <None Include="Properties\DataSources\Actor.datasource" />
     <None Include="Properties\DataSources\Archetype.ArchetypeTrait.datasource" />
     <None Include="Properties\DataSources\Archetype.datasource" />
@@ -298,6 +509,7 @@
     <None Include="Properties\DataSources\DamageType.EType.datasource" />
     <None Include="Properties\DataSources\Equipment.datasource" />
     <None Include="Properties\DataSources\Faction.datasource" />
+    <None Include="Properties\DataSources\Group.datasource" />
     <None Include="Properties\DataSources\GroupTrait.datasource" />
     <None Include="Properties\DataSources\Profile.datasource" />
     <None Include="Properties\DataSources\ProfileModifier.datasource" />
@@ -330,6 +542,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\document-pdf.png" />
+    <None Include="Resources\baseline_engineering_black_48dp.png" />
+    <None Include="Resources\baseline_block_black_18dp.png" />
+    <None Include="Resources\disabled_overlay.png" />
+    <None Include="Resources\error_outline.png" />
+    <None Include="Resources\baseline_info_black_24dp.png" />
+    <None Include="Resources\baseline_image_search_black_24dp.png" />
     <None Include="Resources\baseline_tune_black_18dp.png" />
     <None Include="Resources\baseline_post_add_black_18dp.png" />
     <None Include="Resources\grouptraits.png" />
@@ -358,6 +577,12 @@
   <ItemGroup />
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\LibGit2Sharp.NativeBinaries.2.0.306\build\net46\LibGit2Sharp.NativeBinaries.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
