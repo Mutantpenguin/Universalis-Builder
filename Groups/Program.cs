@@ -30,9 +30,9 @@ namespace Universalis
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault( false );
 
-                    UniverseSelectionForm.FormToOpen formToOpen = ( string universePath, Universe universe ) => new FactionOverviewForm( universePath, universe );
+                    //UniverseSelectionForm.FormToOpen formToOpen = ( string universePath, Universe universe ) => new FactionOverviewForm( universePath, universe );
 
-                    Application.Run( new FormSplash( formToOpen, allowNewUniverse: false ) );
+                    //Application.Run( new FormSplash( formToOpen, allowNewUniverse: false ) );
 
                     mutex.ReleaseMutex();
                 }

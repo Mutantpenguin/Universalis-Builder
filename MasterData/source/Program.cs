@@ -1,5 +1,7 @@
-﻿using System;
-using System.Drawing;
+﻿using Mono.Options;
+using System;
+using System.Configuration;
+using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
@@ -8,11 +10,8 @@ namespace Universalis
 {
     static class Program
     {
-        /// <summary>
-        /// Der Haupteinstiegspunkt für die Anwendung.
-        /// </summary>
         [STAThread]
-        static void Main()
+        static void Main( string[] args )
         {
             using( var mutex = new Mutex( false, "8de494a8-5c74-4caf-95eb-3426d719c2b5" ) )
             {
@@ -27,16 +26,50 @@ namespace Universalis
                 }
                 else
                 {
-                    Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault( false );
+                    var options = new Options();
 
-                    UniverseSelectionForm.FormToOpen formToOpen = ( string universePath, Universe universe ) => new MasterDataMainForm( universePath, universe );
+                    var p = new OptionSet()
+                    {
+                        { "g|godmode", String.Empty, v => options.GodMode = v != null },
+                    };
 
-                    Application.Run( new FormSplash( formToOpen, allowNewUniverse: true ) );
+                    try
+                    {
+                        p.Parse( args );
+
+                        try
+                        {
+                            if( Properties.Settings.Default.UpgradeSettings )
+                            {
+                                Properties.Settings.Default.Upgrade();
+                                Properties.Settings.Default.UpgradeSettings = false;
+                                Properties.Settings.Default.Save();
+                            }
+                        }
+                        catch( ConfigurationException ex )
+                        {
+                            string filename = ( (ConfigurationException)ex.InnerException ).Filename;
+
+                            File.Delete( filename );
+                            Properties.Settings.Default.Reload();
+                        }
+
+                        Application.EnableVisualStyles();
+                        Application.SetCompatibleTextRenderingDefault( false );
+
+                        Application.Run( new FormSplash( options ) );
+                    }
+                    catch
+                    {}
 
                     mutex.ReleaseMutex();
                 }
             }
+        }
+
+        private static void Run( Options opts )
+        {
+
         }
     }
 }

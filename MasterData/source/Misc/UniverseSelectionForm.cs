@@ -12,8 +12,6 @@ namespace Universalis
 {
     public partial class UniverseSelectionForm : Form
     {
-        public delegate Form FormToOpen( string universePath, Universe universe );
-
         private static readonly string UniversesSubFolder = "Universes";
 
         private static readonly string UniversesPath = Path.Combine( UniversalisSettings.UserAppFolder, UniversesSubFolder );
@@ -30,9 +28,9 @@ namespace Universalis
         private static readonly Image repoAheadImage = ImageHelper.Colorize( Shared.Properties.Resources.baseline_warning_black_48dp, s_colorMatrixRepoAhead );
         private static readonly Image repoErrorImage = ImageHelper.Colorize( Shared.Properties.Resources.baseline_error_black_48dp, s_colorMatrixRepoError );
 
-        public UniverseSelectionForm( FormToOpen formToOpen, bool allowNewUniverse )
+        public UniverseSelectionForm( Options options )
         {
-            this.formToOpen = formToOpen;
+            Options = options;
 
             if( !Directory.Exists( UniversesPath ) )
             {
@@ -43,9 +41,9 @@ namespace Universalis
 
             InitializeComponent();
 
-            if( allowNewUniverse )
+            if( Options.GodMode )
             {
-                buttonAddUniverse.Visible = true;
+                buttonCreateUniverse.Visible = true;
             }
 
             listViewUniverses.Font = new Font( UniversalisFont.Family, 10 );
@@ -63,7 +61,7 @@ namespace Universalis
             RefreshUniverses();
         }
 
-        private readonly FormToOpen formToOpen;
+        private readonly Options Options;
 
         private class UniverseListViewItem : ListViewItem
         {
@@ -271,11 +269,38 @@ namespace Universalis
 
             void OpenUniverse()
             {
-                Costs.Initialize( universeItem.Universe.Costs );
-
                 this.Hide();
 
-                formToOpen( universeItem.ImageKey, universeItem.Universe ).ShowDialog( this );
+                var universe = universeItem.Universe;
+                var universePath = universeItem.ImageKey;
+
+                Costs.Initialize( universeItem.Universe.Costs );
+
+                using( ProgressForm progressForm = new ProgressForm( universe.Logo ) )
+                {
+                    Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
+
+                    MasterDataStorage.Setup( universePath, backgroundWorkerProvider );
+
+                    UserDataStorage.Setup( universe.ID, backgroundWorkerProvider );
+
+                    progressForm.ShowDialog();
+                }
+
+                if( Options.GodMode )
+                {
+                    using( var factionOverviewForm = new GodModeForm( universe ) )
+                    {
+                        factionOverviewForm.ShowDialog( this );
+                    }
+                }
+                else
+                {
+                    using( var factionOverviewForm = new FactionOverviewForm( universe ) )
+                    {
+                        factionOverviewForm.ShowDialog( this );
+                    }
+                }                
 
                 this.Close();
             }
@@ -457,7 +482,7 @@ namespace Universalis
             }
         }
 
-        private void buttonAddUniverse_Click( object sender, EventArgs e )
+        private void buttonCreateUniverse_Click( object sender, EventArgs e )
         {
             if( MessageBox.Show( $"Wirklich ein neues Universum erzeugen?",
                                  "Wirklich erzeugen?",

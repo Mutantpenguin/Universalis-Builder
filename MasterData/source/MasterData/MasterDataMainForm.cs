@@ -1,41 +1,12 @@
 ﻿using System;
-using System.Configuration;
-using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Universalis
 {
     public partial class MasterDataMainForm : Form
     {
-        public MasterDataMainForm( string universePath, Universe universe )
+        public MasterDataMainForm( Universe universe )
         {
-            try
-            {
-                if( Properties.Settings.Default.UpgradeSettings )
-                {
-                    Properties.Settings.Default.Upgrade();
-                    Properties.Settings.Default.UpgradeSettings = false;
-                    Properties.Settings.Default.Save();
-                }
-            }
-            catch( ConfigurationException ex )
-            {
-                string filename = ( (ConfigurationException)ex.InnerException ).Filename;
-
-                File.Delete( filename );
-                Properties.Settings.Default.Reload();
-            }
-
-            using( ProgressForm progressForm = new ProgressForm( universe.Logo ) )
-            {
-                Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
-
-                MasterDataStorage.Setup( universePath, backgroundWorkerProvider );
-
-                progressForm.ShowDialog();
-            }
-
             InitializeComponent();
 
             this.Text = universe.NameWithVersion() + " Stammdaten";

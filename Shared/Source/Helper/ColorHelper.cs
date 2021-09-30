@@ -4,7 +4,7 @@ using System.Drawing.Imaging;
 
 namespace Universalis
 {
-    class ColorHelper
+    public class ColorHelper
     {
         public static ColorMatrix ColorToColorMatrix( Color c )
         {

@@ -39,7 +39,7 @@
             this.labelHeader = new System.Windows.Forms.Label();
             this.panelControl = new System.Windows.Forms.Panel();
             this.buttonInfo = new System.Windows.Forms.Button();
-            this.buttonAddUniverse = new System.Windows.Forms.Button();
+            this.buttonCreateUniverse = new System.Windows.Forms.Button();
             this.buttonOpenFolder = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -155,7 +155,7 @@
             // 
             this.panelControl.AutoSize = true;
             this.panelControl.Controls.Add(this.buttonInfo);
-            this.panelControl.Controls.Add(this.buttonAddUniverse);
+            this.panelControl.Controls.Add(this.buttonCreateUniverse);
             this.panelControl.Controls.Add(this.buttonOpenFolder);
             this.panelControl.Controls.Add(this.buttonDelete);
             this.panelControl.Controls.Add(this.buttonAdd);
@@ -182,20 +182,20 @@
             this.buttonInfo.UseVisualStyleBackColor = false;
             this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
             // 
-            // buttonAddUniverse
+            // buttonCreateUniverse
             // 
-            this.buttonAddUniverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddUniverse.FlatAppearance.BorderSize = 0;
-            this.buttonAddUniverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddUniverse.Image = global::Shared.Properties.Resources.baseline_add_box_black_48dp;
-            this.buttonAddUniverse.Location = new System.Drawing.Point(591, 3);
-            this.buttonAddUniverse.Name = "buttonAddUniverse";
-            this.buttonAddUniverse.Size = new System.Drawing.Size(50, 50);
-            this.buttonAddUniverse.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.buttonAddUniverse, "Neues Universum erstellen");
-            this.buttonAddUniverse.UseVisualStyleBackColor = false;
-            this.buttonAddUniverse.Visible = false;
-            this.buttonAddUniverse.Click += new System.EventHandler(this.buttonAddUniverse_Click);
+            this.buttonCreateUniverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreateUniverse.FlatAppearance.BorderSize = 0;
+            this.buttonCreateUniverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreateUniverse.Image = global::Shared.Properties.Resources.baseline_add_box_black_48dp;
+            this.buttonCreateUniverse.Location = new System.Drawing.Point(591, 3);
+            this.buttonCreateUniverse.Name = "buttonCreateUniverse";
+            this.buttonCreateUniverse.Size = new System.Drawing.Size(50, 50);
+            this.buttonCreateUniverse.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.buttonCreateUniverse, "Neues Universum erstellen");
+            this.buttonCreateUniverse.UseVisualStyleBackColor = false;
+            this.buttonCreateUniverse.Visible = false;
+            this.buttonCreateUniverse.Click += new System.EventHandler(this.buttonCreateUniverse_Click);
             // 
             // buttonOpenFolder
             // 
@@ -320,7 +320,7 @@
         private System.Windows.Forms.Panel panelWorking;
         private System.Windows.Forms.PictureBox pictureBoxSpinner;
         private System.Windows.Forms.Panel panelMain;
-        private System.Windows.Forms.Button buttonAddUniverse;
+        private System.Windows.Forms.Button buttonCreateUniverse;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button buttonInfo;
     }

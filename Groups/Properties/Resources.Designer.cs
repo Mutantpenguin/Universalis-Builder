@@ -63,46 +63,6 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap baseline_block_black_18dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_block_black_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap baseline_engineering_black_48dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_engineering_black_48dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap baseline_image_search_black_24dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_image_search_black_24dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap baseline_info_black_24dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_info_black_24dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap change_circle {
             get {
                 object obj = ResourceManager.GetObject("change_circle", resourceCulture);
@@ -143,39 +103,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap disabled_overlay {
-            get {
-                object obj = ResourceManager.GetObject("disabled_overlay", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap disk {
             get {
                 object obj = ResourceManager.GetObject("disk", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap document_pdf {
-            get {
-                object obj = ResourceManager.GetObject("document_pdf", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap error_outline {
-            get {
-                object obj = ResourceManager.GetObject("error_outline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
