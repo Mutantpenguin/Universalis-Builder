@@ -44,6 +44,8 @@ namespace Universalis
             if( Options.GodMode )
             {
                 buttonCreateUniverse.Visible = true;
+
+                labelHeader.Text += " - GOD MODE";
             }
 
             listViewUniverses.Font = new Font( UniversalisFont.Family, 10 );
@@ -296,7 +298,7 @@ namespace Universalis
                 }
                 else
                 {
-                    using( var factionOverviewForm = new FactionOverviewForm( universe ) )
+                    using( var factionOverviewForm = new FactionOverviewForm( universe, godMode: false ) )
                     {
                         factionOverviewForm.ShowDialog( this );
 

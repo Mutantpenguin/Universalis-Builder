@@ -10,6 +10,8 @@ namespace Universalis
             m_universe = universe;
 
             InitializeComponent();
+
+            this.Icon = Properties.Resources.icon;
         }
 
         FactionOverviewForm factionOverviewForm = null;
@@ -23,7 +25,7 @@ namespace Universalis
         readonly Universe m_universe;
         private void buttonGroups_Click( object sender, EventArgs e )
         {
-            factionOverviewForm = new FactionOverviewForm( m_universe );
+            factionOverviewForm = new FactionOverviewForm( m_universe, godMode: true );
 
             factionOverviewForm.FormClosed += delegate
             {
