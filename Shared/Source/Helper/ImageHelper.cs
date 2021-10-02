@@ -42,16 +42,10 @@ namespace Universalis
                 }
                 else
                 {
-                    MessageBox.Show( "AAAAARGH TODO" );
-                    /* TODO
-                    using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Icon auswählen", img, ImageHelper.iconSize ) )
-                    {
-                        if( imageSelectionForm.ShowDialog() == DialogResult.OK )
-                        {
-                            return( imageSelectionForm.Image );
-                        }
-                    }
-                    */
+                    MessageBox.Show( "Es sind nur quadratische Bilder erlaubt!",
+                                     "",
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Stop );
                 }
             }
 
