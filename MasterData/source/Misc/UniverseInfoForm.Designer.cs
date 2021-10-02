@@ -190,7 +190,7 @@
             // 
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonClose.Image = global::Shared.Properties.Resources.cross_circle;
+            this.buttonClose.Image = global::Universalis.Properties.Resources.cross_circle;
             this.buttonClose.Location = new System.Drawing.Point(0, 450);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(384, 26);

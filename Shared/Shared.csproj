@@ -163,52 +163,7 @@
     <None Include="Resources\icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cross-circle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\tick.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\clear.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ui-check-box.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ui-check-box-uncheck.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_refresh_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\outline_playlist_add_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_delete_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\spinner.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_folder_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_warning_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_error_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_new_releases_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\schema_universe.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_casino_black_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_add_box_black_48dp.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\empty_faction.png" />
@@ -220,27 +175,6 @@
     <None Include="Resources\empty_model.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\baseline_person_black_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_email_black_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_home_black_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_info_black_24dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_info_black_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_error_black_48dp1.png" />
-    <None Include="Resources\baseline_folder_black_48dp1.png" />
-    <None Include="Resources\baseline_home_black_18dp1.png" />
-    <None Include="Resources\baseline_info_black_24dp1.png" />
-    <None Include="Resources\baseline_info_black_48dp1.png" />
-    <None Include="Resources\baseline_new_releases_black_48dp1.png" />
     <Content Include="Resources\empty.png" />
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
