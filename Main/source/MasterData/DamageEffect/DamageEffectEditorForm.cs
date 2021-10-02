@@ -133,30 +133,19 @@ namespace Universalis
         {
             using( OpenFileDialog iconFileDialog = new OpenFileDialog() )
             {
-                iconFileDialog.InitialDirectory = Properties.Settings.Default.factionIconFilePath;
+                iconFileDialog.InitialDirectory = Properties.Settings.Default.damageEffectIconFilePath;
 
                 if( iconFileDialog.ShowDialog() == DialogResult.OK )
                 {
-                    Properties.Settings.Default.factionIconFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
+                    Properties.Settings.Default.damageEffectIconFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
                     Properties.Settings.Default.Save();
 
-                    // TODO resize if too big?
-                    using( FileStream fs = new FileStream( iconFileDialog.FileName, FileMode.Open, FileAccess.Read ) )
-                    {
-                        Bitmap img = new Bitmap( fs );
+                    Image img = ImageHelper.CreateIconFromImage( ImageHelper.LoadImage( iconFileDialog.FileName ) );
 
-                        if( img.Width != img.Height )
-                        {
-                            MessageBox.Show( "Es sind nur quadratische Bilder erlaubt!",
-                                             "",
-                                             MessageBoxButtons.OK,
-                                             MessageBoxIcon.Stop );
-                        }
-                        else
-                        {
-                            pictureBoxIcon.Image = img;
-                            ( (DamageEffect)damageEffectBindingSource.DataSource ).Icon = new Bitmap( img );
-                        }
+                    if( img != null )
+                    {
+                        pictureBoxIcon.Image = img;
+                        ( (DamageEffect)damageEffectBindingSource.DataSource ).Icon = new Bitmap( img );
                     }
                 }
             }

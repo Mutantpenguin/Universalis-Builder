@@ -26,5 +26,8 @@
     <Setting Name="ActorEditorWindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
+    <Setting Name="damageEffectIconFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">c:\\</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

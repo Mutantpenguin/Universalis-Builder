@@ -121,5 +121,17 @@ namespace Universalis.Properties {
                 this["ActorEditorWindowState"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("c:\\\\")]
+        public string damageEffectIconFilePath {
+            get {
+                return ((string)(this["damageEffectIconFilePath"]));
+            }
+            set {
+                this["damageEffectIconFilePath"] = value;
+            }
+        }
     }
 }
