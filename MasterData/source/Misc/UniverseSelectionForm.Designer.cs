@@ -287,6 +287,7 @@
             this.Name = "UniverseSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Universalis";
+            this.Shown += new System.EventHandler(this.UniverseSelectionForm_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UniverseSelectionForm_KeyDown);
             this.panelNoUniverses.ResumeLayout(false);
             this.panelNoUniverses.PerformLayout();
