@@ -25,7 +25,7 @@ namespace Universalis
         private static readonly ColorMatrix s_colorMatrixRepoError = ColorHelper.ColorToColorMatrix( Color.Red );
 
         private static readonly Image repoBehindImage = ImageHelper.Colorize( Properties.Resources.baseline_new_releases_black_48dp, s_colorMatrixRepoBehind );
-        private static readonly Image repoAheadImage = ImageHelper.Colorize( Properties.Resources.baseline_warning_black_48dp, s_colorMatrixRepoAhead );
+        private static readonly Image repoModifiedImage = ImageHelper.Colorize( Properties.Resources.baseline_warning_black_48dp, s_colorMatrixRepoAhead );
         private static readonly Image repoErrorImage = ImageHelper.Colorize( Properties.Resources.baseline_error_black_48dp, s_colorMatrixRepoError );
 
         public UniverseSelectionForm( Options options )
@@ -75,7 +75,7 @@ namespace Universalis
             {
                 READY,
                 BEHIND,
-                AHEAD,
+                MODIFIED,
                 ERROR
             }
 
@@ -137,10 +137,6 @@ namespace Universalis
                     }
                     else
                     {
-                        lvi.Universe = universe;
-                        lvi.Text = universe.NameWithVersion();
-                        lvi.ToolTipText = universe.Description;
-
                         if( Repository.IsValid( universePath ) )
                         {
                             try
@@ -158,14 +154,19 @@ namespace Universalis
                                         Commands.Fetch( repo, remote.Name, refSpecs, null, logMessage );
                                     }
 
-                                    if( repo.Head.TrackingDetails.AheadBy > 0 )
+                                    if( repo.Head.TrackingDetails.AheadBy > 0
+                                        ||
+                                        repo.Diff.Compare<TreeChanges>().Count > 0 )
                                     {
-                                        lvi.State = UniverseListViewItem.EState.AHEAD;
+                                        lvi.State = UniverseListViewItem.EState.MODIFIED;
+                                        universe.Modified = true;
                                     }
                                     else if( repo.Head.TrackingDetails.BehindBy > 0 )
                                     {
                                         lvi.State = UniverseListViewItem.EState.BEHIND;
                                     }
+
+                                    universe.CommitHash = repo.Head.Tip.Sha;
                                 }
                             }
                             catch( RepositoryNotFoundException ex )
@@ -181,6 +182,10 @@ namespace Universalis
                                 lvi.State = UniverseListViewItem.EState.ERROR;
                             }
                         }
+
+                        lvi.Universe = universe;
+                        lvi.Text = Options.GodMode ? universe.NameWithVersionAndHash() : universe.NameWithVersion();
+                        lvi.ToolTipText = universe.Description;
 
                         var universeImagePath = Path.Combine( universePath, universeImageFilename );
 
@@ -205,8 +210,8 @@ namespace Universalis
                                 overlayImage = repoBehindImage;
                                 break;
 
-                            case UniverseListViewItem.EState.AHEAD:
-                                overlayImage = repoAheadImage;
+                            case UniverseListViewItem.EState.MODIFIED:
+                                overlayImage = repoModifiedImage;
                                 break;
 
                             case UniverseListViewItem.EState.ERROR:
@@ -345,8 +350,8 @@ namespace Universalis
 
                     break;
 
-                case UniverseListViewItem.EState.AHEAD:
-                    if( MessageBox.Show( "Lokale Änderungen sind vorhanden! Trotzdem öffnen?",
+                case UniverseListViewItem.EState.MODIFIED:
+                    if( MessageBox.Show( "Das Universum wurde lokal verändert. Dennoch öffnen?",
                                          "Lokale Änderungen vorhanden",
                                          MessageBoxButtons.YesNo,
                                          MessageBoxIcon.Warning,
