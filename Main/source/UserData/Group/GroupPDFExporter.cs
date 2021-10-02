@@ -162,14 +162,17 @@ namespace Universalis
                 SpacingAfter = CmToPixel( 0.5f ),
             };
 
-            infoTable.AddCell( new PdfPCell( new Phrase( $"Für das Universum \"{universe.NameWithVersion()}\"", s_versionInfoFont ) )
+            infoTable.AddCell( new PdfPCell( new Phrase( $"Für das Universum \"{universe.NameWithVersionAndHash()}\"", s_versionInfoFont ) )
             {
-                Border = Rectangle.NO_BORDER
+                Border = Rectangle.NO_BORDER,
+                BackgroundColor = universe.Modified ? Color.RED : null
             } );
+
             infoTable.AddCell( new PdfPCell( new Phrase( s_versionInfo, s_versionInfoFont ) )
             {
                 Border = Rectangle.NO_BORDER,
-                HorizontalAlignment = Element.ALIGN_RIGHT
+                HorizontalAlignment = Element.ALIGN_RIGHT,
+                BackgroundColor = universe.Modified ? Color.RED : null
             } );
 
             document.Add( infoTable );

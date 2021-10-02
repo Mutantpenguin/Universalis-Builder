@@ -14,7 +14,7 @@ namespace Universalis
 
             this.Icon = Properties.Resources.icon;
 
-            labelHeader.Text = universe.NameWithVersion();
+            labelHeader.Text = universe.NameWithVersionAndHash();
             labelHeader.Font = new Font( UniversalisFont.Family, 20 );
             labelHeader.Left = ( panelHeader.Width - labelHeader.Width ) / 2;
             labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;

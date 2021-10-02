@@ -63,6 +63,11 @@ namespace Universalis
             return ( Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - " + Version ) );
         }
 
+        public String NameWithVersionAndHash()
+        {
+            return ( Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - " + Version ) + ( String.IsNullOrEmpty( CommitHash ) ? String.Empty : " - " + CommitHash.Substring( 0, 8 ) ) );
+        }
+
         [JsonProperty( "id" )]
         public Guid ID
         {
@@ -121,6 +126,20 @@ namespace Universalis
 
         [JsonIgnore]
         public Image Logo
+        {
+            get;
+            set;
+        }
+
+        [JsonIgnore]
+        public string CommitHash
+        {
+            get;
+            set;
+        }
+
+        [JsonIgnore]
+        public bool Modified
         {
             get;
             set;
