@@ -103,6 +103,16 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap baseline_construction_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_construction_black_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baseline_delete_black_48dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_delete_black_48dp", resourceCulture);
@@ -146,6 +156,16 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap baseline_folder_black_48dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_folder_black_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_groups_black_48dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_groups_black_48dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
