@@ -121,7 +121,7 @@
             // 
             this.buttonRefresh.FlatAppearance.BorderSize = 0;
             this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRefresh.Image = global::Shared.Properties.Resources.baseline_refresh_black_48dp;
+            this.buttonRefresh.Image = global::Universalis.Properties.Resources.baseline_refresh_black_48dp;
             this.buttonRefresh.Location = new System.Drawing.Point(3, 3);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(50, 50);
@@ -173,7 +173,7 @@
             this.buttonInfo.Enabled = false;
             this.buttonInfo.FlatAppearance.BorderSize = 0;
             this.buttonInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInfo.Image = global::Shared.Properties.Resources.baseline_info_black_48dp;
+            this.buttonInfo.Image = global::Universalis.Properties.Resources.baseline_info_black_48dp;
             this.buttonInfo.Location = new System.Drawing.Point(647, 3);
             this.buttonInfo.Name = "buttonInfo";
             this.buttonInfo.Size = new System.Drawing.Size(50, 50);
@@ -187,7 +187,7 @@
             this.buttonCreateUniverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCreateUniverse.FlatAppearance.BorderSize = 0;
             this.buttonCreateUniverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateUniverse.Image = global::Shared.Properties.Resources.baseline_add_box_black_48dp;
+            this.buttonCreateUniverse.Image = global::Universalis.Properties.Resources.baseline_add_box_black_48dp;
             this.buttonCreateUniverse.Location = new System.Drawing.Point(591, 3);
             this.buttonCreateUniverse.Name = "buttonCreateUniverse";
             this.buttonCreateUniverse.Size = new System.Drawing.Size(50, 50);
@@ -203,7 +203,7 @@
             this.buttonOpenFolder.Enabled = false;
             this.buttonOpenFolder.FlatAppearance.BorderSize = 0;
             this.buttonOpenFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpenFolder.Image = global::Shared.Properties.Resources.baseline_folder_black_48dp;
+            this.buttonOpenFolder.Image = global::Universalis.Properties.Resources.baseline_folder_black_48dp;
             this.buttonOpenFolder.Location = new System.Drawing.Point(703, 3);
             this.buttonOpenFolder.Name = "buttonOpenFolder";
             this.buttonOpenFolder.Size = new System.Drawing.Size(50, 50);
@@ -218,7 +218,7 @@
             this.buttonDelete.Enabled = false;
             this.buttonDelete.FlatAppearance.BorderSize = 0;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelete.Image = global::Shared.Properties.Resources.baseline_delete_black_48dp;
+            this.buttonDelete.Image = global::Universalis.Properties.Resources.baseline_delete_black_48dp;
             this.buttonDelete.Location = new System.Drawing.Point(759, 3);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(50, 50);
@@ -232,7 +232,7 @@
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAdd.FlatAppearance.BorderSize = 0;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Image = global::Shared.Properties.Resources.outline_playlist_add_black_48dp;
+            this.buttonAdd.Image = global::Universalis.Properties.Resources.outline_playlist_add_black_48dp;
             this.buttonAdd.Location = new System.Drawing.Point(815, 3);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(50, 50);
@@ -255,7 +255,7 @@
             // pictureBoxSpinner
             // 
             this.pictureBoxSpinner.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxSpinner.Image = global::Shared.Properties.Resources.spinner;
+            this.pictureBoxSpinner.Image = global::Universalis.Properties.Resources.spinner;
             this.pictureBoxSpinner.Location = new System.Drawing.Point(334, 92);
             this.pictureBoxSpinner.Name = "pictureBoxSpinner";
             this.pictureBoxSpinner.Size = new System.Drawing.Size(200, 148);

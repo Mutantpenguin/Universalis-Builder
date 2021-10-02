@@ -235,6 +235,12 @@
     <None Include="Resources\baseline_info_black_48dp.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\baseline_error_black_48dp1.png" />
+    <None Include="Resources\baseline_folder_black_48dp1.png" />
+    <None Include="Resources\baseline_home_black_18dp1.png" />
+    <None Include="Resources\baseline_info_black_24dp1.png" />
+    <None Include="Resources\baseline_info_black_48dp1.png" />
+    <None Include="Resources\baseline_new_releases_black_48dp1.png" />
     <Content Include="Resources\empty.png" />
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />

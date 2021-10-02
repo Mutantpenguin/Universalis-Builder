@@ -542,6 +542,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\outline_playlist_add_black_48dp.png" />
+    <None Include="Resources\spinner.gif" />
+    <None Include="Resources\baseline_warning_black_48dp.png" />
+    <None Include="Resources\baseline_refresh_black_48dp.png" />
+    <None Include="Resources\baseline_person_black_18dp.png" />
+    <None Include="Resources\baseline_new_releases_black_48dp.png" />
+    <None Include="Resources\baseline_info_black_48dp.png" />
+    <None Include="Resources\baseline_info_black_24dp1.png" />
+    <None Include="Resources\baseline_home_black_18dp.png" />
+    <None Include="Resources\baseline_folder_black_48dp.png" />
+    <None Include="Resources\baseline_error_black_48dp.png" />
+    <None Include="Resources\baseline_email_black_18dp.png" />
+    <None Include="Resources\baseline_delete_black_48dp.png" />
+    <None Include="Resources\baseline_add_box_black_48dp.png" />
     <None Include="Resources\document-pdf.png" />
     <None Include="Resources\baseline_engineering_black_48dp.png" />
     <None Include="Resources\baseline_block_black_18dp.png" />

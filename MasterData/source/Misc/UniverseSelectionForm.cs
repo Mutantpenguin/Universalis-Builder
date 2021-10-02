@@ -24,9 +24,9 @@ namespace Universalis
         private static readonly ColorMatrix s_colorMatrixRepoAhead = ColorHelper.ColorToColorMatrix( Color.Orange );
         private static readonly ColorMatrix s_colorMatrixRepoError = ColorHelper.ColorToColorMatrix( Color.Red );
 
-        private static readonly Image repoBehindImage = ImageHelper.Colorize( Shared.Properties.Resources.baseline_new_releases_black_48dp, s_colorMatrixRepoBehind );
-        private static readonly Image repoAheadImage = ImageHelper.Colorize( Shared.Properties.Resources.baseline_warning_black_48dp, s_colorMatrixRepoAhead );
-        private static readonly Image repoErrorImage = ImageHelper.Colorize( Shared.Properties.Resources.baseline_error_black_48dp, s_colorMatrixRepoError );
+        private static readonly Image repoBehindImage = ImageHelper.Colorize( Properties.Resources.baseline_new_releases_black_48dp, s_colorMatrixRepoBehind );
+        private static readonly Image repoAheadImage = ImageHelper.Colorize( Properties.Resources.baseline_warning_black_48dp, s_colorMatrixRepoAhead );
+        private static readonly Image repoErrorImage = ImageHelper.Colorize( Properties.Resources.baseline_error_black_48dp, s_colorMatrixRepoError );
 
         public UniverseSelectionForm( Options options )
         {

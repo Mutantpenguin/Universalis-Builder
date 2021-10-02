@@ -63,129 +63,9 @@ namespace Shared.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap baseline_add_box_black_48dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_add_box_black_48dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap baseline_casino_black_18dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_casino_black_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_delete_black_48dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_delete_black_48dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_email_black_18dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_email_black_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_error_black_48dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_error_black_48dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_folder_black_48dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_folder_black_48dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_home_black_18dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_home_black_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_info_black_24dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_info_black_24dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_info_black_48dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_info_black_48dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_new_releases_black_48dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_new_releases_black_48dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_person_black_18dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_person_black_18dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_refresh_black_48dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_refresh_black_48dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap baseline_warning_black_48dp {
-            get {
-                object obj = ResourceManager.GetObject("baseline_warning_black_48dp", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -281,16 +161,6 @@ namespace Shared.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap outline_playlist_add_black_48dp {
-            get {
-                object obj = ResourceManager.GetObject("outline_playlist_add_black_48dp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to {
         ///	&quot;type&quot;: &quot;object&quot;,
         ///	&quot;properties&quot;: {
@@ -309,7 +179,8 @@ namespace Shared.Properties {
         ///		&quot;contact&quot;: {
         ///			&quot;type&quot;: &quot;string&quot;,
         ///			&quot;format&quot;: &quot;email&quot;
-        ///		}
+        ///		},
+        ///		&quot;costs&quot;: {}
         ///	},
         ///	&quot;required&quot;: [ &quot;name&quot;, &quot;description&quot;, &quot;id&quot; ],
         ///	&quot;additionalProperties&quot;: false
@@ -327,16 +198,6 @@ namespace Shared.Properties {
         public static System.Drawing.Bitmap section_pattern {
             get {
                 object obj = ResourceManager.GetObject("section_pattern", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap spinner {
-            get {
-                object obj = ResourceManager.GetObject("spinner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -406,26 +267,6 @@ namespace Shared.Properties {
         public static System.Drawing.Bitmap typ_strahl {
             get {
                 object obj = ResourceManager.GetObject("typ_strahl", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap ui_check_box {
-            get {
-                object obj = ResourceManager.GetObject("ui_check_box", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap ui_check_box_uncheck {
-            get {
-                object obj = ResourceManager.GetObject("ui_check_box_uncheck", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

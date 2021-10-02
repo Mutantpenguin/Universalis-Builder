@@ -55,7 +55,7 @@ namespace Universalis
             // 
             this.pictureBoxSpinner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxSpinner.Image = global::Shared.Properties.Resources.spinner;
+            this.pictureBoxSpinner.Image = global::Universalis.Properties.Resources.spinner;
             this.pictureBoxSpinner.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxSpinner.Name = "pictureBoxSpinner";
             this.pictureBoxSpinner.Size = new System.Drawing.Size(226, 71);
