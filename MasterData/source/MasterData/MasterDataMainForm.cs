@@ -163,17 +163,6 @@ namespace Universalis
                                  MessageBoxIcon.Stop );
                 e.Cancel = true;
             }
-            else
-            {
-                switch( MessageBox.Show( "Wirklich beenden?", String.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) )
-                {
-                    case DialogResult.Yes:
-                        break;
-                    case DialogResult.No:
-                        e.Cancel = true;
-                        break;
-                }
-            }
         }
 
         private void buttonExit_Click( object sender, EventArgs e )

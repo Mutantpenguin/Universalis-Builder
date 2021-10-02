@@ -31,9 +31,9 @@ namespace Universalis
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonQuit = new System.Windows.Forms.Button();
             this.buttonGroups = new System.Windows.Forms.Button();
             this.buttonMasterData = new System.Windows.Forms.Button();
+            this.buttonQuit = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -54,27 +54,11 @@ namespace Universalis
             this.tableLayoutPanel1.Size = new System.Drawing.Size(578, 200);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
-            // buttonQuit
-            // 
-            this.buttonQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonQuit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonQuit.Image = global::Universalis.Properties.Resources.cross_circle;
-            this.buttonQuit.Location = new System.Drawing.Point(0, 200);
-            this.buttonQuit.Name = "buttonQuit";
-            this.buttonQuit.Size = new System.Drawing.Size(578, 34);
-            this.buttonQuit.TabIndex = 9;
-            this.buttonQuit.Text = "&Beenden";
-            this.buttonQuit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonQuit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonQuit.UseVisualStyleBackColor = true;
-            this.buttonQuit.Click += new System.EventHandler(this.buttonQuit_Click);
-            // 
             // buttonGroups
             // 
             this.buttonGroups.AutoSize = true;
             this.buttonGroups.BackgroundImage = global::Universalis.Properties.Resources.baseline_block_black_18dp;
             this.buttonGroups.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonGroups.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonGroups.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonGroups.Location = new System.Drawing.Point(3, 3);
             this.buttonGroups.Name = "buttonGroups";
@@ -89,7 +73,6 @@ namespace Universalis
             this.buttonMasterData.AutoSize = true;
             this.buttonMasterData.BackgroundImage = global::Universalis.Properties.Resources.baseline_block_black_18dp;
             this.buttonMasterData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonMasterData.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonMasterData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonMasterData.Location = new System.Drawing.Point(292, 3);
             this.buttonMasterData.Name = "buttonMasterData";
@@ -98,6 +81,21 @@ namespace Universalis
             this.toolTip1.SetToolTip(this.buttonMasterData, "Stammdaten");
             this.buttonMasterData.UseVisualStyleBackColor = true;
             this.buttonMasterData.Click += new System.EventHandler(this.buttonMasterData_Click);
+            // 
+            // buttonQuit
+            // 
+            this.buttonQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonQuit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonQuit.Image = global::Universalis.Properties.Resources.cross_circle;
+            this.buttonQuit.Location = new System.Drawing.Point(0, 200);
+            this.buttonQuit.Name = "buttonQuit";
+            this.buttonQuit.Size = new System.Drawing.Size(578, 34);
+            this.buttonQuit.TabIndex = 9;
+            this.buttonQuit.Text = "&Beenden";
+            this.buttonQuit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonQuit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonQuit.UseVisualStyleBackColor = true;
+            this.buttonQuit.Click += new System.EventHandler(this.buttonQuit_Click);
             // 
             // GodModeForm
             // 

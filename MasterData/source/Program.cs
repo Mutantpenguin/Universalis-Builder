@@ -66,10 +66,5 @@ namespace Universalis
                 }
             }
         }
-
-        private static void Run( Options opts )
-        {
-
-        }
     }
 }

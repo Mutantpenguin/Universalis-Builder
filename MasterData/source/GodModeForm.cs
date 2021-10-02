@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -38,7 +31,7 @@ namespace Universalis
                 factionOverviewForm = null;
             };
 
-            factionOverviewForm.Enabled = false;
+            buttonGroups.Enabled = false;
 
             factionOverviewForm.Show( this );
         }
@@ -53,7 +46,7 @@ namespace Universalis
                 masterDataMainForm = null;
             };
 
-            masterDataMainForm.Enabled = false;
+            buttonMasterData.Enabled = false;
 
             masterDataMainForm.Show( this );
         }
