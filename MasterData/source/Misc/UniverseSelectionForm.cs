@@ -57,8 +57,6 @@ namespace Universalis
             labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
 
             this.Icon = Shared.Properties.Resources.icon;
-
-            RefreshUniverses();
         }
 
         private readonly Options Options;
@@ -275,7 +273,7 @@ namespace Universalis
                 var universePath = universeItem.ImageKey;
 
                 Costs.Initialize( universeItem.Universe.Costs );
-
+                
                 using( ProgressForm progressForm = new ProgressForm( universe.Logo ) )
                 {
                     Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
@@ -289,9 +287,11 @@ namespace Universalis
 
                 if( Options.GodMode )
                 {
-                    using( var factionOverviewForm = new GodModeForm( universe ) )
+                    using( var godModeForm = new GodModeForm( universe ) )
                     {
-                        factionOverviewForm.ShowDialog( this );
+                        godModeForm.ShowDialog( this );
+
+                        this.Close();
                     }
                 }
                 else
@@ -299,10 +299,10 @@ namespace Universalis
                     using( var factionOverviewForm = new FactionOverviewForm( universe ) )
                     {
                         factionOverviewForm.ShowDialog( this );
-                    }
-                }                
 
-                this.Close();
+                        this.Close();
+                    }
+                }
             }
 
             switch( universeItem.State )
@@ -525,6 +525,11 @@ namespace Universalis
                 buttonOpenFolder.Enabled = false;
                 buttonDelete.Enabled = false;
             }
+        }
+
+        private void UniverseSelectionForm_Shown( object sender, EventArgs e )
+        {
+            RefreshUniverses();
         }
     }
 }
