@@ -8,11 +8,15 @@ namespace Universalis
 {
     public partial class FactionOverviewForm : Form
     {
-        public FactionOverviewForm( Universe universe )
+        public FactionOverviewForm( Universe universe, bool godMode )
         {
             InitializeComponent();
 
+            this.CenterToParent();
+
             m_universe = universe;
+
+            m_godMode = godMode;
 
             listViewFactions.Font = new Font( UniversalisFont.Family, 10 );
 
@@ -29,6 +33,8 @@ namespace Universalis
         }
 
         private readonly Universe m_universe;
+
+        private readonly bool m_godMode;
 
         private void RefreshList()
         {
@@ -88,13 +94,16 @@ namespace Universalis
 
         private void FactionOverviewForm_FormClosing( object sender, FormClosingEventArgs e )
         {
-            switch( MessageBox.Show( "Wirklich beenden?", String.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) )
+            if( !m_godMode )
             {
-                case DialogResult.Yes:
-                    break;
-                case DialogResult.No:
-                    e.Cancel = true;
-                    break;
+                switch( MessageBox.Show( "Wirklich beenden?", String.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) )
+                {
+                    case DialogResult.Yes:
+                        break;
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                }
             }
         }
 

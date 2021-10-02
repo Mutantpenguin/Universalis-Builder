@@ -9,6 +9,8 @@ namespace Universalis
         {
             InitializeComponent();
 
+            this.CenterToParent();
+
             this.Text = universe.NameWithVersion() + " Stammdaten";
 
             this.Icon = Properties.Resources.icon;
