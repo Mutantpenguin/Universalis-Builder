@@ -542,6 +542,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\baseline_construction_black_48dp.png" />
+    <None Include="Resources\baseline_groups_black_48dp.png" />
     <None Include="Resources\outline_playlist_add_black_48dp.png" />
     <None Include="Resources\spinner.gif" />
     <None Include="Resources\baseline_warning_black_48dp.png" />

@@ -31,10 +31,10 @@ namespace Universalis
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonQuit = new System.Windows.Forms.Button();
             this.buttonGroups = new System.Windows.Forms.Button();
             this.buttonMasterData = new System.Windows.Forms.Button();
-            this.buttonQuit = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,34 +54,6 @@ namespace Universalis
             this.tableLayoutPanel1.Size = new System.Drawing.Size(578, 200);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
-            // buttonGroups
-            // 
-            this.buttonGroups.AutoSize = true;
-            this.buttonGroups.BackgroundImage = global::Universalis.Properties.Resources.baseline_block_black_18dp;
-            this.buttonGroups.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonGroups.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonGroups.Location = new System.Drawing.Point(3, 3);
-            this.buttonGroups.Name = "buttonGroups";
-            this.buttonGroups.Size = new System.Drawing.Size(283, 194);
-            this.buttonGroups.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.buttonGroups, "Gruppen");
-            this.buttonGroups.UseVisualStyleBackColor = true;
-            this.buttonGroups.Click += new System.EventHandler(this.buttonGroups_Click);
-            // 
-            // buttonMasterData
-            // 
-            this.buttonMasterData.AutoSize = true;
-            this.buttonMasterData.BackgroundImage = global::Universalis.Properties.Resources.baseline_block_black_18dp;
-            this.buttonMasterData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonMasterData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonMasterData.Location = new System.Drawing.Point(292, 3);
-            this.buttonMasterData.Name = "buttonMasterData";
-            this.buttonMasterData.Size = new System.Drawing.Size(283, 194);
-            this.buttonMasterData.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.buttonMasterData, "Stammdaten");
-            this.buttonMasterData.UseVisualStyleBackColor = true;
-            this.buttonMasterData.Click += new System.EventHandler(this.buttonMasterData_Click);
-            // 
             // buttonQuit
             // 
             this.buttonQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -97,6 +69,34 @@ namespace Universalis
             this.buttonQuit.UseVisualStyleBackColor = true;
             this.buttonQuit.Click += new System.EventHandler(this.buttonQuit_Click);
             // 
+            // buttonGroups
+            // 
+            this.buttonGroups.AutoSize = true;
+            this.buttonGroups.BackgroundImage = global::Universalis.Properties.Resources.baseline_groups_black_48dp;
+            this.buttonGroups.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonGroups.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonGroups.Location = new System.Drawing.Point(3, 3);
+            this.buttonGroups.Name = "buttonGroups";
+            this.buttonGroups.Size = new System.Drawing.Size(283, 194);
+            this.buttonGroups.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.buttonGroups, "Gruppen");
+            this.buttonGroups.UseVisualStyleBackColor = true;
+            this.buttonGroups.Click += new System.EventHandler(this.buttonGroups_Click);
+            // 
+            // buttonMasterData
+            // 
+            this.buttonMasterData.AutoSize = true;
+            this.buttonMasterData.BackgroundImage = global::Universalis.Properties.Resources.baseline_construction_black_48dp;
+            this.buttonMasterData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonMasterData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonMasterData.Location = new System.Drawing.Point(292, 3);
+            this.buttonMasterData.Name = "buttonMasterData";
+            this.buttonMasterData.Size = new System.Drawing.Size(283, 194);
+            this.buttonMasterData.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.buttonMasterData, "Stammdaten");
+            this.buttonMasterData.UseVisualStyleBackColor = true;
+            this.buttonMasterData.Click += new System.EventHandler(this.buttonMasterData_Click);
+            // 
             // GodModeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -110,7 +110,7 @@ namespace Universalis
             this.MinimizeBox = false;
             this.Name = "GodModeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "GodModeForm";
+            this.Text = "God Mode";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GodModeForm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
