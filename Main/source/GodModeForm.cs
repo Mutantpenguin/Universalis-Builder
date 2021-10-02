@@ -1,14 +1,18 @@
-﻿using System;
+﻿using LibGit2Sharp;
+using LibGit2Sharp.Handlers;
+using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
 {
     public partial class GodModeForm : Form
     {
-        public GodModeForm( Universe universe )
+        public GodModeForm( Universe universe, string universePath )
         {
             m_universe = universe;
+            m_universePath = universePath;
 
             InitializeComponent();
 
@@ -29,6 +33,8 @@ namespace Universalis
         }
 
         readonly Universe m_universe;
+        readonly string m_universePath;
+
         private void buttonGroups_Click( object sender, EventArgs e )
         {
             factionOverviewForm = new FactionOverviewForm( m_universe, godMode: true );
@@ -76,10 +82,69 @@ namespace Universalis
                 switch( MessageBox.Show( "Wirklich beenden?", String.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) )
                 {
                     case DialogResult.Yes:
+                        CheckModifiedRepository();
                         break;
                     case DialogResult.No:
                         e.Cancel = true;
                         break;
+                }
+            }
+        }
+
+        private void CheckModifiedRepository()
+        {
+            if( Repository.IsValid( m_universePath ) )
+            {
+                try
+                {
+                    using( var repo = new Repository( m_universePath ) )
+                    {
+                        var countTreeChanges = repo.Diff.Compare<TreeChanges>().Count;
+
+                        if( repo.Head.TrackingDetails.AheadBy > 0
+                            ||
+                            countTreeChanges > 0 )
+                        {
+                            if( MessageBox.Show( "Das Universum wurde modifiziert. Änderungen committen und pushen?",
+                                                 "Universum wurde modifiziert",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning,
+                                                 MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
+                            {
+                                Signature signature = repo.Config.BuildSignature( DateTimeOffset.Now );
+
+                                if( countTreeChanges > 0 )
+                                {
+                                    Commands.Stage( repo, "*" );
+
+                                    repo.Commit( "newest changes", signature, signature );
+                                }
+
+                                // TODO push doesn't work without username and password
+                                // TODO but why does it work on the console without entering anything?
+
+                                /*
+                                var pushOptions = new PushOptions();
+                                pushOptions.CredentialsProvider = new CredentialsHandler(
+                                        ( _url, _user, _cred ) =>
+                                        new cred() );
+                                */
+                                //new UsernamePasswordCredentials() {  Username = Settings.GetSetting( Constants.GitUsername ), Password = Settings.GetSetting( Constants.GitPassword ) );
+
+
+                                //repo.Network.Push( repo.Network.Remotes[ "origin" ], repo.Head.CanonicalName, null, pushOptions );
+                                //repo.Network.Push( repo.Network.Remotes[ "origin" ], repo.Head.CanonicalName, repo.Config. );
+                            }
+                        }
+                    }
+                }
+                catch( RepositoryNotFoundException ex )
+                {
+                    MessageBox.Show( ex.Message );
+                }
+                catch( Exception ex )
+                {
+                    MessageBox.Show( ex.Message );
                 }
             }
         }

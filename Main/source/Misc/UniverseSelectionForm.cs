@@ -143,7 +143,7 @@ namespace Universalis
                             {
                                 using( var repo = new Repository( universePath ) )
                                 {
-                                    lvi.RepositoryURL = repo.Network.Remotes.FirstOrDefault( r => r.Name == "origin" ).Url;
+                                    lvi.RepositoryURL = repo.Network.Remotes[ "origin" ].Url;
 
                                     string logMessage = String.Empty;
 
@@ -294,7 +294,7 @@ namespace Universalis
 
                 if( Options.GodMode )
                 {
-                    using( var godModeForm = new GodModeForm( universe ) )
+                    using( var godModeForm = new GodModeForm( universe, universePath ) )
                     {
                         godModeForm.ShowDialog( this );
 
