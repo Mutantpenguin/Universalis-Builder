@@ -106,7 +106,7 @@ namespace Universalis
         {
             filterType.Enabled = !filterType.Enabled;
 
-            checkBoxFilterType.Image = checkBoxFilterType.Checked ? Shared.Properties.Resources.ui_check_box : Shared.Properties.Resources.ui_check_box_uncheck;
+            checkBoxFilterType.Image = checkBoxFilterType.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             updateDataGridViewArchetypes();
         }
