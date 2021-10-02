@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCompany( "" )]
 [assembly: AssemblyProduct( "Universalis Program Suite" )]
 
-[assembly: AssemblyCopyright( "Copyright © Markus Lobedann 2020" )]
+[assembly: AssemblyCopyright( "Copyright © Markus Lobedann 2021" )]
 [assembly: AssemblyTrademark( "" )]
 
 [assembly: AssemblyCulture( "" )]
@@ -20,5 +20,5 @@ using System.Runtime.InteropServices;
     [assembly: AssemblyConfiguration("Release")]
 #endif
 
-[assembly: AssemblyVersion( "0.1.0.0" )]
+[assembly: AssemblyVersion( "0.6.0.0" )]
 [assembly: NeutralResourcesLanguage( "de-DE" )]
