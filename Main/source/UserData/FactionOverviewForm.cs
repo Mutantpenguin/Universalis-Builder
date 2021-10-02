@@ -10,22 +10,29 @@ namespace Universalis
     {
         public FactionOverviewForm( Universe universe, bool godMode )
         {
-            InitializeComponent();
-
-            this.CenterToParent();
-
             m_universe = universe;
 
             m_godMode = godMode;
 
-            listViewFactions.Font = new Font( UniversalisFont.Family, 10 );
-
-            labelHeader.Text = universe.NameWithVersion();
-            labelHeader.Font = new Font( UniversalisFont.Family, 20 );
-            labelHeader.Left = ( panelHeader.Width - labelHeader.Width ) / 2;
-            labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
+            InitializeComponent();
 
             this.Icon = Properties.Resources.icon;
+
+            this.CenterToParent();
+
+            if( m_godMode )
+            {
+                panelHeader.Visible = false;
+            }
+            else
+            {
+                labelHeader.Text = universe.NameWithVersion();
+                labelHeader.Font = new Font( UniversalisFont.Family, 20 );
+                labelHeader.Left = ( panelHeader.Width - labelHeader.Width ) / 2;
+                labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
+            }
+
+            listViewFactions.Font = new Font( UniversalisFont.Family, 10 );
 
             imageListFactions.ImageSize = new System.Drawing.Size( 150, 150 );
 
