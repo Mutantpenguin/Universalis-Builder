@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -12,6 +13,11 @@ namespace Universalis
             InitializeComponent();
 
             this.Icon = Properties.Resources.icon;
+
+            labelHeader.Text = universe.NameWithVersion();
+            labelHeader.Font = new Font( UniversalisFont.Family, 20 );
+            labelHeader.Left = ( panelHeader.Width - labelHeader.Width ) / 2;
+            labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
         }
 
         FactionOverviewForm factionOverviewForm = null;
@@ -75,6 +81,14 @@ namespace Universalis
                         e.Cancel = true;
                         break;
                 }
+            }
+        }
+
+        private void pictureBoxInfo_Click( object sender, EventArgs e )
+        {
+            using( var infoForm = new UniverseInfoForm( m_universe ) )
+            {
+                infoForm.ShowDialog();
             }
         }
     }
