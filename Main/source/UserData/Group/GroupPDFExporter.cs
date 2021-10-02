@@ -24,7 +24,6 @@ namespace Universalis
 
         private static readonly Font s_actorFont = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ) );
         private static readonly Font s_actorFontHeader = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ), Font.BOLD );
-        private static readonly Font s_actorCustomNameFont = new Font( s_baseFontUniversalis, CmToPixel( 0.2f ), Font.NORMAL, Color.GRAY );
 
         private static readonly Font s_groupTraitFontHeader = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ), Font.BOLD );
 
