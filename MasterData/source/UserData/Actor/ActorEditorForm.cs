@@ -24,7 +24,7 @@ namespace Universalis
 
             this.WindowState = Properties.Settings.Default.ActorEditorWindowState;
 
-            this.Icon = Shared.Properties.Resources.icon;
+            this.Icon = Properties.Resources.icon;
 
             archetypeBindingSource.DataSource = m_actorModified.Archetype;
 

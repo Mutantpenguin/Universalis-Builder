@@ -11,7 +11,7 @@ namespace Universalis
         {
             InitializeComponent();
 
-            this.Icon = Shared.Properties.Resources.icon;
+            this.Icon = Properties.Resources.icon;
 
             filterWeaponClass.ComboBox.DataSource = Weapon.EClassList;
             filterWeaponClass.ComboBox.SelectedIndex = 0;

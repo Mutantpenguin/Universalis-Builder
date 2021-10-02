@@ -16,7 +16,7 @@ namespace Universalis
 
             InitializeComponent();
 
-            this.Icon = Shared.Properties.Resources.icon;
+            this.Icon = Properties.Resources.icon;
 
             timerFadeIn.Start();
         }

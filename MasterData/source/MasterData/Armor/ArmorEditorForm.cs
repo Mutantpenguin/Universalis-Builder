@@ -11,7 +11,7 @@ namespace Universalis
         {
             InitializeComponent();
 
-            this.Icon = Shared.Properties.Resources.icon;
+            this.Icon = Properties.Resources.icon;
 
             eLevelBindingSource.DataSource = DamageType.ELevelList.Where( x => x != DamageType.ELevel.O );
 
