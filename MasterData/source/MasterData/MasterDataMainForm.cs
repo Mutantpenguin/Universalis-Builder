@@ -11,7 +11,7 @@ namespace Universalis
 
             this.Text = universe.NameWithVersion() + " Stammdaten";
 
-            this.Icon = Shared.Properties.Resources.icon;
+            this.Icon = Properties.Resources.icon;
         }
 
         WeaponManagerForm weaponManager = null;

@@ -18,7 +18,7 @@ namespace Universalis
 
             this.WindowState = Properties.Settings.Default.GroupEditorWindowState;
 
-            this.Icon = Shared.Properties.Resources.icon;
+            this.Icon = Properties.Resources.icon;
 
             pictureBoxFactionIcon.Image = m_groupModified.Faction.Icon;
             toolTip.SetToolTip( pictureBoxFactionIcon, m_groupModified.Faction.Name );

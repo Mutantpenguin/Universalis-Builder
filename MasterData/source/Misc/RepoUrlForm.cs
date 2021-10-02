@@ -15,7 +15,7 @@ namespace Universalis
         {
             InitializeComponent();
 
-            this.Icon = Shared.Properties.Resources.icon;
+            this.Icon = Properties.Resources.icon;
         }
 
         private void buttonOk_Click( object sender, EventArgs e )

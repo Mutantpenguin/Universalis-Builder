@@ -53,7 +53,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Shared.Properties.Resources.logo;
+            this.BackgroundImage = global::Universalis.Properties.Resources.logo;
             this.ClientSize = new System.Drawing.Size(370, 370);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

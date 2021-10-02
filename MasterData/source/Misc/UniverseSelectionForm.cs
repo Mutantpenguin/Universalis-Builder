@@ -56,7 +56,7 @@ namespace Universalis
             labelHeader.Left = ( panelHeader.Width - labelHeader.Width ) / 2;
             labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
 
-            this.Icon = Shared.Properties.Resources.icon;
+            this.Icon = Properties.Resources.icon;
         }
 
         private readonly Options Options;
