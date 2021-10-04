@@ -156,7 +156,9 @@ namespace Universalis
 
                                     if( repo.Head.TrackingDetails.AheadBy > 0
                                         ||
-                                        repo.Diff.Compare<TreeChanges>().Count > 0 )
+                                        repo.Diff.Compare<TreeChanges>().Count > 0
+                                        ||
+                                        repo.RetrieveStatus().IsDirty )
                                     {
                                         lvi.State = UniverseListViewItem.EState.MODIFIED;
                                         universe.Modified = true;
