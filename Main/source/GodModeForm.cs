@@ -99,13 +99,11 @@ namespace Universalis
                 {
                     using( var repo = new Repository( m_universePath ) )
                     {
-                        var countTreeChanges = repo.Diff.Compare<TreeChanges>().Count;
-
-                        if( repo.Head.TrackingDetails.AheadBy > 0
+                        if( repo.Diff.Compare<TreeChanges>().Count > 0
                             ||
-                            countTreeChanges > 0 )
+                            repo.RetrieveStatus().IsDirty )
                         {
-                            if( MessageBox.Show( "Das Universum wurde modifiziert. Änderungen committen und pushen?",
+                            if( MessageBox.Show( "Das Universum wurde modifiziert. Änderungen committen?",
                                                  "Universum wurde modifiziert",
                                                  MessageBoxButtons.YesNo,
                                                  MessageBoxIcon.Warning,
@@ -113,29 +111,33 @@ namespace Universalis
                             {
                                 Signature signature = repo.Config.BuildSignature( DateTimeOffset.Now );
 
-                                if( countTreeChanges > 0 )
-                                {
-                                    Commands.Stage( repo, "*" );
+                                Commands.Stage( repo, "*" );
 
-                                    repo.Commit( "newest changes", signature, signature );
-                                }
+                                // TODO hier commit message abfragen in Schleife, es seih denn es soll doch nicht comittet werden
 
-                                // TODO push doesn't work without username and password
-                                // TODO but why does it work on the console without entering anything?
-
-                                /*
-                                var pushOptions = new PushOptions();
-                                pushOptions.CredentialsProvider = new CredentialsHandler(
-                                        ( _url, _user, _cred ) =>
-                                        new cred() );
-                                */
-                                //new UsernamePasswordCredentials() {  Username = Settings.GetSetting( Constants.GitUsername ), Password = Settings.GetSetting( Constants.GitPassword ) );
-
-
-                                //repo.Network.Push( repo.Network.Remotes[ "origin" ], repo.Head.CanonicalName, null, pushOptions );
-                                //repo.Network.Push( repo.Network.Remotes[ "origin" ], repo.Head.CanonicalName, repo.Config. );
+                                repo.Commit( "newest changes", signature, signature );
                             }
                         }
+
+                        /*
+                        if( repo.Head.TrackingDetails.AheadBy > 0 )
+                        {
+                            // TODO push doesn't work without username and password
+                            // TODO but why does it work on the console without entering anything?
+
+                            
+                            var pushOptions = new PushOptions();
+                            pushOptions.CredentialsProvider = new CredentialsHandler(
+                                    ( _url, _user, _cred ) =>
+                                    new cred() );
+                            
+                            //new UsernamePasswordCredentials() {  Username = Settings.GetSetting( Constants.GitUsername ), Password = Settings.GetSetting( Constants.GitPassword ) );
+
+
+                            //repo.Network.Push( repo.Network.Remotes[ "origin" ], repo.Head.CanonicalName, null, pushOptions );
+                            //repo.Network.Push( repo.Network.Remotes[ "origin" ], repo.Head.CanonicalName, repo.Config. );
+                        }
+                        */
                     }
                 }
                 catch( RepositoryNotFoundException ex )
