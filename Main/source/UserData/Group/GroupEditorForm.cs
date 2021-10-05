@@ -16,6 +16,8 @@ namespace Universalis
 
             InitializeComponent();
 
+            this.CenterToParent();
+
             this.WindowState = Properties.Settings.Default.GroupEditorWindowState;
 
             this.Icon = Properties.Resources.icon;
@@ -287,11 +289,11 @@ namespace Universalis
         {
             using( ActorEditorForm actorEditorForm = new ActorEditorForm( actor ) )
             {
-                pictureBoxCard.Hide();
+                this.Hide();
 
                 actorEditorForm.ShowDialog( this );
 
-                pictureBoxCard.Show();
+                this.Show();
             }
 
             groupBindingSource.ResetBindings( false );
@@ -538,6 +540,17 @@ namespace Universalis
 
                 groupBindingSource.ResetBindings( false );
             }
+        }
+
+        private void buttonClose_Click( object sender, EventArgs e )
+        {
+            Close();
+        }
+
+        private void buttonRefresh_Click( object sender, EventArgs e )
+        {
+            groupBindingSource.ResetBindings( false );
+            actorsBindingSource.ResetBindings( false );
         }
     }
 }

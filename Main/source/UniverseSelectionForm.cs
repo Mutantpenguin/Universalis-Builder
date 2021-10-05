@@ -41,6 +41,8 @@ namespace Universalis
 
             InitializeComponent();
 
+            this.CenterToParent();
+
             if( Options.GodMode )
             {
                 buttonCreateUniverse.Visible = true;
@@ -296,21 +298,29 @@ namespace Universalis
 
                 if( Options.GodMode )
                 {
-                    using( var godModeForm = new GodModeForm( universe, universePath ) )
+                    var godModeForm = new GodModeForm( universe, universePath );
+
+                    godModeForm.FormClosed += delegate
                     {
-                        godModeForm.ShowDialog( this );
+                        godModeForm.Dispose();
 
                         this.Close();
-                    }
+                    };
+
+                    godModeForm.Show( this );
                 }
                 else
                 {
-                    using( var factionOverviewForm = new FactionOverviewForm( universe, godMode: false ) )
+                    var factionOverviewForm = new FactionOverviewForm( universe, godMode: false );
+
+                    factionOverviewForm.FormClosed += delegate
                     {
-                        factionOverviewForm.ShowDialog( this );
+                        factionOverviewForm.Dispose();
 
                         this.Close();
-                    }
+                    };
+
+                    factionOverviewForm.Show( this );
                 }
             }
 

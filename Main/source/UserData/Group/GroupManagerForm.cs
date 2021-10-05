@@ -13,6 +13,8 @@ namespace Universalis
         {
             InitializeComponent();
 
+            this.CenterToParent();
+
             this.Text = faction.Name + " - " + this.Text;
 
             textBoxFactionDescription.Font = new System.Drawing.Font( UniversalisFont.Family, 10 );
@@ -43,16 +45,20 @@ namespace Universalis
 
         private void editGroup( Group group )
         {
-            using( GroupEditorForm groupEditorForm = new GroupEditorForm( group ) )
+            this.Hide();
+
+            GroupEditorForm groupEditorForm = new GroupEditorForm( group );
+
+            groupEditorForm.FormClosed += delegate
             {
-                this.Hide();
-
-                groupEditorForm.ShowDialog( this );
-
                 this.Show();
-            }
 
-            groupBindingSource.ResetBindings( false );
+                groupBindingSource.ResetBindings( false );
+
+                groupEditorForm.Dispose();
+            };
+
+            groupEditorForm.Show( this );
         }
 
         private void toolStripButtonAddGroups_Click( object sender, EventArgs e )

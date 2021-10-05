@@ -60,13 +60,16 @@ namespace Universalis
         private void ShowUniverseSelectionForm()
         {
             this.Hide();
+            
+            var form = new UniverseSelectionForm( Options );
 
-            using( var form = new UniverseSelectionForm( Options ) )
+            form.FormClosed += delegate
             {
-                form.ShowDialog( this );
-            }
-
-            this.Close();
+                form.Dispose();
+                this.Close();
+            };
+            
+            form.Show( this );
         }
 
         private void FormSplash_KeyDown( object sender, KeyEventArgs e )

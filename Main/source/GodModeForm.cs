@@ -14,6 +14,8 @@ namespace Universalis
 
             InitializeComponent();
 
+            this.CenterToParent();
+
             this.Icon = Properties.Resources.icon;
 
             labelHeader.Text = universe.NameWithVersionAndHash();
@@ -40,6 +42,7 @@ namespace Universalis
             factionOverviewForm.FormClosed += delegate
             {
                 buttonGroups.Enabled = true;
+                factionOverviewForm.Dispose();
                 factionOverviewForm = null;
             };
 
@@ -55,6 +58,7 @@ namespace Universalis
             masterDataMainForm.FormClosed += delegate
             {
                 buttonMasterData.Enabled = true;
+                masterDataMainForm.Dispose();
                 masterDataMainForm = null;
             };
 

@@ -79,23 +79,27 @@ namespace Universalis
 
         private void listViewFactions_ItemActivate( object sender, EventArgs e )
         {
+            this.Hide();
+
             Faction faction = MasterDataStorage.Faction.Factions.First( x => x.ID.ToString() == listViewFactions.SelectedItems[ 0 ].ImageKey );
 
-            using( GroupManagerForm groupManagerForm = new GroupManagerForm( m_universe, faction ) )
+            GroupManagerForm groupManagerForm = new GroupManagerForm( m_universe, faction );
+
+            groupManagerForm.FormClosed += delegate
             {
-                this.Hide();
-
-                groupManagerForm.ShowDialog( this );
-
                 this.Show();
-            }
+
+                groupManagerForm.Dispose();
+            };
+
+            groupManagerForm.Show( this );
         }
 
         private void FactionOverviewForm_KeyDown( object sender, KeyEventArgs e )
         {
             if( e.KeyCode == Keys.Escape )
             {
-                Application.Exit();
+                Close();
             }
         }
 
