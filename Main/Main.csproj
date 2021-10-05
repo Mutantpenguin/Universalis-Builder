@@ -154,6 +154,12 @@
     <Compile Include="Source\Misc\CloneForm.Designer.cs">
       <DependentUpon>CloneForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Misc\CommitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Misc\CommitForm.Designer.cs">
+      <DependentUpon>CommitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Misc\DamageTypeSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -384,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Misc\CloneForm.resx">
       <DependentUpon>CloneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Misc\CommitForm.resx">
+      <DependentUpon>CommitForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Misc\DamageTypeSelectionForm.resx">
       <DependentUpon>DamageTypeSelectionForm.cs</DependentUpon>

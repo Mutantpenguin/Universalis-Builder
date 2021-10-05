@@ -1,8 +1,6 @@
 ﻿using LibGit2Sharp;
-using LibGit2Sharp.Handlers;
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -103,19 +101,16 @@ namespace Universalis
                             ||
                             repo.RetrieveStatus().IsDirty )
                         {
-                            if( MessageBox.Show( "Das Universum wurde modifiziert. Änderungen committen?",
-                                                 "Universum wurde modifiziert",
-                                                 MessageBoxButtons.YesNo,
-                                                 MessageBoxIcon.Warning,
-                                                 MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
+                            using( var form = new CommitForm() )
                             {
-                                Signature signature = repo.Config.BuildSignature( DateTimeOffset.Now );
+                                if( form.ShowDialog( this ) == DialogResult.OK )
+                                {
+                                    Signature signature = repo.Config.BuildSignature( DateTimeOffset.Now );
 
-                                Commands.Stage( repo, "*" );
+                                    Commands.Stage( repo, "*" );
 
-                                // TODO hier commit message abfragen in Schleife, es seih denn es soll doch nicht comittet werden
-
-                                repo.Commit( "newest changes", signature, signature );
+                                    repo.Commit( form.CommitMessage, signature, signature );
+                                }
                             }
                         }
 
