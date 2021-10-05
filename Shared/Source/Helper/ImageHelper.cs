@@ -43,7 +43,7 @@ namespace Universalis
                 else
                 {
                     MessageBox.Show( "Es sind nur quadratische Bilder erlaubt!",
-                                     "",
+                                     String.Empty,
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Stop );
                 }

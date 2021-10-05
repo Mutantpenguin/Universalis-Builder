@@ -145,7 +145,7 @@ namespace Universalis
 
                 foreach( char c in Path.GetInvalidFileNameChars() )
                 {
-                    filename = filename.Replace( c.ToString(), "" );
+                    filename = filename.Replace( c.ToString(), String.Empty );
                 }
 
                 GroupPDFExporter.GeneratePDF( m_universe, group, Path.Combine( Path.GetTempPath(), Path.ChangeExtension( filename, "pdf" ) ) );

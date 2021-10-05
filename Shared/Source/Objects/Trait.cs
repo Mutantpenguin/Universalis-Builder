@@ -151,7 +151,7 @@ namespace Universalis
         } = null;
 
         [JsonIgnore]
-        public string FormattedAP => ( AP == 0 ) ? "" : AP.ToString();
+        public string FormattedAP => ( AP == 0 ) ? String.Empty : AP.ToString();
 
         public string Summary( uint level )
         {

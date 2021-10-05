@@ -153,7 +153,7 @@ namespace Universalis
                             if( groupLoaded.Equals( group ) )
                             {
                                 MessageBox.Show( $"Die Gruppe '{groupLoaded.Name}' der Fraktion '{groupLoaded.Faction.Name}' ist bereits identisch vorhanden!",
-                                                 "",
+                                                 String.Empty,
                                                  MessageBoxButtons.OK,
                                                  MessageBoxIcon.Information );
                             }

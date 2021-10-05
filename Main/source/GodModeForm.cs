@@ -74,7 +74,7 @@ namespace Universalis
                 masterDataMainForm != null )
             {
                 MessageBox.Show( "Bitte zuerst alle Fenster schließen!",
-                                 "",
+                                 String.Empty,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
                 e.Cancel = true;
