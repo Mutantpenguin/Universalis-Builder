@@ -220,10 +220,10 @@
     <Compile Include="Source\Misc\FactionSelectionForm.Designer.cs">
       <DependentUpon>FactionSelectionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Misc\FormSplash.cs">
+    <Compile Include="Source\FormSplash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Misc\FormSplash.Designer.cs">
+    <Compile Include="Source\FormSplash.Designer.cs">
       <DependentUpon>FormSplash.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Misc\ImageSelectionForm.cs">
@@ -262,10 +262,10 @@
     <Compile Include="Source\Misc\UniverseInfoForm.Designer.cs">
       <DependentUpon>UniverseInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Misc\UniverseSelectionForm.cs">
+    <Compile Include="Source\UniverseSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Misc\UniverseSelectionForm.Designer.cs">
+    <Compile Include="Source\UniverseSelectionForm.Designer.cs">
       <DependentUpon>UniverseSelectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Options.cs" />
@@ -431,7 +431,7 @@
     <EmbeddedResource Include="Source\Misc\FactionSelectionForm.resx">
       <DependentUpon>FactionSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Misc\FormSplash.resx">
+    <EmbeddedResource Include="Source\FormSplash.resx">
       <DependentUpon>FormSplash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Misc\ImageSelectionForm.resx">
@@ -452,7 +452,7 @@
     <EmbeddedResource Include="Source\Misc\UniverseInfoForm.resx">
       <DependentUpon>UniverseInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Misc\UniverseSelectionForm.resx">
+    <EmbeddedResource Include="Source\UniverseSelectionForm.resx">
       <DependentUpon>UniverseSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\UserData\Actor\ActorEditorForm.resx">
