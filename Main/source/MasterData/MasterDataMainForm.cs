@@ -32,6 +32,7 @@ namespace Universalis
             weaponManager.FormClosed += delegate
             {
                 buttonWeapons.Enabled = true;
+                weaponManager.Dispose();
                 weaponManager = null;
             };
 
@@ -47,6 +48,7 @@ namespace Universalis
             armorManager.FormClosed += delegate
             {
                 buttonArmor.Enabled = true;
+                armorManager.Dispose();
                 armorManager = null;
             };
 
@@ -62,6 +64,7 @@ namespace Universalis
             equipmentManager.FormClosed += delegate
             {
                 buttonEquipment.Enabled = true;
+                equipmentManager.Dispose();
                 equipmentManager = null;
             };
 
@@ -77,6 +80,7 @@ namespace Universalis
             traitsManager.FormClosed += delegate
             {
                 buttonTraits.Enabled = true;
+                traitsManager.Dispose();
                 traitsManager = null;
             };
 
@@ -92,6 +96,7 @@ namespace Universalis
             factionManager.FormClosed += delegate
             {
                 buttonFactions.Enabled = true;
+                factionManager.Dispose();
                 factionManager = null;
             };
 
@@ -107,6 +112,7 @@ namespace Universalis
             archetypeManager.FormClosed += delegate
             {
                 buttonArchetypes.Enabled = true;
+                archetypeManager.Dispose();
                 archetypeManager = null;
             };
 
@@ -122,6 +128,7 @@ namespace Universalis
             damageEffectManager.FormClosed += delegate
             {
                 buttonDamageEffects.Enabled = true;
+                damageEffectManager.Dispose();
                 damageEffectManager = null;
             };
 
@@ -137,6 +144,7 @@ namespace Universalis
             groupTraitManager.FormClosed += delegate
             {
                 buttonGroupTraits.Enabled = true;
+                groupTraitManager.Dispose();
                 groupTraitManager = null;
             };
 
@@ -153,11 +161,15 @@ namespace Universalis
                 ||
                 equipmentManager != null
                 ||
+                archetypeManager != null
+                ||
                 traitsManager != null
                 ||
                 factionManager != null
                 ||
-                damageEffectManager != null )
+                damageEffectManager != null
+                ||
+                groupTraitManager != null )
             {
                 MessageBox.Show( "Bitte zuerst alle Fenster schließen!",
                                  "",
