@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonGroupTraitAdd = new System.Windows.Forms.ToolStripButton();
@@ -46,7 +45,6 @@
             this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointsPerModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
@@ -146,7 +144,7 @@
             this.toolStripMenuItemPositives.CheckOnClick = true;
             this.toolStripMenuItemPositives.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemPositives.Name = "toolStripMenuItemPositives";
-            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(151, 22);
+            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemPositives.Text = "zeige Positive";
             this.toolStripMenuItemPositives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemPositives_CheckedChanged);
             // 
@@ -156,7 +154,7 @@
             this.toolStripMenuItemNegatives.CheckOnClick = true;
             this.toolStripMenuItemNegatives.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemNegatives.Name = "toolStripMenuItemNegatives";
-            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(151, 22);
+            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemNegatives.Text = "zeige Negative";
             this.toolStripMenuItemNegatives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNegatives_CheckedChanged);
             // 
@@ -166,7 +164,7 @@
             this.toolStripMenuItemNeutrals.CheckOnClick = true;
             this.toolStripMenuItemNeutrals.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemNeutrals.Name = "toolStripMenuItemNeutrals";
-            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(151, 22);
+            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItemNeutrals.Text = "zeige Neutrale";
             this.toolStripMenuItemNeutrals.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNeutrals_CheckedChanged);
             // 
@@ -180,7 +178,6 @@
             this.dataGridViewGroupTraits.AutoGenerateColumns = false;
             this.dataGridViewGroupTraits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGroupTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Type,
             this.nameDataGridViewTextBoxColumn,
             this.PointsPerModel});
             this.dataGridViewGroupTraits.DataSource = this.groupTraitBindingSource;
@@ -216,18 +213,6 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Type.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Type.HeaderText = "";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            this.Type.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Type.Width = 24;
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -239,12 +224,12 @@
             // PointsPerModel
             // 
             this.PointsPerModel.DataPropertyName = "PointsPerModel";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle3;
-            this.PointsPerModel.HeaderText = "Punkte";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PointsPerModel.HeaderText = "Punkte/Modell";
             this.PointsPerModel.Name = "PointsPerModel";
             this.PointsPerModel.ReadOnly = true;
-            this.PointsPerModel.Width = 80;
+            this.PointsPerModel.Width = 90;
             // 
             // GroupTraitManagerForm
             // 
@@ -286,7 +271,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNegatives;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNeutrals;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsPerModel;
     }

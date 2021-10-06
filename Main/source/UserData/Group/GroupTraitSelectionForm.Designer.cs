@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -38,9 +38,13 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewGroupTraits = new System.Windows.Forms.DataGridView();
+            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripDropDownButtonFilter = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripMenuItemPositives = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemNegatives = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemNeutrals = new System.Windows.Forms.ToolStripMenuItem();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointsPerModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTraits)).BeginInit();
@@ -52,7 +56,7 @@
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
-            this.buttonOk.Location = new System.Drawing.Point(240, 3);
+            this.buttonOk.Location = new System.Drawing.Point(281, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 4;
@@ -81,9 +85,9 @@
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 418);
+            this.panel1.Location = new System.Drawing.Point(0, 394);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(343, 32);
+            this.panel1.Size = new System.Drawing.Size(384, 32);
             this.panel1.TabIndex = 4;
             // 
             // toolStripTextBoxSearch
@@ -98,10 +102,11 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBoxSearch,
-            this.toolStripButtonClearSearch});
+            this.toolStripButtonClearSearch,
+            this.toolStripDropDownButtonFilter});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(343, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(384, 25);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -122,8 +127,8 @@
             this.dataGridViewGroupTraits.AllowUserToDeleteRows = false;
             this.dataGridViewGroupTraits.AllowUserToOrderColumns = true;
             this.dataGridViewGroupTraits.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewGroupTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewGroupTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewGroupTraits.AutoGenerateColumns = false;
             this.dataGridViewGroupTraits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGroupTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -136,13 +141,60 @@
             this.dataGridViewGroupTraits.Name = "dataGridViewGroupTraits";
             this.dataGridViewGroupTraits.ReadOnly = true;
             this.dataGridViewGroupTraits.RowHeadersVisible = false;
-            this.dataGridViewGroupTraits.RowTemplate.Height = 40;
             this.dataGridViewGroupTraits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewGroupTraits.Size = new System.Drawing.Size(343, 393);
+            this.dataGridViewGroupTraits.Size = new System.Drawing.Size(384, 369);
             this.dataGridViewGroupTraits.TabIndex = 5;
             this.dataGridViewGroupTraits.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTraits_CellDoubleClick);
             this.dataGridViewGroupTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewGroupTraits_CellToolTipTextNeeded);
             this.dataGridViewGroupTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewGroupTraits_KeyDown);
+            // 
+            // groupTraitBindingSource
+            // 
+            this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
+            // 
+            // toolStripDropDownButtonFilter
+            // 
+            this.toolStripDropDownButtonFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButtonFilter.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemPositives,
+            this.toolStripMenuItemNegatives,
+            this.toolStripMenuItemNeutrals});
+            this.toolStripDropDownButtonFilter.Image = global::Universalis.Properties.Resources.funnel;
+            this.toolStripDropDownButtonFilter.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripDropDownButtonFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButtonFilter.Name = "toolStripDropDownButtonFilter";
+            this.toolStripDropDownButtonFilter.Size = new System.Drawing.Size(31, 22);
+            this.toolStripDropDownButtonFilter.ToolTipText = "Nach positiven/negativen Eigenschaften filtern";
+            // 
+            // toolStripMenuItemPositives
+            // 
+            this.toolStripMenuItemPositives.Checked = true;
+            this.toolStripMenuItemPositives.CheckOnClick = true;
+            this.toolStripMenuItemPositives.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripMenuItemPositives.Name = "toolStripMenuItemPositives";
+            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemPositives.Text = "zeige Positive";
+            this.toolStripMenuItemPositives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemPositives_CheckedChanged);
+            // 
+            // toolStripMenuItemNegatives
+            // 
+            this.toolStripMenuItemNegatives.Checked = true;
+            this.toolStripMenuItemNegatives.CheckOnClick = true;
+            this.toolStripMenuItemNegatives.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripMenuItemNegatives.Name = "toolStripMenuItemNegatives";
+            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNegatives.Text = "zeige Negative";
+            this.toolStripMenuItemNegatives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNegatives_CheckedChanged);
+            // 
+            // toolStripMenuItemNeutrals
+            // 
+            this.toolStripMenuItemNeutrals.Checked = true;
+            this.toolStripMenuItemNeutrals.CheckOnClick = true;
+            this.toolStripMenuItemNeutrals.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripMenuItemNeutrals.Name = "toolStripMenuItemNeutrals";
+            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNeutrals.Text = "zeige Neutrale";
+            this.toolStripMenuItemNeutrals.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNeutrals_CheckedChanged);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -155,15 +207,12 @@
             // PointsPerModel
             // 
             this.PointsPerModel.DataPropertyName = "PointsPerModel";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle8;
             this.PointsPerModel.HeaderText = "Punkte/Model";
             this.PointsPerModel.Name = "PointsPerModel";
             this.PointsPerModel.ReadOnly = true;
-            // 
-            // groupTraitBindingSource
-            // 
-            this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
+            this.PointsPerModel.Width = 90;
             // 
             // GroupTraitSelectionForm
             // 
@@ -171,7 +220,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(343, 450);
+            this.ClientSize = new System.Drawing.Size(384, 426);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridViewGroupTraits);
             this.Controls.Add(this.toolStrip1);
@@ -199,6 +248,10 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.DataGridView dataGridViewGroupTraits;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButtonFilter;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemPositives;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNegatives;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNeutrals;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsPerModel;
     }

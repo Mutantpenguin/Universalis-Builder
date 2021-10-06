@@ -24,6 +24,9 @@ namespace Universalis
             groupTraitBindingSource.DataSource = MasterDataStorage.GroupTrait.GroupTraits.Where( s => s.Active )
                                                                                          // TODO later on work with black/whitelist here .Where( s => ( m_factionFilter == null ) || ( m_factionFilter == s.Faction ) )
                                                                                          .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                                         .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.PointsPerModel <= 0 ) )
+                                                                                         .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.PointsPerModel >= 0 ) )
+                                                                                         .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.PointsPerModel != 0 ) )
                                                                                          .OrderBy( x => x.Name )
                                                                                          .ToList();
         }
@@ -104,6 +107,21 @@ namespace Universalis
             {
                 e.Handled = true;
             }
+        }
+
+        private void toolStripMenuItemPositives_CheckedChanged( object sender, EventArgs e )
+        {
+            updateDataGridViewGroupTraits();
+        }
+
+        private void toolStripMenuItemNegatives_CheckedChanged( object sender, EventArgs e )
+        {
+            updateDataGridViewGroupTraits();
+        }
+
+        private void toolStripMenuItemNeutrals_CheckedChanged( object sender, EventArgs e )
+        {
+            updateDataGridViewGroupTraits();
         }
     }
 }

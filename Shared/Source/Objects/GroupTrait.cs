@@ -91,27 +91,5 @@ namespace Universalis
         {
             return ( PointsPerModel * modelCount );
         }
-
-        [JsonIgnore]
-        public string Type
-        {
-            get
-            {
-                var points = PointsPerModel;
-
-                if( points > 0 )
-                {
-                    return "+";
-                }
-                else if( points < 0 )
-                {
-                    return "-";
-                }
-                else
-                {
-                    return "=";
-                }
-            }
-        }
     }
 }
