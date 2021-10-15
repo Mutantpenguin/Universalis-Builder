@@ -12,32 +12,27 @@ namespace Universalis
         public static readonly Size imageSize = new Size( 400, 700 );
         public static readonly Size iconSize = new Size( 150, 150 );
 
-        public static Image CreateIconFromImage( Image img )
+        public static Image CreateIconFromImage( Image img, bool withTransparency )
         {
             if( null != img )
             {
                 if( img.Width == img.Height )
                 {
-                    if( ( img.Width <= ImageHelper.iconSize.Width )
-                        &&
-                        ( img.Height <= ImageHelper.iconSize.Height ) )
+                    Image bmp = new Bitmap( ImageHelper.iconSize.Width, ImageHelper.iconSize.Height );
+                    using( Graphics g = Graphics.FromImage( bmp ) )
                     {
-                        return( img );
-                    }
-                    else
-                    {
-                        Image bmp = new Bitmap( ImageHelper.iconSize.Width, ImageHelper.iconSize.Height );
-                        using( Graphics g = Graphics.FromImage( bmp ) )
+                        g.CompositingQuality = CompositingQuality.HighQuality;
+                        g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                        g.SmoothingMode = SmoothingMode.HighQuality;
+                        g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                        if( !withTransparency )
                         {
-                            g.CompositingQuality = CompositingQuality.HighQuality;
-                            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                            g.SmoothingMode = SmoothingMode.HighQuality;
-                            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                            g.DrawImage( img, new Rectangle( Point.Empty, bmp.Size ), new Rectangle( new Point( 0, 0 ), img.Size ), GraphicsUnit.Pixel );
+                            g.Clear( Color.White );
                         }
-
-                        return ( bmp );
+                        g.DrawImage( img, new Rectangle( Point.Empty, bmp.Size ), new Rectangle( new Point( 0, 0 ), img.Size ), GraphicsUnit.Pixel );
                     }
+
+                    return ( bmp );
                 }
                 else
                 {
