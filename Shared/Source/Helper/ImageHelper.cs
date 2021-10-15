@@ -33,7 +33,6 @@ namespace Universalis
                             g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                             g.SmoothingMode = SmoothingMode.HighQuality;
                             g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                            g.Clear( Color.White );
                             g.DrawImage( img, new Rectangle( Point.Empty, bmp.Size ), new Rectangle( new Point( 0, 0 ), img.Size ), GraphicsUnit.Pixel );
                         }
 
@@ -58,16 +57,7 @@ namespace Universalis
             {
                 using( FileStream fs = new FileStream( path, FileMode.Open, FileAccess.Read ) )
                 {
-                    Bitmap original = new Bitmap( fs );
-                    Bitmap converted = new Bitmap( original.Width, original.Height );
-
-                    using( Graphics gr = Graphics.FromImage( converted ) )
-                    {
-                        gr.Clear( Color.White );
-                        gr.DrawImage( original, new Rectangle( Point.Empty, converted.Size ) );
-                    }
-
-                    return ( converted );
+                    return( new Bitmap( fs ) );
                 }
             }
             catch( Exception ex )
