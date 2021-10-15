@@ -75,7 +75,7 @@ namespace Universalis
         {
             get;
             set;
-        } = "Bitte Beschreibung eingeben";
+        }
 
         public string Type
         {

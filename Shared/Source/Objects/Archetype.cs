@@ -123,7 +123,7 @@ namespace Universalis
         {
             get;
             set;
-        } = "Bitte Beschreibung eingeben";
+        }
 
         [JsonConverter( typeof( JsonFactionConverter ) )]
         public Faction Faction
