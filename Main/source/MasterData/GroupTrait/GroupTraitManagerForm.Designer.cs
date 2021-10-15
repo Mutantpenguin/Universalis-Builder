@@ -42,11 +42,11 @@
             this.toolStripMenuItemNegatives = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNeutrals = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewGroupTraits = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PointsPerModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PointsPerModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTraits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).BeginInit();
@@ -71,6 +71,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -86,7 +87,7 @@
             this.toolStripButtonGroupTraitAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonGroupTraitAdd.Name = "toolStripButtonGroupTraitAdd";
             this.toolStripButtonGroupTraitAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonGroupTraitAdd.ToolTipText = "neue Eigenschaft";
+            this.toolStripButtonGroupTraitAdd.ToolTipText = "neue Gruppeneigenschaft";
             this.toolStripButtonGroupTraitAdd.Click += new System.EventHandler(this.toolStripButtonGroupTraitAdd_Click);
             // 
             // toolStripButtonGroupTraitDelete
@@ -98,7 +99,7 @@
             this.toolStripButtonGroupTraitDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonGroupTraitDelete.Name = "toolStripButtonGroupTraitDelete";
             this.toolStripButtonGroupTraitDelete.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonGroupTraitDelete.ToolTipText = "Eigenschaft löschen";
+            this.toolStripButtonGroupTraitDelete.ToolTipText = "Gruppeneigenschaft löschen";
             this.toolStripButtonGroupTraitDelete.Click += new System.EventHandler(this.toolStripButtonGroupTraitDelete_Click);
             // 
             // toolStripButtonCopy
@@ -110,7 +111,7 @@
             this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonCopy.Name = "toolStripButtonCopy";
             this.toolStripButtonCopy.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonCopy.Text = "toolStripButton1";
+            this.toolStripButtonCopy.ToolTipText = "Gruppeneigenschaft kopieren";
             this.toolStripButtonCopy.Click += new System.EventHandler(this.toolStripButtonCopy_Click);
             // 
             // toolStripButtonClearSearch
@@ -144,7 +145,7 @@
             this.toolStripMenuItemPositives.CheckOnClick = true;
             this.toolStripMenuItemPositives.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemPositives.Name = "toolStripMenuItemPositives";
-            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemPositives.Size = new System.Drawing.Size(151, 22);
             this.toolStripMenuItemPositives.Text = "zeige Positive";
             this.toolStripMenuItemPositives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemPositives_CheckedChanged);
             // 
@@ -154,7 +155,7 @@
             this.toolStripMenuItemNegatives.CheckOnClick = true;
             this.toolStripMenuItemNegatives.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemNegatives.Name = "toolStripMenuItemNegatives";
-            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNegatives.Size = new System.Drawing.Size(151, 22);
             this.toolStripMenuItemNegatives.Text = "zeige Negative";
             this.toolStripMenuItemNegatives.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNegatives_CheckedChanged);
             // 
@@ -164,7 +165,7 @@
             this.toolStripMenuItemNeutrals.CheckOnClick = true;
             this.toolStripMenuItemNeutrals.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolStripMenuItemNeutrals.Name = "toolStripMenuItemNeutrals";
-            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemNeutrals.Size = new System.Drawing.Size(151, 22);
             this.toolStripMenuItemNeutrals.Text = "zeige Neutrale";
             this.toolStripMenuItemNeutrals.CheckedChanged += new System.EventHandler(this.toolStripMenuItemNeutrals_CheckedChanged);
             // 
@@ -194,6 +195,24 @@
             this.dataGridViewGroupTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewGroupTraits_CellToolTipTextNeeded);
             this.dataGridViewGroupTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewGroupTraits_KeyDown);
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // PointsPerModel
+            // 
+            this.PointsPerModel.DataPropertyName = "PointsPerModel";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PointsPerModel.HeaderText = "Punkte/Modell";
+            this.PointsPerModel.Name = "PointsPerModel";
+            this.PointsPerModel.ReadOnly = true;
+            this.PointsPerModel.Width = 90;
+            // 
             // groupTraitBindingSource
             // 
             this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
@@ -212,24 +231,6 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // PointsPerModel
-            // 
-            this.PointsPerModel.DataPropertyName = "PointsPerModel";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PointsPerModel.HeaderText = "Punkte/Modell";
-            this.PointsPerModel.Name = "PointsPerModel";
-            this.PointsPerModel.ReadOnly = true;
-            this.PointsPerModel.Width = 90;
             // 
             // GroupTraitManagerForm
             // 
