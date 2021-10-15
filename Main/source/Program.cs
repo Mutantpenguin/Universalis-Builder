@@ -30,7 +30,7 @@ namespace Universalis
 
                     var p = new OptionSet()
                     {
-                        { "g|godmode", String.Empty, v => options.GodMode = v != null },
+                        { "d|deitymode", String.Empty, v => options.DeityMode = v != null },
                     };
 
                     try

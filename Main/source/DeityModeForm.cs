@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Universalis
 {
-    public partial class GodModeForm : Form
+    public partial class DeityModeForm : Form
     {
-        public GodModeForm( Universe universe, string universePath )
+        public DeityModeForm( Universe universe, string universePath )
         {
             m_universe = universe;
             m_universePath = universePath;
@@ -37,7 +37,7 @@ namespace Universalis
 
         private void buttonGroups_Click( object sender, EventArgs e )
         {
-            factionOverviewForm = new FactionOverviewForm( m_universe, godMode: true );
+            factionOverviewForm = new FactionOverviewForm( m_universe, deityMode: true );
 
             factionOverviewForm.FormClosed += delegate
             {
@@ -67,7 +67,7 @@ namespace Universalis
             masterDataMainForm.Show( this );
         }
 
-        private void GodModeForm_FormClosing( object sender, FormClosingEventArgs e )
+        private void DeityModeForm_FormClosing( object sender, FormClosingEventArgs e )
         {
             if( factionOverviewForm != null
                 ||

@@ -8,11 +8,11 @@ namespace Universalis
 {
     public partial class FactionOverviewForm : Form
     {
-        public FactionOverviewForm( Universe universe, bool godMode )
+        public FactionOverviewForm( Universe universe, bool deityMode )
         {
             m_universe = universe;
 
-            m_godMode = godMode;
+            m_deityMode = deityMode;
 
             InitializeComponent();
 
@@ -20,7 +20,7 @@ namespace Universalis
 
             this.CenterToParent();
 
-            if( m_godMode )
+            if( m_deityMode )
             {
                 panelHeader.Visible = false;
             }
@@ -41,7 +41,7 @@ namespace Universalis
 
         private readonly Universe m_universe;
 
-        private readonly bool m_godMode;
+        private readonly bool m_deityMode;
 
         private void RefreshList()
         {
@@ -105,7 +105,7 @@ namespace Universalis
 
         private void FactionOverviewForm_FormClosing( object sender, FormClosingEventArgs e )
         {
-            if( !m_godMode )
+            if( !m_deityMode )
             {
                 switch( MessageBox.Show( "Wirklich beenden?", String.Empty, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) )
                 {

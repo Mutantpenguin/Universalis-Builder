@@ -43,11 +43,14 @@ namespace Universalis
 
             this.CenterToParent();
 
-            if( Options.GodMode )
+            if( Options.DeityMode )
             {
                 buttonCreateUniverse.Visible = true;
 
-                labelHeader.Text += " - GOD MODE";
+                string deityModeString = " - GOTTHEIT MODUS";
+
+                this.Text += deityModeString;
+                labelHeader.Text += deityModeString;
             }
 
             listViewUniverses.Font = new Font( UniversalisFont.Family, 10 );
@@ -188,7 +191,7 @@ namespace Universalis
                         }
 
                         lvi.Universe = universe;
-                        lvi.Text = Options.GodMode ? universe.NameWithVersionAndHash() : universe.NameWithVersion();
+                        lvi.Text = Options.DeityMode ? universe.NameWithVersionAndHash() : universe.NameWithVersion();
                         lvi.ToolTipText = universe.Description;
 
                         var universeImagePath = Path.Combine( universePath, universeImageFilename );
@@ -296,22 +299,22 @@ namespace Universalis
                     progressForm.ShowDialog();
                 }
 
-                if( Options.GodMode )
+                if( Options.DeityMode )
                 {
-                    var godModeForm = new GodModeForm( universe, universePath );
+                    var deityModeForm = new DeityModeForm( universe, universePath );
 
-                    godModeForm.FormClosed += delegate
+                    deityModeForm.FormClosed += delegate
                     {
-                        godModeForm.Dispose();
+                        deityModeForm.Dispose();
 
                         this.Close();
                     };
 
-                    godModeForm.Show( this );
+                    deityModeForm.Show( this );
                 }
                 else
                 {
-                    var factionOverviewForm = new FactionOverviewForm( universe, godMode: false );
+                    var factionOverviewForm = new FactionOverviewForm( universe, deityMode: false );
 
                     factionOverviewForm.FormClosed += delegate
                     {

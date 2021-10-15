@@ -1,7 +1,7 @@
 ﻿
 namespace Universalis
 {
-    partial class GodModeForm
+    partial class DeityModeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -134,7 +134,7 @@ namespace Universalis
             this.pictureBoxInfo.TabStop = false;
             this.pictureBoxInfo.Click += new System.EventHandler(this.pictureBoxInfo_Click);
             // 
-            // GodModeForm
+            // DeityModeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,10 +146,10 @@ namespace Universalis
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "GodModeForm";
+            this.Name = "DeityModeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "God Mode";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GodModeForm_FormClosing);
+            this.Text = "Gottheit Modus";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DeityModeForm_FormClosing);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panelHeader.ResumeLayout(false);

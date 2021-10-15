@@ -2,6 +2,6 @@
 {
     public class Options
     {
-        public bool GodMode { get; set; }
+        public bool DeityMode { get; set; }
     }
 }

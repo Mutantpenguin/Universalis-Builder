@@ -70,11 +70,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Source\GodModeForm.cs">
+    <Compile Include="Source\DeityModeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\GodModeForm.Designer.cs">
-      <DependentUpon>GodModeForm.cs</DependentUpon>
+    <Compile Include="Source\DeityModeForm.Designer.cs">
+      <DependentUpon>DeityModeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Helper\ArmorDisplayForm.cs">
       <SubType>Form</SubType>
@@ -344,8 +344,8 @@
     <Compile Include="Source\UserData\Group\InactiveReasonForm.Designer.cs">
       <DependentUpon>InactiveReasonForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Source\GodModeForm.resx">
-      <DependentUpon>GodModeForm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\DeityModeForm.resx">
+      <DependentUpon>DeityModeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Helper\ArmorDisplayForm.resx">
       <DependentUpon>ArmorDisplayForm.cs</DependentUpon>
