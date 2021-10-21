@@ -137,7 +137,7 @@ namespace Universalis
 
         public IList<Weapon> WeaponsWithDamageEffect( DamageEffect damageEffect )
         {
-            return ( m_weaponList.Where( x => x.DamageEffectSet.Any( y => y.ID == damageEffect.ID ) )
+            return ( m_weaponList.Where( x => x.DamageEffects.Any( y => y.ID == damageEffect.ID ) )
                                  .OrderBy( x => x.Name )
                                  .ToList()
                                  .AsReadOnly() );

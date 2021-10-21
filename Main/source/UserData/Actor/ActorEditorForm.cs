@@ -380,7 +380,7 @@ namespace Universalis
         {
             // if we don't do this, CellFormatting for the Datagrid will throw an exception because it's still working with the old content
             actorTraitBindingSource.DataSource = null;
-            actorTraitBindingSource.DataSource = m_actorModified.TraitList.OrderBy( x => x.Trait.Name )
+            actorTraitBindingSource.DataSource = m_actorModified.Traits.OrderBy( x => x.Trait.Name )
                                                                           .ToList();
 
             dataGridViewTraits.ClearSelection();
@@ -388,7 +388,7 @@ namespace Universalis
 
         private void toolStripButtonTraitAdd_Click( object sender, EventArgs e )
         {
-            List<Trait> traitList = m_actorModified.TraitList.Select( x => x.Trait )
+            List<Trait> traitList = m_actorModified.Traits.Select( x => x.Trait )
                                                              .Distinct()
                                                              .ToList();
 
@@ -400,7 +400,7 @@ namespace Universalis
                     {
                         foreach( Trait trait in addTraitToActor.SelectedTraits )
                         {
-                            m_actorModified.TraitList.Add( new Actor.ActorTrait()
+                            m_actorModified.Traits.Add( new Actor.ActorTrait()
                             {
                                 Trait = trait
                             } );
@@ -418,7 +418,7 @@ namespace Universalis
             if( dataGridViewTraits.SelectedRows.Count > 0 )
             {
                 var trait = (Actor.ActorTrait)dataGridViewTraits.Rows[ dataGridViewTraits.SelectedRows[ 0 ].Index ].DataBoundItem;
-                m_actorModified.TraitList.Remove( trait );
+                m_actorModified.Traits.Remove( trait );
 
                 updateGridViewTraits();
                 updateFields();

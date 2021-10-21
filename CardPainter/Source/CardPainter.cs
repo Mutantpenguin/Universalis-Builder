@@ -139,7 +139,7 @@ namespace Universalis
                 DrawHitPoints( g, actor );
                 DrawPoints( g, actor );
 
-                int traitsEndY = DrawTraits( g, actor.TraitList );
+                int traitsEndY = DrawTraits( g, actor.Traits );
 
                 int weaponsCount = DrawWeapons( g, actor, traitsEndY );
 

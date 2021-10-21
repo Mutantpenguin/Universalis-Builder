@@ -49,7 +49,7 @@ namespace Universalis
         {
             // if we don't do this, CellFormatting for the Datagrid will throw an exception because it's still working with the old content
             archetypeTraitBindingSource.DataSource = null;
-            archetypeTraitBindingSource.DataSource = m_modifiedArchetype.TraitList.OrderBy( x => x.Trait.Name )
+            archetypeTraitBindingSource.DataSource = m_modifiedArchetype.Traits.OrderBy( x => x.Trait.Name )
                                                                                   .ToList();
 
             dataGridViewTraits.ClearSelection();
@@ -308,7 +308,7 @@ namespace Universalis
             if( dataGridViewTraits.SelectedRows.Count > 0 )
             {
                 var trait = (Archetype.ArchetypeTrait)dataGridViewTraits.Rows[ dataGridViewTraits.SelectedRows[ 0 ].Index ].DataBoundItem;
-                m_modifiedArchetype.TraitList.Remove( trait );
+                m_modifiedArchetype.Traits.Remove( trait );
 
                 updateGridViewTraits();
             }
@@ -316,7 +316,7 @@ namespace Universalis
 
         private void toolStripButtonTraitAdd_Click( object sender, EventArgs e )
         {
-            List<Trait> traitList = m_modifiedArchetype.TraitList.Select( x => x.Trait )
+            List<Trait> traitList = m_modifiedArchetype.Traits.Select( x => x.Trait )
                                                                  .Distinct()
                                                                  .ToList();
 
@@ -328,7 +328,7 @@ namespace Universalis
                     {
                         foreach( Trait trait in addTraitToArchetype.SelectedTraits )
                         {
-                            m_modifiedArchetype.TraitList.Add( new Archetype.ArchetypeTrait()
+                            m_modifiedArchetype.Traits.Add( new Archetype.ArchetypeTrait()
                             {
                                 Trait = trait
                             } );

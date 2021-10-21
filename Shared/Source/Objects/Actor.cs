@@ -15,9 +15,9 @@ namespace Universalis
         {
             Archetype = archetype;
 
-            foreach( var archetypeTrait in archetype.TraitList )
+            foreach( var archetypeTrait in archetype.Traits )
             {
-                TraitList.Add( new ActorTrait()
+                Traits.Add( new ActorTrait()
                 {
                     Trait = archetypeTrait.Trait,
                     Level = archetypeTrait.Level
@@ -95,17 +95,17 @@ namespace Universalis
                 return ( false );
             }
 
-            foreach( ActorTrait actorTrait in TraitList )
+            foreach( ActorTrait actorTrait in Traits )
             {
-                if( !actor.TraitList.Any( x => x.Equals( actorTrait ) ) )
+                if( !actor.Traits.Any( x => x.Equals( actorTrait ) ) )
                 {
                     return ( false );
                 }
             }
 
-            foreach( ActorTrait actorTrait in actor.TraitList )
+            foreach( ActorTrait actorTrait in actor.Traits )
             {
-                if( !TraitList.Any( x => x.Equals( actorTrait ) ) )
+                if( !Traits.Any( x => x.Equals( actorTrait ) ) )
                 {
                     return ( false );
                 }
@@ -170,20 +170,20 @@ namespace Universalis
 
             Armor = actor.Armor;
 
-            if( null != TraitList )
+            if( null != Traits )
             {
-                TraitList.Clear();
+                Traits.Clear();
             }
             else
             {
-                TraitList = new List<ActorTrait>();
+                Traits = new List<ActorTrait>();
             }
 
-            if( null != actor.TraitList )
+            if( null != actor.Traits )
             {
-                foreach( ActorTrait actorTrait in actor.TraitList )
+                foreach( ActorTrait actorTrait in actor.Traits )
                 {
-                    TraitList.Add( new ActorTrait( actorTrait ) );
+                    Traits.Add( new ActorTrait( actorTrait ) );
                 }
             }
         }
@@ -339,7 +339,7 @@ namespace Universalis
             set;
         }
 
-        public List<ActorTrait> TraitList
+        public List<ActorTrait> Traits
         {
             get;
             set;
@@ -581,9 +581,9 @@ namespace Universalis
                     points += Armor.Points;
                 }
 
-                if( null != TraitList )
+                if( null != Traits )
                 {
-                    points += TraitList.Sum( x => x.Points );
+                    points += Traits.Sum( x => x.Points );
                 }
 
                 if( null != WeaponList )
@@ -620,7 +620,7 @@ namespace Universalis
                 modifier.Add( actorEquipment.Equipment.ProfileModifier );
             }
 
-            foreach( ActorTrait actorTrait in TraitList.Where( x => !x.Trait.UseOnce ) )
+            foreach( ActorTrait actorTrait in Traits.Where( x => !x.Trait.UseOnce ) )
             {
                 modifier.Add( actorTrait.Trait.ProfileModifier );
             }
@@ -638,9 +638,9 @@ namespace Universalis
                 }
             }
 
-            if( null != TraitList )
+            if( null != Traits )
             {
-                if( TraitList.Exists( x => !x.Trait.Active ) )
+                if( Traits.Exists( x => !x.Trait.Active ) )
                 {
                     return ( true );
                 }

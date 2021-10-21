@@ -303,7 +303,7 @@ namespace Universalis
 
                 List<flipsideBlock> flipsideBlocks = new List<flipsideBlock>();
 
-                foreach( var entry in actor.TraitList.Select( x => new { x.Trait, x.Level } )
+                foreach( var entry in actor.Traits.Select( x => new { x.Trait, x.Level } )
                                                      .Distinct()
                                                      .Select( x => new { Name = x.Trait.FormattedName( x.Level ), Rules = x.Trait.FormattedRules( x.Level ) } )
                                                      .Where( x => !String.IsNullOrEmpty( x.Rules ) ) )
@@ -442,9 +442,9 @@ namespace Universalis
 
             foreach( var damageEffect in MasterDataStorage.DamageEffect.DamageEffects.OrderBy( x => x.Name ) )
             {
-                if( p_group.ModelList.Exists( x => x.Active && ( x.WeaponList.Exists( y => y.Weapon.DamageEffectSet.Any( z => z.ID == damageEffect.ID ) )
+                if( p_group.ModelList.Exists( x => x.Active && ( x.WeaponList.Exists( y => y.Weapon.DamageEffects.Any( z => z.ID == damageEffect.ID ) )
                                                                ||
-                                                               ( ( x.Armor != null ) && x.Armor.DamageEffectSet.Any( y => y.ID == damageEffect.ID ) ) ) ) )
+                                                               ( ( x.Armor != null ) && x.Armor.DamageEffects.Any( y => y.ID == damageEffect.ID ) ) ) ) )
                 {
                     damageEffectsToPrint.Add( damageEffect );
                 }

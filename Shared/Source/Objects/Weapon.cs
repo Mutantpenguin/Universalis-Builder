@@ -38,8 +38,8 @@ namespace Universalis
             Damage = weapon.Damage;
             DamageType = new DamageType( weapon.DamageType );
 
-            DamageEffectSet.Clear();
-            DamageEffectSet.UnionWith( weapon.DamageEffectSet );
+            DamageEffects.Clear();
+            DamageEffects.UnionWith( weapon.DamageEffects );
 
             if( null != weapon.ProfileModifier )
             {
@@ -125,17 +125,17 @@ namespace Universalis
                 return ( false );
             }
 
-            foreach( DamageEffect damageEffect in DamageEffectSet )
+            foreach( DamageEffect damageEffect in DamageEffects )
             {
-                if( !weapon.DamageEffectSet.Any( x => x.Equals( damageEffect ) ) )
+                if( !weapon.DamageEffects.Any( x => x.Equals( damageEffect ) ) )
                 {
                     return ( false );
                 }
             }
 
-            foreach( DamageEffect damageEffect in weapon.DamageEffectSet )
+            foreach( DamageEffect damageEffect in weapon.DamageEffects )
             {
-                if( !DamageEffectSet.Any( x => x.Equals( damageEffect ) ) )
+                if( !DamageEffects.Any( x => x.Equals( damageEffect ) ) )
                 {
                     return ( false );
                 }
@@ -325,7 +325,7 @@ namespace Universalis
         };
 
         [JsonConverter( typeof( JsonDamageEffectSetConverter ) ) ]
-        public HashSet<DamageEffect> DamageEffectSet
+        public HashSet<DamageEffect> DamageEffects
         {
             get;
             set;
@@ -353,10 +353,10 @@ namespace Universalis
         public Image DamageTypeImage => DamageType.GetImage( DamageColor.EType.Red );
 
         [JsonIgnore]
-        public Image EffectsImage => DamageEffect.GetEffectSetImage( DamageEffectSet, DamageColor.EType.Red );
+        public Image EffectsImage => DamageEffect.GetEffectSetImage( DamageEffects, DamageColor.EType.Red );
 
         [JsonIgnore]
-        public string EffectsString => DamageEffect.GetEffectSetString( DamageEffectSet );
+        public string EffectsString => DamageEffect.GetEffectSetString( DamageEffects );
 
         [JsonIgnore]
         public string FormattedStrength
@@ -499,12 +499,12 @@ namespace Universalis
                 points *= weaponCosts.SustainedFireMultiplicator;
             }
 
-            if( DamageEffectSet != null )
+            if( DamageEffects != null )
             {
-                points += DamageEffectSet.Sum( x => x.Points );
+                points += DamageEffects.Sum( x => x.Points );
 
                 // scale points with the amount of different damage effects
-                points *= (float)Math.Pow( weaponCosts.DamageEffectMultiplicator, DamageEffectSet.Count );
+                points *= (float)Math.Pow( weaponCosts.DamageEffectMultiplicator, DamageEffects.Count );
             }
 
             if( ProfileModifier != null )

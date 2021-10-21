@@ -33,20 +33,20 @@ namespace Universalis
 
             Profile.Set( archetype.Profile );
 
-            if( null != TraitList )
+            if( null != Traits )
             {
-                TraitList.Clear();
+                Traits.Clear();
             }
             else
             {
-                TraitList = new List<ArchetypeTrait>();
+                Traits = new List<ArchetypeTrait>();
             }
 
-            if( null != archetype.TraitList )
+            if( null != archetype.Traits )
             {
-                foreach( ArchetypeTrait archetypeTrait in archetype.TraitList )
+                foreach( ArchetypeTrait archetypeTrait in archetype.Traits )
                 {
-                    TraitList.Add( new ArchetypeTrait( archetypeTrait ) );
+                    Traits.Add( new ArchetypeTrait( archetypeTrait ) );
                 }
             }
         }
@@ -80,17 +80,17 @@ namespace Universalis
                 return ( false );
             }
 
-            foreach( ArchetypeTrait archetypeTrait in TraitList )
+            foreach( ArchetypeTrait archetypeTrait in Traits )
             {
-                if( !archetype.TraitList.Any( x => x.Equals( archetypeTrait ) ) )
+                if( !archetype.Traits.Any( x => x.Equals( archetypeTrait ) ) )
                 {
                     return ( false );
                 }
             }
 
-            foreach( ArchetypeTrait archetypeTrait in archetype.TraitList )
+            foreach( ArchetypeTrait archetypeTrait in archetype.Traits )
             {
-                if( !TraitList.Any( x => x.Equals( archetypeTrait ) ) )
+                if( !Traits.Any( x => x.Equals( archetypeTrait ) ) )
                 {
                     return ( false );
                 }
@@ -223,7 +223,7 @@ namespace Universalis
             }
         }
 
-        public List<ArchetypeTrait> TraitList
+        public List<ArchetypeTrait> Traits
         {
             get;
             set;
@@ -242,9 +242,9 @@ namespace Universalis
 
                 points += Profile.Points( Type );
 
-                if( null != TraitList )
+                if( null != Traits )
                 {
-                    points += TraitList.Sum( x => x.Points );
+                    points += Traits.Sum( x => x.Points );
                 }
 
                 return ( points );
