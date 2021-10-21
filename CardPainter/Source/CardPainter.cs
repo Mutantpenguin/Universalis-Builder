@@ -148,7 +148,7 @@ namespace Universalis
 
                 int equipmentYPos = armorPosY + SLineHeight * ( ( null == actor.Armor ? 0 : 2 ) );
                 int equipmentEndY = equipmentYPos;
-                equipmentEndY = DrawEquipment( g, actor.EquipmentList, equipmentYPos );
+                equipmentEndY = DrawEquipment( g, actor.Equipments, equipmentYPos );
 
                 // draw the structure last, otherwise "lower" elements could paint over it
                 DrawStructure( g, equipmentEndY );

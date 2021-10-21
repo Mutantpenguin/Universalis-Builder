@@ -325,7 +325,7 @@ namespace Universalis
                     flipsideBlocks.Add( new flipsideBlock() { Name = weapon.Name, Rules = weapon.Rules } );
                 }
 
-                foreach( Equipment equipment in actor.EquipmentList.Select( x => x.Equipment )
+                foreach( Equipment equipment in actor.Equipments.Select( x => x.Equipment )
                                                                    .Distinct()
                                                                    .Where( x => !String.IsNullOrEmpty( x.Rules ) ) )
                 {

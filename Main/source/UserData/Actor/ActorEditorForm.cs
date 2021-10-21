@@ -333,7 +333,7 @@ namespace Universalis
         {
             // if we don't do this, CellFormatting for the Datagrid will throw an exception because it's still working with the old content
             actorEquipmentBindingSource.DataSource = null;
-            actorEquipmentBindingSource.DataSource = m_actorModified.EquipmentList.OrderBy( x => x.Equipment.Name )
+            actorEquipmentBindingSource.DataSource = m_actorModified.Equipments.OrderBy( x => x.Equipment.Name )
                                                                                   .ToList();
 
             dataGridViewEquipment.ClearSelection();
@@ -349,7 +349,7 @@ namespace Universalis
                     {
                         foreach( Equipment equipment in addEquipmentToActor.SelectedEquipment )
                         {
-                            m_actorModified.EquipmentList.Add( new Actor.ActorEquipment
+                            m_actorModified.Equipments.Add( new Actor.ActorEquipment
                             {
                                 Equipment = equipment
                             } );
@@ -367,7 +367,7 @@ namespace Universalis
             if( dataGridViewEquipment.SelectedRows.Count > 0 )
             {
                 var equipment = (Actor.ActorEquipment)dataGridViewEquipment.Rows[ dataGridViewEquipment.SelectedRows[ 0 ].Index ].DataBoundItem;
-                m_actorModified.EquipmentList.Remove( equipment );
+                m_actorModified.Equipments.Remove( equipment );
 
                 updateGridViewEquipment();
                 updateFields();

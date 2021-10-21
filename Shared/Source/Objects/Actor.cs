@@ -88,9 +88,9 @@ namespace Universalis
                 return ( false );
             }
 
-            if( EquipmentList.Except( actor.EquipmentList ).Any()
+            if( Equipments.Except( actor.Equipments ).Any()
                 ||
-                actor.EquipmentList.Except( EquipmentList ).Any() )
+                actor.Equipments.Except( Equipments ).Any() )
             {
                 return ( false );
             }
@@ -154,18 +154,18 @@ namespace Universalis
                 Weapons.AddRange( actor.Weapons );
             }
 
-            if( null != EquipmentList )
+            if( null != Equipments )
             {
-                EquipmentList.Clear();
+                Equipments.Clear();
             }
             else
             {
-                EquipmentList = new List<ActorEquipment>();
+                Equipments = new List<ActorEquipment>();
             }
 
-            if( null != actor.EquipmentList )
+            if( null != actor.Equipments )
             {
-                EquipmentList.AddRange( actor.EquipmentList );
+                Equipments.AddRange( actor.Equipments );
             }
 
             Armor = actor.Armor;
@@ -351,7 +351,7 @@ namespace Universalis
             set;
         } = new List<ActorWeapon>();
 
-        public List<ActorEquipment> EquipmentList
+        public List<ActorEquipment> Equipments
         {
             get;
             set;
@@ -488,7 +488,7 @@ namespace Universalis
             float loadoutWeight = 0.0f;
 
             loadoutWeight += Weapons.Sum( x => x.Weapon.Weight );
-            loadoutWeight += EquipmentList.Sum( x => x.Equipment.Weight );
+            loadoutWeight += Equipments.Sum( x => x.Equipment.Weight );
 
             if( null != Armor )
             {
@@ -591,9 +591,9 @@ namespace Universalis
                     points += Weapons.Sum( x => x.Weapon.Points );
                 }
 
-                if( null != EquipmentList )
+                if( null != Equipments )
                 {
-                    points += EquipmentList.Sum( x => x.Equipment.Points );
+                    points += Equipments.Sum( x => x.Equipment.Points );
                 }
 
                 return ( points );
@@ -615,7 +615,7 @@ namespace Universalis
                 modifier.Add( actorWeapon.Weapon.ProfileModifier );
             }
 
-            foreach( ActorEquipment actorEquipment in EquipmentList.Where( x => !x.Equipment.UseOnce ) )
+            foreach( ActorEquipment actorEquipment in Equipments.Where( x => !x.Equipment.UseOnce ) )
             {
                 modifier.Add( actorEquipment.Equipment.ProfileModifier );
             }
@@ -654,9 +654,9 @@ namespace Universalis
                 }
             }
 
-            if( null != EquipmentList )
+            if( null != Equipments )
             {
-                if( EquipmentList.Exists( x => !x.Equipment.Active ) )
+                if( Equipments.Exists( x => !x.Equipment.Active ) )
                 {
                     return ( true );
                 }
