@@ -193,7 +193,7 @@ namespace Universalis
 
         private int CalculatedPoints()
         {
-            var equipmentCosts = Costs.Get().Equipment;
+            var equipmentCosts = Costs.Get().Equipments;
 
             float points = 0;
 
