@@ -9,7 +9,7 @@ namespace Universalis
 {
     public class EquipmentStorage
     {
-        private const string s_folderName = "Equipment";
+        private const string s_folderName = "Equipments";
 
         private readonly string s_path;
 

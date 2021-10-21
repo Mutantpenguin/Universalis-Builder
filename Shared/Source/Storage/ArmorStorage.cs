@@ -10,7 +10,7 @@ namespace Universalis
 {
     public class ArmorStorage
     {
-        private const string s_folderName = "Armor";
+        private const string s_folderName = "Armors";
 
         private readonly string s_path;
 

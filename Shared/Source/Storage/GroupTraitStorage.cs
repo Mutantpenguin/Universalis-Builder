@@ -10,7 +10,7 @@ namespace Universalis
 {
     public class GroupTraitStorage
     {
-        private const string s_folderName = "GroupTrait";
+        private const string s_folderName = "GroupTraits";
 
         private readonly string s_path;
 
