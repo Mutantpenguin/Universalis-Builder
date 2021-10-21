@@ -119,9 +119,9 @@ namespace Universalis
         {
             Armor armor = (Armor)armorBindingSource.DataSource;
 
-            if( null != armor.DamageEffectList )
+            if( null != armor.DamageEffectSet )
             {
-                damageEffectsBindingSource.DataSource = armor.DamageEffectList.OrderBy( x => x.Name )
+                damageEffectsBindingSource.DataSource = armor.DamageEffectSet.OrderBy( x => x.Name )
                                                                               .ToList();
             }
 
@@ -142,18 +142,18 @@ namespace Universalis
             }
             else
             {
-                using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Rüstung, ( (Armor)armorBindingSource.DataSource ).DamageEffectList ) )
+                using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Rüstung, ( (Armor)armorBindingSource.DataSource ).DamageEffectSet ) )
                 {
                     if( effectSelectionForm.ShowDialog( this ) == DialogResult.OK )
                     {
                         if( effectSelectionForm.SelectedDamageEffects.Count > 0 )
                         {
-                            if( null == ( (Armor)armorBindingSource.DataSource ).DamageEffectList )
+                            if( null == ( (Armor)armorBindingSource.DataSource ).DamageEffectSet )
                             {
-                                ( (Armor)armorBindingSource.DataSource ).DamageEffectList = new List<DamageEffect>();
+                                ( (Armor)armorBindingSource.DataSource ).DamageEffectSet = new HashSet<DamageEffect>();
                             }
 
-                            ( (Armor)armorBindingSource.DataSource ).DamageEffectList.AddRange( effectSelectionForm.SelectedDamageEffects );
+                            ( (Armor)armorBindingSource.DataSource ).DamageEffectSet.UnionWith( effectSelectionForm.SelectedDamageEffects );
 
                             updateDamageEffects();
                         }
@@ -167,7 +167,7 @@ namespace Universalis
             if( dataGridViewDamageEffects.SelectedRows.Count > 0 )
             {
                 var damageEffect = (DamageEffect)( dataGridViewDamageEffects.Rows[ dataGridViewDamageEffects.SelectedRows[ 0 ].Index ].DataBoundItem );
-                ( (Armor)armorBindingSource.DataSource ).DamageEffectList.RemoveAll( x => x.ID == damageEffect.ID );
+                ( (Armor)armorBindingSource.DataSource ).DamageEffectSet.RemoveWhere( x => x.ID == damageEffect.ID );
 
                 updateDamageEffects();
             }

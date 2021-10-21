@@ -153,16 +153,16 @@ namespace Universalis
 
         private const int s_effectImageSize = 100;
 
-        public static Image GetEffectListImage( IList<DamageEffect> damageEffectList, DamageColor.EType color )
+        public static Image GetEffectSetImage( HashSet<DamageEffect> damageEffectSet, DamageColor.EType color )
         {
-            if( ( null != damageEffectList ) && ( damageEffectList.Count > 0 ) )
+            if( ( null != damageEffectSet ) && ( damageEffectSet.Count > 0 ) )
             {
-                Bitmap tempImage = new Bitmap( damageEffectList.Count * s_effectImageSize, s_effectImageSize );
+                Bitmap tempImage = new Bitmap( damageEffectSet.Count * s_effectImageSize, s_effectImageSize );
                 tempImage.MakeTransparent();
                 using( Graphics drawing = Graphics.FromImage( tempImage ) )
                 {
                     int i = 0;
-                    foreach( DamageEffect damageEffect in damageEffectList.OrderBy( x => x.Name ) )
+                    foreach( DamageEffect damageEffect in damageEffectSet.OrderBy( x => x.Name ) )
                     {
                         drawing.DrawImage( damageEffect.GetColoredIcon( color ), new Rectangle( i * s_effectImageSize, 0, s_effectImageSize, s_effectImageSize ) );
                         i++;
@@ -177,11 +177,11 @@ namespace Universalis
             }
         }
 
-        public static string GetEffectListString( IList<DamageEffect> damageEffectList )
+        public static string GetEffectSetString( HashSet<DamageEffect> damageEffectSet )
         {
-            if( ( null != damageEffectList ) && ( damageEffectList.Count > 0 ) )
+            if( ( null != damageEffectSet ) && ( damageEffectSet.Count > 0 ) )
             {
-                string effectsString = string.Join( ", ", damageEffectList.OrderBy( x => x.Name ).Select( x => x.Name ) );
+                string effectsString = string.Join( ", ", damageEffectSet.OrderBy( x => x.Name ).Select( x => x.Name ) );
 
                 return ( effectsString );
             }

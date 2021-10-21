@@ -78,7 +78,7 @@
     <Compile Include="Source\JsonHelper\JsonWeaponConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonArchetypeConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonArmorConverter.cs" />
-    <Compile Include="Source\JsonHelper\JsonDamageEffectListConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonDamageEffectSetConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonFactionConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonTraitConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonGroupTraitorConverter.cs" />

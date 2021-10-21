@@ -53,8 +53,8 @@ namespace Universalis
                 }
             }
 
-            DamageEffectList.Clear();
-            DamageEffectList.AddRange( armor.DamageEffectList );
+            DamageEffectSet.Clear();
+            DamageEffectSet.UnionWith( armor.DamageEffectSet );
         }
 
         public bool Equals( Armor armor )
@@ -122,17 +122,17 @@ namespace Universalis
                 }
             }
 
-            foreach( DamageEffect damageEffect in DamageEffectList )
+            foreach( DamageEffect damageEffect in DamageEffectSet )
             {
-                if( !armor.DamageEffectList.Any( x => x.Equals( damageEffect ) ) )
+                if( !armor.DamageEffectSet.Any( x => x.Equals( damageEffect ) ) )
                 {
                     return ( false );
                 }
             }
 
-            foreach( DamageEffect damageEffect in armor.DamageEffectList )
+            foreach( DamageEffect damageEffect in armor.DamageEffectSet )
             {
-                if( !DamageEffectList.Any( x => x.Equals( damageEffect ) ) )
+                if( !DamageEffectSet.Any( x => x.Equals( damageEffect ) ) )
                 {
                     return ( false );
                 }
@@ -207,12 +207,12 @@ namespace Universalis
             set;
         } = new List<DamageType>();
 
-        [JsonConverter( typeof( JsonDamageEffectListConverter ) )]
-        public List<DamageEffect> DamageEffectList
+        [JsonConverter( typeof( JsonDamageEffectSetConverter ) )]
+        public HashSet<DamageEffect> DamageEffectSet
         {
             get;
             set;
-        } = new List<DamageEffect>();
+        } = new HashSet<DamageEffect>();
 
         public bool SelfSustaining
         {
@@ -273,12 +273,12 @@ namespace Universalis
                 }
             }
 
-            if( DamageEffectList != null )
+            if( DamageEffectSet != null )
             {
-                points += DamageEffectList.Sum( x => x.Points );
+                points += DamageEffectSet.Sum( x => x.Points );
 
                 // scale points with the amount of different damage effects
-                points *= (float)Math.Pow( armorCosts.DamageEffectMultiplicator, DamageEffectList.Count );
+                points *= (float)Math.Pow( armorCosts.DamageEffectMultiplicator, DamageEffectSet.Count );
             }
 
             if( SelfSustaining )
@@ -298,10 +298,10 @@ namespace Universalis
         public Image TypesImage => DamageType.GetTypeListImage( DamageTypeList, DamageColor.EType.Green );
 
         [JsonIgnore]
-        public Image EffectsImage => DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Green );
+        public Image EffectsImage => DamageEffect.GetEffectSetImage( DamageEffectSet, DamageColor.EType.Green );
 
         [JsonIgnore]
-        public string EffectsString => DamageEffect.GetEffectListString( DamageEffectList );
+        public string EffectsString => DamageEffect.GetEffectSetString( DamageEffectSet );
 
         public string Summary()
         {

@@ -442,9 +442,9 @@ namespace Universalis
 
             foreach( var damageEffect in MasterDataStorage.DamageEffect.DamageEffects.OrderBy( x => x.Name ) )
             {
-                if( p_group.ModelList.Exists( x => x.Active && ( x.WeaponList.Exists( y => y.Weapon.DamageEffectList.Exists( z => z.ID == damageEffect.ID ) )
+                if( p_group.ModelList.Exists( x => x.Active && ( x.WeaponList.Exists( y => y.Weapon.DamageEffectSet.Any( z => z.ID == damageEffect.ID ) )
                                                                ||
-                                                               ( ( x.Armor != null ) && x.Armor.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) ) ) ) )
+                                                               ( ( x.Armor != null ) && x.Armor.DamageEffectSet.Any( y => y.ID == damageEffect.ID ) ) ) ) )
                 {
                     damageEffectsToPrint.Add( damageEffect );
                 }

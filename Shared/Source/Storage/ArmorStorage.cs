@@ -136,7 +136,7 @@ namespace Universalis
 
         public IList<Armor> ArmorsWithDamageEffect( DamageEffect damageEffect )
         {
-            return ( m_armorList.Where( x => x.DamageEffectList.Exists( y => y.ID == damageEffect.ID ) )
+            return ( m_armorList.Where( x => x.DamageEffectSet.Any( y => y.ID == damageEffect.ID ) )
                                 .OrderBy( x => x.Name )
                                 .ToList()
                                 .AsReadOnly() );

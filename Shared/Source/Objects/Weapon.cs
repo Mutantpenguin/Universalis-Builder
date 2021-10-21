@@ -9,9 +9,7 @@ namespace Universalis
     public class Weapon
     {
         public Weapon()
-        {
-            DamageEffectList = new List<DamageEffect>();
-        }
+        { }
 
         public Weapon( Weapon weapon )
             : this()
@@ -40,8 +38,8 @@ namespace Universalis
             Damage = weapon.Damage;
             DamageType = new DamageType( weapon.DamageType );
 
-            DamageEffectList.Clear();
-            DamageEffectList.AddRange( weapon.DamageEffectList );
+            DamageEffectSet.Clear();
+            DamageEffectSet.UnionWith( weapon.DamageEffectSet );
 
             if( null != weapon.ProfileModifier )
             {
@@ -127,17 +125,17 @@ namespace Universalis
                 return ( false );
             }
 
-            foreach( DamageEffect damageEffect in DamageEffectList )
+            foreach( DamageEffect damageEffect in DamageEffectSet )
             {
-                if( !weapon.DamageEffectList.Any( x => x.Equals( damageEffect ) ) )
+                if( !weapon.DamageEffectSet.Any( x => x.Equals( damageEffect ) ) )
                 {
                     return ( false );
                 }
             }
 
-            foreach( DamageEffect damageEffect in weapon.DamageEffectList )
+            foreach( DamageEffect damageEffect in weapon.DamageEffectSet )
             {
-                if( !DamageEffectList.Any( x => x.Equals( damageEffect ) ) )
+                if( !DamageEffectSet.Any( x => x.Equals( damageEffect ) ) )
                 {
                     return ( false );
                 }
@@ -326,12 +324,12 @@ namespace Universalis
             Level = DamageType.ELevel.I
         };
 
-        [JsonConverter( typeof( JsonDamageEffectListConverter ) ) ]
-        public List<DamageEffect> DamageEffectList
+        [JsonConverter( typeof( JsonDamageEffectSetConverter ) ) ]
+        public HashSet<DamageEffect> DamageEffectSet
         {
             get;
             set;
-        }
+        } = new HashSet<DamageEffect>();
 
         public ProfileModifier ProfileModifier
         {
@@ -355,10 +353,10 @@ namespace Universalis
         public Image DamageTypeImage => DamageType.GetImage( DamageColor.EType.Red );
 
         [JsonIgnore]
-        public Image EffectsImage => DamageEffect.GetEffectListImage( DamageEffectList, DamageColor.EType.Red );
+        public Image EffectsImage => DamageEffect.GetEffectSetImage( DamageEffectSet, DamageColor.EType.Red );
 
         [JsonIgnore]
-        public string EffectsString => DamageEffect.GetEffectListString( DamageEffectList );
+        public string EffectsString => DamageEffect.GetEffectSetString( DamageEffectSet );
 
         [JsonIgnore]
         public string FormattedStrength
@@ -501,12 +499,12 @@ namespace Universalis
                 points *= weaponCosts.SustainedFireMultiplicator;
             }
 
-            if( DamageEffectList != null )
+            if( DamageEffectSet != null )
             {
-                points += DamageEffectList.Sum( x => x.Points );
+                points += DamageEffectSet.Sum( x => x.Points );
 
                 // scale points with the amount of different damage effects
-                points *= (float)Math.Pow( weaponCosts.DamageEffectMultiplicator, DamageEffectList.Count );
+                points *= (float)Math.Pow( weaponCosts.DamageEffectMultiplicator, DamageEffectSet.Count );
             }
 
             if( ProfileModifier != null )

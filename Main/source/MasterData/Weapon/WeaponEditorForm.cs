@@ -231,9 +231,9 @@ namespace Universalis
         {
             Weapon weapon = (Weapon)weaponBindingSource.DataSource;
 
-            if( null != weapon.DamageEffectList )
+            if( null != weapon.DamageEffectSet )
             {
-                damageEffectsBindingSource.DataSource = weapon.DamageEffectList.OrderBy( x => x.Name )
+                damageEffectsBindingSource.DataSource = weapon.DamageEffectSet.OrderBy( x => x.Name )
                                                                                .ToList();
             }
 
@@ -254,18 +254,18 @@ namespace Universalis
             }
             else
             {
-                using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Waffe, ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList ) )
+                using( DamageEffectSelectionForm effectSelectionForm = new DamageEffectSelectionForm( DamageEffect.EUsageType.Waffe, ( (Weapon)weaponBindingSource.DataSource ).DamageEffectSet ) )
                 {
                     if( effectSelectionForm.ShowDialog( this ) == DialogResult.OK )
                     {
                         if( effectSelectionForm.SelectedDamageEffects.Count > 0 )
                         {
-                            if( null == ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList )
+                            if( null == ( (Weapon)weaponBindingSource.DataSource ).DamageEffectSet )
                             {
-                                ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList = new List<DamageEffect>();
+                                ( (Weapon)weaponBindingSource.DataSource ).DamageEffectSet = new HashSet<DamageEffect>();
                             }
 
-                            ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList.AddRange( effectSelectionForm.SelectedDamageEffects );
+                            ( (Weapon)weaponBindingSource.DataSource ).DamageEffectSet.UnionWith( effectSelectionForm.SelectedDamageEffects );
 
                             updateEffects();
                         }
@@ -279,7 +279,7 @@ namespace Universalis
             if( dataGridViewDamageEffects.SelectedRows.Count > 0 )
             {
                 DamageEffect damageEffect = (DamageEffect)( dataGridViewDamageEffects.Rows[ dataGridViewDamageEffects.SelectedRows[ 0 ].Index ].DataBoundItem );
-                ( (Weapon)weaponBindingSource.DataSource ).DamageEffectList.RemoveAll( x => x.ID == damageEffect.ID );
+                ( (Weapon)weaponBindingSource.DataSource ).DamageEffectSet.RemoveWhere( x => x.ID == damageEffect.ID );
 
                 updateEffects();
             }

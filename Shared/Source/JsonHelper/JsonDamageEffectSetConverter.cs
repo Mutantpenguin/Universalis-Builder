@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace Universalis
 {
-    internal class JsonDamageEffectListConverter : JsonConverter
+    internal class JsonDamageEffectSetConverter : JsonConverter
     {
         public override bool CanConvert( Type objectType )
         {
-            return ( objectType == typeof( List<DamageEffect> ) );
+            return ( objectType == typeof( HashSet<DamageEffect> ) );
         }
 
         public override object ReadJson( JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer )
@@ -23,14 +23,14 @@ namespace Universalis
 
             if( token.Type == JTokenType.Array )
             {
-                var damageEffectList = new List<DamageEffect>();
+                var damageEffectSet = new HashSet<DamageEffect>();
 
-                foreach( var id in token.ToObject<List<string>>() )
+                foreach( var id in token.ToObject<HashSet<string>>() )
                 {
-                    damageEffectList.Add( MasterDataStorage.DamageEffect.Get( new Guid( id ) ) );
+                    damageEffectSet.Add( MasterDataStorage.DamageEffect.Get( new Guid( id ) ) );
                 }
 
-                return ( damageEffectList );
+                return ( damageEffectSet );
             }
             else
             {
@@ -47,14 +47,14 @@ namespace Universalis
 
             if( null != value )
             {
-                var outputList = new List<string>();
+                var outputSet = new HashSet<string>();
 
-                foreach( var damageEffect in ( value as List<DamageEffect> ) )
+                foreach( var damageEffect in ( value as HashSet<DamageEffect> ) )
                 {
-                    outputList.Add( damageEffect.ID.ToString() );
+                    outputSet.Add( damageEffect.ID.ToString() );
                 }
 
-                serializer.Serialize( writer, outputList );
+                serializer.Serialize( writer, outputSet );
             }
         }
     }
