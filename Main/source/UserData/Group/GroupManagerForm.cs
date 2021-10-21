@@ -129,7 +129,7 @@ namespace Universalis
                     toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine : String.Empty ) + "Inaktive Ausstattung vorhanden!";
                 }
 
-                toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + $"Anzahl Modelle: {group.ModelList.Count}{Environment.NewLine}{ToolTipHelper.FormatMaxWidth( group.Description )}";
+                toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + $"Anzahl Modelle: {group.Models.Count}{Environment.NewLine}{ToolTipHelper.FormatMaxWidth( group.Description )}";
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( toolTipText );
             }

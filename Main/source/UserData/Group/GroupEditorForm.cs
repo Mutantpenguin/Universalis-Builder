@@ -66,7 +66,7 @@ namespace Universalis
 
         private void updateGridViewActors()
         {
-            actorsBindingSource.DataSource = m_groupModified.ModelList.ToList();
+            actorsBindingSource.DataSource = m_groupModified.Models.ToList();
 
             dataGridViewActors.ClearSelection();
 
@@ -162,7 +162,7 @@ namespace Universalis
 
                     dataGridViewActors.ClearSelection();
 
-                    m_groupModified.ModelList.Add( actor );
+                    m_groupModified.Models.Add( actor );
 
                     editActor( actor );
 
@@ -332,9 +332,9 @@ namespace Universalis
                 {
                     if( e.RowIndex > 0 )
                     {
-                        var tmp = m_groupModified.ModelList[ e.RowIndex ];
-                        m_groupModified.ModelList[ e.RowIndex ] = m_groupModified.ModelList[ e.RowIndex - 1 ];
-                        m_groupModified.ModelList[ e.RowIndex - 1 ] = tmp;
+                        var tmp = m_groupModified.Models[ e.RowIndex ];
+                        m_groupModified.Models[ e.RowIndex ] = m_groupModified.Models[ e.RowIndex - 1 ];
+                        m_groupModified.Models[ e.RowIndex - 1 ] = tmp;
 
                         updateGridViewActors();
 
@@ -343,11 +343,11 @@ namespace Universalis
                 }
                 else if( e.ColumnIndex == actorDownDataGridViewTextBoxColumn.Index )
                 {
-                    if( e.RowIndex < ( m_groupModified.ModelList.Count - 1 ) )
+                    if( e.RowIndex < ( m_groupModified.Models.Count - 1 ) )
                     {
-                        var tmp = m_groupModified.ModelList[ e.RowIndex ];
-                        m_groupModified.ModelList[ e.RowIndex ] = m_groupModified.ModelList[ e.RowIndex + 1 ];
-                        m_groupModified.ModelList[ e.RowIndex + 1 ] = tmp;
+                        var tmp = m_groupModified.Models[ e.RowIndex ];
+                        m_groupModified.Models[ e.RowIndex ] = m_groupModified.Models[ e.RowIndex + 1 ];
+                        m_groupModified.Models[ e.RowIndex + 1 ] = tmp;
 
                         updateGridViewActors();
 
@@ -515,7 +515,7 @@ namespace Universalis
             var actorNew = actorSource.Copy();
             actorNew.Name = $"(Kopie von) {actorSource.Name}";
 
-            m_groupModified.ModelList.Add( actorNew );
+            m_groupModified.Models.Add( actorNew );
 
             updateGridViewActors();
 
@@ -534,7 +534,7 @@ namespace Universalis
                                  MessageBoxIcon.Warning,
                                  MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
             {
-                m_groupModified.ModelList.Remove( actor );
+                m_groupModified.Models.Remove( actor );
 
                 updateGridViewActors();
 

@@ -603,12 +603,12 @@ namespace Universalis
 
             Weapon weaponUnarmed = null;
 
-            if( !actor.WeaponList.Any( s => s.Weapon.Type == Weapon.EType.Nahkampf ) )
+            if( !actor.Weapons.Any( s => s.Weapon.Type == Weapon.EType.Nahkampf ) )
             {
                 weaponUnarmed = actor.WeaponUnarmed();
             }
 
-            if( ( actor.WeaponList.Count == 0 ) && ( weaponUnarmed == null ) )
+            if( ( actor.Weapons.Count == 0 ) && ( weaponUnarmed == null ) )
             {
                 return ( 0 );
             }
@@ -628,7 +628,7 @@ namespace Universalis
                     lineNumber++;
                 }
 
-                foreach( var weaponEntry in actor.WeaponList.GroupBy( x => x.Weapon )
+                foreach( var weaponEntry in actor.Weapons.GroupBy( x => x.Weapon )
                                                             .Select( x => new { weapon = x.Key, count = x.Count() } )
                                                             .OrderBy( x => x.weapon.Class )
                                                             .ThenBy( x => x.weapon.RangeSort )

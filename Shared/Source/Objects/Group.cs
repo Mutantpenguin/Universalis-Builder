@@ -16,7 +16,7 @@ namespace Universalis
 
         public Group()
         {
-            ModelList = new List<Actor>();
+            Models = new List<Actor>();
         }
 
         public bool Equals( Group group )
@@ -44,17 +44,17 @@ namespace Universalis
                 return ( false );
             }
 
-            foreach( Actor actor in ModelList )
+            foreach( Actor actor in Models )
             {
-                if( !group.ModelList.Any( x => x.Equals( actor ) ) )
+                if( !group.Models.Any( x => x.Equals( actor ) ) )
                 {
                     return ( false );
                 }
             }
 
-            foreach( Actor actor in group.ModelList )
+            foreach( Actor actor in group.Models )
             {
-                if( !ModelList.Any( x => x.Equals( actor ) ) )
+                if( !Models.Any( x => x.Equals( actor ) ) )
                 {
                     return ( false );
                 }
@@ -62,9 +62,9 @@ namespace Universalis
 
             // when we get to here it is safe to assume that the actors didn't change at all
             // thus we can check if their order changed
-            for( int i = 0; i < ModelList.Count; i++ )
+            for( int i = 0; i < Models.Count; i++ )
             {
-                if( !ModelList[ i ].Equals( group.ModelList[ i ] ) )
+                if( !Models[ i ].Equals( group.Models[ i ] ) )
                 {
                     return ( false );
                 }
@@ -88,10 +88,10 @@ namespace Universalis
             Faction = group.Faction;
             GroupTrait = group.GroupTrait;
 
-            ModelList.Clear();
-            foreach( Actor actor in group.ModelList )
+            Models.Clear();
+            foreach( Actor actor in group.Models )
             {
-                ModelList.Add( new Actor( actor ) );
+                Models.Add( new Actor( actor ) );
             }
         }
 
@@ -140,7 +140,7 @@ namespace Universalis
             set;
         }
 
-        public List<Actor> ModelList
+        public List<Actor> Models
         {
             get;
             set;
@@ -155,10 +155,10 @@ namespace Universalis
 
                 if( GroupTrait != null )
                 {
-                    points += GroupTrait.Points( ModelList.Count );
+                    points += GroupTrait.Points( Models.Count );
                 }
 
-                points += ModelList.Where( x => x.Active )
+                points += Models.Where( x => x.Active )
                                    .Sum( x => x.Points );
 
                 return ( points );
@@ -167,7 +167,7 @@ namespace Universalis
 
         public bool HasInactiveComposition()
         {
-            if( ModelList.Exists( x => x.HasInactiveComposition() ) )
+            if( Models.Exists( x => x.HasInactiveComposition() ) )
             {
                 return ( true );
             }

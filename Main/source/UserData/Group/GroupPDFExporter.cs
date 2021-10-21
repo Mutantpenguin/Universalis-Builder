@@ -219,7 +219,7 @@ namespace Universalis
                 HorizontalAlignment = Element.ALIGN_RIGHT
             } );
 
-            foreach( var actor in group.ModelList.Where( x => x.Active )
+            foreach( var actor in group.Models.Where( x => x.Active )
                                                  .OrderBy( x => x.Name ) )
             {
                 Image actorImg = Image.GetInstance( actor.Icon ?? group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
@@ -279,7 +279,7 @@ namespace Universalis
             positions[ 1 ].X = ( 2 * distanceX ) + s_cardWidth;
             positions[ 1 ].Y = distanceY + s_cardHeight;
 
-            List<Actor> sortedActorList = group.ModelList.Where( x => x.Active )
+            List<Actor> sortedActorList = group.Models.Where( x => x.Active )
                                                          .OrderBy( x => x.Name )
                                                          .ToList();
 
@@ -318,7 +318,7 @@ namespace Universalis
                     flipsideBlocks.Add( new flipsideBlock() { Name = actor.Armor.Name, Rules = actor.Armor.Rules } );
                 }
 
-                foreach( Weapon weapon in actor.WeaponList.Select( x => x.Weapon )
+                foreach( Weapon weapon in actor.Weapons.Select( x => x.Weapon )
                                                           .Distinct()
                                                           .Where( x => !String.IsNullOrEmpty( x.Rules ) ) )
                 {
@@ -442,7 +442,7 @@ namespace Universalis
 
             foreach( var damageEffect in MasterDataStorage.DamageEffect.DamageEffects.OrderBy( x => x.Name ) )
             {
-                if( p_group.ModelList.Exists( x => x.Active && ( x.WeaponList.Exists( y => y.Weapon.DamageEffects.Any( z => z.ID == damageEffect.ID ) )
+                if( p_group.Models.Exists( x => x.Active && ( x.Weapons.Exists( y => y.Weapon.DamageEffects.Any( z => z.ID == damageEffect.ID ) )
                                                                ||
                                                                ( ( x.Armor != null ) && x.Armor.DamageEffects.Any( y => y.ID == damageEffect.ID ) ) ) ) )
                 {

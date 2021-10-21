@@ -285,7 +285,7 @@ namespace Universalis
         {
             // if we don't do this, CellFormatting for the Datagrid will throw an exception because it's still working with the old content
             actorWeaponBindingSource.DataSource = null;
-            actorWeaponBindingSource.DataSource = m_actorModified.WeaponList.OrderBy( x => x.Weapon.Class )
+            actorWeaponBindingSource.DataSource = m_actorModified.Weapons.OrderBy( x => x.Weapon.Class )
                                                                             .ThenBy( x => x.Weapon.RangeSort )
                                                                             .ThenBy( x => x.Weapon.Name )
                                                                             .ToList();
@@ -302,7 +302,7 @@ namespace Universalis
                     {
                         foreach( Weapon weapon in addWeaponToActor.SelectedWeapons )
                         {
-                            m_actorModified.WeaponList.Add( new Actor.ActorWeapon
+                            m_actorModified.Weapons.Add( new Actor.ActorWeapon
                             {
                                 Weapon = weapon
                             } );
@@ -320,7 +320,7 @@ namespace Universalis
             if( dataGridViewWeapons.SelectedRows.Count > 0 )
             {
                 var weapon = (Actor.ActorWeapon)dataGridViewWeapons.Rows[ dataGridViewWeapons.SelectedRows[ 0 ].Index ].DataBoundItem;
-                m_actorModified.WeaponList.Remove( weapon );
+                m_actorModified.Weapons.Remove( weapon );
 
                 updateGridViewWeapons();
                 updateFields();
