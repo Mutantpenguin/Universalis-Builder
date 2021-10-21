@@ -365,7 +365,7 @@ namespace Universalis
         } = new ArmorCosts();
         
         [JsonProperty( Required = Required.Always )]
-        public EquipmentCosts Equipment
+        public EquipmentCosts Equipments
         {
             get;
             private set;
