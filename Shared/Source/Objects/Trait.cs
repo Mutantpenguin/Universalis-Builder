@@ -194,11 +194,6 @@ namespace Universalis
 
             points += level * AdditionalPoints;
 
-            if( ProfileModifier != null )
-            {
-                points += ProfileModifier.Points();
-            }
-
             if( UseOnce )
             {
                 points *= traitCosts.UseOnceMultiplicator;
@@ -206,6 +201,11 @@ namespace Universalis
 
             // the lower the needed AP the higher the points
             points *= ( 1 + ( 6 - AP ) * 0.25f );
+
+            if( ProfileModifier != null )
+            {
+                points += ProfileModifier.Points();
+            }
 
             return ( (int)points );
         }

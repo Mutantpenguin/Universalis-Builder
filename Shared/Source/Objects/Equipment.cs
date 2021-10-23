@@ -200,11 +200,6 @@ namespace Universalis
             // TODO calculate points with values
             // Weight - especially since it can be negative
 
-            if( ProfileModifier != null )
-            {
-                points += ProfileModifier.Points();
-            }
-
             if( UseOnce )
             {
                 points *= equipmentCosts.UseOnceMultiplicator;
@@ -217,6 +212,11 @@ namespace Universalis
 
             // the lower the needed AP the higher the points
             points *= ( 1 + ( 6 - AP ) * 0.25f );
+
+            if( ProfileModifier != null )
+            {
+                points += ProfileModifier.Points();
+            }
 
             return ( (int)points );
         }

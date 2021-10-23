@@ -505,11 +505,6 @@ namespace Universalis
                 points *= (float)Math.Pow( weaponCosts.DamageEffectMultiplicator, DamageEffects.Count );
             }
 
-            if( ProfileModifier != null )
-            {
-                points += ProfileModifier.Points();
-            }
-
             if( Unwieldy )
             {
                 points *= weaponCosts.UnwieldyMultiplicator;
@@ -550,6 +545,11 @@ namespace Universalis
 
             // the lower the class the higher the points
             points *= ( 1 + ( 5 - (int)Class ) * 0.25f );
+
+            if( ProfileModifier != null )
+            {
+                points += ProfileModifier.Points();
+            }
 
             return ( (int)points );
         }
