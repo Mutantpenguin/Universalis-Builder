@@ -477,7 +477,6 @@ namespace Universalis
             float points = 0;
 
             // TODO calculate points with values
-            // Radius
             // Weight
 
             points += Strength * weaponCosts.Strength;
@@ -545,6 +544,9 @@ namespace Universalis
 
                 points *= 1 + ( rangeMultiplikator / 100.0f );
             }
+
+            // each cm in radius adds 5%
+            points *= 1 + ( ( Radius * 5 ) / 100.0f );
 
             // the lower the class the higher the points
             points *= ( 1 + ( 5 - (int)Class ) * 0.25f );
