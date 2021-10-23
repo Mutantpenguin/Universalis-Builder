@@ -478,7 +478,6 @@ namespace Universalis
 
             // TODO calculate points with values
             // Radius
-            // Range
             // Weight
 
             points += Strength * weaponCosts.Strength;
@@ -530,6 +529,21 @@ namespace Universalis
             if( UseOnce )
             {
                 points *= weaponCosts.UseOnceMultiplicator;
+            }
+
+            if( Type == EType.Fernkampf )
+            {
+                float rangeMultiplikator = 0.0f;
+
+                // each cm adds 1% to the costs
+                // but for each range-band the costs diminish
+                // 1st is full, 2nd is half, 3rd a third and so on
+                for( int i = 0; i < Range.Amount; i++ )
+                {
+                    rangeMultiplikator += (float)Range.Length / (i+1);
+                }
+
+                points *= 1 + ( rangeMultiplikator / 100.0f );
             }
 
             // the lower the class the higher the points

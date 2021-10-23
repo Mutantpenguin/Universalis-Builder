@@ -151,6 +151,8 @@ namespace Universalis
 
         private void weaponRangeBindingSource_CurrentItemChanged( object sender, EventArgs e )
         {
+            weaponBindingSource.ResetCurrentItem();
+
             updateMaxRange();
         }
 
