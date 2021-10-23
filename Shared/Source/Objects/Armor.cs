@@ -298,10 +298,10 @@ namespace Universalis
         public Image TypesImage => DamageType.GetTypeListImage( DamageTypes, DamageColor.EType.Green );
 
         [JsonIgnore]
-        public Image EffectsImage => DamageEffect.GetEffectSetImage( DamageEffects, DamageColor.EType.Green );
+        public Image EffectsImage => DamageEffect.GetEffectsImage( DamageEffects, DamageColor.EType.Green );
 
         [JsonIgnore]
-        public string EffectsString => DamageEffect.GetEffectSetString( DamageEffects );
+        public string EffectsString => DamageEffect.GetEffectsString( DamageEffects );
 
         public string Summary()
         {

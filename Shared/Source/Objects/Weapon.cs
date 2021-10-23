@@ -353,10 +353,10 @@ namespace Universalis
         public Image DamageTypeImage => DamageType.GetImage( DamageColor.EType.Red );
 
         [JsonIgnore]
-        public Image EffectsImage => DamageEffect.GetEffectSetImage( DamageEffects, DamageColor.EType.Red );
+        public Image EffectsImage => DamageEffect.GetEffectsImage( DamageEffects, DamageColor.EType.Red );
 
         [JsonIgnore]
-        public string EffectsString => DamageEffect.GetEffectSetString( DamageEffects );
+        public string EffectsString => DamageEffect.GetEffectsString( DamageEffects );
 
         [JsonIgnore]
         public string FormattedStrength

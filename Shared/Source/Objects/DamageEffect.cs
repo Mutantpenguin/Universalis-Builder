@@ -153,7 +153,7 @@ namespace Universalis
 
         private const int s_effectImageSize = 100;
 
-        public static Image GetEffectSetImage( HashSet<DamageEffect> damageEffectSet, DamageColor.EType color )
+        public static Image GetEffectsImage( HashSet<DamageEffect> damageEffectSet, DamageColor.EType color )
         {
             if( ( null != damageEffectSet ) && ( damageEffectSet.Count > 0 ) )
             {
@@ -177,7 +177,7 @@ namespace Universalis
             }
         }
 
-        public static string GetEffectSetString( HashSet<DamageEffect> damageEffectSet )
+        public static string GetEffectsString( HashSet<DamageEffect> damageEffectSet )
         {
             if( ( null != damageEffectSet ) && ( damageEffectSet.Count > 0 ) )
             {
