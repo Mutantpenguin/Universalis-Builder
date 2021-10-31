@@ -198,9 +198,7 @@ namespace Universalis
 
             Size textSize = new Size( CmToPixel( 4 ) - posX, CmToPixel( 0.5 ) );
             Rectangle textRect = new Rectangle( new Point( posX, posY ), textSize );
-
-            int charsFitted, linesFilled;
-            g.MeasureString( actorName, FontName, textSize, StringFormatHCenterVCenter, out charsFitted, out linesFilled );
+            g.MeasureString( actorName, FontName, textSize, StringFormatHCenterVCenter, out _, out int linesFilled );
 
             g.DrawString( actorName, linesFilled > 1 ? FontNameSmall : FontName, Brushes.Black, textRect, StringFormatHCenterVCenter );
         }
@@ -685,8 +683,7 @@ namespace Universalis
             }
 
             Size nameSize = new Size( WeaponNameWidth, SLineHeight );
-            int charsFitted, linesFilled;
-            g.MeasureString( weaponName, FontWeaponName, nameSize, StringFormatHLeftVCenter, out charsFitted, out linesFilled );
+            g.MeasureString( weaponName, FontWeaponName, nameSize, StringFormatHLeftVCenter, out int charsFitted, out _ );
             if( charsFitted < weaponName.Length )
             {
                 weaponName = "NAME IST ZU LANG!";
