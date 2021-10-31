@@ -135,21 +135,6 @@
     <None Include="Resources\NovaRound-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\typ_kinetik.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\typ_plus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\typ_schlag.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\typ_schnitt.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\typ_strahl.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\startup_sound.wav" />
   </ItemGroup>
   <ItemGroup>

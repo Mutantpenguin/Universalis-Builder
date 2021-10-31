@@ -502,8 +502,6 @@
     <None Include="Properties\DataSources\AttributeModifier.datasource" />
     <None Include="Properties\DataSources\Attributes.datasource" />
     <None Include="Properties\DataSources\DamageEffect.datasource" />
-    <None Include="Properties\DataSources\DamageType.ELevel.datasource" />
-    <None Include="Properties\DataSources\DamageType.EType.datasource" />
     <None Include="Properties\DataSources\Equipment.datasource" />
     <None Include="Properties\DataSources\Faction.datasource" />
     <None Include="Properties\DataSources\Group.datasource" />
@@ -512,7 +510,6 @@
     <None Include="Properties\DataSources\ProfileModifier.datasource" />
     <None Include="Properties\DataSources\Trait.datasource" />
     <None Include="Properties\DataSources\Weapon.datasource" />
-    <None Include="Properties\DataSources\DamageType.datasource" />
     <None Include="Properties\DataSources\WeaponRange.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

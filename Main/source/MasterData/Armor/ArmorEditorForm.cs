@@ -51,11 +51,6 @@ namespace Universalis
             }
         }
 
-        private void DamageTypeBindingSource_CurrentItemChanged( object sender, EventArgs e )
-        {
-            armorBindingSource.ResetCurrentItem();
-        }
-
         private void DamageEffectsBindingSource_CurrentItemChanged( object sender, EventArgs e )
         {
             armorBindingSource.ResetCurrentItem();
