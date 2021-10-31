@@ -32,6 +32,7 @@ namespace Universalis
             AdditionalPoints = armor.AdditionalPoints;
             Protection = armor.Protection;
             AdditiveProtection = armor.AdditiveProtection;
+            DamageReduction = armor.DamageReduction;
             SelfSustaining = armor.SelfSustaining;
 
             if( null != armor.ProfileModifier )
@@ -72,6 +73,8 @@ namespace Universalis
             if( Protection != armor.Protection
                 ||
                 AdditiveProtection != armor.AdditiveProtection
+                ||
+                DamageReduction != armor.DamageReduction
                 ||
                 SelfSustaining != armor.SelfSustaining )
             {
@@ -175,6 +178,12 @@ namespace Universalis
             set;
         } = false;
 
+        public int DamageReduction
+        {
+            get;
+            set;
+        } = 0;
+
         [JsonConverter( typeof( JsonDamageEffectSetConverter ) )]
         public HashSet<DamageEffect> DamageEffects
         {
@@ -214,6 +223,22 @@ namespace Universalis
             }
         }
 
+        [JsonIgnore]
+        public string FormattedDamageReduction
+        {
+            get
+            {
+                if( 0 == DamageReduction )
+                {
+                    return ( "-" );
+                }
+                else
+                {
+                    return ( DamageReduction.ToString() );
+                }
+            }
+        }
+
         private int CalculatedPoints()
         {
             var armorCosts = Costs.Get().Armors;
@@ -229,6 +254,8 @@ namespace Universalis
             {
                 points *= armorCosts.AdditiveProtectionMultiplicator;
             }
+
+            points += DamageReduction * armorCosts.DamageReduction;
 
             if( DamageEffects != null )
             {

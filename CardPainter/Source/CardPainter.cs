@@ -800,9 +800,11 @@ namespace Universalis
             {
                 int nameWidth = CmToPixel( 3.3 );
                 int protectionWidth = CmToPixel( 0.5 );
+                int damageReductionWidth = CmToPixel( 0.5 );
 
                 int protectionStart = SSectionsPosX + nameWidth;
-                int effectsStart = protectionStart + protectionWidth;
+                int damageReductionStart = protectionStart + protectionWidth;
+                int effectsStart = damageReductionStart + damageReductionWidth;
 
                 DrawSectionHeader( g, "Rüstung", SectionHeaderArmor, posY );
 
@@ -823,6 +825,12 @@ namespace Universalis
                     Helpers.DrawStringCentered( g, armor.FormattedProtection, FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
                 }
 
+                // Damage Reduction
+                g.DrawLine( SLinePenBlack, damageReductionStart, posY + SLineHeight, damageReductionStart, posY + SLineHeightDouble );
+                g.DrawImage( Properties.Resources.Schadensreduktion_weiss, new Rectangle( damageReductionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                Helpers.DrawStringCentered( g, armor.FormattedDamageReduction, FontArmor, ArmorFontBrush, new Rectangle( damageReductionStart, posY + SLineHeight, damageReductionWidth, SLineHeight ) );
+
+                // Damage Effects
                 g.DrawLine( SLinePenBlack, effectsStart, posY + SLineHeight, effectsStart, posY + SLineHeightDouble );
 
                 int damageEffectsPosX = DrawDamageEffects( g, effectsStart, posY + SLineHeight, armor.EffectsImage );

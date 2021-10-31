@@ -260,6 +260,13 @@ namespace Universalis
             }
 
             [JsonProperty( Required = Required.Always )]
+            public int DamageReduction
+            {
+                get;
+                private set;
+            }
+
+            [ JsonProperty( Required = Required.Always )]
             public float DamageEffectMultiplicator
             {
                 get;

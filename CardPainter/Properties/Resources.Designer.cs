@@ -193,6 +193,16 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Schadensreduktion_weiss {
+            get {
+                object obj = ResourceManager.GetObject("Schadensreduktion_weiss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Schutz_weiss {
             get {
                 object obj = ResourceManager.GetObject("Schutz_weiss", resourceCulture);
