@@ -53,7 +53,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypesImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.Protection = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EffectsImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.SelfSustaining = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -84,13 +83,14 @@
             this.toolStripButtonClearSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(858, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(774, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -156,7 +156,6 @@
             this.dataGridViewArmor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArmor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
-            this.TypesImage,
             this.Protection,
             this.EffectsImage,
             this.SelfSustaining,
@@ -178,7 +177,7 @@
             this.dataGridViewArmor.ReadOnly = true;
             this.dataGridViewArmor.RowHeadersVisible = false;
             this.dataGridViewArmor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewArmor.Size = new System.Drawing.Size(858, 379);
+            this.dataGridViewArmor.Size = new System.Drawing.Size(774, 379);
             this.dataGridViewArmor.TabIndex = 0;
             this.dataGridViewArmor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewArmor_CellDoubleClick);
             this.dataGridViewArmor.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewArmor_CellFormatting);
@@ -195,7 +194,7 @@
             this.toolStripStatusLabelCount});
             this.statusStrip1.Location = new System.Drawing.Point(0, 404);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(858, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(774, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -211,14 +210,6 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // TypesImage
-            // 
-            this.TypesImage.DataPropertyName = "TypesImage";
-            this.TypesImage.HeaderText = "Schadenstypen";
-            this.TypesImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.TypesImage.Name = "TypesImage";
-            this.TypesImage.ReadOnly = true;
             // 
             // Protection
             // 
@@ -364,7 +355,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 426);
+            this.ClientSize = new System.Drawing.Size(774, 426);
             this.Controls.Add(this.dataGridViewArmor);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -397,7 +388,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCount;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn TypesImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn Protection;
         private System.Windows.Forms.DataGridViewImageColumn EffectsImage;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelfSustaining;

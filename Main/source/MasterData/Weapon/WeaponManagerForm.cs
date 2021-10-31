@@ -21,10 +21,6 @@ namespace Universalis
             filterType.ComboBox.SelectedIndex = 0;
             filterType.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
 
-            filterDamageType.ComboBox.DataSource = DamageType.ETypeList;
-            filterDamageType.ComboBox.SelectedIndex = 0;
-            filterDamageType.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
-
             refreshGridView();
 
             toolStripTextBoxSearch.TextBox.Select();
@@ -46,7 +42,6 @@ namespace Universalis
                                                                    .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                    .Where( s => filterWeaponClass.Enabled ? s.Class == (Weapon.EClass)filterWeaponClass.ComboBox.SelectedItem : true )
                                                                    .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
-                                                                   .Where( s => filterDamageType.Enabled ? s.DamageType.Type == (DamageType.EType)filterDamageType.ComboBox.SelectedItem : true )
                                                                    .OrderBy( x => x.Name )
                                                                    .ToList();
 
@@ -61,15 +56,6 @@ namespace Universalis
             filterWeaponClass.Enabled = !filterWeaponClass.Enabled;
 
             checkBoxFilterWeaponClass.Image = checkBoxFilterWeaponClass.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
-
-            refreshGridView();
-        }
-
-        private void checkBoxFilterDamageType_Click( object sender, EventArgs e )
-        {
-            filterDamageType.Enabled = !filterDamageType.Enabled;
-
-            checkBoxFilterDamageType.Image = checkBoxFilterDamageType.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
 
             refreshGridView();
         }

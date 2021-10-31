@@ -544,20 +544,10 @@ namespace Universalis
                 {
                     case Archetype.EType.Infanterie:
                         weaponUnarmed.Class = Weapon.EClass.I;
-                        weaponUnarmed.DamageType = new DamageType()
-                        {
-                            Type = DamageType.EType.Schlag,
-                            Level = DamageType.ELevel.O
-                        };
                         break;
 
                     case Archetype.EType.Koloss:
                         weaponUnarmed.Class = Weapon.EClass.II;
-                        weaponUnarmed.DamageType = new DamageType()
-                        {
-                            Type = DamageType.EType.Schlag,
-                            Level = DamageType.ELevel.II
-                        };
                         break;
 
                     default:

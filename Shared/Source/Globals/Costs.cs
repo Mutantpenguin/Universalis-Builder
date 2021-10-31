@@ -201,13 +201,6 @@ namespace Universalis
             }
 
             [JsonProperty( Required = Required.Always )]
-            public float DamageTypeLevelMultiplicator
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
             public float UseOnceMultiplicator
             {
                 get;
@@ -261,13 +254,6 @@ namespace Universalis
         {
             [JsonProperty( Required = Required.Always )]
             public int Protection
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float DamageTypeLevelMultiplicator
             {
                 get;
                 private set;

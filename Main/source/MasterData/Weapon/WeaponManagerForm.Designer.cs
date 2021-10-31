@@ -56,17 +56,11 @@
             this.filterWeaponClass = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterWeaponClass = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
-            this.filterDamageType = new System.Windows.Forms.ToolStripComboBox();
-            this.checkBoxFilterDamageType = new System.Windows.Forms.ToolStripButton();
             this.filterType = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.WeaponClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DamageTypeImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.Strength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Damage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,10 +83,13 @@
             this.DETString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -105,13 +102,11 @@
             this.filterWeaponClass,
             this.checkBoxFilterWeaponClass,
             this.toolStripButtonCopy,
-            this.filterDamageType,
-            this.checkBoxFilterDamageType,
             this.filterType,
             this.checkBoxFilterType});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1019, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1001, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -191,25 +186,6 @@
             this.toolStripButtonCopy.ToolTipText = "Waffe kopieren";
             this.toolStripButtonCopy.Click += new System.EventHandler(this.toolStripButtonCopy_Click);
             // 
-            // filterDamageType
-            // 
-            this.filterDamageType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filterDamageType.Enabled = false;
-            this.filterDamageType.Name = "filterDamageType";
-            this.filterDamageType.Size = new System.Drawing.Size(121, 25);
-            // 
-            // checkBoxFilterDamageType
-            // 
-            this.checkBoxFilterDamageType.CheckOnClick = true;
-            this.checkBoxFilterDamageType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterDamageType.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
-            this.checkBoxFilterDamageType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.checkBoxFilterDamageType.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.checkBoxFilterDamageType.Name = "checkBoxFilterDamageType";
-            this.checkBoxFilterDamageType.Size = new System.Drawing.Size(23, 22);
-            this.checkBoxFilterDamageType.ToolTipText = "nach Schadenstyp filtern";
-            this.checkBoxFilterDamageType.Click += new System.EventHandler(this.checkBoxFilterDamageType_Click);
-            // 
             // filterType
             // 
             this.filterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -242,7 +218,6 @@
             this.dataGridViewWeapons.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WeaponClass,
             this.nameDataGridViewTextBoxColumn,
-            this.DamageTypeImage,
             this.Strength,
             this.Damage,
             this.FormattedRange,
@@ -272,31 +247,12 @@
             this.dataGridViewWeapons.ReadOnly = true;
             this.dataGridViewWeapons.RowHeadersVisible = false;
             this.dataGridViewWeapons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewWeapons.Size = new System.Drawing.Size(1019, 379);
+            this.dataGridViewWeapons.Size = new System.Drawing.Size(1001, 379);
             this.dataGridViewWeapons.TabIndex = 0;
             this.dataGridViewWeapons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewWeapons_CellDoubleClick);
             this.dataGridViewWeapons.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewWeapons_CellFormatting);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWeapons_KeyDown);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabelCount});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1019, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabelCount
-            // 
-            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
-            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
-            // 
-            // weaponBindingSource
-            // 
-            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
             // 
             // WeaponClass
             // 
@@ -315,15 +271,6 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // DamageTypeImage
-            // 
-            this.DamageTypeImage.DataPropertyName = "DamageTypeImage";
-            this.DamageTypeImage.HeaderText = "Typ";
-            this.DamageTypeImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.DamageTypeImage.Name = "DamageTypeImage";
-            this.DamageTypeImage.ReadOnly = true;
-            this.DamageTypeImage.Width = 30;
             // 
             // Strength
             // 
@@ -547,11 +494,30 @@
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.pointsDataGridViewTextBoxColumn.Width = 50;
             // 
+            // weaponBindingSource
+            // 
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelCount});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1001, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabelCount
+            // 
+            this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
+            this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
+            // 
             // WeaponManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1019, 426);
+            this.ClientSize = new System.Drawing.Size(1001, 426);
             this.Controls.Add(this.dataGridViewWeapons);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -563,9 +529,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -582,8 +548,6 @@
         private System.Windows.Forms.ToolStripComboBox filterWeaponClass;
         private System.Windows.Forms.ToolStripButton checkBoxFilterWeaponClass;
         private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
-        private System.Windows.Forms.ToolStripComboBox filterDamageType;
-        private System.Windows.Forms.ToolStripButton checkBoxFilterDamageType;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCount;
         private System.Windows.Forms.ToolStripComboBox filterType;
@@ -591,7 +555,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn WeaponClass;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn DamageTypeImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn Strength;
         private System.Windows.Forms.DataGridViewTextBoxColumn Damage;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedRange;

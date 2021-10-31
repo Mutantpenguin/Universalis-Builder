@@ -36,7 +36,6 @@ namespace Universalis
             Strength = weapon.Strength;
             AdditiveStrength = weapon.AdditiveStrength;
             Damage = weapon.Damage;
-            DamageType = new DamageType( weapon.DamageType );
 
             DamageEffects.Clear();
             DamageEffects.UnionWith( weapon.DamageEffects );
@@ -114,13 +113,6 @@ namespace Universalis
                 Unwieldy != weapon.Unwieldy
                 ||
                 Reloadable != weapon.Reloadable )
-            {
-                return ( false );
-            }
-
-            if( DamageType.Type != weapon.DamageType.Type
-                ||
-                DamageType.Level != weapon.DamageType.Level )
             {
                 return ( false );
             }
@@ -314,16 +306,6 @@ namespace Universalis
             set;
         } = false;
 
-        public DamageType DamageType
-        {
-            get;
-            set;
-        } = new DamageType
-        {
-            Type = DamageType.EType.Kinetisch,
-            Level = DamageType.ELevel.I
-        };
-
         [JsonConverter( typeof( JsonDamageEffectSetConverter ) ) ]
         public HashSet<DamageEffect> DamageEffects
         {
@@ -348,9 +330,6 @@ namespace Universalis
             get;
             set;
         } = false;
-
-        [JsonIgnore]
-        public Image DamageTypeImage => DamageType.GetImage( DamageColor.EType.Red );
 
         [JsonIgnore]
         public Image EffectsImage => DamageEffect.GetEffectsImage( DamageEffects, DamageColor.EType.Red );
@@ -485,11 +464,6 @@ namespace Universalis
             if( AdditiveStrength )
             {
                 points *= weaponCosts.AdditiveStrengthMultiplicator;
-            }
-
-            for( int i = 0; i < (int)DamageType.Level; i++ )
-            {
-                points *= weaponCosts.DamageTypeLevelMultiplicator;
             }
 
             for( int i = 0; i < SustainedFire; i++ )

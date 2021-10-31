@@ -160,12 +160,6 @@
     <Compile Include="Source\Misc\CommitForm.Designer.cs">
       <DependentUpon>CommitForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Misc\DamageTypeSelectionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Misc\DamageTypeSelectionForm.Designer.cs">
-      <DependentUpon>DamageTypeSelectionForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\Misc\DamageEffectSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -393,9 +387,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Misc\CommitForm.resx">
       <DependentUpon>CommitForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Misc\DamageTypeSelectionForm.resx">
-      <DependentUpon>DamageTypeSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Misc\DamageEffectSelectionForm.resx">
       <DependentUpon>DamageEffectSelectionForm.cs</DependentUpon>

@@ -51,7 +51,6 @@
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typesImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.protectionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.effectsImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.SelfSustaining = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -77,7 +76,7 @@
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
-            this.buttonOk.Location = new System.Drawing.Point(769, 3);
+            this.buttonOk.Location = new System.Drawing.Point(671, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 2;
@@ -112,7 +111,6 @@
             this.dataGridViewArmor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArmor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
-            this.typesImageDataGridViewImageColumn,
             this.protectionDataGridViewTextBoxColumn,
             this.effectsImageDataGridViewImageColumn,
             this.SelfSustaining,
@@ -135,7 +133,7 @@
             this.dataGridViewArmor.ReadOnly = true;
             this.dataGridViewArmor.RowHeadersVisible = false;
             this.dataGridViewArmor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewArmor.Size = new System.Drawing.Size(872, 369);
+            this.dataGridViewArmor.Size = new System.Drawing.Size(774, 369);
             this.dataGridViewArmor.TabIndex = 3;
             this.dataGridViewArmor.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewArmor_CellDoubleClick);
             this.dataGridViewArmor.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewArmor_CellFormatting);
@@ -153,7 +151,7 @@
             this.toolStripButtonClearSearch});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(872, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(774, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -184,7 +182,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 394);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(872, 32);
+            this.panel2.Size = new System.Drawing.Size(774, 32);
             this.panel2.TabIndex = 2;
             // 
             // nameDataGridViewTextBoxColumn
@@ -195,14 +193,6 @@
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 125;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // typesImageDataGridViewImageColumn
-            // 
-            this.typesImageDataGridViewImageColumn.DataPropertyName = "TypesImage";
-            this.typesImageDataGridViewImageColumn.HeaderText = "Schadenstypen";
-            this.typesImageDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.typesImageDataGridViewImageColumn.Name = "typesImageDataGridViewImageColumn";
-            this.typesImageDataGridViewImageColumn.ReadOnly = true;
             // 
             // protectionDataGridViewTextBoxColumn
             // 
@@ -351,7 +341,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(872, 426);
+            this.ClientSize = new System.Drawing.Size(774, 426);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridViewArmor);
             this.Controls.Add(this.panel2);
@@ -380,7 +370,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn typesImageDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn protectionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn effectsImageDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelfSustaining;

@@ -97,7 +97,7 @@ namespace Universalis
 
         #region weaponMembers
         private static readonly int WeaponWkWidth = CmToPixel( 0.5 );
-        private static readonly int WeaponNameWidth = CmToPixel( 3.3 ) - SLineHeight;
+        private static readonly int WeaponNameWidth = CmToPixel( 2.8 );
         private static readonly int WeaponStrengthWidth = CmToPixel( 0.5 );
         private static readonly int WeaponDamageWidth = CmToPixel( 0.5 );
         private static readonly int WeaponRangeWidth = CmToPixel( 0.9 );
@@ -105,8 +105,7 @@ namespace Universalis
 
         private static readonly int WeaponWkStart = SSectionsPosX;
         private static readonly int WeaponNameStart = WeaponWkStart + WeaponWkWidth;
-        private static readonly int WeaponTypeStart = WeaponNameStart + WeaponNameWidth;
-        private static readonly int WeaponStrengthStart = WeaponTypeStart + SLineHeight;
+        private static readonly int WeaponStrengthStart = WeaponNameStart + WeaponNameWidth;
         private static readonly int WeaponDamageStart = WeaponStrengthStart + WeaponStrengthWidth;
         private static readonly int WeaponRangeStart = WeaponDamageStart + WeaponDamageWidth;
 
@@ -147,8 +146,7 @@ namespace Universalis
                 DrawArmor( g, actor, actor.Armor, armorPosY );
 
                 int equipmentYPos = armorPosY + SLineHeight * ( ( null == actor.Armor ? 0 : 2 ) );
-                int equipmentEndY = equipmentYPos;
-                equipmentEndY = DrawEquipment( g, actor.Equipments, equipmentYPos );
+                int equipmentEndY = DrawEquipment( g, actor.Equipments, equipmentYPos );
 
                 // draw the structure last, otherwise "lower" elements could paint over it
                 DrawStructure( g, equipmentEndY );
@@ -642,8 +640,6 @@ namespace Universalis
                 int lineVertEnd = posY + ( lineNumber * SLineHeight );
 
                 // right of name
-                g.DrawLine( SLinePenBlack, WeaponWkStart, posY + SLineHeight, WeaponWkStart, lineVertEnd );
-                // right of wk
                 g.DrawLine( SLinePenBlack, WeaponStrengthStart, posY + SLineHeight, WeaponStrengthStart, lineVertEnd );
                 // right of strength
                 g.DrawLine( SLinePenBlack, WeaponDamageStart, posY + SLineHeight, WeaponDamageStart, lineVertEnd );
@@ -659,17 +655,17 @@ namespace Universalis
         private static void DrawWeapon( Graphics g, Actor actor, Weapon weapon, int count, int posY )
         {
             g.DrawLine( SLinePenBlack, SSectionsPosX, posY + SLineHeight, SCardWidth, posY + SLineHeight );
-
+            
             Rectangle wkRect = new Rectangle( WeaponWkStart, posY, WeaponWkWidth, SLineHeight );
             g.FillRectangle( Brushes.Black, wkRect );
             Helpers.DrawStringCentered( g, weapon.Class.ToString(), FontWk, Brushes.White, wkRect );
-
+            
             if( weapon.Unwieldy )
             {
                 Rectangle unwieldyRect = new Rectangle( wkRect.Right - WeaponUnwieldyLength, wkRect.Y, WeaponUnwieldyLength, WeaponUnwieldyLength );
                 Helpers.DrawStringCentered( g, UnwieldyMarker, FontUnwieldy, Brushes.White, unwieldyRect );
             }
-
+            
             string weaponName = weapon.Name;
 
             if( weapon.UseOnce )
@@ -697,8 +693,6 @@ namespace Universalis
             }
 
             g.DrawString( weaponName, FontWeaponName, Brushes.Black, new Rectangle( new Point( WeaponNameStart, posY ), nameSize ), StringFormatHLeftVCenter );
-
-            DrawDamageType( g, WeaponStrengthStart, posY, weapon.DamageTypeImage );
 
             if( weapon.AdditiveStrength )
             {
@@ -803,23 +797,14 @@ namespace Universalis
             return ( SImageMargin + effectImageWidthDraw );
         }
 
-        private static void DrawDamageType( Graphics g, int endPosX, int posY, Image typeImage )
-        {
-            int typeImageWidthDraw = (int)( ( (float)SImageSize / (float)typeImage.Height ) * typeImage.Width );
-
-            g.DrawImage( typeImage, new Rectangle( endPosX - SImageMargin - typeImageWidthDraw, posY + SImageMargin, typeImageWidthDraw, SImageSize ) );
-        }
-
         private static void DrawArmor( Graphics g, Actor actor, Armor armor, int posY )
         {
             if( armor != null )
             {
                 int nameWidth = CmToPixel( 3.3 );
-                int typesWidth = SLineHeight * 4;
                 int protectionWidth = CmToPixel( 0.5 );
 
-                int typesStart = SSectionsPosX + nameWidth;
-                int protectionStart = typesStart + typesWidth;
+                int protectionStart = SSectionsPosX + nameWidth;
                 int effectsStart = protectionStart + protectionWidth;
 
                 DrawSectionHeader( g, "Rüstung", SectionHeaderArmor, posY );
@@ -842,8 +827,6 @@ namespace Universalis
                 }
 
                 g.DrawLine( SLinePenBlack, effectsStart, posY + SLineHeight, effectsStart, posY + SLineHeightDouble );
-
-                DrawDamageType( g, protectionStart, posY + SLineHeight, armor.TypesImage );
 
                 int damageEffectsPosX = DrawDamageEffects( g, effectsStart, posY + SLineHeight, armor.EffectsImage );
 

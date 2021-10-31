@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -40,7 +39,6 @@
             this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBoxDamageEffects = new System.Windows.Forms.PictureBox();
-            this.pictureBoxDamageTypes = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -52,12 +50,6 @@
             this.numericUpDownProtection = new System.Windows.Forms.NumericUpDown();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.dataGridViewDamageTypes = new System.Windows.Forms.DataGridView();
-            this.typeImgDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.typeTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeLevelDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.eLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.damageTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
@@ -68,11 +60,6 @@
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damageEffectsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButtonAddType = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonRemoveType = new System.Windows.Forms.ToolStripButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelProfileModifier = new System.Windows.Forms.Panel();
             this.textBoxProfileModifier = new System.Windows.Forms.TextBox();
@@ -94,26 +81,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageEffects)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageTypes)).BeginInit();
             this.panel4.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProtection)).BeginInit();
             this.toolStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageTypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eLevelBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.damageTypeBindingSource)).BeginInit();
             this.toolStrip3.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageEffects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageEffectsBindingSource)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.toolStrip5.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panelProfileModifier.SuspendLayout();
             this.toolStrip4.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
@@ -182,7 +162,7 @@
             // 
             this.numericUpDownWeight.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.armorBindingSource, "Weight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDownWeight.DecimalPlaces = 1;
-            this.numericUpDownWeight.Location = new System.Drawing.Point(86, 41);
+            this.numericUpDownWeight.Location = new System.Drawing.Point(65, 54);
             this.numericUpDownWeight.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -197,7 +177,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(83, 25);
+            this.label3.Location = new System.Drawing.Point(3, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 9;
@@ -205,31 +185,17 @@
             // 
             // pictureBoxDamageEffects
             // 
-            this.pictureBoxDamageEffects.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxDamageEffects.BackColor = System.Drawing.Color.White;
             this.pictureBoxDamageEffects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxDamageEffects.Location = new System.Drawing.Point(245, 3);
-            this.pictureBoxDamageEffects.MaximumSize = new System.Drawing.Size(1000, 48);
-            this.pictureBoxDamageEffects.MinimumSize = new System.Drawing.Size(2, 48);
+            this.pictureBoxDamageEffects.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBoxDamageEffects.Location = new System.Drawing.Point(0, 25);
+            this.pictureBoxDamageEffects.MaximumSize = new System.Drawing.Size(1000, 24);
+            this.pictureBoxDamageEffects.MinimumSize = new System.Drawing.Size(2, 24);
             this.pictureBoxDamageEffects.Name = "pictureBoxDamageEffects";
-            this.pictureBoxDamageEffects.Size = new System.Drawing.Size(236, 48);
+            this.pictureBoxDamageEffects.Size = new System.Drawing.Size(236, 24);
             this.pictureBoxDamageEffects.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxDamageEffects.TabIndex = 21;
             this.pictureBoxDamageEffects.TabStop = false;
-            // 
-            // pictureBoxDamageTypes
-            // 
-            this.pictureBoxDamageTypes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxDamageTypes.BackColor = System.Drawing.Color.White;
-            this.pictureBoxDamageTypes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxDamageTypes.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxDamageTypes.Name = "pictureBoxDamageTypes";
-            this.pictureBoxDamageTypes.Size = new System.Drawing.Size(236, 48);
-            this.pictureBoxDamageTypes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxDamageTypes.TabIndex = 25;
-            this.pictureBoxDamageTypes.TabStop = false;
             // 
             // panel4
             // 
@@ -237,7 +203,7 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 482);
+            this.panel4.Location = new System.Drawing.Point(0, 397);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(484, 98);
             this.panel4.TabIndex = 5;
@@ -279,17 +245,17 @@
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.numericUpDownProtection);
             this.panel3.Controls.Add(this.toolStrip2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 118);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(484, 64);
+            this.panel3.Size = new System.Drawing.Size(236, 149);
             this.panel3.TabIndex = 6;
             // 
             // checkBoxAdditiveProtection
             // 
             this.checkBoxAdditiveProtection.AutoSize = true;
             this.checkBoxAdditiveProtection.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.armorBindingSource, "AdditiveProtection", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxAdditiveProtection.Location = new System.Drawing.Point(44, 43);
+            this.checkBoxAdditiveProtection.Location = new System.Drawing.Point(106, 30);
             this.checkBoxAdditiveProtection.Name = "checkBoxAdditiveProtection";
             this.checkBoxAdditiveProtection.Size = new System.Drawing.Size(15, 14);
             this.checkBoxAdditiveProtection.TabIndex = 44;
@@ -299,7 +265,7 @@
             // 
             this.checkBoxSelfSustaining.AutoSize = true;
             this.checkBoxSelfSustaining.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.armorBindingSource, "SelfSustaining", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.checkBoxSelfSustaining.Location = new System.Drawing.Point(148, 41);
+            this.checkBoxSelfSustaining.Location = new System.Drawing.Point(127, 55);
             this.checkBoxSelfSustaining.Name = "checkBoxSelfSustaining";
             this.checkBoxSelfSustaining.Size = new System.Drawing.Size(91, 17);
             this.checkBoxSelfSustaining.TabIndex = 32;
@@ -309,7 +275,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 25);
+            this.label11.Location = new System.Drawing.Point(3, 30);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(40, 13);
             this.label11.TabIndex = 31;
@@ -318,7 +284,7 @@
             // numericUpDownProtection
             // 
             this.numericUpDownProtection.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.armorBindingSource, "Protection", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownProtection.Location = new System.Drawing.Point(3, 41);
+            this.numericUpDownProtection.Location = new System.Drawing.Point(65, 28);
             this.numericUpDownProtection.Maximum = new decimal(new int[] {
             12,
             0,
@@ -335,7 +301,7 @@
             this.toolStripLabel2});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(484, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(236, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -344,66 +310,6 @@
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(38, 22);
             this.toolStripLabel2.Text = "Werte";
-            // 
-            // dataGridViewDamageTypes
-            // 
-            this.dataGridViewDamageTypes.AllowUserToAddRows = false;
-            this.dataGridViewDamageTypes.AllowUserToDeleteRows = false;
-            this.dataGridViewDamageTypes.AllowUserToResizeColumns = false;
-            this.dataGridViewDamageTypes.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageTypes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewDamageTypes.AutoGenerateColumns = false;
-            this.dataGridViewDamageTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDamageTypes.ColumnHeadersVisible = false;
-            this.dataGridViewDamageTypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.typeImgDataGridViewImageColumn,
-            this.typeTypeDataGridViewTextBoxColumn,
-            this.typeLevelDataGridViewComboBoxColumn});
-            this.dataGridViewDamageTypes.DataSource = this.damageTypeBindingSource;
-            this.dataGridViewDamageTypes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewDamageTypes.Location = new System.Drawing.Point(0, 25);
-            this.dataGridViewDamageTypes.Name = "dataGridViewDamageTypes";
-            this.dataGridViewDamageTypes.RowHeadersVisible = false;
-            this.dataGridViewDamageTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDamageTypes.Size = new System.Drawing.Size(236, 91);
-            this.dataGridViewDamageTypes.TabIndex = 32;
-            this.dataGridViewDamageTypes.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewDamageTypes_CurrentCellDirtyStateChanged);
-            // 
-            // typeImgDataGridViewImageColumn
-            // 
-            this.typeImgDataGridViewImageColumn.DataPropertyName = "Img";
-            this.typeImgDataGridViewImageColumn.HeaderText = "";
-            this.typeImgDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.typeImgDataGridViewImageColumn.Name = "typeImgDataGridViewImageColumn";
-            this.typeImgDataGridViewImageColumn.ReadOnly = true;
-            this.typeImgDataGridViewImageColumn.Width = 22;
-            // 
-            // typeTypeDataGridViewTextBoxColumn
-            // 
-            this.typeTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.typeTypeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeTypeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeTypeDataGridViewTextBoxColumn.Name = "typeTypeDataGridViewTextBoxColumn";
-            this.typeTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // typeLevelDataGridViewComboBoxColumn
-            // 
-            this.typeLevelDataGridViewComboBoxColumn.DataPropertyName = "Level";
-            this.typeLevelDataGridViewComboBoxColumn.DataSource = this.eLevelBindingSource;
-            this.typeLevelDataGridViewComboBoxColumn.HeaderText = "Level";
-            this.typeLevelDataGridViewComboBoxColumn.Name = "typeLevelDataGridViewComboBoxColumn";
-            this.typeLevelDataGridViewComboBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.typeLevelDataGridViewComboBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.typeLevelDataGridViewComboBoxColumn.Width = 60;
-            // 
-            // eLevelBindingSource
-            // 
-            this.eLevelBindingSource.DataSource = typeof(Universalis.DamageType.ELevel);
-            // 
-            // damageTypeBindingSource
-            // 
-            this.damageTypeBindingSource.DataSource = typeof(Universalis.DamageType);
             // 
             // toolStrip3
             // 
@@ -451,12 +357,13 @@
             // 
             this.panel6.AutoSize = true;
             this.panel6.Controls.Add(this.dataGridViewDamageEffects);
+            this.panel6.Controls.Add(this.pictureBoxDamageEffects);
             this.panel6.Controls.Add(this.toolStrip3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(245, 3);
             this.panel6.MinimumSize = new System.Drawing.Size(20, 20);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(236, 116);
+            this.panel6.Size = new System.Drawing.Size(236, 149);
             this.panel6.TabIndex = 29;
             // 
             // dataGridViewDamageEffects
@@ -464,22 +371,23 @@
             this.dataGridViewDamageEffects.AllowUserToAddRows = false;
             this.dataGridViewDamageEffects.AllowUserToDeleteRows = false;
             this.dataGridViewDamageEffects.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDamageEffects.AutoGenerateColumns = false;
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
             this.dataGridViewDamageEffects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn});
             this.dataGridViewDamageEffects.DataSource = this.damageEffectsBindingSource;
-            this.dataGridViewDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewDamageEffects.Location = new System.Drawing.Point(0, 25);
+            this.dataGridViewDamageEffects.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridViewDamageEffects.Location = new System.Drawing.Point(0, 49);
+            this.dataGridViewDamageEffects.MinimumSize = new System.Drawing.Size(0, 90);
             this.dataGridViewDamageEffects.MultiSelect = false;
             this.dataGridViewDamageEffects.Name = "dataGridViewDamageEffects";
             this.dataGridViewDamageEffects.ReadOnly = true;
             this.dataGridViewDamageEffects.RowHeadersVisible = false;
             this.dataGridViewDamageEffects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDamageEffects.Size = new System.Drawing.Size(236, 91);
+            this.dataGridViewDamageEffects.Size = new System.Drawing.Size(236, 100);
             this.dataGridViewDamageEffects.TabIndex = 28;
             // 
             // nameDataGridViewTextBoxColumn
@@ -496,71 +404,19 @@
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.AutoSize = true;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.panel6, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel13, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 182);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 64);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(484, 122);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(484, 155);
             this.tableLayoutPanel3.TabIndex = 32;
-            // 
-            // panel13
-            // 
-            this.panel13.AutoSize = true;
-            this.panel13.Controls.Add(this.dataGridViewDamageTypes);
-            this.panel13.Controls.Add(this.toolStrip5);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(3, 3);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(236, 116);
-            this.panel13.TabIndex = 30;
-            // 
-            // toolStrip5
-            // 
-            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel5,
-            this.toolStripButtonAddType,
-            this.toolStripButtonRemoveType});
-            this.toolStrip5.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(236, 25);
-            this.toolStrip5.TabIndex = 0;
-            this.toolStrip5.Text = "toolStrip5";
-            // 
-            // toolStripLabel5
-            // 
-            this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(87, 22);
-            this.toolStripLabel5.Text = "Schadenstypen";
-            // 
-            // toolStripButtonAddType
-            // 
-            this.toolStripButtonAddType.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonAddType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAddType.Image = global::Universalis.Properties.Resources.plus;
-            this.toolStripButtonAddType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonAddType.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonAddType.Name = "toolStripButtonAddType";
-            this.toolStripButtonAddType.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonAddType.Text = "Schadenstyp hinzufügen";
-            this.toolStripButtonAddType.Click += new System.EventHandler(this.toolStripButtonAddType_Click);
-            // 
-            // toolStripButtonRemoveType
-            // 
-            this.toolStripButtonRemoveType.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonRemoveType.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonRemoveType.Image = global::Universalis.Properties.Resources.trash;
-            this.toolStripButtonRemoveType.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonRemoveType.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonRemoveType.Name = "toolStripButtonRemoveType";
-            this.toolStripButtonRemoveType.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonRemoveType.Text = "Schadenstyp entfernen";
-            this.toolStripButtonRemoveType.Click += new System.EventHandler(this.toolStripButtonRemoveType_Click);
             // 
             // panel5
             // 
@@ -568,7 +424,7 @@
             this.panel5.Controls.Add(this.panelProfileModifier);
             this.panel5.Controls.Add(this.toolStrip4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 428);
+            this.panel5.Location = new System.Drawing.Point(0, 343);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(484, 54);
             this.panel5.TabIndex = 3;
@@ -639,14 +495,12 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.pictureBoxDamageTypes, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.pictureBoxDamageEffects, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 64);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(484, 54);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(484, 0);
             this.tableLayoutPanel2.TabIndex = 32;
             // 
             // panel14
@@ -656,7 +510,7 @@
             this.panel14.Controls.Add(this.panel2);
             this.panel14.Controls.Add(this.toolStrip6);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel14.Location = new System.Drawing.Point(0, 304);
+            this.panel14.Location = new System.Drawing.Point(0, 219);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(484, 124);
             this.panel14.TabIndex = 6;
@@ -754,12 +608,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(484, 681);
+            this.ClientSize = new System.Drawing.Size(484, 522);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.tableLayoutPanel3);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip7);
@@ -775,7 +628,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageEffects)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageTypes)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -785,9 +637,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownProtection)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageTypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.eLevelBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.damageTypeBindingSource)).EndInit();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -796,17 +645,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.damageEffectsBindingSource)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            this.toolStrip5.ResumeLayout(false);
-            this.toolStrip5.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panelProfileModifier.ResumeLayout(false);
             this.panelProfileModifier.PerformLayout();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -838,7 +682,6 @@
         private System.Windows.Forms.BindingSource armorBindingSource;
         private System.Windows.Forms.PictureBox pictureBoxDamageEffects;
         private System.Windows.Forms.ToolTip toolTip;
-        private System.Windows.Forms.PictureBox pictureBoxDamageTypes;
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripButton toolStripButtonRemoveEffect;
@@ -853,15 +696,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown numericUpDownProtection;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView dataGridViewDamageTypes;
-        private System.Windows.Forms.BindingSource damageTypeBindingSource;
-        private System.Windows.Forms.BindingSource eLevelBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.ToolStrip toolStrip5;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel5;
-        private System.Windows.Forms.ToolStripButton toolStripButtonAddType;
-        private System.Windows.Forms.ToolStripButton toolStripButtonRemoveType;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TextBox textBoxRules;
         private System.Windows.Forms.ToolStrip toolStrip6;
@@ -875,9 +710,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox checkBoxAdditiveProtection;
-        private System.Windows.Forms.DataGridViewImageColumn typeImgDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn typeLevelDataGridViewComboBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.ToolStripButton toolStripButtonProfileModEditor;
         private System.Windows.Forms.TextBox textBoxProfileModifier;

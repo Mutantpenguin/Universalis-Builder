@@ -52,12 +52,6 @@ namespace Universalis
             comboBoxType.DataSource = Weapon.ETypeList;
             comboBoxType.SelectedItem = weapon.Type;
 
-            comboBoxDamageTypeType.DataSource = DamageType.ETypeList;
-            comboBoxDamageTypeType.SelectedItem = weapon.DamageType.Type;
-
-            comboBoxDamageTypeLevel.DataSource = DamageType.ELevelList;
-            comboBoxDamageTypeLevel.SelectedItem = weapon.DamageType.Level;
-
             updateEffects();
 
             damageEffectsBindingSource.CurrentItemChanged += ChildBindingSource_CurrentItemChanged;
@@ -211,22 +205,6 @@ namespace Universalis
             }
 
             updateMaxRange();
-        }
-
-        private void comboBoxDamageTypeType_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            ( (Weapon)weaponBindingSource.DataSource ).DamageType.Type = (DamageType.EType)comboBoxDamageTypeType.SelectedItem;
-            
-            pictureBoxDamageType.Image = ( (Weapon)weaponBindingSource.DataSource ).DamageTypeImage;
-        }
-
-        private void comboBoxDamageTypeLevel_SelectionChangeCommitted( object sender, EventArgs e )
-        {
-            ( (Weapon)weaponBindingSource.DataSource ).DamageType.Level = (DamageType.ELevel)comboBoxDamageTypeLevel.SelectedItem;
-
-            pictureBoxDamageType.Image = ( (Weapon)weaponBindingSource.DataSource ).DamageTypeImage;
-
-            weaponBindingSource.ResetCurrentItem();
         }
 
         private void updateEffects()

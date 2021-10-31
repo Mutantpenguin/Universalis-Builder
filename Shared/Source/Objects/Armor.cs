@@ -43,16 +43,6 @@ namespace Universalis
                 ProfileModifier = null;
             }
 
-            DamageTypes.Clear();
-
-            if( null != armor.DamageTypes )
-            {
-                foreach( DamageType damageType in armor.DamageTypes )
-                {
-                    DamageTypes.Add( new DamageType( damageType ) );
-                }
-            }
-
             DamageEffects.Clear();
             DamageEffects.UnionWith( armor.DamageEffects );
         }
@@ -101,22 +91,6 @@ namespace Universalis
             if( ( null != ProfileModifier ) && ( null != armor.ProfileModifier ) )
             {
                 if( !ProfileModifier.Equals( armor.ProfileModifier ) )
-                {
-                    return ( false );
-                }
-            }
-
-            foreach( DamageType damageType in DamageTypes )
-            {
-                if( !armor.DamageTypes.Any( x => x.Equals( damageType ) ) )
-                {
-                    return ( false );
-                }
-            }
-
-            foreach( DamageType damageType in armor.DamageTypes )
-            {
-                if( !DamageTypes.Any( x => x.Equals( damageType ) ) )
                 {
                     return ( false );
                 }
@@ -201,12 +175,6 @@ namespace Universalis
             set;
         } = false;
 
-        public List<DamageType> DamageTypes
-        {
-            get;
-            set;
-        } = new List<DamageType>();
-
         [JsonConverter( typeof( JsonDamageEffectSetConverter ) )]
         public HashSet<DamageEffect> DamageEffects
         {
@@ -262,17 +230,6 @@ namespace Universalis
                 points *= armorCosts.AdditiveProtectionMultiplicator;
             }
 
-            if( DamageTypes != null )
-            {
-                foreach( var damageType in DamageTypes )
-                {
-                    for( int i = 0; i < (int)damageType.Level; i++ )
-                    {
-                        points *= armorCosts.DamageTypeLevelMultiplicator;
-                    }
-                }
-            }
-
             if( DamageEffects != null )
             {
                 points += DamageEffects.Sum( x => x.Points );
@@ -293,9 +250,6 @@ namespace Universalis
 
             return ( (int)points );
         }
-
-        [JsonIgnore]
-        public Image TypesImage => DamageType.GetTypeListImage( DamageTypes, DamageColor.EType.Green );
 
         [JsonIgnore]
         public Image EffectsImage => DamageEffect.GetEffectsImage( DamageEffects, DamageColor.EType.Green );

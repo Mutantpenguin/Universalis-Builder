@@ -92,7 +92,6 @@
     <Compile Include="Source\Globals\Costs.cs" />
     <Compile Include="Source\Objects\DamageColor.cs" />
     <Compile Include="Source\Objects\DamageEffect.cs" />
-    <Compile Include="Source\Objects\DamageType.cs" />
     <Compile Include="Source\Objects\Equipment.cs" />
     <Compile Include="Source\Objects\Faction.cs" />
     <Compile Include="Source\Objects\Group.cs" />

@@ -13,8 +13,6 @@ namespace Universalis
 
             this.Icon = Properties.Resources.icon;
 
-            eLevelBindingSource.DataSource = DamageType.ELevelList.Where( x => x != DamageType.ELevel.O );
-
             m_originalArmor = armor;
 
             m_modifiedArmor = new Armor( armor );
@@ -35,10 +33,8 @@ namespace Universalis
             }
 
             updateDamageEffects();
-            updateDamageTypes();
 
             damageEffectsBindingSource.CurrentItemChanged += DamageEffectsBindingSource_CurrentItemChanged;
-            damageTypeBindingSource.CurrentItemChanged += DamageTypeBindingSource_CurrentItemChanged;
 
             SetupPermittedConditions();
         }
@@ -98,21 +94,6 @@ namespace Universalis
             }
 
             return ( true );
-        }
-
-        private void updateDamageTypes()
-        {
-            Armor armor = (Armor)armorBindingSource.DataSource;
-
-            if( null != armor.DamageTypes )
-            {
-                damageTypeBindingSource.DataSource = armor.DamageTypes.OrderBy( x => x.Type.ToString() )
-                                                                         .ToList();
-            }
-
-            dataGridViewDamageTypes.ClearSelection();
-
-            pictureBoxDamageTypes.Image = armor.TypesImage;
         }
 
         private void updateDamageEffects()
@@ -205,40 +186,6 @@ namespace Universalis
             SetupPermittedConditions();
         }
 
-        private void toolStripButtonAddType_Click( object sender, EventArgs e )
-        {
-            Armor armor = ( (Armor)armorBindingSource.DataSource );
-
-            using( DamageTypeSelectionForm damageTypeSelectionForm = new DamageTypeSelectionForm( armor.DamageTypes ) )
-            {
-                if( damageTypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
-                {
-                    if( damageTypeSelectionForm.SelectedDamageTypes.Count > 0 )
-                    {
-                        if( null == ( (Armor)armorBindingSource.DataSource ).DamageTypes )
-                        {
-                            ( (Armor)armorBindingSource.DataSource ).DamageTypes = new List<DamageType>();
-                        }
-
-                        ( (Armor)armorBindingSource.DataSource ).DamageTypes.AddRange( damageTypeSelectionForm.SelectedDamageTypes );
-
-                        updateDamageTypes();
-                    }
-                }
-            }
-        }
-
-        private void toolStripButtonRemoveType_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewDamageTypes.SelectedRows.Count > 0 )
-            {
-                DamageType.EType type = ( (DamageType)( dataGridViewDamageTypes.Rows[ dataGridViewDamageTypes.SelectedRows[ 0 ].Index ].DataBoundItem ) ).Type;
-                ( (Armor)armorBindingSource.DataSource ).DamageTypes.RemoveAll( s => s.Type == type );
-
-                updateDamageTypes();
-            }
-        }
-
         private void ArmorEditorForm_FormClosing( object sender, FormClosingEventArgs e )
         {
             Armor armorModified = (Armor)armorBindingSource.DataSource;
@@ -284,16 +231,6 @@ namespace Universalis
             if( e.KeyCode == Keys.Escape )
             {
                 this.Close();
-            }
-        }
-
-        private void dataGridViewDamageTypes_CurrentCellDirtyStateChanged( object sender, EventArgs e )
-        {
-            if( dataGridViewDamageTypes.CurrentCell.ColumnIndex == typeLevelDataGridViewComboBoxColumn.Index )
-            {
-                dataGridViewDamageTypes.CommitEdit( DataGridViewDataErrorContexts.Commit );
-
-                updateDamageTypes();
             }
         }
 
