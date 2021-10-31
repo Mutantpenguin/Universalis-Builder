@@ -153,6 +153,24 @@ namespace Universalis
             groupTraitManager.Show( this );
         }
 
+        private void buttonPowers_Click( object sender, EventArgs e )
+        {
+            /* TODO Powers
+            powerManager = new PowerManagerForm();
+
+            powerManager.FormClosed += delegate
+            {
+                buttonPowers.Enabled = true;
+                powerManager.Dispose();
+                powerManager = null;
+            };
+
+            buttonPowers.Enabled = false;
+
+            powerManager.Show( this );
+            */
+        }
+
         private void MasterDataMainForm_FormClosing( object sender, FormClosingEventArgs e )
         {
             if( weaponManager != null
