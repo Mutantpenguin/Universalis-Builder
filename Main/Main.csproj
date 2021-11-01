@@ -53,6 +53,15 @@
     <StartupObject>Universalis.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
     <Reference Include="iTextSharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
       <HintPath>..\packages\iTextSharp-LGPL.4.1.6\lib\iTextSharp.dll</HintPath>
     </Reference>
@@ -277,6 +286,12 @@
     <Compile Include="Source\UserData\Actor\ActorEditorForm.Designer.cs">
       <DependentUpon>ActorEditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\UserData\Actor\ActorImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\ActorImageForm.Designer.cs">
+      <DependentUpon>ActorImageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\UserData\Actor\AddArmorToActorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,6 +474,9 @@
       <DependentUpon>ActorEditorForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Actor\ActorImageForm.resx">
+      <DependentUpon>ActorImageForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\UserData\Actor\AddArmorToActorForm.resx">
       <DependentUpon>AddArmorToActorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -536,6 +554,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\baseline_photo_camera_black_24dp.png" />
     <None Include="Resources\powers.png" />
     <None Include="Resources\baseline_refresh_black_18dp.png" />
     <None Include="Resources\icon.ico" />

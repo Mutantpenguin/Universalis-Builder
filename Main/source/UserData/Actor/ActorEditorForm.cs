@@ -196,28 +196,24 @@ namespace Universalis
 
         private void SelectImages()
         {
-            using( OpenFileDialog iconFileDialog = new OpenFileDialog() )
+            using( var actorImageForm = new ActorImageForm() )
             {
-                iconFileDialog.InitialDirectory = Properties.Settings.Default.imageFilePath;
-
-                if( iconFileDialog.ShowDialog( this ) == DialogResult.OK )
+                if( actorImageForm.ShowDialog( this ) == DialogResult.OK )
                 {
-                    Properties.Settings.Default.imageFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
-                    Properties.Settings.Default.Save();
-
-                    Image img = ImageHelper.LoadImage( iconFileDialog.FileName );
-
-                    if( null != img )
+                    using( Image img = actorImageForm.Image )
                     {
-                        using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Bild auswählen", img, ImageHelper.imageSize ) )
+                        if( null != img )
                         {
-                            if( imageSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                            using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Bild auswählen", img, ImageHelper.imageSize ) )
                             {
-                                m_actorModified.Img = new Bitmap( imageSelectionForm.Image );
+                                if( imageSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                                {
+                                    m_actorModified.Img = new Bitmap( imageSelectionForm.Image );
 
-                                SelectActorIcon();
+                                    SelectActorIcon();
 
-                                updateFields();
+                                    updateFields();
+                                }
                             }
                         }
                     }
