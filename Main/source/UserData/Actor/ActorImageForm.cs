@@ -71,14 +71,6 @@ namespace Universalis
                 }
 
                 comboBoxCameraDevice.SelectedIndex = 0;
-
-                videoCaptureDevice = new VideoCaptureDevice( filterInfoCollection[ comboBoxCameraDevice.SelectedIndex ].MonikerString );
-
-                videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
-
-                videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[ videoCaptureDevice.VideoCapabilities.Length - 1 ];
-
-                videoCaptureDevice.Start();
             }
             else
             {
@@ -108,6 +100,24 @@ namespace Universalis
             {
                 this.Close();
             }
+        }
+
+        private void comboBoxCameraDevice_SelectedIndexChanged( object sender, EventArgs e )
+        {
+            if( videoCaptureDevice != null )
+            {
+                videoCaptureDevice.Stop();
+
+                videoCaptureDevice.NewFrame -= VideoCaptureDevice_NewFrame;
+            }
+
+            videoCaptureDevice = new VideoCaptureDevice( filterInfoCollection[ comboBoxCameraDevice.SelectedIndex ].MonikerString );
+
+            videoCaptureDevice.NewFrame += VideoCaptureDevice_NewFrame;
+
+            videoCaptureDevice.VideoResolution = videoCaptureDevice.VideoCapabilities[ videoCaptureDevice.VideoCapabilities.Length - 1 ];
+
+            videoCaptureDevice.Start();
         }
     }
 }

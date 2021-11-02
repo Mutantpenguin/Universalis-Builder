@@ -60,6 +60,7 @@ namespace Universalis
             this.comboBoxCameraDevice.Name = "comboBoxCameraDevice";
             this.comboBoxCameraDevice.Size = new System.Drawing.Size(538, 21);
             this.comboBoxCameraDevice.TabIndex = 2;
+            this.comboBoxCameraDevice.SelectedIndexChanged += new System.EventHandler(this.comboBoxCameraDevice_SelectedIndexChanged);
             // 
             // pictureBoxWebcam
             // 
