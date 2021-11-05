@@ -816,13 +816,15 @@ namespace Universalis
                 g.DrawLine( SLinePenBlack, protectionStart, posY + SLineHeight, protectionStart, posY + SLineHeightDouble );
                 g.DrawImage( Properties.Resources.Schutz_weiss, new Rectangle( protectionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
+                int actorModPHY = actor.ModPHY();
+
                 if( armor.AdditiveProtection )
                 {
-                    Helpers.DrawStringCentered( g, ( armor.Protection + actor.ModPHY() ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                    Helpers.DrawStringCentered( g, ( armor.Protection + actorModPHY ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
                 }
                 else
                 {
-                    Helpers.DrawStringCentered( g, armor.FormattedProtection, FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                    Helpers.DrawStringCentered( g, Math.Max( armor.Protection, actorModPHY ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
                 }
 
                 // Damage Reduction
