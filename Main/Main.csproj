@@ -554,6 +554,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\baseline_do_not_disturb_on_black_48dp.png" />
     <None Include="Resources\baseline_photo_camera_black_24dp.png" />
     <None Include="Resources\powers.png" />
     <None Include="Resources\baseline_refresh_black_18dp.png" />

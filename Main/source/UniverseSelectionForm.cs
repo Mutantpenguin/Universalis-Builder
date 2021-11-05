@@ -18,15 +18,17 @@ namespace Universalis
 
         private static readonly string universeImageFilename = "logo.jpg";
 
-        private static readonly ColorMatrix s_colorMatrixUniverserLoadingError = ColorHelper.ColorToColorMatrix( Color.IndianRed );
+        private static readonly ColorMatrix s_colorMatrixUniverseLoadingError = ColorHelper.ColorToColorMatrix( Color.IndianRed );
 
         private static readonly ColorMatrix s_colorMatrixRepoBehind = ColorHelper.ColorToColorMatrix( Color.SeaGreen );
         private static readonly ColorMatrix s_colorMatrixRepoAhead = ColorHelper.ColorToColorMatrix( Color.Orange );
         private static readonly ColorMatrix s_colorMatrixRepoError = ColorHelper.ColorToColorMatrix( Color.Red );
 
-        private static readonly Image repoBehindImage = ImageHelper.Colorize( Properties.Resources.baseline_new_releases_black_48dp, s_colorMatrixRepoBehind );
-        private static readonly Image repoModifiedImage = ImageHelper.Colorize( Properties.Resources.baseline_warning_black_48dp, s_colorMatrixRepoAhead );
-        private static readonly Image repoErrorImage = ImageHelper.Colorize( Properties.Resources.baseline_error_black_48dp, s_colorMatrixRepoError );
+        private static readonly Image repoBehindOverlayImage = ImageHelper.Colorize( Properties.Resources.baseline_new_releases_black_48dp, s_colorMatrixRepoBehind );
+        private static readonly Image repoModifiedOverlayImage = ImageHelper.Colorize( Properties.Resources.baseline_warning_black_48dp, s_colorMatrixRepoAhead );
+        private static readonly Image repoErrorOverlayImage = ImageHelper.Colorize( Properties.Resources.baseline_error_black_48dp, s_colorMatrixRepoError );
+
+        private static readonly Image invalidUniverseOverlayImage = ImageHelper.Colorize( Properties.Resources.baseline_do_not_disturb_on_black_48dp, s_colorMatrixRepoError );
 
         public UniverseSelectionForm( Options options )
         {
@@ -70,31 +72,44 @@ namespace Universalis
 
         private class UniverseListViewItem : ListViewItem
         {
-            public string RepositoryURL
+            public string RepoURL
             {
                 get;
                 set;
             }
 
-            public enum EState
+            public enum ERepoState
             {
                 READY,
                 BEHIND,
                 MODIFIED,
-                ERROR
+                ERROR,
+                NONE
             }
 
-            public EState State
+            public ERepoState RepoState
             {
                 get;
                 set;
-            } = EState.READY;
+            } = ERepoState.NONE;
+
+            public string RepoError
+            {
+                get;
+                set;
+            }
 
             public Universe Universe
             {
                 get;
                 set;
             }
+
+            public bool ValidUniverse
+            {
+                get;
+                set;
+            } = true;
         }
 
         private void RefreshUniverses()
@@ -127,130 +142,147 @@ namespace Universalis
                         ImageKey = universePath
                     };
 
-                    var (universe, error) = Universe.Load( universePath );
-
-                    if( universe == null )
                     {
-                        lvi.Text = "Defektes Universum";
-                        lvi.State = UniverseListViewItem.EState.ERROR;
-                        lvi.ToolTipText = error;
+                        var (universe, error) = Universe.Load( universePath );
 
-                        this.Invoke( new MethodInvoker( () =>
+                        if( universe != null )
                         {
-                            imageListUniverses.Images.Add( universePath, ImageHelper.Colorize( Shared.Properties.Resources.empty, s_colorMatrixUniverserLoadingError ) );
-                        } ) );
+                            lvi.Text = Options.DeityMode ? universe.NameWithVersionAndHash() : universe.NameWithVersion();
+                            lvi.ToolTipText = universe.Description;
+
+                            lvi.Universe = universe;
+                        }
+                        else
+                        {
+                            lvi.Text = "Defektes Universum";
+                            lvi.ValidUniverse = false;
+                            lvi.ToolTipText = error;
+                        }
+                    }
+
+                    Image universeLogo = null;
+                    bool universeModified = false;
+                    string universeCommitHash = String.Empty;
+
+                    var universeImagePath = Path.Combine( universePath, universeImageFilename );
+
+                    if( File.Exists( universeImagePath ) )
+                    {
+                        // this is needed, because loading via the Bitmaps constructor (or Image.FromFile) leaves a file handle open so we can't delete the folder while the program is running
+                        using( var bmpTemp = new Bitmap( universeImagePath ) )
+                        {
+                            universeLogo = new Bitmap( bmpTemp );
+                        }
                     }
                     else
                     {
-                        if( Repository.IsValid( universePath ) )
+                        universeLogo = Shared.Properties.Resources.empty;
+                    }
+
+                    if( !lvi.ValidUniverse )
+                    {
+                        var temp = new Bitmap( universeLogo );
+
+                        using( var g = Graphics.FromImage( temp ) )
                         {
-                            try
+                            int x = ( temp.Width - invalidUniverseOverlayImage.Width ) / 2;
+                            int y = ( temp.Height - invalidUniverseOverlayImage.Height ) / 2;
+
+                            g.DrawImage( invalidUniverseOverlayImage, x, y );
+                        }
+
+                        universeLogo = temp;
+                    }
+
+                    if( Repository.IsValid( universePath ) )
+                    {
+                        lvi.RepoState = UniverseListViewItem.ERepoState.READY;
+
+                        try
+                        {
+                            using( var repo = new Repository( universePath ) )
                             {
-                                using( var repo = new Repository( universePath ) )
+                                lvi.RepoURL = repo.Network.Remotes[ "origin" ].Url;
+
+                                string logMessage = String.Empty;
+
+                                // fetch all
+                                foreach( Remote remote in repo.Network.Remotes )
                                 {
-                                    lvi.RepositoryURL = repo.Network.Remotes[ "origin" ].Url;
-
-                                    string logMessage = String.Empty;
-
-                                    // fetch all
-                                    foreach( Remote remote in repo.Network.Remotes )
-                                    {
-                                        var refSpecs = remote.FetchRefSpecs.Select( x => x.Specification );
-                                        Commands.Fetch( repo, remote.Name, refSpecs, null, logMessage );
-                                    }
-
-                                    if( repo.Head.TrackingDetails.AheadBy > 0
-                                        ||
-                                        repo.Diff.Compare<TreeChanges>().Count > 0
-                                        ||
-                                        repo.RetrieveStatus().IsDirty )
-                                    {
-                                        lvi.State = UniverseListViewItem.EState.MODIFIED;
-                                        universe.Modified = true;
-                                    }
-                                    else if( repo.Head.TrackingDetails.BehindBy > 0 )
-                                    {
-                                        lvi.State = UniverseListViewItem.EState.BEHIND;
-                                    }
-
-                                    universe.CommitHash = repo.Head.Tip.Sha;
+                                    var refSpecs = remote.FetchRefSpecs.Select( x => x.Specification );
+                                    Commands.Fetch( repo, remote.Name, refSpecs, null, logMessage );
                                 }
-                            }
-                            catch( RepositoryNotFoundException ex )
-                            {
-                                lvi.ToolTipText = ex.Message;
 
-                                lvi.State = UniverseListViewItem.EState.ERROR;
-                            }
-                            catch( Exception ex )
-                            {
-                                lvi.ToolTipText = ex.Message;
+                                if( repo.Head.TrackingDetails.AheadBy > 0
+                                    ||
+                                    repo.Diff.Compare<TreeChanges>().Count > 0
+                                    ||
+                                    repo.RetrieveStatus().IsDirty )
+                                {
+                                    lvi.RepoState = UniverseListViewItem.ERepoState.MODIFIED;
+                                    universeModified = true;
+                                }
+                                else if( repo.Head.TrackingDetails.BehindBy > 0 )
+                                {
+                                    lvi.RepoState = UniverseListViewItem.ERepoState.BEHIND;
+                                }
 
-                                lvi.State = UniverseListViewItem.EState.ERROR;
-                            }
-                        }
-
-                        lvi.Universe = universe;
-                        lvi.Text = Options.DeityMode ? universe.NameWithVersionAndHash() : universe.NameWithVersion();
-                        lvi.ToolTipText = universe.Description;
-
-                        var universeImagePath = Path.Combine( universePath, universeImageFilename );
-
-                        if( File.Exists( universeImagePath ) )
-                        {
-                            // this is needed, because loading via the Bitmaps constructor (or Image.FromFile) leaves a file handle open so we can't delete the folder while the program is running
-                            using( var bmpTemp = new Bitmap( universeImagePath ) )
-                            {
-                                universe.Logo = new Bitmap( bmpTemp );
+                                universeCommitHash = repo.Head.Tip.Sha;
                             }
                         }
-                        else
+                        catch( RepositoryNotFoundException ex )
                         {
-                            universe.Logo = Shared.Properties.Resources.empty;
+                            lvi.RepoError = ex.Message;
+
+                            lvi.RepoState = UniverseListViewItem.ERepoState.ERROR;
+                        }
+                        catch( Exception ex )
+                        {
+                            lvi.RepoError = ex.Message;
+
+                            lvi.RepoState = UniverseListViewItem.ERepoState.ERROR;
                         }
 
-                        Image overlayImage = null;
+                        Image repoOverlayImage = null;
 
-                        switch( lvi.State )
+                        switch( lvi.RepoState )
                         {
-                            case UniverseListViewItem.EState.BEHIND:
-                                overlayImage = repoBehindImage;
+                            case UniverseListViewItem.ERepoState.BEHIND:
+                                repoOverlayImage = repoBehindOverlayImage;
                                 break;
 
-                            case UniverseListViewItem.EState.MODIFIED:
-                                overlayImage = repoModifiedImage;
+                            case UniverseListViewItem.ERepoState.MODIFIED:
+                                repoOverlayImage = repoModifiedOverlayImage;
                                 break;
 
-                            case UniverseListViewItem.EState.ERROR:
-                                overlayImage = repoErrorImage;
+                            case UniverseListViewItem.ERepoState.ERROR:
+                                repoOverlayImage = repoErrorOverlayImage;
                                 break;
                         }
 
-                        if( overlayImage != null )
+                        if( repoOverlayImage != null )
                         {
-                            var logoWithOverlay = new Bitmap( universe.Logo );
+                            var temp = new Bitmap( universeLogo );
 
-                            using( var g = Graphics.FromImage( logoWithOverlay ) )
+                            using( var g = Graphics.FromImage( temp ) )
                             {
-                                g.DrawImage( overlayImage, 0, 0 );
+                                g.DrawImage( repoOverlayImage, 0, 0 );
                             }
 
-                            this.Invoke( new MethodInvoker( () =>
-                            {
-                                imageListUniverses.Images.Add( universePath, logoWithOverlay );
-                            } ) );
+                            universeLogo = temp;
                         }
-                        else
-                        {
-                            this.Invoke( new MethodInvoker( () =>
-                            {
-                                imageListUniverses.Images.Add( universePath, universe.Logo );
-                            } ) );
-                        }
+                    }
+
+                    if( lvi.Universe != null )
+                    {
+                        lvi.Universe.Logo = universeLogo;
+                        lvi.Universe.Modified = universeModified;
+                        lvi.Universe.CommitHash = universeCommitHash;
                     }
 
                     this.Invoke( new MethodInvoker( () =>
                     {
+                        imageListUniverses.Images.Add( universePath, universeLogo );
                         listViewUniverses.Items.Add( lvi );
                     } ) );
                 }
@@ -327,14 +359,25 @@ namespace Universalis
                 }
             }
 
-            switch( universeItem.State )
+            switch( universeItem.RepoState )
             {
-                case UniverseListViewItem.EState.READY:
-                    OpenUniverse();
+                case UniverseListViewItem.ERepoState.NONE:
+                case UniverseListViewItem.ERepoState.READY:
+                    if( universeItem.ValidUniverse )
+                    {
+                        OpenUniverse();
+                    }
+                    else
+                    {
+                        MessageBox.Show( "Dieses Universum ist defekt und kann nicht geöffnet werden!",
+                                         "Universum defekt",
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Error );
+                    }
 
                     break;
 
-                case UniverseListViewItem.EState.BEHIND:
+                case UniverseListViewItem.ERepoState.BEHIND:
                     if( MessageBox.Show( "Ein Update ist vorhanden! Soll das Update installiert werden?",
                                          "Update vorhanden",
                                          MessageBoxButtons.YesNo,
@@ -365,21 +408,31 @@ namespace Universalis
 
                     break;
 
-                case UniverseListViewItem.EState.MODIFIED:
-                    if( MessageBox.Show( "Das Universum wurde lokal verändert. Dennoch öffnen?",
-                                         "Lokale Änderungen vorhanden",
-                                         MessageBoxButtons.YesNo,
-                                         MessageBoxIcon.Warning,
-                                         MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
+                case UniverseListViewItem.ERepoState.MODIFIED:
+                    if( universeItem.ValidUniverse )
                     {
-                        OpenUniverse();
+                        if( MessageBox.Show( "Das Universum wurde lokal verändert. Dennoch öffnen?",
+                                             "Lokale Änderungen vorhanden",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Warning,
+                                             MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
+                        {
+                            OpenUniverse();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show( "Dieses Universum ist defekt und kann nicht geöffnet werden!",
+                                         "Universum defekt",
+                                         MessageBoxButtons.OK,
+                                         MessageBoxIcon.Error );
                     }
 
                     break;
 
-                case UniverseListViewItem.EState.ERROR:
-                    MessageBox.Show( "Dieses Universum ist defekt und kann nicht geöffnet werden!",
-                                     "Universum defekt",
+                case UniverseListViewItem.ERepoState.ERROR:
+                    MessageBox.Show( "Probleme bei der Kommunikation mit dem Repository:" + Environment.NewLine + universeItem.RepoError,
+                                     "Git Repository",
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Error );
 
@@ -411,9 +464,9 @@ namespace Universalis
                     {
                         var universeItem = item as UniverseListViewItem;
 
-                        if( !String.IsNullOrEmpty( universeItem.RepositoryURL ) )
+                        if( !String.IsNullOrEmpty( universeItem.RepoURL ) )
                         {
-                            var itemUri = new Uri( universeItem.RepositoryURL );
+                            var itemUri = new Uri( universeItem.RepoURL );
 
                             if( Uri.Compare( dialog.RepositoryURL, itemUri,
                                              UriComponents.Host | UriComponents.PathAndQuery,
