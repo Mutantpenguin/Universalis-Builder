@@ -97,17 +97,17 @@ namespace Universalis
 
         #region weaponMembers
         private static readonly int WeaponWkWidth = CmToPixel( 0.5 );
-        private static readonly int WeaponNameWidth = CmToPixel( 2.8 );
+        private static readonly int WeaponNameWidth = CmToPixel( 2.3 );
+        private static readonly int WeaponRangeWidth = CmToPixel( 0.9 );
         private static readonly int WeaponStrengthWidth = CmToPixel( 0.5 );
         private static readonly int WeaponDamageWidth = CmToPixel( 0.5 );
-        private static readonly int WeaponRangeWidth = CmToPixel( 0.9 );
         private static readonly int WeaponUnwieldyLength = WeaponWkWidth / 4;
 
         private static readonly int WeaponWkStart = SSectionsPosX;
         private static readonly int WeaponNameStart = WeaponWkStart + WeaponWkWidth;
-        private static readonly int WeaponStrengthStart = WeaponNameStart + WeaponNameWidth;
+        private static readonly int WeaponRangeStart = WeaponNameStart + WeaponNameWidth;
+        private static readonly int WeaponStrengthStart = WeaponRangeStart + WeaponRangeWidth;
         private static readonly int WeaponDamageStart = WeaponStrengthStart + WeaponStrengthWidth;
-        private static readonly int WeaponRangeStart = WeaponDamageStart + WeaponDamageWidth;
 
         private static readonly int WeaponRadiusMargin = SImageMargin + CmToPixel( 0.015f );
         #endregion
@@ -638,13 +638,13 @@ namespace Universalis
                 int lineVertEnd = posY + ( lineNumber * SLineHeight );
 
                 // right of name
-                g.DrawLine( SLinePenBlack, WeaponStrengthStart, posY + SLineHeight, WeaponStrengthStart, lineVertEnd );
-                // right of strength
-                g.DrawLine( SLinePenBlack, WeaponDamageStart, posY + SLineHeight, WeaponDamageStart, lineVertEnd );
-                // right of damage
-                g.DrawLine( SLinePenBlack, WeaponRangeStart, posY + SLineHeight, WeaponRangeStart, lineVertEnd );
+                g.DrawLine( SLinePenBlack, WeaponNameStart + WeaponNameWidth, posY + SLineHeight, WeaponNameStart + WeaponNameWidth, lineVertEnd );
                 // right of range
                 g.DrawLine( SLinePenBlack, WeaponRangeStart + WeaponRangeWidth, posY + SLineHeight, WeaponRangeStart + WeaponRangeWidth, lineVertEnd );
+                // right of strength
+                g.DrawLine( SLinePenBlack, WeaponStrengthStart + WeaponStrengthWidth, posY + SLineHeight, WeaponStrengthStart + WeaponStrengthWidth, lineVertEnd );
+                // right of damage
+                g.DrawLine( SLinePenBlack, WeaponDamageStart + WeaponDamageWidth, posY + SLineHeight, WeaponDamageStart + WeaponDamageWidth, lineVertEnd );
 
                 return( lineNumber );
             }
@@ -711,7 +711,7 @@ namespace Universalis
                 Helpers.DrawStringCentered( g, weapon.FormattedRange, FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
             }
 
-            int remainderPosX = WeaponRangeStart + WeaponRangeWidth;
+            int remainderPosX = WeaponDamageStart + WeaponDamageWidth;
 
             if( weapon.SustainedFire > 0 )
             {
@@ -798,7 +798,7 @@ namespace Universalis
         {
             if( armor != null )
             {
-                int nameWidth = CmToPixel( 3.3 );
+                int nameWidth = CmToPixel( 3.7 );
                 int protectionWidth = CmToPixel( 0.5 );
                 int damageReductionWidth = CmToPixel( 0.5 );
 
