@@ -200,7 +200,7 @@ namespace Universalis
 
             const int columnCount = 3;
 
-            PdfPTable actorTable = new PdfPTable( new float[ columnCount ] { actorImgWidth, modelNameWidth, pointsWidth } )
+            PdfPTable overviewTable = new PdfPTable( new float[ columnCount ] { actorImgWidth, modelNameWidth, pointsWidth } )
             {
                 WidthPercentage = 100,
                 SpacingBefore = CmToPixel( 1.0f ),
@@ -208,12 +208,12 @@ namespace Universalis
             };
 
             // TableHeader
-            actorTable.AddCell( new PdfPCell( new Phrase( "Modell", s_actorFontHeader ) )
+            overviewTable.AddCell( new PdfPCell( new Phrase( "Modell", s_actorFontHeader ) )
             {
                 Border = Rectangle.NO_BORDER,
                 Colspan = 2
             } );
-            actorTable.AddCell( new PdfPCell( new Phrase( "Punkte", s_actorFontHeader ) )
+            overviewTable.AddCell( new PdfPCell( new Phrase( "Punkte", s_actorFontHeader ) )
             {
                 Border = Rectangle.NO_BORDER,
                 HorizontalAlignment = Element.ALIGN_RIGHT
@@ -224,20 +224,20 @@ namespace Universalis
             {
                 Image actorImg = Image.GetInstance( actor.Icon ?? group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
                 actorImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
-                actorTable.AddCell( new PdfPCell( actorImg )
+                overviewTable.AddCell( new PdfPCell( actorImg )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE,
                     MinimumHeight = CmToPixel( 1 )
                 } );
 
-                actorTable.AddCell( new PdfPCell( new Phrase( actor.Name, s_actorFont ) )
+                overviewTable.AddCell( new PdfPCell( new Phrase( actor.Name, s_actorFont ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE
                 } );
 
-                actorTable.AddCell( new PdfPCell( new Phrase( actor.Points.ToString() ) )
+                overviewTable.AddCell( new PdfPCell( new Phrase( actor.Points.ToString() ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE,
@@ -245,19 +245,37 @@ namespace Universalis
                 } );
             }
 
-            actorTable.AddCell( new PdfPCell( new Phrase( "Gesamtpunkte", s_actorFontHeader ) )
+            if( group.GroupTrait != null )
+            {
+                overviewTable.AddCell( new PdfPCell( new Phrase( $"Gruppeneigenschaft: {group.GroupTrait.Name} / {group.GroupTrait.PointsPerModel.ToString()} Punkte pro Modell" ) )
+                {
+                    Colspan = columnCount - 1,
+                    Border = Rectangle.TOP_BORDER,
+                    VerticalAlignment = Element.ALIGN_MIDDLE,
+                    HorizontalAlignment = Element.ALIGN_RIGHT,
+                    MinimumHeight = CmToPixel( 1 )
+                } );
+                overviewTable.AddCell( new PdfPCell( new Phrase( group.GroupTrait.Points( group.Models.Count() ).ToString() ) )
+                {
+                    Border = Rectangle.TOP_BORDER,
+                    VerticalAlignment = Element.ALIGN_MIDDLE,
+                    HorizontalAlignment = Element.ALIGN_RIGHT
+                } );
+            }
+
+            overviewTable.AddCell( new PdfPCell( new Phrase( "Gesamtpunkte", s_actorFontHeader ) )
             {
                 Colspan = columnCount - 1,
                 Border = Rectangle.TOP_BORDER,
                 HorizontalAlignment = Element.ALIGN_RIGHT
             } );
-            actorTable.AddCell( new PdfPCell( new Phrase( group.Points.ToString(), s_actorFontHeader ) )
+            overviewTable.AddCell( new PdfPCell( new Phrase( group.Points.ToString(), s_actorFontHeader ) )
             {
                 Border = Rectangle.TOP_BORDER,
                 HorizontalAlignment = Element.ALIGN_RIGHT
             } );
 
-            document.Add( actorTable );
+            document.Add( overviewTable );
         }
 
         private struct flipsideBlock
