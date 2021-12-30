@@ -5,10 +5,8 @@ namespace Universalis
 {
     public partial class FormSplash : Form
     {
-        public FormSplash( Options options )
+        public FormSplash()
         {
-            Options = options;
-
             using( var player = new System.Media.SoundPlayer( Shared.Properties.Resources.startup_sound ) )
             {
                 player.Play();
@@ -20,8 +18,6 @@ namespace Universalis
 
             timerFadeIn.Start();
         }
-
-        private readonly Options Options;
 
         const double fadeInTime = 2500.0;
         const double fadeOutTime = 2000.0;
@@ -61,7 +57,7 @@ namespace Universalis
         {
             this.Hide();
             
-            var form = new UniverseSelectionForm( Options );
+            var form = new UniverseSelectionForm();
 
             form.FormClosed += delegate
             {

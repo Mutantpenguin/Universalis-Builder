@@ -1,7 +1,7 @@
 ﻿namespace Universalis
 {
-    public class Options
+    public static class Options
     {
-        public bool DeityMode { get; set; }
+        public static bool DeityMode { get; set; }
     }
 }

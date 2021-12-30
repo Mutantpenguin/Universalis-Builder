@@ -26,11 +26,9 @@ namespace Universalis
                 }
                 else
                 {
-                    var options = new Options();
-
                     var p = new OptionSet()
                     {
-                        { "d|deitymode", String.Empty, v => options.DeityMode = v != null },
+                        { "d|deitymode", String.Empty, v => Options.DeityMode = v != null },
                     };
 
                     try
@@ -57,7 +55,7 @@ namespace Universalis
                         Application.EnableVisualStyles();
                         Application.SetCompatibleTextRenderingDefault( false );
 
-                        Application.Run( new FormSplash( options ) );
+                        Application.Run( new FormSplash() );
                     }
                     catch
                     {}

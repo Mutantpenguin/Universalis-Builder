@@ -30,10 +30,8 @@ namespace Universalis
 
         private static readonly Image invalidUniverseOverlayImage = ImageHelper.Colorize( Properties.Resources.baseline_do_not_disturb_on_black_48dp, s_colorMatrixRepoError );
 
-        public UniverseSelectionForm( Options options )
+        public UniverseSelectionForm()
         {
-            Options = options;
-
             if( !Directory.Exists( UniversesPath ) )
             {
                 Directory.CreateDirectory( UniversesPath );
@@ -67,8 +65,6 @@ namespace Universalis
 
             this.Icon = Properties.Resources.icon;
         }
-
-        private readonly Options Options;
 
         private class UniverseListViewItem : ListViewItem
         {
