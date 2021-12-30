@@ -53,7 +53,17 @@ namespace Universalis
             {
                 this.Show();
 
-                groupBindingSource.ResetBindings( false );
+                RefreshGroupsGridView();
+
+                dataGridViewGroups.ClearSelection();
+                foreach( DataGridViewRow row in dataGridViewGroups.Rows )
+                {
+                    if( group.ID == ( (Group)row.DataBoundItem ).ID )
+                    {
+                        row.Selected = true;
+                        break;
+                    }
+                }
 
                 groupEditorForm.Dispose();
             };
@@ -61,25 +71,13 @@ namespace Universalis
             groupEditorForm.Show( this );
         }
 
-        private void toolStripButtonAddGroups_Click( object sender, EventArgs e )
+        private void toolStripButtonAddGroup_Click( object sender, EventArgs e )
         {
             Group group = GroupStorage.Create( m_faction );
 
             toolStripTextBoxSearch.Text = String.Empty;
 
             editGroup( group );
-
-            RefreshGroupsGridView();
-
-            dataGridViewGroups.ClearSelection();
-            foreach( DataGridViewRow row in dataGridViewGroups.Rows )
-            {
-                if( group.ID == ( (Group)row.DataBoundItem ).ID )
-                {
-                    row.Selected = true;
-                    break;
-                }
-            }
         }
 
         private void toolStripButtonDeleteGroup_Click( object sender, EventArgs e )

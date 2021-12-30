@@ -138,7 +138,7 @@
             this.toolStripButtonAddGroup.Name = "toolStripButtonAddGroup";
             this.toolStripButtonAddGroup.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonAddGroup.ToolTipText = "neue Gruppe";
-            this.toolStripButtonAddGroup.Click += new System.EventHandler(this.toolStripButtonAddGroups_Click);
+            this.toolStripButtonAddGroup.Click += new System.EventHandler(this.toolStripButtonAddGroup_Click);
             // 
             // toolStripButtonDeleteGroup
             // 
