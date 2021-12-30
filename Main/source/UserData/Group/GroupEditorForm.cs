@@ -18,6 +18,11 @@ namespace Universalis
 
             InitializeComponent();
 
+            if( !Options.DeityMode )
+            {
+                buttonRefresh.Visible = false;
+            }
+
             this.CenterToParent();
 
             this.WindowState = Properties.Settings.Default.GroupEditorWindowState;
