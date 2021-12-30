@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this.damageEffectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iconDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageEffects)).BeginInit();
@@ -53,7 +55,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 394);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(331, 32);
+            this.panel1.Size = new System.Drawing.Size(515, 32);
             this.panel1.TabIndex = 1;
             // 
             // buttonCancel
@@ -74,7 +76,7 @@
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
-            this.buttonOk.Location = new System.Drawing.Point(228, 3);
+            this.buttonOk.Location = new System.Drawing.Point(412, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 0;
@@ -97,6 +99,7 @@
             this.dataGridViewDamageEffects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iconDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
+            this.rulesDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewDamageEffects.DataSource = this.damageEffectBindingSource;
             this.dataGridViewDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -106,7 +109,7 @@
             this.dataGridViewDamageEffects.RowHeadersVisible = false;
             this.dataGridViewDamageEffects.RowTemplate.Height = 40;
             this.dataGridViewDamageEffects.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDamageEffects.Size = new System.Drawing.Size(331, 394);
+            this.dataGridViewDamageEffects.Size = new System.Drawing.Size(515, 394);
             this.dataGridViewDamageEffects.TabIndex = 0;
             this.dataGridViewDamageEffects.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -125,19 +128,29 @@
             // 
             // nameDataGridViewTextBoxColumn
             // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             this.nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.nameDataGridViewTextBoxColumn.HeaderText = "Bezeichnung";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // rulesDataGridViewTextBoxColumn
+            // 
+            this.rulesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.rulesDataGridViewTextBoxColumn.DataPropertyName = "Rules";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rulesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.rulesDataGridViewTextBoxColumn.HeaderText = "Rules";
+            this.rulesDataGridViewTextBoxColumn.Name = "rulesDataGridViewTextBoxColumn";
+            this.rulesDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pointsDataGridViewTextBoxColumn
             // 
             this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -148,7 +161,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(331, 426);
+            this.ClientSize = new System.Drawing.Size(515, 426);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridViewDamageEffects);
             this.Controls.Add(this.panel1);
@@ -173,6 +186,7 @@
         private System.Windows.Forms.BindingSource damageEffectBindingSource;
         private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rulesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }
 }
