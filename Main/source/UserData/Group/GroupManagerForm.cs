@@ -47,7 +47,7 @@ namespace Universalis
         {
             this.Hide();
 
-            GroupEditorForm groupEditorForm = new GroupEditorForm( group );
+            GroupEditorForm groupEditorForm = new GroupEditorForm( m_universe, group );
 
             groupEditorForm.FormClosed += delegate
             {
@@ -130,23 +130,6 @@ namespace Universalis
                 toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + $"Anzahl Modelle: {group.Models.Count}{Environment.NewLine}{ToolTipHelper.FormatMaxWidth( group.Description )}";
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( toolTipText );
-            }
-        }
-
-        private void toolStripButtonPDF_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewGroups.SelectedRows.Count > 0 )
-            {
-                Group group = (Group)dataGridViewGroups.SelectedRows[ 0 ].DataBoundItem;
-
-                string filename = group.Name + " - " + DateTime.Now.ToString( "yyyyMMdd_HHmmss" );
-
-                foreach( char c in Path.GetInvalidFileNameChars() )
-                {
-                    filename = filename.Replace( c.ToString(), String.Empty );
-                }
-
-                GroupPDFExporter.GeneratePDF( m_universe, group, Path.Combine( Path.GetTempPath(), Path.ChangeExtension( filename, "pdf" ) ) );
             }
         }
 

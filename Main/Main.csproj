@@ -554,6 +554,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\baseline_print_black_18dp.png" />
     <None Include="Resources\baseline_do_not_disturb_on_black_48dp.png" />
     <None Include="Resources\baseline_photo_camera_black_24dp.png" />
     <None Include="Resources\powers.png" />
@@ -567,7 +568,6 @@
     <None Include="Resources\plus.png" />
     <None Include="Resources\funnel.png" />
     <None Include="Resources\error_outline.png" />
-    <None Include="Resources\document-pdf.png" />
     <None Include="Resources\disk.png" />
     <None Include="Resources\disabled_overlay.png" />
     <None Include="Resources\cross-circle.png" />

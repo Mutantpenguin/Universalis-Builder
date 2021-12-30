@@ -9,8 +9,10 @@ namespace Universalis
 {
     public partial class GroupEditorForm : Form
     {
-        public GroupEditorForm( Group group )
+        public GroupEditorForm( Universe universe, Group group )
         {
+            m_universe = universe;
+
             m_groupOriginal = group;
             m_groupModified = new Group( group );
 
@@ -60,6 +62,8 @@ namespace Universalis
 
             base.Dispose( disposing );
         }
+
+        private readonly Universe m_universe;
 
         private readonly Group m_groupModified;
         private readonly Group m_groupOriginal;
@@ -551,6 +555,28 @@ namespace Universalis
         {
             groupBindingSource.ResetBindings( false );
             actorsBindingSource.ResetBindings( false );
+        }
+
+        private void buttonPrint_Click( object sender, EventArgs e )
+        {
+            if( !m_groupModified.Equals( m_groupOriginal ) )
+            {
+                MessageBox.Show( "Es wurden Änderungen an der Gruppe vorgenommen. Bitte speichern Sie die Gruppe vorher!",
+                                 String.Empty,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
+            }
+            else
+            {
+                string filename = m_groupModified.Name + " - " + DateTime.Now.ToString( "yyyyMMdd_HHmmss" );
+
+                foreach( char c in Path.GetInvalidFileNameChars() )
+                {
+                    filename = filename.Replace( c.ToString(), String.Empty );
+                }
+
+                GroupPDFExporter.GeneratePDF( m_universe, m_groupModified, Path.Combine( Path.GetTempPath(), Path.ChangeExtension( filename, "pdf" ) ) );
+            }
         }
     }
 }
