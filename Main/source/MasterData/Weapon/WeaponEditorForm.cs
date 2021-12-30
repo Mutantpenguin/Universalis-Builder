@@ -413,5 +413,17 @@ namespace Universalis
         {
             SetupPermittedConditions();
         }
+
+        private void dataGridViewDamageEffects_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            if( ( e.ColumnIndex == nameDataGridViewTextBoxColumn.Index ) && ( e.Value != null ) )
+            {
+                DataGridViewRow row = dataGridViewDamageEffects.Rows[ e.RowIndex ];
+
+                DataGridViewCell cell = row.Cells[ e.ColumnIndex ];
+
+                cell.ToolTipText = ( row.DataBoundItem as DamageEffect ).Rules;
+            }
+        }
     }
 }
