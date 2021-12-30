@@ -161,6 +161,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxSearch_KeyDown);
@@ -244,6 +245,7 @@
             this.SpeedString.HeaderText = "GK";
             this.SpeedString.Name = "SpeedString";
             this.SpeedString.ReadOnly = true;
+            this.SpeedString.ToolTipText = "Geschwindigkeit";
             this.SpeedString.Width = 35;
             // 
             // HitPointsString
@@ -254,6 +256,7 @@
             this.HitPointsString.HeaderText = "TP";
             this.HitPointsString.Name = "HitPointsString";
             this.HitPointsString.ReadOnly = true;
+            this.HitPointsString.ToolTipText = "Trefferpunkte";
             this.HitPointsString.Width = 35;
             // 
             // CritThresholdString
@@ -275,6 +278,7 @@
             this.AGIString.HeaderText = "AGI";
             this.AGIString.Name = "AGIString";
             this.AGIString.ReadOnly = true;
+            this.AGIString.ToolTipText = "Agilität";
             this.AGIString.Width = 35;
             // 
             // HTHString
@@ -285,6 +289,7 @@
             this.HTHString.HeaderText = "NK";
             this.HTHString.Name = "HTHString";
             this.HTHString.ReadOnly = true;
+            this.HTHString.ToolTipText = "Nahkampf";
             this.HTHString.Width = 35;
             // 
             // LRCString
@@ -295,6 +300,7 @@
             this.LRCString.HeaderText = "FK";
             this.LRCString.Name = "LRCString";
             this.LRCString.ReadOnly = true;
+            this.LRCString.ToolTipText = "Fernkampf";
             this.LRCString.Width = 35;
             // 
             // PHYString
@@ -305,6 +311,7 @@
             this.PHYString.HeaderText = "KO";
             this.PHYString.Name = "PHYString";
             this.PHYString.ReadOnly = true;
+            this.PHYString.ToolTipText = "Konstitution";
             this.PHYString.Width = 35;
             // 
             // AWAString
@@ -315,6 +322,7 @@
             this.AWAString.HeaderText = "WN";
             this.AWAString.Name = "AWAString";
             this.AWAString.ReadOnly = true;
+            this.AWAString.ToolTipText = "Wahrnehmung";
             this.AWAString.Width = 35;
             // 
             // DETString
@@ -325,6 +333,7 @@
             this.DETString.HeaderText = "EH";
             this.DETString.Name = "DETString";
             this.DETString.ReadOnly = true;
+            this.DETString.ToolTipText = "Entschlossenheit";
             this.DETString.Width = 35;
             // 
             // weightDataGridViewTextBoxColumn
