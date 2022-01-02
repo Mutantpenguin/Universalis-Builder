@@ -17,7 +17,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -136,15 +136,16 @@
             this.panel7.Controls.Add(this.textBoxName);
             this.panel7.Controls.Add(this.textBoxPoints);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(290, 66);
+            this.panel7.Size = new System.Drawing.Size(296, 66);
             this.panel7.TabIndex = 6;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(200, 32);
+            this.label12.Location = new System.Drawing.Point(231, 27);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 50;
@@ -179,7 +180,7 @@
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxName.Location = new System.Drawing.Point(135, 3);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(155, 20);
+            this.textBoxName.Size = new System.Drawing.Size(158, 20);
             this.textBoxName.TabIndex = 14;
             // 
             // groupBindingSource
@@ -189,7 +190,7 @@
             // textBoxPoints
             // 
             this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Points", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxPoints.Location = new System.Drawing.Point(135, 29);
+            this.textBoxPoints.Location = new System.Drawing.Point(234, 43);
             this.textBoxPoints.Name = "textBoxPoints";
             this.textBoxPoints.ReadOnly = true;
             this.textBoxPoints.Size = new System.Drawing.Size(59, 20);
@@ -201,9 +202,9 @@
             this.panel2.Controls.Add(this.textBoxDescription);
             this.panel2.Controls.Add(this.toolStrip2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 75);
+            this.panel2.Location = new System.Drawing.Point(3, 69);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(290, 88);
+            this.panel2.Size = new System.Drawing.Size(290, 89);
             this.panel2.TabIndex = 9;
             // 
             // textBoxDescription
@@ -214,7 +215,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(290, 63);
+            this.textBoxDescription.Size = new System.Drawing.Size(290, 64);
             this.textBoxDescription.TabIndex = 7;
             // 
             // toolStrip2
@@ -239,9 +240,9 @@
             this.panel5.Controls.Add(this.dataGridViewActors);
             this.panel5.Controls.Add(this.toolStrip1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 263);
+            this.panel5.Location = new System.Drawing.Point(3, 259);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(290, 373);
+            this.panel5.Size = new System.Drawing.Size(290, 377);
             this.panel5.TabIndex = 5;
             // 
             // dataGridViewActors
@@ -272,7 +273,7 @@
             this.dataGridViewActors.RowHeadersWidth = 40;
             this.dataGridViewActors.RowTemplate.Height = 40;
             this.dataGridViewActors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewActors.Size = new System.Drawing.Size(290, 348);
+            this.dataGridViewActors.Size = new System.Drawing.Size(290, 352);
             this.dataGridViewActors.TabIndex = 5;
             this.dataGridViewActors.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewActors_CellContentClick);
             this.dataGridViewActors.CellContextMenuStripNeeded += new System.Windows.Forms.DataGridViewCellContextMenuStripNeededEventHandler(this.dataGridViewActors_CellContextMenuStripNeeded);
@@ -306,8 +307,8 @@
             // actorPointsDataGridViewTextBoxColumn
             // 
             this.actorPointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.actorPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.actorPointsDataGridViewTextBoxColumn.Name = "actorPointsDataGridViewTextBoxColumn";
             this.actorPointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -418,9 +419,9 @@
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.toolStrip3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 169);
+            this.panel1.Location = new System.Drawing.Point(3, 164);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(290, 88);
+            this.panel1.Size = new System.Drawing.Size(290, 89);
             this.panel1.TabIndex = 10;
             // 
             // textBox2
@@ -432,7 +433,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(290, 63);
+            this.textBox2.Size = new System.Drawing.Size(290, 64);
             this.textBox2.TabIndex = 3;
             // 
             // toolStrip3
