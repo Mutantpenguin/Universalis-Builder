@@ -16,11 +16,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.buttonImage = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBoxFactionIcon = new System.Windows.Forms.PictureBox();
             this.pictureBoxGroupIcon = new System.Windows.Forms.PictureBox();
@@ -130,6 +131,7 @@
             // panel7
             // 
             this.panel7.AutoSize = true;
+            this.panel7.Controls.Add(this.buttonImage);
             this.panel7.Controls.Add(this.label12);
             this.panel7.Controls.Add(this.pictureBoxFactionIcon);
             this.panel7.Controls.Add(this.pictureBoxGroupIcon);
@@ -141,6 +143,19 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(296, 66);
             this.panel7.TabIndex = 6;
+            // 
+            // buttonImage
+            // 
+            this.buttonImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonImage.Image = global::Universalis.Properties.Resources.baseline_image_search_black_24dp;
+            this.buttonImage.Location = new System.Drawing.Point(135, 26);
+            this.buttonImage.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonImage.Name = "buttonImage";
+            this.buttonImage.Size = new System.Drawing.Size(43, 37);
+            this.buttonImage.TabIndex = 51;
+            this.toolTip.SetToolTip(this.buttonImage, "Bilder auswählen");
+            this.buttonImage.UseVisualStyleBackColor = true;
+            this.buttonImage.Click += new System.EventHandler(this.buttonImage_Click);
             // 
             // label12
             // 
@@ -171,7 +186,6 @@
             this.pictureBoxGroupIcon.TabIndex = 7;
             this.pictureBoxGroupIcon.TabStop = false;
             this.toolTip.SetToolTip(this.pictureBoxGroupIcon, "Icon der Gruppe");
-            this.pictureBoxGroupIcon.DoubleClick += new System.EventHandler(this.pictureBoxGroupIcon_DoubleClick);
             // 
             // textBoxName
             // 
@@ -251,8 +265,8 @@
             this.dataGridViewActors.AllowUserToDeleteRows = false;
             this.dataGridViewActors.AllowUserToOrderColumns = true;
             this.dataGridViewActors.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewActors.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewActors.AutoGenerateColumns = false;
             this.dataGridViewActors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewActors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -307,8 +321,8 @@
             // actorPointsDataGridViewTextBoxColumn
             // 
             this.actorPointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             this.actorPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.actorPointsDataGridViewTextBoxColumn.Name = "actorPointsDataGridViewTextBoxColumn";
             this.actorPointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -686,5 +700,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonPrint;
+        private System.Windows.Forms.Button buttonImage;
     }
 }

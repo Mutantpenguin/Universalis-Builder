@@ -224,28 +224,6 @@ namespace Universalis
             }
         }
 
-        private void pictureBoxGroupIcon_DoubleClick( object sender, EventArgs e )
-        {
-            using( OpenFileDialog iconFileDialog = new OpenFileDialog() )
-            {
-                iconFileDialog.InitialDirectory = Properties.Settings.Default.groupIconFilePath;
-
-                if( iconFileDialog.ShowDialog( this ) == DialogResult.OK )
-                {
-                    Properties.Settings.Default.groupIconFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
-                    Properties.Settings.Default.Save();
-
-                    Image img = ImageHelper.CreateIconFromImage( ImageHelper.LoadImage( iconFileDialog.FileName ), withTransparency: false );
-
-                    if( img != null )
-                    {
-                        pictureBoxGroupIcon.Image = img;
-                        m_groupModified.Icon = new Bitmap( img );
-                    }
-                }
-            }
-        }
-
         private void dataGridViewActors_CellPainting( object sender, DataGridViewCellPaintingEventArgs e )
         {
             if( e.RowIndex != -1 )
@@ -581,6 +559,47 @@ namespace Universalis
                 }
 
                 GroupPDFExporter.GeneratePDF( m_universe, m_groupModified, Path.Combine( Path.GetTempPath(), Path.ChangeExtension( filename, "pdf" ) ) );
+            }
+        }
+
+        private void buttonImage_Click( object sender, EventArgs e )
+        {
+            using( OpenFileDialog iconFileDialog = new OpenFileDialog() )
+            {
+                iconFileDialog.InitialDirectory = Properties.Settings.Default.groupIconFilePath;
+
+                if( iconFileDialog.ShowDialog( this ) == DialogResult.OK )
+                {
+                    Properties.Settings.Default.groupIconFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
+                    Properties.Settings.Default.Save();
+
+                    Image img = ImageHelper.LoadImage( iconFileDialog.FileName );
+
+                    if( img != null )
+                    {
+                        if( img.Width != img.Height )
+                        {
+                            using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Icon auswählen", img, ImageHelper.iconSize ) )
+                            {
+                                if( imageSelectionForm.ShowDialog() == DialogResult.OK )
+                                {
+                                    pictureBoxGroupIcon.Image = imageSelectionForm.Image;
+                                    m_groupModified.Icon = new Bitmap( imageSelectionForm.Image );
+                                }
+                            }
+                        }
+                        else
+                        {
+                            img = ImageHelper.CreateIconFromImage( img, withTransparency: false );
+
+                            if( img != null )
+                            {
+                                pictureBoxGroupIcon.Image = img;
+                                m_groupModified.Icon = new Bitmap( img );
+                            }
+                        }
+                    }
+                }
             }
         }
     }
