@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Universalis
 {
@@ -23,7 +21,7 @@ namespace Universalis
 
             if( ArchetypeTypeWhitelist.Count > 0 && ArchetypeTypeBlacklist.Count > 0 )
             {
-                return ( false, "White- und Blacklist für Archetyp Typen können nicht gleichzeitig gefüllt sein." );
+                return ( false, "White- und Blacklist für Typen können nicht gleichzeitig gefüllt sein." );
             }
 
             if( SizeWhitelist.Count > 0 && SizeBlacklist.Count > 0 )
@@ -33,7 +31,7 @@ namespace Universalis
 
             if( MovementTypeWhitelist.Count > 0 && MovementTypeBlacklist.Count > 0 )
             {
-                return ( false, "White- und Blacklist für Bewegungstypen können nicht gleichzeitig gefüllt sein." );
+                return ( false, "White- und Blacklist für Bewegungsarten können nicht gleichzeitig gefüllt sein." );
             }
 
             if( ArchetypeWhitelist.Count > 0 )
@@ -45,7 +43,7 @@ namespace Universalis
                 
                 if( ArchetypeTypeWhitelist.Count > 0 || ArchetypeTypeBlacklist.Count > 0 )
                 {
-                    return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Archetyp Typen gefüllt sein." );
+                    return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Typen gefüllt sein." );
                 }
 
                 if( SizeWhitelist.Count > 0 || SizeBlacklist.Count > 0 )
@@ -55,11 +53,77 @@ namespace Universalis
 
                 if( MovementTypeWhitelist.Count > 0 || MovementTypeBlacklist.Count > 0 )
                 {
-                    return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Bewegungstypen gefüllt sein." );
+                    return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Bewegungsarten gefüllt sein." );
                 }
             }
 
             return ( true, String.Empty) ;
+        }
+
+        public string Summary()
+        {
+            string summary = String.Empty;
+
+            if( ArchetypeWhitelist.Count > 0 )
+            {
+                summary += "Erlaubte Archetypen: " + String.Join( ", ", ArchetypeWhitelist.Select( x => x.Name ) );
+            }
+            
+            if( ArchetypeBlacklist.Count > 0 )
+            {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
+                summary += "Verbotene Archetypen: " + String.Join( ", ", ArchetypeBlacklist.Select( x => x.Name ) );
+            }
+
+            if( FactionWhitelist.Count > 0 )
+            {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
+                summary += "Erlaubte Fraktionen: " + String.Join( ", ", FactionWhitelist.Select( x => x.Name ) );
+            }
+
+            if( FactionBlacklist.Count > 0 )
+            {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
+                summary += "Verbotene Fraktionen: " + String.Join( ", ", FactionBlacklist.Select( x => x.Name ) );
+            }
+
+            if( ArchetypeTypeWhitelist.Count > 0 )
+            {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
+                summary += "Erlaubte Typen: " + String.Join( ", ", ArchetypeTypeWhitelist.Select( x => x.ToString() ) );
+            }
+
+            if( ArchetypeTypeBlacklist.Count > 0 )
+            {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
+                summary += "Verbotene Typen: " + String.Join( ", ", ArchetypeTypeBlacklist.Select( x => x.ToString() ) );
+            }
+
+            if( SizeWhitelist.Count > 0 )
+            {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
+                summary += "Erlaubte Größen: " + String.Join( ", ", SizeWhitelist.Select( x => x.ToString() ) );
+            }
+
+            if( SizeBlacklist.Count > 0 )
+            {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
+                summary += "Verbotene Größen: " + String.Join( ", ", SizeBlacklist.Select( x => x.ToString() ) );
+            }
+
+            if( MovementTypeWhitelist.Count > 0 )
+            {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
+                summary += "Erlaubte Bewegungsarten: " + String.Join( ", ", MovementTypeWhitelist.Select( x => x.ToString() ) );
+            }
+
+            if( MovementTypeBlacklist.Count > 0 )
+            {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
+                summary += "Verbotene Bewegungsarten: " + String.Join( ", ", MovementTypeBlacklist.Select( x => x.ToString() ) );
+            }
+
+            return ( summary );
         }
 
         [JsonConverter( typeof( JsonArchetypeSetConverter ) )]
