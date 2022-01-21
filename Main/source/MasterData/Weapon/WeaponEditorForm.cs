@@ -425,5 +425,13 @@ namespace Universalis
                 cell.ToolTipText = ( row.DataBoundItem as DamageEffect ).Rules;
             }
         }
+
+        private void toolStripButton1_Click( object sender, EventArgs e )
+        {
+            using( var permissionForm = new PermissionForm( new Permissions() ) )
+            {
+                permissionForm.ShowDialog( this );
+            }
+        }
     }
 }

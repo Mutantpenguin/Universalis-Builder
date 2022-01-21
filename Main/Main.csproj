@@ -461,6 +461,9 @@
     <EmbeddedResource Include="Source\Misc\ImageSelectionForm2.resx">
       <DependentUpon>ImageSelectionForm2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Misc\PermissionForm.resx">
+      <DependentUpon>PermissionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Misc\ProfileModifierEditor.resx">
       <DependentUpon>ProfileModifierEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -530,6 +533,7 @@
     <None Include="Properties\DataSources\Faction.datasource" />
     <None Include="Properties\DataSources\Group.datasource" />
     <None Include="Properties\DataSources\GroupTrait.datasource" />
+    <None Include="Properties\DataSources\Permissions.datasource" />
     <None Include="Properties\DataSources\Profile.datasource" />
     <None Include="Properties\DataSources\ProfileModifier.datasource" />
     <None Include="Properties\DataSources\Trait.datasource" />

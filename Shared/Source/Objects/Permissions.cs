@@ -5,18 +5,59 @@ using System.Linq;
 
 namespace Universalis
 {
-    class Permissions
+    public class Permissions
     {
+        public Permissions()
+        { }
+
+        public Permissions( Permissions permissions )
+            : this()
+        {
+            Set( permissions );
+        }
+        public void Set( Permissions permissions )
+        {
+            FactionWhitelist.Clear();
+            FactionWhitelist.UnionWith( permissions.FactionWhitelist );
+
+            FactionBlacklist.Clear();
+            FactionBlacklist.UnionWith( permissions.FactionBlacklist );
+
+            ArchetypeWhitelist.Clear();
+            ArchetypeWhitelist.UnionWith( permissions.ArchetypeWhitelist );
+
+            ArchetypeBlacklist.Clear();
+            ArchetypeBlacklist.UnionWith( permissions.ArchetypeBlacklist );
+
+            ArchetypeTypeWhitelist.Clear();
+            ArchetypeTypeWhitelist.UnionWith( permissions.ArchetypeTypeWhitelist );
+
+            ArchetypeTypeBlacklist.Clear();
+            ArchetypeTypeBlacklist.UnionWith( permissions.ArchetypeTypeBlacklist );
+
+            SizeWhitelist.Clear();
+            SizeWhitelist.UnionWith( permissions.SizeWhitelist );
+
+            SizeBlacklist.Clear();
+            SizeBlacklist.UnionWith( permissions.SizeBlacklist );
+
+            MovementTypeWhitelist.Clear();
+            MovementTypeWhitelist.UnionWith( permissions.MovementTypeWhitelist );
+
+            MovementTypeBlacklist.Clear();
+            MovementTypeBlacklist.UnionWith( permissions.MovementTypeBlacklist );
+        }
+
         public (bool, String reason) IsValid()
         {
+            if( FactionWhitelist.Count > 0 && FactionBlacklist.Count > 0 )
+            {
+                return (false, "White- und Blacklist für Fraktionen können nicht gleichzeitig gefüllt sein.");
+            }
+
             if( ArchetypeWhitelist.Count > 0 && ArchetypeBlacklist.Count > 0 )
             {
                 return ( false, "White- und Blacklist für Archetypen können nicht gleichzeitig gefüllt sein." );
-            }
-
-            if( FactionWhitelist.Count > 0 && FactionBlacklist.Count > 0 )
-            {
-                return ( false, "White- und Blacklist für Fraktionen können nicht gleichzeitig gefüllt sein." );
             }
 
             if( ArchetypeTypeWhitelist.Count > 0 && ArchetypeTypeBlacklist.Count > 0 )
@@ -64,17 +105,6 @@ namespace Universalis
         {
             string summary = String.Empty;
 
-            if( ArchetypeWhitelist.Count > 0 )
-            {
-                summary += "Erlaubte Archetypen: " + String.Join( ", ", ArchetypeWhitelist.Select( x => x.Name ) );
-            }
-            
-            if( ArchetypeBlacklist.Count > 0 )
-            {
-                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Verbotene Archetypen: " + String.Join( ", ", ArchetypeBlacklist.Select( x => x.Name ) );
-            }
-
             if( FactionWhitelist.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
@@ -85,6 +115,17 @@ namespace Universalis
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += "Verbotene Fraktionen: " + String.Join( ", ", FactionBlacklist.Select( x => x.Name ) );
+            }
+
+            if( ArchetypeWhitelist.Count > 0 )
+            {
+                summary += "Erlaubte Archetypen: " + String.Join( ", ", ArchetypeWhitelist.Select( x => x.Name ) );
+            }
+            
+            if( ArchetypeBlacklist.Count > 0 )
+            {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
+                summary += "Verbotene Archetypen: " + String.Join( ", ", ArchetypeBlacklist.Select( x => x.Name ) );
             }
 
             if( ArchetypeTypeWhitelist.Count > 0 )
@@ -126,23 +167,23 @@ namespace Universalis
             return ( summary );
         }
 
-        [JsonConverter( typeof( JsonArchetypeSetConverter ) )]
-        public HashSet<Archetype> ArchetypeWhitelist;
-        [JsonConverter( typeof( JsonArchetypeSetConverter ) )]
-        public HashSet<Archetype> ArchetypeBlacklist;
-
         [JsonConverter( typeof( JsonFactionSetConverter ) )]
-        public HashSet<Faction> FactionWhitelist;
+        public HashSet<Faction> FactionWhitelist = new HashSet<Faction>();
         [JsonConverter( typeof( JsonFactionSetConverter ) )]
-        public HashSet<Faction> FactionBlacklist;
+        public HashSet<Faction> FactionBlacklist = new HashSet<Faction>();
 
-        public HashSet<Archetype.EType> ArchetypeTypeWhitelist;
-        public HashSet<Archetype.EType> ArchetypeTypeBlacklist;
+        [JsonConverter( typeof( JsonArchetypeSetConverter ) )]
+        public HashSet<Archetype> ArchetypeWhitelist = new HashSet<Archetype>();
+        [JsonConverter( typeof( JsonArchetypeSetConverter ) )]
+        public HashSet<Archetype> ArchetypeBlacklist = new HashSet<Archetype>();
 
-        public HashSet<Archetype.ESize> SizeWhitelist;
-        public HashSet<Archetype.ESize> SizeBlacklist;
+        public HashSet<Archetype.EType> ArchetypeTypeWhitelist = new HashSet<Archetype.EType>();
+        public HashSet<Archetype.EType> ArchetypeTypeBlacklist = new HashSet<Archetype.EType>();
 
-        public HashSet<Archetype.EMovementType> MovementTypeWhitelist;
-        public HashSet<Archetype.EMovementType> MovementTypeBlacklist;
+        public HashSet<Archetype.ESize> SizeWhitelist = new HashSet<Archetype.ESize>();
+        public HashSet<Archetype.ESize> SizeBlacklist = new HashSet<Archetype.ESize>();
+
+        public HashSet<Archetype.EMovementType> MovementTypeWhitelist = new HashSet<Archetype.EMovementType>();
+        public HashSet<Archetype.EMovementType> MovementTypeBlacklist = new HashSet<Archetype.EMovementType>();
     }
 }
