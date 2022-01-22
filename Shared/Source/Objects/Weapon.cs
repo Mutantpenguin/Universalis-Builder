@@ -117,20 +117,9 @@ namespace Universalis
                 return ( false );
             }
 
-            foreach( DamageEffect damageEffect in DamageEffects )
+            if( !DamageEffects.SetEquals( weapon.DamageEffects ) )
             {
-                if( !weapon.DamageEffects.Any( x => x.Equals( damageEffect ) ) )
-                {
-                    return ( false );
-                }
-            }
-
-            foreach( DamageEffect damageEffect in weapon.DamageEffects )
-            {
-                if( !DamageEffects.Any( x => x.Equals( damageEffect ) ) )
-                {
-                    return ( false );
-                }
+                return ( false );
             }
 
             if( ( null != ProfileModifier ) && ( null == weapon.ProfileModifier ) )

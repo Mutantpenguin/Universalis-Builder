@@ -99,20 +99,9 @@ namespace Universalis
                 }
             }
 
-            foreach( DamageEffect damageEffect in DamageEffects )
+            if( !DamageEffects.SetEquals( armor.DamageEffects ) )
             {
-                if( !armor.DamageEffects.Any( x => x.Equals( damageEffect ) ) )
-                {
-                    return ( false );
-                }
-            }
-
-            foreach( DamageEffect damageEffect in armor.DamageEffects )
-            {
-                if( !DamageEffects.Any( x => x.Equals( damageEffect ) ) )
-                {
-                    return ( false );
-                }
+                return ( false );
             }
 
             return ( true );
