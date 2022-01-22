@@ -176,8 +176,7 @@ namespace Universalis
             this.tableLayoutPanelFactions.Location = new System.Drawing.Point(0, 25);
             this.tableLayoutPanelFactions.Name = "tableLayoutPanelFactions";
             this.tableLayoutPanelFactions.RowCount = 1;
-            this.tableLayoutPanelFactions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelFactions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 122F));
+            this.tableLayoutPanelFactions.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelFactions.Size = new System.Drawing.Size(484, 122);
             this.tableLayoutPanelFactions.TabIndex = 1;
             this.tableLayoutPanelFactions.Visible = false;
@@ -431,7 +430,7 @@ namespace Universalis
             this.tableLayoutPanelArchetypes.Location = new System.Drawing.Point(0, 172);
             this.tableLayoutPanelArchetypes.Name = "tableLayoutPanelArchetypes";
             this.tableLayoutPanelArchetypes.RowCount = 1;
-            this.tableLayoutPanelArchetypes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelArchetypes.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelArchetypes.Size = new System.Drawing.Size(484, 122);
             this.tableLayoutPanelArchetypes.TabIndex = 6;
             this.tableLayoutPanelArchetypes.Visible = false;
@@ -569,7 +568,7 @@ namespace Universalis
             this.tableLayoutPanelType.Location = new System.Drawing.Point(0, 319);
             this.tableLayoutPanelType.Name = "tableLayoutPanelType";
             this.tableLayoutPanelType.RowCount = 1;
-            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelType.Size = new System.Drawing.Size(484, 122);
             this.tableLayoutPanelType.TabIndex = 7;
             this.tableLayoutPanelType.Visible = false;
@@ -651,7 +650,7 @@ namespace Universalis
             this.tableLayoutPanelSize.Location = new System.Drawing.Point(0, 466);
             this.tableLayoutPanelSize.Name = "tableLayoutPanelSize";
             this.tableLayoutPanelSize.RowCount = 1;
-            this.tableLayoutPanelSize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelSize.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelSize.Size = new System.Drawing.Size(484, 122);
             this.tableLayoutPanelSize.TabIndex = 8;
             this.tableLayoutPanelSize.Visible = false;
@@ -723,7 +722,7 @@ namespace Universalis
             this.tableLayoutPanelMovementType.Location = new System.Drawing.Point(0, 613);
             this.tableLayoutPanelMovementType.Name = "tableLayoutPanelMovementType";
             this.tableLayoutPanelMovementType.RowCount = 1;
-            this.tableLayoutPanelMovementType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelMovementType.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelMovementType.Size = new System.Drawing.Size(484, 122);
             this.tableLayoutPanelMovementType.TabIndex = 9;
             this.tableLayoutPanelMovementType.Visible = false;

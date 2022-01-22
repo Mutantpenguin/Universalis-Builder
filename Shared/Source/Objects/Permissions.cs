@@ -48,6 +48,66 @@ namespace Universalis
             MovementTypeBlacklist.UnionWith( permissions.MovementTypeBlacklist );
         }
 
+        public bool Equals( Permissions permissions )
+        {
+            if( null == permissions )
+            {
+                throw new ArgumentNullException( nameof( permissions ) );
+            }
+
+            if( !permissions.FactionWhitelist.SetEquals( FactionWhitelist ) )
+            {
+                return ( false );
+            }
+
+            if( !permissions.FactionBlacklist.SetEquals( FactionBlacklist ) )
+            {
+                return ( false );
+            }
+
+            if( !permissions.ArchetypeWhitelist.SetEquals( ArchetypeWhitelist ) )
+            {
+                return ( false );
+            }
+
+            if( !permissions.ArchetypeBlacklist.SetEquals( ArchetypeBlacklist ) )
+            {
+                return ( false );
+            }
+
+            if( !permissions.ArchetypeTypeWhitelist.SetEquals( ArchetypeTypeWhitelist ) )
+            {
+                return ( false );
+            }
+
+            if( !permissions.ArchetypeTypeBlacklist.SetEquals( ArchetypeTypeBlacklist ) )
+            {
+                return ( false );
+            }
+
+            if( !permissions.SizeWhitelist.SetEquals( SizeWhitelist ) )
+            {
+                return ( false );
+            }
+
+            if( !permissions.SizeBlacklist.SetEquals( SizeBlacklist ) )
+            {
+                return ( false );
+            }
+
+            if( !permissions.MovementTypeWhitelist.SetEquals( MovementTypeWhitelist ) )
+            {
+                return ( false );
+            }
+
+            if( !permissions.MovementTypeBlacklist.SetEquals( MovementTypeBlacklist ) )
+            {
+                return ( false );
+            }
+
+            return ( true );
+        }
+
         public (bool, String reason) IsValid()
         {
             if( FactionWhitelist.Count > 0 && FactionBlacklist.Count > 0 )

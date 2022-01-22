@@ -26,9 +26,6 @@ namespace Universalis
                 checkedListBoxTypeBlacklist.Items.Add( type );
             }
 
-            AdjustCheckedListBoxSize( checkedListBoxTypeWhitelist );
-            AdjustCheckedListBoxSize( checkedListBoxTypeBlacklist );
-
             foreach( var size in Archetype.ESizeList )
             {
                 checkedListBoxSizeWhitelist.Items.Add( size );
@@ -40,6 +37,13 @@ namespace Universalis
                 checkedListBoxMovementTypeWhitelist.Items.Add( movementType );
                 checkedListBoxMovementTypeBlacklist.Items.Add( movementType );
             }
+
+            AdjustCheckedListBoxSize( checkedListBoxTypeWhitelist );
+            AdjustCheckedListBoxSize( checkedListBoxTypeBlacklist );
+            AdjustCheckedListBoxSize( checkedListBoxSizeWhitelist );
+            AdjustCheckedListBoxSize( checkedListBoxSizeBlacklist );
+            AdjustCheckedListBoxSize( checkedListBoxMovementTypeWhitelist );
+            AdjustCheckedListBoxSize( checkedListBoxMovementTypeBlacklist );
 
             /* TODO to save the values back into the object
             permissions.ArchetypeTypeWhitelist.Clear();
