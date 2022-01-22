@@ -55,52 +55,52 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( permissions ) );
             }
 
-            if( !permissions.FactionWhitelist.SetEquals( FactionWhitelist ) )
+            if( !FactionWhitelist.SetEquals( permissions.FactionWhitelist ) )
             {
                 return ( false );
             }
 
-            if( !permissions.FactionBlacklist.SetEquals( FactionBlacklist ) )
+            if( !FactionBlacklist.SetEquals( permissions.FactionBlacklist ) )
             {
                 return ( false );
             }
 
-            if( !permissions.ArchetypeWhitelist.SetEquals( ArchetypeWhitelist ) )
+            if( !ArchetypeWhitelist.SetEquals( permissions.ArchetypeWhitelist ) )
             {
                 return ( false );
             }
 
-            if( !permissions.ArchetypeBlacklist.SetEquals( ArchetypeBlacklist ) )
+            if( !ArchetypeBlacklist.SetEquals( permissions.ArchetypeBlacklist ) )
             {
                 return ( false );
             }
 
-            if( !permissions.ArchetypeTypeWhitelist.SetEquals( ArchetypeTypeWhitelist ) )
+            if( !ArchetypeTypeWhitelist.SetEquals( permissions.ArchetypeTypeWhitelist ) )
             {
                 return ( false );
             }
 
-            if( !permissions.ArchetypeTypeBlacklist.SetEquals( ArchetypeTypeBlacklist ) )
+            if( !ArchetypeTypeBlacklist.SetEquals( permissions.ArchetypeTypeBlacklist ) )
             {
                 return ( false );
             }
 
-            if( !permissions.SizeWhitelist.SetEquals( SizeWhitelist ) )
+            if( !SizeWhitelist.SetEquals( permissions.SizeWhitelist ) )
             {
                 return ( false );
             }
 
-            if( !permissions.SizeBlacklist.SetEquals( SizeBlacklist ) )
+            if( !SizeBlacklist.SetEquals( permissions.SizeBlacklist ) )
             {
                 return ( false );
             }
 
-            if( !permissions.MovementTypeWhitelist.SetEquals( MovementTypeWhitelist ) )
+            if( !MovementTypeWhitelist.SetEquals( permissions.MovementTypeWhitelist ) )
             {
                 return ( false );
             }
 
-            if( !permissions.MovementTypeBlacklist.SetEquals( MovementTypeBlacklist ) )
+            if( !MovementTypeBlacklist.SetEquals( permissions.MovementTypeBlacklist ) )
             {
                 return ( false );
             }
