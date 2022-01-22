@@ -37,7 +37,7 @@ namespace Universalis
             comboBoxType.SelectedItem = archetype.Type;
 
             // fill the combobox for the MovementType
-            comboBoxMovementType.DataSource = Enum.GetValues( typeof( Archetype.EMovementType ) );
+            comboBoxMovementType.DataSource = Archetype.EMovementTypeList;
             comboBoxMovementType.SelectedItem = archetype.MovementType;
 
             TypeDependantFields();

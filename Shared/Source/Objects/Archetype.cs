@@ -369,6 +369,8 @@ namespace Universalis
             Rad = 5
         }
 
-#endregion enums
+        public static readonly IList<EMovementType> EMovementTypeList = Enum.GetValues( typeof( EMovementType ) ).Cast<EMovementType>().ToList().AsReadOnly();
+
+        #endregion enums
     }
 }
