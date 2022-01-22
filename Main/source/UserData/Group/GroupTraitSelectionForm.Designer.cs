@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -211,6 +212,8 @@
             // 
             this.rulesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.rulesDataGridViewTextBoxColumn.DataPropertyName = "Rules";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.rulesDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.rulesDataGridViewTextBoxColumn.HeaderText = "Regeln";
             this.rulesDataGridViewTextBoxColumn.Name = "rulesDataGridViewTextBoxColumn";
             this.rulesDataGridViewTextBoxColumn.ReadOnly = true;
@@ -218,8 +221,8 @@
             // PointsPerModel
             // 
             this.PointsPerModel.DataPropertyName = "PointsPerModel";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle3;
             this.PointsPerModel.HeaderText = "Punkte/Model";
             this.PointsPerModel.Name = "PointsPerModel";
             this.PointsPerModel.ReadOnly = true;
