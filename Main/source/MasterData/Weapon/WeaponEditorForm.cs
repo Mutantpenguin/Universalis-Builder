@@ -428,7 +428,13 @@ namespace Universalis
 
         private void toolStripButton1_Click( object sender, EventArgs e )
         {
-            using( var permissionForm = new PermissionForm( new Permissions() ) )
+            // TODO remove dummy
+            var dummypermission = new Permissions();
+
+            dummypermission.ArchetypeWhitelist.Add( new Archetype() { Name = "ASDASD" } );
+            dummypermission.SizeBlacklist.Add( Archetype.ESize.Mittel );
+
+            using( var permissionForm = new PermissionForm( dummypermission ) )
             {
                 permissionForm.ShowDialog( this );
             }

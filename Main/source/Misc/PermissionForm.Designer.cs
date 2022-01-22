@@ -93,12 +93,12 @@ namespace Universalis
             this.panel10 = new System.Windows.Forms.Panel();
             this.toolStrip15 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel15 = new System.Windows.Forms.ToolStripLabel();
-            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkedListBoxSizeWhitelist = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxMovementTypeWhitelist = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxTypeBlacklist = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxSizeBlacklist = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxMovementTypeBlacklist = new System.Windows.Forms.CheckedListBox();
+            this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripFactions.SuspendLayout();
             this.tableLayoutPanelFactions.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -144,7 +144,7 @@ namespace Universalis
             this.toolStripLabel1});
             this.toolStripFactions.Location = new System.Drawing.Point(0, 0);
             this.toolStripFactions.Name = "toolStripFactions";
-            this.toolStripFactions.Size = new System.Drawing.Size(481, 25);
+            this.toolStripFactions.Size = new System.Drawing.Size(484, 25);
             this.toolStripFactions.TabIndex = 0;
             this.toolStripFactions.Text = "toolStrip1";
             // 
@@ -157,7 +157,7 @@ namespace Universalis
             this.toolStripButtonFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonFaction.Name = "toolStripButtonFaction";
             this.toolStripButtonFaction.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonFaction.Click += new System.EventHandler(this.toolStripButtonFaction_Click);
+            this.toolStripButtonFaction.CheckedChanged += new System.EventHandler(this.toolStripButtonFaction_CheckedChanged);
             // 
             // toolStripLabel1
             // 
@@ -178,8 +178,9 @@ namespace Universalis
             this.tableLayoutPanelFactions.RowCount = 1;
             this.tableLayoutPanelFactions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelFactions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 122F));
-            this.tableLayoutPanelFactions.Size = new System.Drawing.Size(481, 122);
+            this.tableLayoutPanelFactions.Size = new System.Drawing.Size(484, 122);
             this.tableLayoutPanelFactions.TabIndex = 1;
+            this.tableLayoutPanelFactions.Visible = false;
             // 
             // panel2
             // 
@@ -187,9 +188,9 @@ namespace Universalis
             this.panel2.Controls.Add(this.dataGridView2);
             this.panel2.Controls.Add(this.toolStrip3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(243, 3);
+            this.panel2.Location = new System.Drawing.Point(245, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(235, 116);
+            this.panel2.Size = new System.Drawing.Size(236, 116);
             this.panel2.TabIndex = 2;
             // 
             // dataGridView2
@@ -198,7 +199,7 @@ namespace Universalis
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 25);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(235, 91);
+            this.dataGridView2.Size = new System.Drawing.Size(236, 91);
             this.dataGridView2.TabIndex = 4;
             // 
             // toolStrip3
@@ -210,7 +211,7 @@ namespace Universalis
             this.toolStripButtonFactionBlacklistDelete});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(235, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(236, 25);
             this.toolStrip3.TabIndex = 3;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -250,7 +251,7 @@ namespace Universalis
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(234, 116);
+            this.panel1.Size = new System.Drawing.Size(236, 116);
             this.panel1.TabIndex = 2;
             // 
             // dataGridView1
@@ -259,7 +260,7 @@ namespace Universalis
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(234, 91);
+            this.dataGridView1.Size = new System.Drawing.Size(236, 91);
             this.dataGridView1.TabIndex = 3;
             // 
             // toolStrip2
@@ -271,7 +272,7 @@ namespace Universalis
             this.toolStripButtonFactionWhitelistDelete});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(234, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(236, 25);
             this.toolStrip2.TabIndex = 2;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -311,7 +312,7 @@ namespace Universalis
             this.toolStripLabel4});
             this.toolStripArchetypes.Location = new System.Drawing.Point(0, 147);
             this.toolStripArchetypes.Name = "toolStripArchetypes";
-            this.toolStripArchetypes.Size = new System.Drawing.Size(481, 25);
+            this.toolStripArchetypes.Size = new System.Drawing.Size(484, 25);
             this.toolStripArchetypes.TabIndex = 2;
             this.toolStripArchetypes.Text = "toolStrip4";
             // 
@@ -324,7 +325,7 @@ namespace Universalis
             this.toolStripButtonArchetype.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArchetype.Name = "toolStripButtonArchetype";
             this.toolStripButtonArchetype.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonArchetype.Click += new System.EventHandler(this.toolStripButtonArchetype_Click);
+            this.toolStripButtonArchetype.CheckedChanged += new System.EventHandler(this.toolStripButtonArchetype_CheckedChanged);
             // 
             // toolStripLabel4
             // 
@@ -340,7 +341,7 @@ namespace Universalis
             this.toolStripLabel5});
             this.toolStripType.Location = new System.Drawing.Point(0, 294);
             this.toolStripType.Name = "toolStripType";
-            this.toolStripType.Size = new System.Drawing.Size(481, 25);
+            this.toolStripType.Size = new System.Drawing.Size(484, 25);
             this.toolStripType.TabIndex = 3;
             this.toolStripType.Text = "toolStrip5";
             // 
@@ -353,7 +354,7 @@ namespace Universalis
             this.toolStripButtonType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonType.Name = "toolStripButtonType";
             this.toolStripButtonType.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonType.Click += new System.EventHandler(this.toolStripButtonType_Click);
+            this.toolStripButtonType.CheckedChanged += new System.EventHandler(this.toolStripButtonType_CheckedChanged);
             // 
             // toolStripLabel5
             // 
@@ -369,7 +370,7 @@ namespace Universalis
             this.toolStripLabel6});
             this.toolStripSize.Location = new System.Drawing.Point(0, 441);
             this.toolStripSize.Name = "toolStripSize";
-            this.toolStripSize.Size = new System.Drawing.Size(481, 25);
+            this.toolStripSize.Size = new System.Drawing.Size(484, 25);
             this.toolStripSize.TabIndex = 4;
             this.toolStripSize.Text = "toolStrip6";
             // 
@@ -382,7 +383,7 @@ namespace Universalis
             this.toolStripButtonSize.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSize.Name = "toolStripButtonSize";
             this.toolStripButtonSize.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonSize.Click += new System.EventHandler(this.toolStripButtonSize_Click);
+            this.toolStripButtonSize.CheckedChanged += new System.EventHandler(this.toolStripButtonSize_CheckedChanged);
             // 
             // toolStripLabel6
             // 
@@ -398,7 +399,7 @@ namespace Universalis
             this.toolStripLabel7});
             this.toolStripMovementType.Location = new System.Drawing.Point(0, 588);
             this.toolStripMovementType.Name = "toolStripMovementType";
-            this.toolStripMovementType.Size = new System.Drawing.Size(481, 25);
+            this.toolStripMovementType.Size = new System.Drawing.Size(484, 25);
             this.toolStripMovementType.TabIndex = 5;
             this.toolStripMovementType.Text = "toolStrip7";
             // 
@@ -411,7 +412,7 @@ namespace Universalis
             this.toolStripButtonMovementType.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonMovementType.Name = "toolStripButtonMovementType";
             this.toolStripButtonMovementType.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonMovementType.Click += new System.EventHandler(this.toolStripButtonMovementType_Click);
+            this.toolStripButtonMovementType.CheckedChanged += new System.EventHandler(this.toolStripButtonMovementType_CheckedChanged);
             // 
             // toolStripLabel7
             // 
@@ -431,8 +432,9 @@ namespace Universalis
             this.tableLayoutPanelArchetypes.Name = "tableLayoutPanelArchetypes";
             this.tableLayoutPanelArchetypes.RowCount = 1;
             this.tableLayoutPanelArchetypes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelArchetypes.Size = new System.Drawing.Size(481, 122);
+            this.tableLayoutPanelArchetypes.Size = new System.Drawing.Size(484, 122);
             this.tableLayoutPanelArchetypes.TabIndex = 6;
+            this.tableLayoutPanelArchetypes.Visible = false;
             // 
             // panel3
             // 
@@ -440,9 +442,9 @@ namespace Universalis
             this.panel3.Controls.Add(this.dataGridView3);
             this.panel3.Controls.Add(this.toolStrip8);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(243, 3);
+            this.panel3.Location = new System.Drawing.Point(245, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(235, 116);
+            this.panel3.Size = new System.Drawing.Size(236, 116);
             this.panel3.TabIndex = 2;
             // 
             // dataGridView3
@@ -451,7 +453,7 @@ namespace Universalis
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 25);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(235, 91);
+            this.dataGridView3.Size = new System.Drawing.Size(236, 91);
             this.dataGridView3.TabIndex = 4;
             // 
             // toolStrip8
@@ -463,7 +465,7 @@ namespace Universalis
             this.toolStripButtonArchetypeBlacklistDelete});
             this.toolStrip8.Location = new System.Drawing.Point(0, 0);
             this.toolStrip8.Name = "toolStrip8";
-            this.toolStrip8.Size = new System.Drawing.Size(235, 25);
+            this.toolStrip8.Size = new System.Drawing.Size(236, 25);
             this.toolStrip8.TabIndex = 3;
             this.toolStrip8.Text = "toolStrip8";
             // 
@@ -503,7 +505,7 @@ namespace Universalis
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(234, 116);
+            this.panel4.Size = new System.Drawing.Size(236, 116);
             this.panel4.TabIndex = 2;
             // 
             // dataGridView4
@@ -512,7 +514,7 @@ namespace Universalis
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(0, 25);
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(234, 91);
+            this.dataGridView4.Size = new System.Drawing.Size(236, 91);
             this.dataGridView4.TabIndex = 3;
             // 
             // toolStrip9
@@ -524,7 +526,7 @@ namespace Universalis
             this.toolStripButtonArchetypeWhitelistDelete});
             this.toolStrip9.Location = new System.Drawing.Point(0, 0);
             this.toolStrip9.Name = "toolStrip9";
-            this.toolStrip9.Size = new System.Drawing.Size(234, 25);
+            this.toolStrip9.Size = new System.Drawing.Size(236, 25);
             this.toolStrip9.TabIndex = 2;
             this.toolStrip9.Text = "toolStrip9";
             // 
@@ -568,17 +570,18 @@ namespace Universalis
             this.tableLayoutPanelType.Name = "tableLayoutPanelType";
             this.tableLayoutPanelType.RowCount = 1;
             this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelType.Size = new System.Drawing.Size(481, 122);
+            this.tableLayoutPanelType.Size = new System.Drawing.Size(484, 122);
             this.tableLayoutPanelType.TabIndex = 7;
+            this.tableLayoutPanelType.Visible = false;
             // 
             // checkedListBoxTypeWhitelist
             // 
+            this.checkedListBoxTypeWhitelist.CheckOnClick = true;
             this.checkedListBoxTypeWhitelist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBoxTypeWhitelist.FormattingEnabled = true;
             this.checkedListBoxTypeWhitelist.Location = new System.Drawing.Point(0, 25);
             this.checkedListBoxTypeWhitelist.Name = "checkedListBoxTypeWhitelist";
-            this.checkedListBoxTypeWhitelist.Size = new System.Drawing.Size(234, 91);
+            this.checkedListBoxTypeWhitelist.Size = new System.Drawing.Size(236, 91);
             this.checkedListBoxTypeWhitelist.TabIndex = 5;
             // 
             // panel5
@@ -587,9 +590,9 @@ namespace Universalis
             this.panel5.Controls.Add(this.checkedListBoxTypeBlacklist);
             this.panel5.Controls.Add(this.toolStrip10);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(243, 3);
+            this.panel5.Location = new System.Drawing.Point(245, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(235, 116);
+            this.panel5.Size = new System.Drawing.Size(236, 116);
             this.panel5.TabIndex = 2;
             // 
             // toolStrip10
@@ -599,7 +602,7 @@ namespace Universalis
             this.toolStripLabel10});
             this.toolStrip10.Location = new System.Drawing.Point(0, 0);
             this.toolStrip10.Name = "toolStrip10";
-            this.toolStrip10.Size = new System.Drawing.Size(235, 25);
+            this.toolStrip10.Size = new System.Drawing.Size(236, 25);
             this.toolStrip10.TabIndex = 3;
             this.toolStrip10.Text = "toolStrip10";
             // 
@@ -617,7 +620,7 @@ namespace Universalis
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(234, 116);
+            this.panel6.Size = new System.Drawing.Size(236, 116);
             this.panel6.TabIndex = 2;
             // 
             // toolStrip11
@@ -627,7 +630,7 @@ namespace Universalis
             this.toolStripLabel11});
             this.toolStrip11.Location = new System.Drawing.Point(0, 0);
             this.toolStrip11.Name = "toolStrip11";
-            this.toolStrip11.Size = new System.Drawing.Size(234, 25);
+            this.toolStrip11.Size = new System.Drawing.Size(236, 25);
             this.toolStrip11.TabIndex = 2;
             this.toolStrip11.Text = "toolStrip11";
             // 
@@ -649,8 +652,9 @@ namespace Universalis
             this.tableLayoutPanelSize.Name = "tableLayoutPanelSize";
             this.tableLayoutPanelSize.RowCount = 1;
             this.tableLayoutPanelSize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelSize.Size = new System.Drawing.Size(481, 122);
+            this.tableLayoutPanelSize.Size = new System.Drawing.Size(484, 122);
             this.tableLayoutPanelSize.TabIndex = 8;
+            this.tableLayoutPanelSize.Visible = false;
             // 
             // panel7
             // 
@@ -658,9 +662,9 @@ namespace Universalis
             this.panel7.Controls.Add(this.checkedListBoxSizeBlacklist);
             this.panel7.Controls.Add(this.toolStrip12);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(243, 3);
+            this.panel7.Location = new System.Drawing.Point(245, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(235, 116);
+            this.panel7.Size = new System.Drawing.Size(236, 116);
             this.panel7.TabIndex = 2;
             // 
             // toolStrip12
@@ -670,7 +674,7 @@ namespace Universalis
             this.toolStripLabel12});
             this.toolStrip12.Location = new System.Drawing.Point(0, 0);
             this.toolStrip12.Name = "toolStrip12";
-            this.toolStrip12.Size = new System.Drawing.Size(235, 25);
+            this.toolStrip12.Size = new System.Drawing.Size(236, 25);
             this.toolStrip12.TabIndex = 3;
             this.toolStrip12.Text = "toolStrip12";
             // 
@@ -688,7 +692,7 @@ namespace Universalis
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(234, 116);
+            this.panel8.Size = new System.Drawing.Size(236, 116);
             this.panel8.TabIndex = 2;
             // 
             // toolStrip13
@@ -698,7 +702,7 @@ namespace Universalis
             this.toolStripLabel13});
             this.toolStrip13.Location = new System.Drawing.Point(0, 0);
             this.toolStrip13.Name = "toolStrip13";
-            this.toolStrip13.Size = new System.Drawing.Size(234, 25);
+            this.toolStrip13.Size = new System.Drawing.Size(236, 25);
             this.toolStrip13.TabIndex = 2;
             this.toolStrip13.Text = "toolStrip13";
             // 
@@ -720,8 +724,9 @@ namespace Universalis
             this.tableLayoutPanelMovementType.Name = "tableLayoutPanelMovementType";
             this.tableLayoutPanelMovementType.RowCount = 1;
             this.tableLayoutPanelMovementType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelMovementType.Size = new System.Drawing.Size(481, 122);
+            this.tableLayoutPanelMovementType.Size = new System.Drawing.Size(484, 122);
             this.tableLayoutPanelMovementType.TabIndex = 9;
+            this.tableLayoutPanelMovementType.Visible = false;
             // 
             // panel9
             // 
@@ -729,9 +734,9 @@ namespace Universalis
             this.panel9.Controls.Add(this.checkedListBoxMovementTypeBlacklist);
             this.panel9.Controls.Add(this.toolStrip14);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(243, 3);
+            this.panel9.Location = new System.Drawing.Point(245, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(235, 116);
+            this.panel9.Size = new System.Drawing.Size(236, 116);
             this.panel9.TabIndex = 2;
             // 
             // toolStrip14
@@ -741,7 +746,7 @@ namespace Universalis
             this.toolStripLabel14});
             this.toolStrip14.Location = new System.Drawing.Point(0, 0);
             this.toolStrip14.Name = "toolStrip14";
-            this.toolStrip14.Size = new System.Drawing.Size(235, 25);
+            this.toolStrip14.Size = new System.Drawing.Size(236, 25);
             this.toolStrip14.TabIndex = 3;
             this.toolStrip14.Text = "toolStrip14";
             // 
@@ -759,7 +764,7 @@ namespace Universalis
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(234, 116);
+            this.panel10.Size = new System.Drawing.Size(236, 116);
             this.panel10.TabIndex = 2;
             // 
             // toolStrip15
@@ -769,7 +774,7 @@ namespace Universalis
             this.toolStripLabel15});
             this.toolStrip15.Location = new System.Drawing.Point(0, 0);
             this.toolStrip15.Name = "toolStrip15";
-            this.toolStrip15.Size = new System.Drawing.Size(234, 25);
+            this.toolStrip15.Size = new System.Drawing.Size(236, 25);
             this.toolStrip15.TabIndex = 2;
             this.toolStrip15.Text = "toolStrip15";
             // 
@@ -779,60 +784,67 @@ namespace Universalis
             this.toolStripLabel15.Size = new System.Drawing.Size(53, 22);
             this.toolStripLabel15.Text = "Whitelist";
             // 
-            // permissionsBindingSource
-            // 
-            this.permissionsBindingSource.DataSource = typeof(Universalis.Permissions);
-            // 
             // checkedListBoxSizeWhitelist
             // 
+            this.checkedListBoxSizeWhitelist.CheckOnClick = true;
             this.checkedListBoxSizeWhitelist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBoxSizeWhitelist.FormattingEnabled = true;
             this.checkedListBoxSizeWhitelist.Location = new System.Drawing.Point(0, 25);
             this.checkedListBoxSizeWhitelist.Name = "checkedListBoxSizeWhitelist";
-            this.checkedListBoxSizeWhitelist.Size = new System.Drawing.Size(234, 91);
+            this.checkedListBoxSizeWhitelist.Size = new System.Drawing.Size(236, 91);
             this.checkedListBoxSizeWhitelist.TabIndex = 6;
             // 
             // checkedListBoxMovementTypeWhitelist
             // 
+            this.checkedListBoxMovementTypeWhitelist.CheckOnClick = true;
             this.checkedListBoxMovementTypeWhitelist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBoxMovementTypeWhitelist.FormattingEnabled = true;
             this.checkedListBoxMovementTypeWhitelist.Location = new System.Drawing.Point(0, 25);
             this.checkedListBoxMovementTypeWhitelist.Name = "checkedListBoxMovementTypeWhitelist";
-            this.checkedListBoxMovementTypeWhitelist.Size = new System.Drawing.Size(234, 91);
+            this.checkedListBoxMovementTypeWhitelist.Size = new System.Drawing.Size(236, 91);
             this.checkedListBoxMovementTypeWhitelist.TabIndex = 6;
             // 
             // checkedListBoxTypeBlacklist
             // 
+            this.checkedListBoxTypeBlacklist.CheckOnClick = true;
             this.checkedListBoxTypeBlacklist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBoxTypeBlacklist.FormattingEnabled = true;
             this.checkedListBoxTypeBlacklist.Location = new System.Drawing.Point(0, 25);
             this.checkedListBoxTypeBlacklist.Name = "checkedListBoxTypeBlacklist";
-            this.checkedListBoxTypeBlacklist.Size = new System.Drawing.Size(235, 91);
+            this.checkedListBoxTypeBlacklist.Size = new System.Drawing.Size(236, 91);
             this.checkedListBoxTypeBlacklist.TabIndex = 6;
             // 
             // checkedListBoxSizeBlacklist
             // 
+            this.checkedListBoxSizeBlacklist.CheckOnClick = true;
             this.checkedListBoxSizeBlacklist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBoxSizeBlacklist.FormattingEnabled = true;
             this.checkedListBoxSizeBlacklist.Location = new System.Drawing.Point(0, 25);
             this.checkedListBoxSizeBlacklist.Name = "checkedListBoxSizeBlacklist";
-            this.checkedListBoxSizeBlacklist.Size = new System.Drawing.Size(235, 91);
+            this.checkedListBoxSizeBlacklist.Size = new System.Drawing.Size(236, 91);
             this.checkedListBoxSizeBlacklist.TabIndex = 7;
             // 
             // checkedListBoxMovementTypeBlacklist
             // 
+            this.checkedListBoxMovementTypeBlacklist.CheckOnClick = true;
             this.checkedListBoxMovementTypeBlacklist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBoxMovementTypeBlacklist.FormattingEnabled = true;
             this.checkedListBoxMovementTypeBlacklist.Location = new System.Drawing.Point(0, 25);
             this.checkedListBoxMovementTypeBlacklist.Name = "checkedListBoxMovementTypeBlacklist";
-            this.checkedListBoxMovementTypeBlacklist.Size = new System.Drawing.Size(235, 91);
+            this.checkedListBoxMovementTypeBlacklist.Size = new System.Drawing.Size(236, 91);
             this.checkedListBoxMovementTypeBlacklist.TabIndex = 7;
+            // 
+            // permissionsBindingSource
+            // 
+            this.permissionsBindingSource.DataSource = typeof(Universalis.Permissions);
             // 
             // PermissionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 693);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(484, 693);
             this.Controls.Add(this.tableLayoutPanelMovementType);
             this.Controls.Add(this.toolStripMovementType);
             this.Controls.Add(this.tableLayoutPanelSize);
@@ -843,6 +855,7 @@ namespace Universalis
             this.Controls.Add(this.toolStripArchetypes);
             this.Controls.Add(this.tableLayoutPanelFactions);
             this.Controls.Add(this.toolStripFactions);
+            this.MinimumSize = new System.Drawing.Size(500, 0);
             this.Name = "PermissionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Berechtigungen";
