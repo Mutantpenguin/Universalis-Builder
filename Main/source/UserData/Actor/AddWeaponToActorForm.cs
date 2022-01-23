@@ -7,9 +7,11 @@ namespace Universalis
 {
     public partial class AddWeaponToActorForm : Form
     {
-        public AddWeaponToActorForm()
+        public AddWeaponToActorForm( Archetype archetype )
         {
             InitializeComponent();
+
+            m_archetype = archetype;
 
             filterWeaponClass.ComboBox.DataSource = Weapon.EClassList;
             filterWeaponClass.ComboBox.SelectedIndex = 0;
@@ -24,6 +26,8 @@ namespace Universalis
             toolStripTextBoxSearch.TextBox.Select();
         }
 
+        private readonly Archetype m_archetype;
+
         private void DataGridViewWeapons_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewWeapons );
@@ -35,6 +39,7 @@ namespace Universalis
                                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                              .Where( s => filterWeaponClass.Enabled ? s.Class == (Weapon.EClass)filterWeaponClass.ComboBox.SelectedItem : true )
                                                                              .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
+                                                                             .Where( s => s.Permissions != null ? s.Permissions.Granted( m_archetype ) : true )
                                                                              .OrderBy( x => x.Name )
                                                                              .ToList();
         }

@@ -290,7 +290,7 @@ namespace Universalis
 
         private void toolStripButtonWeaponAdd_Click( object sender, EventArgs e )
         {
-            using( AddWeaponToActorForm addWeaponToActor = new AddWeaponToActorForm() )
+            using( AddWeaponToActorForm addWeaponToActor = new AddWeaponToActorForm( m_actorModified.Archetype ) )
             {
                 if( addWeaponToActor.ShowDialog( this ) == DialogResult.OK )
                 {
