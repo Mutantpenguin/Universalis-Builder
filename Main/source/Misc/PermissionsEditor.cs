@@ -13,40 +13,28 @@ namespace Universalis
 
             this.Icon = Properties.Resources.icon;
 
-            // TODO überarbeiten wie beim ProfileModifierEditor
-            m_originalPermissions = permissions;
+            Permissions = new Permissions( permissions );
 
-            Permissions modifiedPermissions = new Permissions( permissions );
-
-            permissionsBindingSource.DataSource = modifiedPermissions;
-
-            factionsWhitelistBindingSource.DataSource = modifiedPermissions.FactionWhitelist.OrderBy( x => x.Name )
-                                                                                            .ToList();
-            factionsBlacklistBindingSource.DataSource = modifiedPermissions.FactionBlacklist.OrderBy( x => x.Name )
-                                                                                            .ToList();
-
-            archetypesWhitelistBindingSource.DataSource = modifiedPermissions.ArchetypeWhitelist.OrderBy( x => x.Name )
-                                                                                                .ToList();
-            archetypesBlacklistBindingSource.DataSource = modifiedPermissions.ArchetypeBlacklist.OrderBy( x => x.Name )
-                                                                                                .ToList();
-
+            permissionsBindingSource.DataSource = Permissions;
+            
+            RefreshData();
 
             foreach( var type in Archetype.ETypeList )
             {
-                checkedListBoxTypeWhitelist.Items.Add( type, modifiedPermissions.ArchetypeTypeWhitelist.Contains( type ) );
-                checkedListBoxTypeBlacklist.Items.Add( type, modifiedPermissions.ArchetypeTypeBlacklist.Contains( type ) );
+                checkedListBoxTypeWhitelist.Items.Add( type, Permissions.TypeWhitelist.Contains( type ) );
+                checkedListBoxTypeBlacklist.Items.Add( type, Permissions.TypeBlacklist.Contains( type ) );
             }
 
             foreach( var size in Archetype.ESizeList )
             {
-                checkedListBoxSizeWhitelist.Items.Add( size, modifiedPermissions.SizeWhitelist.Contains( size ) );
-                checkedListBoxSizeBlacklist.Items.Add( size, modifiedPermissions.SizeBlacklist.Contains( size ) );
+                checkedListBoxSizeWhitelist.Items.Add( size, Permissions.SizeWhitelist.Contains( size ) );
+                checkedListBoxSizeBlacklist.Items.Add( size, Permissions.SizeBlacklist.Contains( size ) );
             }
 
             foreach( var movementType in Archetype.EMovementTypeList )
             {
-                checkedListBoxMovementTypeWhitelist.Items.Add( movementType, modifiedPermissions.MovementTypeWhitelist.Contains( movementType ) );
-                checkedListBoxMovementTypeBlacklist.Items.Add( movementType, modifiedPermissions.MovementTypeBlacklist.Contains( movementType ) );
+                checkedListBoxMovementTypeWhitelist.Items.Add( movementType, Permissions.MovementTypeWhitelist.Contains( movementType ) );
+                checkedListBoxMovementTypeBlacklist.Items.Add( movementType, Permissions.MovementTypeBlacklist.Contains( movementType ) );
             }
 
             AdjustCheckedListBoxSize( checkedListBoxTypeWhitelist );
@@ -56,34 +44,32 @@ namespace Universalis
             AdjustCheckedListBoxSize( checkedListBoxMovementTypeWhitelist );
             AdjustCheckedListBoxSize( checkedListBoxMovementTypeBlacklist );
 
-            /*foreach( var type in modifiedPermissions.ArchetypeTypeWhitelist )
-            {
-                checkedListBoxTypeWhitelist.Items.
-            }*/
+            toolStripButtonFaction.Checked = Permissions.FactionWhitelist.Count > 0 || Permissions.FactionBlacklist.Count > 0;
+            toolStripButtonArchetype.Checked = Permissions.ArchetypeWhitelist.Count > 0 || Permissions.ArchetypeBlacklist.Count > 0;
+            toolStripButtonType.Checked = Permissions.TypeWhitelist.Count > 0 || Permissions.TypeBlacklist.Count > 0;
+            toolStripButtonSize.Checked = Permissions.SizeWhitelist.Count > 0 || Permissions.SizeBlacklist.Count > 0;
+            toolStripButtonMovementType.Checked = Permissions.MovementTypeWhitelist.Count > 0 || Permissions.MovementTypeBlacklist.Count > 0;
+        }
 
-            /* TODO to save the values back into the object
-            permissions.ArchetypeTypeWhitelist.Clear();
+        public Permissions Permissions;
 
-            foreach( var checkedItem in checkedListBoxTypeWhitelist.CheckedItems )
-            {
-                permissions.ArchetypeTypeWhitelist.Add( (Archetype.EType)checkedItem );
-                permissions.ArchetypeTypeBlacklist.Add( (Archetype.EType)checkedItem );
-            }
-            */
+        private void RefreshData()
+        {
+            factionsWhitelistBindingSource.DataSource = Permissions.FactionWhitelist.OrderBy( x => x.Name )
+                                                                                    .ToList();
+            factionsBlacklistBindingSource.DataSource = Permissions.FactionBlacklist.OrderBy( x => x.Name )
+                                                                                    .ToList();
 
-            toolStripButtonFaction.Checked = modifiedPermissions.FactionWhitelist.Count > 0 || modifiedPermissions.FactionBlacklist.Count > 0;
-            toolStripButtonArchetype.Checked = modifiedPermissions.ArchetypeWhitelist.Count > 0 || modifiedPermissions.ArchetypeBlacklist.Count > 0;
-            toolStripButtonType.Checked = modifiedPermissions.ArchetypeTypeWhitelist.Count > 0 || modifiedPermissions.ArchetypeTypeBlacklist.Count > 0;
-            toolStripButtonSize.Checked = modifiedPermissions.SizeWhitelist.Count > 0 || modifiedPermissions.SizeBlacklist.Count > 0;
-            toolStripButtonMovementType.Checked = modifiedPermissions.MovementTypeWhitelist.Count > 0 || modifiedPermissions.MovementTypeBlacklist.Count > 0;
+            archetypesWhitelistBindingSource.DataSource = Permissions.ArchetypeWhitelist.OrderBy( x => x.Name )
+                                                                                        .ToList();
+            archetypesBlacklistBindingSource.DataSource = Permissions.ArchetypeBlacklist.OrderBy( x => x.Name )
+                                                                                        .ToList();
         }
 
         private void AdjustCheckedListBoxSize( CheckedListBox checkedListBox )
         {
             checkedListBox.ClientSize = new Size( checkedListBox.ClientSize.Width, checkedListBox.ItemHeight * checkedListBox.Items.Count );
         }
-
-        private Permissions m_originalPermissions;
 
         private void toolStripButtonFaction_CheckedChanged( object sender, EventArgs e )
         {
@@ -157,68 +143,49 @@ namespace Universalis
 
         private void PermissionForm_FormClosing( object sender, FormClosingEventArgs e )
         {
-            Permissions permissionsModified = (Permissions)permissionsBindingSource.DataSource;
-
-            permissionsModified.ArchetypeTypeWhitelist.Clear();
+            Permissions.TypeWhitelist.Clear();
             foreach( var item in checkedListBoxTypeWhitelist.CheckedItems )
             {
-                permissionsModified.ArchetypeTypeWhitelist.Add( (Archetype.EType)item );
+                Permissions.TypeWhitelist.Add( (Archetype.EType)item );
             }
 
-            permissionsModified.ArchetypeTypeBlacklist.Clear();
+            Permissions.TypeBlacklist.Clear();
             foreach( var item in checkedListBoxTypeBlacklist.CheckedItems )
             {
-                permissionsModified.ArchetypeTypeBlacklist.Add( (Archetype.EType)item );
+                Permissions.TypeBlacklist.Add( (Archetype.EType)item );
             }
 
-            permissionsModified.SizeWhitelist.Clear();
+            Permissions.SizeWhitelist.Clear();
             foreach( var item in checkedListBoxSizeWhitelist.CheckedItems )
             {
-                permissionsModified.SizeWhitelist.Add( (Archetype.ESize)item );
+                Permissions.SizeWhitelist.Add( (Archetype.ESize)item );
             }
 
-            permissionsModified.SizeBlacklist.Clear();
+            Permissions.SizeBlacklist.Clear();
             foreach( var item in checkedListBoxSizeBlacklist.CheckedItems )
             {
-                permissionsModified.SizeBlacklist.Add( (Archetype.ESize)item );
+                Permissions.SizeBlacklist.Add( (Archetype.ESize)item );
             }
 
-            permissionsModified.MovementTypeWhitelist.Clear();
+            Permissions.MovementTypeWhitelist.Clear();
             foreach( var item in checkedListBoxMovementTypeWhitelist.CheckedItems )
             {
-                permissionsModified.MovementTypeWhitelist.Add( (Archetype.EMovementType)item );
+                Permissions.MovementTypeWhitelist.Add( (Archetype.EMovementType)item );
             }
 
-            permissionsModified.MovementTypeBlacklist.Clear();
+            Permissions.MovementTypeBlacklist.Clear();
             foreach( var item in checkedListBoxMovementTypeBlacklist.CheckedItems )
             {
-                permissionsModified.MovementTypeBlacklist.Add( (Archetype.EMovementType)item );
+                Permissions.MovementTypeBlacklist.Add( (Archetype.EMovementType)item );
             }
 
-            if( !permissionsModified.Equals( m_originalPermissions ) )
-            {
-                switch( MessageBox.Show( "Änderungen speichern?", String.Empty, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3 ) )
-                {
-                    case DialogResult.Yes:
-                        var (status, reason) = permissionsModified.IsValid();
+            var (status, reason) = Permissions.IsValid();
 
-                        if( status )
-                        {
-                            m_originalPermissions.Set( permissionsModified );
-                        }
-                        else
-                        {
-                            if( MessageBox.Show( $"{reason}\n\nÄnderungen verwerfen?", "Unlogische Berechtigungen", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2 ) == DialogResult.No )
-                            {
-                                e.Cancel = true;
-                            }
-                        }
-                        break;
-                    case DialogResult.No:
-                        break;
-                    case DialogResult.Cancel:
-                        e.Cancel = true;
-                        break;
+            if( !status )
+            {
+                if( MessageBox.Show( $"{reason}\n\nÄnderungen verwerfen?", "Unlogische Berechtigungen", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2 ) == DialogResult.No )
+                {
+                    e.Cancel = true;
                 }
             }
         }
@@ -227,6 +194,22 @@ namespace Universalis
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void toolStripButtonFactionWhitelistAdd_Click( object sender, EventArgs e )
+        {
+            using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm() )
+            {
+                if( factionSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                {
+                    if( factionSelectionForm.SelectedFaction != null )
+                    {
+                        Permissions.FactionWhitelist.Add( factionSelectionForm.SelectedFaction );
+
+                        RefreshData();
+                    }
+                }
+            }
         }
     }
 }

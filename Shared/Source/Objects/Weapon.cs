@@ -49,6 +49,15 @@ namespace Universalis
                 ProfileModifier = null;
             }
 
+            if( null != weapon.Permissions )
+            {
+                Permissions = new Permissions( weapon.Permissions );
+            }
+            else
+            {
+                Permissions = null;
+            }
+
             if( null != weapon.Range )
             {
                 Range = new WeaponRange
@@ -135,6 +144,24 @@ namespace Universalis
             if( ( null != ProfileModifier ) && ( null != weapon.ProfileModifier ) )
             {
                 if( !ProfileModifier.Equals( weapon.ProfileModifier ) )
+                {
+                    return ( false );
+                }
+            }
+
+            if( ( null != Permissions ) && ( null == weapon.Permissions ) )
+            {
+                return ( false );
+            }
+
+            if( ( null == Permissions ) && ( null != weapon.Permissions ) )
+            {
+                return ( false );
+            }
+
+            if( ( null != Permissions ) && ( null != weapon.Permissions ) )
+            {
+                if( !Permissions.Equals( weapon.Permissions ) )
                 {
                     return ( false );
                 }
@@ -303,6 +330,12 @@ namespace Universalis
         } = new HashSet<DamageEffect>();
 
         public ProfileModifier ProfileModifier
+        {
+            get;
+            set;
+        }
+
+        public Permissions Permissions
         {
             get;
             set;
@@ -528,6 +561,16 @@ namespace Universalis
                 if( !String.IsNullOrEmpty( profileModifierSummary ) )
                 {
                     text += profileModifierSummary;
+                }
+            }
+
+            if( null != this.Permissions )
+            {
+                string permissionsSummary = Permissions.Summary();
+
+                if( !String.IsNullOrEmpty( permissionsSummary ) )
+                {
+                    text += permissionsSummary;
                 }
             }
 

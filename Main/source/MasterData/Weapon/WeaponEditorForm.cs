@@ -37,6 +37,19 @@ namespace Universalis
                 panelProfileModifier.Visible = false;
             }
 
+            if( null != modifiedWeapon.Permissions )
+            {
+                toolStripButtonPermissions.Checked = true;
+                toolStripButtonPermissions.Image = Properties.Resources.ui_check_box;
+
+                textBoxPermissions.Text = modifiedWeapon.Permissions.Summary();
+            }
+            else
+            {
+                toolStripButtonPermissionsEditor.Enabled = false;
+                panelPermissions.Visible = false;
+            }
+
             if( modifiedWeapon.Range != null )
             {
                 weaponRangeBindingSource.DataSource = modifiedWeapon.Range;
@@ -391,14 +404,29 @@ namespace Universalis
 
         private void openProfileModEditor()
         {
-            var armor = (Weapon)weaponBindingSource.DataSource;
+            var weapon = (Weapon)weaponBindingSource.DataSource;
 
-            using( var profileModifierEditor = new ProfileModifierEditor( armor.ProfileModifier ) )
+            using( var profileModifierEditor = new ProfileModifierEditor( weapon.ProfileModifier ) )
             {
                 if( profileModifierEditor.ShowDialog( this ) == DialogResult.OK )
                 {
-                    armor.ProfileModifier = profileModifierEditor.ProfileModifier;
-                    textBoxProfileModifier.Text = armor.ProfileModifier.Summary();
+                    weapon.ProfileModifier = profileModifierEditor.ProfileModifier;
+                    textBoxProfileModifier.Text = weapon.ProfileModifier.Summary();
+                    weaponBindingSource.ResetBindings( false );
+                }
+            }
+        }
+
+        private void openPermissionsEditor()
+        {
+            var weapon = (Weapon)weaponBindingSource.DataSource;
+
+            using( var permissionsEditor = new PermissionsEditor( weapon.Permissions ) )
+            {
+                if( permissionsEditor.ShowDialog( this ) == DialogResult.OK )
+                {
+                    weapon.Permissions = permissionsEditor.Permissions;
+                    textBoxPermissions.Text = weapon.Permissions.Summary();
                     weaponBindingSource.ResetBindings( false );
                 }
             }
@@ -426,18 +454,50 @@ namespace Universalis
             }
         }
 
-        private void toolStripButton1_Click( object sender, EventArgs e )
+        private void toolStripButtonPermissions_Click( object sender, EventArgs e )
         {
-            // TODO remove dummy
-            var dummypermission = new Permissions();
+            var weapon = (Weapon)weaponBindingSource.DataSource;
 
-            dummypermission.ArchetypeWhitelist.Add( new Archetype() { Name = "ASDASD" } );
-            dummypermission.SizeBlacklist.Add( Archetype.ESize.Mittel );
-
-            using( var permissionForm = new PermissionsEditor( dummypermission ) )
+            if( toolStripButtonPermissions.Checked )
             {
-                permissionForm.ShowDialog( this );
+                toolStripButtonPermissions.Image = Properties.Resources.ui_check_box;
+
+                var permissions = new Permissions();
+
+                weapon.Permissions = permissions;
+
+                toolStripButtonPermissionsEditor.Enabled = true;
+                panelPermissions.Visible = true;
+
+                openPermissionsEditor();
             }
+            else
+            {
+                toolStripButtonPermissions.Image = Properties.Resources.ui_check_box_uncheck;
+
+                weapon.Permissions = null;
+
+                toolStripButtonPermissionsEditor.Enabled = false;
+                panelPermissions.Visible = false;
+
+                textBoxPermissions.Text = String.Empty;
+
+                weaponBindingSource.ResetBindings( false );
+            }
+        }
+
+        private void toolStripButtonPermissionsEditor_Click( object sender, EventArgs e )
+        {
+            openPermissionsEditor();
+        }
+
+        private void textBoxPermissions_TextChanged( object sender, EventArgs e )
+        {
+            var messageSize = TextRenderer.MeasureText( textBoxPermissions.Text,
+                                                        textBoxPermissions.Font,
+                                                        new System.Drawing.Size( textBoxPermissions.Width, 0 ) );
+
+            textBoxPermissions.Height = messageSize.Height;
         }
     }
 }

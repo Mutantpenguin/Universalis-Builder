@@ -29,11 +29,11 @@ namespace Universalis
             ArchetypeBlacklist.Clear();
             ArchetypeBlacklist.UnionWith( permissions.ArchetypeBlacklist );
 
-            ArchetypeTypeWhitelist.Clear();
-            ArchetypeTypeWhitelist.UnionWith( permissions.ArchetypeTypeWhitelist );
+            TypeWhitelist.Clear();
+            TypeWhitelist.UnionWith( permissions.TypeWhitelist );
 
-            ArchetypeTypeBlacklist.Clear();
-            ArchetypeTypeBlacklist.UnionWith( permissions.ArchetypeTypeBlacklist );
+            TypeBlacklist.Clear();
+            TypeBlacklist.UnionWith( permissions.TypeBlacklist );
 
             SizeWhitelist.Clear();
             SizeWhitelist.UnionWith( permissions.SizeWhitelist );
@@ -75,12 +75,12 @@ namespace Universalis
                 return ( false );
             }
 
-            if( !ArchetypeTypeWhitelist.SetEquals( permissions.ArchetypeTypeWhitelist ) )
+            if( !TypeWhitelist.SetEquals( permissions.TypeWhitelist ) )
             {
                 return ( false );
             }
 
-            if( !ArchetypeTypeBlacklist.SetEquals( permissions.ArchetypeTypeBlacklist ) )
+            if( !TypeBlacklist.SetEquals( permissions.TypeBlacklist ) )
             {
                 return ( false );
             }
@@ -120,7 +120,7 @@ namespace Universalis
                 return ( false, "White- und Blacklist für Archetypen können nicht gleichzeitig gefüllt sein." );
             }
 
-            if( ArchetypeTypeWhitelist.Count > 0 && ArchetypeTypeBlacklist.Count > 0 )
+            if( TypeWhitelist.Count > 0 && TypeBlacklist.Count > 0 )
             {
                 return ( false, "White- und Blacklist für Typen können nicht gleichzeitig gefüllt sein." );
             }
@@ -142,7 +142,7 @@ namespace Universalis
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Fraktionen gefüllt sein." );
                 }
                 
-                if( ArchetypeTypeWhitelist.Count > 0 || ArchetypeTypeBlacklist.Count > 0 )
+                if( TypeWhitelist.Count > 0 || TypeBlacklist.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Typen gefüllt sein." );
                 }
@@ -188,16 +188,16 @@ namespace Universalis
                 summary += "Verbotene Archetypen: " + String.Join( ", ", ArchetypeBlacklist.Select( x => x.Name ) );
             }
 
-            if( ArchetypeTypeWhitelist.Count > 0 )
+            if( TypeWhitelist.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Erlaubte Typen: " + String.Join( ", ", ArchetypeTypeWhitelist.Select( x => x.ToString() ) );
+                summary += "Erlaubte Typen: " + String.Join( ", ", TypeWhitelist.Select( x => x.ToString() ) );
             }
 
-            if( ArchetypeTypeBlacklist.Count > 0 )
+            if( TypeBlacklist.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Verbotene Typen: " + String.Join( ", ", ArchetypeTypeBlacklist.Select( x => x.ToString() ) );
+                summary += "Verbotene Typen: " + String.Join( ", ", TypeBlacklist.Select( x => x.ToString() ) );
             }
 
             if( SizeWhitelist.Count > 0 )
@@ -237,8 +237,8 @@ namespace Universalis
         [JsonConverter( typeof( JsonArchetypeSetConverter ) )]
         public HashSet<Archetype> ArchetypeBlacklist = new HashSet<Archetype>();
 
-        public HashSet<Archetype.EType> ArchetypeTypeWhitelist = new HashSet<Archetype.EType>();
-        public HashSet<Archetype.EType> ArchetypeTypeBlacklist = new HashSet<Archetype.EType>();
+        public HashSet<Archetype.EType> TypeWhitelist = new HashSet<Archetype.EType>();
+        public HashSet<Archetype.EType> TypeBlacklist = new HashSet<Archetype.EType>();
 
         public HashSet<Archetype.ESize> SizeWhitelist = new HashSet<Archetype.ESize>();
         public HashSet<Archetype.ESize> SizeBlacklist = new HashSet<Archetype.ESize>();
