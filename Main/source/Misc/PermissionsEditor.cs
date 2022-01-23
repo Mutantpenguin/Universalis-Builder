@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,7 +18,7 @@ namespace Universalis
 
             permissionsBindingSource.DataSource = Permissions;
             
-            RefreshData();
+            RefreshGridViews();
 
             foreach( var type in Archetype.ETypeList )
             {
@@ -53,7 +54,7 @@ namespace Universalis
 
         public Permissions Permissions;
 
-        private void RefreshData()
+        private void RefreshGridViews()
         {
             factionsWhitelistBindingSource.DataSource = Permissions.FactionWhitelist.OrderBy( x => x.Name )
                                                                                     .ToList();
@@ -196,7 +197,7 @@ namespace Universalis
             this.Close();
         }
 
-        private void toolStripButtonFactionWhitelistAdd_Click( object sender, EventArgs e )
+        private void SelectFaction( HashSet<Faction> factionList )
         {
             using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm() )
             {
@@ -204,11 +205,97 @@ namespace Universalis
                 {
                     if( factionSelectionForm.SelectedFaction != null )
                     {
-                        Permissions.FactionWhitelist.Add( factionSelectionForm.SelectedFaction );
+                        factionList.Add( factionSelectionForm.SelectedFaction );
 
-                        RefreshData();
+                        RefreshGridViews();
                     }
                 }
+            }
+        }
+
+        private void SelectArchetype( HashSet<Archetype> archetypeList )
+        {
+            using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm() )
+            {
+                if( factionSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                {
+                    if( factionSelectionForm.SelectedFaction != null )
+                    {
+                        using( ArchetypeSelectionForm archetypeSelectionForm = new ArchetypeSelectionForm( factionSelectionForm.SelectedFaction ) )
+                        {
+                            if( archetypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                            {
+                                archetypeList.Add( archetypeSelectionForm.SelectedArchetype );
+
+                                RefreshGridViews();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void toolStripButtonFactionWhitelistAdd_Click( object sender, EventArgs e )
+        {
+            SelectFaction( Permissions.FactionWhitelist );
+        }
+
+        private void toolStripButtonFactionBlacklistAdd_Click( object sender, EventArgs e )
+        {
+            SelectFaction( Permissions.FactionBlacklist );
+        }
+
+        private void toolStripButtonArchetypeWhitelistAdd_Click( object sender, EventArgs e )
+        {
+            SelectArchetype( Permissions.ArchetypeWhitelist );
+        }
+
+        private void toolStripButtonArchetypeBlacklistAdd_Click( object sender, EventArgs e )
+        {
+            SelectArchetype( Permissions.ArchetypeBlacklist );
+        }
+
+        private void toolStripButtonFactionWhitelistDelete_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewFactionWhitelist.SelectedRows.Count > 0 )
+            {
+                var faction = (Faction)dataGridViewFactionWhitelist.SelectedRows[ 0 ].DataBoundItem;
+                Permissions.FactionWhitelist.Remove( faction );
+
+                RefreshGridViews();
+            }
+        }
+
+        private void toolStripButtonFactionBlacklistDelete_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewFactionBlacklist.SelectedRows.Count > 0 )
+            {
+                var faction = (Faction)dataGridViewFactionBlacklist.SelectedRows[ 0 ].DataBoundItem;
+                Permissions.FactionBlacklist.Remove( faction );
+
+                RefreshGridViews();
+            }
+        }
+
+        private void toolStripButtonArchetypeWhitelistDelete_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewArchetypeWhitelist.SelectedRows.Count > 0 )
+            {
+                var archetype = (Archetype)dataGridViewArchetypeWhitelist.SelectedRows[ 0 ].DataBoundItem;
+                Permissions.ArchetypeWhitelist.Remove( archetype );
+
+                RefreshGridViews();
+            }
+        }
+
+        private void toolStripButtonArchetypeBlacklistDelete_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewArchetypeBlacklist.SelectedRows.Count > 0 )
+            {
+                var archetype = (Archetype)dataGridViewArchetypeBlacklist.SelectedRows[ 0 ].DataBoundItem;
+                Permissions.ArchetypeBlacklist.Remove( archetype );
+
+                RefreshGridViews();
             }
         }
     }

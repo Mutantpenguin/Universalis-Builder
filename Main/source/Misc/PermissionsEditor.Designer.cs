@@ -30,23 +30,27 @@ namespace Universalis
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripFactions = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonFaction = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tableLayoutPanelFactions = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewFactionBlacklist = new System.Windows.Forms.DataGridView();
+            this.iconDataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionsBlacklistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonFactionBlacklistAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFactionBlacklistDelete = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewFactionWhitelist = new System.Windows.Forms.DataGridView();
+            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionsWhitelistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
@@ -66,7 +70,7 @@ namespace Universalis
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.tableLayoutPanelArchetypes = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewArchetypeBlacklist = new System.Windows.Forms.DataGridView();
             this.factionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.archetypesBlacklistBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -75,7 +79,7 @@ namespace Universalis
             this.toolStripButtonArchetypeBlacklistAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonArchetypeBlacklistDelete = new System.Windows.Forms.ToolStripButton();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewArchetypeWhitelist = new System.Windows.Forms.DataGridView();
             this.factionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.archetypesWhitelistBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -114,18 +118,14 @@ namespace Universalis
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iconDataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripFactions.SuspendLayout();
             this.tableLayoutPanelFactions.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactionBlacklist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsBlacklistBindingSource)).BeginInit();
             this.toolStrip3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactionWhitelist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsWhitelistBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.toolStripArchetypes.SuspendLayout();
@@ -134,11 +134,11 @@ namespace Universalis
             this.toolStripMovementType.SuspendLayout();
             this.tableLayoutPanelArchetypes.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypeBlacklist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.archetypesBlacklistBindingSource)).BeginInit();
             this.toolStrip8.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypeWhitelist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.archetypesWhitelistBindingSource)).BeginInit();
             this.toolStrip9.SuspendLayout();
             this.tableLayoutPanelType.SuspendLayout();
@@ -208,7 +208,7 @@ namespace Universalis
             // panel2
             // 
             this.panel2.AutoSize = true;
-            this.panel2.Controls.Add(this.dataGridView2);
+            this.panel2.Controls.Add(this.dataGridViewFactionBlacklist);
             this.panel2.Controls.Add(this.toolStrip3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(245, 3);
@@ -216,29 +216,46 @@ namespace Universalis
             this.panel2.Size = new System.Drawing.Size(236, 194);
             this.panel2.TabIndex = 2;
             // 
-            // dataGridView2
+            // dataGridViewFactionBlacklist
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewFactionBlacklist.AllowUserToAddRows = false;
+            this.dataGridViewFactionBlacklist.AllowUserToDeleteRows = false;
+            this.dataGridViewFactionBlacklist.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewFactionBlacklist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridViewFactionBlacklist.AutoGenerateColumns = false;
+            this.dataGridViewFactionBlacklist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFactionBlacklist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iconDataGridViewImageColumn1,
             this.nameDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.factionsBlacklistBindingSource;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 25);
-            this.dataGridView2.MultiSelect = false;
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowTemplate.Height = 40;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(236, 169);
-            this.dataGridView2.TabIndex = 4;
+            this.dataGridViewFactionBlacklist.DataSource = this.factionsBlacklistBindingSource;
+            this.dataGridViewFactionBlacklist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewFactionBlacklist.Location = new System.Drawing.Point(0, 25);
+            this.dataGridViewFactionBlacklist.MultiSelect = false;
+            this.dataGridViewFactionBlacklist.Name = "dataGridViewFactionBlacklist";
+            this.dataGridViewFactionBlacklist.ReadOnly = true;
+            this.dataGridViewFactionBlacklist.RowHeadersVisible = false;
+            this.dataGridViewFactionBlacklist.RowTemplate.Height = 40;
+            this.dataGridViewFactionBlacklist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewFactionBlacklist.Size = new System.Drawing.Size(236, 169);
+            this.dataGridViewFactionBlacklist.TabIndex = 4;
+            // 
+            // iconDataGridViewImageColumn1
+            // 
+            this.iconDataGridViewImageColumn1.DataPropertyName = "Icon";
+            this.iconDataGridViewImageColumn1.HeaderText = "Icon";
+            this.iconDataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.iconDataGridViewImageColumn1.Name = "iconDataGridViewImageColumn1";
+            this.iconDataGridViewImageColumn1.ReadOnly = true;
+            this.iconDataGridViewImageColumn1.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // factionsBlacklistBindingSource
             // 
@@ -273,6 +290,7 @@ namespace Universalis
             this.toolStripButtonFactionBlacklistAdd.Name = "toolStripButtonFactionBlacklistAdd";
             this.toolStripButtonFactionBlacklistAdd.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonFactionBlacklistAdd.Text = "toolStripButton2";
+            this.toolStripButtonFactionBlacklistAdd.Click += new System.EventHandler(this.toolStripButtonFactionBlacklistAdd_Click);
             // 
             // toolStripButtonFactionBlacklistDelete
             // 
@@ -284,11 +302,12 @@ namespace Universalis
             this.toolStripButtonFactionBlacklistDelete.Name = "toolStripButtonFactionBlacklistDelete";
             this.toolStripButtonFactionBlacklistDelete.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonFactionBlacklistDelete.Text = "toolStripButton2";
+            this.toolStripButtonFactionBlacklistDelete.Click += new System.EventHandler(this.toolStripButtonFactionBlacklistDelete_Click);
             // 
             // panel1
             // 
             this.panel1.AutoSize = true;
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dataGridViewFactionWhitelist);
             this.panel1.Controls.Add(this.toolStrip2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -296,29 +315,47 @@ namespace Universalis
             this.panel1.Size = new System.Drawing.Size(236, 194);
             this.panel1.TabIndex = 2;
             // 
-            // dataGridView1
+            // dataGridViewFactionWhitelist
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewFactionWhitelist.AllowUserToAddRows = false;
+            this.dataGridViewFactionWhitelist.AllowUserToDeleteRows = false;
+            this.dataGridViewFactionWhitelist.AllowUserToResizeRows = false;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewFactionWhitelist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridViewFactionWhitelist.AutoGenerateColumns = false;
+            this.dataGridViewFactionWhitelist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFactionWhitelist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iconDataGridViewImageColumn,
             this.nameDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.factionsWhitelistBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 25);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(236, 169);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGridViewFactionWhitelist.DataSource = this.factionsWhitelistBindingSource;
+            this.dataGridViewFactionWhitelist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewFactionWhitelist.Location = new System.Drawing.Point(0, 25);
+            this.dataGridViewFactionWhitelist.MultiSelect = false;
+            this.dataGridViewFactionWhitelist.Name = "dataGridViewFactionWhitelist";
+            this.dataGridViewFactionWhitelist.ReadOnly = true;
+            this.dataGridViewFactionWhitelist.RowHeadersVisible = false;
+            this.dataGridViewFactionWhitelist.RowTemplate.Height = 40;
+            this.dataGridViewFactionWhitelist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewFactionWhitelist.Size = new System.Drawing.Size(236, 169);
+            this.dataGridViewFactionWhitelist.TabIndex = 3;
+            // 
+            // iconDataGridViewImageColumn
+            // 
+            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
+            this.iconDataGridViewImageColumn.HeaderText = "Icon";
+            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
+            this.iconDataGridViewImageColumn.ReadOnly = true;
+            this.iconDataGridViewImageColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.FillWeight = 206.7227F;
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // factionsWhitelistBindingSource
             // 
@@ -365,6 +402,7 @@ namespace Universalis
             this.toolStripButtonFactionWhitelistDelete.Name = "toolStripButtonFactionWhitelistDelete";
             this.toolStripButtonFactionWhitelistDelete.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonFactionWhitelistDelete.Text = "toolStripButton1";
+            this.toolStripButtonFactionWhitelistDelete.Click += new System.EventHandler(this.toolStripButtonFactionWhitelistDelete_Click);
             // 
             // toolStripArchetypes
             // 
@@ -501,7 +539,7 @@ namespace Universalis
             // panel3
             // 
             this.panel3.AutoSize = true;
-            this.panel3.Controls.Add(this.dataGridView3);
+            this.panel3.Controls.Add(this.dataGridViewArchetypeBlacklist);
             this.panel3.Controls.Add(this.toolStrip8);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(245, 3);
@@ -509,29 +547,29 @@ namespace Universalis
             this.panel3.Size = new System.Drawing.Size(236, 194);
             this.panel3.TabIndex = 2;
             // 
-            // dataGridView3
+            // dataGridViewArchetypeBlacklist
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewArchetypeBlacklist.AllowUserToAddRows = false;
+            this.dataGridViewArchetypeBlacklist.AllowUserToDeleteRows = false;
+            this.dataGridViewArchetypeBlacklist.AllowUserToResizeRows = false;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewArchetypeBlacklist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridViewArchetypeBlacklist.AutoGenerateColumns = false;
+            this.dataGridViewArchetypeBlacklist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewArchetypeBlacklist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.factionDataGridViewTextBoxColumn1,
             this.nameDataGridViewTextBoxColumn3});
-            this.dataGridView3.DataSource = this.archetypesBlacklistBindingSource;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 25);
-            this.dataGridView3.MultiSelect = false;
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.RowHeadersVisible = false;
-            this.dataGridView3.RowTemplate.Height = 40;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(236, 169);
-            this.dataGridView3.TabIndex = 4;
+            this.dataGridViewArchetypeBlacklist.DataSource = this.archetypesBlacklistBindingSource;
+            this.dataGridViewArchetypeBlacklist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewArchetypeBlacklist.Location = new System.Drawing.Point(0, 25);
+            this.dataGridViewArchetypeBlacklist.MultiSelect = false;
+            this.dataGridViewArchetypeBlacklist.Name = "dataGridViewArchetypeBlacklist";
+            this.dataGridViewArchetypeBlacklist.ReadOnly = true;
+            this.dataGridViewArchetypeBlacklist.RowHeadersVisible = false;
+            this.dataGridViewArchetypeBlacklist.RowTemplate.Height = 40;
+            this.dataGridViewArchetypeBlacklist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewArchetypeBlacklist.Size = new System.Drawing.Size(236, 169);
+            this.dataGridViewArchetypeBlacklist.TabIndex = 4;
             // 
             // factionDataGridViewTextBoxColumn1
             // 
@@ -581,6 +619,7 @@ namespace Universalis
             this.toolStripButtonArchetypeBlacklistAdd.Name = "toolStripButtonArchetypeBlacklistAdd";
             this.toolStripButtonArchetypeBlacklistAdd.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonArchetypeBlacklistAdd.Text = "toolStripButton2";
+            this.toolStripButtonArchetypeBlacklistAdd.Click += new System.EventHandler(this.toolStripButtonArchetypeBlacklistAdd_Click);
             // 
             // toolStripButtonArchetypeBlacklistDelete
             // 
@@ -592,11 +631,12 @@ namespace Universalis
             this.toolStripButtonArchetypeBlacklistDelete.Name = "toolStripButtonArchetypeBlacklistDelete";
             this.toolStripButtonArchetypeBlacklistDelete.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonArchetypeBlacklistDelete.Text = "toolStripButton2";
+            this.toolStripButtonArchetypeBlacklistDelete.Click += new System.EventHandler(this.toolStripButtonArchetypeBlacklistDelete_Click);
             // 
             // panel4
             // 
             this.panel4.AutoSize = true;
-            this.panel4.Controls.Add(this.dataGridView4);
+            this.panel4.Controls.Add(this.dataGridViewArchetypeWhitelist);
             this.panel4.Controls.Add(this.toolStrip9);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
@@ -604,29 +644,29 @@ namespace Universalis
             this.panel4.Size = new System.Drawing.Size(236, 194);
             this.panel4.TabIndex = 2;
             // 
-            // dataGridView4
+            // dataGridViewArchetypeWhitelist
             // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView4.AutoGenerateColumns = false;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewArchetypeWhitelist.AllowUserToAddRows = false;
+            this.dataGridViewArchetypeWhitelist.AllowUserToDeleteRows = false;
+            this.dataGridViewArchetypeWhitelist.AllowUserToResizeRows = false;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewArchetypeWhitelist.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridViewArchetypeWhitelist.AutoGenerateColumns = false;
+            this.dataGridViewArchetypeWhitelist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewArchetypeWhitelist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.factionDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn2});
-            this.dataGridView4.DataSource = this.archetypesWhitelistBindingSource;
-            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.Location = new System.Drawing.Point(0, 25);
-            this.dataGridView4.MultiSelect = false;
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.RowHeadersVisible = false;
-            this.dataGridView4.RowTemplate.Height = 40;
-            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(236, 169);
-            this.dataGridView4.TabIndex = 3;
+            this.dataGridViewArchetypeWhitelist.DataSource = this.archetypesWhitelistBindingSource;
+            this.dataGridViewArchetypeWhitelist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewArchetypeWhitelist.Location = new System.Drawing.Point(0, 25);
+            this.dataGridViewArchetypeWhitelist.MultiSelect = false;
+            this.dataGridViewArchetypeWhitelist.Name = "dataGridViewArchetypeWhitelist";
+            this.dataGridViewArchetypeWhitelist.ReadOnly = true;
+            this.dataGridViewArchetypeWhitelist.RowHeadersVisible = false;
+            this.dataGridViewArchetypeWhitelist.RowTemplate.Height = 40;
+            this.dataGridViewArchetypeWhitelist.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewArchetypeWhitelist.Size = new System.Drawing.Size(236, 169);
+            this.dataGridViewArchetypeWhitelist.TabIndex = 3;
             // 
             // factionDataGridViewTextBoxColumn
             // 
@@ -676,6 +716,7 @@ namespace Universalis
             this.toolStripButtonArchetypeWhitelistAdd.Name = "toolStripButtonArchetypeWhitelistAdd";
             this.toolStripButtonArchetypeWhitelistAdd.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonArchetypeWhitelistAdd.Text = "toolStripButton1";
+            this.toolStripButtonArchetypeWhitelistAdd.Click += new System.EventHandler(this.toolStripButtonArchetypeWhitelistAdd_Click);
             // 
             // toolStripButtonArchetypeWhitelistDelete
             // 
@@ -687,6 +728,7 @@ namespace Universalis
             this.toolStripButtonArchetypeWhitelistDelete.Name = "toolStripButtonArchetypeWhitelistDelete";
             this.toolStripButtonArchetypeWhitelistDelete.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonArchetypeWhitelistDelete.Text = "toolStripButton1";
+            this.toolStripButtonArchetypeWhitelistDelete.Click += new System.EventHandler(this.toolStripButtonArchetypeWhitelistDelete_Click);
             // 
             // tableLayoutPanelType
             // 
@@ -1009,41 +1051,6 @@ namespace Universalis
             // 
             this.permissionsBindingSource.DataSource = typeof(Universalis.Permissions);
             // 
-            // iconDataGridViewImageColumn1
-            // 
-            this.iconDataGridViewImageColumn1.DataPropertyName = "Icon";
-            this.iconDataGridViewImageColumn1.HeaderText = "Icon";
-            this.iconDataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.iconDataGridViewImageColumn1.Name = "iconDataGridViewImageColumn1";
-            this.iconDataGridViewImageColumn1.ReadOnly = true;
-            this.iconDataGridViewImageColumn1.Width = 40;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // iconDataGridViewImageColumn
-            // 
-            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
-            this.iconDataGridViewImageColumn.HeaderText = "Icon";
-            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
-            this.iconDataGridViewImageColumn.ReadOnly = true;
-            this.iconDataGridViewImageColumn.Width = 40;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.FillWeight = 206.7227F;
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // PermissionsEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1075,13 +1082,13 @@ namespace Universalis
             this.tableLayoutPanelFactions.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactionBlacklist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsBlacklistBindingSource)).EndInit();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactionWhitelist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsWhitelistBindingSource)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
@@ -1097,13 +1104,13 @@ namespace Universalis
             this.tableLayoutPanelArchetypes.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypeBlacklist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.archetypesBlacklistBindingSource)).EndInit();
             this.toolStrip8.ResumeLayout(false);
             this.toolStrip8.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypeWhitelist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.archetypesWhitelistBindingSource)).EndInit();
             this.toolStrip9.ResumeLayout(false);
             this.toolStrip9.PerformLayout();
@@ -1157,8 +1164,8 @@ namespace Universalis
         private System.Windows.Forms.ToolStripButton toolStripButtonFactionWhitelistDelete;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewFactionBlacklist;
+        private System.Windows.Forms.DataGridView dataGridViewFactionWhitelist;
         private System.Windows.Forms.ToolStripButton toolStripButtonFactionBlacklistAdd;
         private System.Windows.Forms.ToolStripButton toolStripButtonFactionWhitelistAdd;
         private System.Windows.Forms.ToolStripButton toolStripButtonFaction;
@@ -1177,13 +1184,13 @@ namespace Universalis
         private System.Windows.Forms.BindingSource permissionsBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelArchetypes;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dataGridViewArchetypeBlacklist;
         private System.Windows.Forms.ToolStrip toolStrip8;
         private System.Windows.Forms.ToolStripLabel toolStripLabel8;
         private System.Windows.Forms.ToolStripButton toolStripButtonArchetypeBlacklistAdd;
         private System.Windows.Forms.ToolStripButton toolStripButtonArchetypeBlacklistDelete;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView dataGridViewArchetypeWhitelist;
         private System.Windows.Forms.ToolStrip toolStrip9;
         private System.Windows.Forms.ToolStripLabel toolStripLabel9;
         private System.Windows.Forms.ToolStripButton toolStripButtonArchetypeWhitelistAdd;
