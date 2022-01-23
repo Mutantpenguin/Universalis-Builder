@@ -247,11 +247,11 @@
     <Compile Include="Source\Misc\ImageSelectionForm2.Designer.cs">
       <DependentUpon>ImageSelectionForm2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Misc\PermissionForm.cs">
+    <Compile Include="Source\Misc\PermissionsEditor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Misc\PermissionForm.Designer.cs">
-      <DependentUpon>PermissionForm.cs</DependentUpon>
+    <Compile Include="Source\Misc\PermissionsEditor.Designer.cs">
+      <DependentUpon>PermissionsEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Misc\ProfileModifierEditor.cs">
       <SubType>Form</SubType>
@@ -461,8 +461,8 @@
     <EmbeddedResource Include="Source\Misc\ImageSelectionForm2.resx">
       <DependentUpon>ImageSelectionForm2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Misc\PermissionForm.resx">
-      <DependentUpon>PermissionForm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Misc\PermissionsEditor.resx">
+      <DependentUpon>PermissionsEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Misc\ProfileModifierEditor.resx">
       <DependentUpon>ProfileModifierEditor.cs</DependentUpon>

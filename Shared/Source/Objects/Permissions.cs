@@ -108,7 +108,7 @@ namespace Universalis
             return ( true );
         }
 
-        public (bool, String reason) IsValid()
+        public (bool status, String reason) IsValid()
         {
             if( FactionWhitelist.Count > 0 && FactionBlacklist.Count > 0 )
             {

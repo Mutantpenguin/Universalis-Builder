@@ -434,7 +434,7 @@ namespace Universalis
             dummypermission.ArchetypeWhitelist.Add( new Archetype() { Name = "ASDASD" } );
             dummypermission.SizeBlacklist.Add( Archetype.ESize.Mittel );
 
-            using( var permissionForm = new PermissionForm( dummypermission ) )
+            using( var permissionForm = new PermissionsEditor( dummypermission ) )
             {
                 permissionForm.ShowDialog( this );
             }

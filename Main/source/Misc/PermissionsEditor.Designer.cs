@@ -1,7 +1,7 @@
 ﻿
 namespace Universalis
 {
-    partial class PermissionForm
+    partial class PermissionsEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,10 @@ namespace Universalis
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripFactions = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonFaction = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -72,32 +76,47 @@ namespace Universalis
             this.toolStripButtonArchetypeWhitelistAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonArchetypeWhitelistDelete = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanelType = new System.Windows.Forms.TableLayoutPanel();
-            this.checkedListBoxTypeWhitelist = new System.Windows.Forms.CheckedListBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.checkedListBoxTypeBlacklist = new System.Windows.Forms.CheckedListBox();
             this.toolStrip10 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel10 = new System.Windows.Forms.ToolStripLabel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.checkedListBoxTypeWhitelist = new System.Windows.Forms.CheckedListBox();
             this.toolStrip11 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel11 = new System.Windows.Forms.ToolStripLabel();
             this.tableLayoutPanelSize = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.checkedListBoxSizeBlacklist = new System.Windows.Forms.CheckedListBox();
             this.toolStrip12 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel12 = new System.Windows.Forms.ToolStripLabel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.checkedListBoxSizeWhitelist = new System.Windows.Forms.CheckedListBox();
             this.toolStrip13 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel13 = new System.Windows.Forms.ToolStripLabel();
             this.tableLayoutPanelMovementType = new System.Windows.Forms.TableLayoutPanel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.checkedListBoxMovementTypeBlacklist = new System.Windows.Forms.CheckedListBox();
             this.toolStrip14 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel14 = new System.Windows.Forms.ToolStripLabel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.checkedListBoxMovementTypeWhitelist = new System.Windows.Forms.CheckedListBox();
             this.toolStrip15 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel15 = new System.Windows.Forms.ToolStripLabel();
-            this.checkedListBoxSizeWhitelist = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBoxMovementTypeWhitelist = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBoxTypeBlacklist = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBoxSizeBlacklist = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBoxMovementTypeBlacklist = new System.Windows.Forms.CheckedListBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonOk = new System.Windows.Forms.Button();
+            this.factionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.archetypesBlacklistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.factionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.archetypesWhitelistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iconDataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factionsBlacklistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factionsWhitelistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripFactions.SuspendLayout();
             this.tableLayoutPanelFactions.SuspendLayout();
@@ -133,6 +152,11 @@ namespace Universalis
             this.toolStrip14.SuspendLayout();
             this.panel10.SuspendLayout();
             this.toolStrip15.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypesBlacklistBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypesWhitelistBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factionsBlacklistBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factionsWhitelistBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,7 +201,7 @@ namespace Universalis
             this.tableLayoutPanelFactions.Name = "tableLayoutPanelFactions";
             this.tableLayoutPanelFactions.RowCount = 1;
             this.tableLayoutPanelFactions.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelFactions.Size = new System.Drawing.Size(484, 122);
+            this.tableLayoutPanelFactions.Size = new System.Drawing.Size(484, 200);
             this.tableLayoutPanelFactions.TabIndex = 1;
             this.tableLayoutPanelFactions.Visible = false;
             // 
@@ -189,16 +213,31 @@ namespace Universalis
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(245, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(236, 116);
+            this.panel2.Size = new System.Drawing.Size(236, 194);
             this.panel2.TabIndex = 2;
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iconDataGridViewImageColumn1,
+            this.nameDataGridViewTextBoxColumn1});
+            this.dataGridView2.DataSource = this.factionsBlacklistBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 25);
+            this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(236, 91);
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersVisible = false;
+            this.dataGridView2.RowTemplate.Height = 40;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(236, 169);
             this.dataGridView2.TabIndex = 4;
             // 
             // toolStrip3
@@ -250,16 +289,31 @@ namespace Universalis
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(236, 116);
+            this.panel1.Size = new System.Drawing.Size(236, 194);
             this.panel1.TabIndex = 2;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iconDataGridViewImageColumn,
+            this.nameDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.factionsWhitelistBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(236, 91);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 40;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(236, 169);
             this.dataGridView1.TabIndex = 3;
             // 
             // toolStrip2
@@ -309,7 +363,7 @@ namespace Universalis
             this.toolStripArchetypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonArchetype,
             this.toolStripLabel4});
-            this.toolStripArchetypes.Location = new System.Drawing.Point(0, 147);
+            this.toolStripArchetypes.Location = new System.Drawing.Point(0, 225);
             this.toolStripArchetypes.Name = "toolStripArchetypes";
             this.toolStripArchetypes.Size = new System.Drawing.Size(484, 25);
             this.toolStripArchetypes.TabIndex = 2;
@@ -338,7 +392,7 @@ namespace Universalis
             this.toolStripType.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonType,
             this.toolStripLabel5});
-            this.toolStripType.Location = new System.Drawing.Point(0, 294);
+            this.toolStripType.Location = new System.Drawing.Point(0, 450);
             this.toolStripType.Name = "toolStripType";
             this.toolStripType.Size = new System.Drawing.Size(484, 25);
             this.toolStripType.TabIndex = 3;
@@ -367,7 +421,7 @@ namespace Universalis
             this.toolStripSize.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonSize,
             this.toolStripLabel6});
-            this.toolStripSize.Location = new System.Drawing.Point(0, 441);
+            this.toolStripSize.Location = new System.Drawing.Point(0, 585);
             this.toolStripSize.Name = "toolStripSize";
             this.toolStripSize.Size = new System.Drawing.Size(484, 25);
             this.toolStripSize.TabIndex = 4;
@@ -396,7 +450,7 @@ namespace Universalis
             this.toolStripMovementType.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonMovementType,
             this.toolStripLabel7});
-            this.toolStripMovementType.Location = new System.Drawing.Point(0, 588);
+            this.toolStripMovementType.Location = new System.Drawing.Point(0, 720);
             this.toolStripMovementType.Name = "toolStripMovementType";
             this.toolStripMovementType.Size = new System.Drawing.Size(484, 25);
             this.toolStripMovementType.TabIndex = 5;
@@ -427,11 +481,11 @@ namespace Universalis
             this.tableLayoutPanelArchetypes.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanelArchetypes.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanelArchetypes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelArchetypes.Location = new System.Drawing.Point(0, 172);
+            this.tableLayoutPanelArchetypes.Location = new System.Drawing.Point(0, 250);
             this.tableLayoutPanelArchetypes.Name = "tableLayoutPanelArchetypes";
             this.tableLayoutPanelArchetypes.RowCount = 1;
             this.tableLayoutPanelArchetypes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelArchetypes.Size = new System.Drawing.Size(484, 122);
+            this.tableLayoutPanelArchetypes.Size = new System.Drawing.Size(484, 200);
             this.tableLayoutPanelArchetypes.TabIndex = 6;
             this.tableLayoutPanelArchetypes.Visible = false;
             // 
@@ -443,16 +497,31 @@ namespace Universalis
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(245, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(236, 116);
+            this.panel3.Size = new System.Drawing.Size(236, 194);
             this.panel3.TabIndex = 2;
             // 
             // dataGridView3
             // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToDeleteRows = false;
+            this.dataGridView3.AllowUserToResizeRows = false;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridView3.AutoGenerateColumns = false;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.factionDataGridViewTextBoxColumn1,
+            this.nameDataGridViewTextBoxColumn3});
+            this.dataGridView3.DataSource = this.archetypesBlacklistBindingSource;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(0, 25);
+            this.dataGridView3.MultiSelect = false;
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(236, 91);
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.RowTemplate.Height = 40;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(236, 169);
             this.dataGridView3.TabIndex = 4;
             // 
             // toolStrip8
@@ -504,16 +573,31 @@ namespace Universalis
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(236, 116);
+            this.panel4.Size = new System.Drawing.Size(236, 194);
             this.panel4.TabIndex = 2;
             // 
             // dataGridView4
             // 
+            this.dataGridView4.AllowUserToAddRows = false;
+            this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AllowUserToResizeRows = false;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridView4.AutoGenerateColumns = false;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.factionDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn2});
+            this.dataGridView4.DataSource = this.archetypesWhitelistBindingSource;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(0, 25);
+            this.dataGridView4.MultiSelect = false;
             this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(236, 91);
+            this.dataGridView4.ReadOnly = true;
+            this.dataGridView4.RowHeadersVisible = false;
+            this.dataGridView4.RowTemplate.Height = 40;
+            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView4.Size = new System.Drawing.Size(236, 169);
             this.dataGridView4.TabIndex = 3;
             // 
             // toolStrip9
@@ -559,29 +643,20 @@ namespace Universalis
             // 
             // tableLayoutPanelType
             // 
+            this.tableLayoutPanelType.AutoSize = true;
             this.tableLayoutPanelType.ColumnCount = 2;
             this.tableLayoutPanelType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelType.Controls.Add(this.panel5, 1, 0);
             this.tableLayoutPanelType.Controls.Add(this.panel6, 0, 0);
             this.tableLayoutPanelType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelType.Location = new System.Drawing.Point(0, 319);
+            this.tableLayoutPanelType.Location = new System.Drawing.Point(0, 475);
             this.tableLayoutPanelType.Name = "tableLayoutPanelType";
             this.tableLayoutPanelType.RowCount = 1;
             this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelType.Size = new System.Drawing.Size(484, 122);
+            this.tableLayoutPanelType.Size = new System.Drawing.Size(484, 110);
             this.tableLayoutPanelType.TabIndex = 7;
             this.tableLayoutPanelType.Visible = false;
-            // 
-            // checkedListBoxTypeWhitelist
-            // 
-            this.checkedListBoxTypeWhitelist.CheckOnClick = true;
-            this.checkedListBoxTypeWhitelist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBoxTypeWhitelist.FormattingEnabled = true;
-            this.checkedListBoxTypeWhitelist.Location = new System.Drawing.Point(0, 25);
-            this.checkedListBoxTypeWhitelist.Name = "checkedListBoxTypeWhitelist";
-            this.checkedListBoxTypeWhitelist.Size = new System.Drawing.Size(236, 91);
-            this.checkedListBoxTypeWhitelist.TabIndex = 5;
             // 
             // panel5
             // 
@@ -591,8 +666,18 @@ namespace Universalis
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(245, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(236, 116);
+            this.panel5.Size = new System.Drawing.Size(236, 104);
             this.panel5.TabIndex = 2;
+            // 
+            // checkedListBoxTypeBlacklist
+            // 
+            this.checkedListBoxTypeBlacklist.CheckOnClick = true;
+            this.checkedListBoxTypeBlacklist.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkedListBoxTypeBlacklist.FormattingEnabled = true;
+            this.checkedListBoxTypeBlacklist.Location = new System.Drawing.Point(0, 25);
+            this.checkedListBoxTypeBlacklist.Name = "checkedListBoxTypeBlacklist";
+            this.checkedListBoxTypeBlacklist.Size = new System.Drawing.Size(236, 79);
+            this.checkedListBoxTypeBlacklist.TabIndex = 6;
             // 
             // toolStrip10
             // 
@@ -619,8 +704,18 @@ namespace Universalis
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(236, 116);
+            this.panel6.Size = new System.Drawing.Size(236, 104);
             this.panel6.TabIndex = 2;
+            // 
+            // checkedListBoxTypeWhitelist
+            // 
+            this.checkedListBoxTypeWhitelist.CheckOnClick = true;
+            this.checkedListBoxTypeWhitelist.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkedListBoxTypeWhitelist.FormattingEnabled = true;
+            this.checkedListBoxTypeWhitelist.Location = new System.Drawing.Point(0, 25);
+            this.checkedListBoxTypeWhitelist.Name = "checkedListBoxTypeWhitelist";
+            this.checkedListBoxTypeWhitelist.Size = new System.Drawing.Size(236, 79);
+            this.checkedListBoxTypeWhitelist.TabIndex = 5;
             // 
             // toolStrip11
             // 
@@ -641,17 +736,18 @@ namespace Universalis
             // 
             // tableLayoutPanelSize
             // 
+            this.tableLayoutPanelSize.AutoSize = true;
             this.tableLayoutPanelSize.ColumnCount = 2;
             this.tableLayoutPanelSize.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelSize.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelSize.Controls.Add(this.panel7, 1, 0);
             this.tableLayoutPanelSize.Controls.Add(this.panel8, 0, 0);
             this.tableLayoutPanelSize.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelSize.Location = new System.Drawing.Point(0, 466);
+            this.tableLayoutPanelSize.Location = new System.Drawing.Point(0, 610);
             this.tableLayoutPanelSize.Name = "tableLayoutPanelSize";
             this.tableLayoutPanelSize.RowCount = 1;
             this.tableLayoutPanelSize.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelSize.Size = new System.Drawing.Size(484, 122);
+            this.tableLayoutPanelSize.Size = new System.Drawing.Size(484, 110);
             this.tableLayoutPanelSize.TabIndex = 8;
             this.tableLayoutPanelSize.Visible = false;
             // 
@@ -663,8 +759,18 @@ namespace Universalis
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(245, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(236, 116);
+            this.panel7.Size = new System.Drawing.Size(236, 104);
             this.panel7.TabIndex = 2;
+            // 
+            // checkedListBoxSizeBlacklist
+            // 
+            this.checkedListBoxSizeBlacklist.CheckOnClick = true;
+            this.checkedListBoxSizeBlacklist.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkedListBoxSizeBlacklist.FormattingEnabled = true;
+            this.checkedListBoxSizeBlacklist.Location = new System.Drawing.Point(0, 25);
+            this.checkedListBoxSizeBlacklist.Name = "checkedListBoxSizeBlacklist";
+            this.checkedListBoxSizeBlacklist.Size = new System.Drawing.Size(236, 79);
+            this.checkedListBoxSizeBlacklist.TabIndex = 7;
             // 
             // toolStrip12
             // 
@@ -691,8 +797,18 @@ namespace Universalis
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(236, 116);
+            this.panel8.Size = new System.Drawing.Size(236, 104);
             this.panel8.TabIndex = 2;
+            // 
+            // checkedListBoxSizeWhitelist
+            // 
+            this.checkedListBoxSizeWhitelist.CheckOnClick = true;
+            this.checkedListBoxSizeWhitelist.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkedListBoxSizeWhitelist.FormattingEnabled = true;
+            this.checkedListBoxSizeWhitelist.Location = new System.Drawing.Point(0, 25);
+            this.checkedListBoxSizeWhitelist.Name = "checkedListBoxSizeWhitelist";
+            this.checkedListBoxSizeWhitelist.Size = new System.Drawing.Size(236, 79);
+            this.checkedListBoxSizeWhitelist.TabIndex = 6;
             // 
             // toolStrip13
             // 
@@ -713,17 +829,18 @@ namespace Universalis
             // 
             // tableLayoutPanelMovementType
             // 
+            this.tableLayoutPanelMovementType.AutoSize = true;
             this.tableLayoutPanelMovementType.ColumnCount = 2;
             this.tableLayoutPanelMovementType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelMovementType.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelMovementType.Controls.Add(this.panel9, 1, 0);
             this.tableLayoutPanelMovementType.Controls.Add(this.panel10, 0, 0);
             this.tableLayoutPanelMovementType.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanelMovementType.Location = new System.Drawing.Point(0, 613);
+            this.tableLayoutPanelMovementType.Location = new System.Drawing.Point(0, 745);
             this.tableLayoutPanelMovementType.Name = "tableLayoutPanelMovementType";
             this.tableLayoutPanelMovementType.RowCount = 1;
             this.tableLayoutPanelMovementType.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelMovementType.Size = new System.Drawing.Size(484, 122);
+            this.tableLayoutPanelMovementType.Size = new System.Drawing.Size(484, 110);
             this.tableLayoutPanelMovementType.TabIndex = 9;
             this.tableLayoutPanelMovementType.Visible = false;
             // 
@@ -735,8 +852,18 @@ namespace Universalis
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(245, 3);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(236, 116);
+            this.panel9.Size = new System.Drawing.Size(236, 104);
             this.panel9.TabIndex = 2;
+            // 
+            // checkedListBoxMovementTypeBlacklist
+            // 
+            this.checkedListBoxMovementTypeBlacklist.CheckOnClick = true;
+            this.checkedListBoxMovementTypeBlacklist.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkedListBoxMovementTypeBlacklist.FormattingEnabled = true;
+            this.checkedListBoxMovementTypeBlacklist.Location = new System.Drawing.Point(0, 25);
+            this.checkedListBoxMovementTypeBlacklist.Name = "checkedListBoxMovementTypeBlacklist";
+            this.checkedListBoxMovementTypeBlacklist.Size = new System.Drawing.Size(236, 79);
+            this.checkedListBoxMovementTypeBlacklist.TabIndex = 7;
             // 
             // toolStrip14
             // 
@@ -763,8 +890,18 @@ namespace Universalis
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(3, 3);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(236, 116);
+            this.panel10.Size = new System.Drawing.Size(236, 104);
             this.panel10.TabIndex = 2;
+            // 
+            // checkedListBoxMovementTypeWhitelist
+            // 
+            this.checkedListBoxMovementTypeWhitelist.CheckOnClick = true;
+            this.checkedListBoxMovementTypeWhitelist.Dock = System.Windows.Forms.DockStyle.Top;
+            this.checkedListBoxMovementTypeWhitelist.FormattingEnabled = true;
+            this.checkedListBoxMovementTypeWhitelist.Location = new System.Drawing.Point(0, 25);
+            this.checkedListBoxMovementTypeWhitelist.Name = "checkedListBoxMovementTypeWhitelist";
+            this.checkedListBoxMovementTypeWhitelist.Size = new System.Drawing.Size(236, 79);
+            this.checkedListBoxMovementTypeWhitelist.TabIndex = 6;
             // 
             // toolStrip15
             // 
@@ -783,67 +920,135 @@ namespace Universalis
             this.toolStripLabel15.Size = new System.Drawing.Size(53, 22);
             this.toolStripLabel15.Text = "Whitelist";
             // 
-            // checkedListBoxSizeWhitelist
+            // panel11
             // 
-            this.checkedListBoxSizeWhitelist.CheckOnClick = true;
-            this.checkedListBoxSizeWhitelist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBoxSizeWhitelist.FormattingEnabled = true;
-            this.checkedListBoxSizeWhitelist.Location = new System.Drawing.Point(0, 25);
-            this.checkedListBoxSizeWhitelist.Name = "checkedListBoxSizeWhitelist";
-            this.checkedListBoxSizeWhitelist.Size = new System.Drawing.Size(236, 91);
-            this.checkedListBoxSizeWhitelist.TabIndex = 6;
+            this.panel11.AutoSize = true;
+            this.panel11.Controls.Add(this.buttonCancel);
+            this.panel11.Controls.Add(this.buttonOk);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(0, 855);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(484, 32);
+            this.panel11.TabIndex = 10;
             // 
-            // checkedListBoxMovementTypeWhitelist
+            // buttonCancel
             // 
-            this.checkedListBoxMovementTypeWhitelist.CheckOnClick = true;
-            this.checkedListBoxMovementTypeWhitelist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBoxMovementTypeWhitelist.FormattingEnabled = true;
-            this.checkedListBoxMovementTypeWhitelist.Location = new System.Drawing.Point(0, 25);
-            this.checkedListBoxMovementTypeWhitelist.Name = "checkedListBoxMovementTypeWhitelist";
-            this.checkedListBoxMovementTypeWhitelist.Size = new System.Drawing.Size(236, 91);
-            this.checkedListBoxMovementTypeWhitelist.TabIndex = 6;
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Image = global::Universalis.Properties.Resources.cross_circle;
+            this.buttonCancel.Location = new System.Drawing.Point(3, 3);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(100, 26);
+            this.buttonCancel.TabIndex = 1;
+            this.buttonCancel.Text = "&Abbrechen";
+            this.buttonCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonCancel.UseVisualStyleBackColor = true;
             // 
-            // checkedListBoxTypeBlacklist
+            // buttonOk
             // 
-            this.checkedListBoxTypeBlacklist.CheckOnClick = true;
-            this.checkedListBoxTypeBlacklist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBoxTypeBlacklist.FormattingEnabled = true;
-            this.checkedListBoxTypeBlacklist.Location = new System.Drawing.Point(0, 25);
-            this.checkedListBoxTypeBlacklist.Name = "checkedListBoxTypeBlacklist";
-            this.checkedListBoxTypeBlacklist.Size = new System.Drawing.Size(236, 91);
-            this.checkedListBoxTypeBlacklist.TabIndex = 6;
+            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
+            this.buttonOk.Location = new System.Drawing.Point(381, 3);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(100, 26);
+            this.buttonOk.TabIndex = 0;
+            this.buttonOk.Text = "&Ok";
+            this.buttonOk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonOk.UseVisualStyleBackColor = true;
+            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
-            // checkedListBoxSizeBlacklist
+            // factionDataGridViewTextBoxColumn1
             // 
-            this.checkedListBoxSizeBlacklist.CheckOnClick = true;
-            this.checkedListBoxSizeBlacklist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBoxSizeBlacklist.FormattingEnabled = true;
-            this.checkedListBoxSizeBlacklist.Location = new System.Drawing.Point(0, 25);
-            this.checkedListBoxSizeBlacklist.Name = "checkedListBoxSizeBlacklist";
-            this.checkedListBoxSizeBlacklist.Size = new System.Drawing.Size(236, 91);
-            this.checkedListBoxSizeBlacklist.TabIndex = 7;
+            this.factionDataGridViewTextBoxColumn1.DataPropertyName = "Faction";
+            this.factionDataGridViewTextBoxColumn1.HeaderText = "Faction";
+            this.factionDataGridViewTextBoxColumn1.Name = "factionDataGridViewTextBoxColumn1";
+            this.factionDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // checkedListBoxMovementTypeBlacklist
+            // nameDataGridViewTextBoxColumn3
             // 
-            this.checkedListBoxMovementTypeBlacklist.CheckOnClick = true;
-            this.checkedListBoxMovementTypeBlacklist.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBoxMovementTypeBlacklist.FormattingEnabled = true;
-            this.checkedListBoxMovementTypeBlacklist.Location = new System.Drawing.Point(0, 25);
-            this.checkedListBoxMovementTypeBlacklist.Name = "checkedListBoxMovementTypeBlacklist";
-            this.checkedListBoxMovementTypeBlacklist.Size = new System.Drawing.Size(236, 91);
-            this.checkedListBoxMovementTypeBlacklist.TabIndex = 7;
+            this.nameDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn3.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn3.Name = "nameDataGridViewTextBoxColumn3";
+            this.nameDataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // archetypesBlacklistBindingSource
+            // 
+            this.archetypesBlacklistBindingSource.DataSource = typeof(Universalis.Archetype);
+            // 
+            // factionDataGridViewTextBoxColumn
+            // 
+            this.factionDataGridViewTextBoxColumn.DataPropertyName = "Faction";
+            this.factionDataGridViewTextBoxColumn.HeaderText = "Faction";
+            this.factionDataGridViewTextBoxColumn.Name = "factionDataGridViewTextBoxColumn";
+            this.factionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // archetypesWhitelistBindingSource
+            // 
+            this.archetypesWhitelistBindingSource.DataSource = typeof(Universalis.Archetype);
+            // 
+            // iconDataGridViewImageColumn1
+            // 
+            this.iconDataGridViewImageColumn1.DataPropertyName = "Icon";
+            this.iconDataGridViewImageColumn1.HeaderText = "Icon";
+            this.iconDataGridViewImageColumn1.Name = "iconDataGridViewImageColumn1";
+            this.iconDataGridViewImageColumn1.ReadOnly = true;
+            this.iconDataGridViewImageColumn1.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // factionsBlacklistBindingSource
+            // 
+            this.factionsBlacklistBindingSource.DataSource = typeof(Universalis.Faction);
+            // 
+            // iconDataGridViewImageColumn
+            // 
+            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
+            this.iconDataGridViewImageColumn.HeaderText = "Icon";
+            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
+            this.iconDataGridViewImageColumn.ReadOnly = true;
+            this.iconDataGridViewImageColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // factionsWhitelistBindingSource
+            // 
+            this.factionsWhitelistBindingSource.DataSource = typeof(Universalis.Faction);
             // 
             // permissionsBindingSource
             // 
             this.permissionsBindingSource.DataSource = typeof(Universalis.Permissions);
             // 
-            // PermissionForm
+            // PermissionsEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(484, 693);
+            this.CancelButton = this.buttonCancel;
+            this.ClientSize = new System.Drawing.Size(484, 915);
+            this.Controls.Add(this.panel11);
             this.Controls.Add(this.tableLayoutPanelMovementType);
             this.Controls.Add(this.toolStripMovementType);
             this.Controls.Add(this.tableLayoutPanelSize);
@@ -854,10 +1059,12 @@ namespace Universalis
             this.Controls.Add(this.toolStripArchetypes);
             this.Controls.Add(this.tableLayoutPanelFactions);
             this.Controls.Add(this.toolStripFactions);
-            this.MinimumSize = new System.Drawing.Size(500, 0);
-            this.Name = "PermissionForm";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MinimumSize = new System.Drawing.Size(500, 39);
+            this.Name = "PermissionsEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Berechtigungen";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PermissionForm_FormClosing);
             this.toolStripFactions.ResumeLayout(false);
             this.toolStripFactions.PerformLayout();
             this.tableLayoutPanelFactions.ResumeLayout(false);
@@ -922,6 +1129,11 @@ namespace Universalis
             this.panel10.PerformLayout();
             this.toolStrip15.ResumeLayout(false);
             this.toolStrip15.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.archetypesBlacklistBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypesWhitelistBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factionsBlacklistBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factionsWhitelistBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.permissionsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -999,5 +1211,20 @@ namespace Universalis
         private System.Windows.Forms.CheckedListBox checkedListBoxTypeBlacklist;
         private System.Windows.Forms.CheckedListBox checkedListBoxSizeBlacklist;
         private System.Windows.Forms.CheckedListBox checkedListBoxMovementTypeBlacklist;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonOk;
+        private System.Windows.Forms.BindingSource factionsWhitelistBindingSource;
+        private System.Windows.Forms.BindingSource archetypesWhitelistBindingSource;
+        private System.Windows.Forms.BindingSource factionsBlacklistBindingSource;
+        private System.Windows.Forms.BindingSource archetypesBlacklistBindingSource;
+        private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn factionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn factionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
     }
 }
