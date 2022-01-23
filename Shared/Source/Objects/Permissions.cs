@@ -161,6 +161,61 @@ namespace Universalis
             return ( true, String.Empty) ;
         }
 
+        public bool Granted( Archetype archetype )
+        {
+            if( ( FactionWhitelist.Count > 0 ) && ( !FactionWhitelist.Contains( archetype.Faction ) ) )
+            {
+                return ( false );
+            }
+
+            if( ( FactionBlacklist.Count > 0 ) && ( !FactionBlacklist.Contains( archetype.Faction ) ) )
+            {
+                return ( false );
+            }
+
+            if( ( ArchetypeWhitelist.Count > 0 ) && ( !ArchetypeWhitelist.Contains( archetype ) ) )
+            {
+                return ( false );
+            }
+
+            if( ( ArchetypeBlacklist.Count > 0 ) && ( !ArchetypeBlacklist.Contains( archetype ) ) )
+            {
+                return ( false );
+            }
+
+            if( ( TypeWhitelist.Count > 0 ) && ( !TypeWhitelist.Contains( archetype.Type ) ) )
+            {
+                return ( false );
+            }
+
+            if( ( TypeBlacklist.Count > 0 ) && ( !TypeBlacklist.Contains( archetype.Type ) ) )
+            {
+                return ( false );
+            }
+
+            if( ( SizeWhitelist.Count > 0 ) && ( !SizeWhitelist.Contains( archetype.Size ) ) )
+            {
+                return ( false );
+            }
+
+            if( ( SizeBlacklist.Count > 0 ) && ( !SizeBlacklist.Contains( archetype.Size ) ) )
+            {
+                return ( false );
+            }
+
+            if( ( MovementTypeWhitelist.Count > 0 ) && ( !MovementTypeWhitelist.Contains( archetype.MovementType ) ) )
+            {
+                return ( false );
+            }
+
+            if( ( MovementTypeBlacklist.Count > 0 ) && ( !MovementTypeBlacklist.Contains( archetype.MovementType ) ) )
+            {
+                return ( false );
+            }
+
+            return ( true );
+        }
+
         public string Summary()
         {
             string summary = String.Empty;
@@ -179,6 +234,7 @@ namespace Universalis
 
             if( ArchetypeWhitelist.Count > 0 )
             {
+                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += "Erlaubte Archetypen: " + String.Join( ", ", ArchetypeWhitelist.Select( x => x.Name ) );
             }
             
