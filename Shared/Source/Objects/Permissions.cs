@@ -5,6 +5,70 @@ using System.Linq;
 
 namespace Universalis
 {
+    public enum PermissionType
+    {
+        White,
+        Black
+    }
+
+    public class PermissionSet<T>
+    {
+        public PermissionSet( PermissionType type )
+        {
+            Type = type;
+        }
+
+        public PermissionType Type;
+
+        public HashSet<T> Values = new HashSet<T>();
+
+        public void Set( PermissionSet<T> permissionSet )
+        {
+            Type = permissionSet.Type;
+
+            Values.Clear();
+
+            Values.UnionWith( permissionSet.Values );
+        }
+
+        public bool Equals( PermissionSet<T> permissionSet )
+        {
+            if( null == permissionSet )
+            {
+                throw new ArgumentNullException( nameof( permissionSet ) );
+            }
+
+            if( !Values.SetEquals( permissionSet.Values ) )
+            {
+                return ( false );
+            }
+
+            return ( true );
+        }
+
+        public bool Granted( T value )
+        {
+            if( Values.Count > 0 )
+            {
+                switch( Type )
+                {
+                    case PermissionType.White:
+                        return Values.Contains( value );
+
+                    case PermissionType.Black:
+                        return !Values.Contains( value );
+
+                    default:
+                        return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
+
     public class Permissions
     {
         public Permissions()
