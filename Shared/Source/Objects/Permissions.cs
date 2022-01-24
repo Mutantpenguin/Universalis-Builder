@@ -38,12 +38,17 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( permissionSet ) );
             }
 
-            if( !Values.SetEquals( permissionSet.Values ) )
+            if( Type != permissionSet.Type )
             {
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            if( !Values.SetEquals( permissionSet.Values ) )
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public bool Granted( T value )
