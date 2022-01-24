@@ -20,7 +20,11 @@ namespace Universalis
 
         public PermissionType Type;
 
-        public HashSet<T> Values = new HashSet<T>();
+        public virtual HashSet<T> Values
+        {
+            get;
+            set;
+        } = new HashSet<T>();
 
         public void Set( PermissionSet<T> permissionSet )
         {
@@ -72,6 +76,20 @@ namespace Universalis
                 return true;
             }
         }
+    }
+
+    public class PermissionSetFaction<T> : PermissionSet<T> where T : Faction
+    {
+        public PermissionSetFaction( PermissionType type ) :
+            base( type )
+        {}
+
+        [JsonConverter( typeof( JsonFactionSetConverter ) )]
+        public override HashSet<T> Values
+        {
+            get;
+            set;
+        } = new HashSet<T>();
     }
 
     public class Permissions
