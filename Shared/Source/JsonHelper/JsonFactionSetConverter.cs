@@ -5,14 +5,9 @@ using System.Collections.Generic;
 
 namespace Universalis
 {
-    internal class JsonFactionSetConverter : JsonConverter
+    internal class JsonFactionSetConverter : JsonConverter<HashSet<Faction>>
     {
-        public override bool CanConvert( Type objectType )
-        {
-            return ( objectType == typeof( HashSet<Faction> ) );
-        }
-
-        public override object ReadJson( JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer )
+        public override HashSet<Faction> ReadJson( JsonReader reader, Type objectType, HashSet<Faction> existingValue, bool hasExistingValue, JsonSerializer serializer )
         {
             if( reader == null )
             {
@@ -38,7 +33,7 @@ namespace Universalis
             }
         }
 
-        public override void WriteJson( JsonWriter writer, object value, JsonSerializer serializer )
+        public override void WriteJson( JsonWriter writer, HashSet<Faction> value, JsonSerializer serializer )
         {
             if( writer == null )
             {

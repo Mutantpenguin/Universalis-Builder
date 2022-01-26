@@ -1,19 +1,19 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Universalis
 {
-    public enum PermissionType
+    public enum EPermissionType
     {
+        None,
         White,
         Black
     }
 
     public class PermissionSet<T>
     {
-        public PermissionSet( PermissionType type )
+        public PermissionSet( EPermissionType type )
         {
             Type = type;
         }
@@ -23,7 +23,7 @@ namespace Universalis
             Set( permissionSet );
         }
 
-        public PermissionType Type;
+        public EPermissionType Type;
 
         public virtual HashSet<T> Values
         {
@@ -66,10 +66,10 @@ namespace Universalis
             {
                 switch( Type )
                 {
-                    case PermissionType.White:
+                    case EPermissionType.White:
                         return Values.Contains( value );
 
-                    case PermissionType.Black:
+                    case EPermissionType.Black:
                         return !Values.Contains( value );
 
                     default:
@@ -85,6 +85,8 @@ namespace Universalis
 
     public class Permissions
     {
+        public static readonly IList<EPermissionType> EPermissionTypeList = Enum.GetValues( typeof( EPermissionType ) ).Cast<EPermissionType>().ToList().AsReadOnly();
+
         public Permissions()
         { }
 
@@ -95,15 +97,15 @@ namespace Universalis
         }
         public void Set( Permissions permissions )
         {
-            FactionPermissions = new PermissionSet<Faction>( permissions.FactionPermissions );
+            Faction = new PermissionSet<Faction>( permissions.Faction );
 
-            ArchetypePermissions = new PermissionSet<Archetype>( permissions.ArchetypePermissions );
+            Archetype = new PermissionSet<Archetype>( permissions.Archetype );
 
-            TypePermissions = new PermissionSet<Archetype.EType>( permissions.TypePermissions );
+            Type = new PermissionSet<Archetype.EType>( permissions.Type );
 
-            SizePermissions = new PermissionSet<Archetype.ESize>( permissions.SizePermissions );
+            Size = new PermissionSet<Archetype.ESize>( permissions.Size );
 
-            MovementTypePermissions = new PermissionSet<Archetype.EMovementType>( permissions.MovementTypePermissions );
+            MovementType = new PermissionSet<Archetype.EMovementType>( permissions.MovementType );
         }
 
         public bool Equals( Permissions permissions )
@@ -113,27 +115,27 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( permissions ) );
             }
 
-            if( !FactionPermissions?.Equals( permissions.FactionPermissions ) ?? false )
+            if( !Faction?.Equals( permissions.Faction ) ?? false )
             {
                 return false;
             }
 
-            if( !ArchetypePermissions?.Equals( permissions.ArchetypePermissions ) ?? false )
+            if( !Archetype?.Equals( permissions.Archetype ) ?? false )
             {
                 return false;
             }
 
-            if( !TypePermissions?.Equals( permissions.TypePermissions ) ?? false )
+            if( !Type?.Equals( permissions.Type ) ?? false )
             {
                 return false;
             }
 
-            if( !SizePermissions?.Equals( permissions.SizePermissions ) ?? false )
+            if( !Size?.Equals( permissions.Size ) ?? false )
             {
                 return false;
             }
 
-            if( !MovementTypePermissions?.Equals( permissions.MovementTypePermissions ) ?? false )
+            if( !MovementType?.Equals( permissions.MovementType ) ?? false )
             {
                 return false;
             }
@@ -143,24 +145,24 @@ namespace Universalis
 
         public (bool status, String reason) IsValid()
         {
-            if( ArchetypePermissions?.Type == PermissionType.White && ArchetypePermissions.Values.Count > 0 )
+            if( Archetype?.Type == EPermissionType.White && Archetype.Values.Count > 0 )
             {
-                if( FactionPermissions?.Values.Count > 0 )
+                if( Faction?.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Fraktionen gefüllt sein." );
                 }
                 
-                if( TypePermissions?.Values.Count > 0 )
+                if( Type?.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Typen gefüllt sein." );
                 }
 
-                if( SizePermissions?.Values.Count > 0 )
+                if( Size?.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Größen gefüllt sein." );
                 }
 
-                if( MovementTypePermissions?.Values.Count > 0 )
+                if( MovementType?.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Bewegungsarten gefüllt sein." );
                 }
@@ -171,15 +173,15 @@ namespace Universalis
 
         public bool Granted( Archetype archetype )
         {
-            if( ( !FactionPermissions?.Granted( archetype.Faction ) ?? true )
+            if( ( !Faction?.Granted( archetype.Faction ) ?? true )
                 ||
-                ( !ArchetypePermissions?.Granted( archetype ) ?? true )
+                ( !Archetype?.Granted( archetype ) ?? true )
                 ||
-                ( !TypePermissions?.Granted( archetype.Type ) ?? true )
+                ( !Type?.Granted( archetype.Type ) ?? true )
                 ||
-                ( !SizePermissions?.Granted( archetype.Size ) ?? true )
+                ( !Size?.Granted( archetype.Size ) ?? true )
                 ||
-                ( !MovementTypePermissions?.Granted( archetype.MovementType ) ?? true ) )
+                ( !MovementType?.Granted( archetype.MovementType ) ?? true ) )
             {
                 return false;
             }
@@ -191,52 +193,52 @@ namespace Universalis
         {
             string summary = String.Empty;
 
-            if( FactionPermissions?.Values.Count > 0 )
+            if( Faction?.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += FactionPermissions.Type == PermissionType.White ? "Erlaubte Fraktionen: " : "Verbotene Fraktionen: ";
-                summary += String.Join( ", ", FactionPermissions.Values.Select( x => x.Name ) );
+                summary += Faction.Type == EPermissionType.White ? "Erlaubte Fraktionen: " : "Verbotene Fraktionen: ";
+                summary += String.Join( ", ", Faction.Values.Select( x => x.Name ) );
             }
 
-            if( ArchetypePermissions?.Values.Count > 0 )
+            if( Archetype?.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += ArchetypePermissions.Type == PermissionType.White ? "Erlaubte Archetypen: " : "Verbotene Archetypen: ";
-                summary += String.Join( ", ", ArchetypePermissions.Values.Select( x => x.Name ) );
+                summary += Archetype.Type == EPermissionType.White ? "Erlaubte Archetypen: " : "Verbotene Archetypen: ";
+                summary += String.Join( ", ", Archetype.Values.Select( x => x.Name ) );
             }
 
-            if( TypePermissions?.Values.Count > 0 )
+            if( Type?.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += TypePermissions.Type == PermissionType.White ? "Erlaubte Typen: " : "Verbotene Typen: ";
-                summary += String.Join( ", ", TypePermissions.Values.Select( x => x.ToString() ) );
+                summary += Type.Type == EPermissionType.White ? "Erlaubte Typen: " : "Verbotene Typen: ";
+                summary += String.Join( ", ", Type.Values.Select( x => x.ToString() ) );
             }
 
-            if( SizePermissions?.Values.Count > 0 )
+            if( Size?.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += SizePermissions.Type == PermissionType.White ? "Erlaubte Größen: " : "Verbotene Größen: ";
-                summary += String.Join( ", ", SizePermissions.Values.Select( x => x.ToString() ) );
+                summary += Size.Type == EPermissionType.White ? "Erlaubte Größen: " : "Verbotene Größen: ";
+                summary += String.Join( ", ", Size.Values.Select( x => x.ToString() ) );
             }
 
-            if( MovementTypePermissions?.Values.Count > 0 )
+            if( MovementType?.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += MovementTypePermissions.Type == PermissionType.White ? "Erlaubte Bewegungsarten: " : "Verbotene Bewegungsarten: ";
-                summary += String.Join( ", ", MovementTypePermissions.Values.Select( x => x.ToString() ) );
+                summary += MovementType.Type == EPermissionType.White ? "Erlaubte Bewegungsarten: " : "Verbotene Bewegungsarten: ";
+                summary += String.Join( ", ", MovementType.Values.Select( x => x.ToString() ) );
             }
 
             return ( summary );
         }
 
-        public PermissionSet<Faction> FactionPermissions;
+        public PermissionSet<Faction> Faction;
 
-        public PermissionSet<Archetype> ArchetypePermissions;
+        public PermissionSet<Archetype> Archetype;
 
-        public PermissionSet<Archetype.EType> TypePermissions;
+        public PermissionSet<Archetype.EType> Type;
 
-        public PermissionSet<Archetype.ESize> SizePermissions;
+        public PermissionSet<Archetype.ESize> Size;
 
-        public PermissionSet<Archetype.EMovementType> MovementTypePermissions;
+        public PermissionSet<Archetype.EMovementType> MovementType;
     }
 }
