@@ -18,6 +18,11 @@ namespace Universalis
             Type = type;
         }
 
+        public PermissionSet( PermissionSet<T> permissionSet )
+        {
+            Set( permissionSet );
+        }
+
         public PermissionType Type;
 
         public virtual HashSet<T> Values
@@ -39,7 +44,7 @@ namespace Universalis
         {
             if( null == permissionSet )
             {
-                throw new ArgumentNullException( nameof( permissionSet ) );
+                return false;
             }
 
             if( Type != permissionSet.Type )
@@ -78,20 +83,6 @@ namespace Universalis
         }
     }
 
-    public class PermissionSetFaction<T> : PermissionSet<T> where T : Faction
-    {
-        public PermissionSetFaction( PermissionType type ) :
-            base( type )
-        {}
-
-        [JsonConverter( typeof( JsonFactionSetConverter ) )]
-        public override HashSet<T> Values
-        {
-            get;
-            set;
-        } = new HashSet<T>();
-    }
-
     public class Permissions
     {
         public Permissions()
@@ -104,35 +95,15 @@ namespace Universalis
         }
         public void Set( Permissions permissions )
         {
-            FactionWhitelist.Clear();
-            FactionWhitelist.UnionWith( permissions.FactionWhitelist );
+            FactionPermissions = new PermissionSet<Faction>( permissions.FactionPermissions );
 
-            FactionBlacklist.Clear();
-            FactionBlacklist.UnionWith( permissions.FactionBlacklist );
+            ArchetypePermissions = new PermissionSet<Archetype>( permissions.ArchetypePermissions );
 
-            ArchetypeWhitelist.Clear();
-            ArchetypeWhitelist.UnionWith( permissions.ArchetypeWhitelist );
+            TypePermissions = new PermissionSet<Archetype.EType>( permissions.TypePermissions );
 
-            ArchetypeBlacklist.Clear();
-            ArchetypeBlacklist.UnionWith( permissions.ArchetypeBlacklist );
+            SizePermissions = new PermissionSet<Archetype.ESize>( permissions.SizePermissions );
 
-            TypeWhitelist.Clear();
-            TypeWhitelist.UnionWith( permissions.TypeWhitelist );
-
-            TypeBlacklist.Clear();
-            TypeBlacklist.UnionWith( permissions.TypeBlacklist );
-
-            SizeWhitelist.Clear();
-            SizeWhitelist.UnionWith( permissions.SizeWhitelist );
-
-            SizeBlacklist.Clear();
-            SizeBlacklist.UnionWith( permissions.SizeBlacklist );
-
-            MovementTypeWhitelist.Clear();
-            MovementTypeWhitelist.UnionWith( permissions.MovementTypeWhitelist );
-
-            MovementTypeBlacklist.Clear();
-            MovementTypeBlacklist.UnionWith( permissions.MovementTypeBlacklist );
+            MovementTypePermissions = new PermissionSet<Archetype.EMovementType>( permissions.MovementTypePermissions );
         }
 
         public bool Equals( Permissions permissions )
@@ -142,104 +113,54 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( permissions ) );
             }
 
-            if( !FactionWhitelist.SetEquals( permissions.FactionWhitelist ) )
+            if( !FactionPermissions?.Equals( permissions.FactionPermissions ) ?? false )
             {
-                return ( false );
+                return false;
             }
 
-            if( !FactionBlacklist.SetEquals( permissions.FactionBlacklist ) )
+            if( !ArchetypePermissions?.Equals( permissions.ArchetypePermissions ) ?? false )
             {
-                return ( false );
+                return false;
             }
 
-            if( !ArchetypeWhitelist.SetEquals( permissions.ArchetypeWhitelist ) )
+            if( !TypePermissions?.Equals( permissions.TypePermissions ) ?? false )
             {
-                return ( false );
+                return false;
             }
 
-            if( !ArchetypeBlacklist.SetEquals( permissions.ArchetypeBlacklist ) )
+            if( !SizePermissions?.Equals( permissions.SizePermissions ) ?? false )
             {
-                return ( false );
+                return false;
             }
 
-            if( !TypeWhitelist.SetEquals( permissions.TypeWhitelist ) )
+            if( !MovementTypePermissions?.Equals( permissions.MovementTypePermissions ) ?? false )
             {
-                return ( false );
+                return false;
             }
 
-            if( !TypeBlacklist.SetEquals( permissions.TypeBlacklist ) )
-            {
-                return ( false );
-            }
-
-            if( !SizeWhitelist.SetEquals( permissions.SizeWhitelist ) )
-            {
-                return ( false );
-            }
-
-            if( !SizeBlacklist.SetEquals( permissions.SizeBlacklist ) )
-            {
-                return ( false );
-            }
-
-            if( !MovementTypeWhitelist.SetEquals( permissions.MovementTypeWhitelist ) )
-            {
-                return ( false );
-            }
-
-            if( !MovementTypeBlacklist.SetEquals( permissions.MovementTypeBlacklist ) )
-            {
-                return ( false );
-            }
-
-            return ( true );
+            return true;
         }
 
         public (bool status, String reason) IsValid()
         {
-            if( FactionWhitelist.Count > 0 && FactionBlacklist.Count > 0 )
+            if( ArchetypePermissions?.Type == PermissionType.White && ArchetypePermissions.Values.Count > 0 )
             {
-                return (false, "White- und Blacklist für Fraktionen können nicht gleichzeitig gefüllt sein.");
-            }
-
-            if( ArchetypeWhitelist.Count > 0 && ArchetypeBlacklist.Count > 0 )
-            {
-                return ( false, "White- und Blacklist für Archetypen können nicht gleichzeitig gefüllt sein." );
-            }
-
-            if( TypeWhitelist.Count > 0 && TypeBlacklist.Count > 0 )
-            {
-                return ( false, "White- und Blacklist für Typen können nicht gleichzeitig gefüllt sein." );
-            }
-
-            if( SizeWhitelist.Count > 0 && SizeBlacklist.Count > 0 )
-            {
-                return ( false, "White- und Blacklist für Größen können nicht gleichzeitig gefüllt sein." );
-            }
-
-            if( MovementTypeWhitelist.Count > 0 && MovementTypeBlacklist.Count > 0 )
-            {
-                return ( false, "White- und Blacklist für Bewegungsarten können nicht gleichzeitig gefüllt sein." );
-            }
-
-            if( ArchetypeWhitelist.Count > 0 )
-            {
-                if( FactionWhitelist.Count > 0 || FactionBlacklist.Count > 0 )
+                if( FactionPermissions?.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Fraktionen gefüllt sein." );
                 }
                 
-                if( TypeWhitelist.Count > 0 || TypeBlacklist.Count > 0 )
+                if( TypePermissions?.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Typen gefüllt sein." );
                 }
 
-                if( SizeWhitelist.Count > 0 || SizeBlacklist.Count > 0 )
+                if( SizePermissions?.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Größen gefüllt sein." );
                 }
 
-                if( MovementTypeWhitelist.Count > 0 || MovementTypeBlacklist.Count > 0 )
+                if( MovementTypePermissions?.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Bewegungsarten gefüllt sein." );
                 }
@@ -250,54 +171,17 @@ namespace Universalis
 
         public bool Granted( Archetype archetype )
         {
-            if( ( FactionWhitelist.Count > 0 ) && ( !FactionWhitelist.Contains( archetype.Faction ) ) )
+            if( ( !FactionPermissions?.Granted( archetype.Faction ) ?? true )
+                ||
+                ( !ArchetypePermissions?.Granted( archetype ) ?? true )
+                ||
+                ( !TypePermissions?.Granted( archetype.Type ) ?? true )
+                ||
+                ( !SizePermissions?.Granted( archetype.Size ) ?? true )
+                ||
+                ( !MovementTypePermissions?.Granted( archetype.MovementType ) ?? true ) )
             {
-                return ( false );
-            }
-
-            if( ( FactionBlacklist.Count > 0 ) && ( !FactionBlacklist.Contains( archetype.Faction ) ) )
-            {
-                return ( false );
-            }
-
-            if( ( ArchetypeWhitelist.Count > 0 ) && ( !ArchetypeWhitelist.Contains( archetype ) ) )
-            {
-                return ( false );
-            }
-
-            if( ( ArchetypeBlacklist.Count > 0 ) && ( !ArchetypeBlacklist.Contains( archetype ) ) )
-            {
-                return ( false );
-            }
-
-            if( ( TypeWhitelist.Count > 0 ) && ( !TypeWhitelist.Contains( archetype.Type ) ) )
-            {
-                return ( false );
-            }
-
-            if( ( TypeBlacklist.Count > 0 ) && ( !TypeBlacklist.Contains( archetype.Type ) ) )
-            {
-                return ( false );
-            }
-
-            if( ( SizeWhitelist.Count > 0 ) && ( !SizeWhitelist.Contains( archetype.Size ) ) )
-            {
-                return ( false );
-            }
-
-            if( ( SizeBlacklist.Count > 0 ) && ( !SizeBlacklist.Contains( archetype.Size ) ) )
-            {
-                return ( false );
-            }
-
-            if( ( MovementTypeWhitelist.Count > 0 ) && ( !MovementTypeWhitelist.Contains( archetype.MovementType ) ) )
-            {
-                return ( false );
-            }
-
-            if( ( MovementTypeBlacklist.Count > 0 ) && ( !MovementTypeBlacklist.Contains( archetype.MovementType ) ) )
-            {
-                return ( false );
+                return false;
             }
 
             return ( true );
@@ -307,86 +191,52 @@ namespace Universalis
         {
             string summary = String.Empty;
 
-            if( FactionWhitelist.Count > 0 )
+            if( FactionPermissions?.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Erlaubte Fraktionen: " + String.Join( ", ", FactionWhitelist.Select( x => x.Name ) );
+                summary += FactionPermissions.Type == PermissionType.White ? "Erlaubte Fraktionen: " : "Verbotene Fraktionen: ";
+                summary += String.Join( ", ", FactionPermissions.Values.Select( x => x.Name ) );
             }
 
-            if( FactionBlacklist.Count > 0 )
+            if( ArchetypePermissions?.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Verbotene Fraktionen: " + String.Join( ", ", FactionBlacklist.Select( x => x.Name ) );
+                summary += ArchetypePermissions.Type == PermissionType.White ? "Erlaubte Archetypen: " : "Verbotene Archetypen: ";
+                summary += String.Join( ", ", ArchetypePermissions.Values.Select( x => x.Name ) );
             }
 
-            if( ArchetypeWhitelist.Count > 0 )
+            if( TypePermissions?.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Erlaubte Archetypen: " + String.Join( ", ", ArchetypeWhitelist.Select( x => x.Name ) );
-            }
-            
-            if( ArchetypeBlacklist.Count > 0 )
-            {
-                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Verbotene Archetypen: " + String.Join( ", ", ArchetypeBlacklist.Select( x => x.Name ) );
+                summary += TypePermissions.Type == PermissionType.White ? "Erlaubte Typen: " : "Verbotene Typen: ";
+                summary += String.Join( ", ", TypePermissions.Values.Select( x => x.ToString() ) );
             }
 
-            if( TypeWhitelist.Count > 0 )
+            if( SizePermissions?.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Erlaubte Typen: " + String.Join( ", ", TypeWhitelist.Select( x => x.ToString() ) );
+                summary += SizePermissions.Type == PermissionType.White ? "Erlaubte Größen: " : "Verbotene Größen: ";
+                summary += String.Join( ", ", SizePermissions.Values.Select( x => x.ToString() ) );
             }
 
-            if( TypeBlacklist.Count > 0 )
+            if( MovementTypePermissions?.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Verbotene Typen: " + String.Join( ", ", TypeBlacklist.Select( x => x.ToString() ) );
-            }
-
-            if( SizeWhitelist.Count > 0 )
-            {
-                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Erlaubte Größen: " + String.Join( ", ", SizeWhitelist.Select( x => x.ToString() ) );
-            }
-
-            if( SizeBlacklist.Count > 0 )
-            {
-                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Verbotene Größen: " + String.Join( ", ", SizeBlacklist.Select( x => x.ToString() ) );
-            }
-
-            if( MovementTypeWhitelist.Count > 0 )
-            {
-                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Erlaubte Bewegungsarten: " + String.Join( ", ", MovementTypeWhitelist.Select( x => x.ToString() ) );
-            }
-
-            if( MovementTypeBlacklist.Count > 0 )
-            {
-                summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += "Verbotene Bewegungsarten: " + String.Join( ", ", MovementTypeBlacklist.Select( x => x.ToString() ) );
+                summary += MovementTypePermissions.Type == PermissionType.White ? "Erlaubte Bewegungsarten: " : "Verbotene Bewegungsarten: ";
+                summary += String.Join( ", ", MovementTypePermissions.Values.Select( x => x.ToString() ) );
             }
 
             return ( summary );
         }
 
-        [JsonConverter( typeof( JsonFactionSetConverter ) )]
-        public HashSet<Faction> FactionWhitelist = new HashSet<Faction>();
-        [JsonConverter( typeof( JsonFactionSetConverter ) )]
-        public HashSet<Faction> FactionBlacklist = new HashSet<Faction>();
+        public PermissionSet<Faction> FactionPermissions;
 
-        [JsonConverter( typeof( JsonArchetypeSetConverter ) )]
-        public HashSet<Archetype> ArchetypeWhitelist = new HashSet<Archetype>();
-        [JsonConverter( typeof( JsonArchetypeSetConverter ) )]
-        public HashSet<Archetype> ArchetypeBlacklist = new HashSet<Archetype>();
+        public PermissionSet<Archetype> ArchetypePermissions;
 
-        public HashSet<Archetype.EType> TypeWhitelist = new HashSet<Archetype.EType>();
-        public HashSet<Archetype.EType> TypeBlacklist = new HashSet<Archetype.EType>();
+        public PermissionSet<Archetype.EType> TypePermissions;
 
-        public HashSet<Archetype.ESize> SizeWhitelist = new HashSet<Archetype.ESize>();
-        public HashSet<Archetype.ESize> SizeBlacklist = new HashSet<Archetype.ESize>();
+        public PermissionSet<Archetype.ESize> SizePermissions;
 
-        public HashSet<Archetype.EMovementType> MovementTypeWhitelist = new HashSet<Archetype.EMovementType>();
-        public HashSet<Archetype.EMovementType> MovementTypeBlacklist = new HashSet<Archetype.EMovementType>();
+        public PermissionSet<Archetype.EMovementType> MovementTypePermissions;
     }
 }
