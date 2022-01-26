@@ -17,33 +17,31 @@ namespace Universalis
             Permissions = new Permissions( permissions );
 
             permissionsBindingSource.DataSource = Permissions;
+
+            toolStripComboBoxFaction.ComboBox.DataSource = Permissions.EPermissionTypeList;
+            toolStripComboBoxFaction.ComboBox.SelectedIndex = 0;
+            // TODO after setting the field toolStripComboBoxFaction.ComboBox.SelectionChangeCommitted += ComboBoxFaction_SelectionChangeCommitted;
             
             RefreshGridViews();
 
             foreach( var type in Archetype.ETypeList )
             {
-                checkedListBoxTypeWhitelist.Items.Add( type, Permissions.TypeWhitelist.Contains( type ) );
-                checkedListBoxTypeBlacklist.Items.Add( type, Permissions.TypeBlacklist.Contains( type ) );
+                checkedListBoxType.Items.Add( type, Permissions.Type.Values.Contains( type ) );
             }
 
             foreach( var size in Archetype.ESizeList )
             {
-                checkedListBoxSizeWhitelist.Items.Add( size, Permissions.SizeWhitelist.Contains( size ) );
-                checkedListBoxSizeBlacklist.Items.Add( size, Permissions.SizeBlacklist.Contains( size ) );
+                checkedListBoxSize.Items.Add( size, Permissions.Size.Values.Contains( size ) );
             }
 
             foreach( var movementType in Archetype.EMovementTypeList )
             {
-                checkedListBoxMovementTypeWhitelist.Items.Add( movementType, Permissions.MovementTypeWhitelist.Contains( movementType ) );
-                checkedListBoxMovementTypeBlacklist.Items.Add( movementType, Permissions.MovementTypeBlacklist.Contains( movementType ) );
+                checkedListBoxMovementType.Items.Add( movementType, Permissions.MovementType.Values.Contains( movementType ) );
             }
 
-            AdjustCheckedListBoxSize( checkedListBoxTypeWhitelist );
-            AdjustCheckedListBoxSize( checkedListBoxTypeBlacklist );
-            AdjustCheckedListBoxSize( checkedListBoxSizeWhitelist );
-            AdjustCheckedListBoxSize( checkedListBoxSizeBlacklist );
-            AdjustCheckedListBoxSize( checkedListBoxMovementTypeWhitelist );
-            AdjustCheckedListBoxSize( checkedListBoxMovementTypeBlacklist );
+            AdjustCheckedListBoxSize( checkedListBoxType );
+            AdjustCheckedListBoxSize( checkedListBoxSize );
+            AdjustCheckedListBoxSize( checkedListBoxMovementType );
 
             toolStripButtonFaction.Checked = Permissions.FactionWhitelist.Count > 0 || Permissions.FactionBlacklist.Count > 0;
             toolStripButtonArchetype.Checked = Permissions.ArchetypeWhitelist.Count > 0 || Permissions.ArchetypeBlacklist.Count > 0;
@@ -52,38 +50,38 @@ namespace Universalis
             toolStripButtonMovementType.Checked = Permissions.MovementTypeWhitelist.Count > 0 || Permissions.MovementTypeBlacklist.Count > 0;
         }
 
+        private void ComboBoxFaction_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            // TODO set bzw. dele PermissionsSet for Factions here
+
+            if( (EPermissionType)toolStripComboBoxFaction.SelectedItem != EPermissionType.None )
+            {
+                toolStripButtonFactionDelete.Visible = true;
+                toolStripButtonFactionAdd.Visible = true;
+                dataGridViewFaction.Visible = true;
+            }
+            else
+            {
+                toolStripButtonFactionDelete.Visible = false;
+                toolStripButtonFactionAdd.Visible = false;
+                dataGridViewFaction.Visible = false;
+            }
+        }
+
         public Permissions Permissions;
 
         private void RefreshGridViews()
         {
-            factionsWhitelistBindingSource.DataSource = Permissions.FactionWhitelist.OrderBy( x => x.Name )
-                                                                                    .ToList();
-            factionsBlacklistBindingSource.DataSource = Permissions.FactionBlacklist.OrderBy( x => x.Name )
-                                                                                    .ToList();
+            factionsWhitelistBindingSource.DataSource = Permissions.Faction?.Values.OrderBy( x => x.Name )
+                                                                                   .ToList();
 
-            archetypesWhitelistBindingSource.DataSource = Permissions.ArchetypeWhitelist.OrderBy( x => x.Name )
-                                                                                        .ToList();
-            archetypesBlacklistBindingSource.DataSource = Permissions.ArchetypeBlacklist.OrderBy( x => x.Name )
-                                                                                        .ToList();
+            archetypesWhitelistBindingSource.DataSource = Permissions.Archetype?.Values.OrderBy( x => x.Name )
+                                                                                       .ToList();
         }
 
         private void AdjustCheckedListBoxSize( CheckedListBox checkedListBox )
         {
             checkedListBox.ClientSize = new Size( checkedListBox.ClientSize.Width, checkedListBox.ItemHeight * checkedListBox.Items.Count );
-        }
-
-        private void toolStripButtonFaction_CheckedChanged( object sender, EventArgs e )
-        {
-            if( toolStripButtonFaction.Checked )
-            {
-                toolStripButtonFaction.Image = Properties.Resources.ui_check_box;
-                tableLayoutPanelFactions.Visible = true;
-            }
-            else
-            {
-                toolStripButtonFaction.Image = Properties.Resources.ui_check_box_uncheck;
-                tableLayoutPanelFactions.Visible = false;
-            }
         }
 
         private void toolStripButtonArchetype_CheckedChanged( object sender, EventArgs e )
@@ -144,40 +142,22 @@ namespace Universalis
 
         private void PermissionForm_FormClosing( object sender, FormClosingEventArgs e )
         {
-            Permissions.TypeWhitelist.Clear();
-            foreach( var item in checkedListBoxTypeWhitelist.CheckedItems )
+            Permissions.Type.Values.Clear();
+            foreach( var item in checkedListBoxType.CheckedItems )
             {
-                Permissions.TypeWhitelist.Add( (Archetype.EType)item );
+                Permissions.Type.Values.Add( (Archetype.EType)item );
             }
 
-            Permissions.TypeBlacklist.Clear();
-            foreach( var item in checkedListBoxTypeBlacklist.CheckedItems )
+            Permissions.Size.Values.Clear();
+            foreach( var item in checkedListBoxSize.CheckedItems )
             {
-                Permissions.TypeBlacklist.Add( (Archetype.EType)item );
+                Permissions.Size.Values.Add( (Archetype.ESize)item );
             }
 
-            Permissions.SizeWhitelist.Clear();
-            foreach( var item in checkedListBoxSizeWhitelist.CheckedItems )
+            Permissions.MovementType.Values.Clear();
+            foreach( var item in checkedListBoxMovementType.CheckedItems )
             {
-                Permissions.SizeWhitelist.Add( (Archetype.ESize)item );
-            }
-
-            Permissions.SizeBlacklist.Clear();
-            foreach( var item in checkedListBoxSizeBlacklist.CheckedItems )
-            {
-                Permissions.SizeBlacklist.Add( (Archetype.ESize)item );
-            }
-
-            Permissions.MovementTypeWhitelist.Clear();
-            foreach( var item in checkedListBoxMovementTypeWhitelist.CheckedItems )
-            {
-                Permissions.MovementTypeWhitelist.Add( (Archetype.EMovementType)item );
-            }
-
-            Permissions.MovementTypeBlacklist.Clear();
-            foreach( var item in checkedListBoxMovementTypeBlacklist.CheckedItems )
-            {
-                Permissions.MovementTypeBlacklist.Add( (Archetype.EMovementType)item );
+                Permissions.MovementType.Values.Add( (Archetype.EMovementType)item );
             }
 
             var (status, reason) = Permissions.IsValid();
@@ -240,38 +220,17 @@ namespace Universalis
             SelectFaction( Permissions.FactionWhitelist );
         }
 
-        private void toolStripButtonFactionBlacklistAdd_Click( object sender, EventArgs e )
-        {
-            SelectFaction( Permissions.FactionBlacklist );
-        }
-
         private void toolStripButtonArchetypeWhitelistAdd_Click( object sender, EventArgs e )
         {
             SelectArchetype( Permissions.ArchetypeWhitelist );
         }
 
-        private void toolStripButtonArchetypeBlacklistAdd_Click( object sender, EventArgs e )
-        {
-            SelectArchetype( Permissions.ArchetypeBlacklist );
-        }
-
         private void toolStripButtonFactionWhitelistDelete_Click( object sender, EventArgs e )
         {
-            if( dataGridViewFactionWhitelist.SelectedRows.Count > 0 )
+            if( dataGridViewFaction.SelectedRows.Count > 0 )
             {
-                var faction = (Faction)dataGridViewFactionWhitelist.SelectedRows[ 0 ].DataBoundItem;
+                var faction = (Faction)dataGridViewFaction.SelectedRows[ 0 ].DataBoundItem;
                 Permissions.FactionWhitelist.Remove( faction );
-
-                RefreshGridViews();
-            }
-        }
-
-        private void toolStripButtonFactionBlacklistDelete_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewFactionBlacklist.SelectedRows.Count > 0 )
-            {
-                var faction = (Faction)dataGridViewFactionBlacklist.SelectedRows[ 0 ].DataBoundItem;
-                Permissions.FactionBlacklist.Remove( faction );
 
                 RefreshGridViews();
             }
@@ -279,21 +238,10 @@ namespace Universalis
 
         private void toolStripButtonArchetypeWhitelistDelete_Click( object sender, EventArgs e )
         {
-            if( dataGridViewArchetypeWhitelist.SelectedRows.Count > 0 )
+            if( dataGridViewArchetype.SelectedRows.Count > 0 )
             {
-                var archetype = (Archetype)dataGridViewArchetypeWhitelist.SelectedRows[ 0 ].DataBoundItem;
+                var archetype = (Archetype)dataGridViewArchetype.SelectedRows[ 0 ].DataBoundItem;
                 Permissions.ArchetypeWhitelist.Remove( archetype );
-
-                RefreshGridViews();
-            }
-        }
-
-        private void toolStripButtonArchetypeBlacklistDelete_Click( object sender, EventArgs e )
-        {
-            if( dataGridViewArchetypeBlacklist.SelectedRows.Count > 0 )
-            {
-                var archetype = (Archetype)dataGridViewArchetypeBlacklist.SelectedRows[ 0 ].DataBoundItem;
-                Permissions.ArchetypeBlacklist.Remove( archetype );
 
                 RefreshGridViews();
             }

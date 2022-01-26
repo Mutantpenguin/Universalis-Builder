@@ -120,27 +120,47 @@
   <metadata name="toolStripFactions.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="toolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>227, 17</value>
-  </metadata>
-  <metadata name="factionsBlacklistBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>254, 95</value>
-  </metadata>
-  <metadata name="toolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>227, 17</value>
-  </metadata>
-  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 17</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripButtonFactionAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACfSURBVDhPvZTdCYMwFEYzQe1Dp3CKzmAHEewwdryu0af6
+        HUhCerkEqRcPHNDcn5hoTGdwkQ/5zHLN2G5u8iU/8mtkjBg5XUb5lraBlRxyXZhlT5Miue6TrdIrmLNe
+        jJofBuntCd6zXowaaiuT9BKx1wiprSyyDbKU0uCaLfd2mdRWwhqFLS1ssyHk9UPYBwkhR6TALIcPbcvh
+        38gfpLQBHYKaqYmKFVUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonFactionDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACCSURBVDhPY6AHkAFiBTQsAcQEAUiRAxRXA/F/LPg3EKcD
+        MUydABBjgHggxqYZHwYZhgEMgLieRAzyLlYAsgGbBmwYZDFOAFKAzQvYMCgocIJRg8B4pBqUDcTYNGHD
+        3kCME4Ay4XMgxqYRGV8GYhYgxgtACmyAGJbD0bEFENMKMDAAAIEijfysNOvGAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="factionsWhitelistBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>794, 56</value>
-  </metadata>
-  <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 17</value>
   </metadata>
   <metadata name="toolStripArchetypes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>332, 17</value>
   </metadata>
+  <data name="toolStripButtonArchetypeAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACfSURBVDhPvZTdCYMwFEYzQe1Dp3CKzmAHEewwdryu0af6
+        HUhCerkEqRcPHNDcn5hoTGdwkQ/5zHLN2G5u8iU/8mtkjBg5XUb5lraBlRxyXZhlT5Miue6TrdIrmLNe
+        jJofBuntCd6zXowaaiuT9BKx1wiprSyyDbKU0uCaLfd2mdRWwhqFLS1ssyHk9UPYBwkhR6TALIcPbcvh
+        38gfpLQBHYKaqYmKFVUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonArchetypeDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACCSURBVDhPY6AHkAFiBTQsAcQEAUiRAxRXA/F/LPg3EKcD
+        MUydABBjgHggxqYZHwYZhgEMgLieRAzyLlYAsgGbBmwYZDFOAFKAzQvYMCgocIJRg8B4pBqUDcTYNGHD
+        3kCME4Ay4XMgxqYRGV8GYhYgxgtACmyAGJbD0bEFENMKMDAAAIEijfysNOvGAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="toolStripType.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>437, 17</value>
   </metadata>
@@ -150,61 +170,13 @@
   <metadata name="toolStripMovementType.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>647, 17</value>
   </metadata>
-  <metadata name="archetypesBlacklistBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>471, 95</value>
-  </metadata>
-  <metadata name="toolStrip8.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1026, 17</value>
-  </metadata>
-  <metadata name="toolStrip9.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
   <metadata name="archetypesWhitelistBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 95</value>
-  </metadata>
-  <metadata name="toolStrip9.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
-  <metadata name="toolStrip10.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 56</value>
-  </metadata>
-  <metadata name="toolStrip10.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>122, 56</value>
-  </metadata>
-  <metadata name="toolStrip11.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>234, 56</value>
-  </metadata>
-  <metadata name="toolStrip11.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>234, 56</value>
-  </metadata>
-  <metadata name="toolStrip12.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>346, 56</value>
-  </metadata>
-  <metadata name="toolStrip12.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>346, 56</value>
-  </metadata>
-  <metadata name="toolStrip13.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>458, 56</value>
-  </metadata>
-  <metadata name="toolStrip13.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>458, 56</value>
-  </metadata>
-  <metadata name="toolStrip14.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>570, 56</value>
-  </metadata>
-  <metadata name="toolStrip14.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>570, 56</value>
-  </metadata>
-  <metadata name="toolStrip15.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>682, 56</value>
-  </metadata>
-  <metadata name="toolStrip15.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>682, 56</value>
   </metadata>
   <metadata name="permissionsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>831, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>162</value>
+    <value>208</value>
   </metadata>
 </root>
