@@ -217,12 +217,12 @@ namespace Universalis
 
         private void toolStripButtonFactionWhitelistAdd_Click( object sender, EventArgs e )
         {
-            SelectFaction( Permissions.FactionWhitelist );
+            SelectFaction( Permissions.Faction.Values );
         }
 
         private void toolStripButtonArchetypeWhitelistAdd_Click( object sender, EventArgs e )
         {
-            SelectArchetype( Permissions.ArchetypeWhitelist );
+            SelectArchetype( Permissions.Archetype.Values );
         }
 
         private void toolStripButtonFactionWhitelistDelete_Click( object sender, EventArgs e )
@@ -230,7 +230,7 @@ namespace Universalis
             if( dataGridViewFaction.SelectedRows.Count > 0 )
             {
                 var faction = (Faction)dataGridViewFaction.SelectedRows[ 0 ].DataBoundItem;
-                Permissions.FactionWhitelist.Remove( faction );
+                Permissions.Faction.Values.Remove( faction );
 
                 RefreshGridViews();
             }
@@ -241,7 +241,7 @@ namespace Universalis
             if( dataGridViewArchetype.SelectedRows.Count > 0 )
             {
                 var archetype = (Archetype)dataGridViewArchetype.SelectedRows[ 0 ].DataBoundItem;
-                Permissions.ArchetypeWhitelist.Remove( archetype );
+                Permissions.Archetype.Values.Remove( archetype );
 
                 RefreshGridViews();
             }
