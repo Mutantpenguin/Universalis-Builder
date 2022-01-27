@@ -19,7 +19,17 @@ namespace Universalis
             permissionsBindingSource.DataSource = Permissions;
 
             toolStripComboBoxFaction.ComboBox.DataSource = Permissions.EPermissionTypeList;
-            toolStripComboBoxFaction.ComboBox.SelectedIndex = 0;
+            toolStripComboBoxArchetype.ComboBox.DataSource = Permissions.EPermissionTypeList;
+            toolStripComboBoxType.ComboBox.DataSource = Permissions.EPermissionTypeList;
+            toolStripComboBoxSize.ComboBox.DataSource = Permissions.EPermissionTypeList;
+            toolStripComboBoxMovementType.ComboBox.DataSource = Permissions.EPermissionTypeList;
+
+            toolStripComboBoxFaction.ComboBox.SelectedValue = Permissions.Faction == null ? EPermissionType.None : Permissions.Faction.Type;
+            toolStripComboBoxArchetype.ComboBox.SelectedValue = Permissions.Archetype == null ? EPermissionType.None : Permissions.Archetype.Type;
+            toolStripComboBoxType.ComboBox.SelectedValue = Permissions.Type == null ? EPermissionType.None : Permissions.Type.Type;
+            toolStripComboBoxSize.ComboBox.SelectedValue = Permissions.Size == null ? EPermissionType.None : Permissions.Size.Type;
+            toolStripComboBoxMovementType.ComboBox.SelectedValue = Permissions.MovementType == null ? EPermissionType.None : Permissions.MovementType.Type;
+
             // TODO after setting the field toolStripComboBoxFaction.ComboBox.SelectionChangeCommitted += ComboBoxFaction_SelectionChangeCommitted;
             
             RefreshGridViews();
@@ -42,12 +52,6 @@ namespace Universalis
             AdjustCheckedListBoxSize( checkedListBoxType );
             AdjustCheckedListBoxSize( checkedListBoxSize );
             AdjustCheckedListBoxSize( checkedListBoxMovementType );
-
-            toolStripButtonFaction.Checked = Permissions.FactionWhitelist.Count > 0 || Permissions.FactionBlacklist.Count > 0;
-            toolStripButtonArchetype.Checked = Permissions.ArchetypeWhitelist.Count > 0 || Permissions.ArchetypeBlacklist.Count > 0;
-            toolStripButtonType.Checked = Permissions.TypeWhitelist.Count > 0 || Permissions.TypeBlacklist.Count > 0;
-            toolStripButtonSize.Checked = Permissions.SizeWhitelist.Count > 0 || Permissions.SizeBlacklist.Count > 0;
-            toolStripButtonMovementType.Checked = Permissions.MovementTypeWhitelist.Count > 0 || Permissions.MovementTypeBlacklist.Count > 0;
         }
 
         private void ComboBoxFaction_SelectionChangeCommitted( object sender, EventArgs e )
