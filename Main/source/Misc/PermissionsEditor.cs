@@ -161,11 +161,11 @@ namespace Universalis
 
         private void RefreshGridViews()
         {
-            factionsWhitelistBindingSource.DataSource = Permissions.Faction.Values.OrderBy( x => x.Name )
-                                                                                  .ToList();
+            factionsBindingSource.DataSource = Permissions.Faction.Values.OrderBy( x => x.Name )
+                                                                         .ToList();
 
-            archetypesWhitelistBindingSource.DataSource = Permissions.Archetype.Values.OrderBy( x => x.Name )
-                                                                                      .ToList();
+            archetypesBindingSource.DataSource = Permissions.Archetype.Values.OrderBy( x => x.Name )
+                                                                             .ToList();
         }
 
         private void AdjustCheckedListBoxSize( CheckedListBox checkedListBox )
@@ -329,6 +329,11 @@ namespace Universalis
 
                 RefreshGridViews();
             }
+        }
+
+        private void dataGridViewArchetype_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewArchetype );
         }
     }
 }

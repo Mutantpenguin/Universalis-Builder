@@ -175,7 +175,7 @@ namespace Universalis
                 ||
                 !MovementType.IsValid() )
             {
-                return (false, "TODO");
+                return (false, "Invalider Zustand der Berechtigungen.");
             }
 
             if( Archetype.Type == EPermissionType.White && Archetype.Values.Count > 0 )
@@ -226,35 +226,35 @@ namespace Universalis
         {
             string summary = String.Empty;
 
-            if( Faction.Values.Count > 0 )
+            if( Faction.Type != EPermissionType.None && Faction.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Faction.Type == EPermissionType.White ? "Erlaubte Fraktionen: " : "Verbotene Fraktionen: ";
                 summary += String.Join( ", ", Faction.Values.Select( x => x.Name ) );
             }
 
-            if( Archetype.Values.Count > 0 )
+            if( Archetype.Type != EPermissionType.None && Archetype.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Archetype.Type == EPermissionType.White ? "Erlaubte Archetypen: " : "Verbotene Archetypen: ";
                 summary += String.Join( ", ", Archetype.Values.Select( x => x.Name ) );
             }
 
-            if( Type.Values.Count > 0 )
+            if( Type.Type != EPermissionType.None && Type.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Type.Type == EPermissionType.White ? "Erlaubte Typen: " : "Verbotene Typen: ";
                 summary += String.Join( ", ", Type.Values.Select( x => x.ToString() ) );
             }
 
-            if( Size.Values.Count > 0 )
+            if( Size.Type != EPermissionType.None && Size.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Size.Type == EPermissionType.White ? "Erlaubte Größen: " : "Verbotene Größen: ";
                 summary += String.Join( ", ", Size.Values.Select( x => x.ToString() ) );
             }
 
-            if( MovementType.Values.Count > 0 )
+            if( MovementType.Type != EPermissionType.None && MovementType.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += MovementType.Type == EPermissionType.White ? "Erlaubte Bewegungsarten: " : "Verbotene Bewegungsarten: ";
