@@ -24,18 +24,24 @@ namespace Universalis
             toolStripComboBoxSize.ComboBox.SelectionChangeCommitted += ComboBoxSize_SelectionChangeCommitted;
             toolStripComboBoxMovementType.ComboBox.SelectionChangeCommitted += ComboBoxMovementType_SelectionChangeCommitted;
 
-            toolStripComboBoxFaction.ComboBox.DataSource = Permissions.EPermissionTypeList;
-            toolStripComboBoxArchetype.ComboBox.DataSource = Permissions.EPermissionTypeList;
-            toolStripComboBoxType.ComboBox.DataSource = Permissions.EPermissionTypeList;
-            toolStripComboBoxSize.ComboBox.DataSource = Permissions.EPermissionTypeList;
-            toolStripComboBoxMovementType.ComboBox.DataSource = Permissions.EPermissionTypeList;
+            toolStripComboBoxFaction.ComboBox.SelectedValueChanged += ComboBoxFaction_SelectedValueChanged;
+            toolStripComboBoxArchetype.ComboBox.SelectedValueChanged += ComboBoxArchetype_SelectedValueChanged;
+            toolStripComboBoxType.ComboBox.SelectedValueChanged += ComboBoxType_SelectedValueChanged;
+            toolStripComboBoxSize.ComboBox.SelectedValueChanged += ComboBoxSize_SelectedValueChanged;
+            toolStripComboBoxMovementType.ComboBox.SelectedValueChanged += ComboBoxMovementType_SelectedValueChanged;
 
-            toolStripComboBoxFaction.ComboBox.SelectedItem = Permissions.Faction == null ? EPermissionType.None : Permissions.Faction.Type;
-            toolStripComboBoxArchetype.ComboBox.SelectedItem = Permissions.Archetype == null ? EPermissionType.None : Permissions.Archetype.Type;
-            toolStripComboBoxType.ComboBox.SelectedItem = Permissions.Type == null ? EPermissionType.None : Permissions.Type.Type;
-            toolStripComboBoxSize.ComboBox.SelectedItem = Permissions.Size == null ? EPermissionType.None : Permissions.Size.Type;
-            toolStripComboBoxMovementType.ComboBox.SelectedItem = Permissions.MovementType == null ? EPermissionType.None : Permissions.MovementType.Type;
-            
+            toolStripComboBoxFaction.ComboBox.DataSource = Enum.GetValues( typeof( EPermissionType ) );
+            toolStripComboBoxArchetype.ComboBox.DataSource = Enum.GetValues( typeof( EPermissionType ) );
+            toolStripComboBoxType.ComboBox.DataSource = Enum.GetValues( typeof( EPermissionType ) );
+            toolStripComboBoxSize.ComboBox.DataSource = Enum.GetValues( typeof( EPermissionType ) );
+            toolStripComboBoxMovementType.ComboBox.DataSource = Enum.GetValues( typeof( EPermissionType ) );
+
+            toolStripComboBoxFaction.ComboBox.SelectedItem = Permissions.Faction.Type;
+            toolStripComboBoxArchetype.ComboBox.SelectedItem = Permissions.Archetype.Type;
+            toolStripComboBoxType.ComboBox.SelectedItem = Permissions.Type.Type;
+            toolStripComboBoxSize.ComboBox.SelectedItem = Permissions.Size.Type;
+            toolStripComboBoxMovementType.ComboBox.SelectedItem = Permissions.MovementType.Type;
+
             RefreshGridViews();
 
             foreach( var type in Archetype.ETypeList )
@@ -58,10 +64,8 @@ namespace Universalis
             AdjustCheckedListBoxSize( checkedListBoxMovementType );
         }
 
-        private void ComboBoxFaction_SelectionChangeCommitted( object sender, EventArgs e )
+        private void ComboBoxFaction_SelectedValueChanged( object sender, EventArgs e )
         {
-            Permissions.Faction.Type = (EPermissionType)toolStripComboBoxFaction.SelectedItem;
-
             if( Permissions.Faction.Type != EPermissionType.None )
             {
                 toolStripButtonFactionDelete.Visible = true;
@@ -76,10 +80,8 @@ namespace Universalis
             }
         }
 
-        private void ComboBoxArchetype_SelectionChangeCommitted( object sender, EventArgs e )
+        private void ComboBoxArchetype_SelectedValueChanged( object sender, EventArgs e )
         {
-            Permissions.Archetype.Type = (EPermissionType)toolStripComboBoxArchetype.SelectedItem;
-
             if( Permissions.Archetype.Type != EPermissionType.None )
             {
                 toolStripButtonArchetypeDelete.Visible = true;
@@ -94,10 +96,8 @@ namespace Universalis
             }
         }
 
-        private void ComboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
+        private void ComboBoxType_SelectedValueChanged( object sender, EventArgs e )
         {
-            Permissions.Type.Type = (EPermissionType)toolStripComboBoxType.SelectedItem;
-
             if( Permissions.Type.Type != EPermissionType.None )
             {
                 checkedListBoxType.Visible = true;
@@ -108,10 +108,8 @@ namespace Universalis
             }
         }
 
-        private void ComboBoxSize_SelectionChangeCommitted( object sender, EventArgs e )
+        private void ComboBoxSize_SelectedValueChanged( object sender, EventArgs e )
         {
-            Permissions.Size.Type = (EPermissionType)toolStripComboBoxSize.SelectedItem;
-
             if( Permissions.Size.Type != EPermissionType.None )
             {
                 checkedListBoxSize.Visible = true;
@@ -122,10 +120,8 @@ namespace Universalis
             }
         }
 
-        private void ComboBoxMovementType_SelectionChangeCommitted( object sender, EventArgs e )
+        private void ComboBoxMovementType_SelectedValueChanged( object sender, EventArgs e )
         {
-            Permissions.MovementType.Type = (EPermissionType)toolStripComboBoxMovementType.SelectedItem;
-
             if( Permissions.MovementType.Type != EPermissionType.None )
             {
                 checkedListBoxMovementType.Visible = true;
@@ -134,6 +130,31 @@ namespace Universalis
             {
                 checkedListBoxMovementType.Visible = false;
             }
+        }
+
+        private void ComboBoxFaction_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            Permissions.Faction.Type = (EPermissionType)toolStripComboBoxFaction.SelectedItem;
+        }
+
+        private void ComboBoxArchetype_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            Permissions.Archetype.Type = (EPermissionType)toolStripComboBoxArchetype.SelectedItem;
+        }
+
+        private void ComboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            Permissions.Type.Type = (EPermissionType)toolStripComboBoxType.SelectedItem;
+        }
+
+        private void ComboBoxSize_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            Permissions.Size.Type = (EPermissionType)toolStripComboBoxSize.SelectedItem;
+        }
+
+        private void ComboBoxMovementType_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            Permissions.MovementType.Type = (EPermissionType)toolStripComboBoxMovementType.SelectedItem;
         }
 
         public Permissions Permissions;
