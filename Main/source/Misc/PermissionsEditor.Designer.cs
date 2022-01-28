@@ -31,31 +31,31 @@ namespace Universalis
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PermissionsEditor));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripFactions = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBoxFaction = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButtonFactionAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFactionDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.dataGridViewFaction = new System.Windows.Forms.DataGridView();
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionsWhitelistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripArchetypes = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBoxArchetype = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButtonArchetypeAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonArchetypeDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripType = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBoxType = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSize = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBoxSize = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripMovementType = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripComboBoxMovementType = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.dataGridViewArchetype = new System.Windows.Forms.DataGridView();
             this.factionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,28 +84,21 @@ namespace Universalis
             // 
             this.toolStripFactions.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripFactions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1,
             this.toolStripComboBoxFaction,
             this.toolStripButtonFactionAdd,
-            this.toolStripButtonFactionDelete});
+            this.toolStripButtonFactionDelete,
+            this.toolStripLabel1});
             this.toolStripFactions.Location = new System.Drawing.Point(0, 0);
             this.toolStripFactions.Name = "toolStripFactions";
             this.toolStripFactions.Size = new System.Drawing.Size(484, 25);
             this.toolStripFactions.TabIndex = 0;
             this.toolStripFactions.Text = "toolStrip1";
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(63, 22);
-            this.toolStripLabel1.Text = "Fraktionen";
-            // 
             // toolStripComboBoxFaction
             // 
             this.toolStripComboBoxFaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBoxFaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.toolStripComboBoxFaction.Name = "toolStripComboBoxFaction";
-            this.toolStripComboBoxFaction.Size = new System.Drawing.Size(121, 25);
+            this.toolStripComboBoxFaction.Size = new System.Drawing.Size(80, 25);
             // 
             // toolStripButtonFactionAdd
             // 
@@ -133,13 +126,19 @@ namespace Universalis
             this.toolStripButtonFactionDelete.Visible = false;
             this.toolStripButtonFactionDelete.Click += new System.EventHandler(this.toolStripButtonFactionDelete_Click);
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(63, 22);
+            this.toolStripLabel1.Text = "Fraktionen";
+            // 
             // dataGridViewFaction
             // 
             this.dataGridViewFaction.AllowUserToAddRows = false;
             this.dataGridViewFaction.AllowUserToDeleteRows = false;
             this.dataGridViewFaction.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewFaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewFaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewFaction.AutoGenerateColumns = false;
             this.dataGridViewFaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -184,27 +183,21 @@ namespace Universalis
             // 
             this.toolStripArchetypes.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripArchetypes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel4,
             this.toolStripComboBoxArchetype,
             this.toolStripButtonArchetypeAdd,
-            this.toolStripButtonArchetypeDelete});
+            this.toolStripButtonArchetypeDelete,
+            this.toolStripLabel4});
             this.toolStripArchetypes.Location = new System.Drawing.Point(0, 194);
             this.toolStripArchetypes.Name = "toolStripArchetypes";
             this.toolStripArchetypes.Size = new System.Drawing.Size(484, 25);
             this.toolStripArchetypes.TabIndex = 2;
             this.toolStripArchetypes.Text = "toolStrip4";
             // 
-            // toolStripLabel4
-            // 
-            this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(68, 22);
-            this.toolStripLabel4.Text = "Archetypen";
-            // 
             // toolStripComboBoxArchetype
             // 
             this.toolStripComboBoxArchetype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.toolStripComboBoxArchetype.Name = "toolStripComboBoxArchetype";
-            this.toolStripComboBoxArchetype.Size = new System.Drawing.Size(121, 25);
+            this.toolStripComboBoxArchetype.Size = new System.Drawing.Size(80, 25);
             // 
             // toolStripButtonArchetypeAdd
             // 
@@ -232,17 +225,29 @@ namespace Universalis
             this.toolStripButtonArchetypeDelete.Visible = false;
             this.toolStripButtonArchetypeDelete.Click += new System.EventHandler(this.toolStripButtonArchetypeDelete_Click);
             // 
+            // toolStripLabel4
+            // 
+            this.toolStripLabel4.Name = "toolStripLabel4";
+            this.toolStripLabel4.Size = new System.Drawing.Size(68, 22);
+            this.toolStripLabel4.Text = "Archetypen";
+            // 
             // toolStripType
             // 
             this.toolStripType.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripType.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel5,
-            this.toolStripComboBoxType});
+            this.toolStripComboBoxType,
+            this.toolStripLabel5});
             this.toolStripType.Location = new System.Drawing.Point(0, 388);
             this.toolStripType.Name = "toolStripType";
             this.toolStripType.Size = new System.Drawing.Size(484, 25);
             this.toolStripType.TabIndex = 3;
             this.toolStripType.Text = "toolStrip5";
+            // 
+            // toolStripComboBoxType
+            // 
+            this.toolStripComboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxType.Name = "toolStripComboBoxType";
+            this.toolStripComboBoxType.Size = new System.Drawing.Size(80, 25);
             // 
             // toolStripLabel5
             // 
@@ -250,23 +255,23 @@ namespace Universalis
             this.toolStripLabel5.Size = new System.Drawing.Size(25, 22);
             this.toolStripLabel5.Text = "Typ";
             // 
-            // toolStripComboBoxType
-            // 
-            this.toolStripComboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBoxType.Name = "toolStripComboBoxType";
-            this.toolStripComboBoxType.Size = new System.Drawing.Size(121, 25);
-            // 
             // toolStripSize
             // 
             this.toolStripSize.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripSize.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel6,
-            this.toolStripComboBoxSize});
+            this.toolStripComboBoxSize,
+            this.toolStripLabel6});
             this.toolStripSize.Location = new System.Drawing.Point(0, 492);
             this.toolStripSize.Name = "toolStripSize";
             this.toolStripSize.Size = new System.Drawing.Size(484, 25);
             this.toolStripSize.TabIndex = 4;
             this.toolStripSize.Text = "toolStrip6";
+            // 
+            // toolStripComboBoxSize
+            // 
+            this.toolStripComboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxSize.Name = "toolStripComboBoxSize";
+            this.toolStripComboBoxSize.Size = new System.Drawing.Size(80, 25);
             // 
             // toolStripLabel6
             // 
@@ -274,23 +279,23 @@ namespace Universalis
             this.toolStripLabel6.Size = new System.Drawing.Size(39, 22);
             this.toolStripLabel6.Text = "Größe";
             // 
-            // toolStripComboBoxSize
-            // 
-            this.toolStripComboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBoxSize.Name = "toolStripComboBoxSize";
-            this.toolStripComboBoxSize.Size = new System.Drawing.Size(121, 25);
-            // 
             // toolStripMovementType
             // 
             this.toolStripMovementType.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStripMovementType.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel7,
-            this.toolStripComboBoxMovementType});
+            this.toolStripComboBoxMovementType,
+            this.toolStripLabel7});
             this.toolStripMovementType.Location = new System.Drawing.Point(0, 596);
             this.toolStripMovementType.Name = "toolStripMovementType";
             this.toolStripMovementType.Size = new System.Drawing.Size(484, 25);
             this.toolStripMovementType.TabIndex = 5;
             this.toolStripMovementType.Text = "toolStrip7";
+            // 
+            // toolStripComboBoxMovementType
+            // 
+            this.toolStripComboBoxMovementType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxMovementType.Name = "toolStripComboBoxMovementType";
+            this.toolStripComboBoxMovementType.Size = new System.Drawing.Size(80, 25);
             // 
             // toolStripLabel7
             // 
@@ -298,19 +303,13 @@ namespace Universalis
             this.toolStripLabel7.Size = new System.Drawing.Size(82, 22);
             this.toolStripLabel7.Text = "Bewegungsart";
             // 
-            // toolStripComboBoxMovementType
-            // 
-            this.toolStripComboBoxMovementType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBoxMovementType.Name = "toolStripComboBoxMovementType";
-            this.toolStripComboBoxMovementType.Size = new System.Drawing.Size(121, 25);
-            // 
             // dataGridViewArchetype
             // 
             this.dataGridViewArchetype.AllowUserToAddRows = false;
             this.dataGridViewArchetype.AllowUserToDeleteRows = false;
             this.dataGridViewArchetype.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewArchetype.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewArchetype.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewArchetype.AutoGenerateColumns = false;
             this.dataGridViewArchetype.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArchetype.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
