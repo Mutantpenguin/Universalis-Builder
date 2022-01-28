@@ -30,23 +30,32 @@ namespace Universalis
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PermissionsEditor));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PermissionsEditor));
             this.toolStripFactions = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBoxFaction = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButtonFactionAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonFactionDelete = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewFaction = new System.Windows.Forms.DataGridView();
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionsWhitelistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripArchetypes = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBoxArchetype = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButtonArchetypeAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonArchetypeDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripType = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBoxType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSize = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBoxSize = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripMovementType = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBoxMovementType = new System.Windows.Forms.ToolStripComboBox();
             this.dataGridViewArchetype = new System.Windows.Forms.DataGridView();
             this.factionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,16 +66,7 @@ namespace Universalis
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripComboBoxFaction = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripComboBoxArchetype = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripComboBoxType = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripComboBoxSize = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripComboBoxMovementType = new System.Windows.Forms.ToolStripComboBox();
             this.checkedListBoxMovementType = new System.Windows.Forms.CheckedListBox();
-            this.toolStripButtonFactionAdd = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonFactionDelete = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonArchetypeAdd = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonArchetypeDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripFactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsWhitelistBindingSource)).BeginInit();
@@ -99,6 +99,39 @@ namespace Universalis
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(63, 22);
             this.toolStripLabel1.Text = "Fraktionen";
+            // 
+            // toolStripComboBoxFaction
+            // 
+            this.toolStripComboBoxFaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxFaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.toolStripComboBoxFaction.Name = "toolStripComboBoxFaction";
+            this.toolStripComboBoxFaction.Size = new System.Drawing.Size(121, 25);
+            // 
+            // toolStripButtonFactionAdd
+            // 
+            this.toolStripButtonFactionAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonFactionAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFactionAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFactionAdd.Image")));
+            this.toolStripButtonFactionAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonFactionAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFactionAdd.Name = "toolStripButtonFactionAdd";
+            this.toolStripButtonFactionAdd.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFactionAdd.Text = "toolStripButton1";
+            this.toolStripButtonFactionAdd.Visible = false;
+            this.toolStripButtonFactionAdd.Click += new System.EventHandler(this.toolStripButtonFactionAdd_Click);
+            // 
+            // toolStripButtonFactionDelete
+            // 
+            this.toolStripButtonFactionDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonFactionDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFactionDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFactionDelete.Image")));
+            this.toolStripButtonFactionDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonFactionDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFactionDelete.Name = "toolStripButtonFactionDelete";
+            this.toolStripButtonFactionDelete.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFactionDelete.Text = "toolStripButton2";
+            this.toolStripButtonFactionDelete.Visible = false;
+            this.toolStripButtonFactionDelete.Click += new System.EventHandler(this.toolStripButtonFactionDelete_Click);
             // 
             // dataGridViewFaction
             // 
@@ -167,6 +200,38 @@ namespace Universalis
             this.toolStripLabel4.Size = new System.Drawing.Size(68, 22);
             this.toolStripLabel4.Text = "Archetypen";
             // 
+            // toolStripComboBoxArchetype
+            // 
+            this.toolStripComboBoxArchetype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxArchetype.Name = "toolStripComboBoxArchetype";
+            this.toolStripComboBoxArchetype.Size = new System.Drawing.Size(121, 25);
+            // 
+            // toolStripButtonArchetypeAdd
+            // 
+            this.toolStripButtonArchetypeAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonArchetypeAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonArchetypeAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonArchetypeAdd.Image")));
+            this.toolStripButtonArchetypeAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonArchetypeAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonArchetypeAdd.Name = "toolStripButtonArchetypeAdd";
+            this.toolStripButtonArchetypeAdd.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonArchetypeAdd.Text = "toolStripButton3";
+            this.toolStripButtonArchetypeAdd.Visible = false;
+            this.toolStripButtonArchetypeAdd.Click += new System.EventHandler(this.toolStripButtonArchetypeAdd_Click);
+            // 
+            // toolStripButtonArchetypeDelete
+            // 
+            this.toolStripButtonArchetypeDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonArchetypeDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonArchetypeDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonArchetypeDelete.Image")));
+            this.toolStripButtonArchetypeDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonArchetypeDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonArchetypeDelete.Name = "toolStripButtonArchetypeDelete";
+            this.toolStripButtonArchetypeDelete.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonArchetypeDelete.Text = "toolStripButton4";
+            this.toolStripButtonArchetypeDelete.Visible = false;
+            this.toolStripButtonArchetypeDelete.Click += new System.EventHandler(this.toolStripButtonArchetypeDelete_Click);
+            // 
             // toolStripType
             // 
             this.toolStripType.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -184,6 +249,12 @@ namespace Universalis
             this.toolStripLabel5.Name = "toolStripLabel5";
             this.toolStripLabel5.Size = new System.Drawing.Size(25, 22);
             this.toolStripLabel5.Text = "Typ";
+            // 
+            // toolStripComboBoxType
+            // 
+            this.toolStripComboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxType.Name = "toolStripComboBoxType";
+            this.toolStripComboBoxType.Size = new System.Drawing.Size(121, 25);
             // 
             // toolStripSize
             // 
@@ -203,6 +274,12 @@ namespace Universalis
             this.toolStripLabel6.Size = new System.Drawing.Size(39, 22);
             this.toolStripLabel6.Text = "Größe";
             // 
+            // toolStripComboBoxSize
+            // 
+            this.toolStripComboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxSize.Name = "toolStripComboBoxSize";
+            this.toolStripComboBoxSize.Size = new System.Drawing.Size(121, 25);
+            // 
             // toolStripMovementType
             // 
             this.toolStripMovementType.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -220,6 +297,12 @@ namespace Universalis
             this.toolStripLabel7.Name = "toolStripLabel7";
             this.toolStripLabel7.Size = new System.Drawing.Size(82, 22);
             this.toolStripLabel7.Text = "Bewegungsart";
+            // 
+            // toolStripComboBoxMovementType
+            // 
+            this.toolStripComboBoxMovementType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxMovementType.Name = "toolStripComboBoxMovementType";
+            this.toolStripComboBoxMovementType.Size = new System.Drawing.Size(121, 25);
             // 
             // dataGridViewArchetype
             // 
@@ -329,37 +412,6 @@ namespace Universalis
             // 
             this.permissionsBindingSource.DataSource = typeof(Universalis.Permissions);
             // 
-            // toolStripComboBoxFaction
-            // 
-            this.toolStripComboBoxFaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBoxFaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.toolStripComboBoxFaction.Name = "toolStripComboBoxFaction";
-            this.toolStripComboBoxFaction.Size = new System.Drawing.Size(121, 25);
-            // 
-            // toolStripComboBoxArchetype
-            // 
-            this.toolStripComboBoxArchetype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBoxArchetype.Name = "toolStripComboBoxArchetype";
-            this.toolStripComboBoxArchetype.Size = new System.Drawing.Size(121, 25);
-            // 
-            // toolStripComboBoxType
-            // 
-            this.toolStripComboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBoxType.Name = "toolStripComboBoxType";
-            this.toolStripComboBoxType.Size = new System.Drawing.Size(121, 25);
-            // 
-            // toolStripComboBoxSize
-            // 
-            this.toolStripComboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBoxSize.Name = "toolStripComboBoxSize";
-            this.toolStripComboBoxSize.Size = new System.Drawing.Size(121, 25);
-            // 
-            // toolStripComboBoxMovementType
-            // 
-            this.toolStripComboBoxMovementType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBoxMovementType.Name = "toolStripComboBoxMovementType";
-            this.toolStripComboBoxMovementType.Size = new System.Drawing.Size(121, 25);
-            // 
             // checkedListBoxMovementType
             // 
             this.checkedListBoxMovementType.CheckOnClick = true;
@@ -370,54 +422,6 @@ namespace Universalis
             this.checkedListBoxMovementType.Size = new System.Drawing.Size(484, 79);
             this.checkedListBoxMovementType.TabIndex = 6;
             this.checkedListBoxMovementType.Visible = false;
-            // 
-            // toolStripButtonFactionAdd
-            // 
-            this.toolStripButtonFactionAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonFactionAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonFactionAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFactionAdd.Image")));
-            this.toolStripButtonFactionAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonFactionAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonFactionAdd.Name = "toolStripButtonFactionAdd";
-            this.toolStripButtonFactionAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonFactionAdd.Text = "toolStripButton1";
-            this.toolStripButtonFactionAdd.Visible = false;
-            // 
-            // toolStripButtonFactionDelete
-            // 
-            this.toolStripButtonFactionDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonFactionDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonFactionDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFactionDelete.Image")));
-            this.toolStripButtonFactionDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonFactionDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonFactionDelete.Name = "toolStripButtonFactionDelete";
-            this.toolStripButtonFactionDelete.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonFactionDelete.Text = "toolStripButton2";
-            this.toolStripButtonFactionDelete.Visible = false;
-            // 
-            // toolStripButtonArchetypeAdd
-            // 
-            this.toolStripButtonArchetypeAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonArchetypeAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonArchetypeAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonArchetypeAdd.Image")));
-            this.toolStripButtonArchetypeAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonArchetypeAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonArchetypeAdd.Name = "toolStripButtonArchetypeAdd";
-            this.toolStripButtonArchetypeAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonArchetypeAdd.Text = "toolStripButton3";
-            this.toolStripButtonArchetypeAdd.Visible = false;
-            // 
-            // toolStripButtonArchetypeDelete
-            // 
-            this.toolStripButtonArchetypeDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonArchetypeDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonArchetypeDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonArchetypeDelete.Image")));
-            this.toolStripButtonArchetypeDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonArchetypeDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonArchetypeDelete.Name = "toolStripButtonArchetypeDelete";
-            this.toolStripButtonArchetypeDelete.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonArchetypeDelete.Text = "toolStripButton4";
-            this.toolStripButtonArchetypeDelete.Visible = false;
             // 
             // PermissionsEditor
             // 
