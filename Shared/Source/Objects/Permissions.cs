@@ -93,8 +93,13 @@ namespace Universalis
                     return Values.Count == 0;
 
                 default:
-                    return Values.Count >= 0;
+                    return Values.Count > 0;
             }
+        }
+
+        public bool ShouldSerializeValues()
+        {
+            return Values.Count > 0;
         }
     }
 

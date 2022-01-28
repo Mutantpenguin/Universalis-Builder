@@ -175,22 +175,73 @@ namespace Universalis
 
         private void PermissionForm_FormClosing( object sender, FormClosingEventArgs e )
         {
+            if( Permissions.Faction.Type == EPermissionType.None )
+            {
+                Permissions.Faction.Values.Clear();
+            }
+            else if( Permissions.Faction.Values.Count == 0 )
+            {
+                Permissions.Faction.Type = EPermissionType.None;
+                Permissions.Faction.Values.Clear();
+            }
+
+            if( Permissions.Archetype.Type == EPermissionType.None )
+            {
+                Permissions.Archetype.Values.Clear();
+            }
+            else if( Permissions.Archetype.Values.Count == 0 )
+            {
+                Permissions.Archetype.Type = EPermissionType.None;
+                Permissions.Archetype.Values.Clear();
+            }
+
             Permissions.Type.Values.Clear();
-            foreach( var item in checkedListBoxType.CheckedItems )
-            {
-                Permissions.Type.Values.Add( (Archetype.EType)item );
-            }
-
             Permissions.Size.Values.Clear();
-            foreach( var item in checkedListBoxSize.CheckedItems )
+            Permissions.MovementType.Values.Clear();
+
+            if( Permissions.Type.Type != EPermissionType.None )
             {
-                Permissions.Size.Values.Add( (Archetype.ESize)item );
+                if( checkedListBoxType.CheckedItems.Count > 0 )
+                {
+                    foreach( var item in checkedListBoxType.CheckedItems )
+                    {
+                        Permissions.Type.Values.Add( (Archetype.EType)item );
+                    }
+                }
+                else
+                {
+                    Permissions.Type.Type = EPermissionType.None;
+                }
             }
 
-            Permissions.MovementType.Values.Clear();
-            foreach( var item in checkedListBoxMovementType.CheckedItems )
+            if( Permissions.Size.Type != EPermissionType.None )
             {
-                Permissions.MovementType.Values.Add( (Archetype.EMovementType)item );
+                if( checkedListBoxSize.CheckedItems.Count > 0 )
+                {
+                    foreach( var item in checkedListBoxSize.CheckedItems )
+                    {
+                        Permissions.Size.Values.Add( (Archetype.ESize)item );
+                    }
+                }
+                else
+                {
+                    Permissions.Size.Type = EPermissionType.None;
+                }
+            }
+
+            if( Permissions.MovementType.Type != EPermissionType.None )
+            {
+                if( checkedListBoxMovementType.CheckedItems.Count > 0 )
+                {
+                    foreach( var item in checkedListBoxMovementType.CheckedItems )
+                    {
+                        Permissions.MovementType.Values.Add( (Archetype.EMovementType)item );
+                    }
+                }
+                else
+                {
+                    Permissions.MovementType.Type = EPermissionType.None;
+                }
             }
 
             var (status, reason) = Permissions.IsValid();
