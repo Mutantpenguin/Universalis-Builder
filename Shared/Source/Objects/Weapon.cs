@@ -564,16 +564,6 @@ namespace Universalis
                 }
             }
 
-            if( null != this.Permissions )
-            {
-                string permissionsSummary = Permissions.Summary();
-
-                if( !String.IsNullOrEmpty( permissionsSummary ) )
-                {
-                    text += permissionsSummary;
-                }
-            }
-
             if( !String.IsNullOrEmpty( this.Rules ) )
             {
                 if( !String.IsNullOrEmpty( text ) )
@@ -582,6 +572,21 @@ namespace Universalis
                 }
 
                 text += this.Rules;
+            }
+
+            if( null != this.Permissions )
+            {
+                string permissionsSummary = Permissions.Summary();
+
+                if( !String.IsNullOrEmpty( permissionsSummary ) )
+                {
+                    if( !String.IsNullOrEmpty( text ) )
+                    {
+                        text += Environment.NewLine + Environment.NewLine;
+                    }
+
+                    text += "Berechtigungen:" + Environment.NewLine + permissionsSummary;
+                }
             }
 
             return ( text );
