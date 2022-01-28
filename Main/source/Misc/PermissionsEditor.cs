@@ -18,19 +18,23 @@ namespace Universalis
 
             permissionsBindingSource.DataSource = Permissions;
 
+            toolStripComboBoxFaction.ComboBox.SelectionChangeCommitted += ComboBoxFaction_SelectionChangeCommitted;
+            toolStripComboBoxArchetype.ComboBox.SelectionChangeCommitted += ComboBoxArchetype_SelectionChangeCommitted;
+            toolStripComboBoxType.ComboBox.SelectionChangeCommitted += ComboBoxType_SelectionChangeCommitted;
+            toolStripComboBoxSize.ComboBox.SelectionChangeCommitted += ComboBoxSize_SelectionChangeCommitted;
+            toolStripComboBoxMovementType.ComboBox.SelectionChangeCommitted += ComboBoxMovementType_SelectionChangeCommitted;
+
             toolStripComboBoxFaction.ComboBox.DataSource = Permissions.EPermissionTypeList;
             toolStripComboBoxArchetype.ComboBox.DataSource = Permissions.EPermissionTypeList;
             toolStripComboBoxType.ComboBox.DataSource = Permissions.EPermissionTypeList;
             toolStripComboBoxSize.ComboBox.DataSource = Permissions.EPermissionTypeList;
             toolStripComboBoxMovementType.ComboBox.DataSource = Permissions.EPermissionTypeList;
 
-            toolStripComboBoxFaction.ComboBox.SelectedValue = Permissions.Faction == null ? EPermissionType.None : Permissions.Faction.Type;
-            toolStripComboBoxArchetype.ComboBox.SelectedValue = Permissions.Archetype == null ? EPermissionType.None : Permissions.Archetype.Type;
-            toolStripComboBoxType.ComboBox.SelectedValue = Permissions.Type == null ? EPermissionType.None : Permissions.Type.Type;
-            toolStripComboBoxSize.ComboBox.SelectedValue = Permissions.Size == null ? EPermissionType.None : Permissions.Size.Type;
-            toolStripComboBoxMovementType.ComboBox.SelectedValue = Permissions.MovementType == null ? EPermissionType.None : Permissions.MovementType.Type;
-
-            // TODO after setting the field toolStripComboBoxFaction.ComboBox.SelectionChangeCommitted += ComboBoxFaction_SelectionChangeCommitted;
+            toolStripComboBoxFaction.ComboBox.SelectedItem = Permissions.Faction == null ? EPermissionType.None : Permissions.Faction.Type;
+            toolStripComboBoxArchetype.ComboBox.SelectedItem = Permissions.Archetype == null ? EPermissionType.None : Permissions.Archetype.Type;
+            toolStripComboBoxType.ComboBox.SelectedItem = Permissions.Type == null ? EPermissionType.None : Permissions.Type.Type;
+            toolStripComboBoxSize.ComboBox.SelectedItem = Permissions.Size == null ? EPermissionType.None : Permissions.Size.Type;
+            toolStripComboBoxMovementType.ComboBox.SelectedItem = Permissions.MovementType == null ? EPermissionType.None : Permissions.MovementType.Type;
             
             RefreshGridViews();
 
@@ -56,9 +60,9 @@ namespace Universalis
 
         private void ComboBoxFaction_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            // TODO set bzw. dele PermissionsSet for Factions here
+            Permissions.Faction.Type = (EPermissionType)toolStripComboBoxFaction.SelectedItem;
 
-            if( (EPermissionType)toolStripComboBoxFaction.SelectedItem != EPermissionType.None )
+            if( Permissions.Faction.Type != EPermissionType.None )
             {
                 toolStripButtonFactionDelete.Visible = true;
                 toolStripButtonFactionAdd.Visible = true;
@@ -72,76 +76,80 @@ namespace Universalis
             }
         }
 
+        private void ComboBoxArchetype_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            Permissions.Archetype.Type = (EPermissionType)toolStripComboBoxArchetype.SelectedItem;
+
+            if( Permissions.Archetype.Type != EPermissionType.None )
+            {
+                toolStripButtonArchetypeDelete.Visible = true;
+                toolStripButtonArchetypeAdd.Visible = true;
+                dataGridViewArchetype.Visible = true;
+            }
+            else
+            {
+                toolStripButtonArchetypeDelete.Visible = false;
+                toolStripButtonArchetypeAdd.Visible = false;
+                dataGridViewArchetype.Visible = false;
+            }
+        }
+
+        private void ComboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            Permissions.Type.Type = (EPermissionType)toolStripComboBoxType.SelectedItem;
+
+            if( Permissions.Type.Type != EPermissionType.None )
+            {
+                checkedListBoxType.Visible = true;
+            }
+            else
+            {
+                checkedListBoxType.Visible = false;
+            }
+        }
+
+        private void ComboBoxSize_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            Permissions.Size.Type = (EPermissionType)toolStripComboBoxSize.SelectedItem;
+
+            if( Permissions.Size.Type != EPermissionType.None )
+            {
+                checkedListBoxSize.Visible = true;
+            }
+            else
+            {
+                checkedListBoxSize.Visible = false;
+            }
+        }
+
+        private void ComboBoxMovementType_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            Permissions.MovementType.Type = (EPermissionType)toolStripComboBoxMovementType.SelectedItem;
+
+            if( Permissions.MovementType.Type != EPermissionType.None )
+            {
+                checkedListBoxMovementType.Visible = true;
+            }
+            else
+            {
+                checkedListBoxMovementType.Visible = false;
+            }
+        }
+
         public Permissions Permissions;
 
         private void RefreshGridViews()
         {
-            factionsWhitelistBindingSource.DataSource = Permissions.Faction?.Values.OrderBy( x => x.Name )
-                                                                                   .ToList();
+            factionsWhitelistBindingSource.DataSource = Permissions.Faction.Values.OrderBy( x => x.Name )
+                                                                                  .ToList();
 
-            archetypesWhitelistBindingSource.DataSource = Permissions.Archetype?.Values.OrderBy( x => x.Name )
-                                                                                       .ToList();
+            archetypesWhitelistBindingSource.DataSource = Permissions.Archetype.Values.OrderBy( x => x.Name )
+                                                                                      .ToList();
         }
 
         private void AdjustCheckedListBoxSize( CheckedListBox checkedListBox )
         {
             checkedListBox.ClientSize = new Size( checkedListBox.ClientSize.Width, checkedListBox.ItemHeight * checkedListBox.Items.Count );
-        }
-
-        private void toolStripButtonArchetype_CheckedChanged( object sender, EventArgs e )
-        {
-            if( toolStripButtonArchetype.Checked )
-            {
-                toolStripButtonArchetype.Image = Properties.Resources.ui_check_box;
-                tableLayoutPanelArchetypes.Visible = true;
-            }
-            else
-            {
-                toolStripButtonArchetype.Image = Properties.Resources.ui_check_box_uncheck;
-                tableLayoutPanelArchetypes.Visible = false;
-            }
-        }
-
-        private void toolStripButtonType_CheckedChanged( object sender, EventArgs e )
-        {
-            if( toolStripButtonType.Checked )
-            {
-                toolStripButtonType.Image = Properties.Resources.ui_check_box;
-                tableLayoutPanelType.Visible = true;
-            }
-            else
-            {
-                toolStripButtonType.Image = Properties.Resources.ui_check_box_uncheck;
-                tableLayoutPanelType.Visible = false;
-            }
-        }
-
-        private void toolStripButtonSize_CheckedChanged( object sender, EventArgs e )
-        {
-            if( toolStripButtonSize.Checked )
-            {
-                toolStripButtonSize.Image = Properties.Resources.ui_check_box;
-                tableLayoutPanelSize.Visible = true;
-            }
-            else
-            {
-                toolStripButtonSize.Image = Properties.Resources.ui_check_box_uncheck;
-                tableLayoutPanelSize.Visible = false;
-            }
-        }
-
-        private void toolStripButtonMovementType_CheckedChanged( object sender, EventArgs e )
-        {
-            if( toolStripButtonMovementType.Checked )
-            {
-                toolStripButtonMovementType.Image = Properties.Resources.ui_check_box;
-                tableLayoutPanelMovementType.Visible = true;
-            }
-            else
-            {
-                toolStripButtonMovementType.Image = Properties.Resources.ui_check_box_uncheck;
-                tableLayoutPanelMovementType.Visible = false;
-            }
         }
 
         private void PermissionForm_FormClosing( object sender, FormClosingEventArgs e )
@@ -219,17 +227,12 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonFactionWhitelistAdd_Click( object sender, EventArgs e )
+        private void toolStripButtonFactionAdd_Click( object sender, EventArgs e )
         {
             SelectFaction( Permissions.Faction.Values );
         }
 
-        private void toolStripButtonArchetypeWhitelistAdd_Click( object sender, EventArgs e )
-        {
-            SelectArchetype( Permissions.Archetype.Values );
-        }
-
-        private void toolStripButtonFactionWhitelistDelete_Click( object sender, EventArgs e )
+        private void toolStripButtonFactionDelete_Click( object sender, EventArgs e )
         {
             if( dataGridViewFaction.SelectedRows.Count > 0 )
             {
@@ -240,7 +243,12 @@ namespace Universalis
             }
         }
 
-        private void toolStripButtonArchetypeWhitelistDelete_Click( object sender, EventArgs e )
+        private void toolStripButtonArchetypeAdd_Click( object sender, EventArgs e )
+        {
+            SelectArchetype( Permissions.Archetype.Values );
+        }
+
+        private void toolStripButtonArchetypeDelete_Click( object sender, EventArgs e )
         {
             if( dataGridViewArchetype.SelectedRows.Count > 0 )
             {

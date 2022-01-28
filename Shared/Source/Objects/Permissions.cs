@@ -13,6 +13,9 @@ namespace Universalis
 
     public class PermissionSet<T>
     {
+        public PermissionSet()
+        {}
+
         public PermissionSet( EPermissionType type )
         {
             Type = type;
@@ -23,7 +26,7 @@ namespace Universalis
             Set( permissionSet );
         }
 
-        public EPermissionType Type;
+        public EPermissionType Type = EPermissionType.None;
 
         public virtual HashSet<T> Values
         {
@@ -81,6 +84,18 @@ namespace Universalis
                 return true;
             }
         }
+
+        public bool IsValid()
+        {
+            switch( Type )
+            {
+                case EPermissionType.None:
+                    return Values.Count == 0;
+
+                default:
+                    return Values.Count >= 0;
+            }
+        }
     }
 
     public class Permissions
@@ -115,27 +130,27 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( permissions ) );
             }
 
-            if( !Faction?.Equals( permissions.Faction ) ?? false )
+            if( !Faction.Equals( permissions.Faction ) )
             {
                 return false;
             }
 
-            if( !Archetype?.Equals( permissions.Archetype ) ?? false )
+            if( !Archetype.Equals( permissions.Archetype ) )
             {
                 return false;
             }
 
-            if( !Type?.Equals( permissions.Type ) ?? false )
+            if( !Type.Equals( permissions.Type ) )
             {
                 return false;
             }
 
-            if( !Size?.Equals( permissions.Size ) ?? false )
+            if( !Size.Equals( permissions.Size ) )
             {
                 return false;
             }
 
-            if( !MovementType?.Equals( permissions.MovementType ) ?? false )
+            if( !MovementType.Equals( permissions.MovementType ) )
             {
                 return false;
             }
@@ -145,24 +160,37 @@ namespace Universalis
 
         public (bool status, String reason) IsValid()
         {
-            if( Archetype?.Type == EPermissionType.White && Archetype.Values.Count > 0 )
+            if( !Faction.IsValid()
+                ||
+                !Archetype.IsValid()
+                ||
+                !Type.IsValid()
+                ||
+                !Size.IsValid()
+                ||
+                !MovementType.IsValid() )
             {
-                if( Faction?.Values.Count > 0 )
+                return (false, "TODO");
+            }
+
+            if( Archetype.Type == EPermissionType.White && Archetype.Values.Count > 0 )
+            {
+                if( Faction.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Fraktionen gefüllt sein." );
                 }
                 
-                if( Type?.Values.Count > 0 )
+                if( Type.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Typen gefüllt sein." );
                 }
 
-                if( Size?.Values.Count > 0 )
+                if( Size.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Größen gefüllt sein." );
                 }
 
-                if( MovementType?.Values.Count > 0 )
+                if( MovementType.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Bewegungsarten gefüllt sein." );
                 }
@@ -173,15 +201,15 @@ namespace Universalis
 
         public bool Granted( Archetype archetype )
         {
-            if( ( !Faction?.Granted( archetype.Faction ) ?? true )
+            if( !Faction.Granted( archetype.Faction )
                 ||
-                ( !Archetype?.Granted( archetype ) ?? true )
+                !Archetype.Granted( archetype )
                 ||
-                ( !Type?.Granted( archetype.Type ) ?? true )
+                !Type.Granted( archetype.Type )
                 ||
-                ( !Size?.Granted( archetype.Size ) ?? true )
+                !Size.Granted( archetype.Size )
                 ||
-                ( !MovementType?.Granted( archetype.MovementType ) ?? true ) )
+                !MovementType.Granted( archetype.MovementType ) )
             {
                 return false;
             }
@@ -193,35 +221,35 @@ namespace Universalis
         {
             string summary = String.Empty;
 
-            if( Faction?.Values.Count > 0 )
+            if( Faction.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Faction.Type == EPermissionType.White ? "Erlaubte Fraktionen: " : "Verbotene Fraktionen: ";
                 summary += String.Join( ", ", Faction.Values.Select( x => x.Name ) );
             }
 
-            if( Archetype?.Values.Count > 0 )
+            if( Archetype.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Archetype.Type == EPermissionType.White ? "Erlaubte Archetypen: " : "Verbotene Archetypen: ";
                 summary += String.Join( ", ", Archetype.Values.Select( x => x.Name ) );
             }
 
-            if( Type?.Values.Count > 0 )
+            if( Type.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Type.Type == EPermissionType.White ? "Erlaubte Typen: " : "Verbotene Typen: ";
                 summary += String.Join( ", ", Type.Values.Select( x => x.ToString() ) );
             }
 
-            if( Size?.Values.Count > 0 )
+            if( Size.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Size.Type == EPermissionType.White ? "Erlaubte Größen: " : "Verbotene Größen: ";
                 summary += String.Join( ", ", Size.Values.Select( x => x.ToString() ) );
             }
 
-            if( MovementType?.Values.Count > 0 )
+            if( MovementType.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += MovementType.Type == EPermissionType.White ? "Erlaubte Bewegungsarten: " : "Verbotene Bewegungsarten: ";
@@ -231,14 +259,14 @@ namespace Universalis
             return ( summary );
         }
 
-        public PermissionSet<Faction> Faction;
+        public PermissionSet<Faction> Faction = new PermissionSet<Faction>();
 
-        public PermissionSet<Archetype> Archetype;
+        public PermissionSet<Archetype> Archetype = new PermissionSet<Archetype>();
 
-        public PermissionSet<Archetype.EType> Type;
+        public PermissionSet<Archetype.EType> Type = new PermissionSet<Archetype.EType>();
 
-        public PermissionSet<Archetype.ESize> Size;
+        public PermissionSet<Archetype.ESize> Size = new PermissionSet<Archetype.ESize>();
 
-        public PermissionSet<Archetype.EMovementType> MovementType;
+        public PermissionSet<Archetype.EMovementType> MovementType = new PermissionSet<Archetype.EMovementType>();
     }
 }
