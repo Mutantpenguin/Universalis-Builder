@@ -454,35 +454,28 @@ namespace Universalis
         {
             Actor actor = (Actor)dataGridViewActors.CurrentRow.DataBoundItem;
 
-            if( MessageBox.Show( $"Ist das Model '{actor.Name}' wirklich inaktiv?",
-                                 "Inaktiv",
-                                 MessageBoxButtons.OKCancel,
-                                 MessageBoxIcon.Warning,
-                                 MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+            if( !actor.Active )
             {
-                if( !actor.Active )
+                MessageBox.Show( $"Das Model '{actor.Name}' ist bereits inaktiv.",
+                                    String.Empty,
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information );
+            }
+            else
+            {
+                using( var inactiveReasonForm = new InactiveReasonForm() )
                 {
-                    MessageBox.Show( $"Das Model '{actor.Name}' ist bereits inaktiv.",
-                                     String.Empty,
-                                     MessageBoxButtons.OK,
-                                     MessageBoxIcon.Information );
-                }
-                else
-                {
-                    using( var inactiveReasonForm = new InactiveReasonForm() )
+                    if( inactiveReasonForm.ShowDialog() == DialogResult.OK )
                     {
-                        if( inactiveReasonForm.ShowDialog() == DialogResult.OK )
-                        {
-                            actor.Active = false;
-                            actor.InactiveType = inactiveReasonForm.InactiveType;
-                            actor.InactiveReason = inactiveReasonForm.InactiveReason;
+                        actor.Active = false;
+                        actor.InactiveType = inactiveReasonForm.InactiveType;
+                        actor.InactiveReason = inactiveReasonForm.InactiveReason;
 
-                            updateGridViewActors();
+                        updateGridViewActors();
 
-                            SelectActor( actor );
+                        SelectActor( actor );
 
-                            groupBindingSource.ResetBindings( false );
-                        }
+                        groupBindingSource.ResetBindings( false );
                     }
                 }
             }
