@@ -38,7 +38,7 @@ namespace Universalis
             textBoxDescription.Text = m_groupModified.Description;
 
             groupBindingSource.DataSource = m_groupModified;
-            
+
             updateGroupTrait();
 
             updateGridViewActors();
@@ -105,7 +105,7 @@ namespace Universalis
             return ( true );
         }
 
-#region events
+        #region events
         private void GroupEditorForm_FormClosing( object sender, FormClosingEventArgs e )
         {
             Properties.Settings.Default.GroupEditorWindowState = this.WindowState;
@@ -137,9 +137,9 @@ namespace Universalis
                 }
             }
         }
-#endregion
+        #endregion
 
-#region actors
+        #region actors
         private void dataGridViewActors_SelectionChanged( object sender, EventArgs e )
         {
             UpdateCard();
@@ -167,16 +167,31 @@ namespace Universalis
             {
                 if( archetypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
                 {
-                    var actor = new Actor( archetypeSelectionForm.SelectedArchetype );
+                    var archetype = archetypeSelectionForm.SelectedArchetype;
+
+                    var actor = new Actor( archetype );
 
                     dataGridViewActors.ClearSelection();
 
                     m_groupModified.Models.Add( actor );
 
+                    if( archetype.MaxQuantity > 0 )
+                    {
+                        var archetypeCount = m_groupModified.Models.Where( x => x.Archetype == archetype ).Count();
+
+                        if( archetypeCount > archetype.MaxQuantity )
+                        {
+                            MessageBox.Show( $"Der Archetyp '{archetype.Name}' darf (aktiv) maximal nur {archetype.MaxQuantity}x in einer Gruppe vorkommen.\n\nEr ist nun aber {archetypeCount}x vorhanden.",
+                                             "Maximale Anzahl überschritten",
+                                             MessageBoxButtons.OK,
+                                             MessageBoxIcon.Warning );
+                        }
+                    }
+
                     editActor( actor );
 
                     updateGridViewActors();
-                    
+
                     SelectActor( actor );
                 }
             }
@@ -307,6 +322,16 @@ namespace Universalis
         private void dataGridViewGroupActors_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewActors );
+
+            if( e.RowIndex != -1 )
+            {
+                if( e.ColumnIndex == actorNameDataGridViewTextBoxColumn.Index )
+                {
+                    Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
+
+                    e.Value = actor.Name + Environment.NewLine + actor.Archetype.Name;
+                }
+            }
         }
 
         private void dataGridViewActors_CellContentClick( object sender, DataGridViewCellEventArgs e )
@@ -548,18 +573,30 @@ namespace Universalis
                                  String.Empty,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
+
+                return;
             }
-            else
+
+            var (status, reason) = m_groupModified.IsValid();
+
+            if( !status )
             {
-                string filename = m_groupModified.Name + " - " + DateTime.Now.ToString( "yyyyMMdd_HHmmss" );
+                MessageBox.Show( $"Die Gruppe ist nicht regelkonform. Bitte korrigieren Sie die Probleme vorher:\n\n{reason}",
+                                 String.Empty,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
 
-                foreach( char c in Path.GetInvalidFileNameChars() )
-                {
-                    filename = filename.Replace( c.ToString(), String.Empty );
-                }
-
-                GroupPDFExporter.GeneratePDF( m_universe, m_groupModified, Path.Combine( Path.GetTempPath(), Path.ChangeExtension( filename, "pdf" ) ) );
+                return;
             }
+
+            string filename = m_groupModified.Name + " - " + DateTime.Now.ToString( "yyyyMMdd_HHmmss" );
+
+            foreach( char c in Path.GetInvalidFileNameChars() )
+            {
+                filename = filename.Replace( c.ToString(), String.Empty );
+            }
+
+            GroupPDFExporter.GeneratePDF( m_universe, m_groupModified, Path.Combine( Path.GetTempPath(), Path.ChangeExtension( filename, "pdf" ) ) );
         }
 
         private void buttonImage_Click( object sender, EventArgs e )

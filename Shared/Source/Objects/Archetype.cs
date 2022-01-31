@@ -30,6 +30,7 @@ namespace Universalis
             Size = archetype.Size;
             MovementType = archetype.MovementType;
             Type = archetype.Type;
+            MaxQuantity = archetype.MaxQuantity;
 
             Profile.Set( archetype.Profile );
 
@@ -70,7 +71,9 @@ namespace Universalis
                 ||
                 MovementType != archetype.MovementType
                 ||
-                Type != archetype.Type )
+                Type != archetype.Type
+                ||
+                MaxQuantity != archetype.MaxQuantity )
             {
                 return ( false );
             }
@@ -155,6 +158,12 @@ namespace Universalis
             get;
             set;
         } = new Profile();
+
+        public uint MaxQuantity
+        {
+            get;
+            set;
+        } = 0;
 
         #endregion members
 
@@ -310,6 +319,22 @@ namespace Universalis
             get
             {
                 return ( LoadCapacity.Max( Type, Profile.Attributes.PHY ) );
+            }
+        }
+
+        [JsonIgnore]
+        public string MaxQuantityString
+        {
+            get
+            {
+                if( MaxQuantity == 0 )
+                {
+                    return String.Empty;
+                }
+                else
+                {
+                    return MaxQuantity.ToString();
+                }
             }
         }
 

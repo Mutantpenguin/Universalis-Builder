@@ -325,7 +325,8 @@ namespace Universalis
             Desertiert = 4,
             Vermisst = 5,
             Gefangen = 6,
-            Defekt = 7
+            Defekt = 7,
+            Urlaub = 8
         }
 
         public static readonly IList<EInactiveType> EInactiveTypeList = Enum.GetValues( typeof( EInactiveType ) ).Cast<EInactiveType>().ToList().AsReadOnly();

@@ -165,14 +165,25 @@ namespace Universalis
             }
         }
 
-        public bool HasInactiveComposition()
+        public (bool status, String reason) IsValid()
         {
-            if( Models.Exists( x => x.HasInactiveComposition() ) )
+            string reasonString = String.Empty;
+
+            var archetypesOverMaxQuantity = Models.Where( x => x.Active )
+                                                  .GroupBy( x => x.Archetype )
+                                                  .Where( x => x.Key.MaxQuantity > 0 && x.Count() > x.Key.MaxQuantity );
+
+            foreach( var element in archetypesOverMaxQuantity )
             {
-                return ( true );
+                reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : Environment.NewLine ) + $"Archetyp '{element.Key.Name}' ist {element.Count()}x vorhanden, aber nur {element.Key.MaxQuantity}x erlaubt.";
             }
 
-            return ( false );
+            if( Models.Exists( x => x.HasInactiveComposition() ) )
+            {
+                reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) +  "Inaktive Ausstattung vorhanden.";
+            }
+
+            return ( String.IsNullOrEmpty( reasonString ), reasonString );
         }
     }
 }

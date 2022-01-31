@@ -122,12 +122,14 @@ namespace Universalis
 
                 string toolTipText = String.Empty;
 
-                if( group.HasInactiveComposition() )
+                var (status, reason) = group.IsValid();
+
+                if( !status )
                 {
-                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine : String.Empty ) + "Inaktive Ausstattung vorhanden!";
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine : String.Empty ) + reason;
                 }
 
-                toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + $"Anzahl Modelle: {group.Models.Count}{Environment.NewLine}{ToolTipHelper.FormatMaxWidth( group.Description )}";
+                toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + Environment.NewLine + ToolTipHelper.FormatMaxWidth( group.Description );
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( toolTipText );
             }
@@ -152,7 +154,7 @@ namespace Universalis
             {
                 Group group = (Group)dataGridViewGroups.Rows[ e.RowIndex ].DataBoundItem;
 
-                if( group.HasInactiveComposition() )
+                if( !group.IsValid().status )
                 {
                     Image imgInactiveComposition = Properties.Resources.error_outline;
 
@@ -186,6 +188,11 @@ namespace Universalis
                 e.Handled = true;
                 editGroup( (Group)dataGridViewGroups.CurrentRow.DataBoundItem );
             }
+        }
+
+        private void dataGridViewGroups_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewGroups );
         }
     }
 }
