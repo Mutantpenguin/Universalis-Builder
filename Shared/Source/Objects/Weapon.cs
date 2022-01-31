@@ -216,10 +216,6 @@ namespace Universalis
             Wurf = 3
         }
 
-        public static readonly IList<EClass> EClassList = Enum.GetValues( typeof( EClass ) ).Cast<EClass>().ToList().AsReadOnly();
-
-        public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
-
         public Guid ID
         {
             get;

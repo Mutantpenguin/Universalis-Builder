@@ -9,7 +9,7 @@ namespace Universalis
         {
             InitializeComponent();
 
-            comboBoxInactiveType.DataSource = Actor.EInactiveTypeList;
+            comboBoxInactiveType.DataSource = Enum.GetValues( typeof( Actor.EInactiveType ) );
             comboBoxInactiveType.SelectedItem = Actor.EInactiveType.Kein;
 
             comboBoxInactiveType.Select();

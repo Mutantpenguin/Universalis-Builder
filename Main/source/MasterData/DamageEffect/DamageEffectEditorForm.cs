@@ -19,7 +19,7 @@ namespace Universalis
 
             damageEffectBindingSource.DataSource = modifiedDamageEffect;
 
-            toolStripComboBoxUsageType.ComboBox.DataSource = DamageEffect.EUsageTypeList;
+            toolStripComboBoxUsageType.ComboBox.DataSource = Enum.GetValues( typeof( DamageEffect.EUsageType ) );
             toolStripComboBoxUsageType.ComboBox.SelectedItem = modifiedDamageEffect.UsageType;
             toolStripComboBoxUsageType.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
         }

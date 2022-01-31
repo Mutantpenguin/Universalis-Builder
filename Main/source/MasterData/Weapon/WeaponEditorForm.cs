@@ -59,10 +59,10 @@ namespace Universalis
                 weaponRangeBindingSource.DataSource = new WeaponRange();
             }
 
-            comboBoxWeaponClass.DataSource = Weapon.EClassList;
+            comboBoxWeaponClass.DataSource = Enum.GetValues( typeof( Weapon.EClass ) );
             comboBoxWeaponClass.SelectedItem = weapon.Class;
 
-            comboBoxType.DataSource = Weapon.ETypeList;
+            comboBoxType.DataSource = Enum.GetValues( typeof( Weapon.EType ) );
             comboBoxType.SelectedItem = weapon.Type;
 
             updateEffects();

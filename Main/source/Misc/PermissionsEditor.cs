@@ -44,17 +44,17 @@ namespace Universalis
 
             RefreshGridViews();
 
-            foreach( var type in Archetype.ETypeList )
+            foreach( Archetype.EType type in Enum.GetValues( typeof( Archetype.EType ) ) )
             {
                 checkedListBoxType.Items.Add( type, Permissions.Type.Values.Contains( type ) );
             }
 
-            foreach( var size in Archetype.ESizeList )
+            foreach( Archetype.ESize size in Enum.GetValues( typeof( Archetype.ESize ) ) )
             {
                 checkedListBoxSize.Items.Add( size, Permissions.Size.Values.Contains( size ) );
             }
 
-            foreach( var movementType in Archetype.EMovementTypeList )
+            foreach( Archetype.EMovementType movementType in Enum.GetValues( typeof( Archetype.EMovementType ) ) )
             {
                 checkedListBoxMovementType.Items.Add( movementType, Permissions.MovementType.Values.Contains( movementType ) );
             }

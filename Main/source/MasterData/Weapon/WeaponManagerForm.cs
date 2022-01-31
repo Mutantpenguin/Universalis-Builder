@@ -13,11 +13,11 @@ namespace Universalis
 
             this.Icon = Properties.Resources.icon;
 
-            filterWeaponClass.ComboBox.DataSource = Weapon.EClassList;
+            filterWeaponClass.ComboBox.DataSource = Enum.GetValues( typeof( Weapon.EClass ) );
             filterWeaponClass.ComboBox.SelectedIndex = 0;
             filterWeaponClass.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
 
-            filterType.ComboBox.DataSource = Weapon.ETypeList;
+            filterType.ComboBox.DataSource = Enum.GetValues( typeof( Weapon.EType ) );
             filterType.ComboBox.SelectedIndex = 0;
             filterType.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
 

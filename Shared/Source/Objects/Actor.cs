@@ -329,8 +329,6 @@ namespace Universalis
             Urlaub = 8
         }
 
-        public static readonly IList<EInactiveType> EInactiveTypeList = Enum.GetValues( typeof( EInactiveType ) ).Cast<EInactiveType>().ToList().AsReadOnly();
-
         #region members
 
         [JsonConverter( typeof( JsonArmorConverter ) )]

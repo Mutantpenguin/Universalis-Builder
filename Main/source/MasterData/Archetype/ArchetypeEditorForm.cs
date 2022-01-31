@@ -28,16 +28,13 @@ namespace Universalis
                                                            .Select( i => (uint)i )
                                                            .ToList();
 
-            // fill the combobox for the size
-            comboBoxSize.DataSource = Archetype.ESizeList;
+            comboBoxSize.DataSource = Enum.GetValues( typeof( Archetype.ESize ) );
             comboBoxSize.SelectedItem = archetype.Size;
 
-            // fill the combobox for the type
-            comboBoxType.DataSource = Archetype.ETypeList;
+            comboBoxType.DataSource = Enum.GetValues( typeof( Archetype.EType ) );
             comboBoxType.SelectedItem = archetype.Type;
 
-            // fill the combobox for the MovementType
-            comboBoxMovementType.DataSource = Archetype.EMovementTypeList;
+            comboBoxMovementType.DataSource = Enum.GetValues( typeof( Archetype.EMovementType ) );
             comboBoxMovementType.SelectedItem = archetype.MovementType;
 
             TypeDependantFields();

@@ -19,7 +19,7 @@ namespace Universalis
             filterFaction.ComboBox.DisplayMember = nameof(Faction.Name);
             filterFaction.ComboBox.SelectionChangeCommitted += FilterFaction_SelectionChangeCommitted;
 
-            filterType.ComboBox.DataSource = Archetype.ETypeList;
+            filterType.ComboBox.DataSource = Enum.GetValues( typeof( Archetype.EType ) );
             filterType.ComboBox.SelectionChangeCommitted += FilterType_SelectionChangeCommitted;
 
             refreshGridView();

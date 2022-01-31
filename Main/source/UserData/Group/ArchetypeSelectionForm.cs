@@ -12,7 +12,7 @@ namespace Universalis
 
             m_factionFilter = faction;
 
-            filterType.ComboBox.DataSource = Archetype.ETypeList;
+            filterType.ComboBox.DataSource = Enum.GetValues( typeof( Archetype.EType ) );
             filterType.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
 
             updateDataGridViewArchetypes();

@@ -373,16 +373,12 @@ namespace Universalis
             Riesig = 4
         }
 
-        public static readonly IList<ESize> ESizeList = Enum.GetValues( typeof( ESize ) ).Cast<ESize>().ToList().AsReadOnly();
-
         public enum EType
         {
             Infanterie = 1,
             Koloss = 2,
             Drohne = 3
         }
-
-        public static readonly IList<EType> ETypeList = Enum.GetValues( typeof( EType ) ).Cast<EType>().ToList().AsReadOnly();
 
         public enum EMovementType
         {
@@ -393,8 +389,6 @@ namespace Universalis
             Kette = 4,
             Rad = 5
         }
-
-        public static readonly IList<EMovementType> EMovementTypeList = Enum.GetValues( typeof( EMovementType ) ).Cast<EMovementType>().ToList().AsReadOnly();
 
         #endregion enums
     }

@@ -199,7 +199,5 @@ namespace Universalis
             Waffe = 2,
             Rüstung = 3
         }
-
-        public static readonly IList<EUsageType> EUsageTypeList = Enum.GetValues( typeof( EUsageType ) ).Cast<EUsageType>().ToList().AsReadOnly();
     }
 }
