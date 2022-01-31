@@ -45,7 +45,7 @@ namespace Universalis
 
             if( Options.DeityMode )
             {
-                buttonCreateUniverse.Visible = true;
+                panelGodMode.Visible = true;
 
                 string deityModeString = " - GOTTHEIT MODUS";
 
@@ -531,6 +531,32 @@ namespace Universalis
             }
         }
 
+        private void buttonOpenVscode_Click( object sender, EventArgs e )
+        {
+            if( listViewUniverses.SelectedItems.Count > 0 )
+            {
+                var selectedItem = listViewUniverses.SelectedItems[ 0 ];
+
+                try
+                {
+                    ProcessStartInfo startInfo = new ProcessStartInfo()
+                    {
+                        FileName = "code",
+                        Arguments = $"\"{selectedItem.ImageKey}\"",
+                        UseShellExecute = true,
+                        WindowStyle = ProcessWindowStyle.Hidden
+                    };
+
+                    Process.Start( startInfo );
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show( ex.ToString() );
+                }
+            }
+        }
+
         private void panelHeader_Paint( object sender, PaintEventArgs e )
         {
             base.OnPaint( e );
@@ -588,12 +614,14 @@ namespace Universalis
             {
                 buttonInfo.Enabled = true;
                 buttonOpenFolder.Enabled = true;
+                buttonOpenVscode.Enabled = true;
                 buttonDelete.Enabled = true;
             }
             else
             {
                 buttonInfo.Enabled = false;
                 buttonOpenFolder.Enabled = false;
+                buttonOpenVscode.Enabled = false;
                 buttonDelete.Enabled = false;
             }
         }

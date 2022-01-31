@@ -38,9 +38,11 @@
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelHeader = new System.Windows.Forms.Label();
             this.panelControl = new System.Windows.Forms.Panel();
-            this.buttonInfo = new System.Windows.Forms.Button();
+            this.panelGodMode = new System.Windows.Forms.Panel();
+            this.buttonOpenVscode = new System.Windows.Forms.Button();
             this.buttonCreateUniverse = new System.Windows.Forms.Button();
             this.buttonOpenFolder = new System.Windows.Forms.Button();
+            this.buttonInfo = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panelWorking = new System.Windows.Forms.Panel();
@@ -51,6 +53,7 @@
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.panelControl.SuspendLayout();
+            this.panelGodMode.SuspendLayout();
             this.panelWorking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpinner)).BeginInit();
             this.panelMain.SuspendLayout();
@@ -154,9 +157,8 @@
             // panelControl
             // 
             this.panelControl.AutoSize = true;
+            this.panelControl.Controls.Add(this.panelGodMode);
             this.panelControl.Controls.Add(this.buttonInfo);
-            this.panelControl.Controls.Add(this.buttonCreateUniverse);
-            this.panelControl.Controls.Add(this.buttonOpenFolder);
             this.panelControl.Controls.Add(this.buttonDelete);
             this.panelControl.Controls.Add(this.buttonAdd);
             this.panelControl.Controls.Add(this.buttonRefresh);
@@ -167,6 +169,62 @@
             this.panelControl.TabIndex = 3;
             this.panelControl.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl_Paint);
             // 
+            // panelGodMode
+            // 
+            this.panelGodMode.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelGodMode.AutoSize = true;
+            this.panelGodMode.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelGodMode.Controls.Add(this.buttonOpenVscode);
+            this.panelGodMode.Controls.Add(this.buttonCreateUniverse);
+            this.panelGodMode.Controls.Add(this.buttonOpenFolder);
+            this.panelGodMode.Location = new System.Drawing.Point(356, 3);
+            this.panelGodMode.Margin = new System.Windows.Forms.Padding(0);
+            this.panelGodMode.Name = "panelGodMode";
+            this.panelGodMode.Size = new System.Drawing.Size(165, 53);
+            this.panelGodMode.TabIndex = 6;
+            this.panelGodMode.Visible = false;
+            // 
+            // buttonOpenVscode
+            // 
+            this.buttonOpenVscode.Enabled = false;
+            this.buttonOpenVscode.FlatAppearance.BorderSize = 0;
+            this.buttonOpenVscode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOpenVscode.Image = global::Universalis.Properties.Resources.microsoft_visual_studio_code;
+            this.buttonOpenVscode.Location = new System.Drawing.Point(112, 0);
+            this.buttonOpenVscode.Name = "buttonOpenVscode";
+            this.buttonOpenVscode.Size = new System.Drawing.Size(50, 50);
+            this.buttonOpenVscode.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.buttonOpenVscode, "Universum im Explorer öffnen");
+            this.buttonOpenVscode.UseVisualStyleBackColor = false;
+            this.buttonOpenVscode.Click += new System.EventHandler(this.buttonOpenVscode_Click);
+            // 
+            // buttonCreateUniverse
+            // 
+            this.buttonCreateUniverse.FlatAppearance.BorderSize = 0;
+            this.buttonCreateUniverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreateUniverse.Image = global::Universalis.Properties.Resources.baseline_add_box_black_48dp;
+            this.buttonCreateUniverse.Location = new System.Drawing.Point(0, -1);
+            this.buttonCreateUniverse.Name = "buttonCreateUniverse";
+            this.buttonCreateUniverse.Size = new System.Drawing.Size(50, 50);
+            this.buttonCreateUniverse.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.buttonCreateUniverse, "Neues Universum erstellen");
+            this.buttonCreateUniverse.UseVisualStyleBackColor = false;
+            this.buttonCreateUniverse.Click += new System.EventHandler(this.buttonCreateUniverse_Click);
+            // 
+            // buttonOpenFolder
+            // 
+            this.buttonOpenFolder.Enabled = false;
+            this.buttonOpenFolder.FlatAppearance.BorderSize = 0;
+            this.buttonOpenFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOpenFolder.Image = global::Universalis.Properties.Resources.baseline_folder_black_48dp;
+            this.buttonOpenFolder.Location = new System.Drawing.Point(56, -1);
+            this.buttonOpenFolder.Name = "buttonOpenFolder";
+            this.buttonOpenFolder.Size = new System.Drawing.Size(50, 50);
+            this.buttonOpenFolder.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.buttonOpenFolder, "Universum im Explorer öffnen");
+            this.buttonOpenFolder.UseVisualStyleBackColor = false;
+            this.buttonOpenFolder.Click += new System.EventHandler(this.buttonOpenFolder_Click);
+            // 
             // buttonInfo
             // 
             this.buttonInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -174,43 +232,13 @@
             this.buttonInfo.FlatAppearance.BorderSize = 0;
             this.buttonInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonInfo.Image = global::Universalis.Properties.Resources.baseline_info_black_48dp;
-            this.buttonInfo.Location = new System.Drawing.Point(647, 3);
+            this.buttonInfo.Location = new System.Drawing.Point(703, 3);
             this.buttonInfo.Name = "buttonInfo";
             this.buttonInfo.Size = new System.Drawing.Size(50, 50);
             this.buttonInfo.TabIndex = 5;
             this.toolTip1.SetToolTip(this.buttonInfo, "Infos zum Universum");
             this.buttonInfo.UseVisualStyleBackColor = false;
             this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
-            // 
-            // buttonCreateUniverse
-            // 
-            this.buttonCreateUniverse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateUniverse.FlatAppearance.BorderSize = 0;
-            this.buttonCreateUniverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateUniverse.Image = global::Universalis.Properties.Resources.baseline_add_box_black_48dp;
-            this.buttonCreateUniverse.Location = new System.Drawing.Point(591, 3);
-            this.buttonCreateUniverse.Name = "buttonCreateUniverse";
-            this.buttonCreateUniverse.Size = new System.Drawing.Size(50, 50);
-            this.buttonCreateUniverse.TabIndex = 4;
-            this.toolTip1.SetToolTip(this.buttonCreateUniverse, "Neues Universum erstellen");
-            this.buttonCreateUniverse.UseVisualStyleBackColor = false;
-            this.buttonCreateUniverse.Visible = false;
-            this.buttonCreateUniverse.Click += new System.EventHandler(this.buttonCreateUniverse_Click);
-            // 
-            // buttonOpenFolder
-            // 
-            this.buttonOpenFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOpenFolder.Enabled = false;
-            this.buttonOpenFolder.FlatAppearance.BorderSize = 0;
-            this.buttonOpenFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpenFolder.Image = global::Universalis.Properties.Resources.baseline_folder_black_48dp;
-            this.buttonOpenFolder.Location = new System.Drawing.Point(703, 3);
-            this.buttonOpenFolder.Name = "buttonOpenFolder";
-            this.buttonOpenFolder.Size = new System.Drawing.Size(50, 50);
-            this.buttonOpenFolder.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.buttonOpenFolder, "Universum im Explorer öffnen");
-            this.buttonOpenFolder.UseVisualStyleBackColor = false;
-            this.buttonOpenFolder.Click += new System.EventHandler(this.buttonOpenFolder_Click);
             // 
             // buttonDelete
             // 
@@ -296,6 +324,8 @@
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelControl.ResumeLayout(false);
+            this.panelControl.PerformLayout();
+            this.panelGodMode.ResumeLayout(false);
             this.panelWorking.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpinner)).EndInit();
             this.panelMain.ResumeLayout(false);
@@ -324,5 +354,7 @@
         private System.Windows.Forms.Button buttonCreateUniverse;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button buttonInfo;
+        private System.Windows.Forms.Panel panelGodMode;
+        private System.Windows.Forms.Button buttonOpenVscode;
     }
 }
