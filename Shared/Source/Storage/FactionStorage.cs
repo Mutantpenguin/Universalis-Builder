@@ -9,6 +9,8 @@ namespace Universalis
 {
     public class FactionStorage
     {
+        internal static readonly JsonFactionHashSetConverter JsonFactionHashSetConverter = new JsonFactionHashSetConverter();
+
         private const string s_folderName = "Factions";
 
         private readonly string s_path;

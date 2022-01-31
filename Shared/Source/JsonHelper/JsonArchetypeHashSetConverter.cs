@@ -5,9 +5,14 @@ using System.Collections.Generic;
 
 namespace Universalis
 {
-    internal class JsonFactionSetConverter : JsonConverter<HashSet<Faction>>
+    internal class JsonArchetypeHashSetConverter : JsonConverter
     {
-        public override HashSet<Faction> ReadJson( JsonReader reader, Type objectType, HashSet<Faction> existingValue, bool hasExistingValue, JsonSerializer serializer )
+        public override bool CanConvert( Type objectType )
+        {
+            return ( objectType == typeof( HashSet<Archetype> ) );
+        }
+
+        public override object ReadJson( JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer )
         {
             if( reader == null )
             {
@@ -18,14 +23,14 @@ namespace Universalis
 
             if( token.Type == JTokenType.Array )
             {
-                var factionSet = new HashSet<Faction>();
+                var archetypeSet = new HashSet<Archetype>();
 
                 foreach( var id in token.ToObject<HashSet<string>>() )
                 {
-                    factionSet.Add( MasterDataStorage.Faction.Get( new Guid( id ) ) );
+                    archetypeSet.Add( MasterDataStorage.Archetype.Get( new Guid( id ) ) );
                 }
 
-                return ( factionSet );
+                return ( archetypeSet );
             }
             else
             {
@@ -33,7 +38,7 @@ namespace Universalis
             }
         }
 
-        public override void WriteJson( JsonWriter writer, HashSet<Faction> value, JsonSerializer serializer )
+        public override void WriteJson( JsonWriter writer, object value, JsonSerializer serializer )
         {
             if( writer == null )
             {
@@ -44,9 +49,9 @@ namespace Universalis
             {
                 var outputSet = new HashSet<string>();
 
-                foreach( var faction in ( value as HashSet<Faction> ) )
+                foreach( var archetype in ( value as HashSet<Archetype> ) )
                 {
-                    outputSet.Add( faction.ID.ToString() );
+                    outputSet.Add( archetype.ID.ToString() );
                 }
 
                 serializer.Serialize( writer, outputSet );

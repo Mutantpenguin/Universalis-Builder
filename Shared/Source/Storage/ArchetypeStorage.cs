@@ -9,6 +9,8 @@ namespace Universalis
 {
     public class ArchetypeStorage
     {
+        internal static readonly JsonArchetypeHashSetConverter JsonArchetypeHashSetConverter = new JsonArchetypeHashSetConverter();
+
         private const string s_folderName = "Archetypes";
 
         private readonly string s_path;

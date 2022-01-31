@@ -10,6 +10,8 @@ namespace Universalis
 {
     public class WeaponStorage
     {
+        private readonly JsonConverter[] Converters = { FactionStorage.JsonFactionHashSetConverter, ArchetypeStorage.JsonArchetypeHashSetConverter };
+
         private const string s_folderName = "Weapons";
 
         private readonly string s_path;
@@ -46,7 +48,7 @@ namespace Universalis
 
                     try
                     {
-                        Weapon weapon = JsonConvert.DeserializeObject<Weapon>( File.ReadAllText( file ) );
+                        Weapon weapon = JsonConvert.DeserializeObject<Weapon>( File.ReadAllText( file ), Converters );
 #if DEBUG
                         if( weapon.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
                         {
@@ -95,7 +97,7 @@ namespace Universalis
 
             try
             {
-                File.WriteAllText( filename, JsonConvert.SerializeObject( weapon, Storage.formatting ) );
+                File.WriteAllText( filename, JsonConvert.SerializeObject( weapon, Storage.formatting, Converters ) );
                 File.Delete( filenameBackup );
             }
             catch( Exception ex )
