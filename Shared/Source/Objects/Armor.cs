@@ -187,7 +187,7 @@ namespace Universalis
         } = false;
 
         [JsonIgnore]
-        public int Points => CalculatedPoints() + AdditionalPoints;
+        public int Points => CalculatedPoints();
 
         [JsonIgnore]
         public string FormattedProtection
@@ -233,6 +233,8 @@ namespace Universalis
             var armorCosts = Costs.Get().Armors;
             
             float points = 0;
+
+            points += AdditionalPoints;
 
             // TODO calculate points with values
             // Weight

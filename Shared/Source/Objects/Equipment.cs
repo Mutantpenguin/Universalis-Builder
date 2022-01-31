@@ -189,13 +189,15 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public int Points => CalculatedPoints() + AdditionalPoints;
+        public int Points => CalculatedPoints();
 
         private int CalculatedPoints()
         {
             var equipmentCosts = Costs.Get().Equipments;
 
             float points = 0;
+
+            points += AdditionalPoints;
 
             // TODO calculate points with values
             // Weight - especially since it can be negative

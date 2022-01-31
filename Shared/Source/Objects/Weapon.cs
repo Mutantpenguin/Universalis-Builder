@@ -465,13 +465,15 @@ namespace Universalis
         public string FormattedRadius => ( 0 == Radius ) ? "-" : Radius.ToString();
 
         [ JsonIgnore]
-        public int Points => CalculatedPoints() + AdditionalPoints;
+        public int Points => CalculatedPoints();
 
         private int CalculatedPoints()
         {
             var weaponCosts = Costs.Get().Weapons;
 
             float points = 0;
+
+            points += AdditionalPoints;
 
             // TODO calculate points with values
             // Weight
