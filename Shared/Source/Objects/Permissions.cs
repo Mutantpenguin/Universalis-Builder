@@ -16,9 +16,9 @@ namespace Universalis
         public PermissionSet()
         {}
 
-        public PermissionSet( EPermissionType type )
+        public PermissionSet( EPermissionType permissionType )
         {
-            Type = type;
+            PermissionType = permissionType;
         }
 
         public PermissionSet( PermissionSet<T> permissionSet )
@@ -26,7 +26,7 @@ namespace Universalis
             Set( permissionSet );
         }
 
-        public EPermissionType Type = EPermissionType.None;
+        public EPermissionType PermissionType = EPermissionType.None;
 
         public virtual HashSet<T> Values
         {
@@ -36,10 +36,9 @@ namespace Universalis
 
         public void Set( PermissionSet<T> permissionSet )
         {
-            Type = permissionSet.Type;
+            PermissionType = permissionSet.PermissionType;
 
             Values.Clear();
-
             Values.UnionWith( permissionSet.Values );
         }
 
@@ -50,7 +49,7 @@ namespace Universalis
                 return false;
             }
 
-            if( Type != permissionSet.Type )
+            if( PermissionType != permissionSet.PermissionType )
             {
                 return false;
             }
@@ -67,7 +66,7 @@ namespace Universalis
         {
             if( Values.Count > 0 )
             {
-                switch( Type )
+                switch( PermissionType )
                 {
                     case EPermissionType.White:
                         return Values.Contains( value );
@@ -87,7 +86,7 @@ namespace Universalis
 
         public bool IsValid()
         {
-            switch( Type )
+            switch( PermissionType )
             {
                 case EPermissionType.None:
                     return Values.Count == 0;
@@ -105,8 +104,6 @@ namespace Universalis
 
     public class Permissions
     {
-        public static readonly IList<EPermissionType> EPermissionTypeList = Enum.GetValues( typeof( EPermissionType ) ).Cast<EPermissionType>().ToList().AsReadOnly();
-
         public Permissions()
         { }
 
@@ -178,7 +175,7 @@ namespace Universalis
                 return (false, "Invalider Zustand der Berechtigungen.");
             }
 
-            if( Archetype.Type == EPermissionType.White && Archetype.Values.Count > 0 )
+            if( Archetype.PermissionType == EPermissionType.White && Archetype.Values.Count > 0 )
             {
                 if( Faction.Values.Count > 0 )
                 {
@@ -226,38 +223,38 @@ namespace Universalis
         {
             string summary = String.Empty;
 
-            if( Faction.Type != EPermissionType.None && Faction.Values.Count > 0 )
+            if( Faction.PermissionType != EPermissionType.None && Faction.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += Faction.Type == EPermissionType.White ? "Erlaubte Fraktionen: " : "Verbotene Fraktionen: ";
+                summary += Faction.PermissionType == EPermissionType.White ? "Erlaubte Fraktionen: " : "Verbotene Fraktionen: ";
                 summary += String.Join( ", ", Faction.Values.Select( x => x.Name ) );
             }
 
-            if( Archetype.Type != EPermissionType.None && Archetype.Values.Count > 0 )
+            if( Archetype.PermissionType != EPermissionType.None && Archetype.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += Archetype.Type == EPermissionType.White ? "Erlaubte Archetypen: " : "Verbotene Archetypen: ";
+                summary += Archetype.PermissionType == EPermissionType.White ? "Erlaubte Archetypen: " : "Verbotene Archetypen: ";
                 summary += String.Join( ", ", Archetype.Values.Select( x => x.Name ) );
             }
 
-            if( Type.Type != EPermissionType.None && Type.Values.Count > 0 )
+            if( Type.PermissionType != EPermissionType.None && Type.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += Type.Type == EPermissionType.White ? "Erlaubte Typen: " : "Verbotene Typen: ";
+                summary += Type.PermissionType == EPermissionType.White ? "Erlaubte Typen: " : "Verbotene Typen: ";
                 summary += String.Join( ", ", Type.Values.Select( x => x.ToString() ) );
             }
 
-            if( Size.Type != EPermissionType.None && Size.Values.Count > 0 )
+            if( Size.PermissionType != EPermissionType.None && Size.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += Size.Type == EPermissionType.White ? "Erlaubte Größen: " : "Verbotene Größen: ";
+                summary += Size.PermissionType == EPermissionType.White ? "Erlaubte Größen: " : "Verbotene Größen: ";
                 summary += String.Join( ", ", Size.Values.Select( x => x.ToString() ) );
             }
 
-            if( MovementType.Type != EPermissionType.None && MovementType.Values.Count > 0 )
+            if( MovementType.PermissionType != EPermissionType.None && MovementType.Values.Count > 0 )
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
-                summary += MovementType.Type == EPermissionType.White ? "Erlaubte Bewegungsarten: " : "Verbotene Bewegungsarten: ";
+                summary += MovementType.PermissionType == EPermissionType.White ? "Erlaubte Bewegungsarten: " : "Verbotene Bewegungsarten: ";
                 summary += String.Join( ", ", MovementType.Values.Select( x => x.ToString() ) );
             }
 

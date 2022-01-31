@@ -36,11 +36,11 @@ namespace Universalis
             toolStripComboBoxSize.ComboBox.DataSource = Enum.GetValues( typeof( EPermissionType ) );
             toolStripComboBoxMovementType.ComboBox.DataSource = Enum.GetValues( typeof( EPermissionType ) );
 
-            toolStripComboBoxFaction.ComboBox.SelectedItem = Permissions.Faction.Type;
-            toolStripComboBoxArchetype.ComboBox.SelectedItem = Permissions.Archetype.Type;
-            toolStripComboBoxType.ComboBox.SelectedItem = Permissions.Type.Type;
-            toolStripComboBoxSize.ComboBox.SelectedItem = Permissions.Size.Type;
-            toolStripComboBoxMovementType.ComboBox.SelectedItem = Permissions.MovementType.Type;
+            toolStripComboBoxFaction.ComboBox.SelectedItem = Permissions.Faction.PermissionType;
+            toolStripComboBoxArchetype.ComboBox.SelectedItem = Permissions.Archetype.PermissionType;
+            toolStripComboBoxType.ComboBox.SelectedItem = Permissions.Type.PermissionType;
+            toolStripComboBoxSize.ComboBox.SelectedItem = Permissions.Size.PermissionType;
+            toolStripComboBoxMovementType.ComboBox.SelectedItem = Permissions.MovementType.PermissionType;
 
             RefreshGridViews();
 
@@ -66,7 +66,7 @@ namespace Universalis
 
         private void ComboBoxFaction_SelectedValueChanged( object sender, EventArgs e )
         {
-            if( Permissions.Faction.Type != EPermissionType.None )
+            if( Permissions.Faction.PermissionType != EPermissionType.None )
             {
                 toolStripButtonFactionDelete.Visible = true;
                 toolStripButtonFactionAdd.Visible = true;
@@ -82,7 +82,7 @@ namespace Universalis
 
         private void ComboBoxArchetype_SelectedValueChanged( object sender, EventArgs e )
         {
-            if( Permissions.Archetype.Type != EPermissionType.None )
+            if( Permissions.Archetype.PermissionType != EPermissionType.None )
             {
                 toolStripButtonArchetypeDelete.Visible = true;
                 toolStripButtonArchetypeAdd.Visible = true;
@@ -98,7 +98,7 @@ namespace Universalis
 
         private void ComboBoxType_SelectedValueChanged( object sender, EventArgs e )
         {
-            if( Permissions.Type.Type != EPermissionType.None )
+            if( Permissions.Type.PermissionType != EPermissionType.None )
             {
                 checkedListBoxType.Visible = true;
             }
@@ -110,7 +110,7 @@ namespace Universalis
 
         private void ComboBoxSize_SelectedValueChanged( object sender, EventArgs e )
         {
-            if( Permissions.Size.Type != EPermissionType.None )
+            if( Permissions.Size.PermissionType != EPermissionType.None )
             {
                 checkedListBoxSize.Visible = true;
             }
@@ -122,7 +122,7 @@ namespace Universalis
 
         private void ComboBoxMovementType_SelectedValueChanged( object sender, EventArgs e )
         {
-            if( Permissions.MovementType.Type != EPermissionType.None )
+            if( Permissions.MovementType.PermissionType != EPermissionType.None )
             {
                 checkedListBoxMovementType.Visible = true;
             }
@@ -134,27 +134,27 @@ namespace Universalis
 
         private void ComboBoxFaction_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            Permissions.Faction.Type = (EPermissionType)toolStripComboBoxFaction.SelectedItem;
+            Permissions.Faction.PermissionType = (EPermissionType)toolStripComboBoxFaction.SelectedItem;
         }
 
         private void ComboBoxArchetype_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            Permissions.Archetype.Type = (EPermissionType)toolStripComboBoxArchetype.SelectedItem;
+            Permissions.Archetype.PermissionType = (EPermissionType)toolStripComboBoxArchetype.SelectedItem;
         }
 
         private void ComboBoxType_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            Permissions.Type.Type = (EPermissionType)toolStripComboBoxType.SelectedItem;
+            Permissions.Type.PermissionType = (EPermissionType)toolStripComboBoxType.SelectedItem;
         }
 
         private void ComboBoxSize_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            Permissions.Size.Type = (EPermissionType)toolStripComboBoxSize.SelectedItem;
+            Permissions.Size.PermissionType = (EPermissionType)toolStripComboBoxSize.SelectedItem;
         }
 
         private void ComboBoxMovementType_SelectionChangeCommitted( object sender, EventArgs e )
         {
-            Permissions.MovementType.Type = (EPermissionType)toolStripComboBoxMovementType.SelectedItem;
+            Permissions.MovementType.PermissionType = (EPermissionType)toolStripComboBoxMovementType.SelectedItem;
         }
 
         public Permissions Permissions;
@@ -175,23 +175,23 @@ namespace Universalis
 
         private void PermissionForm_FormClosing( object sender, FormClosingEventArgs e )
         {
-            if( Permissions.Faction.Type == EPermissionType.None )
+            if( Permissions.Faction.PermissionType == EPermissionType.None )
             {
                 Permissions.Faction.Values.Clear();
             }
             else if( Permissions.Faction.Values.Count == 0 )
             {
-                Permissions.Faction.Type = EPermissionType.None;
+                Permissions.Faction.PermissionType = EPermissionType.None;
                 Permissions.Faction.Values.Clear();
             }
 
-            if( Permissions.Archetype.Type == EPermissionType.None )
+            if( Permissions.Archetype.PermissionType == EPermissionType.None )
             {
                 Permissions.Archetype.Values.Clear();
             }
             else if( Permissions.Archetype.Values.Count == 0 )
             {
-                Permissions.Archetype.Type = EPermissionType.None;
+                Permissions.Archetype.PermissionType = EPermissionType.None;
                 Permissions.Archetype.Values.Clear();
             }
 
@@ -199,7 +199,7 @@ namespace Universalis
             Permissions.Size.Values.Clear();
             Permissions.MovementType.Values.Clear();
 
-            if( Permissions.Type.Type != EPermissionType.None )
+            if( Permissions.Type.PermissionType != EPermissionType.None )
             {
                 if( checkedListBoxType.CheckedItems.Count > 0 )
                 {
@@ -210,11 +210,11 @@ namespace Universalis
                 }
                 else
                 {
-                    Permissions.Type.Type = EPermissionType.None;
+                    Permissions.Type.PermissionType = EPermissionType.None;
                 }
             }
 
-            if( Permissions.Size.Type != EPermissionType.None )
+            if( Permissions.Size.PermissionType != EPermissionType.None )
             {
                 if( checkedListBoxSize.CheckedItems.Count > 0 )
                 {
@@ -225,11 +225,11 @@ namespace Universalis
                 }
                 else
                 {
-                    Permissions.Size.Type = EPermissionType.None;
+                    Permissions.Size.PermissionType = EPermissionType.None;
                 }
             }
 
-            if( Permissions.MovementType.Type != EPermissionType.None )
+            if( Permissions.MovementType.PermissionType != EPermissionType.None )
             {
                 if( checkedListBoxMovementType.CheckedItems.Count > 0 )
                 {
@@ -240,7 +240,7 @@ namespace Universalis
                 }
                 else
                 {
-                    Permissions.MovementType.Type = EPermissionType.None;
+                    Permissions.MovementType.PermissionType = EPermissionType.None;
                 }
             }
 
