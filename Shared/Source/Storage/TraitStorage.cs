@@ -9,6 +9,8 @@ namespace Universalis
 {
     public class TraitStorage
     {
+        private readonly JsonConverter[] Converters = { FactionStorage.JsonFactionHashSetConverter, ArchetypeStorage.JsonArchetypeHashSetConverter };
+
         private const string s_folderName = "Traits";
 
         private readonly string s_path;
@@ -45,7 +47,7 @@ namespace Universalis
 
                     try
                     {
-                        Trait trait = JsonConvert.DeserializeObject<Trait>( File.ReadAllText( file ) );
+                        Trait trait = JsonConvert.DeserializeObject<Trait>( File.ReadAllText( file ), Converters );
 #if DEBUG
                         if( trait.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
                         {
@@ -94,7 +96,7 @@ namespace Universalis
 
             try
             {
-                File.WriteAllText( filename, JsonConvert.SerializeObject( trait, Storage.formatting ) );
+                File.WriteAllText( filename, JsonConvert.SerializeObject( trait, Storage.formatting, Converters ) );
                 File.Delete( filenameBackup );
             }
             catch( Exception ex )

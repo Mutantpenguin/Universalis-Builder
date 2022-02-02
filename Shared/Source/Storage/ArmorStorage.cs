@@ -10,6 +10,8 @@ namespace Universalis
 {
     public class ArmorStorage
     {
+        private readonly JsonConverter[] Converters = { FactionStorage.JsonFactionHashSetConverter, ArchetypeStorage.JsonArchetypeHashSetConverter };
+
         private const string s_folderName = "Armors";
 
         private readonly string s_path;
@@ -46,7 +48,7 @@ namespace Universalis
 
                     try
                     {
-                        Armor armor = JsonConvert.DeserializeObject<Armor>( File.ReadAllText( file ) );
+                        Armor armor = JsonConvert.DeserializeObject<Armor>( File.ReadAllText( file ), Converters );
 #if DEBUG
                         if( armor.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
                         {
@@ -95,7 +97,7 @@ namespace Universalis
 
             try
             {
-                File.WriteAllText( filename, JsonConvert.SerializeObject( armor, Storage.formatting ) );
+                File.WriteAllText( filename, JsonConvert.SerializeObject( armor, Storage.formatting, Converters ) );
                 File.Delete( filenameBackup );
             }
             catch( Exception ex )
