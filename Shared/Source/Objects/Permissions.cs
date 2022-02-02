@@ -234,7 +234,7 @@ namespace Universalis
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Archetype.PermissionType == EPermissionType.White ? "Erlaubte Archetypen: " : "Verbotene Archetypen: ";
-                summary += String.Join( ", ", Archetype.Values.Select( x => x.Name ) );
+                summary += String.Join( ", ", Archetype.Values.Select( x => $"{x.Name} ({x.Faction.Name})" ) );
             }
 
             if( Type.PermissionType != EPermissionType.None && Type.Values.Count > 0 )
