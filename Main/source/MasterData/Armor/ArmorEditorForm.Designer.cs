@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -79,6 +79,13 @@
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip7 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panelPermissions = new System.Windows.Forms.Panel();
+            this.textBoxPermissions = new System.Windows.Forms.TextBox();
+            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonPermissions = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.armorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
@@ -102,6 +109,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
             this.toolStrip6.SuspendLayout();
             this.toolStrip7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panelPermissions.SuspendLayout();
+            this.toolStrip5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -206,7 +216,7 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 397);
+            this.panel4.Location = new System.Drawing.Point(0, 458);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(484, 98);
             this.panel4.TabIndex = 5;
@@ -399,8 +409,8 @@
             this.dataGridViewDamageEffects.AllowUserToAddRows = false;
             this.dataGridViewDamageEffects.AllowUserToDeleteRows = false;
             this.dataGridViewDamageEffects.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewDamageEffects.AutoGenerateColumns = false;
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
@@ -631,6 +641,79 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
+            // panel8
+            // 
+            this.panel8.AutoSize = true;
+            this.panel8.Controls.Add(this.panelPermissions);
+            this.panel8.Controls.Add(this.toolStrip5);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 397);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(484, 61);
+            this.panel8.TabIndex = 34;
+            // 
+            // panelPermissions
+            // 
+            this.panelPermissions.AutoSize = true;
+            this.panelPermissions.Controls.Add(this.textBoxPermissions);
+            this.panelPermissions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelPermissions.Location = new System.Drawing.Point(0, 25);
+            this.panelPermissions.Name = "panelPermissions";
+            this.panelPermissions.Padding = new System.Windows.Forms.Padding(5);
+            this.panelPermissions.Size = new System.Drawing.Size(484, 36);
+            this.panelPermissions.TabIndex = 46;
+            // 
+            // textBoxPermissions
+            // 
+            this.textBoxPermissions.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPermissions.Location = new System.Drawing.Point(6, 8);
+            this.textBoxPermissions.Multiline = true;
+            this.textBoxPermissions.Name = "textBoxPermissions";
+            this.textBoxPermissions.ReadOnly = true;
+            this.textBoxPermissions.Size = new System.Drawing.Size(472, 20);
+            this.textBoxPermissions.TabIndex = 45;
+            this.textBoxPermissions.TextChanged += new System.EventHandler(this.textBoxPermissions_TextChanged);
+            // 
+            // toolStrip5
+            // 
+            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonPermissions,
+            this.toolStripLabel5,
+            this.toolStripButtonPermissionsEditor});
+            this.toolStrip5.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip5.Name = "toolStrip5";
+            this.toolStrip5.Size = new System.Drawing.Size(484, 25);
+            this.toolStrip5.TabIndex = 0;
+            this.toolStrip5.Text = "toolStrip5";
+            // 
+            // toolStripButtonPermissions
+            // 
+            this.toolStripButtonPermissions.CheckOnClick = true;
+            this.toolStripButtonPermissions.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPermissions.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.toolStripButtonPermissions.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonPermissions.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPermissions.Name = "toolStripButtonPermissions";
+            this.toolStripButtonPermissions.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonPermissions.Click += new System.EventHandler(this.toolStripButtonPermissions_Click);
+            // 
+            // toolStripLabel5
+            // 
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(91, 22);
+            this.toolStripLabel5.Text = "Berechtigungen";
+            // 
+            // toolStripButtonPermissionsEditor
+            // 
+            this.toolStripButtonPermissionsEditor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonPermissionsEditor.Image = global::Universalis.Properties.Resources.baseline_tune_black_18dp;
+            this.toolStripButtonPermissionsEditor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonPermissionsEditor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonPermissionsEditor.Name = "toolStripButtonPermissionsEditor";
+            this.toolStripButtonPermissionsEditor.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonPermissionsEditor.Text = "editieren";
+            this.toolStripButtonPermissionsEditor.Click += new System.EventHandler(this.toolStripButtonPermissionsEditor_Click);
+            // 
             // ArmorEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,6 +722,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(484, 522);
             this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.tableLayoutPanel3);
@@ -690,6 +774,12 @@
             this.toolStrip6.PerformLayout();
             this.toolStrip7.ResumeLayout(false);
             this.toolStrip7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panelPermissions.ResumeLayout(false);
+            this.panelPermissions.PerformLayout();
+            this.toolStrip5.ResumeLayout(false);
+            this.toolStrip5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -746,5 +836,12 @@
         private System.Windows.Forms.Panel panelProfileModifier;
         private System.Windows.Forms.NumericUpDown numericUpDownDamageReduction;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panelPermissions;
+        private System.Windows.Forms.TextBox textBoxPermissions;
+        private System.Windows.Forms.ToolStrip toolStrip5;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPermissions;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel5;
+        private System.Windows.Forms.ToolStripButton toolStripButtonPermissionsEditor;
     }
 }

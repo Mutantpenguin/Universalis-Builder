@@ -30,6 +30,19 @@ namespace Universalis
                 panelProfileModifier.Visible = false;
             }
 
+            if( null != m_modifiedEquipment.Permissions )
+            {
+                toolStripButtonPermissions.Checked = true;
+                toolStripButtonPermissions.Image = Properties.Resources.ui_check_box;
+
+                textBoxPermissions.Text = m_modifiedEquipment.Permissions.Summary();
+            }
+            else
+            {
+                toolStripButtonPermissionsEditor.Enabled = false;
+                panelPermissions.Visible = false;
+            }
+
             SetupPermittedConditions();
         }
 
@@ -201,6 +214,21 @@ namespace Universalis
             }
         }
 
+        private void openPermissionsEditor()
+        {
+            var equipment = (Equipment)equipmentBindingSource.DataSource;
+
+            using( var permissionsEditor = new PermissionsEditor( equipment.Permissions ) )
+            {
+                if( permissionsEditor.ShowDialog( this ) == DialogResult.OK )
+                {
+                    equipment.Permissions = permissionsEditor.Permissions;
+                    textBoxPermissions.Text = equipment.Permissions.Summary();
+                    equipmentBindingSource.ResetBindings( false );
+                }
+            }
+        }
+
         private void numericUpDownAdditionalPoints_ValueChanged( object sender, EventArgs e )
         {
             SetupPermittedConditions();
@@ -214,6 +242,52 @@ namespace Universalis
         private void checkBoxUseOnce_CheckedChanged( object sender, EventArgs e )
         {
             SetupPermittedConditions();
+        }
+
+        private void toolStripButtonPermissions_Click( object sender, EventArgs e )
+        {
+            var equipment = (Equipment)equipmentBindingSource.DataSource;
+
+            if( toolStripButtonPermissions.Checked )
+            {
+                toolStripButtonPermissions.Image = Properties.Resources.ui_check_box;
+
+                var permissions = new Permissions();
+
+                equipment.Permissions = permissions;
+
+                toolStripButtonPermissionsEditor.Enabled = true;
+                panelPermissions.Visible = true;
+
+                openPermissionsEditor();
+            }
+            else
+            {
+                toolStripButtonPermissions.Image = Properties.Resources.ui_check_box_uncheck;
+
+                equipment.Permissions = null;
+
+                toolStripButtonPermissionsEditor.Enabled = false;
+                panelPermissions.Visible = false;
+
+                textBoxPermissions.Text = String.Empty;
+
+                equipmentBindingSource.ResetBindings( false );
+            }
+        }
+
+        private void toolStripButtonPermissionsEditor_Click( object sender, EventArgs e )
+        {
+            openPermissionsEditor();
+        }
+
+        private void textBoxPermissions_TextChanged( object sender, EventArgs e )
+        {
+            var messageSize = TextRenderer.MeasureText( textBoxPermissions.Text,
+                                                        textBoxPermissions.Font,
+                                                        new System.Drawing.Size( textBoxPermissions.Width, 0 ) );
+
+            textBoxPermissions.Height = messageSize.Height;
         }
     }
 }
