@@ -37,6 +37,15 @@ namespace Universalis
             {
                 ProfileModifier = null;
             }
+
+            if( null != trait.Permissions )
+            {
+                Permissions = new Permissions( trait.Permissions );
+            }
+            else
+            {
+                Permissions = null;
+            }
         }
 
         public bool Equals( Trait trait )
@@ -78,6 +87,24 @@ namespace Universalis
             if( ( null != ProfileModifier ) && ( null != trait.ProfileModifier ) )
             {
                 if( !ProfileModifier.Equals( trait.ProfileModifier ) )
+                {
+                    return ( false );
+                }
+            }
+
+            if( ( null != Permissions ) && ( null == trait.Permissions ) )
+            {
+                return ( false );
+            }
+
+            if( ( null == Permissions ) && ( null != trait.Permissions ) )
+            {
+                return ( false );
+            }
+
+            if( ( null != Permissions ) && ( null != trait.Permissions ) )
+            {
+                if( !Permissions.Equals( trait.Permissions ) )
                 {
                     return ( false );
                 }
@@ -148,6 +175,12 @@ namespace Universalis
             set;
         } = null;
 
+        public Permissions Permissions
+        {
+            get;
+            set;
+        }
+
         [JsonIgnore]
         public string FormattedAP => ( AP == 0 ) ? String.Empty : AP.ToString();
 
@@ -173,6 +206,21 @@ namespace Universalis
                 }
 
                 text += FormattedRules( level );
+            }
+
+            if( null != this.Permissions )
+            {
+                string permissionsSummary = Permissions.Summary();
+
+                if( !String.IsNullOrEmpty( permissionsSummary ) )
+                {
+                    if( !String.IsNullOrEmpty( text ) )
+                    {
+                        text += Environment.NewLine + Environment.NewLine;
+                    }
+
+                    text += "Berechtigungen:" + Environment.NewLine + permissionsSummary;
+                }
             }
 
             return ( text );
