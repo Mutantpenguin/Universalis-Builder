@@ -31,8 +31,8 @@ namespace Universalis
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PermissionsEditor));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripFactions = new System.Windows.Forms.ToolStrip();
             this.toolStripComboBoxFaction = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButtonFactionAdd = new System.Windows.Forms.ToolStripButton();
@@ -57,8 +57,6 @@ namespace Universalis
             this.toolStripComboBoxMovementType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.dataGridViewArchetype = new System.Windows.Forms.DataGridView();
-            this.factionNameDataGridViewImageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.archetypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkedListBoxType = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxSize = new System.Windows.Forms.CheckedListBox();
@@ -67,6 +65,9 @@ namespace Universalis
             this.buttonOk = new System.Windows.Forms.Button();
             this.checkedListBoxMovementType = new System.Windows.Forms.CheckedListBox();
             this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.factionIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.factionNameDataGridViewImageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripFactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).BeginInit();
@@ -138,8 +139,8 @@ namespace Universalis
             this.dataGridViewFaction.AllowUserToAddRows = false;
             this.dataGridViewFaction.AllowUserToDeleteRows = false;
             this.dataGridViewFaction.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewFaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewFaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewFaction.AutoGenerateColumns = false;
             this.dataGridViewFaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -313,11 +314,12 @@ namespace Universalis
             this.dataGridViewArchetype.AllowUserToAddRows = false;
             this.dataGridViewArchetype.AllowUserToDeleteRows = false;
             this.dataGridViewArchetype.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewArchetype.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewArchetype.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewArchetype.AutoGenerateColumns = false;
             this.dataGridViewArchetype.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArchetype.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.factionIconDataGridViewImageColumn,
             this.factionNameDataGridViewImageColumn,
             this.nameDataGridViewTextBoxColumn2});
             this.dataGridViewArchetype.DataSource = this.archetypesBindingSource;
@@ -333,22 +335,6 @@ namespace Universalis
             this.dataGridViewArchetype.TabIndex = 3;
             this.dataGridViewArchetype.Visible = false;
             this.dataGridViewArchetype.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewArchetype_CellFormatting);
-            // 
-            // factionNameDataGridViewImageColumn
-            // 
-            this.factionNameDataGridViewImageColumn.DataPropertyName = "Faction.Name";
-            this.factionNameDataGridViewImageColumn.HeaderText = "Fraktion";
-            this.factionNameDataGridViewImageColumn.Name = "factionNameDataGridViewImageColumn";
-            this.factionNameDataGridViewImageColumn.ReadOnly = true;
-            this.factionNameDataGridViewImageColumn.Width = 150;
-            // 
-            // nameDataGridViewTextBoxColumn2
-            // 
-            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
-            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // archetypesBindingSource
             // 
@@ -428,6 +414,31 @@ namespace Universalis
             // permissionsBindingSource
             // 
             this.permissionsBindingSource.DataSource = typeof(Universalis.Permissions);
+            // 
+            // factionIconDataGridViewImageColumn
+            // 
+            this.factionIconDataGridViewImageColumn.DataPropertyName = "Faction.Icon";
+            this.factionIconDataGridViewImageColumn.HeaderText = "Icon";
+            this.factionIconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.factionIconDataGridViewImageColumn.Name = "factionIconDataGridViewImageColumn";
+            this.factionIconDataGridViewImageColumn.ReadOnly = true;
+            this.factionIconDataGridViewImageColumn.Width = 40;
+            // 
+            // factionNameDataGridViewImageColumn
+            // 
+            this.factionNameDataGridViewImageColumn.DataPropertyName = "Faction.Name";
+            this.factionNameDataGridViewImageColumn.HeaderText = "Fraktion";
+            this.factionNameDataGridViewImageColumn.Name = "factionNameDataGridViewImageColumn";
+            this.factionNameDataGridViewImageColumn.ReadOnly = true;
+            this.factionNameDataGridViewImageColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // PermissionsEditor
             // 
