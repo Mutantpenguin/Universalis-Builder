@@ -33,6 +33,7 @@ namespace Universalis
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.numericUpDownAGI = new System.Windows.Forms.NumericUpDown();
+            this.attributeModifierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.numericUpDownPHY = new System.Windows.Forms.NumericUpDown();
@@ -50,23 +51,23 @@ namespace Universalis
             this.numericUpDownDET = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.numericUpDownSpeed = new System.Windows.Forms.NumericUpDown();
+            this.profileModifierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numericUpDownHitPoints = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDownHitPoints = new System.Windows.Forms.NumericUpDown();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.numericUpDownCrit = new System.Windows.Forms.NumericUpDown();
-            this.attributeModifierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.profileModifierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel4.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeModifierBindingSource)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPHY)).BeginInit();
             this.panel15.SuspendLayout();
@@ -78,15 +79,14 @@ namespace Universalis
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDET)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileModifierBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHitPoints)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHitPoints)).BeginInit();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeModifierBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileModifierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel4
@@ -144,6 +144,10 @@ namespace Universalis
             this.numericUpDownAGI.Size = new System.Drawing.Size(64, 20);
             this.numericUpDownAGI.TabIndex = 1;
             this.numericUpDownAGI.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // attributeModifierBindingSource
+            // 
+            this.attributeModifierBindingSource.DataSource = typeof(Universalis.AttributeModifier);
             // 
             // label5
             // 
@@ -378,6 +382,10 @@ namespace Universalis
             this.numericUpDownSpeed.TabIndex = 2;
             this.numericUpDownSpeed.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // profileModifierBindingSource
+            // 
+            this.profileModifierBindingSource.DataSource = typeof(Universalis.ProfileModifier);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -444,6 +452,46 @@ namespace Universalis
             this.tableLayoutPanel1.Size = new System.Drawing.Size(458, 32);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
+            // panel4
+            // 
+            this.panel4.AutoSize = true;
+            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.numericUpDownHitPoints);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(155, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(146, 26);
+            this.panel4.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(71, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Trefferpunkte";
+            // 
+            // numericUpDownHitPoints
+            // 
+            this.numericUpDownHitPoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileModifierBindingSource, "HitPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownHitPoints.Location = new System.Drawing.Point(90, 3);
+            this.numericUpDownHitPoints.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.numericUpDownHitPoints.Minimum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            -2147483648});
+            this.numericUpDownHitPoints.Name = "numericUpDownHitPoints";
+            this.numericUpDownHitPoints.Size = new System.Drawing.Size(53, 20);
+            this.numericUpDownHitPoints.TabIndex = 4;
+            this.numericUpDownHitPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // panel2
             // 
             this.panel2.AutoSize = true;
@@ -477,46 +525,6 @@ namespace Universalis
             this.label1.TabIndex = 3;
             this.label1.Text = "Krit. Schwelle";
             // 
-            // numericUpDownHitPoints
-            // 
-            this.numericUpDownHitPoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileModifierBindingSource, "HitPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownHitPoints.Location = new System.Drawing.Point(90, 3);
-            this.numericUpDownHitPoints.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.numericUpDownHitPoints.Minimum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            -2147483648});
-            this.numericUpDownHitPoints.Name = "numericUpDownHitPoints";
-            this.numericUpDownHitPoints.Size = new System.Drawing.Size(53, 20);
-            this.numericUpDownHitPoints.TabIndex = 4;
-            this.numericUpDownHitPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // panel4
-            // 
-            this.panel4.AutoSize = true;
-            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.numericUpDownHitPoints);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(155, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(146, 26);
-            this.panel4.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Trefferpunkte";
-            // 
             // numericUpDownCrit
             // 
             this.numericUpDownCrit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileModifierBindingSource, "CritThreshold", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -542,14 +550,6 @@ namespace Universalis
             this.numericUpDownCrit.TabIndex = 4;
             this.numericUpDownCrit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // attributeModifierBindingSource
-            // 
-            this.attributeModifierBindingSource.DataSource = typeof(Universalis.AttributeModifier);
-            // 
-            // profileModifierBindingSource
-            // 
-            this.profileModifierBindingSource.DataSource = typeof(Universalis.ProfileModifier);
-            // 
             // ProfileModifierEditor
             // 
             this.AcceptButton = this.buttonOk;
@@ -559,6 +559,7 @@ namespace Universalis
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(458, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -572,6 +573,7 @@ namespace Universalis
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeModifierBindingSource)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPHY)).EndInit();
@@ -588,19 +590,18 @@ namespace Universalis
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDET)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileModifierBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHitPoints)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHitPoints)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeModifierBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileModifierBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

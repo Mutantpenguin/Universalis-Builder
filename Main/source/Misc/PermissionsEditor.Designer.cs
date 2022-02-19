@@ -57,6 +57,9 @@ namespace Universalis
             this.toolStripComboBoxMovementType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.dataGridViewArchetype = new System.Windows.Forms.DataGridView();
+            this.factionIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.factionNameDataGridViewImageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.archetypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkedListBoxType = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxSize = new System.Windows.Forms.CheckedListBox();
@@ -65,9 +68,6 @@ namespace Universalis
             this.buttonOk = new System.Windows.Forms.Button();
             this.checkedListBoxMovementType = new System.Windows.Forms.CheckedListBox();
             this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.factionIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.factionNameDataGridViewImageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripFactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).BeginInit();
@@ -336,6 +336,31 @@ namespace Universalis
             this.dataGridViewArchetype.Visible = false;
             this.dataGridViewArchetype.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewArchetype_CellFormatting);
             // 
+            // factionIconDataGridViewImageColumn
+            // 
+            this.factionIconDataGridViewImageColumn.DataPropertyName = "Faction.Icon";
+            this.factionIconDataGridViewImageColumn.HeaderText = "Icon";
+            this.factionIconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.factionIconDataGridViewImageColumn.Name = "factionIconDataGridViewImageColumn";
+            this.factionIconDataGridViewImageColumn.ReadOnly = true;
+            this.factionIconDataGridViewImageColumn.Width = 40;
+            // 
+            // factionNameDataGridViewImageColumn
+            // 
+            this.factionNameDataGridViewImageColumn.DataPropertyName = "Faction.Name";
+            this.factionNameDataGridViewImageColumn.HeaderText = "Fraktion";
+            this.factionNameDataGridViewImageColumn.Name = "factionNameDataGridViewImageColumn";
+            this.factionNameDataGridViewImageColumn.ReadOnly = true;
+            this.factionNameDataGridViewImageColumn.Width = 150;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
             // archetypesBindingSource
             // 
             this.archetypesBindingSource.DataSource = typeof(Universalis.Archetype);
@@ -415,31 +440,6 @@ namespace Universalis
             // 
             this.permissionsBindingSource.DataSource = typeof(Universalis.Permissions);
             // 
-            // factionIconDataGridViewImageColumn
-            // 
-            this.factionIconDataGridViewImageColumn.DataPropertyName = "Faction.Icon";
-            this.factionIconDataGridViewImageColumn.HeaderText = "Icon";
-            this.factionIconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.factionIconDataGridViewImageColumn.Name = "factionIconDataGridViewImageColumn";
-            this.factionIconDataGridViewImageColumn.ReadOnly = true;
-            this.factionIconDataGridViewImageColumn.Width = 40;
-            // 
-            // factionNameDataGridViewImageColumn
-            // 
-            this.factionNameDataGridViewImageColumn.DataPropertyName = "Faction.Name";
-            this.factionNameDataGridViewImageColumn.HeaderText = "Fraktion";
-            this.factionNameDataGridViewImageColumn.Name = "factionNameDataGridViewImageColumn";
-            this.factionNameDataGridViewImageColumn.ReadOnly = true;
-            this.factionNameDataGridViewImageColumn.Width = 150;
-            // 
-            // nameDataGridViewTextBoxColumn2
-            // 
-            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
-            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
             // PermissionsEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -448,6 +448,7 @@ namespace Universalis
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(434, 915);
+            this.ControlBox = false;
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.checkedListBoxMovementType);
             this.Controls.Add(this.toolStripMovementType);
