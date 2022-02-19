@@ -104,6 +104,8 @@ namespace Universalis
             set;
         }
 
+        #region modified
+
         public int ModAGI( AttributeModifier modifier )
         {
             if( modifier == null )
@@ -163,5 +165,7 @@ namespace Universalis
 
             return ( DET + modifier.DET );
         }
+
+        #endregion modified
     }
 }
