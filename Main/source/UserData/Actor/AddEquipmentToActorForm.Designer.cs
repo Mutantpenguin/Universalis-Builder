@@ -196,7 +196,7 @@
             // apDataGridViewTextBoxColumn
             // 
             this.apDataGridViewTextBoxColumn.DataPropertyName = "FormattedAP";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.apDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.apDataGridViewTextBoxColumn.HeaderText = "AP";
             this.apDataGridViewTextBoxColumn.Name = "apDataGridViewTextBoxColumn";
