@@ -24,7 +24,7 @@ namespace Universalis
             Name = trait.Name;
             Description = trait.Description;
             Rules = trait.Rules;
-            AdditionalPoints = trait.AdditionalPoints;
+            BasePoints = trait.BasePoints;
             UseOnce = trait.UseOnce;
             AP = trait.AP;
             MaxLevel = trait.MaxLevel;
@@ -63,7 +63,7 @@ namespace Universalis
                 ||
                 Rules != trait.Rules
                 ||
-                AdditionalPoints != trait.AdditionalPoints
+                BasePoints != trait.BasePoints
                 ||
                 UseOnce != trait.UseOnce
                 ||
@@ -145,7 +145,7 @@ namespace Universalis
             set;
         } = "Bitte Regeln eingeben";
 
-        public int AdditionalPoints
+        public int BasePoints
         {
             get;
             set;
@@ -234,19 +234,7 @@ namespace Universalis
 
         public int Points( uint level )
         {
-            var traitCosts = Costs.Get().Traits;
-
-            float points = 0;
-
-            points += level * AdditionalPoints;
-
-            if( UseOnce )
-            {
-                points *= traitCosts.UseOnceMultiplicator;
-            }
-
-            // the lower the needed AP the higher the points
-            points *= ( 1 + ( 6 - AP ) * 0.25f );
+            float points = level * BasePoints;
 
             if( ProfileModifier != null )
             {

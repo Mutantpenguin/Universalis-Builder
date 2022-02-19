@@ -20,7 +20,7 @@ namespace Universalis
             ID = Guid.Empty,
             Active = false,
             Name = "--- GELÖSCHT ---",
-            AdditionalPoints = 10000,
+            BasePoints = 10000,
             Description = "Diese Ausrüstung gibt es nicht (mehr)."
         };
 

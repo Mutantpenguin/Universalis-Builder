@@ -48,7 +48,7 @@ namespace Universalis
 
         private void SetupPermittedConditions()
         {
-            if( numericUpDownAdditionalPoints.Value == 0 )
+            if( numericUpDownBasePoints.Value == 0 )
             {
                 textBoxRules.Visible = false;
                 numericUpDownMaxLevel.Enabled = false;
@@ -90,7 +90,7 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( numericUpDownAdditionalPoints.Value == 0 ) && ( !String.IsNullOrEmpty( textBoxRules.Text )
+            if( ( numericUpDownBasePoints.Value == 0 ) && ( !String.IsNullOrEmpty( textBoxRules.Text )
                                                                   ||
                                                                   ( numericUpDownAP.Value > 0 )
                                                                   ||
@@ -236,7 +236,7 @@ namespace Universalis
             textBoxRules.Focus();
         }
 
-        private void numericUpDownAdditionalPoints_ValueChanged( object sender, EventArgs e )
+        private void numericUpDownBasePoints_ValueChanged( object sender, EventArgs e )
         {
             SetupPermittedConditions();
         }

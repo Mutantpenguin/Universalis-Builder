@@ -288,33 +288,6 @@ namespace Universalis
             }
         }
 
-        public class EquipmentCosts
-        {
-            [JsonProperty( Required = Required.Always )]
-            public float UseOnceMultiplicator
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float UnwieldyMultiplicator
-            {
-                get;
-                private set;
-            }
-        }
-
-        public class TraitCosts
-        {
-            [JsonProperty( Required = Required.Always )]
-            public float UseOnceMultiplicator
-            {
-                get;
-                private set;
-            }
-        }
-
         [JsonProperty( Required = Required.Always )]
         public AttributeCosts Attributes
         {
@@ -356,19 +329,5 @@ namespace Universalis
             get;
             private set;
         } = new ArmorCosts();
-        
-        [JsonProperty( Required = Required.Always )]
-        public EquipmentCosts Equipments
-        {
-            get;
-            private set;
-        } = new EquipmentCosts();
-        
-        [JsonProperty( Required = Required.Always )]
-        public TraitCosts Traits
-        {
-            get;
-            private set;
-        } = new TraitCosts();
     }
 }

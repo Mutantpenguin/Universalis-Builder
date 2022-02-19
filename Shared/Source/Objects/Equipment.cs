@@ -24,7 +24,7 @@ namespace Universalis
             Name = equipment.Name;
             Description = equipment.Description;
             Rules = equipment.Rules;
-            AdditionalPoints = equipment.AdditionalPoints;
+            BasePoints = equipment.BasePoints;
             Weight = equipment.Weight;
 
             AP = equipment.AP;
@@ -67,7 +67,7 @@ namespace Universalis
                 ||
                 Rules != equipment.Rules
                 ||
-                AdditionalPoints != equipment.AdditionalPoints
+                BasePoints != equipment.BasePoints
                 ||
                 Weight != equipment.Weight
                 ||
@@ -149,7 +149,7 @@ namespace Universalis
             set;
         } = String.Empty;
 
-        public int AdditionalPoints
+        public int BasePoints
         {
             get;
             set;
@@ -241,27 +241,7 @@ namespace Universalis
 
         private int CalculatedPoints()
         {
-            var equipmentCosts = Costs.Get().Equipments;
-
-            float points = 0;
-
-            points += AdditionalPoints;
-
-            // TODO calculate points with values
-            // Weight - especially since it can be negative
-
-            if( UseOnce )
-            {
-                points *= equipmentCosts.UseOnceMultiplicator;
-            }
-
-            if( Unwieldy )
-            {
-                points *= equipmentCosts.UnwieldyMultiplicator;
-            }
-
-            // the lower the needed AP the higher the points
-            points *= ( 1 + ( 6 - AP ) * 0.25f );
+            float points = BasePoints;
 
             if( ProfileModifier != null )
             {
