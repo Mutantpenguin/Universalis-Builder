@@ -77,6 +77,7 @@
             this.listViewUniverses.Name = "listViewUniverses";
             this.listViewUniverses.ShowItemToolTips = true;
             this.listViewUniverses.Size = new System.Drawing.Size(868, 282);
+            this.listViewUniverses.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewUniverses.TabIndex = 1;
             this.listViewUniverses.UseCompatibleStateImageBehavior = false;
             this.listViewUniverses.ItemActivate += new System.EventHandler(this.listViewUniverses_ItemActivate);
