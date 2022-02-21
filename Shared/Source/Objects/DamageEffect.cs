@@ -85,16 +85,16 @@ namespace Universalis
         {
             get
             {
-                return ( Original );
+                return ( OriginalIcon );
             }
             set
             {
-                Original = value;
+                OriginalIcon = value;
 
-                if( Original != null )
+                if( OriginalIcon != null )
                 {
-                    IconGreen = DamageColor.Colorize( Original, DamageColor.EType.Green );
-                    IconRed = DamageColor.Colorize( Original, DamageColor.EType.Red );
+                    IconGreen = DamageColor.Colorize( OriginalIcon, DamageColor.EType.Green );
+                    IconRed = DamageColor.Colorize( OriginalIcon, DamageColor.EType.Red );
                 }
                 else
                 {
@@ -105,7 +105,7 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        private Bitmap Original;
+        private Bitmap OriginalIcon;
         [JsonIgnore]
         private Bitmap IconGreen;
         [JsonIgnore]
