@@ -249,7 +249,7 @@ namespace Universalis
                 updateFields();
             }
             
-            using( AddArmorToActorForm addArmorToActor = new AddArmorToActorForm() )
+            using( AddArmorToActorForm addArmorToActor = new AddArmorToActorForm( m_actorModified.Archetype ) )
             {
                 if( addArmorToActor.ShowDialog( this ) == DialogResult.OK )
                 {
@@ -337,7 +337,7 @@ namespace Universalis
 
         private void toolStripButtonEquipmentAdd_Click( object sender, EventArgs e )
         {
-            using( AddEquipmentToActorForm addEquipmentToActor = new AddEquipmentToActorForm() )
+            using( AddEquipmentToActorForm addEquipmentToActor = new AddEquipmentToActorForm( m_actorModified.Archetype ) )
             {
                 if( addEquipmentToActor.ShowDialog( this ) == DialogResult.OK )
                 {
@@ -388,7 +388,7 @@ namespace Universalis
                                                              .Distinct()
                                                              .ToList();
 
-            using( AddTraitToActorForm addTraitToActor = new AddTraitToActorForm( traitList ) )
+            using( AddTraitToActorForm addTraitToActor = new AddTraitToActorForm( m_actorModified.Archetype, traitList ) )
             {
                 if( addTraitToActor.ShowDialog( this ) == DialogResult.OK )
                 {

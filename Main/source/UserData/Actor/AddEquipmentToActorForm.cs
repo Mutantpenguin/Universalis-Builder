@@ -7,14 +7,18 @@ namespace Universalis
 {
     public partial class AddEquipmentToActorForm : Form
     {
-        public AddEquipmentToActorForm()
+        public AddEquipmentToActorForm( Archetype archetype )
         {
             InitializeComponent();
+
+            m_archetype = archetype;
 
             updateDataGridViewEquipment();
 
             toolStripTextBoxSearch.TextBox.Select();
         }
+
+        private readonly Archetype m_archetype;
 
         private void DataGridViewEquipment_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
@@ -25,6 +29,7 @@ namespace Universalis
         {
             equipmentBindingSource.DataSource = MasterDataStorage.Equipment.Equipments.Where( s => s.Active )
                                                                                       .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                                      .Where( s => s.Permissions != null ? s.Permissions.Granted( m_archetype ) : true )
                                                                                       .OrderBy( x => x.Name )
                                                                                       .ToList();
         }

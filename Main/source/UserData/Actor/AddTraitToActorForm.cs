@@ -7,10 +7,11 @@ namespace Universalis
 {
     public partial class AddTraitToActorForm : Form
     {
-        public AddTraitToActorForm( List<Trait> traitsList )
+        public AddTraitToActorForm( Archetype archetype, List<Trait> traitsList )
         {
             InitializeComponent();
 
+            m_archetype = archetype;
             m_TraitsList = traitsList;
 
             updateDataGridViewTraits();
@@ -18,6 +19,7 @@ namespace Universalis
             toolStripTextBoxSearch.TextBox.Select();
         }
 
+        private readonly Archetype m_archetype;
         private readonly List<Trait> m_TraitsList;
 
         public List<Trait> SelectedTraits
@@ -34,6 +36,7 @@ namespace Universalis
                                                                           .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.MinPoints <= 0 ) )
                                                                           .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.MinPoints >= 0 ) )
                                                                           .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.MinPoints != 0 ) )
+                                                                          .Where( s => s.Permissions != null ? s.Permissions.Granted( m_archetype ) : true )
                                                                           .OrderBy( x => x.Name )
                                                                           .ToList();
         }
