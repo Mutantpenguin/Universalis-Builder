@@ -564,6 +564,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\outline_key_black_18dp.png" />
     <None Include="Resources\microsoft-visual-studio-code.png" />
     <None Include="Resources\baseline_print_black_18dp.png" />
     <None Include="Resources\baseline_do_not_disturb_on_black_48dp.png" />

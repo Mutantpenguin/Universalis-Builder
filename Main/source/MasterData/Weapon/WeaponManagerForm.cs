@@ -13,6 +13,8 @@ namespace Universalis
 
             this.Icon = Properties.Resources.icon;
 
+            HasPermissions.DefaultCellStyle.NullValue = null;
+
             filterWeaponClass.ComboBox.DataSource = Enum.GetValues( typeof( Weapon.EClass ) );
             filterWeaponClass.ComboBox.SelectedIndex = 0;
             filterWeaponClass.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
@@ -29,6 +31,19 @@ namespace Universalis
         private void DataGridViewWeapons_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewWeapons );
+
+            if( e.RowIndex != -1 )
+            {
+                if( e.ColumnIndex == HasPermissions.Index )
+                {
+                    Weapon weapon = (Weapon)dataGridViewWeapons.Rows[ e.RowIndex ].DataBoundItem;
+
+                    if( weapon.Permissions != null )
+                    {
+                        e.Value = Properties.Resources.outline_key_black_18dp;
+                    }
+                }
+            }
         }
 
         void ComboBox_SelectionChangeCommitted( object sender, EventArgs e )

@@ -13,6 +13,8 @@ namespace Universalis
 
             this.Icon = Properties.Resources.icon;
 
+            HasPermissions.DefaultCellStyle.NullValue = null;
+
             refreshGridView();
 
             toolStripTextBoxSearch.TextBox.Select();
@@ -179,6 +181,19 @@ namespace Universalis
         private void dataGridViewTraits_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewTraits );
+
+            if( e.RowIndex != -1 )
+            {
+                if( e.ColumnIndex == HasPermissions.Index )
+                {
+                    Trait trait = (Trait)dataGridViewTraits.Rows[ e.RowIndex ].DataBoundItem;
+
+                    if( trait.Permissions != null )
+                    {
+                        e.Value = Properties.Resources.outline_key_black_18dp;
+                    }
+                }
+            }
         }
     }
 }

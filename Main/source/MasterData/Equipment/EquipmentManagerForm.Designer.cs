@@ -68,6 +68,7 @@
             this.PHYString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AWAString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DETString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HasPermissions = new System.Windows.Forms.DataGridViewImageColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
@@ -170,6 +171,7 @@
             this.PHYString,
             this.AWAString,
             this.DETString,
+            this.HasPermissions,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewEquipment.DataSource = this.equipmentBindingSource;
@@ -351,6 +353,14 @@
             this.DETString.ReadOnly = true;
             this.DETString.Width = 35;
             // 
+            // HasPermissions
+            // 
+            this.HasPermissions.HeaderText = "";
+            this.HasPermissions.Name = "HasPermissions";
+            this.HasPermissions.ReadOnly = true;
+            this.HasPermissions.ToolTipText = "Berechtigungen";
+            this.HasPermissions.Width = 30;
+            // 
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
@@ -424,6 +434,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PHYString;
         private System.Windows.Forms.DataGridViewTextBoxColumn AWAString;
         private System.Windows.Forms.DataGridViewTextBoxColumn DETString;
+        private System.Windows.Forms.DataGridViewImageColumn HasPermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }

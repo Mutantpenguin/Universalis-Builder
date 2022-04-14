@@ -67,6 +67,7 @@
             this.PHYString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AWAString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DETString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HasPermissions = new System.Windows.Forms.DataGridViewImageColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
@@ -92,7 +93,6 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -171,6 +171,7 @@
             this.PHYString,
             this.AWAString,
             this.DETString,
+            this.HasPermissions,
             this.weightDataGridViewTextBoxColumn,
             this.pointsDataGridViewTextBoxColumn});
             this.dataGridViewArmor.DataSource = this.armorBindingSource;
@@ -344,6 +345,14 @@
             this.DETString.ReadOnly = true;
             this.DETString.Width = 35;
             // 
+            // HasPermissions
+            // 
+            this.HasPermissions.HeaderText = "";
+            this.HasPermissions.Name = "HasPermissions";
+            this.HasPermissions.ReadOnly = true;
+            this.HasPermissions.ToolTipText = "Berechtigungen";
+            this.HasPermissions.Width = 25;
+            // 
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
@@ -415,6 +424,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PHYString;
         private System.Windows.Forms.DataGridViewTextBoxColumn AWAString;
         private System.Windows.Forms.DataGridViewTextBoxColumn DETString;
+        private System.Windows.Forms.DataGridViewImageColumn HasPermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
     }

@@ -69,6 +69,7 @@
             this.PHYString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AWAString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DETString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HasPermissions = new System.Windows.Forms.DataGridViewImageColumn();
             this.PointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).BeginInit();
@@ -214,6 +215,7 @@
             this.PHYString,
             this.AWAString,
             this.DETString,
+            this.HasPermissions,
             this.PointsString});
             this.dataGridViewTraits.DataSource = this.traitBindingSource;
             this.dataGridViewTraits.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -378,6 +380,14 @@
             this.DETString.ReadOnly = true;
             this.DETString.Width = 35;
             // 
+            // HasPermissions
+            // 
+            this.HasPermissions.HeaderText = "";
+            this.HasPermissions.Name = "HasPermissions";
+            this.HasPermissions.ReadOnly = true;
+            this.HasPermissions.ToolTipText = "Berechtigungen";
+            this.HasPermissions.Width = 30;
+            // 
             // PointsString
             // 
             this.PointsString.DataPropertyName = "PointsString";
@@ -441,6 +451,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PHYString;
         private System.Windows.Forms.DataGridViewTextBoxColumn AWAString;
         private System.Windows.Forms.DataGridViewTextBoxColumn DETString;
+        private System.Windows.Forms.DataGridViewImageColumn HasPermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsString;
     }
 }
