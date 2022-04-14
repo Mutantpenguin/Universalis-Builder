@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -53,9 +50,9 @@
             this.DangerArea = new System.Windows.Forms.TextBox();
             this.labelGB = new System.Windows.Forms.Label();
             this.Speed = new System.Windows.Forms.NumericUpDown();
-            this.labelSpeed = new System.Windows.Forms.Label();
             this.textBoxTragkraft = new System.Windows.Forms.TextBox();
             this.MaxQuantity = new System.Windows.Forms.NumericUpDown();
+            this.labelSpeed = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.toolStrip7 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
@@ -94,22 +91,6 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBoxSize = new System.Windows.Forms.ComboBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dataGridViewTraits = new System.Windows.Forms.DataGridView();
-            this.traitLevelDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.traitLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.traitPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.levelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traitNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traitUseOnceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.traitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.archetypeTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.toolStripTraits = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButtonTraitAdd = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonTraitRemove = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
@@ -139,11 +120,6 @@
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traitLevelBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeTraitBindingSource)).BeginInit();
-            this.toolStripTraits.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -169,10 +145,6 @@
             this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
             this.textBoxPoints.TabIndex = 38;
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
             // 
             // label2
             // 
@@ -230,9 +202,9 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 489);
+            this.panel4.Location = new System.Drawing.Point(0, 322);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(484, 144);
+            this.panel4.Size = new System.Drawing.Size(484, 311);
             this.panel4.TabIndex = 5;
             // 
             // textBoxDescription
@@ -243,7 +215,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(484, 119);
+            this.textBoxDescription.Size = new System.Drawing.Size(484, 286);
             this.textBoxDescription.TabIndex = 1;
             // 
             // toolStrip1
@@ -362,15 +334,6 @@
             0,
             0});
             // 
-            // labelSpeed
-            // 
-            this.labelSpeed.AutoSize = true;
-            this.labelSpeed.Location = new System.Drawing.Point(3, 110);
-            this.labelSpeed.Name = "labelSpeed";
-            this.labelSpeed.Size = new System.Drawing.Size(85, 13);
-            this.labelSpeed.TabIndex = 55;
-            this.labelSpeed.Text = "Geschwindigkeit";
-            // 
             // textBoxTragkraft
             // 
             this.textBoxTragkraft.BackColor = System.Drawing.SystemColors.Control;
@@ -402,6 +365,15 @@
             0,
             0,
             0});
+            // 
+            // labelSpeed
+            // 
+            this.labelSpeed.AutoSize = true;
+            this.labelSpeed.Location = new System.Drawing.Point(3, 110);
+            this.labelSpeed.Name = "labelSpeed";
+            this.labelSpeed.Size = new System.Drawing.Size(85, 13);
+            this.labelSpeed.TabIndex = 55;
+            this.labelSpeed.Text = "Geschwindigkeit";
             // 
             // label13
             // 
@@ -877,158 +849,6 @@
             this.comboBoxSize.TabIndex = 44;
             this.comboBoxSize.SelectionChangeCommitted += new System.EventHandler(this.comboBoxSize_SelectionChangeCommitted);
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.dataGridViewTraits);
-            this.panel6.Controls.Add(this.toolStripTraits);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 322);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(484, 167);
-            this.panel6.TabIndex = 11;
-            // 
-            // dataGridViewTraits
-            // 
-            this.dataGridViewTraits.AllowUserToAddRows = false;
-            this.dataGridViewTraits.AllowUserToDeleteRows = false;
-            this.dataGridViewTraits.AllowUserToOrderColumns = true;
-            this.dataGridViewTraits.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTraits.AutoGenerateColumns = false;
-            this.dataGridViewTraits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.traitLevelDataGridViewComboBoxColumn,
-            this.traitPointsDataGridViewTextBoxColumn,
-            this.iDDataGridViewTextBoxColumn,
-            this.levelDataGridViewTextBoxColumn,
-            this.pointsDataGridViewTextBoxColumn,
-            this.traitNameDataGridViewTextBoxColumn,
-            this.traitUseOnceDataGridViewTextBoxColumn,
-            this.traitDataGridViewTextBoxColumn});
-            this.dataGridViewTraits.DataSource = this.archetypeTraitBindingSource;
-            this.dataGridViewTraits.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTraits.Location = new System.Drawing.Point(0, 25);
-            this.dataGridViewTraits.MultiSelect = false;
-            this.dataGridViewTraits.Name = "dataGridViewTraits";
-            this.dataGridViewTraits.RowHeadersVisible = false;
-            this.dataGridViewTraits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTraits.Size = new System.Drawing.Size(484, 142);
-            this.dataGridViewTraits.TabIndex = 1;
-            this.dataGridViewTraits.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewTraits_CellBeginEdit);
-            this.dataGridViewTraits.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewTraits_CellFormatting);
-            this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
-            this.dataGridViewTraits.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewTraits_CurrentCellDirtyStateChanged);
-            // 
-            // traitLevelDataGridViewComboBoxColumn
-            // 
-            this.traitLevelDataGridViewComboBoxColumn.DataPropertyName = "Level";
-            this.traitLevelDataGridViewComboBoxColumn.DataSource = this.traitLevelBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.traitLevelDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.traitLevelDataGridViewComboBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.traitLevelDataGridViewComboBoxColumn.HeaderText = "LVL";
-            this.traitLevelDataGridViewComboBoxColumn.Name = "traitLevelDataGridViewComboBoxColumn";
-            this.traitLevelDataGridViewComboBoxColumn.Width = 40;
-            // 
-            // traitPointsDataGridViewTextBoxColumn
-            // 
-            this.traitPointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.traitPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.traitPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.traitPointsDataGridViewTextBoxColumn.Name = "traitPointsDataGridViewTextBoxColumn";
-            this.traitPointsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.traitPointsDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // levelDataGridViewTextBoxColumn
-            // 
-            this.levelDataGridViewTextBoxColumn.DataPropertyName = "Level";
-            this.levelDataGridViewTextBoxColumn.HeaderText = "Level";
-            this.levelDataGridViewTextBoxColumn.Name = "levelDataGridViewTextBoxColumn";
-            // 
-            // pointsDataGridViewTextBoxColumn
-            // 
-            this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            this.pointsDataGridViewTextBoxColumn.HeaderText = "Points";
-            this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
-            this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // traitNameDataGridViewTextBoxColumn
-            // 
-            this.traitNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.traitNameDataGridViewTextBoxColumn.DataPropertyName = "Trait.Name";
-            this.traitNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.traitNameDataGridViewTextBoxColumn.Name = "traitNameDataGridViewTextBoxColumn";
-            this.traitNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // traitUseOnceDataGridViewTextBoxColumn
-            // 
-            this.traitUseOnceDataGridViewTextBoxColumn.DataPropertyName = "Trait.UseOnce";
-            this.traitUseOnceDataGridViewTextBoxColumn.HeaderText = "E";
-            this.traitUseOnceDataGridViewTextBoxColumn.Name = "traitUseOnceDataGridViewTextBoxColumn";
-            this.traitUseOnceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.traitUseOnceDataGridViewTextBoxColumn.ToolTipText = "Einmalnutzung";
-            this.traitUseOnceDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // traitDataGridViewTextBoxColumn
-            // 
-            this.traitDataGridViewTextBoxColumn.DataPropertyName = "Trait";
-            this.traitDataGridViewTextBoxColumn.HeaderText = "Trait";
-            this.traitDataGridViewTextBoxColumn.Name = "traitDataGridViewTextBoxColumn";
-            // 
-            // archetypeTraitBindingSource
-            // 
-            this.archetypeTraitBindingSource.DataSource = typeof(Universalis.Archetype.ArchetypeTrait);
-            // 
-            // toolStripTraits
-            // 
-            this.toolStripTraits.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel5,
-            this.toolStripButtonTraitAdd,
-            this.toolStripButtonTraitRemove});
-            this.toolStripTraits.Location = new System.Drawing.Point(0, 0);
-            this.toolStripTraits.Name = "toolStripTraits";
-            this.toolStripTraits.Size = new System.Drawing.Size(484, 25);
-            this.toolStripTraits.TabIndex = 0;
-            this.toolStripTraits.Text = "toolStrip5";
-            // 
-            // toolStripLabel5
-            // 
-            this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(81, 22);
-            this.toolStripLabel5.Text = "Eigenschaften";
-            // 
-            // toolStripButtonTraitAdd
-            // 
-            this.toolStripButtonTraitAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonTraitAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonTraitAdd.Image = global::Universalis.Properties.Resources.plus;
-            this.toolStripButtonTraitAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonTraitAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonTraitAdd.Name = "toolStripButtonTraitAdd";
-            this.toolStripButtonTraitAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonTraitAdd.ToolTipText = "Eigenschaft hinzufügen";
-            this.toolStripButtonTraitAdd.Click += new System.EventHandler(this.toolStripButtonTraitAdd_Click);
-            // 
-            // toolStripButtonTraitRemove
-            // 
-            this.toolStripButtonTraitRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonTraitRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonTraitRemove.Image = global::Universalis.Properties.Resources.trash;
-            this.toolStripButtonTraitRemove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonTraitRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonTraitRemove.Name = "toolStripButtonTraitRemove";
-            this.toolStripButtonTraitRemove.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonTraitRemove.ToolTipText = "Eigenschaft entfernen";
-            this.toolStripButtonTraitRemove.Click += new System.EventHandler(this.toolStripButtonTraitRemove_Click);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Trait";
@@ -1048,7 +868,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 633);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1101,13 +920,6 @@
             this.toolStrip3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traitLevelBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeTraitBindingSource)).EndInit();
-            this.toolStripTraits.ResumeLayout(false);
-            this.toolStripTraits.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1175,25 +987,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.BindingSource archetypeTraitBindingSource;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DataGridView dataGridViewTraits;
-        private System.Windows.Forms.ToolStrip toolStripTraits;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel5;
-        private System.Windows.Forms.ToolStripButton toolStripButtonTraitAdd;
-        private System.Windows.Forms.ToolStripButton toolStripButtonTraitRemove;
-        private System.Windows.Forms.BindingSource traitLevelBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn traitNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn traitLevelDataGridViewComboBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn traitUseOnceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn traitPointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.NumericUpDown MaxQuantity;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn levelDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pointsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn traitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

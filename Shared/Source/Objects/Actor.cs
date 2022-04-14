@@ -14,15 +14,6 @@ namespace Universalis
         public Actor( Archetype archetype )
         {
             Archetype = archetype;
-
-            foreach( var archetypeTrait in archetype.Traits )
-            {
-                Traits.Add( new ActorTrait()
-                {
-                    Trait = archetypeTrait.Trait,
-                    Level = archetypeTrait.Level
-                } );
-            }
         }
 
         public Actor( Actor actor )
