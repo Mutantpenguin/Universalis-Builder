@@ -132,6 +132,30 @@
   <metadata name="toolStrip3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>378, 17</value>
   </metadata>
+  <metadata name="toolStripFactions.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>681, 45</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="toolStripButtonFactionAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACfSURBVDhPvZTdCYMwFEYzQe1Dp3CKzmAHEewwdryu0af6
+        HUhCerkEqRcPHNDcn5hoTGdwkQ/5zHLN2G5u8iU/8mtkjBg5XUb5lraBlRxyXZhlT5Miue6TrdIrmLNe
+        jJofBuntCd6zXowaaiuT9BKx1wiprSyyDbKU0uCaLfd2mdRWwhqFLS1ssyHk9UPYBwkhR6TALIcPbcvh
+        38gfpLQBHYKaqYmKFVUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="toolStripButtonFactionDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACCSURBVDhPY6AHkAFiBTQsAcQEAUiRAxRXA/F/LPg3EKcD
+        MUydABBjgHggxqYZHwYZhgEMgLieRAzyLlYAsgGbBmwYZDFOAFKAzQvYMCgocIJRg8B4pBqUDcTYNGHD
+        3kCME4Ay4XMgxqYRGV8GYhYgxgtACmyAGJbD0bEFENMKMDAAAIEijfysNOvGAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="factionsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>277, 61</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>135</value>
   </metadata>

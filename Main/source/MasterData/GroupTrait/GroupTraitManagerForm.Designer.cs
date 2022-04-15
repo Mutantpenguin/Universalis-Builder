@@ -42,11 +42,12 @@
             this.toolStripMenuItemNegatives = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNeutrals = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewGroupTraits = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PointsPerModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HasPermissions = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PointsPerModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTraits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).BeginInit();
@@ -71,7 +72,6 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -180,6 +180,7 @@
             this.dataGridViewGroupTraits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGroupTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
+            this.HasPermissions,
             this.PointsPerModel});
             this.dataGridViewGroupTraits.DataSource = this.groupTraitBindingSource;
             this.dataGridViewGroupTraits.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -192,26 +193,9 @@
             this.dataGridViewGroupTraits.Size = new System.Drawing.Size(384, 379);
             this.dataGridViewGroupTraits.TabIndex = 0;
             this.dataGridViewGroupTraits.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTraits_CellDoubleClick);
+            this.dataGridViewGroupTraits.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewGroupTraits_CellFormatting);
             this.dataGridViewGroupTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewGroupTraits_CellToolTipTextNeeded);
             this.dataGridViewGroupTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewGroupTraits_KeyDown);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // PointsPerModel
-            // 
-            this.PointsPerModel.DataPropertyName = "PointsPerModel";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PointsPerModel.HeaderText = "Punkte/Modell";
-            this.PointsPerModel.Name = "PointsPerModel";
-            this.PointsPerModel.ReadOnly = true;
-            this.PointsPerModel.Width = 90;
             // 
             // groupTraitBindingSource
             // 
@@ -231,6 +215,32 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // HasPermissions
+            // 
+            this.HasPermissions.HeaderText = "B";
+            this.HasPermissions.Name = "HasPermissions";
+            this.HasPermissions.ReadOnly = true;
+            this.HasPermissions.ToolTipText = "Berechtigungen";
+            this.HasPermissions.Width = 25;
+            // 
+            // PointsPerModel
+            // 
+            this.PointsPerModel.DataPropertyName = "PointsPerModel";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PointsPerModel.HeaderText = "Punkte/Modell";
+            this.PointsPerModel.Name = "PointsPerModel";
+            this.PointsPerModel.ReadOnly = true;
+            this.PointsPerModel.Width = 90;
             // 
             // GroupTraitManagerForm
             // 
@@ -273,6 +283,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNeutrals;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn HasPermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsPerModel;
     }
 }

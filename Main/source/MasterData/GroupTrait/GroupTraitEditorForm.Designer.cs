@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GroupTraitEditorForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.numericUpDownPoints = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,8 +46,17 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
-            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripFactions = new System.Windows.Forms.ToolStrip();
+            this.toolStripComboBoxFaction = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButtonFactionAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonFactionDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
+            this.dataGridViewFaction = new System.Windows.Forms.DataGridView();
+            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPoints)).BeginInit();
             this.panel3.SuspendLayout();
@@ -53,7 +64,10 @@
             this.panel4.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
+            this.toolStripFactions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -123,8 +137,8 @@
             // 
             this.panel3.Controls.Add(this.textBoxDescription);
             this.panel3.Controls.Add(this.toolStrip1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 265);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 408);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(434, 187);
             this.panel3.TabIndex = 0;
@@ -160,10 +174,10 @@
             // 
             this.panel4.Controls.Add(this.textBoxRules);
             this.panel4.Controls.Add(this.toolStrip2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 64);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(434, 201);
+            this.panel4.Size = new System.Drawing.Size(434, 150);
             this.panel4.TabIndex = 1;
             // 
             // textBoxRules
@@ -174,7 +188,7 @@
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRules.Size = new System.Drawing.Size(434, 176);
+            this.textBoxRules.Size = new System.Drawing.Size(434, 125);
             this.textBoxRules.TabIndex = 0;
             // 
             // toolStrip2
@@ -213,20 +227,124 @@
             this.toolStripButtonSave.Text = "Speichern";
             this.toolStripButtonSave.Click += new System.EventHandler(this.toolStripButtonSave_Click);
             // 
+            // toolStripFactions
+            // 
+            this.toolStripFactions.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripFactions.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripFactions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxFaction,
+            this.toolStripButtonFactionAdd,
+            this.toolStripButtonFactionDelete,
+            this.toolStripLabel3});
+            this.toolStripFactions.Location = new System.Drawing.Point(0, 214);
+            this.toolStripFactions.Name = "toolStripFactions";
+            this.toolStripFactions.Size = new System.Drawing.Size(434, 25);
+            this.toolStripFactions.TabIndex = 2;
+            this.toolStripFactions.Text = "toolStrip1";
+            // 
+            // toolStripComboBoxFaction
+            // 
+            this.toolStripComboBoxFaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxFaction.Name = "toolStripComboBoxFaction";
+            this.toolStripComboBoxFaction.Size = new System.Drawing.Size(75, 25);
+            // 
+            // toolStripButtonFactionAdd
+            // 
+            this.toolStripButtonFactionAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonFactionAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFactionAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFactionAdd.Image")));
+            this.toolStripButtonFactionAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonFactionAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFactionAdd.Name = "toolStripButtonFactionAdd";
+            this.toolStripButtonFactionAdd.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFactionAdd.Text = "toolStripButton1";
+            this.toolStripButtonFactionAdd.Visible = false;
+            this.toolStripButtonFactionAdd.Click += new System.EventHandler(this.toolStripButtonFactionAdd_Click);
+            // 
+            // toolStripButtonFactionDelete
+            // 
+            this.toolStripButtonFactionDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonFactionDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFactionDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFactionDelete.Image")));
+            this.toolStripButtonFactionDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonFactionDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFactionDelete.Name = "toolStripButtonFactionDelete";
+            this.toolStripButtonFactionDelete.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFactionDelete.Text = "toolStripButton2";
+            this.toolStripButtonFactionDelete.Visible = false;
+            this.toolStripButtonFactionDelete.Click += new System.EventHandler(this.toolStripButtonFactionDelete_Click);
+            // 
+            // toolStripLabel3
+            // 
+            this.toolStripLabel3.Name = "toolStripLabel3";
+            this.toolStripLabel3.Size = new System.Drawing.Size(139, 22);
+            this.toolStripLabel3.Text = "Fraktionsberechtigungen";
+            // 
+            // dataGridViewFaction
+            // 
+            this.dataGridViewFaction.AllowUserToAddRows = false;
+            this.dataGridViewFaction.AllowUserToDeleteRows = false;
+            this.dataGridViewFaction.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewFaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewFaction.AutoGenerateColumns = false;
+            this.dataGridViewFaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iconDataGridViewImageColumn,
+            this.nameDataGridViewTextBoxColumn});
+            this.dataGridViewFaction.DataSource = this.factionsBindingSource;
+            this.dataGridViewFaction.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridViewFaction.Location = new System.Drawing.Point(0, 239);
+            this.dataGridViewFaction.MultiSelect = false;
+            this.dataGridViewFaction.Name = "dataGridViewFaction";
+            this.dataGridViewFaction.ReadOnly = true;
+            this.dataGridViewFaction.RowHeadersVisible = false;
+            this.dataGridViewFaction.RowTemplate.Height = 40;
+            this.dataGridViewFaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewFaction.Size = new System.Drawing.Size(434, 169);
+            this.dataGridViewFaction.TabIndex = 4;
+            this.dataGridViewFaction.Visible = false;
+            // 
             // groupTraitBindingSource
             // 
             this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
+            // 
+            // iconDataGridViewImageColumn
+            // 
+            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
+            this.iconDataGridViewImageColumn.HeaderText = "Icon";
+            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
+            this.iconDataGridViewImageColumn.ReadOnly = true;
+            this.iconDataGridViewImageColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // factionsBindingSource
+            // 
+            this.factionsBindingSource.DataSource = typeof(Universalis.Faction);
             // 
             // GroupTraitEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 452);
-            this.Controls.Add(this.panel4);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(434, 668);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.dataGridViewFaction);
+            this.Controls.Add(this.toolStripFactions);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip3);
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(450, 39);
             this.Name = "GroupTraitEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gruppeneigenschaften Editor";
@@ -245,7 +363,11 @@
             this.toolStrip2.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
+            this.toolStripFactions.ResumeLayout(false);
+            this.toolStripFactions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +392,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDownPoints;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStrip toolStripFactions;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxFaction;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFactionAdd;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFactionDelete;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
+        private System.Windows.Forms.DataGridView dataGridViewFaction;
+        private System.Windows.Forms.BindingSource factionsBindingSource;
+        private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
     }
 }

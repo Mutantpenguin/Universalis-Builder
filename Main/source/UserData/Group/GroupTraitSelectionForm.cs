@@ -22,8 +22,8 @@ namespace Universalis
         private void updateDataGridViewGroupTraits()
         {
             groupTraitBindingSource.DataSource = MasterDataStorage.GroupTrait.GroupTraits.Where( s => s.Active )
-                                                                                         // TODO later on work with black/whitelist here .Where( s => ( m_factionFilter == null ) || ( m_factionFilter == s.Faction ) )
                                                                                          .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                                         .Where( s => s.FactionPermissions?.Granted( m_factionFilter ) ?? true )
                                                                                          .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.PointsPerModel <= 0 ) )
                                                                                          .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.PointsPerModel >= 0 ) )
                                                                                          .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.PointsPerModel != 0 ) )

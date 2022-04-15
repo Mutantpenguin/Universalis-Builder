@@ -33,6 +33,20 @@ namespace Universalis
                 return ( false );
             }
 
+            if( ( ( null != FactionPermissions ) && ( null == groupTrait.FactionPermissions ) )
+                ||
+                ( ( null == FactionPermissions ) && ( null != groupTrait.FactionPermissions ) ) )
+            {
+                return ( false );
+            }
+            else if( ( null != FactionPermissions ) && ( null != groupTrait.FactionPermissions ) )
+            {
+                if( !FactionPermissions.Equals( groupTrait.FactionPermissions ) )
+                {
+                    return ( false );
+                }
+            }
+
             return ( true );
         }
 
@@ -49,6 +63,15 @@ namespace Universalis
             Description = groupTrait.Description;
             Rules = groupTrait.Rules;
             PointsPerModel = groupTrait.PointsPerModel;
+
+            if( null != groupTrait.FactionPermissions )
+            {
+                FactionPermissions = new PermissionSet<Faction>( groupTrait.FactionPermissions );
+            }
+            else
+            {
+                FactionPermissions = null;
+            }
         }
 
         public Guid ID
@@ -90,6 +113,12 @@ namespace Universalis
         public int Points( int modelCount )
         {
             return ( PointsPerModel * modelCount );
+        }
+
+        public PermissionSet<Faction> FactionPermissions
+        {
+            get;
+            set;
         }
     }
 }

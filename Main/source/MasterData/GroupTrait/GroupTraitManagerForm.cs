@@ -13,6 +13,8 @@ namespace Universalis
 
             this.Icon = Properties.Resources.icon;
 
+            HasPermissions.DefaultCellStyle.NullValue = null;
+
             refreshGridView();
 
             toolStripTextBoxSearch.TextBox.Select();
@@ -172,6 +174,22 @@ namespace Universalis
             {
                 e.Handled = true;
                 editGroupTrait( (GroupTrait)dataGridViewGroupTraits.CurrentRow.DataBoundItem );
+            }
+        }
+
+        private void dataGridViewGroupTraits_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            if( e.RowIndex != -1 )
+            {
+                if( e.ColumnIndex == HasPermissions.Index )
+                {
+                    GroupTrait groupTrait = (GroupTrait)dataGridViewGroupTraits.Rows[ e.RowIndex ].DataBoundItem;
+
+                    if( groupTrait.FactionPermissions != null )
+                    {
+                        e.Value = Properties.Resources.outline_key_black_18dp;
+                    }
+                }
             }
         }
     }

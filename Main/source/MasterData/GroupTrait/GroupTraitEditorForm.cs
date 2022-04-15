@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -13,12 +14,67 @@ namespace Universalis
 
             m_originalGroupTrait = groupTrait;
 
-            GroupTrait modifiedGroupTrait = new GroupTrait( groupTrait );
+            m_modifiedGroupTrait = new GroupTrait( groupTrait );
 
-            groupTraitBindingSource.DataSource = modifiedGroupTrait;
+            groupTraitBindingSource.DataSource = m_modifiedGroupTrait;
+
+
+            toolStripComboBoxFaction.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
+            toolStripComboBoxFaction.ComboBox.SelectedValueChanged += ComboBox_SelectedValueChanged;
+            toolStripComboBoxFaction.ComboBox.DataSource = Enum.GetValues( typeof( EPermissionType ) );
+
+            toolStripComboBoxFaction.ComboBox.SelectedItem = m_modifiedGroupTrait.FactionPermissions?.PermissionType ?? EPermissionType.None;
+            
+            RefreshGridViews();
         }
 
         private readonly GroupTrait m_originalGroupTrait;
+        private GroupTrait m_modifiedGroupTrait;
+
+        private void RefreshGridViews()
+        {
+            factionsBindingSource.DataSource = m_modifiedGroupTrait.FactionPermissions?.Values.OrderBy( x => x.Name )
+                                                                                              .ToList();
+        }
+
+            private void ComboBox_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            switch( (EPermissionType)toolStripComboBoxFaction.SelectedItem )
+            {
+                case EPermissionType.None:
+                    m_modifiedGroupTrait.FactionPermissions = null;
+                    break;
+
+                default:
+                    if( m_modifiedGroupTrait.FactionPermissions != null )
+                    {
+                        m_modifiedGroupTrait.FactionPermissions.PermissionType = (EPermissionType)toolStripComboBoxFaction.SelectedItem;
+                    }
+                    else
+                    {
+                        m_modifiedGroupTrait.FactionPermissions = new PermissionSet<Faction>( (EPermissionType)toolStripComboBoxFaction.SelectedItem );
+                    }
+                    break;
+            }
+        }
+
+        private void ComboBox_SelectedValueChanged( object sender, EventArgs e )
+        {
+            if( ( m_modifiedGroupTrait.FactionPermissions == null )
+                ||
+                ( m_modifiedGroupTrait.FactionPermissions.PermissionType == EPermissionType.None ) )
+            {
+                toolStripButtonFactionDelete.Visible = false;
+                toolStripButtonFactionAdd.Visible = false;
+                dataGridViewFaction.Visible = false;
+            }
+            else
+            {
+                toolStripButtonFactionDelete.Visible = true;
+                toolStripButtonFactionAdd.Visible = true;
+                dataGridViewFaction.Visible = true;
+            }
+        }
 
         private bool mandatoryFieldsFilled()
         {
@@ -96,6 +152,33 @@ namespace Universalis
             if( e.KeyCode == Keys.Escape )
             {
                 this.Close();
+            }
+        }
+
+        private void toolStripButtonFactionDelete_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewFaction.SelectedRows.Count > 0 )
+            {
+                var faction = (Faction)dataGridViewFaction.SelectedRows[ 0 ].DataBoundItem;
+                m_modifiedGroupTrait.FactionPermissions.Values.Remove( faction );
+
+                RefreshGridViews();
+            }
+        }
+
+        private void toolStripButtonFactionAdd_Click( object sender, EventArgs e )
+        {
+            using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm( m_modifiedGroupTrait.FactionPermissions?.Values.ToList() ) )
+            {
+                if( factionSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                {
+                    if( factionSelectionForm.SelectedFaction != null )
+                    {
+                        m_modifiedGroupTrait.FactionPermissions.Values.Add( factionSelectionForm.SelectedFaction );
+
+                        RefreshGridViews();
+                    }
+                }
             }
         }
     }

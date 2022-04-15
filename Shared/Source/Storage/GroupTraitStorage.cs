@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
 {
     public class GroupTraitStorage
     {
+        private readonly JsonConverter[] Converters = { FactionStorage.JsonFactionHashSetConverter };
+
         private const string s_folderName = "GroupTraits";
 
         private readonly string s_path;
@@ -46,7 +47,7 @@ namespace Universalis
 
                     try
                     {
-                        GroupTrait groupTrait = JsonConvert.DeserializeObject<GroupTrait>( File.ReadAllText( file ) );
+                        GroupTrait groupTrait = JsonConvert.DeserializeObject<GroupTrait>( File.ReadAllText( file ), Converters );
 #if DEBUG
                         if( groupTrait.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
                         {
@@ -95,7 +96,7 @@ namespace Universalis
 
             try
             {
-                File.WriteAllText( filename, JsonConvert.SerializeObject( groupTrait, Storage.formatting ) );
+                File.WriteAllText( filename, JsonConvert.SerializeObject( groupTrait, Storage.formatting, Converters ) );
                 File.Delete( filenameBackup );
             }
             catch( Exception ex )
