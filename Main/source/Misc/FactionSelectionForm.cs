@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -6,9 +7,9 @@ namespace Universalis
 {
     public partial class FactionSelectionForm : Form
     {
-        public FactionSelectionForm( Faction excludeFaction = null )
+        public FactionSelectionForm( List<Faction> excludeFactions = null )
         {
-            m_excludeFaction = excludeFaction;
+            m_excludeFactions = excludeFactions;
 
             InitializeComponent();
 
@@ -19,12 +20,12 @@ namespace Universalis
         {
             factionBindingSource.DataSource = MasterDataStorage.Faction.Factions.Where( s => s.Active )
                                                                                 .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                                .Where( s => ( m_excludeFaction != null ) ? s.ID != m_excludeFaction.ID : true )
+                                                                                .Where( s => ( m_excludeFactions != null ) ? !m_excludeFactions.Any( x => x.ID == s.ID ) : true )
                                                                                 .OrderBy( x => x.Name )
                                                                                 .ToList();
         }
 
-        private readonly Faction m_excludeFaction;
+        private readonly List<Faction> m_excludeFactions;
 
         public Faction SelectedFaction
         {

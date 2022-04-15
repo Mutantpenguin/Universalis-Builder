@@ -263,7 +263,7 @@ namespace Universalis
 
         private void toolStripButtonFactionAdd_Click( object sender, EventArgs e )
         {
-            using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm() )
+            using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm( Permissions.Faction.Values.ToList() ) )
             {
                 if( factionSelectionForm.ShowDialog( this ) == DialogResult.OK )
                 {
