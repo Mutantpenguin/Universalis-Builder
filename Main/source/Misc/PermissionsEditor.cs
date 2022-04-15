@@ -261,7 +261,7 @@ namespace Universalis
             this.Close();
         }
 
-        private void SelectFaction( HashSet<Faction> factionList )
+        private void toolStripButtonFactionAdd_Click( object sender, EventArgs e )
         {
             using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm() )
             {
@@ -269,39 +269,12 @@ namespace Universalis
                 {
                     if( factionSelectionForm.SelectedFaction != null )
                     {
-                        factionList.Add( factionSelectionForm.SelectedFaction );
+                        Permissions.Faction.Values.Add( factionSelectionForm.SelectedFaction );
 
                         RefreshGridViews();
                     }
                 }
             }
-        }
-
-        private void SelectArchetype( HashSet<Archetype> archetypeList )
-        {
-            using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm() )
-            {
-                if( factionSelectionForm.ShowDialog( this ) == DialogResult.OK )
-                {
-                    if( factionSelectionForm.SelectedFaction != null )
-                    {
-                        using( ArchetypeSelectionForm archetypeSelectionForm = new ArchetypeSelectionForm( factionSelectionForm.SelectedFaction ) )
-                        {
-                            if( archetypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
-                            {
-                                archetypeList.Add( archetypeSelectionForm.SelectedArchetype );
-
-                                RefreshGridViews();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        private void toolStripButtonFactionAdd_Click( object sender, EventArgs e )
-        {
-            SelectFaction( Permissions.Faction.Values );
         }
 
         private void toolStripButtonFactionDelete_Click( object sender, EventArgs e )
@@ -317,7 +290,24 @@ namespace Universalis
 
         private void toolStripButtonArchetypeAdd_Click( object sender, EventArgs e )
         {
-            SelectArchetype( Permissions.Archetype.Values );
+            using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm() )
+            {
+                if( factionSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                {
+                    if( factionSelectionForm.SelectedFaction != null )
+                    {
+                        using( ArchetypeSelectionForm archetypeSelectionForm = new ArchetypeSelectionForm( factionSelectionForm.SelectedFaction ) )
+                        {
+                            if( archetypeSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                            {
+                                Permissions.Archetype.Values.Add( archetypeSelectionForm.SelectedArchetype );
+
+                                RefreshGridViews();
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private void toolStripButtonArchetypeDelete_Click( object sender, EventArgs e )
