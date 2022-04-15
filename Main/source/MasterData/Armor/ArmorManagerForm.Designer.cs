@@ -347,7 +347,7 @@
             // 
             // HasPermissions
             // 
-            this.HasPermissions.HeaderText = "";
+            this.HasPermissions.HeaderText = "B";
             this.HasPermissions.Name = "HasPermissions";
             this.HasPermissions.ReadOnly = true;
             this.HasPermissions.ToolTipText = "Berechtigungen";
