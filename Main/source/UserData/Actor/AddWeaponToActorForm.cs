@@ -39,7 +39,7 @@ namespace Universalis
                                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                              .Where( s => filterWeaponClass.Enabled ? s.Class == (Weapon.EClass)filterWeaponClass.ComboBox.SelectedItem : true )
                                                                              .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
-                                                                             .Where( s => s.Permissions != null ? s.Permissions.Granted( m_archetype ) : true )
+                                                                             .Where( s => s.Permissions?.Granted( m_archetype ) ?? true )
                                                                              .OrderBy( x => x.Name )
                                                                              .ToList();
         }

@@ -36,7 +36,7 @@ namespace Universalis
                                                                           .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.MinPoints <= 0 ) )
                                                                           .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.MinPoints >= 0 ) )
                                                                           .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.MinPoints != 0 ) )
-                                                                          .Where( s => s.Permissions != null ? s.Permissions.Granted( m_archetype ) : true )
+                                                                          .Where( s => s.Permissions?.Granted( m_archetype ) ?? true )
                                                                           .OrderBy( x => x.Name )
                                                                           .ToList();
         }

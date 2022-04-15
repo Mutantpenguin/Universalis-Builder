@@ -33,7 +33,7 @@ namespace Universalis
         {
             armorBindingSource.DataSource = MasterDataStorage.Armor.Armors.Where( s => s.Active )
                                                                           .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                          .Where( s => s.Permissions != null ? s.Permissions.Granted( m_archetype ) : true )
+                                                                          .Where( s => s.Permissions?.Granted( m_archetype ) ?? true )
                                                                           .OrderBy( x => x.Name )
                                                                           .ToList();
         }
