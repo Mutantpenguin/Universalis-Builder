@@ -131,17 +131,13 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( null != ProfileModifier ) && ( null == weapon.ProfileModifier ) )
+            if( ( ( null != ProfileModifier ) && ( null == weapon.ProfileModifier ) )
+                ||
+                ( ( null == ProfileModifier ) && ( null != weapon.ProfileModifier ) ) )
             {
                 return ( false );
             }
-
-            if( ( null == ProfileModifier ) && ( null != weapon.ProfileModifier ) )
-            {
-                return ( false );
-            }
-
-            if( ( null != ProfileModifier ) && ( null != weapon.ProfileModifier ) )
+            else if( ( null != ProfileModifier ) && ( null != weapon.ProfileModifier ) )
             {
                 if( !ProfileModifier.Equals( weapon.ProfileModifier ) )
                 {
@@ -149,17 +145,13 @@ namespace Universalis
                 }
             }
 
-            if( ( null != Permissions ) && ( null == weapon.Permissions ) )
+            if( ( ( null != Permissions ) && ( null == weapon.Permissions ) )
+                ||
+                ( ( null == Permissions ) && ( null != weapon.Permissions ) ) )
             {
                 return ( false );
             }
-
-            if( ( null == Permissions ) && ( null != weapon.Permissions ) )
-            {
-                return ( false );
-            }
-
-            if( ( null != Permissions ) && ( null != weapon.Permissions ) )
+            else if( ( null != Permissions ) && ( null != weapon.Permissions ) )
             {
                 if( !Permissions.Equals( weapon.Permissions ) )
                 {

@@ -74,17 +74,13 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( null != ProfileModifier ) && ( null == trait.ProfileModifier ) )
+            if( ( ( null != ProfileModifier ) && ( null == trait.ProfileModifier ) )
+                ||
+                ( ( null == ProfileModifier ) && ( null != trait.ProfileModifier ) ) )
             {
                 return ( false );
             }
-
-            if( ( null == ProfileModifier ) && ( null != trait.ProfileModifier ) )
-            {
-                return ( false );
-            }
-
-            if( ( null != ProfileModifier ) && ( null != trait.ProfileModifier ) )
+            else if( ( null != ProfileModifier ) && ( null != trait.ProfileModifier ) )
             {
                 if( !ProfileModifier.Equals( trait.ProfileModifier ) )
                 {
@@ -92,17 +88,13 @@ namespace Universalis
                 }
             }
 
-            if( ( null != Permissions ) && ( null == trait.Permissions ) )
+            if( ( ( null != Permissions ) && ( null == trait.Permissions ) )
+                ||
+                ( ( null == Permissions ) && ( null != trait.Permissions ) ) )
             {
                 return ( false );
             }
-
-            if( ( null == Permissions ) && ( null != trait.Permissions ) )
-            {
-                return ( false );
-            }
-
-            if( ( null != Permissions ) && ( null != trait.Permissions ) )
+            else if( ( null != Permissions ) && ( null != trait.Permissions ) )
             {
                 if( !Permissions.Equals( trait.Permissions ) )
                 {

@@ -80,17 +80,13 @@ namespace Universalis
                 return ( false );
             }
 
-            if( ( null != ProfileModifier ) && ( null == equipment.ProfileModifier ) )
+            if( ( ( null != ProfileModifier ) && ( null == equipment.ProfileModifier ) )
+                ||
+                ( ( null == ProfileModifier ) && ( null != equipment.ProfileModifier ) ) )
             {
                 return ( false );
             }
-
-            if( ( null == ProfileModifier ) && ( null != equipment.ProfileModifier ) )
-            {
-                return ( false );
-            }
-
-            if( ( null != ProfileModifier ) && ( null != equipment.ProfileModifier ) )
+            else if( ( null != ProfileModifier ) && ( null != equipment.ProfileModifier ) )
             {
                 if( !ProfileModifier.Equals( equipment.ProfileModifier ) )
                 {
@@ -98,17 +94,13 @@ namespace Universalis
                 }
             }
 
-            if( ( null != Permissions ) && ( null == equipment.Permissions ) )
+            if( ( ( null != Permissions ) && ( null == equipment.Permissions ) )
+                ||
+                ( ( null == Permissions ) && ( null != equipment.Permissions ) ) )
             {
                 return ( false );
             }
-
-            if( ( null == Permissions ) && ( null != equipment.Permissions ) )
-            {
-                return ( false );
-            }
-
-            if( ( null != Permissions ) && ( null != equipment.Permissions ) )
+            else if( ( null != Permissions ) && ( null != equipment.Permissions ) )
             {
                 if( !Permissions.Equals( equipment.Permissions ) )
                 {
