@@ -26,6 +26,8 @@ namespace Universalis
 
             Name = archetype.Name;
             Description = archetype.Description;
+            Rules = archetype.Rules;
+            AdditionalPoints = archetype.AdditionalPoints;
             Faction = archetype.Faction;
             Size = archetype.Size;
             MovementType = archetype.MovementType;
@@ -47,6 +49,10 @@ namespace Universalis
                 Name != archetype.Name
                 ||
                 Description != archetype.Description
+                ||
+                Rules != archetype.Rules
+                ||
+                AdditionalPoints != archetype.AdditionalPoints
                 ||
                 Faction != archetype.Faction
                 ||
@@ -95,6 +101,18 @@ namespace Universalis
             set;
         }
 
+        public string Rules
+        {
+            get;
+            set;
+        } = String.Empty;
+
+        public int AdditionalPoints
+        {
+            get;
+            set;
+        } = 0;
+
         [JsonConverter( typeof( JsonFactionConverter ) )]
         public Faction Faction
         {
@@ -142,6 +160,8 @@ namespace Universalis
                 var costs = Costs.Get();
 
                 int points = 0;
+
+                points += AdditionalPoints;
 
                 points += costs.Movement.movementCost( MovementType );
 

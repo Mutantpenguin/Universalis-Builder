@@ -34,6 +34,8 @@ namespace Universalis
             comboBoxMovementType.SelectedItem = archetype.MovementType;
 
             TypeDependantFields();
+
+            SetupPermittedConditions();
         }
 
         private void ProfileBindingSource_CurrentItemChanged( object sender, EventArgs e )
@@ -151,6 +153,22 @@ namespace Universalis
 
                     default:
                         throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
+                }
+            }
+
+            if( ( numericUpDownAdditionalPoints.Value == 0 ) && !String.IsNullOrEmpty( textBoxRules.Text ) )
+            {
+                if( MessageBox.Show( "Ohne Zusatzpunkte können keine Regeln verwendet werden. Weiter und Regeln löschen?",
+                                     "Ohne Punkte keine Regeln",
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Question,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    textBoxRules.Text = String.Empty;
+                }
+                else
+                {
+                    return ( false );
                 }
             }
 
@@ -282,6 +300,23 @@ namespace Universalis
         private void comboBoxMovementType_SelectionChangeCommitted( object sender, EventArgs e )
         {
             m_modifiedArchetype.MovementType = (Archetype.EMovementType)comboBoxMovementType.SelectedItem;
+        }
+
+        private void numericUpDownAdditionalPoints_ValueChanged( object sender, EventArgs e )
+        {
+            SetupPermittedConditions();
+        }
+
+        private void SetupPermittedConditions()
+        {
+            if( numericUpDownAdditionalPoints.Value == 0 )
+            {
+                textBoxRules.Visible = false;
+            }
+            else
+            {
+                textBoxRules.Visible = true;
+            }
         }
     }
 }
