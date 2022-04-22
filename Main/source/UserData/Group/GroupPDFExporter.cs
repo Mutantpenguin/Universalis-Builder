@@ -282,6 +282,7 @@ namespace Universalis
         {
             public string Name;
             public string Rules;
+            public int Priority;
         };
 
         private static void CreateCardPages( Document document, PdfWriter pdfWriter, Group group )
@@ -320,6 +321,11 @@ namespace Universalis
                 }
 
                 List<flipsideBlock> flipsideBlocks = new List<flipsideBlock>();
+
+                if( !String.IsNullOrEmpty( actor.Archetype.Rules ) )
+                {
+                    flipsideBlocks.Add( new flipsideBlock() { Name = "Regeln des Archetyps", Rules = actor.Archetype.Rules, Priority = 1 } );
+                }
 
                 foreach( var entry in actor.Traits.Select( x => new { x.Trait, x.Level } )
                                                      .Distinct()
@@ -383,7 +389,7 @@ namespace Universalis
                             ColumnText columnText = new ColumnText( flipsideTemplate );
                             columnText.SetSimpleColumn( s_flipsideColumns[ columnIndex ][ 0 ], s_flipsideColumns[ columnIndex ][ 1 ], s_flipsideColumns[ columnIndex ][ 2 ], s_flipsideColumns[ columnIndex ][ 3 ] );
 
-                            foreach( var block in flipsideBlocks.OrderBy( x => x.Name ) )
+                            foreach( var block in flipsideBlocks.OrderByDescending( x => x.Priority ).ThenBy( x => x.Name ))
                             {
                                 NewFlipsideEntryBlock( columnText, ref columnIndex, block );
                             }
