@@ -230,9 +230,14 @@ namespace Universalis
                     toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Inaktive Ausstattung vorhanden!";
                 }
 
-                if( !String.IsNullOrEmpty( actor.Biography ) )
+                if( !String.IsNullOrEmpty( actor.Archetype.Rules ) )
                 {
-                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + ToolTipHelper.FormatMaxWidth( actor.Biography );
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Regeln:" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( actor.Archetype.Rules );
+                }
+
+                if(!String.IsNullOrEmpty( actor.Biography ))
+                {
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Biografie:" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( actor.Biography );
                 }
 
                 e.ToolTipText = toolTipText;
