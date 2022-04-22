@@ -57,6 +57,7 @@
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.movementTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HasRules = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.hitPointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpeedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AGIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -180,6 +181,7 @@
             this.typeDataGridViewTextBoxColumn,
             this.sizeDataGridViewTextBoxColumn,
             this.movementTypeDataGridViewTextBoxColumn,
+            this.HasRules,
             this.hitPointsDataGridViewTextBoxColumn,
             this.SpeedDataGridViewTextBoxColumn,
             this.AGIDataGridViewTextBoxColumn,
@@ -224,6 +226,7 @@
             this.maxQuantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.maxQuantityDataGridViewTextBoxColumn.HeaderText = "Max.";
             this.maxQuantityDataGridViewTextBoxColumn.Name = "maxQuantityDataGridViewTextBoxColumn";
+            this.maxQuantityDataGridViewTextBoxColumn.ReadOnly = true;
             this.maxQuantityDataGridViewTextBoxColumn.ToolTipText = "Maximale Anzahl";
             this.maxQuantityDataGridViewTextBoxColumn.Width = 35;
             // 
@@ -250,6 +253,13 @@
             this.movementTypeDataGridViewTextBoxColumn.Name = "movementTypeDataGridViewTextBoxColumn";
             this.movementTypeDataGridViewTextBoxColumn.ReadOnly = true;
             this.movementTypeDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // HasRules
+            // 
+            this.HasRules.HeaderText = "R";
+            this.HasRules.Name = "HasRules";
+            this.HasRules.ToolTipText = "Regeln";
+            this.HasRules.Width = 25;
             // 
             // hitPointsDataGridViewTextBoxColumn
             // 
@@ -393,6 +403,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sizeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn movementTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn HasRules;
         private System.Windows.Forms.DataGridViewTextBoxColumn hitPointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn SpeedDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AGIDataGridViewTextBoxColumn;

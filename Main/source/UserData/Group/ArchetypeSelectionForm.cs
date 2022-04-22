@@ -25,6 +25,16 @@ namespace Universalis
         private void DataGridViewArchetypes_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewArchetypes );
+
+            if( e.RowIndex != -1 )
+            {
+                if( e.ColumnIndex == HasRules.Index )
+                {
+                    Archetype archetype = (Archetype)dataGridViewArchetypes.Rows[e.RowIndex].DataBoundItem;
+
+                    e.Value = !String.IsNullOrEmpty( archetype.Rules );
+                }
+            }
         }
 
         private void ComboBox_SelectionChangeCommitted( object sender, EventArgs e )
