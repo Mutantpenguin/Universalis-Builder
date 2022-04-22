@@ -39,6 +39,8 @@ namespace Universalis
 
             groupBindingSource.DataSource = m_groupModified;
 
+            toolStripButtonGroupTraitSelect.Checked = ( m_groupModified.GroupTrait != null );
+
             updateGroupTrait();
 
             updateGridViewActors();
@@ -378,36 +380,42 @@ namespace Universalis
         {
             if( null != m_groupModified.GroupTrait )
             {
-                MessageBox.Show( "Es ist bereits eine Gruppeneigenschaft vorhanden!" );
-            }
-            else
-            {
-                using( var groupTraitSelectionForm = new GroupTraitSelectionForm( m_groupModified.Faction ) )
-                {
-                    if( groupTraitSelectionForm.ShowDialog( this ) == DialogResult.OK )
-                    {
-                        if( groupTraitSelectionForm.SelectedGroupTrait != null )
-                        {
-                            m_groupModified.GroupTrait = groupTraitSelectionForm.SelectedGroupTrait;
-
-                            groupBindingSource.ResetBindings( false );
-
-                            updateGroupTrait();
-                        }
-                    }
-                }
-            }
-        }
-
-        private void toolStripButtonGroupTraitRemove_Click( object sender, EventArgs e )
-        {
-            if( m_groupModified.GroupTrait != null )
-            {
                 m_groupModified.GroupTrait = null;
 
                 groupBindingSource.ResetBindings( false );
 
                 updateGroupTrait();
+            }
+            else
+            {
+                using( var groupTraitSelectionForm = new GroupTraitSelectionForm( m_groupModified.Faction ) )
+                {
+                    if( groupTraitSelectionForm.ShowDialog( this ) == DialogResult.OK && groupTraitSelectionForm.SelectedGroupTrait != null )
+                    {
+                        m_groupModified.GroupTrait = groupTraitSelectionForm.SelectedGroupTrait;
+
+                        groupBindingSource.ResetBindings( false );
+
+                        updateGroupTrait();
+                    }
+                    else
+                    {
+                        toolStripButtonGroupTraitSelect.Checked = false;
+                        toolStripButtonGroupTraitSelect.Image = Properties.Resources.ui_check_box_uncheck;
+                    }
+                }
+            }
+        }
+
+        private void toolStripButtonGroupTraitSelect_CheckedChanged(object sender, EventArgs e)
+        {
+            if(toolStripButtonGroupTraitSelect.Checked)
+            {
+                toolStripButtonGroupTraitSelect.Image = Properties.Resources.ui_check_box;
+            }
+            else
+            {
+                toolStripButtonGroupTraitSelect.Image = Properties.Resources.ui_check_box_uncheck;
             }
         }
 

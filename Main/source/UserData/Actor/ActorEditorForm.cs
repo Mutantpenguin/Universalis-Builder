@@ -56,6 +56,8 @@ namespace Universalis
                 rowStyle.Height = 0;
             }
 
+            toolStripButtonArmorSelect.Checked = ( m_actorModified.Armor != null );
+
             updateGridViewWeapons();
             updateGridViewEquipment();
             updateGridViewArmor();
@@ -232,46 +234,42 @@ namespace Universalis
 
         private void toolStripButtonArmorSelect_Click( object sender, EventArgs e )
         {
-            if( null != m_actorModified.Armor )
+            if(null != m_actorModified.Armor)
             {
-                if( MessageBox.Show( "Es ist bereits eine Rüstung vorhanden! Soll sie entfernt werden?",
-                                     "Rüstung vorhanden",
-                                     MessageBoxButtons.YesNo,
-                                     MessageBoxIcon.Question,
-                                     MessageBoxDefaultButton.Button2 ) == DialogResult.No )
-                {
-                    return;
-                }
-
                 m_actorModified.Armor = null;
 
                 updateGridViewArmor();
                 updateFields();
             }
-            
-            using( AddArmorToActorForm addArmorToActor = new AddArmorToActorForm( m_actorModified.Archetype ) )
+            else
             {
-                if( addArmorToActor.ShowDialog( this ) == DialogResult.OK )
+                using( AddArmorToActorForm addArmorToActor = new AddArmorToActorForm( m_actorModified.Archetype ) )
                 {
-                    if( addArmorToActor.SelectedArmor != null )
+                    if( addArmorToActor.ShowDialog( this ) == DialogResult.OK && addArmorToActor.SelectedArmor != null )
                     {
                         m_actorModified.Armor = addArmorToActor.SelectedArmor;
 
                         updateGridViewArmor();
                         updateFields();
                     }
+                    else
+                    {
+                        toolStripButtonArmorSelect.Checked = false;
+                        toolStripButtonArmorSelect.Image = Properties.Resources.ui_check_box_uncheck;
+                    }
                 }
             }
         }
 
-        private void toolStripButtonArmorRemove_Click( object sender, EventArgs e )
+        private void toolStripButtonArmorSelect_CheckedChanged(object sender, EventArgs e)
         {
-            if( null != m_actorModified.Armor )
+            if( toolStripButtonArmorSelect.Checked )
             {
-                m_actorModified.Armor = null;
-
-                updateGridViewArmor();
-                updateFields();
+                toolStripButtonArmorSelect.Image = Properties.Resources.ui_check_box;
+            }
+            else
+            {
+                toolStripButtonArmorSelect.Image = Properties.Resources.ui_check_box_uncheck;
             }
         }
 #endregion armor

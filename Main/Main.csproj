@@ -585,7 +585,6 @@
     <None Include="Resources\cross-circle.png" />
     <None Include="Resources\copy.png" />
     <None Include="Resources\clear.png" />
-    <None Include="Resources\change_circle.png" />
     <None Include="Resources\baseline_image_search_black_24dp.png" />
     <None Include="Resources\baseline_engineering_black_48dp.png" />
     <None Include="Resources\baseline_block_black_18dp.png" />
