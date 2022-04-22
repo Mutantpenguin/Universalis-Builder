@@ -163,7 +163,19 @@ namespace Universalis
             {
                 Archetype archetype = (Archetype)dataGridViewArchetypes.Rows[ e.RowIndex ].DataBoundItem;
 
-                e.ToolTipText = ToolTipHelper.FormatMaxWidth( archetype.Description );
+                string toolTipText = String.Empty;
+
+                if( !String.IsNullOrEmpty( archetype.Rules ) )
+                {
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Regeln:" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( archetype.Rules );
+                }
+
+                if( !String.IsNullOrEmpty( archetype.Description ) )
+                {
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Beschreibung:" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( archetype.Description );
+                }
+
+                e.ToolTipText = toolTipText;
             }
         }
 
