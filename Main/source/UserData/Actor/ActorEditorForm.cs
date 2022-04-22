@@ -26,7 +26,7 @@ namespace Universalis
 
             this.Icon = Properties.Resources.icon;
 
-            archetypeBindingSource.DataSource = m_actorModified.Archetype;
+            textBoxArchetypeText.Text = m_actorModified.Archetype.Summary();
 
             traitLevelBindingSource.DataSource = Enumerable.Range( 1, 10 )
                                                            .Select( i => (uint)i )

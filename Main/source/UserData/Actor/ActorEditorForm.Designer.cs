@@ -86,8 +86,7 @@
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel8 = new System.Windows.Forms.ToolStripLabel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.textBoxArchetypeDescription = new System.Windows.Forms.TextBox();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBoxArchetypeText = new System.Windows.Forms.TextBox();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripLabelArchetypeName = new System.Windows.Forms.ToolStripLabel();
@@ -227,7 +226,6 @@
             this.panel2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -826,7 +824,7 @@
             // panel9
             // 
             this.panel9.AutoSize = true;
-            this.panel9.Controls.Add(this.textBoxArchetypeDescription);
+            this.panel9.Controls.Add(this.textBoxArchetypeText);
             this.panel9.Controls.Add(this.toolStrip2);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(3, 69);
@@ -834,21 +832,16 @@
             this.panel9.Size = new System.Drawing.Size(244, 82);
             this.panel9.TabIndex = 11;
             // 
-            // textBoxArchetypeDescription
+            // textBoxArchetypeText
             // 
-            this.textBoxArchetypeDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "Description", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxArchetypeDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxArchetypeDescription.Location = new System.Drawing.Point(0, 25);
-            this.textBoxArchetypeDescription.Multiline = true;
-            this.textBoxArchetypeDescription.Name = "textBoxArchetypeDescription";
-            this.textBoxArchetypeDescription.ReadOnly = true;
-            this.textBoxArchetypeDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxArchetypeDescription.Size = new System.Drawing.Size(244, 57);
-            this.textBoxArchetypeDescription.TabIndex = 47;
-            // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
+            this.textBoxArchetypeText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxArchetypeText.Location = new System.Drawing.Point(0, 25);
+            this.textBoxArchetypeText.Multiline = true;
+            this.textBoxArchetypeText.Name = "textBoxArchetypeText";
+            this.textBoxArchetypeText.ReadOnly = true;
+            this.textBoxArchetypeText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxArchetypeText.Size = new System.Drawing.Size(244, 57);
+            this.textBoxArchetypeText.TabIndex = 47;
             // 
             // toolStrip2
             // 
@@ -1080,7 +1073,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 176);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(244, 167);
+            this.panel5.Size = new System.Drawing.Size(244, 168);
             this.panel5.TabIndex = 5;
             // 
             // dataGridViewWeapons
@@ -1106,7 +1099,7 @@
             this.dataGridViewWeapons.ReadOnly = true;
             this.dataGridViewWeapons.RowHeadersVisible = false;
             this.dataGridViewWeapons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewWeapons.Size = new System.Drawing.Size(244, 142);
+            this.dataGridViewWeapons.Size = new System.Drawing.Size(244, 143);
             this.dataGridViewWeapons.TabIndex = 5;
             this.dataGridViewWeapons.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewWeapons_CellFormatting);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
@@ -1200,7 +1193,7 @@
             this.panel6.Controls.Add(this.dataGridViewArmor);
             this.panel6.Controls.Add(this.toolStripArmor);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 349);
+            this.panel6.Location = new System.Drawing.Point(3, 350);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(244, 69);
             this.panel6.TabIndex = 0;
@@ -1312,7 +1305,7 @@
             this.panel4.Controls.Add(this.dataGridViewEquipment);
             this.panel4.Controls.Add(this.toolStripEquipment);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 424);
+            this.panel4.Location = new System.Drawing.Point(3, 425);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(244, 168);
             this.panel4.TabIndex = 4;
@@ -1540,12 +1533,12 @@
             this.tableLayoutPanel3.Controls.Add(this.panel11, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel12, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 595);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 596);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(250, 44);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(250, 43);
             this.tableLayoutPanel3.TabIndex = 36;
             // 
             // panel11
@@ -1557,7 +1550,7 @@
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(125, 44);
+            this.panel11.Size = new System.Drawing.Size(125, 43);
             this.panel11.TabIndex = 0;
             // 
             // panel12
@@ -1569,7 +1562,7 @@
             this.panel12.Location = new System.Drawing.Point(125, 0);
             this.panel12.Margin = new System.Windows.Forms.Padding(0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(125, 44);
+            this.panel12.Size = new System.Drawing.Size(125, 43);
             this.panel12.TabIndex = 1;
             // 
             // label10
@@ -2084,7 +2077,6 @@
             this.toolStrip3.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -2194,10 +2186,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TextBox textBoxArchetypeDescription;
+        private System.Windows.Forms.TextBox textBoxArchetypeText;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel7;
-        private System.Windows.Forms.BindingSource archetypeBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
