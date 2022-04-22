@@ -129,7 +129,10 @@ namespace Universalis
                     toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine : String.Empty ) + reason;
                 }
 
-                toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + Environment.NewLine + ToolTipHelper.FormatMaxWidth( group.Description );
+                if(!String.IsNullOrEmpty( group.Description ))
+                {
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + ToolTipHelper.FormatMaxWidth( group.Description );
+                }
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( toolTipText );
             }
