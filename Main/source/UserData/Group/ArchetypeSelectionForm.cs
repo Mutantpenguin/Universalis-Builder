@@ -105,14 +105,10 @@ namespace Universalis
 
                 string toolTipText = String.Empty;
 
-                if(!String.IsNullOrEmpty( archetype.Rules ))
+                string archetypeSummary = archetype.Summary();
+                if(!String.IsNullOrEmpty( archetypeSummary ))
                 {
-                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Regeln:" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( archetype.Rules );
-                }
-
-                if(!String.IsNullOrEmpty( archetype.Description ))
-                {
-                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Beschreibung:" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( archetype.Description );
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + ToolTipHelper.FormatMaxWidth( archetypeSummary );
                 }
 
                 e.ToolTipText = toolTipText;

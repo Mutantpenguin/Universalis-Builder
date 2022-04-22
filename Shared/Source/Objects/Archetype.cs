@@ -275,6 +275,23 @@ namespace Universalis
             return ( Presets.AreaOfPerceptionMultiplier * Profile.Attributes.ModAWA( modifier ) );
         }
 
+        public string Summary()
+        {
+            string text = String.Empty;
+
+            if(!String.IsNullOrEmpty( Rules ))
+            {
+                text += ( !String.IsNullOrEmpty( text ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Regeln:" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( Rules );
+            }
+
+            if(!String.IsNullOrEmpty( Description ))
+            {
+                text += ( !String.IsNullOrEmpty( text ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Beschreibung:" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( Description );
+            }
+
+            return text;
+        }
+
         #region enums
         public enum ESize
         {
