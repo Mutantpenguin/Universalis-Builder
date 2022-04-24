@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -25,6 +24,8 @@ namespace Universalis
             this.WindowState = Properties.Settings.Default.ActorEditorWindowState;
 
             this.Icon = Properties.Resources.icon;
+
+            pictureBoxActorIcon.AllowDrop = true;
 
             textBoxArchetypeText.Text = m_actorModified.Archetype.Summary();
 
@@ -100,8 +101,9 @@ namespace Universalis
 
         private readonly Actor m_actorModified;
         private readonly Actor m_actorOriginal;
+        private bool m_dragndrop = false;
 
-#region values changed
+        #region values changed
 
         private void textBoxName_TextChanged( object sender, EventArgs e )
         {
@@ -193,10 +195,10 @@ namespace Universalis
 
         private void buttonImages_Click( object sender, EventArgs e )
         {
-            SelectImages();
+            GetImage();
         }
 
-        private void SelectImages()
+        private void GetImage()
         {
             using( var actorImageForm = new ActorImageForm() )
             {
@@ -204,20 +206,25 @@ namespace Universalis
                 {
                     using( Image img = actorImageForm.Image )
                     {
-                        if( null != img )
-                        {
-                            using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Bild auswählen", img, ImageHelper.imageSize ) )
-                            {
-                                if( imageSelectionForm.ShowDialog( this ) == DialogResult.OK )
-                                {
-                                    m_actorModified.Img = new Bitmap( imageSelectionForm.Image );
+                        SelectImages( img );
+                    }
+                }
+            }
+        }
 
-                                    SelectActorIcon();
+        private void SelectImages( Image img )
+        {
+            if( null != img )
+            {
+                using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Bild auswählen", img, ImageHelper.imageSize ) )
+                {
+                    if( imageSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                    {
+                        m_actorModified.Img = new Bitmap( imageSelectionForm.Image );
 
-                                    updateFields();
-                                }
-                            }
-                        }
+                        SelectActorIcon();
+
+                        updateFields();
                     }
                 }
             }
@@ -629,7 +636,7 @@ namespace Universalis
             {
                 MessageBox.Show( "Sie müssen zunächst ein Bild auswählen bevor Sie ein Icon daraus extrahieren können." );
 
-                SelectImages();
+                GetImage();
             }
             else
             {
@@ -726,6 +733,80 @@ namespace Universalis
                 dataGridViewTraits.CommitEdit( DataGridViewDataErrorContexts.Commit );
 
                 updateFields();
+            }
+        }
+
+        private void ActorEditorForm_DragEnter(object sender, DragEventArgs e)
+        {
+            m_dragndrop = true;
+            pictureBoxActorIcon.Refresh();
+
+            if( e.Data.GetDataPresent( DataFormats.FileDrop ) )
+            {
+                e.Effect = DragDropEffects.All;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void ActorEditorForm_DragLeave(object sender, EventArgs e)
+        {
+            m_dragndrop = false;
+            pictureBoxActorIcon.Refresh();
+        }
+
+        private void ActorEditorForm_DragDrop(object sender, DragEventArgs e)
+        {
+            m_dragndrop = false;
+            pictureBoxActorIcon.Refresh();
+        }
+
+        private void pictureBoxActorIcon_Paint( object sender, PaintEventArgs e )
+        {
+            if( m_dragndrop )
+            {
+                ControlPaint.DrawBorder( e.Graphics, e.ClipRectangle,
+                          Color.Red, 3, ButtonBorderStyle.Solid,
+                          Color.Red, 3, ButtonBorderStyle.Solid,
+                          Color.Red, 3, ButtonBorderStyle.Solid,
+                          Color.Red, 3, ButtonBorderStyle.Solid );
+            }
+            else
+            {
+                ControlPaint.DrawBorder( e.Graphics, e.ClipRectangle, this.BackColor, ButtonBorderStyle.None );
+            }
+        }
+
+        private void pictureBoxActorIcon_DragDrop( object sender, DragEventArgs e )
+        {
+            m_dragndrop = false;
+            pictureBoxActorIcon.Refresh();
+
+            string[] s = (string[])e.Data.GetData( DataFormats.FileDrop, false );
+
+            if( s.Length == 1 )
+            {
+                using( var img = ImageHelper.LoadImage( s[0] ) )
+                {
+                    SelectImages( img );
+                }
+            }
+        }
+
+        private void pictureBoxActorIcon_DragEnter( object sender, DragEventArgs e )
+        {
+            m_dragndrop = true;
+            pictureBoxActorIcon.Refresh();
+
+            if( e.Data.GetDataPresent( DataFormats.FileDrop ) )
+            {
+                e.Effect = DragDropEffects.All;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
             }
         }
     }
