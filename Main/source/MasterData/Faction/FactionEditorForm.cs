@@ -12,6 +12,8 @@ namespace Universalis
         {
             InitializeComponent();
 
+            pictureBoxFactionIcon.AllowDrop = true;
+
             this.Icon = Properties.Resources.icon;
 
             m_originalFaction = faction;
@@ -26,6 +28,7 @@ namespace Universalis
         }
 
         private readonly Faction m_originalFaction;
+        private bool m_dragndrop;
 
         private bool mandatoryFieldsFilled()
         {
@@ -61,14 +64,19 @@ namespace Universalis
                     Properties.Settings.Default.factionIconFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
                     Properties.Settings.Default.Save();
 
-                    Image img = ImageHelper.CreateIconFromImage( ImageHelper.LoadImage( iconFileDialog.FileName ), withTransparency: false );
-
-                    if( img != null )
-                    {
-                        pictureBoxFactionIcon.Image = img;
-                        ( (Faction)factionBindingSource.DataSource ).Icon = new Bitmap( img );
-                    }
+                    SetIconFromPath( iconFileDialog.FileName );
                 }
+            }
+        }
+
+        private void SetIconFromPath( String path )
+        {
+            var img = ImageHelper.CreateIconFromImage( ImageHelper.LoadImage( path ), withTransparency: false );
+
+            if( img != null )
+            {
+                pictureBoxFactionIcon.Image = img;
+                ( (Faction)factionBindingSource.DataSource ).Icon = new Bitmap( img );
             }
         }
 
@@ -117,6 +125,77 @@ namespace Universalis
             if( e.KeyCode == Keys.Escape )
             {
                 this.Close();
+            }
+        }
+
+        private void FactionEditorForm_DragEnter( object sender, DragEventArgs e )
+        {
+            m_dragndrop = true;
+            pictureBoxFactionIcon.Refresh();
+
+            if( e.Data.GetDataPresent( DataFormats.FileDrop ) )
+            {
+                e.Effect = DragDropEffects.All;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void FactionEditorForm_DragLeave( object sender, EventArgs e )
+        {
+            m_dragndrop = false;
+            pictureBoxFactionIcon.Refresh();
+        }
+
+        private void FactionEditorForm_DragDrop( object sender, DragEventArgs e )
+        {
+            m_dragndrop = false;
+            pictureBoxFactionIcon.Refresh();
+        }
+
+        private void pictureBoxFactionIcon_Paint( object sender, PaintEventArgs e )
+        {
+            if( m_dragndrop )
+            {
+                ControlPaint.DrawBorder( e.Graphics, e.ClipRectangle,
+                          Color.Red, 3, ButtonBorderStyle.Solid,
+                          Color.Red, 3, ButtonBorderStyle.Solid,
+                          Color.Red, 3, ButtonBorderStyle.Solid,
+                          Color.Red, 3, ButtonBorderStyle.Solid );
+            }
+            else
+            {
+                ControlPaint.DrawBorder( e.Graphics, e.ClipRectangle, this.BackColor, ButtonBorderStyle.None );
+            }
+        }
+
+        private void pictureBoxFactionIcon_DragDrop( object sender, DragEventArgs e )
+        {
+            m_dragndrop = false;
+            pictureBoxFactionIcon.Refresh();
+
+            string[] s = (string[])e.Data.GetData( DataFormats.FileDrop, false );
+
+            if( s.Length == 1 )
+            {
+                SetIconFromPath( s[0] );
+            }
+        }
+
+        private void pictureBoxFactionIcon_DragEnter( object sender, DragEventArgs e )
+        {
+            m_dragndrop = true;
+            pictureBoxFactionIcon.Refresh();
+
+            if( e.Data.GetDataPresent( DataFormats.FileDrop ) )
+            {
+                e.Effect = DragDropEffects.All;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
             }
         }
     }

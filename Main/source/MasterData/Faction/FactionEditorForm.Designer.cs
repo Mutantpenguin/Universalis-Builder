@@ -106,6 +106,9 @@
             this.pictureBoxFactionIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxFactionIcon.TabIndex = 0;
             this.pictureBoxFactionIcon.TabStop = false;
+            this.pictureBoxFactionIcon.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxFactionIcon_DragDrop);
+            this.pictureBoxFactionIcon.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxFactionIcon_DragEnter);
+            this.pictureBoxFactionIcon.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxFactionIcon_Paint);
             this.pictureBoxFactionIcon.DoubleClick += new System.EventHandler(this.pictureBoxIcon_DoubleClick);
             // 
             // panel3
@@ -167,6 +170,7 @@
             // 
             // FactionEditorForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 452);
@@ -178,6 +182,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Fraktions Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FactionEditorForm_FormClosing);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FactionEditorForm_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FactionEditorForm_DragEnter);
+            this.DragLeave += new System.EventHandler(this.FactionEditorForm_DragLeave);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FactionEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
