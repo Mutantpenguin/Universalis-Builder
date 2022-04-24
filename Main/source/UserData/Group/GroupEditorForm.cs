@@ -619,13 +619,15 @@ namespace Universalis
                     Properties.Settings.Default.groupIconFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
                     Properties.Settings.Default.Save();
 
-                    SelectIcon( ImageHelper.LoadImage( iconFileDialog.FileName ) );
+                    SelectIconFromPath( iconFileDialog.FileName );
                 }
             }
         }
 
-        private void SelectIcon( Image img )
+        private void SelectIconFromPath( String path )
         {
+            var img = ImageHelper.LoadImage( path );
+
             if( img != null )
             {
                 if( img.Width != img.Height )
@@ -704,7 +706,7 @@ namespace Universalis
 
             if( s.Length == 1 )
             {
-                SelectIcon( ImageHelper.LoadImage( s[0] ) );
+                SelectIconFromPath( s[0] );
             }
         }
 
