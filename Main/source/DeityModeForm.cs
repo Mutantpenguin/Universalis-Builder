@@ -1,5 +1,6 @@
 ﻿using LibGit2Sharp;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -105,38 +106,30 @@ namespace Universalis
                             ||
                             repo.RetrieveStatus().IsDirty )
                         {
-                            using( var form = new CommitForm() )
+                            if( MessageBox.Show( $"Das Universum '{m_universe.Name}' wurde verändert.\n\nVSCode starten?",
+                                                 "Universum wurde verändert",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Question,
+                                                 MessageBoxDefaultButton.Button1 ) == DialogResult.Yes )
                             {
-                                if( form.ShowDialog( this ) == DialogResult.OK )
+                                try
                                 {
-                                    Signature signature = repo.Config.BuildSignature( DateTimeOffset.Now );
+                                    ProcessStartInfo startInfo = new ProcessStartInfo()
+                                    {
+                                        FileName = "code",
+                                        Arguments = $"\"{m_universePath}\"",
+                                        UseShellExecute = true,
+                                        WindowStyle = ProcessWindowStyle.Hidden
+                                    };
 
-                                    Commands.Stage( repo, "*" );
-
-                                    repo.Commit( form.CommitMessage, signature, signature );
+                                    Process.Start( startInfo );
+                                }
+                                catch( Exception ex )
+                                {
+                                    MessageBox.Show( ex.ToString() );
                                 }
                             }
                         }
-
-                        /*
-                        if( repo.Head.TrackingDetails.AheadBy > 0 )
-                        {
-                            // TODO push doesn't work without username and password
-                            // TODO but why does it work on the console without entering anything?
-
-                            
-                            var pushOptions = new PushOptions();
-                            pushOptions.CredentialsProvider = new CredentialsHandler(
-                                    ( _url, _user, _cred ) =>
-                                    new cred() );
-                            
-                            //new UsernamePasswordCredentials() {  Username = Settings.GetSetting( Constants.GitUsername ), Password = Settings.GetSetting( Constants.GitPassword ) );
-
-
-                            //repo.Network.Push( repo.Network.Remotes[ "origin" ], repo.Head.CanonicalName, null, pushOptions );
-                            //repo.Network.Push( repo.Network.Remotes[ "origin" ], repo.Head.CanonicalName, repo.Config. );
-                        }
-                        */
                     }
                 }
                 catch( RepositoryNotFoundException ex )
