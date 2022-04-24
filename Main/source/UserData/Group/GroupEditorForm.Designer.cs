@@ -17,8 +17,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -186,6 +186,9 @@
             this.pictureBoxGroupIcon.TabIndex = 7;
             this.pictureBoxGroupIcon.TabStop = false;
             this.toolTip.SetToolTip(this.pictureBoxGroupIcon, "Icon der Gruppe");
+            this.pictureBoxGroupIcon.DragDrop += new System.Windows.Forms.DragEventHandler(this.pictureBoxGroupIcon_DragDrop);
+            this.pictureBoxGroupIcon.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBoxGroupIcon_DragEnter);
+            this.pictureBoxGroupIcon.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBoxGroupIcon_Paint);
             // 
             // textBoxName
             // 
@@ -313,8 +316,8 @@
             // actorNameDataGridViewTextBoxColumn
             // 
             this.actorNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.actorNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.actorNameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
             this.actorNameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.actorNameDataGridViewTextBoxColumn.Name = "actorNameDataGridViewTextBoxColumn";
             this.actorNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -322,8 +325,8 @@
             // actorPointsDataGridViewTextBoxColumn
             // 
             this.actorPointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
             this.actorPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.actorPointsDataGridViewTextBoxColumn.Name = "actorPointsDataGridViewTextBoxColumn";
             this.actorPointsDataGridViewTextBoxColumn.ReadOnly = true;
@@ -598,6 +601,7 @@
             // 
             // GroupEditorForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonClose;
@@ -608,6 +612,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gruppe";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GroupEditorForm_FormClosing);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.GroupEditorForm_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.GroupEditorForm_DragEnter);
+            this.DragLeave += new System.EventHandler(this.GroupEditorForm_DragLeave);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

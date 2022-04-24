@@ -18,6 +18,8 @@ namespace Universalis
 
             InitializeComponent();
 
+            pictureBoxGroupIcon.AllowDrop = true;
+
             if( !Options.DeityMode )
             {
                 buttonRefresh.Visible = false;
@@ -74,6 +76,7 @@ namespace Universalis
 
         private readonly Group m_groupModified;
         private readonly Group m_groupOriginal;
+        private bool m_dragndrop;
 
         private void updateGridViewActors()
         {
@@ -616,33 +619,107 @@ namespace Universalis
                     Properties.Settings.Default.groupIconFilePath = Path.GetDirectoryName( iconFileDialog.FileName );
                     Properties.Settings.Default.Save();
 
-                    Image img = ImageHelper.LoadImage( iconFileDialog.FileName );
+                    SelectIcon( ImageHelper.LoadImage( iconFileDialog.FileName ) );
+                }
+            }
+        }
 
-                    if( img != null )
+        private void SelectIcon( Image img )
+        {
+            if( img != null )
+            {
+                if( img.Width != img.Height )
+                {
+                    using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Icon auswählen", img, ImageHelper.iconSize ) )
                     {
-                        if( img.Width != img.Height )
+                        if( imageSelectionForm.ShowDialog() == DialogResult.OK )
                         {
-                            using( ImageSelectionForm imageSelectionForm = new ImageSelectionForm( "Icon auswählen", img, ImageHelper.iconSize ) )
-                            {
-                                if( imageSelectionForm.ShowDialog() == DialogResult.OK )
-                                {
-                                    pictureBoxGroupIcon.Image = imageSelectionForm.Image;
-                                    m_groupModified.Icon = new Bitmap( imageSelectionForm.Image );
-                                }
-                            }
-                        }
-                        else
-                        {
-                            img = ImageHelper.CreateIconFromImage( img, withTransparency: false );
-
-                            if( img != null )
-                            {
-                                pictureBoxGroupIcon.Image = img;
-                                m_groupModified.Icon = new Bitmap( img );
-                            }
+                            pictureBoxGroupIcon.Image = imageSelectionForm.Image;
+                            m_groupModified.Icon = new Bitmap( imageSelectionForm.Image );
                         }
                     }
                 }
+                else
+                {
+                    img = ImageHelper.CreateIconFromImage( img, withTransparency: false );
+
+                    if( img != null )
+                    {
+                        pictureBoxGroupIcon.Image = img;
+                        m_groupModified.Icon = new Bitmap( img );
+                    }
+                }
+            }
+        }
+
+        private void GroupEditorForm_DragEnter( object sender, DragEventArgs e )
+        {
+            m_dragndrop = true;
+            pictureBoxGroupIcon.Refresh();
+
+            if( e.Data.GetDataPresent( DataFormats.FileDrop ) )
+            {
+                e.Effect = DragDropEffects.All;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void GroupEditorForm_DragLeave( object sender, EventArgs e )
+        {
+            m_dragndrop = false;
+            pictureBoxGroupIcon.Refresh();
+        }
+
+        private void GroupEditorForm_DragDrop( object sender, DragEventArgs e )
+        {
+            m_dragndrop = false;
+            pictureBoxGroupIcon.Refresh();
+        }
+
+        private void pictureBoxGroupIcon_Paint( object sender, PaintEventArgs e )
+        {
+            if( m_dragndrop )
+            {
+                ControlPaint.DrawBorder( e.Graphics, e.ClipRectangle,
+                          Color.Red, 3, ButtonBorderStyle.Solid,
+                          Color.Red, 3, ButtonBorderStyle.Solid,
+                          Color.Red, 3, ButtonBorderStyle.Solid,
+                          Color.Red, 3, ButtonBorderStyle.Solid );
+            }
+            else
+            {
+                ControlPaint.DrawBorder( e.Graphics, e.ClipRectangle, this.BackColor, ButtonBorderStyle.None );
+            }
+        }
+
+        private void pictureBoxGroupIcon_DragDrop( object sender, DragEventArgs e )
+        {
+            m_dragndrop = false;
+            pictureBoxGroupIcon.Refresh();
+
+            string[] s = (string[])e.Data.GetData( DataFormats.FileDrop, false );
+
+            if( s.Length == 1 )
+            {
+                SelectIcon( ImageHelper.LoadImage( s[0] ) );
+            }
+        }
+
+        private void pictureBoxGroupIcon_DragEnter( object sender, DragEventArgs e )
+        {
+            m_dragndrop = true;
+            pictureBoxGroupIcon.Refresh();
+
+            if( e.Data.GetDataPresent( DataFormats.FileDrop ) )
+            {
+                e.Effect = DragDropEffects.All;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
             }
         }
     }
