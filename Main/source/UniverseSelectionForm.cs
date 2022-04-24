@@ -548,7 +548,6 @@ namespace Universalis
                     };
 
                     Process.Start( startInfo );
-
                 }
                 catch (Exception ex)
                 {
