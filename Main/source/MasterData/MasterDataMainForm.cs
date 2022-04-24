@@ -24,6 +24,7 @@ namespace Universalis
         ArchetypeManagerForm archetypeManager = null;
         DamageEffectManagerForm damageEffectManager = null;
         GroupTraitManagerForm groupTraitManager = null;
+        DisciplineManagerForm disciplineManager = null;
 
         private void buttonWeapons_Click( object sender, EventArgs e )
         {
@@ -155,7 +156,6 @@ namespace Universalis
 
         private void buttonDisciplines_Click( object sender, EventArgs e )
         {
-            /* TODO Disciplines
             disciplineManager = new DisciplineManagerForm();
 
             disciplineManager.FormClosed += delegate
@@ -168,7 +168,6 @@ namespace Universalis
             buttonDisciplines.Enabled = false;
 
             disciplineManager.Show( this );
-            */
         }
 
         private void MasterDataMainForm_FormClosing( object sender, FormClosingEventArgs e )
@@ -187,7 +186,9 @@ namespace Universalis
                 ||
                 damageEffectManager != null
                 ||
-                groupTraitManager != null )
+                groupTraitManager != null
+                ||
+                disciplineManager != null )
             {
                 MessageBox.Show( "Bitte zuerst alle Fenster schließen!",
                                  String.Empty,

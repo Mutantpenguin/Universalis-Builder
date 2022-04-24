@@ -84,7 +84,7 @@
             this.buttonDisciplines.TabIndex = 11;
             this.buttonDisciplines.Text = "Disziplinen";
             this.buttonDisciplines.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolTip1.SetToolTip(this.buttonDisciplines, "Kräfte");
+            this.toolTip1.SetToolTip(this.buttonDisciplines, "Disziplinen");
             this.buttonDisciplines.UseVisualStyleBackColor = true;
             this.buttonDisciplines.Click += new System.EventHandler(this.buttonDisciplines_Click);
             // 

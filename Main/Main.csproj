@@ -97,6 +97,12 @@
     <Compile Include="Source\Helper\WeaponDisplayForm.Designer.cs">
       <DependentUpon>WeaponDisplayForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\MasterData\Discipline\DisciplineManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\MasterData\Discipline\DisciplineManagerForm.Designer.cs">
+      <DependentUpon>DisciplineManagerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\MasterData\MasterDataMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Helper\WeaponDisplayForm.resx">
       <DependentUpon>WeaponDisplayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\MasterData\Discipline\DisciplineManagerForm.resx">
+      <DependentUpon>DisciplineManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\MasterDataMainForm.resx">
       <DependentUpon>MasterDataMainForm.cs</DependentUpon>
