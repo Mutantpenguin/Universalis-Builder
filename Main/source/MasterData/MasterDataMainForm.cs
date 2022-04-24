@@ -153,21 +153,21 @@ namespace Universalis
             groupTraitManager.Show( this );
         }
 
-        private void buttonPowers_Click( object sender, EventArgs e )
+        private void buttonDisciplines_Click( object sender, EventArgs e )
         {
-            /* TODO Powers
-            powerManager = new PowerManagerForm();
+            /* TODO Disciplines
+            disciplineManager = new DisciplineManagerForm();
 
-            powerManager.FormClosed += delegate
+            disciplineManager.FormClosed += delegate
             {
-                buttonPowers.Enabled = true;
-                powerManager.Dispose();
-                powerManager = null;
+                buttonDisciplines.Enabled = true;
+                disciplineManager.Dispose();
+                disciplineManager = null;
             };
 
-            buttonPowers.Enabled = false;
+            buttonDisciplines.Enabled = false;
 
-            powerManager.Show( this );
+            disciplineManager.Show( this );
             */
         }
 

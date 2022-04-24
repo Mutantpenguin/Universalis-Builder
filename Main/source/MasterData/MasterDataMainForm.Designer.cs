@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonPowers = new System.Windows.Forms.Button();
+            this.buttonDisciplines = new System.Windows.Forms.Button();
             this.buttonFactions = new System.Windows.Forms.Button();
             this.buttonTraits = new System.Windows.Forms.Button();
             this.buttonWeapons = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonPowers, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.buttonDisciplines, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.buttonFactions, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.buttonTraits, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.buttonWeapons, 0, 1);
@@ -71,22 +71,22 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(841, 539);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
-            // buttonPowers
+            // buttonDisciplines
             // 
-            this.buttonPowers.AutoSize = true;
-            this.buttonPowers.BackgroundImage = global::Universalis.Properties.Resources.powers;
-            this.buttonPowers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonPowers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonPowers.Font = new System.Drawing.Font("Nova Square", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPowers.Location = new System.Drawing.Point(563, 361);
-            this.buttonPowers.Name = "buttonPowers";
-            this.buttonPowers.Size = new System.Drawing.Size(275, 175);
-            this.buttonPowers.TabIndex = 11;
-            this.buttonPowers.Text = "Kräfte";
-            this.buttonPowers.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.toolTip1.SetToolTip(this.buttonPowers, "Kräfte");
-            this.buttonPowers.UseVisualStyleBackColor = true;
-            this.buttonPowers.Click += new System.EventHandler(this.buttonPowers_Click);
+            this.buttonDisciplines.AutoSize = true;
+            this.buttonDisciplines.BackgroundImage = global::Universalis.Properties.Resources.powers;
+            this.buttonDisciplines.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonDisciplines.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonDisciplines.Font = new System.Drawing.Font("Nova Square", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDisciplines.Location = new System.Drawing.Point(563, 361);
+            this.buttonDisciplines.Name = "buttonDisciplines";
+            this.buttonDisciplines.Size = new System.Drawing.Size(275, 175);
+            this.buttonDisciplines.TabIndex = 11;
+            this.buttonDisciplines.Text = "Disziplinen";
+            this.buttonDisciplines.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.toolTip1.SetToolTip(this.buttonDisciplines, "Kräfte");
+            this.buttonDisciplines.UseVisualStyleBackColor = true;
+            this.buttonDisciplines.Click += new System.EventHandler(this.buttonDisciplines_Click);
             // 
             // buttonFactions
             // 
@@ -274,6 +274,6 @@
         private System.Windows.Forms.Button buttonArchetypes;
         private System.Windows.Forms.Button buttonDamageEffects;
         private System.Windows.Forms.Button buttonGroupTraits;
-        private System.Windows.Forms.Button buttonPowers;
+        private System.Windows.Forms.Button buttonDisciplines;
     }
 }
