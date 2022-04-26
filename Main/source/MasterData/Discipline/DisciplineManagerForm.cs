@@ -20,7 +20,6 @@ namespace Universalis
 
         private void refreshGridView()
         {
-            /* TODO
             List<Discipline> disciplines = MasterDataStorage.Discipline.Disciplines.Where( s => s.Active )
                                                                                    .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                                    .OrderBy( x => x.Name )
@@ -30,7 +29,6 @@ namespace Universalis
             dataGridViewDisciplines.ClearSelection();
 
             toolStripStatusLabelCount.Text = $"Anzahl: {disciplines.Count}";
-            */
         }
 
         private void toolStripTextBoxSearch_TextChanged( object sender, EventArgs e )
@@ -40,7 +38,6 @@ namespace Universalis
 
         private void toolStripButtonAddDiscipline_Click( object sender, EventArgs e )
         {
-            /* TODO
             Discipline discipline = DisciplineStorage.Create();
 
             toolStripTextBoxSearch.Text = String.Empty;
@@ -58,12 +55,10 @@ namespace Universalis
                     break;
                 }
             }
-            */
         }
 
         private void toolStripButtonDeleteDiscipline_Click( object sender, EventArgs e )
         {
-            /* TODO
             if( dataGridViewDisciplines.SelectedCells.Count > 0 )
             {
                 Discipline discipline = (Discipline)dataGridViewDisciplines.SelectedRows[ 0 ].DataBoundItem;
@@ -75,20 +70,17 @@ namespace Universalis
                     refreshGridView();
                 }
             }
-            */
         }
 
         private void dataGridViewDiscipline_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
         {
-            /* TODO
             if( -1 != e.RowIndex )
             {
                 editDiscipline( (Discipline)dataGridViewDisciplines.Rows[ e.RowIndex ].DataBoundItem );
             }
-            */
         }
 
-        private void editDiscipline( Faction faction )
+        private void editDiscipline( Discipline discipline )
         {
             /* TODO
             using( DisciplineEditorForm disciplineEditorForm = new DisciplineEditorForm( discipline ) )
@@ -99,9 +91,9 @@ namespace Universalis
 
                 this.Show();
             }
+            */
 
             disciplineBindingSource.ResetBindings( false );
-            */
         }
 
         private void DisciplineManagerForm_KeyDown( object sender, KeyEventArgs e )
@@ -114,14 +106,12 @@ namespace Universalis
 
         private void dataGridViewDisciplines_CellToolTipTextNeeded( object sender, DataGridViewCellToolTipTextNeededEventArgs e )
         {
-            /* TODO
             if( e.RowIndex > -1 )
             {
                 Discipline discipline = (Discipline)dataGridViewDisciplines.Rows[ e.RowIndex ].DataBoundItem;
 
                 e.ToolTipText = ToolTipHelper.FormatMaxWidth( discipline.Description );
             }
-            */
         }
 
         private void toolStripButtonClearSearch_Click( object sender, EventArgs e )
@@ -131,7 +121,6 @@ namespace Universalis
 
         private void toolStripTextBoxSearch_KeyDown( object sender, KeyEventArgs e )
         {
-            /* TODO
             if( DataGridViewHelper.HandleArrowUpDown( dataGridViewDisciplines, e.KeyCode ) )
             {
                 e.Handled = true;
@@ -141,18 +130,15 @@ namespace Universalis
                 e.Handled = true;
                 editDiscipline( (Discipline)dataGridViewDisciplines.CurrentRow.DataBoundItem );
             }
-            */
         }
 
         private void dataGridViewDisciplines_KeyDown( object sender, KeyEventArgs e )
         {
-            /* TODO
             if( e.KeyCode == Keys.Return )
             {
                 e.Handled = true;
                 editDiscipline( (Discipline)dataGridViewDisciplines.CurrentRow.DataBoundItem );
             }
-            */
         }
     }
 }
