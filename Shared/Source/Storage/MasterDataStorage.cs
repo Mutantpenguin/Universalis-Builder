@@ -48,6 +48,12 @@ namespace Universalis
             private set;
         }
 
+        public static DisciplineStorage Discipline
+        {
+            get;
+            private set;
+        }
+
         public static GroupTraitStorage GroupTrait
         {
             get;
@@ -75,6 +81,7 @@ namespace Universalis
             Armor = new ArmorStorage( universePath, backgroundWorkerProvider() );
             Weapon = new WeaponStorage( universePath, backgroundWorkerProvider() );
             Equipment = new EquipmentStorage( universePath, backgroundWorkerProvider() );
+            Discipline = new DisciplineStorage( universePath, backgroundWorkerProvider() );
             GroupTrait = new GroupTraitStorage( universePath, backgroundWorkerProvider() );
 
             setupAlreadyCompleted = true;

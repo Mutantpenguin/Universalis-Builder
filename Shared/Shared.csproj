@@ -74,6 +74,7 @@
     <Compile Include="Source\Helper\StringHelper.cs" />
     <Compile Include="Source\Helper\UniversalisSettings.cs" />
     <Compile Include="Source\Helper\ToolTipHelper.cs" />
+    <Compile Include="Source\JsonHelper\JsonDisciplineConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonFactionHashSetConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonArchetypeHashSetConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonEquipmentConverter.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Source\Globals\Costs.cs" />
     <Compile Include="Source\Objects\DamageColor.cs" />
     <Compile Include="Source\Objects\DamageEffect.cs" />
+    <Compile Include="Source\Objects\Discipline.cs" />
     <Compile Include="Source\Objects\Equipment.cs" />
     <Compile Include="Source\Objects\Faction.cs" />
     <Compile Include="Source\Objects\Group.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="Source\Objects\WeaponRange.cs" />
     <Compile Include="Source\Storage\ArchetypeStorage.cs" />
     <Compile Include="Source\Storage\ArmorStorage.cs" />
+    <Compile Include="Source\Storage\DisciplineStorage.cs" />
     <Compile Include="Source\Storage\GroupTraitStorage.cs" />
     <Compile Include="Source\Storage\DamageEffectStorage.cs" />
     <Compile Include="Source\Storage\EquipmentStorage.cs" />

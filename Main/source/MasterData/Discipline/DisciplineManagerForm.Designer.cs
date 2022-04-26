@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewDisciplines = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripFactions = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonAddDiscipline = new System.Windows.Forms.ToolStripButton();
@@ -41,10 +38,12 @@
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
             this.toolStripFactions.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewDisciplines
@@ -57,8 +56,7 @@
             this.dataGridViewDisciplines.AutoGenerateColumns = false;
             this.dataGridViewDisciplines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDisciplines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.iconDataGridViewImageColumn});
+            this.nameDataGridViewTextBoxColumn});
             this.dataGridViewDisciplines.DataSource = this.disciplineBindingSource;
             this.dataGridViewDisciplines.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDisciplines.Location = new System.Drawing.Point(0, 25);
@@ -73,28 +71,6 @@
             this.dataGridViewDisciplines.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDiscipline_CellDoubleClick);
             this.dataGridViewDisciplines.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewDisciplines_CellToolTipTextNeeded);
             this.dataGridViewDisciplines.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewDisciplines_KeyDown);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // iconDataGridViewImageColumn
-            // 
-            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
-            this.iconDataGridViewImageColumn.HeaderText = "Icon";
-            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
-            this.iconDataGridViewImageColumn.ReadOnly = true;
-            this.iconDataGridViewImageColumn.Width = 40;
-            // 
-            // disciplineBindingSource
-            // 
-            this.disciplineBindingSource.AllowNew = true;
-            this.disciplineBindingSource.DataSource = typeof(Universalis.Faction);
             // 
             // toolStripFactions
             // 
@@ -168,6 +144,19 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // disciplineBindingSource
+            // 
+            this.disciplineBindingSource.AllowNew = true;
+            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
+            // 
             // DisciplineManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,11 +171,11 @@
             this.Text = "Disziplinen";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DisciplineManagerForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
             this.toolStripFactions.ResumeLayout(false);
             this.toolStripFactions.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,7 +189,6 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearch;
         private System.Windows.Forms.ToolStripButton toolStripButtonDeleteDiscipline;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelCount;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;

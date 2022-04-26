@@ -25,7 +25,7 @@ namespace Universalis
                                                                                    .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                                    .OrderBy( x => x.Name )
                                                                                    .ToList();
-            // TODO change the "type" of the DataSource to the new "Discipline"
+
             disciplineBindingSource.DataSource = disciplines;
             dataGridViewDisciplines.ClearSelection();
 

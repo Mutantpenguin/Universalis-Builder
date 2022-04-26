@@ -529,6 +529,7 @@
     <None Include="Properties\DataSources\AttributeModifier.datasource" />
     <None Include="Properties\DataSources\Attributes.datasource" />
     <None Include="Properties\DataSources\DamageEffect.datasource" />
+    <None Include="Properties\DataSources\Discipline.datasource" />
     <None Include="Properties\DataSources\Equipment.datasource" />
     <None Include="Properties\DataSources\Faction.datasource" />
     <None Include="Properties\DataSources\Group.datasource" />
