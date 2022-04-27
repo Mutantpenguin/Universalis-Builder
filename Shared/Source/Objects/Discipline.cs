@@ -124,18 +124,18 @@ namespace Universalis
             set;
         }
 
-        public uint Points( uint level )
+        public int Points( uint level )
         {
             uint points = level * BasePoints;
 
-            return ( points );
+            return ( (int)points );
         }
 
         [JsonIgnore]
-        public uint MinPoints => Points( 1 );
+        public int MinPoints => Points( 1 );
 
         [JsonIgnore]
-        public uint MaxPoints => Points( MaxLevel );
+        public int MaxPoints => Points( MaxLevel );
 
         [JsonIgnore]
         public string PointsString

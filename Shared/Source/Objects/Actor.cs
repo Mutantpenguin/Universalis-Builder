@@ -102,6 +102,22 @@ namespace Universalis
                 }
             }
 
+            foreach( ActorDiscipline actorDiscipline in Disciplines )
+            {
+                if( !actor.Disciplines.Any( x => x.Equals( actorDiscipline ) ) )
+                {
+                    return ( false );
+                }
+            }
+
+            foreach( ActorDiscipline actorDiscipline in actor.Disciplines )
+            {
+                if( !Disciplines.Any( x => x.Equals( actorDiscipline ) ) )
+                {
+                    return ( false );
+                }
+            }
+
             return ( true );
         }
 
@@ -177,6 +193,23 @@ namespace Universalis
                     Traits.Add( new ActorTrait( actorTrait ) );
                 }
             }
+
+            if( null != Disciplines )
+            {
+                Disciplines.Clear();
+            }
+            else
+            {
+                Disciplines = new List<ActorDiscipline>();
+            }
+
+            if( null != actor.Disciplines )
+            {
+                foreach( ActorDiscipline actorDiscipline in actor.Disciplines )
+                {
+                    Disciplines.Add( new ActorDiscipline( actorDiscipline ) );
+                }
+            }
         }
 
         public Guid ID
@@ -221,6 +254,71 @@ namespace Universalis
             get;
             set;
         } = Shared.Properties.Resources.empty_model;
+
+        public class ActorDiscipline
+        {
+            public ActorDiscipline() {}
+
+            public ActorDiscipline( ActorDiscipline actorDiscipline )
+            {
+                if( null == actorDiscipline )
+                {
+                    throw new ArgumentNullException( nameof( actorDiscipline ) );
+                }
+
+                ID = actorDiscipline.ID;
+
+                Discipline = actorDiscipline.Discipline;
+                Level = actorDiscipline.Level;
+            }
+
+            public bool Equals( ActorDiscipline actorDiscipline )
+            {
+                if( null == actorDiscipline )
+                {
+                    throw new ArgumentNullException( nameof( actorDiscipline ) );
+                }
+
+                if( ID != actorDiscipline.ID
+                    ||
+                    Discipline != actorDiscipline.Discipline
+                    ||
+                    Level != actorDiscipline.Level )
+                {
+                    return ( false );
+                }
+
+                return ( true );
+            }
+
+            public Guid ID
+            {
+                get;
+                set;
+            } = Guid.NewGuid();
+
+            [JsonConverter( typeof( JsonDisciplineConverter ) )]
+            public Discipline Discipline
+            {
+                get;
+                set;
+            }
+
+            public uint Level
+            {
+                get;
+                set;
+            } = 1;
+
+            [JsonIgnore]
+            public int Points
+            {
+                get
+                {
+                    return ( Discipline.Points( Level ) );
+                }
+            }
+        }
 
         public class ActorTrait
         {
@@ -346,6 +444,12 @@ namespace Universalis
             get;
             set;
         } = new List<ActorEquipment>();
+
+        public List<ActorDiscipline> Disciplines
+        {
+            get;
+            set;
+        } = new List<ActorDiscipline>();
 
         [JsonConverter( typeof( JsonArchetypeConverter ) )]
         public Archetype Archetype
@@ -576,6 +680,11 @@ namespace Universalis
                     points += Equipments.Sum( x => x.Equipment.Points );
                 }
 
+                if( null != Disciplines )
+                {
+                    points += Disciplines.Sum( x => x.Points );
+                }
+
                 return ( points );
             }
         }
@@ -637,6 +746,14 @@ namespace Universalis
             if( null != Equipments )
             {
                 if( Equipments.Exists( x => !x.Equipment.Active ) )
+                {
+                    return ( true );
+                }
+            }
+
+            if( null != Disciplines )
+            {
+                if( Disciplines.Exists( x => !x.Discipline.Active ) )
                 {
                     return ( true );
                 }
