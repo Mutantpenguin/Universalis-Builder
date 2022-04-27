@@ -51,6 +51,7 @@ namespace Universalis
         private static readonly Font FontArmorName = Font0Dot2;
         private static readonly Font FontEquipment = Font0Dot3;
         private static readonly Font FontTraits = Font0Dot3;
+        private static readonly Font FontDisciplines = Font0Dot3;
 
         private static readonly Brush HitPointCritBrush = new SolidBrush( Color.Orange );
         private static readonly Brush HitPointNormalBrush = new SolidBrush( Color.White );
@@ -66,6 +67,7 @@ namespace Universalis
         private static readonly int SImageSize = SLineHeight - ( SImageMargin * 2 );
 
         private static readonly Image SectionHeaderTraits = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.SteelBlue );
+        private static readonly Image SectionHeaderDisciplines = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.Purple );
         private static readonly Image SectionHeaderWeapons = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.IndianRed );
         private static readonly Image SectionHeaderArmor = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.OliveDrab );
         private static readonly Image SectionHeaderEquipment = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.SlateGray );
@@ -146,8 +148,10 @@ namespace Universalis
 
                 int equipmentEndY = DrawEquipment( g, actor.Equipments, armorEndY );
 
+                int disciplinesEndY = DrawDisciplines( g, actor.Disciplines, equipmentEndY );
+
                 // draw the structure last, otherwise "lower" elements could paint over it
-                DrawStructure( g, equipmentEndY );
+                DrawStructure( g, disciplinesEndY );
 
                 // show black lines between sections on the right side of the card
                 g.DrawLine( SStructureBlackPen, SSectionsPosX, traitsEndY,  SCardWidth, traitsEndY );
@@ -617,7 +621,7 @@ namespace Universalis
 
                 if( weaponUnarmed != null )
                 {
-                    DrawWeapon( g, actor, weaponUnarmed, 1, posY + ( lineNumber * SLineHeight ) );
+                    DrawSingleWeapon( g, actor, weaponUnarmed, 1, posY + ( lineNumber * SLineHeight ) );
 
                     lineNumber++;
                 }
@@ -628,7 +632,7 @@ namespace Universalis
                                                             .ThenBy( x => x.weapon.RangeSort )
                                                             .ThenBy( x => x.weapon.Name ) )
                 {
-                    DrawWeapon( g, actor, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * SLineHeight ) );
+                    DrawSingleWeapon( g, actor, weaponEntry.weapon, weaponEntry.count, posY + ( lineNumber * SLineHeight ) );
 
                     lineNumber++;
                 }
@@ -648,7 +652,7 @@ namespace Universalis
             }
         }
 
-        private static void DrawWeapon( Graphics g, Actor actor, Weapon weapon, int count, int posY )
+        private static void DrawSingleWeapon( Graphics g, Actor actor, Weapon weapon, int count, int posY )
         {
             g.DrawLine( SLinePenBlack, SSectionsPosX, posY + SLineHeight, SCardWidth, posY + SLineHeight );
             
@@ -917,6 +921,38 @@ namespace Universalis
             {
                 return ( posY );
             }
+        }
+
+        private static int DrawDisciplines( Graphics g, List<Actor.ActorDiscipline> actorDisciplineList, int posY )
+        {
+            if( actorDisciplineList.Count > 0 )
+            {
+                const String delimiter = ", ";
+
+                StringBuilder builder = new StringBuilder();
+
+                foreach( var entry in actorDisciplineList.Select( x => x.Discipline.FormattedName( x.Level ) )
+                                                         .OrderBy( x => x )
+                                                         .ToList() )
+                {
+                    builder.Append( entry );
+
+                    builder.Append( delimiter );
+                }
+
+                String disciplinesString = builder.Remove( builder.Length - delimiter.Length, delimiter.Length ).ToString();
+
+                DrawSectionHeader( g, "Disziplinen", SectionHeaderDisciplines, posY );
+                posY += SLineHeight;
+
+                Size size = g.MeasureString( disciplinesString, FontDisciplines, SSectionsWidth, StringFormatHLeftVTop ).ToSize();
+
+                g.DrawString( disciplinesString, FontDisciplines, Brushes.Black, new Rectangle( SSectionsPosX, posY, SSectionsWidth, SCardHeight - posY ), StringFormatHLeftVTop );
+
+                return ( posY + size.Height );
+            }
+
+            return ( posY );
         }
     }
 }
