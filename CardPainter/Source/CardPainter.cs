@@ -140,21 +140,19 @@ namespace Universalis
 
                 int traitsEndY = DrawTraits( g, actor.Traits );
 
-                int weaponsCount = DrawWeapons( g, actor, traitsEndY );
+                int weaponsEndY = DrawWeapons( g, actor, traitsEndY );
 
-                int armorPosY = traitsEndY + ( SLineHeight * weaponsCount );
-                DrawArmor( g, actor, actor.Armor, armorPosY );
+                int armorEndY = DrawArmor( g, actor, actor.Armor, weaponsEndY );
 
-                int equipmentYPos = armorPosY + SLineHeight * ( ( null == actor.Armor ? 0 : 2 ) );
-                int equipmentEndY = DrawEquipment( g, actor.Equipments, equipmentYPos );
+                int equipmentEndY = DrawEquipment( g, actor.Equipments, armorEndY );
 
                 // draw the structure last, otherwise "lower" elements could paint over it
                 DrawStructure( g, equipmentEndY );
 
                 // show black lines between sections on the right side of the card
-                g.DrawLine( SStructureBlackPen, SSectionsPosX, traitsEndY,    SCardWidth, traitsEndY );
-                g.DrawLine( SStructureBlackPen, SSectionsPosX, armorPosY,     SCardWidth, armorPosY );
-                g.DrawLine( SStructureBlackPen, SSectionsPosX, equipmentYPos, SCardWidth, equipmentYPos );
+                g.DrawLine( SStructureBlackPen, SSectionsPosX, traitsEndY,  SCardWidth, traitsEndY );
+                g.DrawLine( SStructureBlackPen, SSectionsPosX, weaponsEndY, SCardWidth, weaponsEndY );
+                g.DrawLine( SStructureBlackPen, SSectionsPosX, armorEndY,   SCardWidth, armorEndY );
 
                 return ( img );
             }
@@ -165,7 +163,7 @@ namespace Universalis
             return ( Convert.ToInt32( cm / 2.54f * Dpi ) );
         }
 
-        private static void DrawStructure( Graphics g, int equipmentEndY )
+        private static void DrawStructure( Graphics g, int posY )
         {
             // line right of image
             g.DrawLine( SStructureBlackPen, SSectionsPosX, 0, SSectionsPosX, SCardHeight );
@@ -180,7 +178,7 @@ namespace Universalis
             g.DrawLine( SStructureBlackPen, SSectionsPosX, CmToPixel( 1.5 ), SCardWidth, CmToPixel( 1.5 ) );
 
             // surrounding rectangle
-            if( equipmentEndY > SCardHeight )
+            if( posY > SCardHeight )
             {
                 // draw in red to know that not everything fits on the card
                 g.DrawRectangle( SStructureRedPen, 0, 0, SCardWidth - 1, SCardHeight - 1 );
@@ -606,7 +604,7 @@ namespace Universalis
 
             if( ( actor.Weapons.Count == 0 ) && ( weaponUnarmed == null ) )
             {
-                return ( 0 );
+                return ( posY );
             }
             else
             {
@@ -646,7 +644,7 @@ namespace Universalis
                 // right of damage
                 g.DrawLine( SLinePenBlack, WeaponDamageStart + WeaponDamageWidth, posY + SLineHeight, WeaponDamageStart + WeaponDamageWidth, lineVertEnd );
 
-                return( lineNumber );
+                return( posY + ( SLineHeight * lineNumber ) );
             }
         }
 
@@ -794,7 +792,7 @@ namespace Universalis
             return ( SImageMargin + effectImageWidthDraw );
         }
 
-        private static void DrawArmor( Graphics g, Actor actor, Armor armor, int posY )
+        private static int DrawArmor( Graphics g, Actor actor, Armor armor, int posY )
         {
             if( armor != null )
             {
@@ -843,6 +841,12 @@ namespace Universalis
                     g.FillRectangle( Brushes.Purple, rect );
                     g.DrawString( "KEIN PLATZ", FontArmor, Brushes.White, rect, StringFormatHCenterVCenter );
                 }
+
+                return ( posY + SLineHeight * 2 );
+            }
+            else
+            {
+                return ( posY );
             }
         }
 
