@@ -344,41 +344,6 @@ namespace Universalis
             }
         }
 
-        private void dataGridViewActors_CellContentClick( object sender, DataGridViewCellEventArgs e )
-        {
-            var senderGrid = (DataGridView)sender;
-
-            if( senderGrid.Columns[ e.ColumnIndex ] is DataGridViewButtonColumn && e.RowIndex >= 0 )
-            {
-                if( e.ColumnIndex == actorUpDataGridViewTextBoxColumn.Index )
-                {
-                    if( e.RowIndex > 0 )
-                    {
-                        var tmp = m_groupModified.Models[ e.RowIndex ];
-                        m_groupModified.Models[ e.RowIndex ] = m_groupModified.Models[ e.RowIndex - 1 ];
-                        m_groupModified.Models[ e.RowIndex - 1 ] = tmp;
-
-                        updateGridViewActors();
-
-                        dataGridViewActors.Rows[ e.RowIndex - 1 ].Selected = true;
-                    }
-                }
-                else if( e.ColumnIndex == actorDownDataGridViewTextBoxColumn.Index )
-                {
-                    if( e.RowIndex < ( m_groupModified.Models.Count - 1 ) )
-                    {
-                        var tmp = m_groupModified.Models[ e.RowIndex ];
-                        m_groupModified.Models[ e.RowIndex ] = m_groupModified.Models[ e.RowIndex + 1 ];
-                        m_groupModified.Models[ e.RowIndex + 1 ] = tmp;
-
-                        updateGridViewActors();
-
-                        dataGridViewActors.Rows[ e.RowIndex + 1 ].Selected = true;
-                    }
-                }
-            }
-        }
-
         private void toolStripButtonGroupTraitSelect_Click( object sender, EventArgs e )
         {
             if( null != m_groupModified.GroupTrait )
@@ -722,6 +687,74 @@ namespace Universalis
             else
             {
                 e.Effect = DragDropEffects.None;
+            }
+        }
+
+
+        private Rectangle dragBoxFromMouseDown;
+        private int rowIndexFromMouseDown;
+
+        private void dataGridViewActors_MouseDown( object sender, MouseEventArgs e )
+        {
+            // Get the index of the item the mouse is below.
+            rowIndexFromMouseDown = dataGridViewActors.HitTest( e.X, e.Y ).RowIndex;
+
+            if( rowIndexFromMouseDown != -1 )
+            {
+                // Remember the point where the mouse down occurred. 
+                // The DragSize indicates the size that the mouse can move before a drag event should be started.                
+                Size dragSize = SystemInformation.DragSize;
+
+                // Create a rectangle using the DragSize, with the mouse position being at the center of the rectangle.
+                dragBoxFromMouseDown = new Rectangle( new Point( e.X - ( dragSize.Width / 2 ), e.Y - ( dragSize.Height / 2 ) ), dragSize );
+            }
+            else
+            {
+                // Reset the rectangle if the mouse is not over an item in the ListBox.
+                dragBoxFromMouseDown = Rectangle.Empty;
+            }
+        }
+
+        private void dataGridViewActors_MouseMove( object sender, MouseEventArgs e )
+        {
+            if( ( e.Button & MouseButtons.Left ) == MouseButtons.Left )
+            {
+                // If the mouse moves outside the rectangle, start the drag.
+                if( ( dragBoxFromMouseDown != Rectangle.Empty ) && !dragBoxFromMouseDown.Contains( e.X, e.Y ) )
+                {
+                    // Proceed with the drag and drop, passing in the list item.                    
+                    dataGridViewActors.DoDragDrop( dataGridViewActors.Rows[ rowIndexFromMouseDown ], DragDropEffects.Move );
+                }
+            }
+        }
+
+        private void dataGridViewActors_DragOver( object sender, DragEventArgs e )
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void dataGridViewActors_DragDrop( object sender, DragEventArgs e )
+        {
+            // The mouse locations are relative to the screen, so they must be  converted to client coordinates.
+            Point clientPoint = dataGridViewActors.PointToClient( new Point( e.X, e.Y ) );
+
+            // Get the row index of the item the mouse is below. 
+            int rowIndexOfItemUnderMouseToDrop = dataGridViewActors.HitTest( clientPoint.X, clientPoint.Y ).RowIndex;
+
+            if( rowIndexOfItemUnderMouseToDrop != -1 )
+            {
+                // If the drag operation was a move then remove and insert the row.
+                if( e.Effect == DragDropEffects.Move )
+                {
+
+                    var rowToMove = m_groupModified.Models[ rowIndexFromMouseDown ];
+                    m_groupModified.Models.RemoveAt( rowIndexFromMouseDown );
+                    m_groupModified.Models.Insert( rowIndexOfItemUnderMouseToDrop, rowToMove );
+
+                    updateGridViewActors();
+
+                    dataGridViewActors.Rows[ rowIndexOfItemUnderMouseToDrop ].Selected = true;
+                }
             }
         }
     }
