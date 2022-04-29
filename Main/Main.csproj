@@ -316,6 +316,12 @@
     <Compile Include="Source\UserData\Actor\AddEquipmentToActorForm.Designer.cs">
       <DependentUpon>AddEquipmentToActorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\UserData\Actor\AddDisciplineToActorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\UserData\Actor\AddDisciplineToActorForm.Designer.cs">
+      <DependentUpon>AddDisciplineToActorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\UserData\Actor\AddTraitToActorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -501,6 +507,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\UserData\Actor\AddEquipmentToActorForm.resx">
       <DependentUpon>AddEquipmentToActorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\UserData\Actor\AddDisciplineToActorForm.resx">
+      <DependentUpon>AddDisciplineToActorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\UserData\Actor\AddTraitToActorForm.resx">
       <DependentUpon>AddTraitToActorForm.cs</DependentUpon>
