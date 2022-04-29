@@ -421,12 +421,9 @@ namespace Universalis
                 if( ( e.ColumnIndex != -1 ) && ( e.RowIndex != -1 ) )
                 {
                     DataGridViewRow row = dataGridViewActors.Rows[ e.RowIndex ];
-                    if( !row.Selected )
-                    {
-                        dataGridViewActors.ClearSelection();
-                        dataGridViewActors.CurrentCell = row.Cells[ e.ColumnIndex ];
-                        row.Selected = true;
-                    }
+                    dataGridViewActors.ClearSelection();
+                    dataGridViewActors.CurrentCell = row.Cells[ e.ColumnIndex ];
+                    row.Selected = true;
                 }
             }
         }
