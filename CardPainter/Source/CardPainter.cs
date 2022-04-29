@@ -140,7 +140,9 @@ namespace Universalis
                 DrawHitPoints( g, actor );
                 DrawPoints( g, actor );
 
-                int traitsEndY = DrawTraits( g, actor.Traits );
+                int headerEndY = CmToPixel( 1.5 );
+
+                int traitsEndY = DrawTraits( g, actor.Traits, headerEndY );
 
                 int weaponsEndY = DrawWeapons( g, actor, traitsEndY );
 
@@ -150,13 +152,34 @@ namespace Universalis
 
                 int disciplinesEndY = DrawDisciplines( g, actor.Disciplines, equipmentEndY );
 
+                // show black lines between sections on the right side of the card
+                if( headerEndY < traitsEndY )
+                {
+                    g.DrawLine( SStructureBlackPen, SSectionsPosX, traitsEndY, SCardWidth, traitsEndY );
+                }
+
+                if( traitsEndY < weaponsEndY )
+                {
+                    g.DrawLine( SStructureBlackPen, SSectionsPosX, weaponsEndY,     SCardWidth, weaponsEndY );
+                }
+
+                if( weaponsEndY < armorEndY )
+                {
+                    g.DrawLine( SStructureBlackPen, SSectionsPosX, armorEndY,       SCardWidth, armorEndY );
+                }
+
+                if( armorEndY < equipmentEndY )
+                {
+                    g.DrawLine( SStructureBlackPen, SSectionsPosX, equipmentEndY, SCardWidth, equipmentEndY );
+                }
+
+                if( equipmentEndY < disciplinesEndY )
+                {
+                    g.DrawLine( SStructureBlackPen, SSectionsPosX, disciplinesEndY, SCardWidth, disciplinesEndY );
+                }
+
                 // draw the structure last, otherwise "lower" elements could paint over it
                 DrawStructure( g, disciplinesEndY );
-
-                // show black lines between sections on the right side of the card
-                g.DrawLine( SStructureBlackPen, SSectionsPosX, traitsEndY,  SCardWidth, traitsEndY );
-                g.DrawLine( SStructureBlackPen, SSectionsPosX, weaponsEndY, SCardWidth, weaponsEndY );
-                g.DrawLine( SStructureBlackPen, SSectionsPosX, armorEndY,   SCardWidth, armorEndY );
 
                 return ( img );
             }
@@ -540,10 +563,8 @@ namespace Universalis
             g.DrawString( name, FontStandard, Brushes.White, sectionRectangle, StringFormatHLeftVCenter );
         }
 
-        private static int DrawTraits( Graphics g, List<Actor.ActorTrait> actorTraitList )
+        private static int DrawTraits( Graphics g, List<Actor.ActorTrait> actorTraitList, int posY )
         {
-            int posY = CmToPixel( 1.5 );
-
             if( actorTraitList.Count > 0 )
             {
                 const String delimiter = ", ";
