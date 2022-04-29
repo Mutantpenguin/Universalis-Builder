@@ -452,6 +452,10 @@ namespace Universalis
                         actor.InactiveType = inactiveReasonForm.InactiveType;
                         actor.InactiveReason = inactiveReasonForm.InactiveReason;
 
+                        // move the inactivated actor to the end
+                        m_groupModified.Models.Remove( actor );
+                        m_groupModified.Models.Add( actor );
+
                         updateGridViewActors();
 
                         SelectActor( actor );
