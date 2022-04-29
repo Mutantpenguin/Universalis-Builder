@@ -23,7 +23,6 @@ namespace Universalis
 
             Name = discipline.Name;
             Description = discipline.Description;
-            Rules = discipline.Rules;
             BasePoints = discipline.BasePoints;
             MaxLevel = discipline.MaxLevel;
 
@@ -49,8 +48,6 @@ namespace Universalis
                 Name != discipline.Name
                 ||
                 Description != discipline.Description
-                ||
-                Rules != discipline.Rules
                 ||
                 BasePoints != discipline.BasePoints
                 ||
@@ -95,12 +92,6 @@ namespace Universalis
         } = "Bitte Namen eingeben";
 
         public string Description
-        {
-            get;
-            set;
-        } = String.Empty;
-
-        public string Rules
         {
             get;
             set;
@@ -161,16 +152,6 @@ namespace Universalis
         public string Summary()
         {
             string text = String.Empty;
-
-            if( !String.IsNullOrEmpty( this.Rules ) )
-            {
-                if( !String.IsNullOrEmpty( text ) )
-                {
-                    text += Environment.NewLine;
-                }
-
-                text += this.Rules;
-            }
 
             if( null != this.Permissions )
             {
