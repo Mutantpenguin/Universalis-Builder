@@ -539,6 +539,7 @@
       <DependentUpon>InactiveReasonForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Actor.ActorDiscipline.datasource" />
     <None Include="Properties\DataSources\Actor.ActorEquipment.datasource" />
     <None Include="Properties\DataSources\Actor.ActorTrait.datasource" />
     <None Include="Properties\DataSources\Actor.ActorWeapon.datasource" />

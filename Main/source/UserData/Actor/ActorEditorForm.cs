@@ -33,6 +33,10 @@ namespace Universalis
                                                            .Select( i => (uint)i )
                                                            .ToList();
 
+            disciplineLevelBindingSource.DataSource = Enumerable.Range( 1, 10 )
+                                                                .Select( i => (uint)i )
+                                                                .ToList();
+
             pictureBoxFactionIcon.Image = m_actorModified.Archetype.Faction.Icon;
             toolTip.SetToolTip( pictureBoxFactionIcon, m_actorModified.Archetype.Faction.Name );
 
@@ -63,6 +67,7 @@ namespace Universalis
             updateGridViewEquipment();
             updateGridViewArmor();
             updateGridViewTraits();
+            updateGridViewDisciplines();
 
             // we are now completely initialized. if we would set it ealier, the bitmap for the card would get created way too often
             m_initialized = true;
@@ -85,6 +90,11 @@ namespace Universalis
         private void DataGridViewTraits_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewTraits );
+        }
+
+        private void DataGridViewDisciplines_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewDisciplines );
         }
 
         private void dataGridViewWeapons_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
@@ -427,7 +437,58 @@ namespace Universalis
         }
 #endregion traits
 
-#region events
+#region disciplines
+        private void updateGridViewDisciplines()
+        {
+            // if we don't do this, CellFormatting for the Datagrid will throw an exception because it's still working with the old content
+            actorDisciplineBindingSource.DataSource = null;
+            actorDisciplineBindingSource.DataSource = m_actorModified.Disciplines.OrderBy( x => x.Discipline.Name )
+                                                                                 .ToList();
+
+            dataGridViewDisciplines.ClearSelection();
+        }
+
+        private void toolStripButtonDisciplineAdd_Click( object sender, EventArgs e )
+        {
+            List<Discipline> disciplineList = m_actorModified.Disciplines.Select( x => x.Discipline )
+                                                                         .Distinct()
+                                                                         .ToList();
+
+            using( AddDisciplineToActorForm addDisciplineToActor = new AddDisciplineToActorForm( m_actorModified.Archetype, disciplineList ) )
+            {
+                if( addDisciplineToActor.ShowDialog( this ) == DialogResult.OK )
+                {
+                    if( addDisciplineToActor.SelectedDisciplines.Count > 0 )
+                    {
+                        foreach( Discipline discipline in addDisciplineToActor.SelectedDisciplines )
+                        {
+                            m_actorModified.Disciplines.Add( new Actor.ActorDiscipline()
+                            {
+                                Discipline = discipline
+                            } );
+                        }
+
+                        updateGridViewDisciplines();
+                        updateFields();
+                    }
+                }
+            }
+        }
+
+        private void toolStripButtonDisciplineRemove_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewDisciplines.SelectedRows.Count > 0 )
+            {
+                var discipline = (Actor.ActorDiscipline)dataGridViewDisciplines.Rows[ dataGridViewDisciplines.SelectedRows[ 0 ].Index ].DataBoundItem;
+                m_actorModified.Disciplines.Remove( discipline );
+
+                updateGridViewDisciplines();
+                updateFields();
+            }
+        }
+#endregion disciplines
+
+        #region events
         private void ActorEditorForm_FormClosing( object sender, FormClosingEventArgs e )
         {
             Properties.Settings.Default.ActorEditorWindowState = this.WindowState;
@@ -556,6 +617,29 @@ namespace Universalis
             }
         }
 
+        private void dataGridViewDisciplines_CellToolTipTextNeeded( object sender, DataGridViewCellToolTipTextNeededEventArgs e )
+        {
+            if( e.RowIndex > -1 )
+            {
+                Actor.ActorDiscipline actorDiscipline = (Actor.ActorDiscipline)dataGridViewDisciplines.Rows[ e.RowIndex ].DataBoundItem;
+
+                string disciplineSummary = actorDiscipline.Discipline.Summary();
+
+                if( !String.IsNullOrEmpty( disciplineSummary ) )
+                {
+                    string text = actorDiscipline.Discipline.FormattedName( actorDiscipline.Level ) + ":";
+
+                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( disciplineSummary );
+
+                    e.ToolTipText = text;
+                }
+                else
+                {
+                    e.ToolTipText = String.Empty;
+                }
+            }
+        }
+
         private void dataGridViewWeapons_CellToolTipTextNeeded( object sender, DataGridViewCellToolTipTextNeededEventArgs e )
         {
             if( e.RowIndex > -1 )
@@ -674,6 +758,16 @@ namespace Universalis
             }
         }
 
+        private void dataGridViewDisciplines_RowPrePaint( object sender, DataGridViewRowPrePaintEventArgs e )
+        {
+            var discipline = ( (Actor.ActorDiscipline)dataGridViewDisciplines.Rows[ e.RowIndex ].DataBoundItem ).Discipline;
+
+            if( !discipline.Active )
+            {
+                dataGridViewDisciplines.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.Firebrick;
+            }
+        }
+
         private void dataGridViewArmor_RowPrePaint( object sender, DataGridViewRowPrePaintEventArgs e )
         {
             var armor = (Armor)dataGridViewArmor.Rows[ e.RowIndex ].DataBoundItem;
@@ -707,6 +801,7 @@ namespace Universalis
         private void ActorEditorForm_Shown( object sender, EventArgs e )
         {
             dataGridViewTraits.ClearSelection();
+            dataGridViewDisciplines.ClearSelection();
             dataGridViewArmor.ClearSelection();
             dataGridViewWeapons.ClearSelection();
             dataGridViewEquipment.ClearSelection();
@@ -731,6 +826,30 @@ namespace Universalis
             if( dataGridViewTraits.CurrentCell.ColumnIndex == traitLevelDataGridViewComboBoxColumn.Index )
             {
                 dataGridViewTraits.CommitEdit( DataGridViewDataErrorContexts.Commit );
+
+                updateFields();
+            }
+        }
+
+        private void dataGridViewDisciplines_CellBeginEdit( object sender, DataGridViewCellCancelEventArgs e )
+        {
+            if( e.ColumnIndex == disciplineLevelDataGridViewComboBoxColumn.Index )
+            {
+                DataGridViewRow row = dataGridViewDisciplines.Rows[ e.RowIndex ];
+
+                Discipline discipline = ( (Actor.ActorDiscipline)row.DataBoundItem ).Discipline;
+
+                ( row.Cells[ disciplineLevelDataGridViewComboBoxColumn.Index ] as DataGridViewComboBoxCell ).DataSource = Enumerable.Range( 1, (int)discipline.MaxLevel )
+                                                                                                                                    .Select( i => (uint)i )
+                                                                                                                                    .ToList();
+            }
+        }
+
+        private void dataGridViewDisciplines_CurrentCellDirtyStateChanged( object sender, EventArgs e )
+        {
+            if( dataGridViewDisciplines.CurrentCell.ColumnIndex == disciplineLevelDataGridViewComboBoxColumn.Index )
+            {
+                dataGridViewDisciplines.CommitEdit( DataGridViewDataErrorContexts.Commit );
 
                 updateFields();
             }
