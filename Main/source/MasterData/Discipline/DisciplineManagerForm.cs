@@ -82,7 +82,6 @@ namespace Universalis
 
         private void editDiscipline( Discipline discipline )
         {
-            /* TODO
             using( DisciplineEditorForm disciplineEditorForm = new DisciplineEditorForm( discipline ) )
             {
                 this.Hide();
@@ -91,7 +90,6 @@ namespace Universalis
 
                 this.Show();
             }
-            */
 
             disciplineBindingSource.ResetBindings( false );
         }
@@ -138,6 +136,24 @@ namespace Universalis
             {
                 e.Handled = true;
                 editDiscipline( (Discipline)dataGridViewDisciplines.CurrentRow.DataBoundItem );
+            }
+        }
+
+        private void dataGridViewDisciplines_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        {
+            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewDisciplines );
+
+            if( e.RowIndex != -1 )
+            {
+                if( e.ColumnIndex == HasPermissions.Index )
+                {
+                    Discipline discipline = (Discipline)dataGridViewDisciplines.Rows[ e.RowIndex ].DataBoundItem;
+
+                    if( discipline.Permissions != null )
+                    {
+                        e.Value = Properties.Resources.outline_key_black_18dp;
+                    }
+                }
             }
         }
     }
