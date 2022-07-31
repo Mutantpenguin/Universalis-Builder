@@ -23,6 +23,8 @@ namespace Universalis
 
             Name = equipment.Name;
             Description = equipment.Description;
+            MaxModelQuantity = equipment.MaxModelQuantity;
+            MaxGroupQuantity = equipment.MaxGroupQuantity;
             Rules = equipment.Rules;
             BasePoints = equipment.BasePoints;
             Weight = equipment.Weight;
@@ -64,6 +66,10 @@ namespace Universalis
                 Name != equipment.Name
                 ||
                 Description != equipment.Description
+                ||
+                MaxModelQuantity != equipment.MaxModelQuantity
+                ||
+                MaxGroupQuantity != equipment.MaxGroupQuantity
                 ||
                 Rules != equipment.Rules
                 ||
@@ -134,6 +140,18 @@ namespace Universalis
             get;
             set;
         } = String.Empty;
+
+        public uint MaxModelQuantity
+        {
+            get;
+            set;
+        } = 0;
+
+        public uint MaxGroupQuantity
+        {
+            get;
+            set;
+        } = 0;
 
         public string Rules
         {
@@ -241,6 +259,22 @@ namespace Universalis
             }
 
             return ( (int)points );
+        }
+
+        [JsonIgnore]
+        public string FormattedMaxQuantity
+        {
+            get
+            {
+                if( ( MaxModelQuantity == 0 ) && ( MaxGroupQuantity == 0 ) )
+                {
+                    return String.Empty;
+                }
+                else
+                {
+                    return ( MaxModelQuantity == 0 ? "-" : MaxModelQuantity.ToString() ) + " / " + ( MaxGroupQuantity == 0 ? "-" : MaxGroupQuantity.ToString() );
+                }
+            }
         }
     }
 }

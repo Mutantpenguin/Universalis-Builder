@@ -28,7 +28,8 @@ namespace Universalis
 
             Name = weapon.Name;
             Description = weapon.Description;
-            //MaxModelAmount
+            MaxModelQuantity = weapon.MaxModelQuantity;
+            MaxGroupQuantity = weapon.MaxGroupQuantity;
             Rules = weapon.Rules;
             Weight = weapon.Weight;
             AdditionalPoints = weapon.AdditionalPoints;
@@ -96,6 +97,10 @@ namespace Universalis
                 Name != weapon.Name
                 ||
                 Description != weapon.Description
+                ||
+                MaxModelQuantity != weapon.MaxModelQuantity
+                ||
+                MaxGroupQuantity != weapon.MaxGroupQuantity
                 ||
                 Rules != weapon.Rules
                 ||
@@ -232,6 +237,18 @@ namespace Universalis
             get;
             set;
         } = String.Empty;
+
+        public uint MaxModelQuantity
+        {
+            get;
+            set;
+        } = 0;
+
+        public uint MaxGroupQuantity
+        {
+            get;
+            set;
+        } = 0;
 
         public string Rules
         {
@@ -581,6 +598,22 @@ namespace Universalis
             }
 
             return ( text );
+        }
+
+        [JsonIgnore]
+        public string FormattedMaxQuantity
+        {
+            get
+            {
+                if( ( MaxModelQuantity == 0 ) && ( MaxGroupQuantity == 0 ) )
+                {
+                    return String.Empty;
+                }
+                else
+                {
+                    return ( MaxModelQuantity == 0 ? "-" : MaxModelQuantity.ToString() ) + " / " + ( MaxGroupQuantity == 0 ? "-" : MaxGroupQuantity.ToString() );
+                }
+            }
         }
     }
 }
