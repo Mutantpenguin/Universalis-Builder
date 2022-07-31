@@ -586,6 +586,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\alert-circle-red-24dp.png" />
+    <None Include="Resources\alert-circle-red-18dp.png" />
     <None Include="Resources\outline_key_black_18dp.png" />
     <None Include="Resources\microsoft-visual-studio-code.png" />
     <None Include="Resources\baseline_print_black_18dp.png" />
@@ -601,7 +603,6 @@
     <None Include="Resources\tick.png" />
     <None Include="Resources\plus.png" />
     <None Include="Resources\funnel.png" />
-    <None Include="Resources\error_outline.png" />
     <None Include="Resources\disk.png" />
     <None Include="Resources\disabled_overlay.png" />
     <None Include="Resources\cross-circle.png" />

@@ -80,6 +80,7 @@ namespace Universalis
 
         private void updateGridViewActors()
         {
+            actorsBindingSource.DataSource = null;
             actorsBindingSource.DataSource = m_groupModified.Models.ToList();
 
             dataGridViewActors.ClearSelection();
@@ -88,6 +89,8 @@ namespace Universalis
             {
                 dataGridViewActors.Rows[ 0 ].Selected = true;
             }
+
+            checkValidGroup();
         }
 
         private void buttonSave_Click( object sender, EventArgs e )
@@ -262,7 +265,7 @@ namespace Universalis
                         e.PaintBackground( e.CellBounds, true );
                         e.PaintContent( e.CellBounds );
 
-                        Image imgInactiveComposition = Properties.Resources.error_outline;
+                        Image imgInactiveComposition = Properties.Resources.alert_circle_red_18dp;
                         e.Graphics.DrawImageUnscaled( imgInactiveComposition, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveComposition.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveComposition.Height ) / 2 ) );
 
                         e.Handled = true;
@@ -756,6 +759,22 @@ namespace Universalis
 
                     dataGridViewActors.Rows[ rowIndexOfItemUnderMouseToDrop ].Selected = true;
                 }
+            }
+        }
+
+        private void checkValidGroup()
+        {
+            var (status, reason) = m_groupModified.IsValid();
+
+            if( !status )
+            {
+                pictureBoxInvalidGroup.Visible = true;
+                this.toolTip.SetToolTip( pictureBoxInvalidGroup, reason );
+            }
+            else
+            {
+                pictureBoxInvalidGroup.Visible = false;
+                this.toolTip.SetToolTip( pictureBoxInvalidGroup, String.Empty );
             }
         }
     }

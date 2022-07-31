@@ -28,6 +28,7 @@ namespace Universalis
 
             Name = weapon.Name;
             Description = weapon.Description;
+            //MaxModelAmount
             Rules = weapon.Rules;
             Weight = weapon.Weight;
             AdditionalPoints = weapon.AdditionalPoints;

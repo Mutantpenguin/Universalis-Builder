@@ -63,6 +63,26 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap alert_circle_red_18dp {
+            get {
+                object obj = ResourceManager.GetObject("alert_circle_red_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap alert_circle_red_24dp {
+            get {
+                object obj = ResourceManager.GetObject("alert_circle_red_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap archetypes {
             get {
                 object obj = ResourceManager.GetObject("archetypes", resourceCulture);
@@ -386,16 +406,6 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap equipment {
             get {
                 object obj = ResourceManager.GetObject("equipment", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap error_outline {
-            get {
-                object obj = ResourceManager.GetObject("error_outline", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

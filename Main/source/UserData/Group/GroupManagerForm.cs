@@ -159,7 +159,7 @@ namespace Universalis
 
                 if( !group.IsValid().status )
                 {
-                    Image imgInactiveComposition = Properties.Resources.error_outline;
+                    Image imgInactiveComposition = Properties.Resources.alert_circle_red_18dp;
 
                     e.PaintBackground( e.CellBounds, true );
                     e.PaintContent( e.CellBounds );
