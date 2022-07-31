@@ -33,11 +33,21 @@ namespace Universalis
 
             if( e.RowIndex != -1 )
             {
+                Archetype archetype = (Archetype)dataGridViewArchetypes.Rows[e.RowIndex].DataBoundItem;
+
                 if( e.ColumnIndex == HasRules.Index )
                 {
-                    Archetype archetype = (Archetype)dataGridViewArchetypes.Rows[e.RowIndex].DataBoundItem;
-
                     e.Value = !String.IsNullOrEmpty( archetype.Rules );
+                }
+                else if( ( archetype.Type == Archetype.EType.Drohne ) && (  ( e.ColumnIndex == AGIDataGridViewTextBoxColumn.Index )
+                                                                            ||
+                                                                            ( e.ColumnIndex == HTHDataGridViewTextBoxColumn.Index )
+                                                                            ||
+                                                                            ( e.ColumnIndex == LRCDataGridViewTextBoxColumn.Index )
+                                                                            ||
+                                                                            ( e.ColumnIndex == DETDataGridViewTextBoxColumn.Index ) ) )
+                {
+                    e.Value = "-";
                 }
             }
         }
