@@ -183,6 +183,11 @@ namespace Universalis
                 reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) +  "Inaktive Ausstattung vorhanden.";
             }
 
+            if( Models.Exists( x => x.OutfitExceedsMaxQuantity() ) )
+            {
+                reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) + "Maximale Menge an Ausstattung pro Modell überschritten.";
+            }
+
             return ( String.IsNullOrEmpty( reasonString ), reasonString );
         }
     }

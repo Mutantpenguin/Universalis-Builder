@@ -761,5 +761,32 @@ namespace Universalis
 
             return ( false );
         }
+
+        public bool OutfitExceedsMaxQuantity()
+        {
+            if( null != Weapons )
+            {
+                if( Weapons.GroupBy( x => x.Weapon )
+                           .Select( x => new { weapon = x.Key, count = x.Count() } )
+                           .Where( x => x.weapon.MaxModelQuantity > 0 && x.count > x.weapon.MaxModelQuantity )
+                           .Count() > 0 )
+                {
+                    return ( true );
+                }
+            }
+
+            if( null != Equipments )
+            {
+                if( Equipments.GroupBy( x => x.Equipment )
+                              .Select( x => new { equipment = x.Key, count = x.Count() } )
+                              .Where( x => x.equipment.MaxModelQuantity > 0 && x.count > x.equipment.MaxModelQuantity )
+                              .Count() > 0 )
+                {
+                    return ( true );
+                }
+            }
+
+            return ( false );
+        }
     }
 }
