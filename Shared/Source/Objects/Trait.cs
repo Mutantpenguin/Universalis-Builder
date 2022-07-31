@@ -23,7 +23,6 @@ namespace Universalis
 
             Name = trait.Name;
             Description = trait.Description;
-            MaxModelQuantity = trait.MaxModelQuantity;
             MaxGroupQuantity = trait.MaxGroupQuantity;
             Rules = trait.Rules;
             BasePoints = trait.BasePoints;
@@ -62,8 +61,6 @@ namespace Universalis
                 Name != trait.Name
                 ||
                 Description != trait.Description
-                ||
-                MaxModelQuantity != trait.MaxModelQuantity
                 ||
                 MaxGroupQuantity != trait.MaxGroupQuantity
                 ||
@@ -136,12 +133,6 @@ namespace Universalis
             get;
             set;
         } = String.Empty;
-
-        public uint MaxModelQuantity
-        {
-            get;
-            set;
-        } = 0;
 
         public uint MaxGroupQuantity
         {
@@ -299,13 +290,13 @@ namespace Universalis
         {
             get
             {
-                if( ( MaxModelQuantity == 0 ) && ( MaxGroupQuantity == 0 ) )
+                if( MaxGroupQuantity == 0 )
                 {
                     return String.Empty;
                 }
                 else
                 {
-                    return ( MaxModelQuantity == 0 ? "-" : MaxModelQuantity.ToString() ) + " / " + ( MaxGroupQuantity == 0 ? "-" : MaxGroupQuantity.ToString() );
+                    return MaxGroupQuantity.ToString();
                 }
             }
         }
