@@ -555,9 +555,9 @@ namespace Universalis
                 return;
             }
 
-            var (status, reason) = m_groupModified.IsValid();
+            var (valid, reason) = m_groupModified.IsValid();
 
-            if( !status )
+            if( !valid )
             {
                 MessageBox.Show( $"Die Gruppe ist nicht regelkonform. Bitte korrigieren Sie die Probleme vorher:\n\n{reason}",
                                  String.Empty,
@@ -764,9 +764,9 @@ namespace Universalis
 
         private void checkValidGroup()
         {
-            var (status, reason) = m_groupModified.IsValid();
+            var (valid, reason) = m_groupModified.IsValid();
 
-            if( !status )
+            if( !valid )
             {
                 pictureBoxInvalidGroup.Visible = true;
                 this.toolTip.SetToolTip( pictureBoxInvalidGroup, reason );

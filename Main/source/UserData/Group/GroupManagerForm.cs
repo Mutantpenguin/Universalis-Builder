@@ -122,9 +122,9 @@ namespace Universalis
 
                 string toolTipText = String.Empty;
 
-                var (status, reason) = group.IsValid();
+                var (valid, reason) = group.IsValid();
 
-                if( !status )
+                if( !valid )
                 {
                     toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine : String.Empty ) + reason;
                 }
@@ -157,7 +157,7 @@ namespace Universalis
             {
                 Group group = (Group)dataGridViewGroups.Rows[ e.RowIndex ].DataBoundItem;
 
-                if( !group.IsValid().status )
+                if( !group.IsValid().valid )
                 {
                     Image imgInactiveComposition = Properties.Resources.alert_circle_red_18dp;
 

@@ -165,7 +165,7 @@ namespace Universalis
             }
         }
 
-        public (bool status, String reason) IsValid()
+        public (bool valid, String reason) IsValid()
         {
             string reasonString = String.Empty;
 
