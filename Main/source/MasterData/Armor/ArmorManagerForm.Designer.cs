@@ -87,6 +87,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -216,7 +217,7 @@
             this.FormattedMaxQuantity.HeaderText = "Max.";
             this.FormattedMaxQuantity.Name = "FormattedMaxQuantity";
             this.FormattedMaxQuantity.ReadOnly = true;
-            this.FormattedMaxQuantity.ToolTipText = "Modell / Gruppe";
+            this.FormattedMaxQuantity.ToolTipText = "Gruppe";
             this.FormattedMaxQuantity.Width = 35;
             // 
             // Protection

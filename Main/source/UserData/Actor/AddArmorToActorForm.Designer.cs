@@ -204,7 +204,7 @@
             this.FormattedMaxQuantity.HeaderText = "Max.";
             this.FormattedMaxQuantity.Name = "FormattedMaxQuantity";
             this.FormattedMaxQuantity.ReadOnly = true;
-            this.FormattedMaxQuantity.ToolTipText = "Modell / Gruppe";
+            this.FormattedMaxQuantity.ToolTipText = "Gruppe";
             this.FormattedMaxQuantity.Width = 35;
             // 
             // protectionDataGridViewTextBoxColumn
