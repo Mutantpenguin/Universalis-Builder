@@ -238,6 +238,11 @@ namespace Universalis
                     toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Inaktive Ausstattung vorhanden!";
                 }
 
+                if( actor.OutfitExceedsMaxQuantity() )
+                {
+                    toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Maximale Menge an Ausstattung pro Modell überschritten.";
+                }
+
                 if( !String.IsNullOrEmpty( actor.Archetype.Rules ) )
                 {
                     toolTipText += ( !String.IsNullOrEmpty( toolTipText ) ? Environment.NewLine + Environment.NewLine : String.Empty ) + "Regeln:" + Environment.NewLine + ToolTipHelper.FormatMaxWidth( actor.Archetype.Rules );
@@ -260,7 +265,7 @@ namespace Universalis
                 {
                     Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 
-                    if( actor.HasInactiveComposition() )
+                    if( !actor.IsValid() )
                     {
                         e.PaintBackground( e.CellBounds, true );
                         e.PaintContent( e.CellBounds );

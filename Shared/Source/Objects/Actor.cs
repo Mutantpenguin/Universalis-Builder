@@ -717,6 +717,21 @@ namespace Universalis
             return ( modifier );
         }
 
+        public bool IsValid()
+        {
+            if( HasInactiveComposition() )
+            {
+                return false;
+            }
+
+            if( OutfitExceedsMaxQuantity() )
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public bool HasInactiveComposition()
         {
             if( null != Armor )
