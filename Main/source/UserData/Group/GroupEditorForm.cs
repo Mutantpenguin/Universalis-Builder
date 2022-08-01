@@ -46,6 +46,8 @@ namespace Universalis
             updateGroupTrait();
 
             updateGridViewActors();
+
+            checkValidGroup();
         }
 
         private void updateGroupTrait()
@@ -89,8 +91,6 @@ namespace Universalis
             {
                 dataGridViewActors.Rows[ 0 ].Selected = true;
             }
-
-            checkValidGroup();
         }
 
         private void buttonSave_Click( object sender, EventArgs e )
@@ -318,6 +318,8 @@ namespace Universalis
 
             groupBindingSource.ResetBindings( false );
             actorsBindingSource.ResetBindings( false );
+
+            checkValidGroup();
         }
 
         private void dataGridViewActors_KeyDown( object sender, KeyEventArgs e )
@@ -466,6 +468,8 @@ namespace Universalis
                         SelectActor( actor );
 
                         groupBindingSource.ResetBindings( false );
+
+                        checkValidGroup();
                     }
                 }
             }
@@ -499,6 +503,8 @@ namespace Universalis
                     SelectActor( actor );
 
                     groupBindingSource.ResetBindings( false );
+
+                    checkValidGroup();
                 }
             }
         }
@@ -534,6 +540,8 @@ namespace Universalis
                 updateGridViewActors();
 
                 groupBindingSource.ResetBindings( false );
+
+                checkValidGroup();
             }
         }
 
@@ -546,6 +554,8 @@ namespace Universalis
         {
             groupBindingSource.ResetBindings( false );
             actorsBindingSource.ResetBindings( false );
+
+            checkValidGroup();
         }
 
         private void buttonPrint_Click( object sender, EventArgs e )

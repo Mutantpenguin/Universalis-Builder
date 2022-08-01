@@ -178,12 +178,12 @@ namespace Universalis
                 reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : Environment.NewLine ) + $"Archetyp '{element.Key.Name}' ist {element.Count()}x vorhanden, aber nur {element.Key.MaxQuantity}x erlaubt.";
             }
 
-            if( Models.Exists( x => x.HasInactiveComposition() ) )
+            if( Models.Exists( x => x.Active && x.HasInactiveComposition() ) )
             {
                 reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) +  "Inaktive Ausstattung vorhanden.";
             }
 
-            if( Models.Exists( x => x.OutfitExceedsMaxQuantity() ) )
+            if( Models.Exists( x => x.Active && x.OutfitExceedsMaxQuantity() ) )
             {
                 reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) + "Maximale Menge an Ausstattung pro Modell überschritten.";
             }
