@@ -191,6 +191,19 @@ namespace Universalis
             textBoxResultSpeed.Text = m_actorModified.ModSpeed().ToString();
             textBoxResultHP.Text = m_actorModified.ModHitPoints().ToString();
             textBoxResultCS.Text = m_actorModified.ModCritThreshold().ToString() + "%";
+
+            var (valid, reason) = m_actorModified.IsValid();
+
+            if( !valid )
+            {
+                pictureBoxInvalidActor.Visible = true;
+                this.toolTip.SetToolTip( pictureBoxInvalidActor, reason );
+            }
+            else
+            {
+                pictureBoxInvalidActor.Visible = false;
+                this.toolTip.SetToolTip( pictureBoxInvalidActor, String.Empty );
+            }
         }
 #endregion update
 

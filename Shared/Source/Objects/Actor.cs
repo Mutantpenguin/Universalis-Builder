@@ -717,19 +717,21 @@ namespace Universalis
             return ( modifier );
         }
 
-        public bool IsValid()
+        public (bool valid, String reason) IsValid()
         {
+            string reasonString = String.Empty;
+
             if( HasInactiveComposition() )
             {
-                return false;
+                reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) + "Inaktive Ausstattung vorhanden.";
             }
 
             if( OutfitExceedsMaxQuantity() )
             {
-                return false;
+                reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) + "Maximale Menge an Ausstattung pro Modell überschritten.";
             }
 
-            return true;
+            return (String.IsNullOrEmpty( reasonString ), reasonString);
         }
 
         public bool HasInactiveComposition()

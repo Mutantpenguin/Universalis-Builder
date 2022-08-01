@@ -28,12 +28,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanelLeft = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
@@ -153,6 +153,18 @@
             this.panelMain = new System.Windows.Forms.Panel();
             this.pictureBoxCard = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.dataGridViewDisciplines = new System.Windows.Forms.DataGridView();
+            this.disciplineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disciplineNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disciplineLevelDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.disciplineLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.disciplinePointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actorDisciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel9 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripButtonDisciplineAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDisciplineRemove = new System.Windows.Forms.ToolStripButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -219,18 +231,7 @@
             this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.dataGridViewDisciplines = new System.Windows.Forms.DataGridView();
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel9 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButtonDisciplineAdd = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonDisciplineRemove = new System.Windows.Forms.ToolStripButton();
-            this.actorDisciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.disciplineLevelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.disciplineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disciplineNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.disciplineLevelDataGridViewComboBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.disciplinePointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBoxInvalidActor = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelLeft.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
@@ -265,14 +266,15 @@
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineLevelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actorDisciplineBindingSource)).BeginInit();
+            this.toolStrip4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).BeginInit();
-            this.toolStrip4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.actorDisciplineBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineLevelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvalidActor)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelLeft
@@ -1438,6 +1440,7 @@
             // panel3
             // 
             this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.pictureBoxInvalidActor);
             this.panel3.Controls.Add(this.buttonBack);
             this.panel3.Controls.Add(this.buttonSave);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1538,6 +1541,132 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 639);
             this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // panel14
+            // 
+            this.panel14.AutoSize = true;
+            this.panel14.Controls.Add(this.dataGridViewDisciplines);
+            this.panel14.Controls.Add(this.toolStrip4);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(3, 133);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(244, 124);
+            this.panel14.TabIndex = 11;
+            // 
+            // dataGridViewDisciplines
+            // 
+            this.dataGridViewDisciplines.AllowUserToAddRows = false;
+            this.dataGridViewDisciplines.AllowUserToDeleteRows = false;
+            this.dataGridViewDisciplines.AllowUserToOrderColumns = true;
+            this.dataGridViewDisciplines.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDisciplines.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridViewDisciplines.AutoGenerateColumns = false;
+            this.dataGridViewDisciplines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewDisciplines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.disciplineDataGridViewTextBoxColumn,
+            this.disciplineNameDataGridViewTextBoxColumn,
+            this.disciplineLevelDataGridViewComboBoxColumn,
+            this.disciplinePointsDataGridViewTextBoxColumn});
+            this.dataGridViewDisciplines.DataSource = this.actorDisciplineBindingSource;
+            this.dataGridViewDisciplines.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewDisciplines.Location = new System.Drawing.Point(0, 25);
+            this.dataGridViewDisciplines.MultiSelect = false;
+            this.dataGridViewDisciplines.Name = "dataGridViewDisciplines";
+            this.dataGridViewDisciplines.RowHeadersVisible = false;
+            this.dataGridViewDisciplines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewDisciplines.Size = new System.Drawing.Size(244, 99);
+            this.dataGridViewDisciplines.TabIndex = 1;
+            this.dataGridViewDisciplines.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewDisciplines_CellBeginEdit);
+            this.dataGridViewDisciplines.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewDisciplines_CellFormatting);
+            this.dataGridViewDisciplines.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewDisciplines_CellToolTipTextNeeded);
+            this.dataGridViewDisciplines.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewDisciplines_CurrentCellDirtyStateChanged);
+            this.dataGridViewDisciplines.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewDisciplines_RowPrePaint);
+            // 
+            // disciplineDataGridViewTextBoxColumn
+            // 
+            this.disciplineDataGridViewTextBoxColumn.DataPropertyName = "Discipline";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.disciplineDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
+            this.disciplineDataGridViewTextBoxColumn.HeaderText = "Discipline";
+            this.disciplineDataGridViewTextBoxColumn.Name = "disciplineDataGridViewTextBoxColumn";
+            this.disciplineDataGridViewTextBoxColumn.ReadOnly = true;
+            this.disciplineDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // disciplineNameDataGridViewTextBoxColumn
+            // 
+            this.disciplineNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.disciplineNameDataGridViewTextBoxColumn.DataPropertyName = "Discipline.Name";
+            this.disciplineNameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.disciplineNameDataGridViewTextBoxColumn.Name = "disciplineNameDataGridViewTextBoxColumn";
+            this.disciplineNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // disciplineLevelDataGridViewComboBoxColumn
+            // 
+            this.disciplineLevelDataGridViewComboBoxColumn.DataPropertyName = "Level";
+            this.disciplineLevelDataGridViewComboBoxColumn.DataSource = this.disciplineLevelBindingSource;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.disciplineLevelDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
+            this.disciplineLevelDataGridViewComboBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.disciplineLevelDataGridViewComboBoxColumn.HeaderText = "LVL";
+            this.disciplineLevelDataGridViewComboBoxColumn.Name = "disciplineLevelDataGridViewComboBoxColumn";
+            this.disciplineLevelDataGridViewComboBoxColumn.Width = 40;
+            // 
+            // disciplinePointsDataGridViewTextBoxColumn
+            // 
+            this.disciplinePointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.disciplinePointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
+            this.disciplinePointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
+            this.disciplinePointsDataGridViewTextBoxColumn.Name = "disciplinePointsDataGridViewTextBoxColumn";
+            this.disciplinePointsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.disciplinePointsDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // actorDisciplineBindingSource
+            // 
+            this.actorDisciplineBindingSource.DataSource = typeof(Universalis.Actor.ActorDiscipline);
+            // 
+            // toolStrip4
+            // 
+            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel9,
+            this.toolStripButtonDisciplineAdd,
+            this.toolStripButtonDisciplineRemove});
+            this.toolStrip4.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip4.Name = "toolStrip4";
+            this.toolStrip4.Size = new System.Drawing.Size(244, 25);
+            this.toolStrip4.TabIndex = 0;
+            this.toolStrip4.Text = "toolStrip5";
+            // 
+            // toolStripLabel9
+            // 
+            this.toolStripLabel9.Name = "toolStripLabel9";
+            this.toolStripLabel9.Size = new System.Drawing.Size(64, 22);
+            this.toolStripLabel9.Text = "Disziplinen";
+            // 
+            // toolStripButtonDisciplineAdd
+            // 
+            this.toolStripButtonDisciplineAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonDisciplineAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonDisciplineAdd.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonDisciplineAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonDisciplineAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDisciplineAdd.Name = "toolStripButtonDisciplineAdd";
+            this.toolStripButtonDisciplineAdd.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonDisciplineAdd.ToolTipText = "Eigenschaft hinzufügen";
+            this.toolStripButtonDisciplineAdd.Click += new System.EventHandler(this.toolStripButtonDisciplineAdd_Click);
+            // 
+            // toolStripButtonDisciplineRemove
+            // 
+            this.toolStripButtonDisciplineRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonDisciplineRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonDisciplineRemove.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonDisciplineRemove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonDisciplineRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDisciplineRemove.Name = "toolStripButtonDisciplineRemove";
+            this.toolStripButtonDisciplineRemove.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonDisciplineRemove.ToolTipText = "Eigenschaft entfernen";
+            this.toolStripButtonDisciplineRemove.Click += new System.EventHandler(this.toolStripButtonDisciplineRemove_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -2060,131 +2189,16 @@
             this.dataGridViewTextBoxColumn62.ReadOnly = true;
             this.dataGridViewTextBoxColumn62.Visible = false;
             // 
-            // panel14
+            // pictureBoxInvalidActor
             // 
-            this.panel14.AutoSize = true;
-            this.panel14.Controls.Add(this.dataGridViewDisciplines);
-            this.panel14.Controls.Add(this.toolStrip4);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(3, 133);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(244, 124);
-            this.panel14.TabIndex = 11;
-            // 
-            // dataGridViewDisciplines
-            // 
-            this.dataGridViewDisciplines.AllowUserToAddRows = false;
-            this.dataGridViewDisciplines.AllowUserToDeleteRows = false;
-            this.dataGridViewDisciplines.AllowUserToOrderColumns = true;
-            this.dataGridViewDisciplines.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDisciplines.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridViewDisciplines.AutoGenerateColumns = false;
-            this.dataGridViewDisciplines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDisciplines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.disciplineDataGridViewTextBoxColumn,
-            this.disciplineNameDataGridViewTextBoxColumn,
-            this.disciplineLevelDataGridViewComboBoxColumn,
-            this.disciplinePointsDataGridViewTextBoxColumn});
-            this.dataGridViewDisciplines.DataSource = this.actorDisciplineBindingSource;
-            this.dataGridViewDisciplines.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewDisciplines.Location = new System.Drawing.Point(0, 25);
-            this.dataGridViewDisciplines.MultiSelect = false;
-            this.dataGridViewDisciplines.Name = "dataGridViewDisciplines";
-            this.dataGridViewDisciplines.RowHeadersVisible = false;
-            this.dataGridViewDisciplines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDisciplines.Size = new System.Drawing.Size(244, 99);
-            this.dataGridViewDisciplines.TabIndex = 1;
-            this.dataGridViewDisciplines.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridViewDisciplines_CellBeginEdit);
-            this.dataGridViewDisciplines.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewDisciplines_CellFormatting);
-            this.dataGridViewDisciplines.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewDisciplines_CellToolTipTextNeeded);
-            this.dataGridViewDisciplines.CurrentCellDirtyStateChanged += new System.EventHandler(this.dataGridViewDisciplines_CurrentCellDirtyStateChanged);
-            this.dataGridViewDisciplines.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridViewDisciplines_RowPrePaint);
-            // 
-            // toolStrip4
-            // 
-            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel9,
-            this.toolStripButtonDisciplineAdd,
-            this.toolStripButtonDisciplineRemove});
-            this.toolStrip4.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(244, 25);
-            this.toolStrip4.TabIndex = 0;
-            this.toolStrip4.Text = "toolStrip5";
-            // 
-            // toolStripLabel9
-            // 
-            this.toolStripLabel9.Name = "toolStripLabel9";
-            this.toolStripLabel9.Size = new System.Drawing.Size(64, 22);
-            this.toolStripLabel9.Text = "Disziplinen";
-            // 
-            // toolStripButtonDisciplineAdd
-            // 
-            this.toolStripButtonDisciplineAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonDisciplineAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonDisciplineAdd.Image = global::Universalis.Properties.Resources.plus;
-            this.toolStripButtonDisciplineAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonDisciplineAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDisciplineAdd.Name = "toolStripButtonDisciplineAdd";
-            this.toolStripButtonDisciplineAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonDisciplineAdd.ToolTipText = "Eigenschaft hinzufügen";
-            this.toolStripButtonDisciplineAdd.Click += new System.EventHandler(this.toolStripButtonDisciplineAdd_Click);
-            // 
-            // toolStripButtonDisciplineRemove
-            // 
-            this.toolStripButtonDisciplineRemove.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonDisciplineRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonDisciplineRemove.Image = global::Universalis.Properties.Resources.trash;
-            this.toolStripButtonDisciplineRemove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButtonDisciplineRemove.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonDisciplineRemove.Name = "toolStripButtonDisciplineRemove";
-            this.toolStripButtonDisciplineRemove.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonDisciplineRemove.ToolTipText = "Eigenschaft entfernen";
-            this.toolStripButtonDisciplineRemove.Click += new System.EventHandler(this.toolStripButtonDisciplineRemove_Click);
-            // 
-            // actorDisciplineBindingSource
-            // 
-            this.actorDisciplineBindingSource.DataSource = typeof(Universalis.Actor.ActorDiscipline);
-            // 
-            // disciplineDataGridViewTextBoxColumn
-            // 
-            this.disciplineDataGridViewTextBoxColumn.DataPropertyName = "Discipline";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.disciplineDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle14;
-            this.disciplineDataGridViewTextBoxColumn.HeaderText = "Discipline";
-            this.disciplineDataGridViewTextBoxColumn.Name = "disciplineDataGridViewTextBoxColumn";
-            this.disciplineDataGridViewTextBoxColumn.ReadOnly = true;
-            this.disciplineDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // disciplineNameDataGridViewTextBoxColumn
-            // 
-            this.disciplineNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.disciplineNameDataGridViewTextBoxColumn.DataPropertyName = "Discipline.Name";
-            this.disciplineNameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.disciplineNameDataGridViewTextBoxColumn.Name = "disciplineNameDataGridViewTextBoxColumn";
-            this.disciplineNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // disciplineLevelDataGridViewComboBoxColumn
-            // 
-            this.disciplineLevelDataGridViewComboBoxColumn.DataPropertyName = "Level";
-            this.disciplineLevelDataGridViewComboBoxColumn.DataSource = this.disciplineLevelBindingSource;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.disciplineLevelDataGridViewComboBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
-            this.disciplineLevelDataGridViewComboBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.disciplineLevelDataGridViewComboBoxColumn.HeaderText = "LVL";
-            this.disciplineLevelDataGridViewComboBoxColumn.Name = "disciplineLevelDataGridViewComboBoxColumn";
-            this.disciplineLevelDataGridViewComboBoxColumn.Width = 40;
-            // 
-            // disciplinePointsDataGridViewTextBoxColumn
-            // 
-            this.disciplinePointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.disciplinePointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
-            this.disciplinePointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
-            this.disciplinePointsDataGridViewTextBoxColumn.Name = "disciplinePointsDataGridViewTextBoxColumn";
-            this.disciplinePointsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.disciplinePointsDataGridViewTextBoxColumn.Width = 50;
+            this.pictureBoxInvalidActor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxInvalidActor.Image = global::Universalis.Properties.Resources.alert_circle_red_24dp;
+            this.pictureBoxInvalidActor.Location = new System.Drawing.Point(1129, 3);
+            this.pictureBoxInvalidActor.Name = "pictureBoxInvalidActor";
+            this.pictureBoxInvalidActor.Size = new System.Drawing.Size(26, 26);
+            this.pictureBoxInvalidActor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxInvalidActor.TabIndex = 4;
+            this.pictureBoxInvalidActor.TabStop = false;
             // 
             // ActorEditorForm
             // 
@@ -2258,19 +2272,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineLevelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.actorDisciplineBindingSource)).EndInit();
+            this.toolStrip4.ResumeLayout(false);
+            this.toolStrip4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).EndInit();
-            this.toolStrip4.ResumeLayout(false);
-            this.toolStrip4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.actorDisciplineBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineLevelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvalidActor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2475,5 +2490,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn disciplineNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn disciplineLevelDataGridViewComboBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn disciplinePointsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.PictureBox pictureBoxInvalidActor;
     }
 }

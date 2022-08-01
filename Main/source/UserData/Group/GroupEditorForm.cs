@@ -265,7 +265,7 @@ namespace Universalis
                 {
                     Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 
-                    if( !actor.IsValid() )
+                    if( !actor.IsValid().valid )
                     {
                         e.PaintBackground( e.CellBounds, true );
                         e.PaintContent( e.CellBounds );
