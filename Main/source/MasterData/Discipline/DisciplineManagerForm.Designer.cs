@@ -32,8 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewDisciplines = new System.Windows.Forms.DataGridView();
-            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripFactions = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonAddDiscipline = new System.Windows.Forms.ToolStripButton();
@@ -41,14 +41,16 @@
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedMaxQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HasPermissions = new System.Windows.Forms.DataGridViewImageColumn();
             this.PointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
             this.toolStripFactions.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewDisciplines
@@ -62,6 +64,7 @@
             this.dataGridViewDisciplines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDisciplines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
+            this.FormattedMaxQuantity,
             this.MaxLevel,
             this.HasPermissions,
             this.PointsString});
@@ -70,21 +73,15 @@
             this.dataGridViewDisciplines.Location = new System.Drawing.Point(0, 25);
             this.dataGridViewDisciplines.MultiSelect = false;
             this.dataGridViewDisciplines.Name = "dataGridViewDisciplines";
-            this.dataGridViewDisciplines.ReadOnly = true;
             this.dataGridViewDisciplines.RowHeadersVisible = false;
             this.dataGridViewDisciplines.RowTemplate.Height = 40;
             this.dataGridViewDisciplines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewDisciplines.Size = new System.Drawing.Size(343, 379);
+            this.dataGridViewDisciplines.Size = new System.Drawing.Size(457, 379);
             this.dataGridViewDisciplines.TabIndex = 0;
             this.dataGridViewDisciplines.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDiscipline_CellDoubleClick);
             this.dataGridViewDisciplines.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewDisciplines_CellFormatting);
             this.dataGridViewDisciplines.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewDisciplines_CellToolTipTextNeeded);
             this.dataGridViewDisciplines.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewDisciplines_KeyDown);
-            // 
-            // disciplineBindingSource
-            // 
-            this.disciplineBindingSource.AllowNew = true;
-            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
             // 
             // toolStripFactions
             // 
@@ -95,7 +92,7 @@
             this.toolStripButtonClearSearch});
             this.toolStripFactions.Location = new System.Drawing.Point(0, 0);
             this.toolStripFactions.Name = "toolStripFactions";
-            this.toolStripFactions.Size = new System.Drawing.Size(343, 25);
+            this.toolStripFactions.Size = new System.Drawing.Size(457, 25);
             this.toolStripFactions.TabIndex = 1;
             // 
             // toolStripTextBoxSearch
@@ -148,7 +145,7 @@
             this.toolStripStatusLabelCount});
             this.statusStrip1.Location = new System.Drawing.Point(0, 404);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(343, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(457, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -156,6 +153,11 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
+            // 
+            // disciplineBindingSource
+            // 
+            this.disciplineBindingSource.AllowNew = true;
+            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -165,15 +167,26 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // FormattedMaxQuantity
+            // 
+            this.FormattedMaxQuantity.DataPropertyName = "FormattedMaxQuantity";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FormattedMaxQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FormattedMaxQuantity.HeaderText = "Max.";
+            this.FormattedMaxQuantity.Name = "FormattedMaxQuantity";
+            this.FormattedMaxQuantity.ReadOnly = true;
+            this.FormattedMaxQuantity.ToolTipText = "Group";
+            this.FormattedMaxQuantity.Width = 35;
+            // 
             // MaxLevel
             // 
             this.MaxLevel.DataPropertyName = "MaxLevel";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MaxLevel.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MaxLevel.HeaderText = "Max";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MaxLevel.DefaultCellStyle = dataGridViewCellStyle3;
+            this.MaxLevel.HeaderText = "Max. LVL";
             this.MaxLevel.Name = "MaxLevel";
             this.MaxLevel.ReadOnly = true;
-            this.MaxLevel.Width = 35;
+            this.MaxLevel.Width = 75;
             // 
             // HasPermissions
             // 
@@ -186,8 +199,8 @@
             // PointsString
             // 
             this.PointsString.DataPropertyName = "PointsString";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PointsString.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PointsString.DefaultCellStyle = dataGridViewCellStyle4;
             this.PointsString.HeaderText = "Punkte";
             this.PointsString.Name = "PointsString";
             this.PointsString.ReadOnly = true;
@@ -197,7 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 426);
+            this.ClientSize = new System.Drawing.Size(457, 426);
             this.Controls.Add(this.dataGridViewDisciplines);
             this.Controls.Add(this.toolStripFactions);
             this.Controls.Add(this.statusStrip1);
@@ -207,11 +220,11 @@
             this.Text = "Disziplinen";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DisciplineManagerForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
             this.toolStripFactions.ResumeLayout(false);
             this.toolStripFactions.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,6 +242,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.ToolStripButton toolStripButtonAddDiscipline;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedMaxQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxLevel;
         private System.Windows.Forms.DataGridViewImageColumn HasPermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsString;

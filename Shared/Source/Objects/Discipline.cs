@@ -25,6 +25,7 @@ namespace Universalis
             Description = discipline.Description;
             BasePoints = discipline.BasePoints;
             MaxLevel = discipline.MaxLevel;
+            MaxGroupQuantity = discipline.MaxGroupQuantity;
 
             if( null != discipline.Permissions )
             {
@@ -51,7 +52,9 @@ namespace Universalis
                 ||
                 BasePoints != discipline.BasePoints
                 ||
-                MaxLevel != discipline.MaxLevel )
+                MaxLevel != discipline.MaxLevel
+                ||
+                MaxGroupQuantity != discipline.MaxGroupQuantity )
             {
                 return ( false );
             }
@@ -108,6 +111,12 @@ namespace Universalis
             get;
             set;
         } = 1;
+
+        public uint MaxGroupQuantity
+        {
+            get;
+            set;
+        } = 0;
 
         public Permissions Permissions
         {
@@ -169,6 +178,22 @@ namespace Universalis
             }
 
             return ( text );
+        }
+
+        [JsonIgnore]
+        public string FormattedMaxQuantity
+        {
+            get
+            {
+                if( MaxGroupQuantity == 0 )
+                {
+                    return String.Empty;
+                }
+                else
+                {
+                    return MaxGroupQuantity.ToString();
+                }
+            }
         }
     }
 }
