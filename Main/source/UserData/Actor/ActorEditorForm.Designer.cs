@@ -146,6 +146,7 @@
             this.toolStripButtonEquipmentAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEquipmentRemove = new System.Windows.Forms.ToolStripButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBoxInvalidActor = new System.Windows.Forms.PictureBox();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -231,7 +232,6 @@
             this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBoxInvalidActor = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelLeft.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
@@ -263,6 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.actorEquipmentBindingSource)).BeginInit();
             this.toolStripEquipment.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvalidActor)).BeginInit();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -274,7 +275,6 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvalidActor)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelLeft
@@ -1096,7 +1096,7 @@
             this.panel5.Controls.Add(this.dataGridViewWeapons);
             this.panel5.Controls.Add(this.toolStripWeapons);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 263);
+            this.panel5.Location = new System.Drawing.Point(3, 133);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(244, 124);
             this.panel5.TabIndex = 5;
@@ -1218,7 +1218,7 @@
             this.panel6.Controls.Add(this.dataGridViewArmor);
             this.panel6.Controls.Add(this.toolStripArmor);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 393);
+            this.panel6.Location = new System.Drawing.Point(3, 263);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(244, 69);
             this.panel6.TabIndex = 0;
@@ -1319,7 +1319,7 @@
             this.panel4.Controls.Add(this.dataGridViewEquipment);
             this.panel4.Controls.Add(this.toolStripEquipment);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 468);
+            this.panel4.Location = new System.Drawing.Point(3, 338);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(244, 124);
             this.panel4.TabIndex = 4;
@@ -1449,6 +1449,17 @@
             this.panel3.Size = new System.Drawing.Size(1264, 32);
             this.panel3.TabIndex = 1;
             // 
+            // pictureBoxInvalidActor
+            // 
+            this.pictureBoxInvalidActor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxInvalidActor.Image = global::Universalis.Properties.Resources.alert_circle_red_24dp;
+            this.pictureBoxInvalidActor.Location = new System.Drawing.Point(1129, 3);
+            this.pictureBoxInvalidActor.Name = "pictureBoxInvalidActor";
+            this.pictureBoxInvalidActor.Size = new System.Drawing.Size(26, 26);
+            this.pictureBoxInvalidActor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxInvalidActor.TabIndex = 4;
+            this.pictureBoxInvalidActor.TabStop = false;
+            // 
             // buttonBack
             // 
             this.buttonBack.Image = global::Universalis.Properties.Resources.cross_circle;
@@ -1522,21 +1533,21 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.panel14, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel10, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.panel14, 0, 4);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(1014, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 6;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99657F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99781F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00282F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99602F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00227F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00282F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.00227F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.99945F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 639);
@@ -1548,7 +1559,7 @@
             this.panel14.Controls.Add(this.dataGridViewDisciplines);
             this.panel14.Controls.Add(this.toolStrip4);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(3, 133);
+            this.panel14.Location = new System.Drawing.Point(3, 468);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(244, 124);
             this.panel14.TabIndex = 11;
@@ -2189,17 +2200,6 @@
             this.dataGridViewTextBoxColumn62.ReadOnly = true;
             this.dataGridViewTextBoxColumn62.Visible = false;
             // 
-            // pictureBoxInvalidActor
-            // 
-            this.pictureBoxInvalidActor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxInvalidActor.Image = global::Universalis.Properties.Resources.alert_circle_red_24dp;
-            this.pictureBoxInvalidActor.Location = new System.Drawing.Point(1129, 3);
-            this.pictureBoxInvalidActor.Name = "pictureBoxInvalidActor";
-            this.pictureBoxInvalidActor.Size = new System.Drawing.Size(26, 26);
-            this.pictureBoxInvalidActor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxInvalidActor.TabIndex = 4;
-            this.pictureBoxInvalidActor.TabStop = false;
-            // 
             // ActorEditorForm
             // 
             this.AllowDrop = true;
@@ -2268,6 +2268,7 @@
             this.toolStripEquipment.ResumeLayout(false);
             this.toolStripEquipment.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvalidActor)).EndInit();
             this.panelMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -2285,7 +2286,6 @@
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInvalidActor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
