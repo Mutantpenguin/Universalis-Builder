@@ -53,6 +53,8 @@ namespace Universalis
                 labelHeader.Text += deityModeString;
             }
 
+            this.Text += " - v" + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString( 2 );
+
             listViewUniverses.Font = new Font( UniversalisFont.Family, 10 );
             labelNoUniverses.Font = new Font( UniversalisFont.Family, 20 );
 
