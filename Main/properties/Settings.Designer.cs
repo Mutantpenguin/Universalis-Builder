@@ -65,6 +65,7 @@ namespace Universalis.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("c:\\\\")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public string groupIconFilePath {
             get {
                 return ((string)(this["groupIconFilePath"]));
@@ -77,6 +78,7 @@ namespace Universalis.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public global::System.Windows.Forms.FormWindowState GroupEditorWindowState {
             get {
                 return ((global::System.Windows.Forms.FormWindowState)(this["GroupEditorWindowState"]));
@@ -89,6 +91,7 @@ namespace Universalis.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("c:\\\\")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public string groupSavePath {
             get {
                 return ((string)(this["groupSavePath"]));
@@ -101,6 +104,7 @@ namespace Universalis.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public string cardSavePath {
             get {
                 return ((string)(this["cardSavePath"]));
@@ -113,6 +117,7 @@ namespace Universalis.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public global::System.Windows.Forms.FormWindowState ActorEditorWindowState {
             get {
                 return ((global::System.Windows.Forms.FormWindowState)(this["ActorEditorWindowState"]));
@@ -125,6 +130,7 @@ namespace Universalis.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("c:\\\\")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public string damageEffectIconFilePath {
             get {
                 return ((string)(this["damageEffectIconFilePath"]));

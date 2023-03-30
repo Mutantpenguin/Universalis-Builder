@@ -11,22 +11,22 @@
     <Setting Name="imageFilePath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">c:\\</Value>
     </Setting>
-    <Setting Name="groupIconFilePath" Type="System.String" Scope="User">
+    <Setting Name="groupIconFilePath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">c:\\</Value>
     </Setting>
-    <Setting Name="GroupEditorWindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
+    <Setting Name="GroupEditorWindowState" Roaming="true" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
-    <Setting Name="groupSavePath" Type="System.String" Scope="User">
+    <Setting Name="groupSavePath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">c:\\</Value>
     </Setting>
-    <Setting Name="cardSavePath" Type="System.String" Scope="User">
+    <Setting Name="cardSavePath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ActorEditorWindowState" Type="System.Windows.Forms.FormWindowState" Scope="User">
+    <Setting Name="ActorEditorWindowState" Roaming="true" Type="System.Windows.Forms.FormWindowState" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
-    <Setting Name="damageEffectIconFilePath" Type="System.String" Scope="User">
+    <Setting Name="damageEffectIconFilePath" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">c:\\</Value>
     </Setting>
   </Settings>
