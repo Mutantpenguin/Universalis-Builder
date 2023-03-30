@@ -20,17 +20,10 @@ namespace Universalis
 
             this.CenterToParent();
 
-            if( m_deityMode )
-            {
-                panelHeader.Visible = false;
-            }
-            else
-            {
-                labelHeader.Text = universe.NameWithVersion();
-                labelHeader.Font = new Font( UniversalisFont.Family, 20 );
-                labelHeader.Left = ( panelHeader.Width - labelHeader.Width ) / 2;
-                labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
-            }
+            labelHeader.Text = universe.NameWithVersion();
+            labelHeader.Font = new Font( UniversalisFont.Family, 20 );
+            labelHeader.Left = ( panelHeader.Width - labelHeader.Width ) / 2;
+            labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
 
             listViewFactions.Font = new Font( UniversalisFont.Family, 10 );
 
