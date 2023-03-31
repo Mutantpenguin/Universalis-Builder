@@ -27,9 +27,9 @@ namespace Universalis
             // 
             this.buttonWebcam.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonWebcam.Image = global::Universalis.Properties.Resources.baseline_photo_camera_black_24dp;
-            this.buttonWebcam.Location = new System.Drawing.Point(0, 431);
+            this.buttonWebcam.Location = new System.Drawing.Point(0, 474);
             this.buttonWebcam.Name = "buttonWebcam";
-            this.buttonWebcam.Size = new System.Drawing.Size(658, 37);
+            this.buttonWebcam.Size = new System.Drawing.Size(734, 37);
             this.buttonWebcam.TabIndex = 1;
             this.toolTip1.SetToolTip(this.buttonWebcam, "Foto mit Kamera machen");
             this.buttonWebcam.UseVisualStyleBackColor = true;
@@ -41,7 +41,7 @@ namespace Universalis
             this.pictureBoxWebcam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxWebcam.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxWebcam.Name = "pictureBoxWebcam";
-            this.pictureBoxWebcam.Size = new System.Drawing.Size(658, 431);
+            this.pictureBoxWebcam.Size = new System.Drawing.Size(734, 474);
             this.pictureBoxWebcam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxWebcam.TabIndex = 3;
             this.pictureBoxWebcam.TabStop = false;
@@ -51,14 +51,15 @@ namespace Universalis
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(658, 468);
+            this.ClientSize = new System.Drawing.Size(734, 511);
             this.Controls.Add(this.pictureBoxWebcam);
             this.Controls.Add(this.buttonWebcam);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
+            this.MinimumSize = new System.Drawing.Size(550, 400);
             this.Name = "ActorWebcamImageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Bilder auswählen";
+            this.Text = "Foto aufnehmen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ActorImageForm_FormClosing);
             this.Load += new System.EventHandler(this.ActorImageForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ActorImageForm_KeyDown);
