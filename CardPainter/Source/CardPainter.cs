@@ -94,6 +94,8 @@ namespace Universalis
         private static readonly int XAttrSecondColumn = CmToPixel( 6.1 );
         private static readonly int XAttrThirdColumn = CmToPixel( 8.5 );
 
+        private const String ActionsPointsMarker = "⊙";
+        private const String UseOnceMarker = "○";
         private const String UnwieldyMarker = "»";
         #endregion members
 
@@ -586,7 +588,7 @@ namespace Universalis
 
                     if( entry.Trait.AP > 0 )
                     {
-                        builder.Append( StringHelper.NonBreakingSpace + "⊙" + entry.Trait.AP );
+                        builder.Append( StringHelper.NonBreakingSpace + ActionsPointsMarker + entry.Trait.AP );
                     }
 
                     if( entry.Trait.UseOnce )
@@ -594,7 +596,7 @@ namespace Universalis
                         builder.Append( StringHelper.NonBreakingSpace );
                         for( int j = 0; j < entry.Count; j++ )
                         {
-                            builder.Append( "○" );
+                            builder.Append(UseOnceMarker);
                         }
                     }
 
@@ -694,7 +696,7 @@ namespace Universalis
                 weaponName += Environment.NewLine;
                 for( int j = 0; j < count; j++ )
                 {
-                    weaponName += "○";
+                    weaponName += UseOnceMarker;
                 }
             }
             else
@@ -905,7 +907,7 @@ namespace Universalis
 
                     if( entry.equipment.AP > 0 )
                     {
-                        builder.Append( " ⊙" + entry.equipment.AP );
+                        builder.Append( " " + ActionsPointsMarker + entry.equipment.AP );
                     }
 
                     if( entry.equipment.UseOnce )
@@ -913,7 +915,7 @@ namespace Universalis
                         builder.Append( StringHelper.NonBreakingSpace );
                         for( int i = 0; i < entry.count; i++ )
                         {
-                            builder.Append( "○" );
+                            builder.Append(UseOnceMarker);
                         }
                     }
                     else
