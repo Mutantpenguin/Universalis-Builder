@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.numericUpDownPoints = new System.Windows.Forms.NumericUpDown();
+            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -53,12 +54,12 @@
             this.toolStripButtonFactionDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.dataGridViewFaction = new System.Windows.Forms.DataGridView();
-            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.factionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPoints)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -66,7 +67,6 @@
             this.toolStrip3.SuspendLayout();
             this.toolStripFactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,6 +103,10 @@
             this.numericUpDownPoints.TabIndex = 48;
             this.numericUpDownPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.toolTip1.SetToolTip(this.numericUpDownPoints, "Punkte pro Modell");
+            // 
+            // groupTraitBindingSource
+            // 
+            this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
             // 
             // label3
             // 
@@ -257,7 +261,7 @@
             this.toolStripButtonFactionAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonFactionAdd.Name = "toolStripButtonFactionAdd";
             this.toolStripButtonFactionAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonFactionAdd.Text = "toolStripButton1";
+            this.toolStripButtonFactionAdd.ToolTipText = "Fraktion hinzufügen";
             this.toolStripButtonFactionAdd.Visible = false;
             this.toolStripButtonFactionAdd.Click += new System.EventHandler(this.toolStripButtonFactionAdd_Click);
             // 
@@ -270,7 +274,7 @@
             this.toolStripButtonFactionDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonFactionDelete.Name = "toolStripButtonFactionDelete";
             this.toolStripButtonFactionDelete.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonFactionDelete.Text = "toolStripButton2";
+            this.toolStripButtonFactionDelete.ToolTipText = "Fraktion entfernen";
             this.toolStripButtonFactionDelete.Visible = false;
             this.toolStripButtonFactionDelete.Click += new System.EventHandler(this.toolStripButtonFactionDelete_Click);
             // 
@@ -304,10 +308,6 @@
             this.dataGridViewFaction.Size = new System.Drawing.Size(434, 169);
             this.dataGridViewFaction.TabIndex = 4;
             this.dataGridViewFaction.Visible = false;
-            // 
-            // groupTraitBindingSource
-            // 
-            this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
             // 
             // iconDataGridViewImageColumn
             // 
@@ -353,6 +353,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPoints)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -366,7 +367,6 @@
             this.toolStripFactions.ResumeLayout(false);
             this.toolStripFactions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

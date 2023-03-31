@@ -57,6 +57,7 @@ namespace Universalis
             this.toolStripComboBoxMovementType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.dataGridViewArchetype = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.archetypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkedListBoxType = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxSize = new System.Windows.Forms.CheckedListBox();
@@ -65,7 +66,6 @@ namespace Universalis
             this.buttonOk = new System.Windows.Forms.Button();
             this.checkedListBoxMovementType = new System.Windows.Forms.CheckedListBox();
             this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripFactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).BeginInit();
@@ -109,7 +109,7 @@ namespace Universalis
             this.toolStripButtonFactionAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonFactionAdd.Name = "toolStripButtonFactionAdd";
             this.toolStripButtonFactionAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonFactionAdd.Text = "toolStripButton1";
+            this.toolStripButtonFactionAdd.ToolTipText = "Fraktion hinzufügen";
             this.toolStripButtonFactionAdd.Visible = false;
             this.toolStripButtonFactionAdd.Click += new System.EventHandler(this.toolStripButtonFactionAdd_Click);
             // 
@@ -122,7 +122,7 @@ namespace Universalis
             this.toolStripButtonFactionDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonFactionDelete.Name = "toolStripButtonFactionDelete";
             this.toolStripButtonFactionDelete.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonFactionDelete.Text = "toolStripButton2";
+            this.toolStripButtonFactionDelete.ToolTipText = "Fraktion entfernen";
             this.toolStripButtonFactionDelete.Visible = false;
             this.toolStripButtonFactionDelete.Click += new System.EventHandler(this.toolStripButtonFactionDelete_Click);
             // 
@@ -209,7 +209,7 @@ namespace Universalis
             this.toolStripButtonArchetypeAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArchetypeAdd.Name = "toolStripButtonArchetypeAdd";
             this.toolStripButtonArchetypeAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonArchetypeAdd.Text = "toolStripButton3";
+            this.toolStripButtonArchetypeAdd.ToolTipText = "Archetyp hinzufügen";
             this.toolStripButtonArchetypeAdd.Visible = false;
             this.toolStripButtonArchetypeAdd.Click += new System.EventHandler(this.toolStripButtonArchetypeAdd_Click);
             // 
@@ -222,7 +222,7 @@ namespace Universalis
             this.toolStripButtonArchetypeDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonArchetypeDelete.Name = "toolStripButtonArchetypeDelete";
             this.toolStripButtonArchetypeDelete.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonArchetypeDelete.Text = "toolStripButton4";
+            this.toolStripButtonArchetypeDelete.ToolTipText = "Archetyp entfernen";
             this.toolStripButtonArchetypeDelete.Visible = false;
             this.toolStripButtonArchetypeDelete.Click += new System.EventHandler(this.toolStripButtonArchetypeDelete_Click);
             // 
@@ -332,6 +332,14 @@ namespace Universalis
             this.dataGridViewArchetype.Visible = false;
             this.dataGridViewArchetype.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewArchetype_CellFormatting);
             // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
             // archetypesBindingSource
             // 
             this.archetypesBindingSource.DataSource = typeof(Universalis.Archetype);
@@ -410,14 +418,6 @@ namespace Universalis
             // permissionsBindingSource
             // 
             this.permissionsBindingSource.DataSource = typeof(Universalis.Permissions);
-            // 
-            // nameDataGridViewTextBoxColumn2
-            // 
-            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
-            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // PermissionsEditor
             // 
