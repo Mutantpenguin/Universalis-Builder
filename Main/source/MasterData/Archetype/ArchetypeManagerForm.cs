@@ -83,7 +83,6 @@ namespace Universalis
                                                                               .Where( s => filterFaction.Enabled ? s.FactionPermissions?.Granted((Faction)filterFaction.ComboBox.SelectedValue) ?? true : true )
                                                                               .Where( s => filterType.Enabled ? s.Type == ((Archetype.EType)filterType.ComboBox.SelectedValue) : true )
                                                                               .Where( s => s.Name.ToUpper().Contains(toolStripTextBoxSearch.Text.ToUpper()))
-                                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                               .OrderBy( x => x.Name )
                                                                               .ToList();
 
