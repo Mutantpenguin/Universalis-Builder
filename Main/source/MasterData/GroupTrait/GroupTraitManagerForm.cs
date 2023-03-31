@@ -15,6 +15,11 @@ namespace Universalis
 
             HasPermissions.DefaultCellStyle.NullValue = null;
 
+            filterFaction.ComboBox.DataSource = MasterDataStorage.Faction.Factions.OrderBy(x => x.Name)
+                                                                                  .ToList();
+            filterFaction.ComboBox.DisplayMember = nameof(Faction.Name);
+            filterFaction.ComboBox.SelectionChangeCommitted += FilterFaction_SelectionChangeCommitted;
+
             refreshGridView();
 
             toolStripTextBoxSearch.TextBox.Select();
@@ -23,12 +28,13 @@ namespace Universalis
         private void refreshGridView()
         {
             List<GroupTrait> groupTraits = MasterDataStorage.GroupTrait.GroupTraits.Where( s => s.Active )
-                                                                       .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                       .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.PointsPerModel <= 0 ) )
-                                                                       .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.PointsPerModel >= 0 ) )
-                                                                       .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.PointsPerModel != 0 ) )
-                                                                       .OrderBy( s => s.Name )
-                                                                       .ToList();
+                                                                                   .Where(s => filterFaction.Enabled ? s.FactionPermissions?.Granted((Faction)filterFaction.ComboBox.SelectedValue) ?? true : true)
+                                                                                   .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                                   .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.PointsPerModel <= 0 ) )
+                                                                                   .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.PointsPerModel >= 0 ) )
+                                                                                   .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.PointsPerModel != 0 ) )
+                                                                                   .OrderBy( s => s.Name )
+                                                                                   .ToList();
 
             groupTraitBindingSource.DataSource = groupTraits;
             dataGridViewGroupTraits.ClearSelection();
@@ -191,6 +197,20 @@ namespace Universalis
                     }
                 }
             }
+        }
+
+        private void FilterFaction_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            refreshGridView();
+        }
+
+        private void checkBoxFilterFaction_Click(object sender, EventArgs e)
+        {
+            filterFaction.Enabled = !filterFaction.Enabled;
+
+            checkBoxFilterFaction.Image = checkBoxFilterFaction.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
+
+            refreshGridView();
         }
     }
 }
