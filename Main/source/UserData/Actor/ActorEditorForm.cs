@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -216,20 +217,33 @@ namespace Universalis
             }
         }
 
-        private void buttonImages_Click( object sender, EventArgs e )
+        private void buttonSelectImages_Click( object sender, EventArgs e )
         {
-            GetImage();
+            using (OpenFileDialog iconFileDialog = new OpenFileDialog())
+            {
+                iconFileDialog.InitialDirectory = Properties.Settings.Default.imageFilePath;
+
+                if (iconFileDialog.ShowDialog(this) == DialogResult.OK)
+                {
+                    Properties.Settings.Default.imageFilePath = Path.GetDirectoryName(iconFileDialog.FileName);
+                    Properties.Settings.Default.Save();
+
+                    var img = ImageHelper.LoadImage(iconFileDialog.FileName);
+
+                    SelectImages(img);
+                }
+            }
         }
 
-        private void GetImage()
+        private void buttonWebcam_Click(object sender, EventArgs e)
         {
-            using( var actorImageForm = new ActorImageForm() )
+            using (var actorWebcamImageForm = new ActorWebcamImageForm())
             {
-                if( actorImageForm.ShowDialog( this ) == DialogResult.OK )
+                if (actorWebcamImageForm.ShowDialog(this) == DialogResult.OK)
                 {
-                    using( Image img = actorImageForm.Image )
+                    using (Image img = actorWebcamImageForm.Image)
                     {
-                        SelectImages( img );
+                        SelectImages(img);
                     }
                 }
             }
@@ -732,8 +746,6 @@ namespace Universalis
             if( m_actorModified.Img == null )
             {
                 MessageBox.Show( "Sie müssen zunächst ein Bild auswählen bevor Sie ein Icon daraus extrahieren können." );
-
-                GetImage();
             }
             else
             {

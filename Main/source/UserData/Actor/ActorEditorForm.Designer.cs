@@ -40,7 +40,7 @@
             this.pictureBoxActorIcon = new System.Windows.Forms.PictureBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxPointCost = new System.Windows.Forms.TextBox();
-            this.buttonImages = new System.Windows.Forms.Button();
+            this.buttonSelectImages = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.textBoxBiography = new System.Windows.Forms.TextBox();
             this.toolStripDescription = new System.Windows.Forms.ToolStrip();
@@ -231,6 +231,7 @@
             this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonWebcam = new System.Windows.Forms.Button();
             this.tableLayoutPanelLeft.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActorIcon)).BeginInit();
@@ -299,11 +300,12 @@
             // panel7
             // 
             this.panel7.AutoSize = true;
+            this.panel7.Controls.Add(this.buttonWebcam);
             this.panel7.Controls.Add(this.label12);
             this.panel7.Controls.Add(this.pictureBoxActorIcon);
             this.panel7.Controls.Add(this.textBoxName);
             this.panel7.Controls.Add(this.textBoxPointCost);
-            this.panel7.Controls.Add(this.buttonImages);
+            this.panel7.Controls.Add(this.buttonSelectImages);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
@@ -356,18 +358,18 @@
             this.textBoxPointCost.TabIndex = 29;
             this.textBoxPointCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // buttonImages
+            // buttonSelectImages
             // 
-            this.buttonImages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonImages.Image = global::Universalis.Properties.Resources.baseline_image_search_black_24dp;
-            this.buttonImages.Location = new System.Drawing.Point(69, 26);
-            this.buttonImages.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonImages.Name = "buttonImages";
-            this.buttonImages.Size = new System.Drawing.Size(43, 37);
-            this.buttonImages.TabIndex = 39;
-            this.toolTip.SetToolTip(this.buttonImages, "Bilder auswählen");
-            this.buttonImages.UseVisualStyleBackColor = true;
-            this.buttonImages.Click += new System.EventHandler(this.buttonImages_Click);
+            this.buttonSelectImages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSelectImages.Image = global::Universalis.Properties.Resources.baseline_image_search_black_24dp;
+            this.buttonSelectImages.Location = new System.Drawing.Point(69, 26);
+            this.buttonSelectImages.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonSelectImages.Name = "buttonSelectImages";
+            this.buttonSelectImages.Size = new System.Drawing.Size(43, 37);
+            this.buttonSelectImages.TabIndex = 39;
+            this.toolTip.SetToolTip(this.buttonSelectImages, "Bilder auswählen");
+            this.buttonSelectImages.UseVisualStyleBackColor = true;
+            this.buttonSelectImages.Click += new System.EventHandler(this.buttonSelectImages_Click);
             // 
             // panel8
             // 
@@ -2187,6 +2189,18 @@
             this.dataGridViewTextBoxColumn62.ReadOnly = true;
             this.dataGridViewTextBoxColumn62.Visible = false;
             // 
+            // buttonWebcam
+            // 
+            this.buttonWebcam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonWebcam.Image = global::Universalis.Properties.Resources.baseline_photo_camera_black_24dp;
+            this.buttonWebcam.Location = new System.Drawing.Point(114, 26);
+            this.buttonWebcam.Name = "buttonWebcam";
+            this.buttonWebcam.Size = new System.Drawing.Size(43, 37);
+            this.buttonWebcam.TabIndex = 50;
+            this.toolTip.SetToolTip(this.buttonWebcam, "Foto aufnehmen");
+            this.buttonWebcam.UseVisualStyleBackColor = true;
+            this.buttonWebcam.Click += new System.EventHandler(this.buttonWebcam_Click);
+            // 
             // ActorEditorForm
             // 
             this.AllowDrop = true;
@@ -2286,7 +2300,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelLeft;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxTragkraft;
-        private System.Windows.Forms.Button buttonImages;
+        private System.Windows.Forms.Button buttonSelectImages;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.DataGridView dataGridViewWeapons;
@@ -2476,5 +2490,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn disciplineLevelDataGridViewComboBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn disciplinePointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.PictureBox pictureBoxInvalidActor;
+        private System.Windows.Forms.Button buttonWebcam;
     }
 }
