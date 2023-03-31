@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArchetypeEditorForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -100,6 +102,15 @@
             this.numericUpDownAdditionalPoints = new System.Windows.Forms.NumericUpDown();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
+            this.dataGridViewFaction = new System.Windows.Forms.DataGridView();
+            this.toolStripFactions = new System.Windows.Forms.ToolStrip();
+            this.toolStripComboBoxFaction = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripButtonFactionAdd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonFactionDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.factionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
@@ -131,6 +142,9 @@
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
             this.toolStrip4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).BeginInit();
+            this.toolStripFactions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -217,9 +231,9 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 446);
+            this.panel4.Location = new System.Drawing.Point(0, 640);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(484, 187);
+            this.panel4.Size = new System.Drawing.Size(484, 81);
             this.panel4.TabIndex = 5;
             // 
             // textBoxDescription
@@ -230,7 +244,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(484, 162);
+            this.textBoxDescription.Size = new System.Drawing.Size(484, 56);
             this.textBoxDescription.TabIndex = 1;
             // 
             // toolStrip1
@@ -957,12 +971,113 @@
             this.toolStripLabel4.Size = new System.Drawing.Size(77, 22);
             this.toolStripLabel4.Text = "Sonderregeln";
             // 
+            // dataGridViewFaction
+            // 
+            this.dataGridViewFaction.AllowUserToAddRows = false;
+            this.dataGridViewFaction.AllowUserToDeleteRows = false;
+            this.dataGridViewFaction.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewFaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewFaction.AutoGenerateColumns = false;
+            this.dataGridViewFaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iconDataGridViewImageColumn,
+            this.nameDataGridViewTextBoxColumn});
+            this.dataGridViewFaction.DataSource = this.factionsBindingSource;
+            this.dataGridViewFaction.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridViewFaction.Location = new System.Drawing.Point(0, 471);
+            this.dataGridViewFaction.MultiSelect = false;
+            this.dataGridViewFaction.Name = "dataGridViewFaction";
+            this.dataGridViewFaction.ReadOnly = true;
+            this.dataGridViewFaction.RowHeadersVisible = false;
+            this.dataGridViewFaction.RowTemplate.Height = 40;
+            this.dataGridViewFaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewFaction.Size = new System.Drawing.Size(484, 169);
+            this.dataGridViewFaction.TabIndex = 41;
+            this.dataGridViewFaction.Visible = false;
+            // 
+            // toolStripFactions
+            // 
+            this.toolStripFactions.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStripFactions.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripFactions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxFaction,
+            this.toolStripButtonFactionAdd,
+            this.toolStripButtonFactionDelete,
+            this.toolStripLabel5});
+            this.toolStripFactions.Location = new System.Drawing.Point(0, 446);
+            this.toolStripFactions.Name = "toolStripFactions";
+            this.toolStripFactions.Size = new System.Drawing.Size(484, 25);
+            this.toolStripFactions.TabIndex = 42;
+            this.toolStripFactions.Text = "toolStrip1";
+            // 
+            // toolStripComboBoxFaction
+            // 
+            this.toolStripComboBoxFaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxFaction.Name = "toolStripComboBoxFaction";
+            this.toolStripComboBoxFaction.Size = new System.Drawing.Size(75, 25);
+            // 
+            // toolStripButtonFactionAdd
+            // 
+            this.toolStripButtonFactionAdd.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonFactionAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFactionAdd.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFactionAdd.Image")));
+            this.toolStripButtonFactionAdd.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonFactionAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFactionAdd.Name = "toolStripButtonFactionAdd";
+            this.toolStripButtonFactionAdd.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFactionAdd.Text = "toolStripButton1";
+            this.toolStripButtonFactionAdd.Visible = false;
+            this.toolStripButtonFactionAdd.Click += new System.EventHandler(this.toolStripButtonFactionAdd_Click);
+            // 
+            // toolStripButtonFactionDelete
+            // 
+            this.toolStripButtonFactionDelete.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonFactionDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonFactionDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonFactionDelete.Image")));
+            this.toolStripButtonFactionDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonFactionDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonFactionDelete.Name = "toolStripButtonFactionDelete";
+            this.toolStripButtonFactionDelete.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonFactionDelete.Text = "toolStripButton2";
+            this.toolStripButtonFactionDelete.Visible = false;
+            this.toolStripButtonFactionDelete.Click += new System.EventHandler(this.toolStripButtonFactionDelete_Click);
+            // 
+            // toolStripLabel5
+            // 
+            this.toolStripLabel5.Name = "toolStripLabel5";
+            this.toolStripLabel5.Size = new System.Drawing.Size(139, 22);
+            this.toolStripLabel5.Text = "Fraktionsberechtigungen";
+            // 
+            // factionsBindingSource
+            // 
+            this.factionsBindingSource.DataSource = typeof(Universalis.Faction);
+            // 
+            // iconDataGridViewImageColumn
+            // 
+            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
+            this.iconDataGridViewImageColumn.HeaderText = "Icon";
+            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
+            this.iconDataGridViewImageColumn.ReadOnly = true;
+            this.iconDataGridViewImageColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // ArchetypeEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 633);
+            this.ClientSize = new System.Drawing.Size(484, 721);
             this.Controls.Add(this.panel4);
+            this.Controls.Add(this.dataGridViewFaction);
+            this.Controls.Add(this.toolStripFactions);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -1023,6 +1138,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).EndInit();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).EndInit();
+            this.toolStripFactions.ResumeLayout(false);
+            this.toolStripFactions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1101,5 +1220,14 @@
         private System.Windows.Forms.NumericUpDown numericUpDownAdditionalPoints;
         private System.Windows.Forms.ToolStrip toolStrip4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel4;
+        private System.Windows.Forms.DataGridView dataGridViewFaction;
+        private System.Windows.Forms.ToolStrip toolStripFactions;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxFaction;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFactionAdd;
+        private System.Windows.Forms.ToolStripButton toolStripButtonFactionDelete;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel5;
+        private System.Windows.Forms.BindingSource factionsBindingSource;
+        private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
     }
 }

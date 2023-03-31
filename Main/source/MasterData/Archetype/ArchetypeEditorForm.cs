@@ -33,6 +33,14 @@ namespace Universalis
             comboBoxMovementType.DataSource = Enum.GetValues( typeof( Archetype.EMovementType ) );
             comboBoxMovementType.SelectedItem = archetype.MovementType;
 
+            toolStripComboBoxFaction.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
+            toolStripComboBoxFaction.ComboBox.SelectedValueChanged += ComboBox_SelectedValueChanged;
+            toolStripComboBoxFaction.ComboBox.DataSource = Enum.GetValues(typeof(EPermissionType));
+
+            toolStripComboBoxFaction.ComboBox.SelectedItem = m_modifiedArchetype.FactionPermissions?.PermissionType ?? EPermissionType.None;
+
+            RefreshGridViews();
+
             TypeDependantFields();
 
             SetupPermittedConditions();
@@ -61,15 +69,6 @@ namespace Universalis
             if( String.IsNullOrEmpty( m_modifiedArchetype.Name ) )
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!",
-                                 caption,
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.Stop );
-                return ( false );
-            }
-
-            if( null == m_modifiedArchetype.Faction )
-            {
-                MessageBox.Show( "Fraktion ist leer, bitte angeben!",
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
@@ -316,6 +315,78 @@ namespace Universalis
             else
             {
                 textBoxRules.Visible = true;
+            }
+        }
+
+        private void RefreshGridViews()
+        {
+            factionsBindingSource.DataSource = m_modifiedArchetype.FactionPermissions?.Values.OrderBy(x => x.Name)
+                                                                                             .ToList();
+        }
+
+        private void ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            switch ((EPermissionType)toolStripComboBoxFaction.SelectedItem)
+            {
+                case EPermissionType.None:
+                    m_modifiedArchetype.FactionPermissions = null;
+                    break;
+
+                default:
+                    if (m_modifiedArchetype.FactionPermissions != null)
+                    {
+                        m_modifiedArchetype.FactionPermissions.PermissionType = (EPermissionType)toolStripComboBoxFaction.SelectedItem;
+                    }
+                    else
+                    {
+                        m_modifiedArchetype.FactionPermissions = new PermissionSet<Faction>((EPermissionType)toolStripComboBoxFaction.SelectedItem);
+                    }
+                    break;
+            }
+        }
+
+        private void ComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if ((m_modifiedArchetype.FactionPermissions == null)
+                ||
+                (m_modifiedArchetype.FactionPermissions.PermissionType == EPermissionType.None))
+            {
+                toolStripButtonFactionDelete.Visible = false;
+                toolStripButtonFactionAdd.Visible = false;
+                dataGridViewFaction.Visible = false;
+            }
+            else
+            {
+                toolStripButtonFactionDelete.Visible = true;
+                toolStripButtonFactionAdd.Visible = true;
+                dataGridViewFaction.Visible = true;
+            }
+        }
+
+        private void toolStripButtonFactionDelete_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewFaction.SelectedRows.Count > 0)
+            {
+                var faction = (Faction)dataGridViewFaction.SelectedRows[0].DataBoundItem;
+                m_modifiedArchetype.FactionPermissions.Values.Remove(faction);
+
+                RefreshGridViews();
+            }
+        }
+
+        private void toolStripButtonFactionAdd_Click(object sender, EventArgs e)
+        {
+            using (FactionSelectionForm factionSelectionForm = new FactionSelectionForm(m_modifiedArchetype.FactionPermissions?.Values.ToList()))
+            {
+                if (factionSelectionForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    if (factionSelectionForm.SelectedFaction != null)
+                    {
+                        m_modifiedArchetype.FactionPermissions.Values.Add(factionSelectionForm.SelectedFaction);
+
+                        RefreshGridViews();
+                    }
+                }
             }
         }
     }

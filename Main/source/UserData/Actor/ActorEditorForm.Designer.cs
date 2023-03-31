@@ -37,7 +37,6 @@
             this.tableLayoutPanelLeft = new System.Windows.Forms.TableLayoutPanel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.pictureBoxFactionIcon = new System.Windows.Forms.PictureBox();
             this.pictureBoxActorIcon = new System.Windows.Forms.PictureBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxPointCost = new System.Windows.Forms.TextBox();
@@ -154,6 +153,10 @@
             this.panelMain = new System.Windows.Forms.Panel();
             this.pictureBoxCard = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.dataGridViewDisciplines = new System.Windows.Forms.DataGridView();
             this.disciplineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -166,10 +169,6 @@
             this.toolStripLabel9 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonDisciplineAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDisciplineRemove = new System.Windows.Forms.ToolStripButton();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -234,7 +233,6 @@
             this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanelLeft.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActorIcon)).BeginInit();
             this.panel8.SuspendLayout();
             this.toolStripDescription.SuspendLayout();
@@ -267,14 +265,14 @@
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplineLevelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.actorDisciplineBindingSource)).BeginInit();
             this.toolStrip4.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanelLeft
@@ -302,7 +300,6 @@
             // 
             this.panel7.AutoSize = true;
             this.panel7.Controls.Add(this.label12);
-            this.panel7.Controls.Add(this.pictureBoxFactionIcon);
             this.panel7.Controls.Add(this.pictureBoxActorIcon);
             this.panel7.Controls.Add(this.textBoxName);
             this.panel7.Controls.Add(this.textBoxPointCost);
@@ -317,27 +314,17 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(181, 27);
+            this.label12.Location = new System.Drawing.Point(181, 26);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 13);
             this.label12.TabIndex = 49;
             this.label12.Text = "Punkte";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // pictureBoxFactionIcon
-            // 
-            this.pictureBoxFactionIcon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxFactionIcon.Location = new System.Drawing.Point(3, 3);
-            this.pictureBoxFactionIcon.Name = "pictureBoxFactionIcon";
-            this.pictureBoxFactionIcon.Size = new System.Drawing.Size(60, 60);
-            this.pictureBoxFactionIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxFactionIcon.TabIndex = 48;
-            this.pictureBoxFactionIcon.TabStop = false;
-            // 
             // pictureBoxActorIcon
             // 
             this.pictureBoxActorIcon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxActorIcon.Location = new System.Drawing.Point(69, 3);
+            this.pictureBoxActorIcon.Location = new System.Drawing.Point(3, 3);
             this.pictureBoxActorIcon.Name = "pictureBoxActorIcon";
             this.pictureBoxActorIcon.Size = new System.Drawing.Size(60, 60);
             this.pictureBoxActorIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -353,9 +340,9 @@
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxName.Location = new System.Drawing.Point(135, 3);
+            this.textBoxName.Location = new System.Drawing.Point(69, 3);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(112, 20);
+            this.textBoxName.Size = new System.Drawing.Size(178, 20);
             this.textBoxName.TabIndex = 14;
             this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
@@ -373,7 +360,7 @@
             // 
             this.buttonImages.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonImages.Image = global::Universalis.Properties.Resources.baseline_image_search_black_24dp;
-            this.buttonImages.Location = new System.Drawing.Point(135, 26);
+            this.buttonImages.Location = new System.Drawing.Point(69, 26);
             this.buttonImages.Margin = new System.Windows.Forms.Padding(0);
             this.buttonImages.Name = "buttonImages";
             this.buttonImages.Size = new System.Drawing.Size(43, 37);
@@ -1553,6 +1540,56 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 639);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.AutoSize = true;
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.panel11, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel12, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 595);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(250, 44);
+            this.tableLayoutPanel3.TabIndex = 36;
+            // 
+            // panel11
+            // 
+            this.panel11.AutoSize = true;
+            this.panel11.Controls.Add(this.label9);
+            this.panel11.Controls.Add(this.textBoxTragkraft);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Margin = new System.Windows.Forms.Padding(0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(125, 44);
+            this.panel11.TabIndex = 0;
+            // 
+            // panel12
+            // 
+            this.panel12.AutoSize = true;
+            this.panel12.Controls.Add(this.label10);
+            this.panel12.Controls.Add(this.textBoxBelastung);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(125, 0);
+            this.panel12.Margin = new System.Windows.Forms.Padding(0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(125, 44);
+            this.panel12.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 13);
+            this.label10.TabIndex = 34;
+            this.label10.Text = "Belastung";
+            // 
             // panel14
             // 
             this.panel14.AutoSize = true;
@@ -1678,56 +1715,6 @@
             this.toolStripButtonDisciplineRemove.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonDisciplineRemove.ToolTipText = "Eigenschaft entfernen";
             this.toolStripButtonDisciplineRemove.Click += new System.EventHandler(this.toolStripButtonDisciplineRemove_Click);
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.AutoSize = true;
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.panel11, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel12, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 595);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(250, 44);
-            this.tableLayoutPanel3.TabIndex = 36;
-            // 
-            // panel11
-            // 
-            this.panel11.AutoSize = true;
-            this.panel11.Controls.Add(this.label9);
-            this.panel11.Controls.Add(this.textBoxTragkraft);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(0, 0);
-            this.panel11.Margin = new System.Windows.Forms.Padding(0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(125, 44);
-            this.panel11.TabIndex = 0;
-            // 
-            // panel12
-            // 
-            this.panel12.AutoSize = true;
-            this.panel12.Controls.Add(this.label10);
-            this.panel12.Controls.Add(this.textBoxBelastung);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(125, 0);
-            this.panel12.Margin = new System.Windows.Forms.Padding(0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(125, 44);
-            this.panel12.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 13);
-            this.label10.TabIndex = 34;
-            this.label10.Text = "Belastung";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -2222,7 +2209,6 @@
             this.tableLayoutPanelLeft.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFactionIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxActorIcon)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -2273,6 +2259,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCard)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).EndInit();
@@ -2280,12 +2272,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.actorDisciplineBindingSource)).EndInit();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2339,7 +2325,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonTraitAdd;
         private System.Windows.Forms.ToolStripButton toolStripButtonTraitRemove;
         private System.Windows.Forms.ToolStripLabel toolStripLabel5;
-        private System.Windows.Forms.PictureBox pictureBoxFactionIcon;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.BindingSource actorTraitBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;

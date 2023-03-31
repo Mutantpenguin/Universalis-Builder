@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -13,6 +14,8 @@ namespace Universalis
             InitializeComponent();
 
             this.Icon = Properties.Resources.icon;
+
+            HasPermissions.DefaultCellStyle.NullValue = null;
 
             filterFaction.ComboBox.DataSource = MasterDataStorage.Faction.Factions.OrderBy( x => x.Name )
                                                                                   .ToList();
@@ -35,7 +38,14 @@ namespace Universalis
             {
                 Archetype archetype = (Archetype)dataGridViewArchetypes.Rows[e.RowIndex].DataBoundItem;
 
-                if( e.ColumnIndex == HasRules.Index )
+                if (e.ColumnIndex == HasPermissions.Index)
+                {
+                    if (archetype.FactionPermissions != null)
+                    {
+                        e.Value = Properties.Resources.outline_key_black_18dp;
+                    }
+                }
+                else if ( e.ColumnIndex == HasRules.Index )
                 {
                     e.Value = !String.IsNullOrEmpty( archetype.Rules );
                 }
@@ -70,7 +80,7 @@ namespace Universalis
         private void refreshGridView()
         {
             List<Archetype> archetype = MasterDataStorage.Archetype.Archetypes.Where( s => s.Active )
-                                                                              .Where( s => filterFaction.Enabled ? s.Faction.ID == ( (Faction)filterFaction.ComboBox.SelectedValue ).ID : true )
+                                                                              .Where( s => filterFaction.Enabled ? s.FactionPermissions?.Granted((Faction)filterFaction.ComboBox.SelectedValue) ?? true : true )
                                                                               .Where( s => filterType.Enabled ? s.Type == ((Archetype.EType)filterType.ComboBox.SelectedValue) : true )
                                                                               .Where( s => s.Name.ToUpper().Contains(toolStripTextBoxSearch.Text.ToUpper()))
                                                                               .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
@@ -86,30 +96,21 @@ namespace Universalis
 
         private void toolStripButtonArchetypeAdd_Click( object sender, EventArgs e )
         {
-            using( FactionSelectionForm factionSelectionForm = new FactionSelectionForm() )
+            Archetype archetype = ArchetypeStorage.Create();
+
+            toolStripTextBoxSearch.Text = String.Empty;
+
+            editArchetype( archetype );
+
+            refreshGridView();
+
+            dataGridViewArchetypes.ClearSelection();
+            foreach( DataGridViewRow row in dataGridViewArchetypes.Rows )
             {
-                if( factionSelectionForm.ShowDialog( this ) == DialogResult.OK )
+                if( archetype.ID == ((Archetype)row.DataBoundItem).ID )
                 {
-                    if( factionSelectionForm.SelectedFaction != null )
-                    {
-                        Archetype archetype = ArchetypeStorage.Create( factionSelectionForm.SelectedFaction );
-
-                        toolStripTextBoxSearch.Text = String.Empty;
-
-                        editArchetype( archetype );
-
-                        refreshGridView();
-
-                        dataGridViewArchetypes.ClearSelection();
-                        foreach( DataGridViewRow row in dataGridViewArchetypes.Rows )
-                        {
-                            if( archetype.ID == ((Archetype)row.DataBoundItem).ID )
-                            {
-                                row.Selected = true;
-                                break;
-                            }
-                        }
-                    }
+                    row.Selected = true;
+                    break;
                 }
             }
         }
@@ -135,7 +136,7 @@ namespace Universalis
             {
                 Archetype archetypeSource = (Archetype)dataGridViewArchetypes.SelectedRows[ 0 ].DataBoundItem;
 
-                Archetype archetypeNew = ArchetypeStorage.Create( archetypeSource.Faction );
+                Archetype archetypeNew = ArchetypeStorage.Create();
                 archetypeNew.Set( archetypeSource );
                 archetypeNew.Name = $"(Kopie von) {archetypeSource.Name}";
                 MasterDataStorage.Archetype.Save( archetypeNew );

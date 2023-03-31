@@ -26,13 +26,21 @@ namespace Universalis
             Description = archetype.Description;
             Rules = archetype.Rules;
             AdditionalPoints = archetype.AdditionalPoints;
-            Faction = archetype.Faction;
             Size = archetype.Size;
             MovementType = archetype.MovementType;
             Type = archetype.Type;
             MaxQuantity = archetype.MaxQuantity;
 
             Profile.Set( archetype.Profile );
+
+            if (null != archetype.FactionPermissions)
+            {
+                FactionPermissions = new PermissionSet<Faction>(archetype.FactionPermissions);
+            }
+            else
+            {
+                FactionPermissions = null;
+            }
         }
 
         public bool Equals( Archetype archetype )
@@ -52,8 +60,6 @@ namespace Universalis
                 ||
                 AdditionalPoints != archetype.AdditionalPoints
                 ||
-                Faction != archetype.Faction
-                ||
                 Size != archetype.Size
                 ||
                 MovementType != archetype.MovementType
@@ -68,6 +74,20 @@ namespace Universalis
             if( !Profile.Equals( archetype.Profile ) )
             {
                 return ( false );
+            }
+
+            if (((null != FactionPermissions) && (null == archetype.FactionPermissions))
+                ||
+                ((null == FactionPermissions) && (null != archetype.FactionPermissions)))
+            {
+                return (false);
+            }
+            else if ((null != FactionPermissions) && (null != archetype.FactionPermissions))
+            {
+                if (!FactionPermissions.Equals(archetype.FactionPermissions))
+                {
+                    return (false);
+                }
             }
 
             return ( true );
@@ -111,13 +131,6 @@ namespace Universalis
             set;
         } = 0;
 
-        [JsonConverter( typeof( JsonFactionConverter ) )]
-        public Faction Faction
-        {
-            get;
-            set;
-        }
-
         public EType Type
         {
             get;
@@ -147,6 +160,12 @@ namespace Universalis
             get;
             set;
         } = 0;
+
+        public PermissionSet<Faction> FactionPermissions
+        {
+            get;
+            set;
+        }
 
         #endregion members
 

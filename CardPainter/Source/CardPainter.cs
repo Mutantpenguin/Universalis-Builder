@@ -114,7 +114,7 @@ namespace Universalis
         private static readonly int WeaponRadiusMargin = SImageMargin + CmToPixel( 0.015f );
         #endregion
 
-        public static Bitmap GetBitmap( Actor actor )
+        public static Bitmap GetBitmap( Faction faction, Actor actor )
         {
             if( null == actor )
             {
@@ -129,7 +129,7 @@ namespace Universalis
                 g.Clear( Color.White );
 
                 DrawName( g, actor.Name );
-                DrawFaction( g, actor.Archetype.Faction );
+                DrawFaction( g, faction);
 
                 DrawPicture( g, actor.Img, actor.Active );
 

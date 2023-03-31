@@ -9,6 +9,8 @@ namespace Universalis
 {
     public class ArchetypeStorage
     {
+        private readonly JsonConverter[] Converters = { FactionStorage.JsonFactionHashSetConverter };
+
         internal static readonly JsonArchetypeHashSetConverter JsonArchetypeHashSetConverter = new JsonArchetypeHashSetConverter();
 
         private const string s_folderName = "Archetypes";
@@ -46,7 +48,7 @@ namespace Universalis
 
                     try
                     {
-                        Archetype archetype = JsonConvert.DeserializeObject<Archetype>( File.ReadAllText( file ) );
+                        Archetype archetype = JsonConvert.DeserializeObject<Archetype>( File.ReadAllText( file ), Converters);
 #if DEBUG
                         if( archetype.ID != new Guid( Path.GetFileNameWithoutExtension( file ) ) )
                         {
@@ -95,7 +97,7 @@ namespace Universalis
 
             try
             {
-                File.WriteAllText( filename, JsonConvert.SerializeObject( archetype, Storage.formatting ) );
+                File.WriteAllText( filename, JsonConvert.SerializeObject( archetype, Storage.formatting, Converters) );
                 File.Delete( filenameBackup );
             }
             catch( Exception ex )
@@ -116,19 +118,9 @@ namespace Universalis
             return ( archetype ?? m_nullArchetype );
         }
 
-        public static Archetype Create( Faction faction )
+        public static Archetype Create()
         {
-            if( null == faction )
-            {
-                throw new ArgumentNullException(nameof(faction ) );
-            }
-
-            Archetype archetype = new Archetype()
-            {
-                Faction = faction
-            };
-
-            return ( archetype );
+            return (new Archetype());
         }
 
         public void Delete( Archetype archetype )

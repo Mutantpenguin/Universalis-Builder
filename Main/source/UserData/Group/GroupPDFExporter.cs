@@ -311,7 +311,7 @@ namespace Universalis
 
                 Actor actor = sortedActorList[ i ];
 
-                using( System.Drawing.Image img = CardPainter.GetBitmap( actor ) )
+                using( System.Drawing.Image img = CardPainter.GetBitmap(group.Faction, actor ) )
                 {
                     Image imgCard = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
                     imgCard.ScaleToFit( s_cardWidth, s_cardHeight );

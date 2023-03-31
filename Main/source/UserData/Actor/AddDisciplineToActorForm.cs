@@ -7,10 +7,11 @@ namespace Universalis
 {
     public partial class AddDisciplineToActorForm : Form
     {
-        public AddDisciplineToActorForm( Archetype archetype, List<Discipline> disciplinesList )
+        public AddDisciplineToActorForm( Faction faction, Archetype archetype, List<Discipline> disciplinesList )
         {
             InitializeComponent();
 
+            m_faction = faction;
             m_archetype = archetype;
             m_disciplineList = disciplinesList;
 
@@ -19,6 +20,7 @@ namespace Universalis
             toolStripTextBoxSearch.TextBox.Select();
         }
 
+        private readonly Faction m_faction;
         private readonly Archetype m_archetype;
         private readonly List<Discipline> m_disciplineList;
 
@@ -33,7 +35,7 @@ namespace Universalis
             disciplineBindingSource.DataSource = MasterDataStorage.Discipline.Disciplines.Where( s => s.Active )
                                                                           .Where( s => !m_disciplineList.Any( x => x.ID == s.ID ) )
                                                                           .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                          .Where( s => s.Permissions?.Granted( m_archetype ) ?? true )
+                                                                          .Where( s => s.Permissions?.Granted(m_faction, m_archetype ) ?? true )
                                                                           .OrderBy( x => x.Name )
                                                                           .ToList();
         }

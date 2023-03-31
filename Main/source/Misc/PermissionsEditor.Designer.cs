@@ -57,9 +57,6 @@ namespace Universalis
             this.toolStripComboBoxMovementType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel7 = new System.Windows.Forms.ToolStripLabel();
             this.dataGridViewArchetype = new System.Windows.Forms.DataGridView();
-            this.factionIconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.factionNameDataGridViewImageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.archetypesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkedListBoxType = new System.Windows.Forms.CheckedListBox();
             this.checkedListBoxSize = new System.Windows.Forms.CheckedListBox();
@@ -68,6 +65,7 @@ namespace Universalis
             this.buttonOk = new System.Windows.Forms.Button();
             this.checkedListBoxMovementType = new System.Windows.Forms.CheckedListBox();
             this.permissionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripFactions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).BeginInit();
@@ -92,7 +90,7 @@ namespace Universalis
             this.toolStripLabel1});
             this.toolStripFactions.Location = new System.Drawing.Point(0, 0);
             this.toolStripFactions.Name = "toolStripFactions";
-            this.toolStripFactions.Size = new System.Drawing.Size(434, 25);
+            this.toolStripFactions.Size = new System.Drawing.Size(448, 25);
             this.toolStripFactions.TabIndex = 0;
             this.toolStripFactions.Text = "toolStrip1";
             // 
@@ -155,7 +153,7 @@ namespace Universalis
             this.dataGridViewFaction.RowHeadersVisible = false;
             this.dataGridViewFaction.RowTemplate.Height = 40;
             this.dataGridViewFaction.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewFaction.Size = new System.Drawing.Size(434, 169);
+            this.dataGridViewFaction.Size = new System.Drawing.Size(448, 169);
             this.dataGridViewFaction.TabIndex = 3;
             this.dataGridViewFaction.Visible = false;
             // 
@@ -192,7 +190,7 @@ namespace Universalis
             this.toolStripLabel4});
             this.toolStripArchetypes.Location = new System.Drawing.Point(0, 194);
             this.toolStripArchetypes.Name = "toolStripArchetypes";
-            this.toolStripArchetypes.Size = new System.Drawing.Size(434, 25);
+            this.toolStripArchetypes.Size = new System.Drawing.Size(448, 25);
             this.toolStripArchetypes.TabIndex = 2;
             this.toolStripArchetypes.Text = "toolStrip4";
             // 
@@ -243,7 +241,7 @@ namespace Universalis
             this.toolStripLabel5});
             this.toolStripType.Location = new System.Drawing.Point(0, 388);
             this.toolStripType.Name = "toolStripType";
-            this.toolStripType.Size = new System.Drawing.Size(434, 25);
+            this.toolStripType.Size = new System.Drawing.Size(448, 25);
             this.toolStripType.TabIndex = 3;
             this.toolStripType.Text = "toolStrip5";
             // 
@@ -268,7 +266,7 @@ namespace Universalis
             this.toolStripLabel6});
             this.toolStripSize.Location = new System.Drawing.Point(0, 492);
             this.toolStripSize.Name = "toolStripSize";
-            this.toolStripSize.Size = new System.Drawing.Size(434, 25);
+            this.toolStripSize.Size = new System.Drawing.Size(448, 25);
             this.toolStripSize.TabIndex = 4;
             this.toolStripSize.Text = "toolStrip6";
             // 
@@ -293,7 +291,7 @@ namespace Universalis
             this.toolStripLabel7});
             this.toolStripMovementType.Location = new System.Drawing.Point(0, 596);
             this.toolStripMovementType.Name = "toolStripMovementType";
-            this.toolStripMovementType.Size = new System.Drawing.Size(434, 25);
+            this.toolStripMovementType.Size = new System.Drawing.Size(448, 25);
             this.toolStripMovementType.TabIndex = 5;
             this.toolStripMovementType.Text = "toolStrip7";
             // 
@@ -319,8 +317,6 @@ namespace Universalis
             this.dataGridViewArchetype.AutoGenerateColumns = false;
             this.dataGridViewArchetype.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArchetype.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.factionIconDataGridViewImageColumn,
-            this.factionNameDataGridViewImageColumn,
             this.nameDataGridViewTextBoxColumn2});
             this.dataGridViewArchetype.DataSource = this.archetypesBindingSource;
             this.dataGridViewArchetype.Dock = System.Windows.Forms.DockStyle.Top;
@@ -331,35 +327,10 @@ namespace Universalis
             this.dataGridViewArchetype.RowHeadersVisible = false;
             this.dataGridViewArchetype.RowTemplate.Height = 40;
             this.dataGridViewArchetype.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewArchetype.Size = new System.Drawing.Size(434, 169);
+            this.dataGridViewArchetype.Size = new System.Drawing.Size(448, 169);
             this.dataGridViewArchetype.TabIndex = 3;
             this.dataGridViewArchetype.Visible = false;
             this.dataGridViewArchetype.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewArchetype_CellFormatting);
-            // 
-            // factionIconDataGridViewImageColumn
-            // 
-            this.factionIconDataGridViewImageColumn.DataPropertyName = "Faction.Icon";
-            this.factionIconDataGridViewImageColumn.HeaderText = "Icon";
-            this.factionIconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.factionIconDataGridViewImageColumn.Name = "factionIconDataGridViewImageColumn";
-            this.factionIconDataGridViewImageColumn.ReadOnly = true;
-            this.factionIconDataGridViewImageColumn.Width = 40;
-            // 
-            // factionNameDataGridViewImageColumn
-            // 
-            this.factionNameDataGridViewImageColumn.DataPropertyName = "Faction.Name";
-            this.factionNameDataGridViewImageColumn.HeaderText = "Fraktion";
-            this.factionNameDataGridViewImageColumn.Name = "factionNameDataGridViewImageColumn";
-            this.factionNameDataGridViewImageColumn.ReadOnly = true;
-            this.factionNameDataGridViewImageColumn.Width = 150;
-            // 
-            // nameDataGridViewTextBoxColumn2
-            // 
-            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
-            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // archetypesBindingSource
             // 
@@ -372,7 +343,7 @@ namespace Universalis
             this.checkedListBoxType.FormattingEnabled = true;
             this.checkedListBoxType.Location = new System.Drawing.Point(0, 413);
             this.checkedListBoxType.Name = "checkedListBoxType";
-            this.checkedListBoxType.Size = new System.Drawing.Size(434, 79);
+            this.checkedListBoxType.Size = new System.Drawing.Size(448, 79);
             this.checkedListBoxType.TabIndex = 5;
             this.checkedListBoxType.Visible = false;
             // 
@@ -383,7 +354,7 @@ namespace Universalis
             this.checkedListBoxSize.FormattingEnabled = true;
             this.checkedListBoxSize.Location = new System.Drawing.Point(0, 517);
             this.checkedListBoxSize.Name = "checkedListBoxSize";
-            this.checkedListBoxSize.Size = new System.Drawing.Size(434, 79);
+            this.checkedListBoxSize.Size = new System.Drawing.Size(448, 79);
             this.checkedListBoxSize.TabIndex = 6;
             this.checkedListBoxSize.Visible = false;
             // 
@@ -395,7 +366,7 @@ namespace Universalis
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 700);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(434, 32);
+            this.panel11.Size = new System.Drawing.Size(448, 32);
             this.panel11.TabIndex = 10;
             // 
             // buttonCancel
@@ -415,7 +386,7 @@ namespace Universalis
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.Image = global::Universalis.Properties.Resources.tick;
-            this.buttonOk.Location = new System.Drawing.Point(331, 3);
+            this.buttonOk.Location = new System.Drawing.Point(345, 3);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(100, 26);
             this.buttonOk.TabIndex = 0;
@@ -432,13 +403,21 @@ namespace Universalis
             this.checkedListBoxMovementType.FormattingEnabled = true;
             this.checkedListBoxMovementType.Location = new System.Drawing.Point(0, 621);
             this.checkedListBoxMovementType.Name = "checkedListBoxMovementType";
-            this.checkedListBoxMovementType.Size = new System.Drawing.Size(434, 79);
+            this.checkedListBoxMovementType.Size = new System.Drawing.Size(448, 79);
             this.checkedListBoxMovementType.TabIndex = 6;
             this.checkedListBoxMovementType.Visible = false;
             // 
             // permissionsBindingSource
             // 
             this.permissionsBindingSource.DataSource = typeof(Universalis.Permissions);
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // PermissionsEditor
             // 
@@ -447,7 +426,7 @@ namespace Universalis
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.CancelButton = this.buttonCancel;
-            this.ClientSize = new System.Drawing.Size(434, 915);
+            this.ClientSize = new System.Drawing.Size(448, 915);
             this.ControlBox = false;
             this.Controls.Add(this.panel11);
             this.Controls.Add(this.checkedListBoxMovementType);
@@ -521,8 +500,6 @@ namespace Universalis
         private System.Windows.Forms.ToolStripButton toolStripButtonFactionDelete;
         private System.Windows.Forms.ToolStripButton toolStripButtonArchetypeAdd;
         private System.Windows.Forms.ToolStripButton toolStripButtonArchetypeDelete;
-        private System.Windows.Forms.DataGridViewImageColumn factionIconDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn factionNameDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
     }
 }

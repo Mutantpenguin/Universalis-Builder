@@ -55,7 +55,6 @@
             this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.FactionIcon = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +70,7 @@
             this.AWADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DETDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HasPermissions = new System.Windows.Forms.DataGridViewImageColumn();
             this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypes)).BeginInit();
@@ -92,13 +92,14 @@
             this.checkBoxFilterType});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(849, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(874, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -203,7 +204,6 @@
             this.dataGridViewArchetypes.AutoGenerateColumns = false;
             this.dataGridViewArchetypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArchetypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.FactionIcon,
             this.nameDataGridViewTextBoxColumn,
             this.maxQuantityDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn,
@@ -219,6 +219,7 @@
             this.AWADataGridViewTextBoxColumn,
             this.DETDataGridViewTextBoxColumn,
             this.Weight,
+            this.HasPermissions,
             this.Points});
             this.dataGridViewArchetypes.DataSource = this.archetypeBindingSource;
             this.dataGridViewArchetypes.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -229,7 +230,7 @@
             this.dataGridViewArchetypes.RowHeadersVisible = false;
             this.dataGridViewArchetypes.RowTemplate.Height = 40;
             this.dataGridViewArchetypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewArchetypes.Size = new System.Drawing.Size(849, 379);
+            this.dataGridViewArchetypes.Size = new System.Drawing.Size(874, 379);
             this.dataGridViewArchetypes.TabIndex = 0;
             this.dataGridViewArchetypes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewArchetype_CellDoubleClick);
             this.dataGridViewArchetypes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewArchetypes_CellFormatting);
@@ -246,7 +247,7 @@
             this.toolStripStatusLabelCount});
             this.statusStrip1.Location = new System.Drawing.Point(0, 404);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(849, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(874, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -254,15 +255,6 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
-            // 
-            // FactionIcon
-            // 
-            this.FactionIcon.DataPropertyName = "Faction.Icon";
-            this.FactionIcon.HeaderText = "";
-            this.FactionIcon.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.FactionIcon.Name = "FactionIcon";
-            this.FactionIcon.ReadOnly = true;
-            this.FactionIcon.Width = 40;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -407,6 +399,14 @@
             this.Weight.ReadOnly = true;
             this.Weight.Width = 60;
             // 
+            // HasPermissions
+            // 
+            this.HasPermissions.HeaderText = "B";
+            this.HasPermissions.Name = "HasPermissions";
+            this.HasPermissions.ReadOnly = true;
+            this.HasPermissions.ToolTipText = "Berechtigungen";
+            this.HasPermissions.Width = 25;
+            // 
             // Points
             // 
             this.Points.DataPropertyName = "Points";
@@ -421,7 +421,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 426);
+            this.ClientSize = new System.Drawing.Size(874, 426);
             this.Controls.Add(this.dataGridViewArchetypes);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -457,7 +457,6 @@
         private System.Windows.Forms.ToolStripButton checkBoxFilterFaction;
         private System.Windows.Forms.ToolStripComboBox filterType;
         private System.Windows.Forms.ToolStripButton checkBoxFilterType;
-        private System.Windows.Forms.DataGridViewImageColumn FactionIcon;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn maxQuantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
@@ -473,6 +472,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AWADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn DETDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Weight;
+        private System.Windows.Forms.DataGridViewImageColumn HasPermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn Points;
     }
 }

@@ -161,7 +161,7 @@ namespace Universalis
             {
                 Actor actor = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                pictureBoxCard.Image = CardPainter.GetBitmap( actor );
+                pictureBoxCard.Image = CardPainter.GetBitmap(m_groupModified.Faction, actor );
             }
             else
             {
@@ -307,7 +307,7 @@ namespace Universalis
 
         private void editActor( Actor actor )
         {
-            using( ActorEditorForm actorEditorForm = new ActorEditorForm( actor ) )
+            using( ActorEditorForm actorEditorForm = new ActorEditorForm(m_groupModified.Faction, actor ) )
             {
                 this.Hide();
 

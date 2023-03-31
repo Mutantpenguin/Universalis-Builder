@@ -8,8 +8,10 @@ namespace Universalis
 {
     public partial class ActorEditorForm : Form
     {
-        public ActorEditorForm( Actor actor )
+        public ActorEditorForm( Faction faction, Actor actor )
         {
+            m_faction = faction;
+
             m_actorOriginal = actor;
             m_actorModified = new Actor( actor );
 
@@ -36,9 +38,6 @@ namespace Universalis
             disciplineLevelBindingSource.DataSource = Enumerable.Range( 1, 10 )
                                                                 .Select( i => (uint)i )
                                                                 .ToList();
-
-            pictureBoxFactionIcon.Image = m_actorModified.Archetype.Faction.Icon;
-            toolTip.SetToolTip( pictureBoxFactionIcon, m_actorModified.Archetype.Faction.Name );
 
             pictureBoxActorIcon.Image = m_actorModified.Icon;
 
@@ -109,6 +108,7 @@ namespace Universalis
 
         private readonly bool m_initialized = false;
 
+        private readonly Faction m_faction;
         private readonly Actor m_actorModified;
         private readonly Actor m_actorOriginal;
         private bool m_dragndrop = false;
@@ -149,7 +149,7 @@ namespace Universalis
             if( m_initialized )
             {
                 pictureBoxCard.Image?.Dispose();
-                pictureBoxCard.Image = CardPainter.GetBitmap( m_actorModified );
+                pictureBoxCard.Image = CardPainter.GetBitmap( m_faction, m_actorModified );
             }
 
 
@@ -273,7 +273,7 @@ namespace Universalis
             }
             else
             {
-                using( AddArmorToActorForm addArmorToActor = new AddArmorToActorForm( m_actorModified.Archetype ) )
+                using( AddArmorToActorForm addArmorToActor = new AddArmorToActorForm(m_faction, m_actorModified.Archetype ) )
                 {
                     if( addArmorToActor.ShowDialog( this ) == DialogResult.OK && addArmorToActor.SelectedArmor != null )
                     {
@@ -318,7 +318,7 @@ namespace Universalis
 
         private void toolStripButtonWeaponAdd_Click( object sender, EventArgs e )
         {
-            using( AddWeaponToActorForm addWeaponToActor = new AddWeaponToActorForm( m_actorModified.Archetype ) )
+            using( AddWeaponToActorForm addWeaponToActor = new AddWeaponToActorForm(m_faction, m_actorModified.Archetype ) )
             {
                 if( addWeaponToActor.ShowDialog( this ) == DialogResult.OK )
                 {
@@ -365,7 +365,7 @@ namespace Universalis
 
         private void toolStripButtonEquipmentAdd_Click( object sender, EventArgs e )
         {
-            using( AddEquipmentToActorForm addEquipmentToActor = new AddEquipmentToActorForm( m_actorModified.Archetype ) )
+            using( AddEquipmentToActorForm addEquipmentToActor = new AddEquipmentToActorForm(m_faction, m_actorModified.Archetype ) )
             {
                 if( addEquipmentToActor.ShowDialog( this ) == DialogResult.OK )
                 {
@@ -416,7 +416,7 @@ namespace Universalis
                                                              .Distinct()
                                                              .ToList();
 
-            using( AddTraitToActorForm addTraitToActor = new AddTraitToActorForm( m_actorModified.Archetype, traitList ) )
+            using( AddTraitToActorForm addTraitToActor = new AddTraitToActorForm(m_faction, m_actorModified.Archetype, traitList ) )
             {
                 if( addTraitToActor.ShowDialog( this ) == DialogResult.OK )
                 {
@@ -467,7 +467,7 @@ namespace Universalis
                                                                          .Distinct()
                                                                          .ToList();
 
-            using( AddDisciplineToActorForm addDisciplineToActor = new AddDisciplineToActorForm( m_actorModified.Archetype, disciplineList ) )
+            using( AddDisciplineToActorForm addDisciplineToActor = new AddDisciplineToActorForm(m_faction, m_actorModified.Archetype, disciplineList ) )
             {
                 if( addDisciplineToActor.ShowDialog( this ) == DialogResult.OK )
                 {

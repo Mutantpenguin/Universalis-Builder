@@ -7,10 +7,11 @@ namespace Universalis
 {
     public partial class AddTraitToActorForm : Form
     {
-        public AddTraitToActorForm( Archetype archetype, List<Trait> traitsList )
+        public AddTraitToActorForm(Faction faction, Archetype archetype, List<Trait> traitsList )
         {
             InitializeComponent();
 
+            m_faction = faction;
             m_archetype = archetype;
             m_TraitsList = traitsList;
 
@@ -19,6 +20,7 @@ namespace Universalis
             toolStripTextBoxSearch.TextBox.Select();
         }
 
+        private readonly Faction m_faction;
         private readonly Archetype m_archetype;
         private readonly List<Trait> m_TraitsList;
 
@@ -36,7 +38,7 @@ namespace Universalis
                                                                           .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.MinPoints <= 0 ) )
                                                                           .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.MinPoints >= 0 ) )
                                                                           .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.MinPoints != 0 ) )
-                                                                          .Where( s => s.Permissions?.Granted( m_archetype ) ?? true )
+                                                                          .Where( s => s.Permissions?.Granted(m_faction, m_archetype ) ?? true )
                                                                           .OrderBy( x => x.Name )
                                                                           .ToList();
         }

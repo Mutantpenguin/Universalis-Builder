@@ -177,11 +177,6 @@ namespace Universalis
 
             if( Archetype.PermissionType == EPermissionType.White && Archetype.Values.Count > 0 )
             {
-                if( Faction.Values.Count > 0 )
-                {
-                    return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Fraktionen gefüllt sein." );
-                }
-                
                 if( Type.Values.Count > 0 )
                 {
                     return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Typen gefüllt sein." );
@@ -201,9 +196,9 @@ namespace Universalis
             return ( true, String.Empty) ;
         }
 
-        public bool Granted( Archetype archetype )
+        public bool Granted( Faction faction, Archetype archetype )
         {
-            if( !Faction.Granted( archetype.Faction )
+            if( !Faction.Granted(faction)
                 ||
                 !Archetype.Granted( archetype )
                 ||
@@ -234,7 +229,7 @@ namespace Universalis
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Archetype.PermissionType == EPermissionType.White ? "Erlaubte Archetypen: " : "Verbotene Archetypen: ";
-                summary += String.Join( ", ", Archetype.Values.Select( x => $"{x.Name} ({x.Faction.Name})" ) );
+                summary += String.Join( ", ", Archetype.Values.Select( x => x.Name ) );
             }
 
             if( Type.PermissionType != EPermissionType.None && Type.Values.Count > 0 )

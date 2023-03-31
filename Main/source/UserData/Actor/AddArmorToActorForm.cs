@@ -6,10 +6,11 @@ namespace Universalis
 {
     public partial class AddArmorToActorForm : Form
     {
-        public AddArmorToActorForm( Archetype archetype )
+        public AddArmorToActorForm( Faction faction, Archetype archetype )
         {
             InitializeComponent();
 
+            m_faction = faction;
             m_archetype = archetype;
 
             updateDataGridViewArmor();
@@ -17,6 +18,7 @@ namespace Universalis
             toolStripTextBoxSearch.TextBox.Select();
         }
 
+        private readonly Faction m_faction;
         private readonly Archetype m_archetype;
 
         private void DataGridViewArmor_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
@@ -33,7 +35,7 @@ namespace Universalis
         {
             armorBindingSource.DataSource = MasterDataStorage.Armor.Armors.Where( s => s.Active )
                                                                           .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
-                                                                          .Where( s => s.Permissions?.Granted( m_archetype ) ?? true )
+                                                                          .Where( s => s.Permissions?.Granted(m_faction, m_archetype) ?? true )
                                                                           .OrderBy( x => x.Name )
                                                                           .ToList();
         }

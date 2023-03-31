@@ -10,7 +10,7 @@ namespace Universalis
         {
             InitializeComponent();
 
-            m_factionFilter = faction;
+            m_faction = faction;
 
             filterType.ComboBox.DataSource = Enum.GetValues( typeof( Archetype.EType ) );
             filterType.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
@@ -20,7 +20,7 @@ namespace Universalis
             toolStripTextBoxSearch.TextBox.Select();
         }
 
-        private readonly Faction m_factionFilter;
+        private readonly Faction m_faction;
 
         private void DataGridViewArchetypes_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
@@ -55,7 +55,7 @@ namespace Universalis
         private void updateDataGridViewArchetypes()
         {
             archetypeBindingSource.DataSource = MasterDataStorage.Archetype.Archetypes.Where( s => s.Active )
-                                                                                      .Where( s => m_factionFilter == s.Faction )
+                                                                                      .Where( s => s.FactionPermissions?.Granted(m_faction) ?? true )
                                                                                       .Where( s => filterType.Enabled ? s.Type == ( (Archetype.EType)filterType.ComboBox.SelectedValue ) : true )
                                                                                       .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                                       .OrderBy( x => x.Name )

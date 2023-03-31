@@ -7,10 +7,11 @@ namespace Universalis
 {
     public partial class AddWeaponToActorForm : Form
     {
-        public AddWeaponToActorForm( Archetype archetype )
+        public AddWeaponToActorForm(Faction faction, Archetype archetype )
         {
             InitializeComponent();
 
+            m_faction = faction;
             m_archetype = archetype;
 
             filterWeaponClass.ComboBox.DataSource = Enum.GetValues( typeof( Weapon.EClass ) );
@@ -26,6 +27,7 @@ namespace Universalis
             toolStripTextBoxSearch.TextBox.Select();
         }
 
+        private readonly Faction m_faction;
         private readonly Archetype m_archetype;
 
         private void DataGridViewWeapons_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
@@ -39,7 +41,7 @@ namespace Universalis
                                                                              .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
                                                                              .Where( s => filterWeaponClass.Enabled ? s.Class == (Weapon.EClass)filterWeaponClass.ComboBox.SelectedItem : true )
                                                                              .Where( s => filterType.Enabled ? s.Type == (Weapon.EType)filterType.ComboBox.SelectedItem : true )
-                                                                             .Where( s => s.Permissions?.Granted( m_archetype ) ?? true )
+                                                                             .Where( s => s.Permissions?.Granted(m_faction, m_archetype ) ?? true )
                                                                              .OrderBy( x => x.Name )
                                                                              .ToList();
         }
