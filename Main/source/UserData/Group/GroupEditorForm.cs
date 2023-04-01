@@ -331,7 +331,7 @@ namespace Universalis
             }
         }
 
-        private void dataGridViewGroupActors_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
+        private void dataGridViewActors_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
         {
             if( -1 != e.RowIndex )
             {
@@ -339,7 +339,7 @@ namespace Universalis
             }
         }
 
-        private void dataGridViewGroupActors_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
+        private void dataGridViewActors_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewActors );
 
