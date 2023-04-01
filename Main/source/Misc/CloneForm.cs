@@ -78,7 +78,7 @@ namespace Universalis
                         labelBytes.Text = $"{Math.Round((decimal)progress.ReceivedBytes / 1024 / 1024, 3 )} MiB";
                     } ) );
 
-                    return ( true );
+                    return true;
                 }
             };
 

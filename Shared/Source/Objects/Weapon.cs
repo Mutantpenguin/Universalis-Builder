@@ -108,7 +108,7 @@ namespace Universalis
                 ||
                 Weight != weapon.Weight )
             {
-                return ( false );
+                return false;
             }
 
             if( Class != weapon.Class
@@ -129,25 +129,25 @@ namespace Universalis
                 ||
                 Reloadable != weapon.Reloadable )
             {
-                return ( false );
+                return false;
             }
 
             if( !DamageEffects.SetEquals( weapon.DamageEffects ) )
             {
-                return ( false );
+                return false;
             }
 
             if( ( ( null != ProfileModifier ) && ( null == weapon.ProfileModifier ) )
                 ||
                 ( ( null == ProfileModifier ) && ( null != weapon.ProfileModifier ) ) )
             {
-                return ( false );
+                return false;
             }
             else if( ( null != ProfileModifier ) && ( null != weapon.ProfileModifier ) )
             {
                 if( !ProfileModifier.Equals( weapon.ProfileModifier ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
@@ -155,24 +155,24 @@ namespace Universalis
                 ||
                 ( ( null == Permissions ) && ( null != weapon.Permissions ) ) )
             {
-                return ( false );
+                return false;
             }
             else if( ( null != Permissions ) && ( null != weapon.Permissions ) )
             {
                 if( !Permissions.Equals( weapon.Permissions ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
             if( ( Range != null ) && ( weapon.Range == null ) )
             {
-                return ( false );
+                return false;
             }
 
             if( ( Range == null ) && ( weapon.Range != null ) )
             {
-                return ( false );
+                return false;
             }
 
             if( ( Range != null ) && ( weapon.Range != null ) )
@@ -181,21 +181,21 @@ namespace Universalis
                 ||
                 Range.Length != weapon.Range.Length )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
             if( UseOnce != weapon.UseOnce )
             {
-                return( false );
+                return false;
             }
 
             if( IndirectFire != weapon.IndirectFire )
             {
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         public enum EClass
@@ -372,17 +372,17 @@ namespace Universalis
             {
                 if( 0 == Strength )
                 {
-                    return ( "-" );
+                    return "-";
                 }
                 else
                 {
                     if( AdditiveStrength )
                     {
-                        return ( "+" + Strength.ToString() );
+                        return "+" + Strength.ToString();
                     }
                     else
                     {
-                        return ( Strength.ToString() );
+                        return Strength.ToString();
                     }
                 }
             }
@@ -406,18 +406,18 @@ namespace Universalis
                             ||
                             Range.Amount == 0 )
                         {
-                            return ( "-" );
+                            return "-";
                         }
                         else
                         {
-                            return ( Range.Length + "/" + Range.Amount );
+                            return Range.Length + "/" + Range.Amount;
                         }
 
                     case EType.Nahkampf:
-                        return ( "NK" );
+                        return "NK";
 
                     case EType.Wurf:
-                        return ( "Wurf" );
+                        return "Wurf";
 
                     default:
                         throw new InvalidOperationException( "unkown Weapon.EType" );
@@ -434,14 +434,14 @@ namespace Universalis
                 {
                     // close combat first
                     case EType.Nahkampf:
-                        return ( -1 );
+                        return -1;
 
                     case EType.Fernkampf:
-                        return ( Range.Length * Range.Amount );
+                        return Range.Length * Range.Amount;
 
                     // throwable last
                     case EType.Wurf:
-                        return ( 999999 );
+                        return 999999;
 
                     default:
                         throw new InvalidOperationException( "unkown Weapon.EType" );
@@ -457,13 +457,13 @@ namespace Universalis
                 switch( Type )
                 {
                     case EType.Fernkampf:
-                        return( ( Range.Length * Range.Amount ) + "cm" );
+                        return ( Range.Length * Range.Amount ) + "cm";
 
                     case EType.Nahkampf:
-                        return( "NK" );
+                        return "NK";
 
                     case EType.Wurf:
-                        return( "-" );
+                        return "-";
 
                     default:
                         throw new InvalidOperationException( "unkown Weapon.EType" );
@@ -555,7 +555,7 @@ namespace Universalis
                 points += ProfileModifier.Points();
             }
 
-            return ( (int)points );
+            return (int)points;
         }
 
         public string Summary()
@@ -597,7 +597,7 @@ namespace Universalis
                 }
             }
 
-            return ( text );
+            return text;
         }
 
         [JsonIgnore]

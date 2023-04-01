@@ -114,12 +114,12 @@ namespace Universalis
         {
             Discipline discipline = m_disciplineList.Find( x => x.ID == id );
 
-            return ( discipline ?? m_nullDiscipline );
+            return discipline ?? m_nullDiscipline;
         }
 
         public static Discipline Create()
         {
-            return ( new Discipline() );
+            return new Discipline();
         }
 
         public void Delete( Discipline discipline )

@@ -38,7 +38,7 @@ namespace Universalis
                         throw new ArgumentException( "unkown DamageColor.EType", nameof( color ) );
                 }
 
-                return ( ImageHelper.Colorize( image, colorMatrix ) );
+                return ImageHelper.Colorize( image, colorMatrix );
             }
             
         }

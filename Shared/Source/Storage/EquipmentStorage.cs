@@ -114,12 +114,12 @@ namespace Universalis
         {
             Equipment equipment = m_equipmentList.Find( x => x.ID == id );
 
-            return ( equipment ?? m_nullEquipment );
+            return equipment ?? m_nullEquipment;
         }
 
         public static Equipment Create()
         {
-            return ( new Equipment() );
+            return new Equipment();
         }
 
         public void Delete( Equipment equipment )

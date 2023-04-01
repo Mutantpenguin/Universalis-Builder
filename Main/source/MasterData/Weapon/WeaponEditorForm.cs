@@ -115,7 +115,7 @@ namespace Universalis
             if( String.IsNullOrEmpty( textBoxName.Text ) )
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
             if( numericUpDownWeight.Value == 0 )
@@ -128,13 +128,13 @@ namespace Universalis
             if( weapon.AdditiveStrength && weapon.Strength == 0 )
             {
                 MessageBox.Show( "Bei additiver Stärke muss die Stärke größer 0 sein!" );
-                return ( false );
+                return false;
             }
 
             if( weapon.UseOnce && ( weapon.ProfileModifier != null ) )
             {
                 MessageBox.Show( "Einmalnutzung darf nicht mit Profil-Modifikatoren kombiniert werden!" );
-                return ( false );
+                return false;
             }
 
             if( ( numericUpDownAdditionalPoints.Value == 0 ) && !String.IsNullOrEmpty( textBoxRules.Text ) )
@@ -149,11 +149,11 @@ namespace Universalis
                 }
                 else
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         private void weaponRangeBindingSource_CurrentItemChanged( object sender, EventArgs e )

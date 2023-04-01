@@ -35,22 +35,22 @@ namespace Universalis
             if( String.IsNullOrEmpty( textBoxName.Text ) )
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
             if( String.IsNullOrEmpty( textBoxDescription.Text ) )
             {
                 MessageBox.Show( "Beschreibung ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
             if( pictureBoxFactionIcon.Image == null )
             {
                 MessageBox.Show( "Icon ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         private void pictureBoxIcon_DoubleClick( object sender, EventArgs e )

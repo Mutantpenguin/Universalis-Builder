@@ -11,15 +11,15 @@ namespace Universalis
                 ||
                 HitPoints != profile.HitPoints )
             {
-                return( false );
+                return false;
             }
 
             if( !Attributes.Equals( profile.Attributes ) )
             {
-                return( false );
+                return false;
             }
 
-            return( true );
+            return true;
         }
 
         public void Set( Profile profile )
@@ -59,7 +59,7 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( Speed + modifier.Speed );
+            return Speed + modifier.Speed;
         }
 
         [JsonIgnore]
@@ -72,12 +72,12 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( HitPoints + modifier.HitPoints );
+            return HitPoints + modifier.HitPoints;
         }
 
         public int ModHitZoneHitPoints( ProfileModifier modifier )
         {
-            return ( Convert.ToInt32( Math.Ceiling( ModHitPoints( modifier ) * Presets.HitZoneHitPointsMultiplier ) ) );
+            return Convert.ToInt32( Math.Ceiling( ModHitPoints( modifier ) * Presets.HitZoneHitPointsMultiplier ) );
         }
 
         public int Points( Archetype.EType type )
@@ -116,7 +116,7 @@ namespace Universalis
                     throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
             }
 
-            return ( points );
+            return points;
         }
     }
 }

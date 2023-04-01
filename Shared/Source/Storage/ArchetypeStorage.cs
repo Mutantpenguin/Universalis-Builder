@@ -115,12 +115,12 @@ namespace Universalis
         {
             Archetype archetype = m_archetypeList.Find( x => x.ID == id );
 
-            return ( archetype ?? m_nullArchetype );
+            return archetype ?? m_nullArchetype;
         }
 
         public static Archetype Create()
         {
-            return (new Archetype());
+            return new Archetype();
         }
 
         public void Delete( Archetype archetype )

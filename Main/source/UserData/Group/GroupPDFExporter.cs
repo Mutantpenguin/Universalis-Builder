@@ -62,12 +62,12 @@ namespace Universalis
 
         private static float CmToPixel( float cm )
         {
-            return( cm / 2.54f * dpi );
+            return cm / 2.54f * dpi;
         }
 
         private static float PixelToCm( float pixel )
         {
-            return ( pixel * 2.54f / dpi );
+            return pixel * 2.54f / dpi;
         }
 
         public static void GeneratePDF( Universe p_universe, Group p_group, string p_fileName )

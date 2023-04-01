@@ -56,24 +56,24 @@ namespace Universalis
                 ||
                 MaxGroupQuantity != discipline.MaxGroupQuantity )
             {
-                return ( false );
+                return false;
             }
 
             if( ( ( null != Permissions ) && ( null == discipline.Permissions ) )
                 ||
                 ( ( null == Permissions ) && ( null != discipline.Permissions ) ) )
             {
-                return ( false );
+                return false;
             }
             else if( ( null != Permissions ) && ( null != discipline.Permissions ) )
             {
                 if( !Permissions.Equals( discipline.Permissions ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         public Guid ID
@@ -128,7 +128,7 @@ namespace Universalis
         {
             uint points = level * BasePoints;
 
-            return ( (int)points );
+            return (int)points;
         }
 
         [JsonIgnore]
@@ -144,18 +144,18 @@ namespace Universalis
             {
                 if( MaxLevel == 1 )
                 {
-                    return ( Points( 1 ).ToString() );
+                    return Points( 1 ).ToString();
                 }
                 else
                 {
-                    return ( $"{Points( 1 )} bis {Points( MaxLevel )}" );
+                    return $"{Points( 1 )} bis {Points( MaxLevel )}";
                 }
             }
         }
 
         public string FormattedName( uint level )
         {
-            return ( $"{Name}{StringHelper.NonBreakingSpace}{StringHelper.ToRoman( (int)level )}" );
+            return $"{Name}{StringHelper.NonBreakingSpace}{StringHelper.ToRoman( (int)level )}";
         }
 
         public string Summary()
@@ -177,7 +177,7 @@ namespace Universalis
                 }
             }
 
-            return ( text );
+            return text;
         }
 
         [JsonIgnore]

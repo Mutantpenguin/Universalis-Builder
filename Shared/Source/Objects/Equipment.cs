@@ -83,20 +83,20 @@ namespace Universalis
                 ||
                 AP != equipment.AP )
             {
-                return ( false );
+                return false;
             }
 
             if( ( ( null != ProfileModifier ) && ( null == equipment.ProfileModifier ) )
                 ||
                 ( ( null == ProfileModifier ) && ( null != equipment.ProfileModifier ) ) )
             {
-                return ( false );
+                return false;
             }
             else if( ( null != ProfileModifier ) && ( null != equipment.ProfileModifier ) )
             {
                 if( !ProfileModifier.Equals( equipment.ProfileModifier ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
@@ -104,17 +104,17 @@ namespace Universalis
                 ||
                 ( ( null == Permissions ) && ( null != equipment.Permissions ) ) )
             {
-                return ( false );
+                return false;
             }
             else if( ( null != Permissions ) && ( null != equipment.Permissions ) )
             {
                 if( !Permissions.Equals( equipment.Permissions ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         public Guid ID
@@ -243,7 +243,7 @@ namespace Universalis
                 }
             }
 
-            return ( text );
+            return text;
         }
 
         [JsonIgnore]
@@ -258,7 +258,7 @@ namespace Universalis
                 points += ProfileModifier.Points();
             }
 
-            return ( (int)points );
+            return (int)points;
         }
 
         [JsonIgnore]

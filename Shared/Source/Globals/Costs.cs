@@ -22,7 +22,7 @@ namespace Universalis
                 throw new InvalidOperationException( "Die Kosten wurden noch nicht initialisiert!" );
             }
 
-            return ( m_costs );
+            return m_costs;
         }
 
         private static Costs m_costs = null;
@@ -161,22 +161,22 @@ namespace Universalis
                 switch( movementType )
                 {
                     case Archetype.EMovementType.Schweben:
-                        return ( Hover );
+                        return Hover;
 
                     case Archetype.EMovementType.Flug:
-                        return ( Fly );
+                        return Fly;
 
                     case Archetype.EMovementType.Beine:
-                        return ( Walk );
+                        return Walk;
 
                     case Archetype.EMovementType.Kette:
-                        return ( Tracks );
+                        return Tracks;
 
                     case Archetype.EMovementType.Rad:
-                        return ( Wheels );
+                        return Wheels;
 
                     case Archetype.EMovementType.Stationär:
-                        return ( Stationary );
+                        return Stationary;
 
                     default:
                         throw new ArgumentException( "unkown movementType", nameof( movementType ) );

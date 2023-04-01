@@ -7,7 +7,7 @@ namespace Universalis
     {
         public override bool CanConvert( Type objectType )
         {
-            return ( objectType == typeof( GroupTrait ) );
+            return objectType == typeof( GroupTrait );
         }
 
         public override object ReadJson( JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer )
@@ -19,11 +19,11 @@ namespace Universalis
 
             if( null != reader.Value )
             {
-                return ( MasterDataStorage.GroupTrait.Get( new Guid( (string)reader.Value ) ) );
+                return MasterDataStorage.GroupTrait.Get( new Guid( (string)reader.Value ) );
             }
             else
             {
-                return ( null );
+                return null;
             }
         }
 

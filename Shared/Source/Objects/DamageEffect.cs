@@ -51,15 +51,15 @@ namespace Universalis
                 ||
                 Points != damageEffect.Points )
             {
-                return ( false );
+                return false;
             }
 
             if( Icon != damageEffect.Icon )
             {
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         public Guid ID
@@ -85,7 +85,7 @@ namespace Universalis
         {
             get
             {
-                return ( OriginalIcon );
+                return OriginalIcon;
             }
             set
             {
@@ -141,10 +141,10 @@ namespace Universalis
             switch( color )
             {
                 case DamageColor.EType.Green:
-                    return ( IconGreen );
+                    return IconGreen;
 
                 case DamageColor.EType.Red:
-                    return ( IconRed );
+                    return IconRed;
 
                 default:
                     throw new ArgumentException( "unkown " + nameof( DamageColor.EType ), nameof( color ) );
@@ -169,11 +169,11 @@ namespace Universalis
                     }
                 }
 
-                return ( tempImage );
+                return tempImage;
             }
             else
             {
-                return ( s_emptyImage );
+                return s_emptyImage;
             }
         }
 
@@ -183,11 +183,11 @@ namespace Universalis
             {
                 string effectsString = string.Join( ", ", damageEffectSet.OrderBy( x => x.Name ).Select( x => x.Name ) );
 
-                return ( effectsString );
+                return effectsString;
             }
             else
             {
-                return ( null );
+                return null;
             }
         }
 

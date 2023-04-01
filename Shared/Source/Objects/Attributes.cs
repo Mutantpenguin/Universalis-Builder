@@ -44,10 +44,10 @@ namespace Universalis
                 ||
                 DET != attributes.DET )
             {
-                return( false );
+                return false;
             }
 
-            return( true );
+            return true;
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( AGI + modifier.AGI );
+            return AGI + modifier.AGI;
         }
 
         public int ModHTH( AttributeModifier modifier )
@@ -123,7 +123,7 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( HTH + modifier.HTH );
+            return HTH + modifier.HTH;
         }
 
         public int ModLRC( AttributeModifier modifier )
@@ -133,7 +133,7 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( LRC + modifier.LRC );
+            return LRC + modifier.LRC;
         }
 
         public int ModPHY( AttributeModifier modifier )
@@ -143,7 +143,7 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( PHY + modifier.PHY );
+            return PHY + modifier.PHY;
         }
 
         public int ModAWA( AttributeModifier modifier )
@@ -153,7 +153,7 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( AWA + modifier.AWA );
+            return AWA + modifier.AWA;
         }
 
         public int ModDET( AttributeModifier modifier )
@@ -163,7 +163,7 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( modifier ) );
             }
 
-            return ( DET + modifier.DET );
+            return DET + modifier.DET;
         }
 
         #endregion modified

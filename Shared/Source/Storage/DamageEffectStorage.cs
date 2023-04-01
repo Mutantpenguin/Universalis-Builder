@@ -111,12 +111,12 @@ namespace Universalis
         {
             DamageEffect damageEffect = m_damageEffectList.Find( x => x.ID == id );
 
-            return ( damageEffect ?? m_nullDamageEffect );
+            return damageEffect ?? m_nullDamageEffect;
         }
 
         public static DamageEffect Create()
         {
-            return ( new DamageEffect() );
+            return new DamageEffect();
         }
 
         public void Delete( DamageEffect damageEffect )

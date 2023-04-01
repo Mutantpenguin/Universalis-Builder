@@ -81,7 +81,7 @@ namespace Universalis
             if( String.IsNullOrEmpty( textBoxName.Text ) )
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
             if( numericUpDownWeight.Value == 0 )
@@ -107,11 +107,11 @@ namespace Universalis
                 }
                 else
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         private void toolStripButtonProfileMod_Click( object sender, EventArgs e )

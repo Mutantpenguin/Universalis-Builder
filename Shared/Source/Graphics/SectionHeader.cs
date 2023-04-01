@@ -33,7 +33,7 @@ namespace Universalis
                     g.FillRectangle( sectionTitleBackgroundBrushGradient, sectionRectangle );
                 }
 
-                return( temp );
+                return temp;
             }
         }
     }

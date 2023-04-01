@@ -32,7 +32,7 @@ namespace Universalis
                         g.DrawImage( img, new Rectangle( Point.Empty, bmp.Size ), new Rectangle( new Point( 0, 0 ), img.Size ), GraphicsUnit.Pixel );
                     }
 
-                    return ( bmp );
+                    return bmp;
                 }
                 else
                 {
@@ -43,7 +43,7 @@ namespace Universalis
                 }
             }
 
-            return ( null );
+            return null;
         }
 
         public static Image LoadImage( string path )
@@ -52,13 +52,13 @@ namespace Universalis
             {
                 using( FileStream fs = new FileStream( path, FileMode.Open, FileAccess.Read ) )
                 {
-                    return( new Bitmap( fs ) );
+                    return new Bitmap( fs );
                 }
             }
             catch( Exception ex )
             {
                 MessageBox.Show( $"Das Bild konnte nicht geladen werden: {ex.Message}" );
-                return ( null );
+                return null;
             }
         }
 
@@ -80,7 +80,7 @@ namespace Universalis
                     drawing.DrawImage( image, new Rectangle( Point.Empty, image.Size ), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, imageAttributes );
                 }
 
-                return ( image_colorized );
+                return image_colorized;
             }
         }
 

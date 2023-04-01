@@ -6,15 +6,15 @@
         {
             if( modifier == 0 )
             {
-                return ( null );
+                return null;
             }
             else if( modifier > 0 )
             {
-                return ( "+" + modifier );
+                return "+" + modifier;
             }
             else
             {
-                return ( modifier.ToString() );
+                return modifier.ToString();
             }
         }
     }

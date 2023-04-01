@@ -74,20 +74,20 @@ namespace Universalis
                 ||
                 MaxLevel != trait.MaxLevel )
             {
-                return ( false );
+                return false;
             }
 
             if( ( ( null != ProfileModifier ) && ( null == trait.ProfileModifier ) )
                 ||
                 ( ( null == ProfileModifier ) && ( null != trait.ProfileModifier ) ) )
             {
-                return ( false );
+                return false;
             }
             else if( ( null != ProfileModifier ) && ( null != trait.ProfileModifier ) )
             {
                 if( !ProfileModifier.Equals( trait.ProfileModifier ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
@@ -95,17 +95,17 @@ namespace Universalis
                 ||
                 ( ( null == Permissions ) && ( null != trait.Permissions ) ) )
             {
-                return ( false );
+                return false;
             }
             else if( ( null != Permissions ) && ( null != trait.Permissions ) )
             {
                 if( !Permissions.Equals( trait.Permissions ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         public const string LevelPlaceholder = "[LVL]";
@@ -224,7 +224,7 @@ namespace Universalis
                 }
             }
 
-            return ( text );
+            return text;
         }
 
         [JsonIgnore]
@@ -242,7 +242,7 @@ namespace Universalis
                 points += ProfileModifier.Points();
             }
 
-            return ( (int)points );
+            return (int)points;
         }
 
         [JsonIgnore]
@@ -252,11 +252,11 @@ namespace Universalis
             {
                 if( MaxLevel == 1 )
                 {
-                    return ( Points( 1 ).ToString() );
+                    return Points( 1 ).ToString();
                 }
                 else
                 {
-                    return ( $"{Points( 1 )} bis {Points( MaxLevel )}" );
+                    return $"{Points( 1 )} bis {Points( MaxLevel )}";
                 }
             }
         }
@@ -265,11 +265,11 @@ namespace Universalis
         {
             if( MaxLevel == 1 )
             {
-                return ( Name );
+                return Name;
             }
             else
             {
-                return ( $"{Name}{StringHelper.NonBreakingSpace}{StringHelper.ToRoman((int)level)}" );
+                return $"{Name}{StringHelper.NonBreakingSpace}{StringHelper.ToRoman((int)level)}";
             }
         }
 

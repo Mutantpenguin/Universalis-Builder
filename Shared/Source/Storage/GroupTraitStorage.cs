@@ -113,12 +113,12 @@ namespace Universalis
         {
             GroupTrait groupTrait = m_groupTraitList.Find( x => x.ID == id );
 
-            return ( groupTrait ?? m_nullGroupTrait );
+            return groupTrait ?? m_nullGroupTrait;
         }
 
         public static GroupTrait Create()
         {
-            return ( new GroupTrait() );
+            return new GroupTrait();
         }
 
         public void Delete( GroupTrait groupTrait )

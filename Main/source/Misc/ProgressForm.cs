@@ -67,7 +67,7 @@ namespace Universalis
 
             m_backgroundWorker.Add( progressorBackgroundWorker );
 
-            return( progressorBackgroundWorker );
+            return progressorBackgroundWorker;
         }
 
         private void timerProgress_Tick( object sender, System.EventArgs e )

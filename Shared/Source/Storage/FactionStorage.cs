@@ -112,12 +112,12 @@ namespace Universalis
         {
             Faction faction = m_factionList.Find( x => x.ID == id );
 
-            return ( faction ?? m_nullFaction );
+            return faction ?? m_nullFaction;
         }
 
         public static Faction Create()
         {
-            return ( new Faction() );
+            return new Faction();
         }
 
         public void Delete( Faction faction )

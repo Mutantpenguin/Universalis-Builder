@@ -45,10 +45,10 @@ namespace Universalis
                 ||
                 Type != faction.Type )
             {
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         public Guid ID

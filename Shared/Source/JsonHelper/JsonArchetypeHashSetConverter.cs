@@ -9,7 +9,7 @@ namespace Universalis
     {
         public override bool CanConvert( Type objectType )
         {
-            return ( objectType == typeof( HashSet<Archetype> ) );
+            return objectType == typeof( HashSet<Archetype> );
         }
 
         public override object ReadJson( JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer )
@@ -30,11 +30,11 @@ namespace Universalis
                     archetypeSet.Add( MasterDataStorage.Archetype.Get( new Guid( id ) ) );
                 }
 
-                return ( archetypeSet );
+                return archetypeSet;
             }
             else
             {
-                return ( null );
+                return null;
             }
         }
 

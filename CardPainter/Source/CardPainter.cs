@@ -183,13 +183,13 @@ namespace Universalis
                 // draw the structure last, otherwise "lower" elements could paint over it
                 DrawStructure( g, disciplinesEndY );
 
-                return ( img );
+                return img;
             }
         }
 
         public static int CmToPixel( double cm )
         {
-            return ( Convert.ToInt32( cm / 2.54f * Dpi ) );
+            return Convert.ToInt32( cm / 2.54f * Dpi );
         }
 
         private static void DrawStructure( Graphics g, int posY )
@@ -472,7 +472,7 @@ namespace Universalis
 
             g.DrawRectangle( SLinePenBlack, rect );
 
-            return ( xOffset + width );
+            return xOffset + width;
         }
 
         private static int DrawSize( Graphics g, int xOffset, Archetype.ESize size )
@@ -507,7 +507,7 @@ namespace Universalis
 
             g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );
 
-            return ( xOffset + width );
+            return xOffset + width;
         }
 
         private static int DrawMovement( Graphics g, int xOffset, Archetype.EMovementType movementType, int BW )
@@ -553,7 +553,7 @@ namespace Universalis
 
             g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );
 
-            return ( xOffset + width );
+            return xOffset + width;
         }
 
         private static void DrawSectionHeader( Graphics g, String name, Image sectionHeader, int posY )
@@ -612,10 +612,10 @@ namespace Universalis
 
                 g.DrawString( traitsString, FontTraits, Brushes.Black, new Rectangle( SSectionsPosX, posY, SSectionsWidth, SCardHeight - posY ), StringFormatHLeftVTop );
 
-                return ( posY + size.Height );
+                return posY + size.Height;
             }
 
-            return ( posY );
+            return posY;
         }
 
         private static int DrawWeapons( Graphics g, Actor actor, int posY )
@@ -631,7 +631,7 @@ namespace Universalis
 
             if( ( actor.Weapons.Count == 0 ) && ( weaponUnarmed == null ) )
             {
-                return ( posY );
+                return posY;
             }
             else
             {
@@ -671,7 +671,7 @@ namespace Universalis
                 // right of damage
                 g.DrawLine( SLinePenBlack, WeaponDamageStart + WeaponDamageWidth, posY + SLineHeight, WeaponDamageStart + WeaponDamageWidth, lineVertEnd );
 
-                return( posY + ( SLineHeight * lineNumber ) );
+                return posY + ( SLineHeight * lineNumber );
             }
         }
 
@@ -816,7 +816,7 @@ namespace Universalis
 
             g.DrawImage( effectImage, new Rectangle( posX + SImageMargin, posY + SImageMargin, effectImageWidthDraw, SImageSize ) );
 
-            return ( SImageMargin + effectImageWidthDraw );
+            return SImageMargin + effectImageWidthDraw;
         }
 
         private static int DrawArmor( Graphics g, Actor actor, Armor armor, int posY )
@@ -869,11 +869,11 @@ namespace Universalis
                     g.DrawString( "KEIN PLATZ", FontArmor, Brushes.White, rect, StringFormatHCenterVCenter );
                 }
 
-                return ( posY + SLineHeight * 2 );
+                return posY + SLineHeight * 2;
             }
             else
             {
-                return ( posY );
+                return posY;
             }
         }
 
@@ -938,11 +938,11 @@ namespace Universalis
 
                 g.DrawString( equipmentString, FontEquipment, Brushes.Black, new Rectangle( SSectionsPosX, posY, SSectionsWidth, SCardHeight - posY ), StringFormatHLeftVTop );
 
-                return ( posY + size.Height );
+                return posY + size.Height;
             }
             else
             {
-                return ( posY );
+                return posY;
             }
         }
 
@@ -972,10 +972,10 @@ namespace Universalis
 
                 g.DrawString( disciplinesString, FontDisciplines, Brushes.Black, new Rectangle( SSectionsPosX, posY, SSectionsWidth, SCardHeight - posY ), StringFormatHLeftVTop );
 
-                return ( posY + size.Height );
+                return  posY + size.Height;
             }
 
-            return ( posY );
+            return posY;
         }
     }
 }

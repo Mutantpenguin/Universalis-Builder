@@ -37,10 +37,10 @@ namespace Universalis
                 ||
                 DET != attributeModifier.DET )
             {
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         public string Summary()
@@ -77,7 +77,7 @@ namespace Universalis
                 text += ( String.IsNullOrEmpty( text ) ? null : ", " ) + $"EH {Formatter.Modifier( DET )}";
             }
 
-            return ( text );
+            return text;
         }
 
         public void Add( AttributeModifier modifier )
@@ -108,7 +108,7 @@ namespace Universalis
             points += AWA * Convert.ToInt32( attributeCosts.AWA * modifierCosts.Surcharge );
             points += DET * Convert.ToInt32( attributeCosts.DET * modifierCosts.Surcharge );
 
-            return ( points );
+            return points;
         }
 
         #region attributes

@@ -9,7 +9,7 @@ namespace Universalis
     {
         public override bool CanConvert( Type objectType )
         {
-            return ( objectType == typeof( HashSet<DamageEffect> ) );
+            return objectType == typeof( HashSet<DamageEffect> );
         }
 
         public override object ReadJson( JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer )
@@ -30,11 +30,11 @@ namespace Universalis
                     damageEffectSet.Add( MasterDataStorage.DamageEffect.Get( new Guid( id ) ) );
                 }
 
-                return ( damageEffectSet );
+                return damageEffectSet;
             }
             else
             {
-                return ( null );
+                return null;
             }
         }
 

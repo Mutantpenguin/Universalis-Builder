@@ -108,7 +108,7 @@ namespace Universalis
                 posX = m_rectSizeX;
             }
 
-            return ( new Rectangle( posX - m_rectSizeX, posY - m_rectSizeY, sizeX, sizeY ) );
+            return new Rectangle( posX - m_rectSizeX, posY - m_rectSizeY, sizeX, sizeY );
         }
 
         private void pictureBoxImage_MouseMove( object sender, MouseEventArgs e )

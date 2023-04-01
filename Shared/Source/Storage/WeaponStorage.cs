@@ -115,12 +115,12 @@ namespace Universalis
         {
             Weapon weapon = m_weaponList.Find( x => x.ID == id );
 
-            return ( weapon ?? m_nullWeapon );
+            return weapon ?? m_nullWeapon;
         }
 
         public static Weapon Create()
         {
-            return ( new Weapon() );
+            return new Weapon();
         }
 
         public void Delete( Weapon weapon )
@@ -139,10 +139,10 @@ namespace Universalis
 
         public IList<Weapon> WeaponsWithDamageEffect( DamageEffect damageEffect )
         {
-            return ( m_weaponList.Where( x => x.DamageEffects.Any( y => y.ID == damageEffect.ID ) )
-                                 .OrderBy( x => x.Name )
-                                 .ToList()
-                                 .AsReadOnly() );
+            return m_weaponList.Where( x => x.DamageEffects.Any( y => y.ID == damageEffect.ID ) )
+                               .OrderBy( x => x.Name )
+                               .ToList()
+                               .AsReadOnly();
         }
 
         private readonly List<Weapon> m_weaponList = new List<Weapon>();

@@ -29,15 +29,15 @@ namespace Universalis
                 ||
                 CritThreshold != profileModifier.CritThreshold )
             {
-                return ( false );
+                return false;
             }
 
             if( !AttributeModifier.Equals( profileModifier.AttributeModifier ) )
             {
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         public int Speed
@@ -94,7 +94,7 @@ namespace Universalis
                 points += AttributeModifier.Points();
             }
 
-            return( points );
+            return points;
         }
 
         public string Summary()
@@ -126,7 +126,7 @@ namespace Universalis
                 }
             }
 
-            return ( text );
+            return text;
         }
 
         [JsonIgnore]
@@ -142,7 +142,7 @@ namespace Universalis
             {
                 string critThreshold = Formatter.Modifier( CritThreshold );
 
-                return ( String.IsNullOrEmpty( critThreshold ) ? String.Empty : critThreshold + "%" );
+                return String.IsNullOrEmpty( critThreshold ) ? String.Empty : critThreshold + "%";
             }
         }
     }

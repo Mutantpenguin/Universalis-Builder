@@ -81,13 +81,13 @@ namespace Universalis
             if( String.IsNullOrEmpty( textBoxName.Text ) )
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
             if( String.IsNullOrEmpty( textBoxRules.Text ) )
             {
                 MessageBox.Show( "Regeln sind leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
             if( !String.IsNullOrEmpty( textBoxRules.Text )
@@ -104,7 +104,7 @@ namespace Universalis
                 MessageBox.Show( "Achtung, es sind keine Regeln eingetragen, die zusätzlichen Punkte stehen aber nicht auf '0'!" );
             }
 
-            return ( true );
+            return true;
         }
 
         private void GroupTraitEditorForm_FormClosing( object sender, FormClosingEventArgs e )

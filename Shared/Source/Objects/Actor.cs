@@ -27,7 +27,7 @@ namespace Universalis
 
             newActor.Set( this, withID: false );
 
-            return ( newActor );
+            return newActor;
         }
 
         public bool Equals( Actor actor )
@@ -39,7 +39,7 @@ namespace Universalis
 
             if( ID != actor.ID )
             {
-                return ( false );
+                return false;
             }
 
             if( Name != actor.Name
@@ -52,45 +52,45 @@ namespace Universalis
                 ||
                 InactiveType  != actor.InactiveType )
             {
-                return ( false );
+                return false;
             }
             
             if( Archetype != actor.Archetype )
             {
-                return ( false );
+                return false;
             }
 
             if( Icon != actor.Icon
                 ||
                 Img != actor.Img )
             {
-                return ( false );
+                return false;
             }
 
             if( Armor != actor.Armor )
             {
-                return ( false );
+                return false;
             }
 
             if( Weapons.Except( actor.Weapons ).Any()
                 ||
                 actor.Weapons.Except( Weapons ).Any() )
             {
-                return ( false );
+                return false;
             }
 
             if( Equipments.Except( actor.Equipments ).Any()
                 ||
                 actor.Equipments.Except( Equipments ).Any() )
             {
-                return ( false );
+                return false;
             }
 
             foreach( ActorTrait actorTrait in Traits )
             {
                 if( !actor.Traits.Any( x => x.Equals( actorTrait ) ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
@@ -98,7 +98,7 @@ namespace Universalis
             {
                 if( !Traits.Any( x => x.Equals( actorTrait ) ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
@@ -106,7 +106,7 @@ namespace Universalis
             {
                 if( !actor.Disciplines.Any( x => x.Equals( actorDiscipline ) ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
@@ -114,11 +114,11 @@ namespace Universalis
             {
                 if( !Disciplines.Any( x => x.Equals( actorDiscipline ) ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         public void Set( Actor actor, bool withID = true )
@@ -285,10 +285,10 @@ namespace Universalis
                     ||
                     Level != actorDiscipline.Level )
                 {
-                    return ( false );
+                    return false;
                 }
 
-                return ( true );
+                return true;
             }
 
             public Guid ID
@@ -315,7 +315,7 @@ namespace Universalis
             {
                 get
                 {
-                    return ( Discipline.Points( Level ) );
+                    return Discipline.Points( Level );
                 }
             }
         }
@@ -350,10 +350,10 @@ namespace Universalis
                     ||
                     Level != actorTrait.Level )
                 {
-                    return ( false );
+                    return false;
                 }
 
-                return ( true );
+                return true;
             }
 
             public Guid ID
@@ -380,7 +380,7 @@ namespace Universalis
             {
                 get
                 {
-                    return( Trait.Points( Level ) );
+                    return Trait.Points( Level );
                 }
             }
         }
@@ -471,33 +471,33 @@ namespace Universalis
 
         public int ModSpeed()
         {
-            return ( Archetype.Profile.ModSpeed( CurrentProfileModifier() ) - ModLoadModifier() );
+            return Archetype.Profile.ModSpeed( CurrentProfileModifier() ) - ModLoadModifier();
         }
 
         public int ModHitPoints()
         {
-            return ( Archetype.Profile.ModHitPoints( CurrentProfileModifier() ) );
+            return Archetype.Profile.ModHitPoints( CurrentProfileModifier() );
         }
 
         public int ModHitZoneHitPoints()
         {
-            return ( Archetype.Profile.ModHitZoneHitPoints( CurrentProfileModifier() ) );
+            return Archetype.Profile.ModHitZoneHitPoints( CurrentProfileModifier() );
         }
 
         public int ModCritThreshold()
         {
-            return ( 50 + CurrentProfileModifier().CritThreshold );
+            return 50 + CurrentProfileModifier().CritThreshold;
         }
 
         public int? ModAGI()
         {
             if( this.Archetype.Type == Archetype.EType.Drohne )
             {
-                return ( null );
+                return null;
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModAGI( CurrentProfileModifier().AttributeModifier ) - ModLoadModifier() );
+                return Archetype.Profile.Attributes.ModAGI( CurrentProfileModifier().AttributeModifier ) - ModLoadModifier();
             }
         }
 
@@ -505,44 +505,44 @@ namespace Universalis
         {
             if( this.Archetype.Type == Archetype.EType.Drohne )
             {
-                return ( null );
+                return null;
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModHTH( CurrentProfileModifier().AttributeModifier ) );
+                return Archetype.Profile.Attributes.ModHTH( CurrentProfileModifier().AttributeModifier );
             }
         }
         public int? ModLRC()
         {
             if( this.Archetype.Type == Archetype.EType.Drohne )
             {
-                return ( null );
+                return null;
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModLRC( CurrentProfileModifier().AttributeModifier ) );
+                return Archetype.Profile.Attributes.ModLRC( CurrentProfileModifier().AttributeModifier );
             }
         }
 
         public int ModPHY()
         {
-            return ( Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier().AttributeModifier ) );
+            return Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier().AttributeModifier );
         }
 
         public int ModAWA()
         {
-            return ( Archetype.Profile.Attributes.ModAWA( CurrentProfileModifier().AttributeModifier ) );
+            return Archetype.Profile.Attributes.ModAWA( CurrentProfileModifier().AttributeModifier );
         }
 
         public int? ModDET()
         {
             if( this.Archetype.Type == Archetype.EType.Drohne )
             {
-                return ( null );
+                return null;
             }
             else
             {
-                return ( Archetype.Profile.Attributes.ModDET( CurrentProfileModifier().AttributeModifier ) );
+                return Archetype.Profile.Attributes.ModDET( CurrentProfileModifier().AttributeModifier );
             }
         }
         #endregion profile
@@ -550,23 +550,23 @@ namespace Universalis
         #region calculated values
         public int? ModDangerArea()
         {
-            return ( Archetype.DangerArea( CurrentProfileModifier().AttributeModifier ) );
+            return Archetype.DangerArea( CurrentProfileModifier().AttributeModifier );
         }
 
         public int ModAreaOfPerception()
         {
-            return ( Archetype.AreaOfPerception( CurrentProfileModifier().AttributeModifier ) );
+            return Archetype.AreaOfPerception( CurrentProfileModifier().AttributeModifier );
         }
 
         public static string ThrowRange( int attributePHY, bool unwieldy )
         {
             if( unwieldy )
             {
-                return ( $"{Math.Ceiling( attributePHY * Presets.throwRangeLengthUnwieldyMultiplier )}/{Presets.throwRangeAmount}" );
+                return $"{Math.Ceiling( attributePHY * Presets.throwRangeLengthUnwieldyMultiplier )}/{Presets.throwRangeAmount}";
             }
             else
             {
-                return ( $"{attributePHY * Presets.throwRangeLengthMultiplier}/{Presets.throwRangeAmount}" );
+                return $"{attributePHY * Presets.throwRangeLengthMultiplier}/{Presets.throwRangeAmount}";
             }
         }
 
@@ -574,7 +574,7 @@ namespace Universalis
         {
             int modPHY = Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier().AttributeModifier );
 
-            return ( LoadCapacity.Max( Archetype.Type, modPHY ) );
+            return LoadCapacity.Max( Archetype.Type, modPHY );
         }
 
         public float LoadoutWeight( bool withSelfSustaining )
@@ -599,7 +599,7 @@ namespace Universalis
                 }
             }
 
-            return ( loadoutWeight );
+            return loadoutWeight;
         }
 
         private int ModLoadModifier()
@@ -608,11 +608,11 @@ namespace Universalis
 
             if( loadModifier > 0 )
             {
-                return ( loadModifier - 1 );
+                return loadModifier - 1;
             }
             else
             {
-                return ( 0 );
+                return 0;
             }
         }
 
@@ -620,7 +620,7 @@ namespace Universalis
         {
             if( this.Archetype.Type == Archetype.EType.Drohne ) 
             {
-                return ( null );
+                return null;
             }
             else
             {
@@ -648,7 +648,7 @@ namespace Universalis
                         throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
                 }
 
-                return ( weaponUnarmed );
+                return weaponUnarmed;
             }
         }
 
@@ -685,7 +685,7 @@ namespace Universalis
                     points += Disciplines.Sum( x => x.Points );
                 }
 
-                return ( points );
+                return points;
             }
         }
 #endregion calculated values
@@ -714,7 +714,7 @@ namespace Universalis
                 modifier.Add( actorTrait.Trait.ProfileModifier );
             }
 
-            return ( modifier );
+            return modifier;
         }
 
         public (bool valid, String reason) IsValid()
@@ -740,7 +740,7 @@ namespace Universalis
             {
                 if( !Armor.Active )
                 {
-                    return ( true );
+                    return true;
                 }
             }
 
@@ -748,7 +748,7 @@ namespace Universalis
             {
                 if( Traits.Exists( x => !x.Trait.Active ) )
                 {
-                    return ( true );
+                    return true;
                 }
             }
 
@@ -756,7 +756,7 @@ namespace Universalis
             {
                 if( Weapons.Exists( x => !x.Weapon.Active ) )
                 {
-                    return ( true );
+                    return true;
                 }
             }
 
@@ -764,7 +764,7 @@ namespace Universalis
             {
                 if( Equipments.Exists( x => !x.Equipment.Active ) )
                 {
-                    return ( true );
+                    return true;
                 }
             }
 
@@ -772,11 +772,11 @@ namespace Universalis
             {
                 if( Disciplines.Exists( x => !x.Discipline.Active ) )
                 {
-                    return ( true );
+                    return true;
                 }
             }
 
-            return ( false );
+            return false;
         }
 
         public bool OutfitExceedsMaxQuantity()
@@ -788,7 +788,7 @@ namespace Universalis
                            .Where( x => x.weapon.MaxModelQuantity > 0 && x.count > x.weapon.MaxModelQuantity )
                            .Count() > 0 )
                 {
-                    return ( true );
+                    return true;
                 }
             }
 
@@ -799,11 +799,11 @@ namespace Universalis
                               .Where( x => x.equipment.MaxModelQuantity > 0 && x.count > x.equipment.MaxModelQuantity )
                               .Count() > 0 )
                 {
-                    return ( true );
+                    return true;
                 }
             }
 
-            return ( false );
+            return false;
         }
     }
 }

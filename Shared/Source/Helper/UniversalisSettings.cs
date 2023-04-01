@@ -12,7 +12,7 @@ namespace Universalis
                 // get folder without version
                 var userAppDirectory = Directory.GetParent( Application.UserAppDataPath );
 
-                return ( userAppDirectory.ToString() );
+                return userAppDirectory.ToString();
             }
         }
     }

@@ -18,7 +18,7 @@ namespace Universalis
                                         new [] { 0,               0,               0,               f( c.A ),        0 },
                                         new [] { f( c.R ),        f( c.G ),        f( c.B ),        max - f( c.A ),  1 } };
 
-            return ( new ColorMatrix( s_colorMatrix ) );
+            return new ColorMatrix( s_colorMatrix );
         }
     }
 }

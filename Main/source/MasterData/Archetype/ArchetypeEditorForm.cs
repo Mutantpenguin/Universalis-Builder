@@ -71,7 +71,7 @@ namespace Universalis
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
-                return ( false );
+                return false;
             }
 
             if( ( m_modifiedArchetype.Profile.Speed > 0 ) && ( Archetype.EMovementType.Stationär == m_modifiedArchetype.MovementType ) )
@@ -80,7 +80,7 @@ namespace Universalis
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
-                return ( false );
+                return false;
             }
 
             if( ( m_modifiedArchetype.Profile.Speed == 0 ) && ( Archetype.EMovementType.Stationär != m_modifiedArchetype.MovementType ) )
@@ -95,7 +95,7 @@ namespace Universalis
                 }
                 else
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
@@ -115,7 +115,7 @@ namespace Universalis
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );
-                            return ( false );
+                            return false;
                         }
                         break;
 
@@ -132,7 +132,7 @@ namespace Universalis
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );
-                            return ( false );
+                            return false;
                         }
                         break;
 
@@ -145,7 +145,7 @@ namespace Universalis
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );
-                            return ( false );
+                            return false;
                         }
                         break;
 
@@ -166,11 +166,11 @@ namespace Universalis
                 }
                 else
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         private void ArchetypeEditorForm_FormClosing( object sender, FormClosingEventArgs e )

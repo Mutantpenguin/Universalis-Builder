@@ -10,7 +10,7 @@ namespace Universalis
     {
         public static Image Base64ToImage( string base64Image )
         {
-            return ( Bitmap.FromStream( new MemoryStream( Convert.FromBase64String( base64Image ) ) ) );
+            return Bitmap.FromStream( new MemoryStream( Convert.FromBase64String( base64Image ) ) );
         }
 
         private static ImageCodecInfo JgpEncoder = ImageCodecInfo.GetImageDecoders().First( x => x.FormatID == ImageFormat.Jpeg.Guid );
@@ -40,7 +40,7 @@ namespace Universalis
                     }
                 }                
 
-                return ( Convert.ToBase64String( m.ToArray() ) );
+                return Convert.ToBase64String( m.ToArray() );
             }
         }
 
@@ -55,7 +55,7 @@ namespace Universalis
             {
                 img.Save( m, ImageFormat.Png );
 
-                return ( Convert.ToBase64String( m.ToArray() ) );
+                return Convert.ToBase64String( m.ToArray() );
             }
         }
     }

@@ -36,19 +36,19 @@ namespace Universalis
                 ||
                 GroupTrait != group.GroupTrait )
             {
-                return ( false );
+                return false;
             }
 
             if( Icon != group.Icon )
             {
-                return ( false );
+                return false;
             }
 
             foreach( Actor actor in Models )
             {
                 if( !group.Models.Any( x => x.Equals( actor ) ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
@@ -56,7 +56,7 @@ namespace Universalis
             {
                 if( !Models.Any( x => x.Equals( actor ) ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
@@ -66,11 +66,11 @@ namespace Universalis
             {
                 if( !Models[ i ].Equals( group.Models[ i ] ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         public void Set( Group group )
@@ -161,7 +161,7 @@ namespace Universalis
                 points += Models.Where( x => x.Active )
                                    .Sum( x => x.Points );
 
-                return ( points );
+                return points;
             }
         }
 
@@ -188,7 +188,7 @@ namespace Universalis
                 reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) + "Maximale Menge an Ausstattung pro Modell überschritten.";
             }
 
-            return ( String.IsNullOrEmpty( reasonString ), reasonString );
+            return (String.IsNullOrEmpty( reasonString ), reasonString);
         }
     }
 }

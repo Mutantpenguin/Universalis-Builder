@@ -560,7 +560,7 @@ namespace Universalis
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
-                return ( false );
+                return false;
             }
 
             if( m_actorModified.ModSpeed() < 0 )
@@ -569,7 +569,7 @@ namespace Universalis
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
-                return ( false );
+                return false;
             }
 
             if( m_actorModified.ModHitPoints() <= 0 )
@@ -578,7 +578,7 @@ namespace Universalis
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
-                return ( false );
+                return false;
             }
 
             if( m_actorModified.ModCritThreshold() < 0 )
@@ -587,7 +587,7 @@ namespace Universalis
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
-                return ( false );
+                return false;
             }
 
             if( ( m_actorModified.ModAGI() < 0 )
@@ -606,7 +606,7 @@ namespace Universalis
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
-                return ( false );
+                return false;
             }
 
             if( ( m_actorModified.ModSpeed() <= 0 ) && ( Archetype.EMovementType.Stationär != m_actorModified.Archetype.MovementType ) )
@@ -615,10 +615,10 @@ namespace Universalis
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         private void dataGridViewTraits_CellToolTipTextNeeded( object sender, DataGridViewCellToolTipTextNeededEventArgs e )

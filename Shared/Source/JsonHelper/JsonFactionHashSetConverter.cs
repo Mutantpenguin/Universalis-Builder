@@ -25,11 +25,11 @@ namespace Universalis
                     factionSet.Add( MasterDataStorage.Faction.Get( new Guid( id ) ) );
                 }
 
-                return ( factionSet );
+                return factionSet;
             }
             else
             {
-                return ( null );
+                return null;
             }
         }
 

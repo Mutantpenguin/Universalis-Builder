@@ -114,14 +114,14 @@ namespace Universalis
         {
             Trait trait = m_traitsList.Find( x => x.ID == id );
 
-            return ( trait ?? m_nullTrait );
+            return trait ?? m_nullTrait;
         }
 
         public static Trait Create()
         {
             Trait trait = new Trait();
 
-            return ( trait );
+            return trait;
         }
 
         public void Delete( Trait trait )

@@ -29,24 +29,24 @@ namespace Universalis
                 ||
                 PointsPerModel != groupTrait.PointsPerModel )
             {
-                return ( false );
+                return false;
             }
 
             if( ( ( null != FactionPermissions ) && ( null == groupTrait.FactionPermissions ) )
                 ||
                 ( ( null == FactionPermissions ) && ( null != groupTrait.FactionPermissions ) ) )
             {
-                return ( false );
+                return false;
             }
             else if( ( null != FactionPermissions ) && ( null != groupTrait.FactionPermissions ) )
             {
                 if( !FactionPermissions.Equals( groupTrait.FactionPermissions ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         public void Set( GroupTrait groupTrait )
@@ -111,7 +111,7 @@ namespace Universalis
 
         public int Points( int modelCount )
         {
-            return ( PointsPerModel * modelCount );
+            return PointsPerModel * modelCount;
         }
 
         public PermissionSet<Faction> FactionPermissions

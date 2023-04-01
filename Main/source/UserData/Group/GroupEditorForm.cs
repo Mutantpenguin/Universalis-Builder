@@ -107,10 +107,10 @@ namespace Universalis
             if( String.IsNullOrEmpty( m_groupModified.Name ) )
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         #region events

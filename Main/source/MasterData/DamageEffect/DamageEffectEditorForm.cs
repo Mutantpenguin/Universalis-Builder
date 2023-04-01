@@ -36,28 +36,28 @@ namespace Universalis
             if( String.IsNullOrEmpty( textBoxName.Text ) )
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
             if( String.IsNullOrEmpty( textBoxRules.Text ) )
             {
                 MessageBox.Show( "Regeln sind leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
             if( numericUpDownPoints.Value == 0 )
             {
                 MessageBox.Show( "Punkte sind leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
             if( pictureBoxIcon.Image == null )
             {
                 MessageBox.Show( "Icon ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         private void TraitEditorForm_FormClosing( object sender, FormClosingEventArgs e )

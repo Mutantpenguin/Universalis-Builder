@@ -34,7 +34,7 @@ namespace Universalis
                                 dataGridView.CurrentCell = dataGridView.Rows[ currentRowIndex - 1 ].Cells[ 0 ];
                                 dataGridView.CurrentRow.Selected = true;
                             }
-                            return ( false );
+                            return false;
 
                         case Keys.Down:
                             if( currentRowIndex < ( dataGridView.RowCount - 1 ) )
@@ -43,12 +43,12 @@ namespace Universalis
                                 dataGridView.CurrentCell = dataGridView.Rows[ currentRowIndex + 1 ].Cells[ 0 ];
                                 dataGridView.CurrentRow.Selected = true;
                             }
-                            return ( true );
+                            return true;
                     }
                 }
             }
 
-            return ( false );
+            return false;
         }
 
         public static void MemberPropertyFormatter( DataGridViewCellFormattingEventArgs e, DataGridView dataGridView )
@@ -76,17 +76,17 @@ namespace Universalis
 
                         if( propertyValue != null )
                         {
-                            return ( BindMemberProperty( propertyValue, propertyName.Substring( propertyName.IndexOf( "." ) + 1 ) ) );
+                            return BindMemberProperty( propertyValue, propertyName.Substring( propertyName.IndexOf( "." ) + 1 ) );
                         }
                     }
                 }
             }
             else
             {
-                return ( property.GetType().GetProperty( propertyName ).GetValue( property ) );
+                return property.GetType().GetProperty( propertyName ).GetValue( property );
             }
 
-            return ( String.Empty );
+            return String.Empty;
         }
     }
 }

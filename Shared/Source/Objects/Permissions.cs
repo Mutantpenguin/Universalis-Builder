@@ -179,21 +179,21 @@ namespace Universalis
             {
                 if( Type.Values.Count > 0 )
                 {
-                    return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Typen gefüllt sein." );
+                    return (false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Typen gefüllt sein.");
                 }
 
                 if( Size.Values.Count > 0 )
                 {
-                    return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Größen gefüllt sein." );
+                    return (false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Größen gefüllt sein.");
                 }
 
                 if( MovementType.Values.Count > 0 )
                 {
-                    return ( false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Bewegungsarten gefüllt sein." );
+                    return (false, "Bei gefüllter Whitelist für Archetypen darf nicht gleichzeitig die White- oder Blacklist für Bewegungsarten gefüllt sein.");
                 }
             }
 
-            return ( true, String.Empty) ;
+            return (true, String.Empty);
         }
 
         public bool Granted( Faction faction, Archetype archetype )
@@ -211,7 +211,7 @@ namespace Universalis
                 return false;
             }
 
-            return ( true );
+            return true;
         }
 
         public string Summary()
@@ -253,7 +253,7 @@ namespace Universalis
                 summary += String.Join( ", ", MovementType.Values.Select( x => x.ToString() ) );
             }
 
-            return ( summary );
+            return summary;
         }
 
         public PermissionSet<Faction> Faction = new PermissionSet<Faction>();

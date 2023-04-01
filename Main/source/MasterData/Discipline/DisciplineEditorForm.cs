@@ -39,10 +39,10 @@ namespace Universalis
             if( String.IsNullOrEmpty( textBoxName.Text ) )
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         private void DisciplineEditorForm_FormClosing( object sender, FormClosingEventArgs e )

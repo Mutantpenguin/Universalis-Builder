@@ -79,7 +79,7 @@ namespace Universalis
                 ||
                 Weight != armor.Weight )
             {
-                return ( false );
+                return false;
             }
 
             if( Protection != armor.Protection
@@ -90,20 +90,20 @@ namespace Universalis
                 ||
                 SelfSustaining != armor.SelfSustaining )
             {
-                return ( false );
+                return false;
             }
 
             if( ( ( null != ProfileModifier ) && ( null == armor.ProfileModifier ) )
                 ||
                 ( ( null == ProfileModifier ) && ( null != armor.ProfileModifier ) ) )
             {
-                return ( false );
+                return false;
             }
             else if( ( null != ProfileModifier ) && ( null != armor.ProfileModifier ) )
             {
                 if( !ProfileModifier.Equals( armor.ProfileModifier ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
@@ -111,22 +111,22 @@ namespace Universalis
                 ||
                 ( ( null == Permissions ) && ( null != armor.Permissions ) ) )
             {
-                return ( false );
+                return false;
             }
             else if( ( null != Permissions ) && ( null != armor.Permissions ) )
             {
                 if( !Permissions.Equals( armor.Permissions ) )
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
             if( !DamageEffects.SetEquals( armor.DamageEffects ) )
             {
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         public Guid ID
@@ -230,17 +230,17 @@ namespace Universalis
             {
                 if( 0 == Protection )
                 {
-                    return ( "-" );
+                    return "-";
                 }
                 else
                 {
                     if( AdditiveProtection )
                     {
-                        return ( "+" + Protection.ToString() );
+                        return "+" + Protection.ToString();
                     }
                     else
                     {
-                        return ( Protection.ToString() );
+                        return Protection.ToString();
                     }
                 }
             }
@@ -253,11 +253,11 @@ namespace Universalis
             {
                 if( 0 == DamageReduction )
                 {
-                    return ( "-" );
+                    return "-";
                 }
                 else
                 {
-                    return ( DamageReduction.ToString() );
+                    return DamageReduction.ToString();
                 }
             }
         }
@@ -300,7 +300,7 @@ namespace Universalis
                 points += ProfileModifier.Points();
             }
 
-            return ( (int)points );
+            return (int)points;
         }
 
         [JsonIgnore]
@@ -348,7 +348,7 @@ namespace Universalis
                 }
             }
 
-            return ( text );
+            return text;
         }
 
         [JsonIgnore]

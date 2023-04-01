@@ -87,7 +87,7 @@ namespace Universalis
             if( String.IsNullOrEmpty( textBoxName.Text ) )
             {
                 MessageBox.Show( "Name ist leer, bitte angeben!" );
-                return ( false );
+                return false;
             }
 
             if( ( numericUpDownBasePoints.Value == 0 ) && ( !String.IsNullOrEmpty( textBoxRules.Text )
@@ -109,11 +109,11 @@ namespace Universalis
                 }
                 else
                 {
-                    return ( false );
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         private void TraitEditorForm_FormClosing( object sender, FormClosingEventArgs e )

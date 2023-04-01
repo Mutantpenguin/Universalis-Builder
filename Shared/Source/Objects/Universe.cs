@@ -52,20 +52,20 @@ namespace Universalis
                 ||
                 Website != universe.Website )
             {
-                return ( false );
+                return false;
             }
 
-            return ( true );
+            return true;
         }
 
         public String NameWithVersion()
         {
-            return ( Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - " + Version ) );
+            return Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - " + Version );
         }
 
         public String NameWithVersionAndHash()
         {
-            return ( Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - " + Version ) + ( String.IsNullOrEmpty( CommitHash ) ? String.Empty : " - " + CommitHash.Substring( 0, 8 ) ) );
+            return Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - " + Version ) + ( String.IsNullOrEmpty( CommitHash ) ? String.Empty : " - " + CommitHash.Substring( 0, 8 ) );
         }
 
         [JsonProperty( "id" )]
@@ -147,13 +147,13 @@ namespace Universalis
 
         private static readonly string universeSettingsFilename = "universe.json";
 
-        public static (Universe,string) Load( string universePath )
+        public static (Universe, string) Load( string universePath )
         {
             var universeSettingsPath = Path.Combine( universePath, universeSettingsFilename );
 
             if( !File.Exists( universeSettingsPath ) )
             {
-                return ( null, "Die Einstellungsdatei für dieses Universum existiert nicht." );
+                return (null, "Die Einstellungsdatei für dieses Universum existiert nicht.");
             }
 
             try
@@ -197,7 +197,7 @@ namespace Universalis
 
             File.WriteAllText( universeFullPath, JsonConvert.SerializeObject( universe, Storage.formatting ) );
 
-            return ( universeFullPath );
+            return universeFullPath;
         }
     }
 }

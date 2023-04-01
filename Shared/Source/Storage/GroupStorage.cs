@@ -65,12 +65,12 @@ namespace Universalis
 
         public static Group Load( string file )
         {
-            return( JsonConvert.DeserializeObject<Group>( File.ReadAllText( file ) ) );
+            return JsonConvert.DeserializeObject<Group>( File.ReadAllText( file ) );
         }
 
         public Group FindByID( Guid id )
         {
-            return ( m_groupList.Find( x => x.ID == id ) );
+            return m_groupList.Find( x => x.ID == id );
         }
 
         public void Save( Group group )
@@ -121,7 +121,7 @@ namespace Universalis
                 Faction = faction
             };
 
-            return ( group );
+            return group;
         }
 
         public void Add( Group group )

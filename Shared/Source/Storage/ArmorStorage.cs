@@ -114,12 +114,12 @@ namespace Universalis
         {
             Armor armor = m_armorList.Find( x => x.ID == id );
 
-            return ( armor ?? m_nullArmor );
+            return armor ?? m_nullArmor;
         }
 
         public static Armor Create()
         {
-            return ( new Armor() );
+            return new Armor();
         }
 
         public void Delete( Armor armor )
@@ -138,10 +138,10 @@ namespace Universalis
 
         public IList<Armor> ArmorsWithDamageEffect( DamageEffect damageEffect )
         {
-            return ( m_armorList.Where( x => x.DamageEffects.Any( y => y.ID == damageEffect.ID ) )
-                                .OrderBy( x => x.Name )
-                                .ToList()
-                                .AsReadOnly() );
+            return m_armorList.Where( x => x.DamageEffects.Any( y => y.ID == damageEffect.ID ) )
+                              .OrderBy( x => x.Name )
+                              .ToList()
+                              .AsReadOnly();
         }
 
         private readonly List<Armor> m_armorList = new List<Armor>();

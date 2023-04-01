@@ -8,7 +8,7 @@ namespace Universalis
     {
         public override bool CanConvert( Type objectType )
         {
-            return ( objectType == typeof( Image ) );
+            return objectType == typeof( Image );
         }
 
         public override object ReadJson( JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer )
@@ -20,11 +20,11 @@ namespace Universalis
 
             if( null != reader.Value )
             {
-                return ( ImageBase64Helper.Base64ToImage( (string)reader.Value ) );
+                return ImageBase64Helper.Base64ToImage( (string)reader.Value );
             }
             else
             {
-                return ( null );
+                return null;
             }
         }
 

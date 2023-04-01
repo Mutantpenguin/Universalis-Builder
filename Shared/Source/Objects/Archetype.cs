@@ -68,29 +68,29 @@ namespace Universalis
                 ||
                 MaxQuantity != archetype.MaxQuantity )
             {
-                return ( false );
+                return false;
             }
 
             if( !Profile.Equals( archetype.Profile ) )
             {
-                return ( false );
+                return false;
             }
 
             if (((null != FactionPermissions) && (null == archetype.FactionPermissions))
                 ||
                 ((null == FactionPermissions) && (null != archetype.FactionPermissions)))
             {
-                return (false);
+                return false;
             }
             else if ((null != FactionPermissions) && (null != archetype.FactionPermissions))
             {
                 if (!FactionPermissions.Equals(archetype.FactionPermissions))
                 {
-                    return (false);
+                    return false;
                 }
             }
 
-            return ( true );
+            return true;
         }
 
         #region members
@@ -184,7 +184,7 @@ namespace Universalis
 
                 points += Profile.Points( Type );
 
-                return ( points );
+                return points;
             }
         }
 
@@ -237,7 +237,7 @@ namespace Universalis
                         throw new InvalidOperationException( "unkown " + nameof( ESize ) );
                 }
 
-                return ( Profile.Attributes.PHY * typeMultiplicator * sizeMultiplicator );
+                return Profile.Attributes.PHY * typeMultiplicator * sizeMultiplicator;
             }
         }
 
@@ -246,7 +246,7 @@ namespace Universalis
         {
             get
             {
-                return ( LoadCapacity.Max( Type, Profile.Attributes.PHY ) );
+                return LoadCapacity.Max( Type, Profile.Attributes.PHY );
             }
         }
 
@@ -270,7 +270,7 @@ namespace Universalis
         {
             if( Type == EType.Drohne )
             {
-                return ( null );
+                return null;
             }
             else
             {
@@ -278,18 +278,18 @@ namespace Universalis
 
                 if( lengthDangerArea < 0 )
                 {
-                    return ( 0 );
+                    return 0;
                 }
                 else
                 {
-                    return ( lengthDangerArea );
+                    return lengthDangerArea;
                 }
             }
         }
 
         public int AreaOfPerception( AttributeModifier modifier )
         {
-            return ( Presets.AreaOfPerceptionMultiplier * Profile.Attributes.ModAWA( modifier ) );
+            return Presets.AreaOfPerceptionMultiplier * Profile.Attributes.ModAWA( modifier );
         }
 
         public string Summary()
