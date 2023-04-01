@@ -46,7 +46,7 @@ namespace Universalis
 
             textBoxBiography.Text = m_actorModified.Biography;
 
-            toolStripLabelArchetypeName.Text = m_actorModified.Archetype.Name;
+            toolStripLabelArchetypeName.Text = m_actorModified.Archetype.Name + " - " + m_actorModified.Archetype.Type.ToString();
 
             if( !m_actorModified.Active )
             {

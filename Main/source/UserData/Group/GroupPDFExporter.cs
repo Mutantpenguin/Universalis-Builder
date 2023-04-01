@@ -195,12 +195,13 @@ namespace Universalis
         {
             float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
             float actorImgWidth = CmToPixel( 1 );
+            float typeWidth = CmToPixel(2);
             float pointsWidth = CmToPixel( 2 );
-            float modelNameWidth = printableWidth - ( actorImgWidth + pointsWidth );
+            float modelNameWidth = printableWidth - ( actorImgWidth + typeWidth + pointsWidth);
 
-            const int columnCount = 3;
+            const int columnCount = 4;
 
-            PdfPTable overviewTable = new PdfPTable( new float[ columnCount ] { actorImgWidth, modelNameWidth, pointsWidth } )
+            PdfPTable overviewTable = new PdfPTable( new float[ columnCount ] { actorImgWidth, modelNameWidth, typeWidth, pointsWidth } )
             {
                 WidthPercentage = 100,
                 SpacingBefore = CmToPixel( 1.0f ),
@@ -213,6 +214,10 @@ namespace Universalis
                 Border = Rectangle.NO_BORDER,
                 Colspan = 2
             } );
+            overviewTable.AddCell(new PdfPCell(new Phrase("Typ", s_actorFontHeader))
+            {
+                Border = Rectangle.NO_BORDER
+            });
             overviewTable.AddCell( new PdfPCell( new Phrase( "Punkte", s_actorFontHeader ) )
             {
                 Border = Rectangle.NO_BORDER,
@@ -220,7 +225,7 @@ namespace Universalis
             } );
 
             foreach( var actor in group.Models.Where( x => x.Active )
-                                                 .OrderBy( x => x.Name ) )
+                                              .OrderBy( x => x.Name ) )
             {
                 Image actorImg = Image.GetInstance( actor.Icon ?? group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
                 actorImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
@@ -236,6 +241,12 @@ namespace Universalis
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE
                 } );
+
+                overviewTable.AddCell(new PdfPCell(new Phrase(actor.Archetype.Type.ToString()))
+                {
+                    Border = Rectangle.TOP_BORDER,
+                    VerticalAlignment = Element.ALIGN_MIDDLE
+                });
 
                 overviewTable.AddCell( new PdfPCell( new Phrase( actor.Points.ToString() ) )
                 {

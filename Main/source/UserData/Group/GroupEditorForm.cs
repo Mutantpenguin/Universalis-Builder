@@ -349,7 +349,7 @@ namespace Universalis
                 {
                     Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 
-                    e.Value = actor.Name + Environment.NewLine + actor.Archetype.Name;
+                    e.Value = actor.Name + Environment.NewLine + actor.Archetype.Name + " - " + actor.Archetype.Type.ToString();
                 }
             }
         }
