@@ -80,6 +80,9 @@ namespace Universalis
         private readonly Group m_groupOriginal;
         private bool m_dragndrop;
 
+        private readonly Font m_actorNameFont = new Font("Segoe UI", 9, FontStyle.Bold);
+        private readonly Font m_actorDescriptionFont = new Font("Segoe UI", 8, FontStyle.Regular);
+
         private void updateGridViewActors()
         {
             actorsBindingSource.DataSource = null;
@@ -265,16 +268,24 @@ namespace Universalis
                 {
                     Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
 
-                    if( !actor.IsValid().valid )
-                    {
-                        e.PaintBackground( e.CellBounds, true );
-                        e.PaintContent( e.CellBounds );
+                    e.PaintBackground(e.CellBounds, true);
 
+                    var nameBounds = e.CellBounds;
+                    nameBounds.Y += 3;
+                    TextRenderer.DrawText(e.Graphics, actor.Name, m_actorNameFont, nameBounds, Color.Black, TextFormatFlags.WordEllipsis);
+
+                    var descriptionBounds = e.CellBounds;
+                    descriptionBounds.Y += 20;
+                    string description = actor.Archetype.Name + " - " + actor.Archetype.Type.ToString();
+                    TextRenderer.DrawText(e.Graphics, description, m_actorDescriptionFont, descriptionBounds, Color.Black, TextFormatFlags.WordEllipsis);
+
+                    if ( !actor.IsValid().valid )
+                    {
                         Image imgInactiveComposition = Properties.Resources.alert_circle_red_18dp;
                         e.Graphics.DrawImageUnscaled( imgInactiveComposition, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveComposition.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveComposition.Height ) / 2 ) );
-
-                        e.Handled = true;
                     }
+
+                    e.Handled = true;
                 }
                 else if( e.ColumnIndex == actorIconDataGridViewImageColumn.Index )
                 {
@@ -336,21 +347,6 @@ namespace Universalis
             if( -1 != e.RowIndex )
             {
                 editActor( (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem );
-            }
-        }
-
-        private void dataGridViewActors_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
-        {
-            DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewActors );
-
-            if( e.RowIndex != -1 )
-            {
-                if( e.ColumnIndex == actorNameDataGridViewTextBoxColumn.Index )
-                {
-                    Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
-
-                    e.Value = actor.Name + Environment.NewLine + actor.Archetype.Name + " - " + actor.Archetype.Type.ToString();
-                }
             }
         }
 
