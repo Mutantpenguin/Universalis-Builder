@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Universalis.Source.Helper;
 
 namespace Universalis
 {
@@ -201,6 +202,15 @@ namespace Universalis
         private void buttonExit_Click( object sender, EventArgs e )
         {
             this.Close();
+        }
+
+        private void masterDataButton_Paint(object sender, PaintEventArgs e)
+        {
+            var button = (Button)sender;
+
+            string toolTip = toolTip1.GetToolTip(button);
+
+            ButtonText.Draw(button, toolTip, e.Graphics);
         }
     }
 }

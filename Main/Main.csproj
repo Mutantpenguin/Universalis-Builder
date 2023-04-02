@@ -91,6 +91,7 @@
     <Compile Include="Source\Helper\ArmorDisplayForm.Designer.cs">
       <DependentUpon>ArmorDisplayForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Helper\ButtonText.cs" />
     <Compile Include="Source\Helper\WeaponDisplayForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -36,8 +36,8 @@ namespace Universalis
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.buttonQuit = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.labelHeader = new System.Windows.Forms.Label();
             this.pictureBoxInfo = new System.Windows.Forms.PictureBox();
+            this.labelHeader = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
@@ -72,6 +72,7 @@ namespace Universalis
             this.toolTip1.SetToolTip(this.buttonGroups, "Gruppen");
             this.buttonGroups.UseVisualStyleBackColor = true;
             this.buttonGroups.Click += new System.EventHandler(this.buttonGroups_Click);
+            this.buttonGroups.Paint += new System.Windows.Forms.PaintEventHandler(this.buttons_Paint);
             // 
             // buttonMasterData
             // 
@@ -86,6 +87,7 @@ namespace Universalis
             this.toolTip1.SetToolTip(this.buttonMasterData, "Stammdaten");
             this.buttonMasterData.UseVisualStyleBackColor = true;
             this.buttonMasterData.Click += new System.EventHandler(this.buttonMasterData_Click);
+            this.buttonMasterData.Paint += new System.Windows.Forms.PaintEventHandler(this.buttons_Paint);
             // 
             // buttonQuit
             // 
@@ -112,17 +114,6 @@ namespace Universalis
             this.panelHeader.Size = new System.Drawing.Size(578, 50);
             this.panelHeader.TabIndex = 10;
             // 
-            // labelHeader
-            // 
-            this.labelHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelHeader.AutoSize = true;
-            this.labelHeader.Location = new System.Drawing.Point(250, 19);
-            this.labelHeader.Name = "labelHeader";
-            this.labelHeader.Size = new System.Drawing.Size(79, 13);
-            this.labelHeader.TabIndex = 1;
-            this.labelHeader.Text = "universe_name";
-            this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pictureBoxInfo
             // 
             this.pictureBoxInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -133,6 +124,17 @@ namespace Universalis
             this.pictureBoxInfo.TabIndex = 2;
             this.pictureBoxInfo.TabStop = false;
             this.pictureBoxInfo.Click += new System.EventHandler(this.pictureBoxInfo_Click);
+            // 
+            // labelHeader
+            // 
+            this.labelHeader.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelHeader.AutoSize = true;
+            this.labelHeader.Location = new System.Drawing.Point(250, 19);
+            this.labelHeader.Name = "labelHeader";
+            this.labelHeader.Size = new System.Drawing.Size(79, 13);
+            this.labelHeader.TabIndex = 1;
+            this.labelHeader.Text = "universe_name";
+            this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DeityModeForm
             // 

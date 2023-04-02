@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using Universalis.Source.Helper;
 
 namespace Universalis
 {
@@ -149,6 +150,15 @@ namespace Universalis
             {
                 infoForm.ShowDialog();
             }
+        }
+
+        private void buttons_Paint(object sender, PaintEventArgs e)
+        {
+            var button = (Button)sender;
+
+            string toolTip = toolTip1.GetToolTip(button);
+
+            ButtonText.Draw(button, toolTip, e.Graphics);
         }
     }
 }
