@@ -485,9 +485,6 @@ namespace Universalis
 
             points += AdditionalPoints;
 
-            // TODO calculate points with values
-            // Weight
-
             points += Strength * weaponCosts.Strength;
             points += Damage * weaponCosts.Damage;
 

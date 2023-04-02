@@ -270,9 +270,6 @@ namespace Universalis
 
             points += AdditionalPoints;
 
-            // TODO calculate points with values
-            // Weight
-
             points += Protection * armorCosts.Protection;
 
             if( AdditiveProtection )
