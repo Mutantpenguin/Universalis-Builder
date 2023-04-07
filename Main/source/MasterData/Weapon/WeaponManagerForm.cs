@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -7,11 +8,11 @@ namespace Universalis
 {
     public partial class WeaponManagerForm : Form
     {
-        public WeaponManagerForm()
+        public WeaponManagerForm(Image icon)
         {
             InitializeComponent();
 
-            this.Icon = Properties.Resources.icon;
+            this.Icon = Icon.FromHandle(((Bitmap)icon).GetHicon());
 
             HasPermissions.DefaultCellStyle.NullValue = null;
 
