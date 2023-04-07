@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MasterDataMainForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonDisciplines = new System.Windows.Forms.Button();
+            this.imageListIcons = new System.Windows.Forms.ImageList(this.components);
             this.buttonFactions = new System.Windows.Forms.Button();
             this.buttonTraits = new System.Windows.Forms.Button();
             this.buttonWeapons = new System.Windows.Forms.Button();
@@ -74,32 +76,46 @@
             // buttonDisciplines
             // 
             this.buttonDisciplines.AutoSize = true;
-            this.buttonDisciplines.BackgroundImage = global::Universalis.Properties.Resources.powers;
-            this.buttonDisciplines.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonDisciplines.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDisciplines.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDisciplines.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonDisciplines.ImageKey = "powers.png";
+            this.buttonDisciplines.ImageList = this.imageListIcons;
             this.buttonDisciplines.Location = new System.Drawing.Point(563, 361);
             this.buttonDisciplines.Name = "buttonDisciplines";
             this.buttonDisciplines.Size = new System.Drawing.Size(275, 175);
             this.buttonDisciplines.TabIndex = 11;
-            this.buttonDisciplines.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.buttonDisciplines, "Disziplinen");
             this.buttonDisciplines.UseVisualStyleBackColor = true;
             this.buttonDisciplines.Click += new System.EventHandler(this.buttonDisciplines_Click);
             this.buttonDisciplines.Paint += new System.Windows.Forms.PaintEventHandler(this.masterDataButton_Paint);
             // 
+            // imageListIcons
+            // 
+            this.imageListIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListIcons.ImageStream")));
+            this.imageListIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListIcons.Images.SetKeyName(0, "factions.png");
+            this.imageListIcons.Images.SetKeyName(1, "damage_effects.png");
+            this.imageListIcons.Images.SetKeyName(2, "archetypes.png");
+            this.imageListIcons.Images.SetKeyName(3, "weapons.png");
+            this.imageListIcons.Images.SetKeyName(4, "armor.png");
+            this.imageListIcons.Images.SetKeyName(5, "equipment.png");
+            this.imageListIcons.Images.SetKeyName(6, "traits.png");
+            this.imageListIcons.Images.SetKeyName(7, "grouptraits.png");
+            this.imageListIcons.Images.SetKeyName(8, "powers.png");
+            // 
             // buttonFactions
             // 
             this.buttonFactions.AutoSize = true;
-            this.buttonFactions.BackgroundImage = global::Universalis.Properties.Resources.factions;
-            this.buttonFactions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonFactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonFactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFactions.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonFactions.ImageKey = "factions.png";
+            this.buttonFactions.ImageList = this.imageListIcons;
             this.buttonFactions.Location = new System.Drawing.Point(3, 3);
             this.buttonFactions.Name = "buttonFactions";
             this.buttonFactions.Size = new System.Drawing.Size(274, 173);
             this.buttonFactions.TabIndex = 5;
-            this.buttonFactions.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.buttonFactions, "Fraktionen");
             this.buttonFactions.UseVisualStyleBackColor = true;
             this.buttonFactions.Click += new System.EventHandler(this.buttonFactions_Click);
@@ -108,15 +124,15 @@
             // buttonTraits
             // 
             this.buttonTraits.AutoSize = true;
-            this.buttonTraits.BackgroundImage = global::Universalis.Properties.Resources.traits;
-            this.buttonTraits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonTraits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonTraits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTraits.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonTraits.ImageKey = "traits.png";
+            this.buttonTraits.ImageList = this.imageListIcons;
             this.buttonTraits.Location = new System.Drawing.Point(3, 361);
             this.buttonTraits.Name = "buttonTraits";
             this.buttonTraits.Size = new System.Drawing.Size(274, 175);
             this.buttonTraits.TabIndex = 4;
-            this.buttonTraits.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.buttonTraits, "Eigenschaften");
             this.buttonTraits.UseVisualStyleBackColor = true;
             this.buttonTraits.Click += new System.EventHandler(this.buttonTraits_Click);
@@ -125,15 +141,15 @@
             // buttonWeapons
             // 
             this.buttonWeapons.AutoSize = true;
-            this.buttonWeapons.BackgroundImage = global::Universalis.Properties.Resources.weapons;
-            this.buttonWeapons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonWeapons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonWeapons.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonWeapons.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonWeapons.ImageKey = "weapons.png";
+            this.buttonWeapons.ImageList = this.imageListIcons;
             this.buttonWeapons.Location = new System.Drawing.Point(3, 182);
             this.buttonWeapons.Name = "buttonWeapons";
             this.buttonWeapons.Size = new System.Drawing.Size(274, 173);
             this.buttonWeapons.TabIndex = 1;
-            this.buttonWeapons.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.buttonWeapons, "Waffen");
             this.buttonWeapons.UseVisualStyleBackColor = true;
             this.buttonWeapons.Click += new System.EventHandler(this.buttonWeapons_Click);
@@ -142,15 +158,15 @@
             // buttonArmor
             // 
             this.buttonArmor.AutoSize = true;
-            this.buttonArmor.BackgroundImage = global::Universalis.Properties.Resources.armor;
-            this.buttonArmor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonArmor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonArmor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonArmor.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonArmor.ImageKey = "armor.png";
+            this.buttonArmor.ImageList = this.imageListIcons;
             this.buttonArmor.Location = new System.Drawing.Point(283, 182);
             this.buttonArmor.Name = "buttonArmor";
             this.buttonArmor.Size = new System.Drawing.Size(274, 173);
             this.buttonArmor.TabIndex = 2;
-            this.buttonArmor.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.buttonArmor, "Rüstungen");
             this.buttonArmor.UseVisualStyleBackColor = true;
             this.buttonArmor.Click += new System.EventHandler(this.buttonArmor_Click);
@@ -159,15 +175,15 @@
             // buttonDamageEffects
             // 
             this.buttonDamageEffects.AutoSize = true;
-            this.buttonDamageEffects.BackgroundImage = global::Universalis.Properties.Resources.damage_effects;
-            this.buttonDamageEffects.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonDamageEffects.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDamageEffects.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDamageEffects.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonDamageEffects.ImageKey = "damage_effects.png";
+            this.buttonDamageEffects.ImageList = this.imageListIcons;
             this.buttonDamageEffects.Location = new System.Drawing.Point(283, 3);
             this.buttonDamageEffects.Name = "buttonDamageEffects";
             this.buttonDamageEffects.Size = new System.Drawing.Size(274, 173);
             this.buttonDamageEffects.TabIndex = 9;
-            this.buttonDamageEffects.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.buttonDamageEffects, "Schadenseffekte");
             this.buttonDamageEffects.UseVisualStyleBackColor = true;
             this.buttonDamageEffects.Click += new System.EventHandler(this.buttonDamageEffects_Click);
@@ -176,15 +192,15 @@
             // buttonGroupTraits
             // 
             this.buttonGroupTraits.AutoSize = true;
-            this.buttonGroupTraits.BackgroundImage = global::Universalis.Properties.Resources.grouptraits;
-            this.buttonGroupTraits.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonGroupTraits.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonGroupTraits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGroupTraits.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonGroupTraits.ImageKey = "grouptraits.png";
+            this.buttonGroupTraits.ImageList = this.imageListIcons;
             this.buttonGroupTraits.Location = new System.Drawing.Point(283, 361);
             this.buttonGroupTraits.Name = "buttonGroupTraits";
             this.buttonGroupTraits.Size = new System.Drawing.Size(274, 175);
             this.buttonGroupTraits.TabIndex = 10;
-            this.buttonGroupTraits.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.buttonGroupTraits, "Gruppeneigenschaften");
             this.buttonGroupTraits.UseVisualStyleBackColor = true;
             this.buttonGroupTraits.Click += new System.EventHandler(this.buttonGroupTraits_Click);
@@ -193,15 +209,15 @@
             // buttonArchetypes
             // 
             this.buttonArchetypes.AutoSize = true;
-            this.buttonArchetypes.BackgroundImage = global::Universalis.Properties.Resources.archetypes;
-            this.buttonArchetypes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonArchetypes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonArchetypes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonArchetypes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonArchetypes.ImageKey = "archetypes.png";
+            this.buttonArchetypes.ImageList = this.imageListIcons;
             this.buttonArchetypes.Location = new System.Drawing.Point(563, 3);
             this.buttonArchetypes.Name = "buttonArchetypes";
             this.buttonArchetypes.Size = new System.Drawing.Size(275, 173);
             this.buttonArchetypes.TabIndex = 8;
-            this.buttonArchetypes.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.buttonArchetypes, "Archetypen");
             this.buttonArchetypes.UseVisualStyleBackColor = true;
             this.buttonArchetypes.Click += new System.EventHandler(this.buttonArchetypes_Click);
@@ -210,15 +226,15 @@
             // buttonEquipment
             // 
             this.buttonEquipment.AutoSize = true;
-            this.buttonEquipment.BackgroundImage = global::Universalis.Properties.Resources.equipment;
-            this.buttonEquipment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonEquipment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEquipment.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonEquipment.ImageKey = "equipment.png";
+            this.buttonEquipment.ImageList = this.imageListIcons;
             this.buttonEquipment.Location = new System.Drawing.Point(563, 182);
             this.buttonEquipment.Name = "buttonEquipment";
             this.buttonEquipment.Size = new System.Drawing.Size(275, 173);
             this.buttonEquipment.TabIndex = 3;
-            this.buttonEquipment.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.toolTip1.SetToolTip(this.buttonEquipment, "Ausrüstung");
             this.buttonEquipment.UseVisualStyleBackColor = true;
             this.buttonEquipment.Click += new System.EventHandler(this.buttonEquipment_Click);
@@ -275,5 +291,6 @@
         private System.Windows.Forms.Button buttonDamageEffects;
         private System.Windows.Forms.Button buttonGroupTraits;
         private System.Windows.Forms.Button buttonDisciplines;
+        private System.Windows.Forms.ImageList imageListIcons;
     }
 }

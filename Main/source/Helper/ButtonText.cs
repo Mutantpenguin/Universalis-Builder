@@ -10,21 +10,19 @@ namespace Universalis.Source.Helper
         {
             using (GraphicsPath path = new GraphicsPath())
             {
-                path.AddString(text, UniversalisFont.Family, (int)FontStyle.Bold, 25, button.ClientRectangle, StringFormat.GenericTypographic);
+                path.AddString(text, UniversalisFont.Family, (int)FontStyle.Bold, 20, button.ClientRectangle, StringFormat.GenericTypographic);
 
                 var pathBounds = path.GetBounds();
 
                 float xOffset = (button.ClientRectangle.Width - pathBounds.Width) / 2.0f;
-                float yOffset = (button.ClientRectangle.Height - pathBounds.Height) / 5.0f * 4.0f;
+                float yOffset = (button.ClientRectangle.Height - pathBounds.Height) / 6.0f * 5.0f;
 
                 Matrix m = new Matrix();
                 m.Translate(xOffset, yOffset);
                 path.Transform(m);
 
                 g.SmoothingMode = SmoothingMode.AntiAlias;
-                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                g.FillPath(Brushes.LightSteelBlue, path);
-                g.DrawPath(new Pen(Brushes.Black, 1), path);
+                g.FillPath(Brushes.Black, path);
             }
         }
     }

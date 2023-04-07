@@ -30,6 +30,7 @@ namespace Universalis
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeityModeForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonGroups = new System.Windows.Forms.Button();
             this.buttonMasterData = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@ namespace Universalis
             this.panelHeader = new System.Windows.Forms.Panel();
             this.pictureBoxInfo = new System.Windows.Forms.PictureBox();
             this.labelHeader = new System.Windows.Forms.Label();
+            this.imageListIcons = new System.Windows.Forms.ImageList(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).BeginInit();
@@ -62,9 +64,10 @@ namespace Universalis
             // buttonGroups
             // 
             this.buttonGroups.AutoSize = true;
-            this.buttonGroups.BackgroundImage = global::Universalis.Properties.Resources.baseline_groups_black_48dp;
-            this.buttonGroups.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonGroups.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonGroups.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonGroups.ImageKey = "baseline_groups_black_48dp.png";
+            this.buttonGroups.ImageList = this.imageListIcons;
             this.buttonGroups.Location = new System.Drawing.Point(3, 3);
             this.buttonGroups.Name = "buttonGroups";
             this.buttonGroups.Size = new System.Drawing.Size(283, 144);
@@ -77,9 +80,10 @@ namespace Universalis
             // buttonMasterData
             // 
             this.buttonMasterData.AutoSize = true;
-            this.buttonMasterData.BackgroundImage = global::Universalis.Properties.Resources.baseline_construction_black_48dp;
-            this.buttonMasterData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonMasterData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonMasterData.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonMasterData.ImageKey = "baseline_construction_black_48dp.png";
+            this.buttonMasterData.ImageList = this.imageListIcons;
             this.buttonMasterData.Location = new System.Drawing.Point(292, 3);
             this.buttonMasterData.Name = "buttonMasterData";
             this.buttonMasterData.Size = new System.Drawing.Size(283, 144);
@@ -136,6 +140,13 @@ namespace Universalis
             this.labelHeader.Text = "universe_name";
             this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // imageListIcons
+            // 
+            this.imageListIcons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListIcons.ImageStream")));
+            this.imageListIcons.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageListIcons.Images.SetKeyName(0, "baseline_groups_black_48dp.png");
+            this.imageListIcons.Images.SetKeyName(1, "baseline_construction_black_48dp.png");
+            // 
             // DeityModeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,5 +183,6 @@ namespace Universalis
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.PictureBox pictureBoxInfo;
         private System.Windows.Forms.Label labelHeader;
+        private System.Windows.Forms.ImageList imageListIcons;
     }
 }

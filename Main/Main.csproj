@@ -71,6 +71,7 @@
     <Reference Include="Mono.Options, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Options.6.12.0.148\lib\net40\Mono.Options.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -594,7 +595,6 @@
     <None Include="Resources\baseline_print_black_18dp.png" />
     <None Include="Resources\baseline_do_not_disturb_on_black_48dp.png" />
     <None Include="Resources\baseline_photo_camera_black_24dp.png" />
-    <None Include="Resources\powers.png" />
     <None Include="Resources\baseline_refresh_black_18dp.png" />
     <None Include="Resources\icon.ico" />
     <None Include="Resources\logo.png" />
@@ -612,8 +612,6 @@
     <None Include="Resources\baseline_image_search_black_24dp.png" />
     <None Include="Resources\baseline_engineering_black_48dp.png" />
     <None Include="Resources\baseline_block_black_18dp.png" />
-    <None Include="Resources\baseline_construction_black_48dp.png" />
-    <None Include="Resources\baseline_groups_black_48dp.png" />
     <None Include="Resources\outline_playlist_add_black_48dp.png" />
     <None Include="Resources\spinner.gif" />
     <None Include="Resources\baseline_warning_black_48dp.png" />
@@ -630,17 +628,9 @@
     <None Include="Resources\baseline_info_black_24dp.png" />
     <None Include="Resources\baseline_tune_black_18dp.png" />
     <None Include="Resources\baseline_post_add_black_18dp.png" />
-    <None Include="Resources\grouptraits.png" />
-    <None Include="Resources\damage_effects.png" />
     <None Include="Resources\link.png" />
     <None Include="Resources\image.png" />
-    <None Include="Resources\archetypes.png" />
-    <None Include="Resources\weapons.png" />
-    <None Include="Resources\traits.png" />
     <None Include="Resources\models.png" />
-    <None Include="Resources\factions.png" />
-    <None Include="Resources\equipment.png" />
-    <None Include="Resources\armor.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
