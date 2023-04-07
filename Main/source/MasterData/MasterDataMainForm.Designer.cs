@@ -79,7 +79,7 @@
             this.buttonDisciplines.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDisciplines.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDisciplines.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.buttonDisciplines.ImageKey = "powers.png";
+            this.buttonDisciplines.ImageKey = "disciplines.png";
             this.buttonDisciplines.ImageList = this.imageListIcons;
             this.buttonDisciplines.Location = new System.Drawing.Point(563, 361);
             this.buttonDisciplines.Name = "buttonDisciplines";
@@ -102,7 +102,7 @@
             this.imageListIcons.Images.SetKeyName(5, "equipment.png");
             this.imageListIcons.Images.SetKeyName(6, "traits.png");
             this.imageListIcons.Images.SetKeyName(7, "grouptraits.png");
-            this.imageListIcons.Images.SetKeyName(8, "powers.png");
+            this.imageListIcons.Images.SetKeyName(8, "disciplines.png");
             // 
             // buttonFactions
             // 
