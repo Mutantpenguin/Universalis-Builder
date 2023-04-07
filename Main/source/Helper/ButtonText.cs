@@ -22,7 +22,15 @@ namespace Universalis.Source.Helper
                 path.Transform(m);
 
                 g.SmoothingMode = SmoothingMode.AntiAlias;
-                g.FillPath(Brushes.Black, path);
+
+                Brush fillBrush = Brushes.Black;
+
+                if(!button.Enabled)
+                {
+                    fillBrush = Brushes.Gray;
+                }
+
+                g.FillPath(fillBrush, path);
             }
         }
     }
