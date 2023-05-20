@@ -403,16 +403,6 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap models {
-            get {
-                object obj = ResourceManager.GetObject("models", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap outline_key_black_18dp {
             get {
                 object obj = ResourceManager.GetObject("outline_key_black_18dp", resourceCulture);

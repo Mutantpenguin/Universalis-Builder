@@ -630,7 +630,6 @@
     <None Include="Resources\baseline_post_add_black_18dp.png" />
     <None Include="Resources\link.png" />
     <None Include="Resources\image.png" />
-    <None Include="Resources\models.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
