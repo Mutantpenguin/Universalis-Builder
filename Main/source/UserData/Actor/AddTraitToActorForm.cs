@@ -15,9 +15,21 @@ namespace Universalis
             m_archetype = archetype;
             m_TraitsList = traitsList;
 
+            filterGroup.ComboBox.DataSource = MasterDataStorage.Trait.Traits.Select(x => x.Group)
+                                                                            .Distinct()
+                                                                            .OrderBy(x => x)
+                                                                            .ToList();
+            filterGroup.ComboBox.SelectedIndex = 0;
+            filterGroup.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
+
             updateDataGridViewTraits();
 
             toolStripTextBoxSearch.TextBox.Select();
+        }
+
+        private void ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            updateDataGridViewTraits();
         }
 
         private readonly Faction m_faction;
@@ -35,6 +47,7 @@ namespace Universalis
             traitBindingSource.DataSource = MasterDataStorage.Trait.Traits.Where( s => s.Active )
                                                                           .Where( s => s.UseOnce || !m_TraitsList.Any( x => x.ID == s.ID ) )
                                                                           .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                                          .Where(s => filterGroup.Enabled ? s.Group == (string)filterGroup.ComboBox.SelectedItem : true)
                                                                           .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.MinPoints <= 0 ) )
                                                                           .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.MinPoints >= 0 ) )
                                                                           .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.MinPoints != 0 ) )
@@ -130,6 +143,15 @@ namespace Universalis
         private void dataGridViewTraits_CellFormatting( object sender, DataGridViewCellFormattingEventArgs e )
         {
             DataGridViewHelper.MemberPropertyFormatter( e, dataGridViewTraits );
+        }
+
+        private void checkBoxFilterTraitGroup_Click(object sender, EventArgs e)
+        {
+            filterGroup.Enabled = !filterGroup.Enabled;
+
+            checkBoxFilterTraitGroup.Image = checkBoxFilterTraitGroup.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
+
+            updateDataGridViewTraits();
         }
     }
 }

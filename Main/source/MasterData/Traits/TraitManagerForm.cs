@@ -16,15 +16,28 @@ namespace Universalis
 
             HasPermissions.DefaultCellStyle.NullValue = null;
 
+            filterGroup.ComboBox.DataSource = MasterDataStorage.Trait.Traits.Select(x => x.Group)
+                                                                            .Distinct()
+                                                                            .OrderBy(x => x)
+                                                                            .ToList();
+            filterGroup.ComboBox.SelectedIndex = 0;
+            filterGroup.ComboBox.SelectionChangeCommitted += ComboBox_SelectionChangeCommitted;
+
             refreshGridView();
 
             toolStripTextBoxSearch.TextBox.Select();
+        }
+
+        private void ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            refreshGridView();
         }
 
         private void refreshGridView()
         {
             List<Trait> traits = MasterDataStorage.Trait.Traits.Where( s => s.Active )
                                                                .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                                                               .Where( s => filterGroup.Enabled ? s.Group == (string)filterGroup.ComboBox.SelectedItem : true)
                                                                .Where( s => toolStripMenuItemPositives.Checked ? true : ( s.MinPoints <= 0 ) )
                                                                .Where( s => toolStripMenuItemNegatives.Checked ? true : ( s.MinPoints >= 0 ) )
                                                                .Where( s => toolStripMenuItemNeutrals.Checked ? true : ( s.MinPoints != 0 ) )
@@ -195,6 +208,15 @@ namespace Universalis
                     }
                 }
             }
+        }
+
+        private void checkBoxFilterTraitGroup_Click(object sender, EventArgs e)
+        {
+            filterGroup.Enabled = !filterGroup.Enabled;
+
+            checkBoxFilterTraitGroup.Image = checkBoxFilterTraitGroup.Checked ? Properties.Resources.ui_check_box : Properties.Resources.ui_check_box_uncheck;
+
+            refreshGridView();
         }
     }
 }

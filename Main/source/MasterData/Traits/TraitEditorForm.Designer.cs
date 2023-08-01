@@ -68,6 +68,7 @@
             this.toolStripButtonPermissions = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
+            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
             this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
@@ -91,6 +92,7 @@
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.comboBoxGroup);
             this.panel1.Controls.Add(this.textBoxPoints);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
@@ -98,7 +100,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 39);
+            this.panel1.Size = new System.Drawing.Size(434, 40);
             this.panel1.TabIndex = 1;
             // 
             // textBoxPoints
@@ -139,7 +141,7 @@
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.traitBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxName.Location = new System.Drawing.Point(3, 16);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(342, 20);
+            this.textBoxName.Size = new System.Drawing.Size(222, 20);
             this.textBoxName.TabIndex = 2;
             // 
             // label10
@@ -183,7 +185,7 @@
             this.panel3.Controls.Add(this.textBoxDescription);
             this.panel3.Controls.Add(this.toolStrip1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 329);
+            this.panel3.Location = new System.Drawing.Point(0, 330);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(434, 187);
             this.panel3.TabIndex = 0;
@@ -223,7 +225,7 @@
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.toolStrip2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 64);
+            this.panel4.Location = new System.Drawing.Point(0, 65);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(434, 150);
             this.panel4.TabIndex = 1;
@@ -268,7 +270,7 @@
             this.buttonInsertLevelPlaceholder.UseVisualStyleBackColor = true;
             this.buttonInsertLevelPlaceholder.Click += new System.EventHandler(this.buttonInsertLevelPlaceholder_Click);
             // 
-            // numericUpDownAdditionalPoints
+            // numericUpDownBasePoints
             // 
             this.numericUpDownBasePoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.traitBindingSource, "BasePoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDownBasePoints.Location = new System.Drawing.Point(3, 3);
@@ -282,7 +284,7 @@
             0,
             0,
             -2147483648});
-            this.numericUpDownBasePoints.Name = "numericUpDownAdditionalPoints";
+            this.numericUpDownBasePoints.Name = "numericUpDownBasePoints";
             this.numericUpDownBasePoints.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownBasePoints.TabIndex = 47;
             this.numericUpDownBasePoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -372,7 +374,7 @@
             this.panel5.Controls.Add(this.panelProfileModifier);
             this.panel5.Controls.Add(this.toolStrip4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 214);
+            this.panel5.Location = new System.Drawing.Point(0, 215);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(434, 54);
             this.panel5.TabIndex = 3;
@@ -443,7 +445,7 @@
             this.panel8.Controls.Add(this.panelPermissions);
             this.panel8.Controls.Add(this.toolStrip7);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 268);
+            this.panel8.Location = new System.Drawing.Point(0, 269);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(434, 61);
             this.panel8.TabIndex = 34;
@@ -509,6 +511,17 @@
             this.toolStripButtonPermissionsEditor.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonPermissionsEditor.Text = "editieren";
             this.toolStripButtonPermissionsEditor.Click += new System.EventHandler(this.toolStripButtonPermissionsEditor_Click);
+            // 
+            // comboBoxGroup
+            // 
+            this.comboBoxGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxGroup.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.traitBindingSource, "Group", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Location = new System.Drawing.Point(231, 16);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(114, 21);
+            this.comboBoxGroup.TabIndex = 38;
             // 
             // traitBindingSource
             // 
@@ -611,5 +624,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonPermissions;
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.ToolStripButton toolStripButtonPermissionsEditor;
+        private System.Windows.Forms.ComboBox comboBoxGroup;
     }
 }

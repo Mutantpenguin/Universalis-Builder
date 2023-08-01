@@ -54,10 +54,13 @@
             this.toolStripMenuItemNegatives = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNeutrals = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewTraits = new System.Windows.Forms.DataGridView();
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.checkBoxFilterTraitGroup = new System.Windows.Forms.ToolStripButton();
+            this.filterGroup = new System.Windows.Forms.ToolStripComboBox();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedMaxQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,8 +78,8 @@
             this.PointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -87,16 +90,19 @@
             this.toolStripButtonTraitDelete,
             this.toolStripButtonCopy,
             this.toolStripButtonClearSearch,
+            this.filterGroup,
+            this.checkBoxFilterTraitGroup,
             this.toolStripDropDownButtonFilter});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(814, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(884, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -205,6 +211,7 @@
             this.dataGridViewTraits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
+            this.groupDataGridViewTextBoxColumn,
             this.FormattedMaxQuantity,
             this.MaxLevel,
             this.FormattedAP,
@@ -228,16 +235,12 @@
             this.dataGridViewTraits.ReadOnly = true;
             this.dataGridViewTraits.RowHeadersVisible = false;
             this.dataGridViewTraits.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTraits.Size = new System.Drawing.Size(814, 379);
+            this.dataGridViewTraits.Size = new System.Drawing.Size(884, 379);
             this.dataGridViewTraits.TabIndex = 0;
             this.dataGridViewTraits.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTraits_CellDoubleClick);
             this.dataGridViewTraits.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewTraits_CellFormatting);
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
             this.dataGridViewTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewTraits_KeyDown);
-            // 
-            // traitBindingSource
-            // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // statusStrip1
             // 
@@ -245,7 +248,7 @@
             this.toolStripStatusLabelCount});
             this.statusStrip1.Location = new System.Drawing.Point(0, 404);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(814, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(884, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -254,6 +257,29 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
+            // checkBoxFilterTraitGroup
+            // 
+            this.checkBoxFilterTraitGroup.CheckOnClick = true;
+            this.checkBoxFilterTraitGroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.checkBoxFilterTraitGroup.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterTraitGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.checkBoxFilterTraitGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.checkBoxFilterTraitGroup.Name = "checkBoxFilterTraitGroup";
+            this.checkBoxFilterTraitGroup.Size = new System.Drawing.Size(23, 22);
+            this.checkBoxFilterTraitGroup.ToolTipText = "nach WK filtern";
+            this.checkBoxFilterTraitGroup.Click += new System.EventHandler(this.checkBoxFilterTraitGroup_Click);
+            // 
+            // filterGroup
+            // 
+            this.filterGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterGroup.Enabled = false;
+            this.filterGroup.Name = "filterGroup";
+            this.filterGroup.Size = new System.Drawing.Size(121, 25);
+            // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -261,6 +287,13 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // groupDataGridViewTextBoxColumn
+            // 
+            this.groupDataGridViewTextBoxColumn.DataPropertyName = "Group";
+            this.groupDataGridViewTextBoxColumn.HeaderText = "Gruppe";
+            this.groupDataGridViewTextBoxColumn.Name = "groupDataGridViewTextBoxColumn";
+            this.groupDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // FormattedMaxQuantity
             // 
@@ -416,7 +449,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 426);
+            this.ClientSize = new System.Drawing.Size(884, 426);
             this.Controls.Add(this.dataGridViewTraits);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -428,9 +461,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,7 +485,10 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNegatives;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNeutrals;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
+        private System.Windows.Forms.ToolStripButton checkBoxFilterTraitGroup;
+        private System.Windows.Forms.ToolStripComboBox filterGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedMaxQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAP;

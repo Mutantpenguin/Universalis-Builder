@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -17,7 +18,13 @@ namespace Universalis
 
             traitBindingSource.DataSource = m_modifiedTrait;
 
-            if( null != m_modifiedTrait.ProfileModifier )
+            comboBoxGroup.DataSource = MasterDataStorage.Trait.Traits.Select(x => x.Group)
+                                                                     .Distinct()
+                                                                     .OrderBy(x => x)
+                                                                     .ToList();
+            comboBoxGroup.SelectedItem = trait.Group;
+
+            if ( null != m_modifiedTrait.ProfileModifier )
             {
                 toolStripButtonProfileMod.Checked = true;
                 toolStripButtonProfileMod.Image = Properties.Resources.ui_check_box;

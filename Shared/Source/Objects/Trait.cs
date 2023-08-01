@@ -22,6 +22,7 @@ namespace Universalis
             Active = trait.Active;
 
             Name = trait.Name;
+            Group = trait.Group;
             Description = trait.Description;
             MaxGroupQuantity = trait.MaxGroupQuantity;
             Rules = trait.Rules;
@@ -59,6 +60,8 @@ namespace Universalis
             if( Active != trait.Active
                 ||
                 Name != trait.Name
+                ||
+                Group != trait.Group
                 ||
                 Description != trait.Description
                 ||
@@ -127,6 +130,12 @@ namespace Universalis
             get;
             set;
         } = "Bitte Namen eingeben";
+
+        public string Group
+        {
+            get;
+            set;
+        } = String.Empty;
 
         public string Description
         {
