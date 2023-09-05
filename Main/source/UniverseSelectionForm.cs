@@ -409,13 +409,20 @@ namespace Universalis
                 case UniverseListViewItem.ERepoState.MODIFIED:
                     if( universeItem.ValidUniverse )
                     {
-                        if( MessageBox.Show( "Das Universum wurde lokal verändert. Dennoch öffnen?",
-                                             "Lokale Änderungen vorhanden",
-                                             MessageBoxButtons.YesNo,
-                                             MessageBoxIcon.Warning,
-                                             MessageBoxDefaultButton.Button2 ) == DialogResult.Yes )
+                        if (Options.DeityMode)
                         {
                             OpenUniverse();
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("Das Universum wurde lokal verändert. Dennoch öffnen?",
+                                                 "Lokale Änderungen vorhanden",
+                                                 MessageBoxButtons.YesNo,
+                                                 MessageBoxIcon.Warning,
+                                                 MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            {
+                                OpenUniverse();
+                            }
                         }
                     }
                     else
