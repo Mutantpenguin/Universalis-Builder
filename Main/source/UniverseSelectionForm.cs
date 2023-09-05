@@ -45,7 +45,7 @@ namespace Universalis
 
             if( Options.DeityMode )
             {
-                panelGodMode.Visible = true;
+                panelDeityMode.Visible = true;
 
                 string deityModeString = " - GOTTHEIT MODUS";
 

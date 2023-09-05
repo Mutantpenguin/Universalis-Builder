@@ -38,7 +38,7 @@
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelHeader = new System.Windows.Forms.Label();
             this.panelControl = new System.Windows.Forms.Panel();
-            this.panelGodMode = new System.Windows.Forms.Panel();
+            this.panelDeityMode = new System.Windows.Forms.Panel();
             this.buttonOpenVscode = new System.Windows.Forms.Button();
             this.buttonCreateUniverse = new System.Windows.Forms.Button();
             this.buttonOpenFolder = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.panelControl.SuspendLayout();
-            this.panelGodMode.SuspendLayout();
+            this.panelDeityMode.SuspendLayout();
             this.panelWorking.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpinner)).BeginInit();
             this.panelMain.SuspendLayout();
@@ -158,7 +158,7 @@
             // panelControl
             // 
             this.panelControl.AutoSize = true;
-            this.panelControl.Controls.Add(this.panelGodMode);
+            this.panelControl.Controls.Add(this.panelDeityMode);
             this.panelControl.Controls.Add(this.buttonInfo);
             this.panelControl.Controls.Add(this.buttonDelete);
             this.panelControl.Controls.Add(this.buttonAdd);
@@ -170,20 +170,20 @@
             this.panelControl.TabIndex = 3;
             this.panelControl.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl_Paint);
             // 
-            // panelGodMode
+            // panelDeityMode
             // 
-            this.panelGodMode.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panelGodMode.AutoSize = true;
-            this.panelGodMode.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panelGodMode.Controls.Add(this.buttonOpenVscode);
-            this.panelGodMode.Controls.Add(this.buttonCreateUniverse);
-            this.panelGodMode.Controls.Add(this.buttonOpenFolder);
-            this.panelGodMode.Location = new System.Drawing.Point(356, 3);
-            this.panelGodMode.Margin = new System.Windows.Forms.Padding(0);
-            this.panelGodMode.Name = "panelGodMode";
-            this.panelGodMode.Size = new System.Drawing.Size(165, 53);
-            this.panelGodMode.TabIndex = 6;
-            this.panelGodMode.Visible = false;
+            this.panelDeityMode.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelDeityMode.AutoSize = true;
+            this.panelDeityMode.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelDeityMode.Controls.Add(this.buttonOpenVscode);
+            this.panelDeityMode.Controls.Add(this.buttonCreateUniverse);
+            this.panelDeityMode.Controls.Add(this.buttonOpenFolder);
+            this.panelDeityMode.Location = new System.Drawing.Point(356, 3);
+            this.panelDeityMode.Margin = new System.Windows.Forms.Padding(0);
+            this.panelDeityMode.Name = "panelDeityMode";
+            this.panelDeityMode.Size = new System.Drawing.Size(165, 53);
+            this.panelDeityMode.TabIndex = 6;
+            this.panelDeityMode.Visible = false;
             // 
             // buttonOpenVscode
             // 
@@ -326,7 +326,7 @@
             this.panelHeader.PerformLayout();
             this.panelControl.ResumeLayout(false);
             this.panelControl.PerformLayout();
-            this.panelGodMode.ResumeLayout(false);
+            this.panelDeityMode.ResumeLayout(false);
             this.panelWorking.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpinner)).EndInit();
             this.panelMain.ResumeLayout(false);
@@ -355,7 +355,7 @@
         private System.Windows.Forms.Button buttonCreateUniverse;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button buttonInfo;
-        private System.Windows.Forms.Panel panelGodMode;
+        private System.Windows.Forms.Panel panelDeityMode;
         private System.Windows.Forms.Button buttonOpenVscode;
     }
 }
