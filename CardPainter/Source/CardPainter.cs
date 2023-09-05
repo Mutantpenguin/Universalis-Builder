@@ -46,7 +46,7 @@ namespace Universalis
         private static readonly Font FontWeaponName = Font0Dot2;
         private static readonly Font FontWeaponRadius = Font0Dot25;
         private static readonly Font FontWk = Font0Dot3;
-        private static readonly Font FontUnwieldy = Font0Dot2;
+        private static readonly Font FontUnwieldy = Font0Dot3;
         private static readonly Font FontArmor = Font0Dot3;
         private static readonly Font FontArmorName = Font0Dot2;
         private static readonly Font FontEquipment = Font0Dot3;
@@ -96,7 +96,7 @@ namespace Universalis
 
         private const String ActionsPointsMarker = "⊙";
         private const String UseOnceMarker = "○";
-        private const String UnwieldyMarker = "»";
+        private const String UnwieldyMarker = "◈";
         #endregion members
 
         #region weaponMembers
@@ -105,7 +105,7 @@ namespace Universalis
         private static readonly int WeaponRangeWidth = CmToPixel( 0.9 );
         private static readonly int WeaponStrengthWidth = CmToPixel( 0.5 );
         private static readonly int WeaponDamageWidth = CmToPixel( 0.5 );
-        private static readonly int WeaponUnwieldyLength = WeaponWkWidth / 4;
+        private static readonly int WeaponUnwieldyWidth = WeaponWkWidth / 3;
 
         private static readonly int WeaponWkStart = SSectionsPosX;
         private static readonly int WeaponNameStart = WeaponWkStart + WeaponWkWidth;
@@ -685,7 +685,7 @@ namespace Universalis
             
             if( weapon.Unwieldy )
             {
-                Rectangle unwieldyRect = new Rectangle( wkRect.Right - WeaponUnwieldyLength, wkRect.Y, WeaponUnwieldyLength, WeaponUnwieldyLength );
+                Rectangle unwieldyRect = new Rectangle( wkRect.Right - WeaponUnwieldyWidth, wkRect.Y, WeaponUnwieldyWidth, WeaponUnwieldyWidth );
                 Helpers.DrawStringCentered( g, UnwieldyMarker, FontUnwieldy, Brushes.White, unwieldyRect );
             }
             
@@ -898,12 +898,12 @@ namespace Universalis
                 StringBuilder builder = new StringBuilder();
                 foreach( var entry in equipList )
                 {
+                    builder.Append( entry.equipment.Name );
+
                     if( entry.equipment.Unwieldy )
                     {
                         builder.Append( UnwieldyMarker );
                     }
-
-                    builder.Append( entry.equipment.Name );
 
                     if( entry.equipment.AP > 0 )
                     {
