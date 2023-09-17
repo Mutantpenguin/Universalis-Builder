@@ -588,6 +588,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="Resources\book-open-variant-custom_48.png" />
     <None Include="Resources\alert-circle-red-24dp.png" />
     <None Include="Resources\alert-circle-red-18dp.png" />
     <None Include="Resources\outline_key_black_18dp.png" />

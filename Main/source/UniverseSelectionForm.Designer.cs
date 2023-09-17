@@ -49,6 +49,7 @@
             this.pictureBoxSpinner = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonOpenRules = new System.Windows.Forms.Button();
             this.panelNoUniverses.SuspendLayout();
             this.tableLayoutPanelCentered.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -158,6 +159,7 @@
             // panelControl
             // 
             this.panelControl.AutoSize = true;
+            this.panelControl.Controls.Add(this.buttonOpenRules);
             this.panelControl.Controls.Add(this.panelDeityMode);
             this.panelControl.Controls.Add(this.buttonInfo);
             this.panelControl.Controls.Add(this.buttonDelete);
@@ -302,6 +304,19 @@
             this.panelMain.Size = new System.Drawing.Size(868, 332);
             this.panelMain.TabIndex = 3;
             // 
+            // buttonOpenRules
+            // 
+            this.buttonOpenRules.FlatAppearance.BorderSize = 0;
+            this.buttonOpenRules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOpenRules.Image = global::Universalis.Properties.Resources.book_open_variant_custom_48;
+            this.buttonOpenRules.Location = new System.Drawing.Point(59, 3);
+            this.buttonOpenRules.Name = "buttonOpenRules";
+            this.buttonOpenRules.Size = new System.Drawing.Size(50, 50);
+            this.buttonOpenRules.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.buttonOpenRules, "Regeln öffnen");
+            this.buttonOpenRules.UseVisualStyleBackColor = false;
+            this.buttonOpenRules.Click += new System.EventHandler(this.buttonOpenRules_Click);
+            // 
             // UniverseSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,5 +372,6 @@
         private System.Windows.Forms.Button buttonInfo;
         private System.Windows.Forms.Panel panelDeityMode;
         private System.Windows.Forms.Button buttonOpenVscode;
+        private System.Windows.Forms.Button buttonOpenRules;
     }
 }

@@ -7,6 +7,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Universalis.Source;
 
 namespace Universalis
 {
@@ -637,6 +638,11 @@ namespace Universalis
         private void UniverseSelectionForm_Shown( object sender, EventArgs e )
         {
             RefreshUniverses();
+        }
+
+        private void buttonOpenRules_Click( object sender, EventArgs e )
+        {
+            System.Diagnostics.Process.Start("https://mutantpenguin.github.io/Universalis/");
         }
     }
 }
