@@ -7,7 +7,6 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Universalis.Source;
 
 namespace Universalis
 {
@@ -18,8 +17,6 @@ namespace Universalis
         private static readonly string UniversesPath = Path.Combine( UniversalisSettings.UserAppFolder, UniversesSubFolder );
 
         private static readonly string universeImageFilename = "logo.jpg";
-
-        private static readonly ColorMatrix s_colorMatrixUniverseLoadingError = ColorHelper.ColorToColorMatrix( Color.IndianRed );
 
         private static readonly ColorMatrix s_colorMatrixRepoBehind = ColorHelper.ColorToColorMatrix( Color.SeaGreen );
         private static readonly ColorMatrix s_colorMatrixRepoAhead = ColorHelper.ColorToColorMatrix( Color.Orange );
