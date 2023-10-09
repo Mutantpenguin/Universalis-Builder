@@ -1,6 +1,6 @@
 ﻿namespace Universalis
 {
-    partial class FactionOverviewForm
+    partial class UniverseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -91,7 +91,7 @@
             this.labelHeader.Text = "universe_name";
             this.labelHeader.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FactionOverviewForm
+            // UniverseForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,13 +100,13 @@
             this.Controls.Add(this.listViewFactions);
             this.Controls.Add(this.panelHeader);
             this.KeyPreview = true;
-            this.Name = "FactionOverviewForm";
+            this.Name = "UniverseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Wählen Sie Ihre Fraktion";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FactionOverviewForm_FormClosing);
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FactionOverviewForm_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FactionOverviewForm_DragEnter);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FactionOverviewForm_KeyDown);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UniverseForm_FormClosing);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.UniverseForm_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.UniverseForm_DragEnter);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UniverseForm_KeyDown);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInfo)).EndInit();

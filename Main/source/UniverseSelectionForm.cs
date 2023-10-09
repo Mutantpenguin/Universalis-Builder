@@ -345,16 +345,16 @@ namespace Universalis
                 }
                 else
                 {
-                    var factionOverviewForm = new FactionOverviewForm( universe, deityMode: false );
+                    var universeForm = new UniverseForm( universe, deityMode: false );
 
-                    factionOverviewForm.FormClosed += delegate
+                    universeForm.FormClosed += delegate
                     {
-                        factionOverviewForm.Dispose();
+                        universeForm.Dispose();
 
                         this.Close();
                     };
 
-                    factionOverviewForm.Show( this );
+                    universeForm.Show( this );
                 }
             }
 

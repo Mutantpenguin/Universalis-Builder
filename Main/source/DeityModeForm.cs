@@ -26,7 +26,7 @@ namespace Universalis
             labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
         }
 
-        FactionOverviewForm factionOverviewForm = null;
+        UniverseForm universeForm = null;
         MasterDataMainForm masterDataMainForm = null;
 
         private void buttonQuit_Click( object sender, EventArgs e )
@@ -39,18 +39,18 @@ namespace Universalis
 
         private void buttonGroups_Click( object sender, EventArgs e )
         {
-            factionOverviewForm = new FactionOverviewForm( m_universe, deityMode: true );
+            universeForm = new UniverseForm( m_universe, deityMode: true );
 
-            factionOverviewForm.FormClosed += delegate
+            universeForm.FormClosed += delegate
             {
                 buttonGroups.Enabled = true;
-                factionOverviewForm.Dispose();
-                factionOverviewForm = null;
+                universeForm.Dispose();
+                universeForm = null;
             };
 
             buttonGroups.Enabled = false;
 
-            factionOverviewForm.Show( this );
+            universeForm.Show( this );
         }
 
         private void buttonMasterData_Click( object sender, EventArgs e )
@@ -71,7 +71,7 @@ namespace Universalis
 
         private void DeityModeForm_FormClosing( object sender, FormClosingEventArgs e )
         {
-            if( factionOverviewForm != null
+            if( universeForm != null
                 ||
                 masterDataMainForm != null )
             {

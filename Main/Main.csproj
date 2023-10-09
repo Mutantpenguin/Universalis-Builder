@@ -336,11 +336,11 @@
     <Compile Include="Source\UserData\Actor\AddWeaponToActorForm.Designer.cs">
       <DependentUpon>AddWeaponToActorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\UserData\FactionOverviewForm.cs">
+    <Compile Include="Source\UserData\UniverseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\UserData\FactionOverviewForm.Designer.cs">
-      <DependentUpon>FactionOverviewForm.cs</DependentUpon>
+    <Compile Include="Source\UserData\UniverseForm.Designer.cs">
+      <DependentUpon>UniverseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\UserData\Group\ArchetypeSelectionForm.cs">
       <SubType>Form</SubType>
@@ -521,8 +521,8 @@
     <EmbeddedResource Include="Source\UserData\Actor\AddWeaponToActorForm.resx">
       <DependentUpon>AddWeaponToActorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\UserData\FactionOverviewForm.resx">
-      <DependentUpon>FactionOverviewForm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\UserData\UniverseForm.resx">
+      <DependentUpon>UniverseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\UserData\Group\ArchetypeSelectionForm.resx">
       <DependentUpon>ArchetypeSelectionForm.cs</DependentUpon>

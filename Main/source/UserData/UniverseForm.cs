@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace Universalis
 {
-    public partial class FactionOverviewForm : Form
+    public partial class UniverseForm : Form
     {
-        public FactionOverviewForm( Universe universe, bool deityMode )
+        public UniverseForm( Universe universe, bool deityMode )
         {
             m_universe = universe;
 
@@ -88,7 +88,7 @@ namespace Universalis
             groupManagerForm.Show( this );
         }
 
-        private void FactionOverviewForm_KeyDown( object sender, KeyEventArgs e )
+        private void UniverseForm_KeyDown( object sender, KeyEventArgs e )
         {
             if( e.KeyCode == Keys.Escape )
             {
@@ -96,7 +96,7 @@ namespace Universalis
             }
         }
 
-        private void FactionOverviewForm_FormClosing( object sender, FormClosingEventArgs e )
+        private void UniverseForm_FormClosing( object sender, FormClosingEventArgs e )
         {
             if( !m_deityMode )
             {
@@ -111,7 +111,7 @@ namespace Universalis
             }
         }
 
-        private void FactionOverviewForm_DragEnter( object sender, DragEventArgs e )
+        private void UniverseForm_DragEnter( object sender, DragEventArgs e )
         {
             if( e.Data.GetDataPresent( DataFormats.FileDrop ) )
             {
@@ -119,7 +119,7 @@ namespace Universalis
             }
         }
 
-        private void FactionOverviewForm_DragDrop( object sender, DragEventArgs e )
+        private void UniverseForm_DragDrop( object sender, DragEventArgs e )
         {
             string[] fileList = (string[])e.Data.GetData( DataFormats.FileDrop, false );
 
