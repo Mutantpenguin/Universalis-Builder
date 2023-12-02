@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.armorBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -409,8 +409,8 @@
             this.dataGridViewDamageEffects.AllowUserToAddRows = false;
             this.dataGridViewDamageEffects.AllowUserToDeleteRows = false;
             this.dataGridViewDamageEffects.AllowUserToResizeRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDamageEffects.AutoGenerateColumns = false;
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
@@ -481,11 +481,13 @@
             // 
             // textBoxProfileModifier
             // 
+            this.textBoxProfileModifier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxProfileModifier.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProfileModifier.Location = new System.Drawing.Point(6, 8);
+            this.textBoxProfileModifier.Location = new System.Drawing.Point(12, 8);
             this.textBoxProfileModifier.Name = "textBoxProfileModifier";
             this.textBoxProfileModifier.ReadOnly = true;
-            this.textBoxProfileModifier.Size = new System.Drawing.Size(472, 13);
+            this.textBoxProfileModifier.Size = new System.Drawing.Size(460, 13);
             this.textBoxProfileModifier.TabIndex = 45;
             // 
             // toolStrip4
@@ -665,12 +667,14 @@
             // 
             // textBoxPermissions
             // 
+            this.textBoxPermissions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPermissions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPermissions.Location = new System.Drawing.Point(6, 8);
+            this.textBoxPermissions.Location = new System.Drawing.Point(12, 8);
             this.textBoxPermissions.Multiline = true;
             this.textBoxPermissions.Name = "textBoxPermissions";
             this.textBoxPermissions.ReadOnly = true;
-            this.textBoxPermissions.Size = new System.Drawing.Size(472, 20);
+            this.textBoxPermissions.Size = new System.Drawing.Size(460, 20);
             this.textBoxPermissions.TabIndex = 45;
             this.textBoxPermissions.TextChanged += new System.EventHandler(this.textBoxPermissions_TextChanged);
             // 

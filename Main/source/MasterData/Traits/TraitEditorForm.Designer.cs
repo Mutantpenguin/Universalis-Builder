@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,9 +70,8 @@
             this.toolStripButtonPermissions = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
-            this.comboBoxGroup = new System.Windows.Forms.ComboBox();
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -86,7 +87,6 @@
             this.panel8.SuspendLayout();
             this.panelPermissions.SuspendLayout();
             this.toolStrip7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -102,6 +102,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(434, 40);
             this.panel1.TabIndex = 1;
+            // 
+            // comboBoxGroup
+            // 
+            this.comboBoxGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxGroup.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.traitBindingSource, "Group", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxGroup.FormattingEnabled = true;
+            this.comboBoxGroup.Location = new System.Drawing.Point(231, 16);
+            this.comboBoxGroup.Name = "comboBoxGroup";
+            this.comboBoxGroup.Size = new System.Drawing.Size(114, 21);
+            this.comboBoxGroup.TabIndex = 38;
+            // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // textBoxPoints
             // 
@@ -392,11 +407,13 @@
             // 
             // textBoxProfileModifier
             // 
+            this.textBoxProfileModifier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxProfileModifier.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProfileModifier.Location = new System.Drawing.Point(6, 8);
+            this.textBoxProfileModifier.Location = new System.Drawing.Point(12, 8);
             this.textBoxProfileModifier.Name = "textBoxProfileModifier";
             this.textBoxProfileModifier.ReadOnly = true;
-            this.textBoxProfileModifier.Size = new System.Drawing.Size(472, 13);
+            this.textBoxProfileModifier.Size = new System.Drawing.Size(410, 13);
             this.textBoxProfileModifier.TabIndex = 45;
             // 
             // toolStrip4
@@ -463,12 +480,14 @@
             // 
             // textBoxPermissions
             // 
+            this.textBoxPermissions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPermissions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPermissions.Location = new System.Drawing.Point(6, 8);
+            this.textBoxPermissions.Location = new System.Drawing.Point(12, 8);
             this.textBoxPermissions.Multiline = true;
             this.textBoxPermissions.Name = "textBoxPermissions";
             this.textBoxPermissions.ReadOnly = true;
-            this.textBoxPermissions.Size = new System.Drawing.Size(472, 20);
+            this.textBoxPermissions.Size = new System.Drawing.Size(410, 20);
             this.textBoxPermissions.TabIndex = 45;
             this.textBoxPermissions.TextChanged += new System.EventHandler(this.textBoxPermissions_TextChanged);
             // 
@@ -512,21 +531,6 @@
             this.toolStripButtonPermissionsEditor.Text = "editieren";
             this.toolStripButtonPermissionsEditor.Click += new System.EventHandler(this.toolStripButtonPermissionsEditor_Click);
             // 
-            // comboBoxGroup
-            // 
-            this.comboBoxGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxGroup.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.traitBindingSource, "Group", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.comboBoxGroup.FormattingEnabled = true;
-            this.comboBoxGroup.Location = new System.Drawing.Point(231, 16);
-            this.comboBoxGroup.Name = "comboBoxGroup";
-            this.comboBoxGroup.Size = new System.Drawing.Size(114, 21);
-            this.comboBoxGroup.TabIndex = 38;
-            // 
-            // traitBindingSource
-            // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
-            // 
             // TraitEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -549,6 +553,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TraitEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -576,7 +581,6 @@
             this.panelPermissions.PerformLayout();
             this.toolStrip7.ResumeLayout(false);
             this.toolStrip7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

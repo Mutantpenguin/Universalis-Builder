@@ -30,7 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBoxColor = new System.Windows.Forms.PictureBox();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
+            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -56,10 +59,9 @@
             this.toolStripButtonPermissions = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
-            this.pictureBoxColor = new System.Windows.Forms.PictureBox();
-            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -71,8 +73,6 @@
             this.panel8.SuspendLayout();
             this.panelPermissions.SuspendLayout();
             this.toolStrip7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -87,14 +87,35 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 39);
+            this.panel1.Size = new System.Drawing.Size(442, 39);
             this.panel1.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(319, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Farbe";
+            // 
+            // pictureBoxColor
+            // 
+            this.pictureBoxColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxColor.Location = new System.Drawing.Point(333, 16);
+            this.pictureBoxColor.Name = "pictureBoxColor";
+            this.pictureBoxColor.Size = new System.Drawing.Size(20, 20);
+            this.pictureBoxColor.TabIndex = 38;
+            this.pictureBoxColor.TabStop = false;
+            this.pictureBoxColor.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxColor_MouseDoubleClick);
             // 
             // textBoxPoints
             // 
             this.textBoxPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.disciplineBindingSource, "PointsString", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxPoints.Location = new System.Drawing.Point(351, 16);
+            this.textBoxPoints.Location = new System.Drawing.Point(359, 16);
             this.textBoxPoints.Name = "textBoxPoints";
             this.textBoxPoints.ReadOnly = true;
             this.textBoxPoints.Size = new System.Drawing.Size(80, 20);
@@ -102,11 +123,15 @@
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.textBoxPoints, "pro Modell");
             // 
+            // disciplineBindingSource
+            // 
+            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
+            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(348, 0);
+            this.label3.Location = new System.Drawing.Point(356, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 36;
@@ -128,7 +153,7 @@
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.disciplineBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxName.Location = new System.Drawing.Point(3, 16);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(316, 20);
+            this.textBoxName.Size = new System.Drawing.Size(324, 20);
             this.textBoxName.TabIndex = 2;
             // 
             // panel3
@@ -138,7 +163,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 176);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(434, 187);
+            this.panel3.Size = new System.Drawing.Size(442, 187);
             this.panel3.TabIndex = 0;
             // 
             // textBoxDescription
@@ -149,7 +174,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(434, 162);
+            this.textBoxDescription.Size = new System.Drawing.Size(442, 162);
             this.textBoxDescription.TabIndex = 0;
             // 
             // toolStrip1
@@ -158,7 +183,7 @@
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(434, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(442, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -177,7 +202,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 64);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(434, 51);
+            this.panel4.Size = new System.Drawing.Size(442, 51);
             this.panel4.TabIndex = 1;
             // 
             // panel6
@@ -190,7 +215,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 25);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(434, 26);
+            this.panel6.Size = new System.Drawing.Size(442, 26);
             this.panel6.TabIndex = 51;
             // 
             // numericUpDownBasePoints
@@ -260,7 +285,7 @@
             this.toolStripLabel2});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(434, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(442, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -276,7 +301,7 @@
             this.toolStripButtonSave});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(434, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(442, 25);
             this.toolStrip3.TabIndex = 1;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -298,7 +323,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 115);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(434, 61);
+            this.panel8.Size = new System.Drawing.Size(442, 61);
             this.panel8.TabIndex = 34;
             // 
             // panelPermissions
@@ -309,17 +334,19 @@
             this.panelPermissions.Location = new System.Drawing.Point(0, 25);
             this.panelPermissions.Name = "panelPermissions";
             this.panelPermissions.Padding = new System.Windows.Forms.Padding(5);
-            this.panelPermissions.Size = new System.Drawing.Size(434, 36);
+            this.panelPermissions.Size = new System.Drawing.Size(442, 36);
             this.panelPermissions.TabIndex = 46;
             // 
             // textBoxPermissions
             // 
+            this.textBoxPermissions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPermissions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPermissions.Location = new System.Drawing.Point(6, 8);
+            this.textBoxPermissions.Location = new System.Drawing.Point(12, 8);
             this.textBoxPermissions.Multiline = true;
             this.textBoxPermissions.Name = "textBoxPermissions";
             this.textBoxPermissions.ReadOnly = true;
-            this.textBoxPermissions.Size = new System.Drawing.Size(472, 20);
+            this.textBoxPermissions.Size = new System.Drawing.Size(418, 20);
             this.textBoxPermissions.TabIndex = 45;
             this.textBoxPermissions.TextChanged += new System.EventHandler(this.textBoxPermissions_TextChanged);
             // 
@@ -331,7 +358,7 @@
             this.toolStripButtonPermissionsEditor});
             this.toolStrip7.Location = new System.Drawing.Point(0, 0);
             this.toolStrip7.Name = "toolStrip7";
-            this.toolStrip7.Size = new System.Drawing.Size(434, 25);
+            this.toolStrip7.Size = new System.Drawing.Size(442, 25);
             this.toolStrip7.TabIndex = 0;
             this.toolStrip7.Text = "toolStrip7";
             // 
@@ -363,38 +390,13 @@
             this.toolStripButtonPermissionsEditor.Text = "editieren";
             this.toolStripButtonPermissionsEditor.Click += new System.EventHandler(this.toolStripButtonPermissionsEditor_Click);
             // 
-            // pictureBoxColor
-            // 
-            this.pictureBoxColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxColor.Location = new System.Drawing.Point(325, 16);
-            this.pictureBoxColor.Name = "pictureBoxColor";
-            this.pictureBoxColor.Size = new System.Drawing.Size(20, 20);
-            this.pictureBoxColor.TabIndex = 38;
-            this.pictureBoxColor.TabStop = false;
-            this.pictureBoxColor.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxColor_MouseDoubleClick);
-            // 
-            // disciplineBindingSource
-            // 
-            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(311, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Farbe";
-            // 
             // DisciplineEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(434, 529);
+            this.ClientSize = new System.Drawing.Size(442, 530);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel4);
@@ -409,6 +411,8 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DisciplineEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -429,8 +433,6 @@
             this.panelPermissions.PerformLayout();
             this.toolStrip7.ResumeLayout(false);
             this.toolStrip7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

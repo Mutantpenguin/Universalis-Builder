@@ -772,11 +772,13 @@
             // 
             // textBoxProfileModifier
             // 
+            this.textBoxProfileModifier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxProfileModifier.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxProfileModifier.Location = new System.Drawing.Point(6, 8);
+            this.textBoxProfileModifier.Location = new System.Drawing.Point(12, 8);
             this.textBoxProfileModifier.Name = "textBoxProfileModifier";
             this.textBoxProfileModifier.ReadOnly = true;
-            this.textBoxProfileModifier.Size = new System.Drawing.Size(472, 13);
+            this.textBoxProfileModifier.Size = new System.Drawing.Size(460, 13);
             this.textBoxProfileModifier.TabIndex = 45;
             // 
             // toolStrip6
@@ -843,12 +845,14 @@
             // 
             // textBoxPermissions
             // 
+            this.textBoxPermissions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPermissions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxPermissions.Location = new System.Drawing.Point(6, 8);
+            this.textBoxPermissions.Location = new System.Drawing.Point(12, 8);
             this.textBoxPermissions.Multiline = true;
             this.textBoxPermissions.Name = "textBoxPermissions";
             this.textBoxPermissions.ReadOnly = true;
-            this.textBoxPermissions.Size = new System.Drawing.Size(472, 20);
+            this.textBoxPermissions.Size = new System.Drawing.Size(460, 20);
             this.textBoxPermissions.TabIndex = 45;
             this.textBoxPermissions.TextChanged += new System.EventHandler(this.textBoxPermissions_TextChanged);
             // 
