@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iTextSharp.text.pdf;
+using System;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -31,6 +32,24 @@ namespace Universalis
             }
 
             pictureBoxColor.BackColor = m_modifiedDiscipline.Color;
+
+            if( m_modifiedDiscipline.Powers.Count > 0 )
+            {
+                pictureBoxPower.Image?.Dispose();
+                pictureBoxPower.Image = PowerCardPainter.GetBitmap( m_modifiedDiscipline, m_modifiedDiscipline.Powers[0] );
+            }
+        }
+
+        protected override void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                components?.Dispose();
+
+                pictureBoxPower.Image?.Dispose();
+            }
+
+            base.Dispose( disposing );
         }
 
         private readonly Discipline m_originalDiscipline;
