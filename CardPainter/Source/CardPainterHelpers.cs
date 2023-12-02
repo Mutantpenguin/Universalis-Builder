@@ -4,8 +4,14 @@ using System.Drawing.Drawing2D;
 
 namespace Universalis
 {
-    static class Helpers
+    public static class CardPainterHelpers
     {
+        public const int Dpi = 500;
+
+        public static int CmToPixel( double cm )
+        {
+            return Convert.ToInt32( cm / 2.54f * Dpi );
+        }
         public static void DrawStringCentered( Graphics g, String text, Font font, Brush brush, Rectangle rect )
         {
             GraphicsPath path = new GraphicsPath();

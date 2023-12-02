@@ -11,31 +11,30 @@ namespace Universalis
     public static class ActorCardPainter
     {
         #region members
-        public const int Dpi = 500;
 
         public const int CardWidthCm = 12;
         public const int CardHeightCm = 8;
         public const int SectionWidthCm = 8;
 
-        private static readonly int SCardWidth = CmToPixel( CardWidthCm );
-        private static readonly int SCardHeight = CmToPixel( CardHeightCm );
-        private static readonly int SSectionsWidth = CmToPixel( SectionWidthCm );
+        private static readonly int SCardWidth = CardPainterHelpers.CmToPixel( CardWidthCm );
+        private static readonly int SCardHeight = CardPainterHelpers.CmToPixel( CardHeightCm );
+        private static readonly int SSectionsWidth = CardPainterHelpers.CmToPixel( SectionWidthCm );
 
-        private static readonly int SSectionsPosX = CmToPixel( 4 );
+        private static readonly int SSectionsPosX = CardPainterHelpers.CmToPixel( 4 );
 
-        private static readonly Rectangle SPictureRect = new Rectangle( 0, CmToPixel( 0.5 ), SSectionsPosX, CmToPixel( 7 ) );
+        private static readonly Rectangle SPictureRect = new Rectangle( 0, CardPainterHelpers.CmToPixel( 0.5 ), SSectionsPosX, CardPainterHelpers.CmToPixel( 7 ) );
 
-        private static readonly int SHitPointSize = CmToPixel( 0.3 );
+        private static readonly int SHitPointSize = CardPainterHelpers.CmToPixel( 0.3 );
 
         private static readonly Pen SLinePenBlack = Pens.Black;
-        private static readonly Pen SStructureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
-        private static readonly Pen SStructureRedPen = new Pen( Color.Red, CmToPixel( 0.2f ) );
-        private static readonly Pen SHitPointBorderPen = new Pen( Color.Black, CmToPixel( 0.015f ) );
+        private static readonly Pen SStructureBlackPen = new Pen( Color.Black, CardPainterHelpers.CmToPixel( 0.02f ) );
+        private static readonly Pen SStructureRedPen = new Pen( Color.Red, CardPainterHelpers.CmToPixel( 0.2f ) );
+        private static readonly Pen SHitPointBorderPen = new Pen( Color.Black, CardPainterHelpers.CmToPixel( 0.015f ) );
 
-        private static readonly Font Font0Dot2 = new Font( UniversalisFont.Family, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
-        private static readonly Font Font0Dot25 = new Font( UniversalisFont.Family, CmToPixel( 0.25 ), FontStyle.Regular, GraphicsUnit.Pixel );
-        private static readonly Font Font0Dot3 = new Font( UniversalisFont.Family, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
-        private static readonly Font Font0Dot35 = new Font( UniversalisFont.Family, CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot2 = new Font( UniversalisFont.Family, CardPainterHelpers.CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot25 = new Font( UniversalisFont.Family, CardPainterHelpers.CmToPixel( 0.25 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot3 = new Font( UniversalisFont.Family, CardPainterHelpers.CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot35 = new Font( UniversalisFont.Family, CardPainterHelpers.CmToPixel( 0.35 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
         private static readonly Font FontStandard = Font0Dot35;
         private static readonly Font FontName = Font0Dot3;
@@ -60,7 +59,7 @@ namespace Universalis
         private static readonly Brush WeaponFontBrush = new SolidBrush( DamageColor.red );
         private static readonly Brush ArmorFontBrush = new SolidBrush( DamageColor.green );
 
-        private static readonly int SLineHeight = CmToPixel( 0.5 );
+        private static readonly int SLineHeight = CardPainterHelpers.CmToPixel( 0.5 );
         private static readonly int SLineHeightDouble = ( SLineHeight * 2 );
 
         private static readonly int SImageMargin = SLineHeight / 10;
@@ -91,8 +90,8 @@ namespace Universalis
         };
 
         private static readonly int XAttrFirstColumn = SSectionsPosX;
-        private static readonly int XAttrSecondColumn = CmToPixel( 6.1 );
-        private static readonly int XAttrThirdColumn = CmToPixel( 8.5 );
+        private static readonly int XAttrSecondColumn = CardPainterHelpers.CmToPixel( 6.1 );
+        private static readonly int XAttrThirdColumn = CardPainterHelpers.CmToPixel( 8.5 );
 
         private const String ActionsPointsMarker = "⊙";
         private const String UseOnceMarker = "○";
@@ -100,11 +99,11 @@ namespace Universalis
         #endregion members
 
         #region weaponMembers
-        private static readonly int WeaponWkWidth = CmToPixel( 0.5 );
-        private static readonly int WeaponNameWidth = CmToPixel( 2.3 );
-        private static readonly int WeaponRangeWidth = CmToPixel( 0.9 );
-        private static readonly int WeaponStrengthWidth = CmToPixel( 0.5 );
-        private static readonly int WeaponDamageWidth = CmToPixel( 0.5 );
+        private static readonly int WeaponWkWidth = CardPainterHelpers.CmToPixel( 0.5 );
+        private static readonly int WeaponNameWidth = CardPainterHelpers.CmToPixel( 2.3 );
+        private static readonly int WeaponRangeWidth = CardPainterHelpers.CmToPixel( 0.9 );
+        private static readonly int WeaponStrengthWidth = CardPainterHelpers.CmToPixel( 0.5 );
+        private static readonly int WeaponDamageWidth = CardPainterHelpers.CmToPixel( 0.5 );
         private static readonly int WeaponUnwieldyWidth = WeaponWkWidth / 3;
 
         private static readonly int WeaponWkStart = SSectionsPosX;
@@ -113,7 +112,7 @@ namespace Universalis
         private static readonly int WeaponStrengthStart = WeaponRangeStart + WeaponRangeWidth;
         private static readonly int WeaponDamageStart = WeaponStrengthStart + WeaponStrengthWidth;
 
-        private static readonly int WeaponRadiusMargin = SImageMargin + CmToPixel( 0.015f );
+        private static readonly int WeaponRadiusMargin = SImageMargin + CardPainterHelpers.CmToPixel( 0.015f );
         #endregion
 
         public static Bitmap GetBitmap( Faction faction, Actor actor )
@@ -142,7 +141,7 @@ namespace Universalis
                 DrawHitPoints( g, actor );
                 DrawPoints( g, actor );
 
-                int headerEndY = CmToPixel( 1.5 );
+                int headerEndY = CardPainterHelpers.CmToPixel( 1.5 );
 
                 int traitsEndY = DrawTraits( g, actor.Traits, headerEndY );
 
@@ -187,24 +186,19 @@ namespace Universalis
             }
         }
 
-        public static int CmToPixel( double cm )
-        {
-            return Convert.ToInt32( cm / 2.54f * Dpi );
-        }
-
         private static void DrawStructure( Graphics g, int posY )
         {
             // line right of image
             g.DrawLine( SStructureBlackPen, SSectionsPosX, 0, SSectionsPosX, SCardHeight );
 
             // line under "Name"
-            g.DrawLine( SStructureBlackPen, 0, CmToPixel( 0.5 ), SSectionsPosX, CmToPixel( 0.5 ) );
+            g.DrawLine( SStructureBlackPen, 0, CardPainterHelpers.CmToPixel( 0.5 ), SSectionsPosX, CardPainterHelpers.CmToPixel( 0.5 ) );
 
             // line above "Points"
-            g.DrawLine( SStructureBlackPen, 0, CmToPixel( 7.5 ), SSectionsPosX, CmToPixel( 7.5 ) );
+            g.DrawLine( SStructureBlackPen, 0, CardPainterHelpers.CmToPixel( 7.5 ), SSectionsPosX, CardPainterHelpers.CmToPixel( 7.5 ) );
             
             // line under "Attribute"
-            g.DrawLine( SStructureBlackPen, SSectionsPosX, CmToPixel( 1.5 ), SCardWidth, CmToPixel( 1.5 ) );
+            g.DrawLine( SStructureBlackPen, SSectionsPosX, CardPainterHelpers.CmToPixel( 1.5 ), SCardWidth, CardPainterHelpers.CmToPixel( 1.5 ) );
 
             // surrounding rectangle
             if( posY > SCardHeight )
@@ -220,10 +214,10 @@ namespace Universalis
 
         private static void DrawName( Graphics g, String actorName )
         {
-            int posX = CmToPixel( 0.5 );
+            int posX = CardPainterHelpers.CmToPixel( 0.5 );
             int posY = 0;
 
-            Size textSize = new Size( CmToPixel( 4 ) - posX, CmToPixel( 0.5 ) );
+            Size textSize = new Size( CardPainterHelpers.CmToPixel( 4 ) - posX, CardPainterHelpers.CmToPixel( 0.5 ) );
             Rectangle textRect = new Rectangle( new Point( posX, posY ), textSize );
             g.MeasureString( actorName, FontName, textSize, StringFormatHCenterVCenter, out _, out int linesFilled );
 
@@ -232,7 +226,7 @@ namespace Universalis
 
         private static void DrawFaction( Graphics g, Faction faction )
         {
-            Rectangle rect = new Rectangle( Point.Empty, new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) );
+            Rectangle rect = new Rectangle( Point.Empty, new Size( CardPainterHelpers.CmToPixel( 0.5 ), CardPainterHelpers.CmToPixel( 0.5 ) ) );
 
             g.DrawImage( faction.Icon, rect );
         }
@@ -260,18 +254,18 @@ namespace Universalis
         private static void DrawAttributes( Graphics g, Actor actor )
         {
             DrawAttribute( g, XAttrFirstColumn, 0,                "AGI",    actor.ModAGI() );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "NK",     actor.ModHTH() );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ),   "FK",     actor.ModLRC() );
+            DrawAttribute( g, XAttrFirstColumn, CardPainterHelpers.CmToPixel( 0.5 ), "NK",     actor.ModHTH() );
+            DrawAttribute( g, XAttrFirstColumn, CardPainterHelpers.CmToPixel( 1 ),   "FK",     actor.ModLRC() );
 
             DrawAttribute( g, XAttrSecondColumn, 0,                 "KO",   actor.ModPHY() );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ),  "WN",   actor.ModAWA() );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ),    "EH",   actor.ModDET() );
+            DrawAttribute( g, XAttrSecondColumn, CardPainterHelpers.CmToPixel( 0.5 ),  "WN",   actor.ModAWA() );
+            DrawAttribute( g, XAttrSecondColumn, CardPainterHelpers.CmToPixel( 1 ),    "EH",   actor.ModDET() );
         }
 
         private static void DrawAttribute( Graphics g, int posX, int posY, string name, int? attribute )
         {
-            int widthName = CmToPixel( 0.9 );
-            int widthAtt = CmToPixel( 1.2 );
+            int widthName = CardPainterHelpers.CmToPixel( 0.9 );
+            int widthAtt = CardPainterHelpers.CmToPixel( 1.2 );
 
             Rectangle rectName = new Rectangle( posX, posY, widthName, SLineHeight );
             Rectangle rectValue = new Rectangle( posX + widthName, posY, widthAtt, SLineHeight );
@@ -280,11 +274,11 @@ namespace Universalis
 
             g.FillRectangle( Brushes.Black, rectName );
 
-            Helpers.DrawStringCentered( g, name, FontStandard, Brushes.White, rectName );
+            CardPainterHelpers.DrawStringCentered( g, name, FontStandard, Brushes.White, rectName );
 
             if( !attribute.HasValue )
             {
-                Helpers.DrawStringCentered( g, "-", FontStandard, Brushes.Black, rectValue );
+                CardPainterHelpers.DrawStringCentered( g, "-", FontStandard, Brushes.Black, rectValue );
             }
             else
             {
@@ -293,7 +287,7 @@ namespace Universalis
                 int printModValue = ( value < 0 ) ? 0 : value;
                 var brush = ( value < 0 ) ? Brushes.Red : Brushes.Black;
 
-                Helpers.DrawStringCentered( g, printModValue.ToString(), FontStandard, brush, rectValue );
+                CardPainterHelpers.DrawStringCentered( g, printModValue.ToString(), FontStandard, brush, rectValue );
             }
         }
 
@@ -304,20 +298,20 @@ namespace Universalis
 
             string modWbString = actor.ModAreaOfPerception().ToString();
             Size modWbSize = g.MeasureString( modWbString, FontStandard ).ToSize();
-            Helpers.DrawStringCentered( g, modWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, modWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
+            CardPainterHelpers.DrawStringCentered( g, modWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CardPainterHelpers.CmToPixel( 0.5 ), 0, modWbSize.Width + CardPainterHelpers.CmToPixel( 0.1 ), CardPainterHelpers.CmToPixel( 0.5 ) ) );
 
             // GB - Gefahrenbereich
             int? dangerArea = actor.ModDangerArea();
             if( dangerArea.HasValue )
             {
                 g.DrawImage( Properties.Resources.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
-                Helpers.DrawStringCentered( g, dangerArea.Value.ToString(), FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
+                CardPainterHelpers.DrawStringCentered( g, dangerArea.Value.ToString(), FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CardPainterHelpers.CmToPixel( 0.5 ), SLineHeight, CardPainterHelpers.CmToPixel( 1 ), SLineHeight ) );
             }
         }
 
         private static void DrawHitPoints( Graphics g, Actor actor )
         {
-            int margin = CmToPixel( 0.1 );
+            int margin = CardPainterHelpers.CmToPixel( 0.1 );
 
             int critThreshold = actor.ModCritThreshold();
 
@@ -436,7 +430,7 @@ namespace Universalis
         {
             string points = $"{actor.Points}pkt";
 
-            g.DrawString( points, FontPoints, Brushes.Black, new Rectangle( 0, CmToPixel( 7.5 ), SSectionsPosX, CmToPixel( 0.5 ) ), StringFormatHCenterVCenter );
+            g.DrawString( points, FontPoints, Brushes.Black, new Rectangle( 0, CardPainterHelpers.CmToPixel( 7.5 ), SSectionsPosX, CardPainterHelpers.CmToPixel( 0.5 ) ), StringFormatHCenterVCenter );
         }
 
         private static void DrawMisc( Graphics g, Actor actor )
@@ -544,12 +538,12 @@ namespace Universalis
                     throw new InvalidOperationException( "unkown " + nameof( Archetype.EMovementType ) );
             }
 
-            int movementStringWidth = CmToPixel( 0.6 );
+            int movementStringWidth = CardPainterHelpers.CmToPixel( 0.6 );
             int width = movementStringWidth + 3 * SImageMargin + SImageSize;
 
             g.DrawImage( img, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
 
-            Helpers.DrawStringCentered( g, BW.ToString(), FontStandard, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, movementStringWidth, SLineHeight ) );
+            CardPainterHelpers.DrawStringCentered( g, BW.ToString(), FontStandard, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, movementStringWidth, SLineHeight ) );
 
             g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );
 
@@ -681,12 +675,12 @@ namespace Universalis
             
             Rectangle wkRect = new Rectangle( WeaponWkStart, posY, WeaponWkWidth, SLineHeight );
             g.FillRectangle( Brushes.Black, wkRect );
-            Helpers.DrawStringCentered( g, weapon.Class.ToString(), FontWk, Brushes.White, wkRect );
+            CardPainterHelpers.DrawStringCentered( g, weapon.Class.ToString(), FontWk, Brushes.White, wkRect );
             
             if( weapon.Unwieldy )
             {
                 Rectangle unwieldyRect = new Rectangle( wkRect.Right - WeaponUnwieldyWidth, wkRect.Y, WeaponUnwieldyWidth, WeaponUnwieldyWidth );
-                Helpers.DrawStringCentered( g, UnwieldyMarker, FontUnwieldy, Brushes.White, unwieldyRect );
+                CardPainterHelpers.DrawStringCentered( g, UnwieldyMarker, FontUnwieldy, Brushes.White, unwieldyRect );
             }
             
             string weaponName = weapon.Name;
@@ -718,22 +712,22 @@ namespace Universalis
 
             if( weapon.AdditiveStrength )
             {
-                Helpers.DrawStringCentered( g, ( weapon.Strength + actor.ModPHY() ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponStrengthStart, posY, WeaponStrengthWidth, SLineHeight ) );
+                CardPainterHelpers.DrawStringCentered( g, ( weapon.Strength + actor.ModPHY() ).ToString(), FontWeapon, WeaponFontBrush, new Rectangle( WeaponStrengthStart, posY, WeaponStrengthWidth, SLineHeight ) );
             }
             else
             {
-                Helpers.DrawStringCentered( g, weapon.FormattedStrength, FontWeapon, WeaponFontBrush, new Rectangle( WeaponStrengthStart, posY, WeaponStrengthWidth, SLineHeight ) );
+                CardPainterHelpers.DrawStringCentered( g, weapon.FormattedStrength, FontWeapon, WeaponFontBrush, new Rectangle( WeaponStrengthStart, posY, WeaponStrengthWidth, SLineHeight ) );
             }
 
-            Helpers.DrawStringCentered( g, weapon.FormattedDamage, FontWeapon, WeaponFontBrush, new Rectangle( WeaponDamageStart, posY, WeaponDamageWidth, SLineHeight ) );
+            CardPainterHelpers.DrawStringCentered( g, weapon.FormattedDamage, FontWeapon, WeaponFontBrush, new Rectangle( WeaponDamageStart, posY, WeaponDamageWidth, SLineHeight ) );
 
             if( Weapon.EType.Wurf == weapon.Type )
             {
-                Helpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModPHY(), weapon.Unwieldy ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
+                CardPainterHelpers.DrawStringCentered( g, Actor.ThrowRange( actor.ModPHY(), weapon.Unwieldy ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
             }
             else
             {
-                Helpers.DrawStringCentered( g, weapon.FormattedRange, FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
+                CardPainterHelpers.DrawStringCentered( g, weapon.FormattedRange, FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
             }
 
             int remainderPosX = WeaponDamageStart + WeaponDamageWidth;
@@ -795,7 +789,7 @@ namespace Universalis
             {
                 Rectangle rect = new Rectangle( remainderPosX + WeaponRadiusMargin, posY + WeaponRadiusMargin, SLineHeight - ( 2 * WeaponRadiusMargin ), SLineHeight - ( 2 * WeaponRadiusMargin ) );
                 g.FillEllipse( Brushes.Black, rect );
-                Helpers.DrawStringCentered( g, weapon.FormattedRadius, FontWeaponRadius, Brushes.White, rect );
+                CardPainterHelpers.DrawStringCentered( g, weapon.FormattedRadius, FontWeaponRadius, Brushes.White, rect );
 
                 remainderPosX += SImageSize;
             }
@@ -823,9 +817,9 @@ namespace Universalis
         {
             if( armor != null )
             {
-                int nameWidth = CmToPixel( 3.7 );
-                int protectionWidth = CmToPixel( 0.5 );
-                int damageReductionWidth = CmToPixel( 0.5 );
+                int nameWidth = CardPainterHelpers.CmToPixel( 3.7 );
+                int protectionWidth = CardPainterHelpers.CmToPixel( 0.5 );
+                int damageReductionWidth = CardPainterHelpers.CmToPixel( 0.5 );
 
                 int protectionStart = SSectionsPosX + nameWidth;
                 int damageReductionStart = protectionStart + protectionWidth;
@@ -845,17 +839,17 @@ namespace Universalis
 
                 if( armor.AdditiveProtection )
                 {
-                    Helpers.DrawStringCentered( g, ( armor.Protection + actorModPHY ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                    CardPainterHelpers.DrawStringCentered( g, ( armor.Protection + actorModPHY ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
                 }
                 else
                 {
-                    Helpers.DrawStringCentered( g, Math.Max( armor.Protection, actorModPHY ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                    CardPainterHelpers.DrawStringCentered( g, Math.Max( armor.Protection, actorModPHY ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
                 }
 
                 // Damage Reduction
                 g.DrawLine( SLinePenBlack, damageReductionStart, posY + SLineHeight, damageReductionStart, posY + SLineHeightDouble );
                 g.DrawImage( Properties.Resources.Schadensreduktion_weiss, new Rectangle( damageReductionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
-                Helpers.DrawStringCentered( g, armor.FormattedDamageReduction, FontArmor, ArmorFontBrush, new Rectangle( damageReductionStart, posY + SLineHeight, damageReductionWidth, SLineHeight ) );
+                CardPainterHelpers.DrawStringCentered( g, armor.FormattedDamageReduction, FontArmor, ArmorFontBrush, new Rectangle( damageReductionStart, posY + SLineHeight, damageReductionWidth, SLineHeight ) );
 
                 // Damage Effects
                 g.DrawLine( SLinePenBlack, effectsStart, posY + SLineHeight, effectsStart, posY + SLineHeightDouble );
