@@ -13,8 +13,8 @@ namespace Universalis
     {
         private const int dpi = 72;
 
-        private static readonly float s_cardWidth = CmToPixel( CardPainter.CardWidthCm );
-        private static readonly float s_cardHeight = CmToPixel( CardPainter.CardHeightCm );
+        private static readonly float s_cardWidth = CmToPixel( ActorCardPainter.CardWidthCm );
+        private static readonly float s_cardHeight = CmToPixel( ActorCardPainter.CardHeightCm );
 
         #region fonts
         private static readonly BaseFont s_baseFontUniversalis = BaseFont.CreateFont( UniversalisFont.FileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, Shared.Properties.Resources.NovaRound_Regular, null );
@@ -38,7 +38,7 @@ namespace Universalis
         #region flipside
         private static readonly float s_flipsideHeaderHeight = CmToPixel( 0.5f );
 
-        private static readonly System.Drawing.Image s_flipsideHeader = SectionHeader.Create( CardPainter.CmToPixel( CardPainter.CardWidthCm ), CardPainter.CmToPixel( 0.5 ), System.Drawing.Color.Gray );
+        private static readonly System.Drawing.Image s_flipsideHeader = SectionHeader.Create( ActorCardPainter.CmToPixel( ActorCardPainter.CardWidthCm ), ActorCardPainter.CmToPixel( 0.5 ), System.Drawing.Color.Gray );
 
         private static readonly float s_flipsideMargin = CmToPixel( 0.1f );
         private static readonly float s_flipsideColumnWidth = ( s_cardWidth - ( 4 * s_flipsideMargin ) ) / 3;
@@ -124,7 +124,7 @@ namespace Universalis
             
             PdfTemplate headerBarTemplate = cb.CreateTemplate( printableWidth, headerBarHeight );
 
-            using( System.Drawing.Image img = SectionHeader.Create( CardPainter.CmToPixel( PixelToCm( printableWidth ) ), CardPainter.CmToPixel( headerBarHeightCm ), System.Drawing.Color.Gray ) )
+            using( System.Drawing.Image img = SectionHeader.Create( ActorCardPainter.CmToPixel( PixelToCm( printableWidth ) ), ActorCardPainter.CmToPixel( headerBarHeightCm ), System.Drawing.Color.Gray ) )
             {
                 Image headerBarImage = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
                 headerBarImage.ScaleToFit( printableWidth, headerBarHeight );
@@ -322,7 +322,7 @@ namespace Universalis
 
                 Actor actor = sortedActorList[ i ];
 
-                using( System.Drawing.Image img = CardPainter.GetBitmap(group.Faction, actor ) )
+                using( System.Drawing.Image img = ActorCardPainter.GetBitmap(group.Faction, actor ) )
                 {
                     Image imgCard = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
                     imgCard.ScaleToFit( s_cardWidth, s_cardHeight );

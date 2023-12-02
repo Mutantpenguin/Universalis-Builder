@@ -164,7 +164,7 @@ namespace Universalis
             {
                 Actor actor = (Actor)dataGridViewActors.SelectedRows[ 0 ].DataBoundItem;
 
-                pictureBoxCard.Image = CardPainter.GetBitmap(m_groupModified.Faction, actor );
+                pictureBoxCard.Image = ActorCardPainter.GetBitmap(m_groupModified.Faction, actor );
             }
             else
             {

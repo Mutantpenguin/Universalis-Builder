@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Universalis
 {
-    public static class CardPainter
+    public static class ActorCardPainter
     {
         #region members
         public const int Dpi = 500;

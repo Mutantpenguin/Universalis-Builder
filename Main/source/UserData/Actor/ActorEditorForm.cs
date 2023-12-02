@@ -150,7 +150,7 @@ namespace Universalis
             if( m_initialized )
             {
                 pictureBoxCard.Image?.Dispose();
-                pictureBoxCard.Image = CardPainter.GetBitmap( m_faction, m_actorModified );
+                pictureBoxCard.Image = ActorCardPainter.GetBitmap( m_faction, m_actorModified );
             }
 
 
