@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
@@ -12,6 +12,22 @@ namespace Universalis
         {
             return Convert.ToInt32( cm / 2.54f * Dpi );
         }
+
+        public static Color ContrastFontColor( Color color )
+        {
+            // Counting the perceptive luminance - human eye favors green color...      
+            double luminance = ( 0.299 * color.R + 0.587 * color.G + 0.114 * color.B ) / 255;
+
+            if( luminance > 0.5 )
+            {
+                return Color.Black; // bright colors
+            }
+            else
+            {
+                return Color.White; // dark colors
+            }
+        }
+
         public static void DrawStringCentered( Graphics g, String text, Font font, Brush brush, Rectangle rect )
         {
             GraphicsPath path = new GraphicsPath();
