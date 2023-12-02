@@ -29,6 +29,8 @@ namespace Universalis
                 toolStripButtonPermissionsEditor.Enabled = false;
                 panelPermissions.Visible = false;
             }
+
+            pictureBoxColor.BackColor = m_modifiedDiscipline.Color;
         }
 
         private readonly Discipline m_originalDiscipline;
@@ -150,6 +152,19 @@ namespace Universalis
                                                         new System.Drawing.Size( textBoxPermissions.Width, 0 ) );
 
             textBoxPermissions.Height = messageSize.Height;
+        }
+
+        private void pictureBoxColor_MouseDoubleClick( object sender, MouseEventArgs e )
+        {
+            using( var colorDialog = new ColorDialog() )
+            {
+                if( colorDialog.ShowDialog() == DialogResult.OK )
+                {
+                    var color = colorDialog.Color;
+                    pictureBoxColor.BackColor = color;
+                    m_modifiedDiscipline.Color = color;
+                }
+            }
         }
     }
 }

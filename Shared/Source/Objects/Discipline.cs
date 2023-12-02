@@ -1,11 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
 
 namespace Universalis
 {
     public class Discipline
     {
-        public Discipline() { }
+        public Discipline() {}
 
         public Discipline( Discipline discipline )
         {
@@ -22,6 +25,7 @@ namespace Universalis
             Active = discipline.Active;
 
             Name = discipline.Name;
+            Color = discipline.Color;
             Description = discipline.Description;
             BasePoints = discipline.BasePoints;
             MaxLevel = discipline.MaxLevel;
@@ -35,6 +39,12 @@ namespace Universalis
             {
                 Permissions = null;
             }
+
+            Powers.Clear();
+            foreach( Power power in discipline.Powers)
+            {
+                Powers.Add( new Power( power ) );
+            }
         }
 
         public bool Equals( Discipline discipline )
@@ -47,6 +57,8 @@ namespace Universalis
             if( Active != discipline.Active
                 ||
                 Name != discipline.Name
+                ||
+                Color != discipline.Color
                 ||
                 Description != discipline.Description
                 ||
@@ -73,6 +85,22 @@ namespace Universalis
                 }
             }
 
+            foreach( Power power in Powers )
+            {
+                if( !discipline.Powers.Any( x => x.Equals( power ) ) )
+                {
+                    return false;
+                }
+            }
+
+            foreach( Power power in discipline.Powers )
+            {
+                if( !Powers.Any( x => x.Equals( power ) ) )
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
 
@@ -94,11 +122,23 @@ namespace Universalis
             set;
         } = "Bitte Namen eingeben";
 
+        public Color Color
+        {
+            get;
+            set;
+        } = Color.FromArgb( 255, 255, 255 );
+
         public string Description
         {
             get;
             set;
         } = String.Empty;
+
+        public List<Power> Powers
+        {
+            get;
+            set;
+        } = new List<Power>();
 
         public uint BasePoints
         {
@@ -124,18 +164,20 @@ namespace Universalis
             set;
         }
 
+        public int PowerCount
+        {
+            get
+            {
+                return Powers.Where( x => x.Active ).Count();
+            }
+        }
+
         public int Points( uint level )
         {
             uint points = level * BasePoints;
 
             return (int)points;
         }
-
-        [JsonIgnore]
-        public int MinPoints => Points( 1 );
-
-        [JsonIgnore]
-        public int MaxPoints => Points( MaxLevel );
 
         [JsonIgnore]
         public string PointsString
@@ -181,7 +223,7 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string FormattedMaxQuantity
+        public string FormattedMaxGroupQuantity
         {
             get
             {

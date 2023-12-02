@@ -56,7 +56,9 @@
             this.toolStripButtonPermissions = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
+            this.pictureBoxColor = new System.Windows.Forms.PictureBox();
             this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -69,12 +71,15 @@
             this.panel8.SuspendLayout();
             this.panelPermissions.SuspendLayout();
             this.toolStrip7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.pictureBoxColor);
             this.panel1.Controls.Add(this.textBoxPoints);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
@@ -123,7 +128,7 @@
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.disciplineBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxName.Location = new System.Drawing.Point(3, 16);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(342, 20);
+            this.textBoxName.Size = new System.Drawing.Size(316, 20);
             this.textBoxName.TabIndex = 2;
             // 
             // panel3
@@ -358,9 +363,30 @@
             this.toolStripButtonPermissionsEditor.Text = "editieren";
             this.toolStripButtonPermissionsEditor.Click += new System.EventHandler(this.toolStripButtonPermissionsEditor_Click);
             // 
+            // pictureBoxColor
+            // 
+            this.pictureBoxColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxColor.Location = new System.Drawing.Point(325, 16);
+            this.pictureBoxColor.Name = "pictureBoxColor";
+            this.pictureBoxColor.Size = new System.Drawing.Size(20, 20);
+            this.pictureBoxColor.TabIndex = 38;
+            this.pictureBoxColor.TabStop = false;
+            this.pictureBoxColor.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxColor_MouseDoubleClick);
+            // 
             // disciplineBindingSource
             // 
             this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(311, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Farbe";
             // 
             // DisciplineEditorForm
             // 
@@ -403,6 +429,7 @@
             this.panelPermissions.PerformLayout();
             this.toolStrip7.ResumeLayout(false);
             this.toolStrip7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -439,5 +466,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonPermissions;
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.ToolStripButton toolStripButtonPermissionsEditor;
+        private System.Windows.Forms.PictureBox pictureBoxColor;
+        private System.Windows.Forms.Label label2;
     }
 }
