@@ -92,5 +92,21 @@ namespace Universalis
             path.CloseFigure();
             return path;
         }
+
+        public static Font FindFont( Graphics g, string text, Size availableSpace, Font preferedFont )
+        {
+            SizeF originalSize = g.MeasureString( text, preferedFont );
+
+            float heightScaleRatio = availableSpace.Height / originalSize.Height;
+            float widthScaleRatio = availableSpace.Width / originalSize.Width;
+
+            float scaleRatio = ( heightScaleRatio < widthScaleRatio )
+               ? heightScaleRatio
+               : widthScaleRatio;
+
+            float ScaleFontSize = preferedFont.Size * scaleRatio;
+
+            return new Font( preferedFont.FontFamily, ScaleFontSize, preferedFont.Style, preferedFont.Unit );
+        }
     }
 }
