@@ -117,6 +117,11 @@ namespace Universalis
 
         public static Bitmap GetBitmap( Faction faction, Actor actor )
         {
+            if( null == faction )
+            {
+                throw new ArgumentNullException( nameof( faction ) );
+            }
+
             if( null == actor )
             {
                 throw new ArgumentNullException( nameof( actor ) );
