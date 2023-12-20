@@ -8,6 +8,8 @@ namespace Universalis
     {
         public const int Dpi = 500;
 
+        public const string ActionsPointsMarker = "⊙";
+
         public static int CmToPixel( double cm )
         {
             return Convert.ToInt32( cm / 2.54f * Dpi );

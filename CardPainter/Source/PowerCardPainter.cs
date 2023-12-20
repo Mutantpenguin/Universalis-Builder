@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing.Drawing2D;
 using System.Drawing;
+using static Universalis.CardPainterHelpers;
 
 namespace Universalis
 {
@@ -11,22 +12,22 @@ namespace Universalis
         public const double CardWidthCm = 6.3;
         public const double CardHeightCm = 8.8;
 
-        private static readonly int SCardWidth = CardPainterHelpers.CmToPixel( CardWidthCm );
-        private static readonly int SCardHeight = CardPainterHelpers.CmToPixel( CardHeightCm );
+        private static readonly int SCardWidth = CmToPixel( CardWidthCm );
+        private static readonly int SCardHeight = CmToPixel( CardHeightCm );
 
-        private static readonly int SMargin = CardPainterHelpers.CmToPixel( 0.2 );
-        private static readonly int SRectangleRadius = CardPainterHelpers.CmToPixel( 0.25 );
+        private static readonly int SMargin = CmToPixel( 0.2 );
+        private static readonly int SRectangleRadius = CmToPixel( 0.25 );
 
-        private static readonly int STitleHeight = CardPainterHelpers.CmToPixel( 0.75 );
-        private static readonly int SFooterHeight = CardPainterHelpers.CmToPixel( 0.75 );
-
+        private static readonly int STitleHeight = CmToPixel( 0.75 );
+        private static readonly int SFooterHeight = CmToPixel( 0.75 );
+        
         private static readonly int SContentWidth = SCardWidth - ( 2 * SMargin );
 
-        private static readonly Pen SStructureBlackPen = new Pen( Color.Black, CardPainterHelpers.CmToPixel( 0.02f ) );
+        private static readonly Pen SStructureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
 
-        private static readonly Font Font0Dot2 = new Font( UniversalisFont.Family, CardPainterHelpers.CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font Font0Dot2 = new Font( UniversalisFont.Family, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
         
-        private static readonly Font FontRules = new Font( "Arial", CardPainterHelpers.CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font FontRules = new Font( "Arial", CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
         #endregion members
 
@@ -66,13 +67,13 @@ namespace Universalis
             var rect = new Rectangle( SMargin, SMargin, SContentWidth, STitleHeight );
 
             SolidBrush disciplineBrush = new SolidBrush( discipline.Color );
-            CardPainterHelpers.FillRoundedRectangle( g, disciplineBrush, rect, SRectangleRadius );
+            FillRoundedRectangle( g, disciplineBrush, rect, SRectangleRadius );
 
-            var textColor = CardPainterHelpers.ContrastFontColor( discipline.Color );
+            var textColor = ContrastFontColor( discipline.Color );
 
-            var font = CardPainterHelpers.FindFont( g, power.Name, rect.Size, Font0Dot2 );
+            var font = FindFont( g, power.Name, rect.Size, Font0Dot2 );
 
-            CardPainterHelpers.DrawStringCentered( g, power.Name, font, new SolidBrush(textColor), rect );
+            DrawStringCentered( g, power.Name, font, new SolidBrush(textColor), rect );
         }
 
         private static void DrawContent( Graphics g, Power power )
@@ -82,7 +83,7 @@ namespace Universalis
             
             var rect = new Rectangle( SMargin, contentTop, SContentWidth, contentHeight );
 
-            var font = CardPainterHelpers.FindFont( g, power.Rules, rect.Size, FontRules );
+            var font = FindFont( g, power.Rules, rect.Size, FontRules );
 
             g.DrawString( power.Rules, font, Brushes.Black, rect );
         }
@@ -91,7 +92,7 @@ namespace Universalis
         {
             var rect = new Rectangle( SMargin, SCardHeight - SFooterHeight - SMargin, SContentWidth, SFooterHeight );
 
-            CardPainterHelpers.FillRoundedRectangle( g, Brushes.Black, rect, SRectangleRadius );
+            FillRoundedRectangle( g, Brushes.Black, rect, SRectangleRadius );
         }
 
         private static void DrawStructure( Graphics g )
