@@ -100,12 +100,12 @@ namespace Universalis
                 return preferedFont;
             }
 
+            SizeF originalSize = g.MeasureString( text, preferedFont, availableSpace.Width );
+
             float heightScaleRatio = availableSpace.Height / originalSize.Height;
             float widthScaleRatio = availableSpace.Width / originalSize.Width;
 
-            float scaleRatio = ( heightScaleRatio < widthScaleRatio )
-               ? heightScaleRatio
-               : widthScaleRatio;
+            float scaleRatio = Math.Min( heightScaleRatio, widthScaleRatio );
 
             float ScaleFontSize = preferedFont.Size * scaleRatio;
 
