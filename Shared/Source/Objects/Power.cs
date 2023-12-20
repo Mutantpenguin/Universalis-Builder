@@ -21,6 +21,7 @@ namespace Universalis
             Active = power.Active;
             Name = power.Name;
             Description = power.Description;
+            AP = power.AP;
             Target = power.Target;
             Range = power.Range;
             Duration = power.Duration;
@@ -39,6 +40,8 @@ namespace Universalis
                 Name != power.Name
                 ||
                 Description != power.Description
+                ||
+                AP != power.AP
                 ||
                 Target != power.Target
                 ||
