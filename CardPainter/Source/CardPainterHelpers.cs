@@ -95,7 +95,10 @@ namespace Universalis
 
         public static Font FindFont( Graphics g, string text, Size availableSpace, Font preferedFont )
         {
-            SizeF originalSize = g.MeasureString( text, preferedFont );
+            if( text.Length == 0 )
+            {
+                return preferedFont;
+            }
 
             float heightScaleRatio = availableSpace.Height / originalSize.Height;
             float widthScaleRatio = availableSpace.Width / originalSize.Width;
