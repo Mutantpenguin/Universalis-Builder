@@ -50,6 +50,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\ResourcesKräfte.Designer.cs">
+      <DependentUpon>ResourcesKräfte.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Source\ActorCardPainter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\ResourcesBewegung.Designer.cs">
@@ -64,6 +69,11 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\ResourcesKräfte.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesKräfte.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\ResourcesBewegung.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -146,6 +156,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Schadensreduktion_weiss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DauerDauerhaft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZielNutzer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WirkungsabstandBerührung.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WirkungsabstandDistanz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DauerSofort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZielModell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZielBereich.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SchadenAutomatisch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SchadenMisserfolg.png" />
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
