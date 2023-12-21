@@ -14,6 +14,8 @@ namespace Universalis
             InitializeComponent();
 
             updateDataGridViewFactions();
+
+            this.Icon = System.Drawing.Icon.FromHandle( Properties.Resources.icon_faction.GetHicon() );
         }
 
         private void updateDataGridViewFactions()

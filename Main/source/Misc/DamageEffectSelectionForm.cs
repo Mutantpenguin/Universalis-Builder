@@ -16,6 +16,8 @@ namespace Universalis
                                                                                                .Where( x => ( x.UsageType == usageType ) || ( x.UsageType == DamageEffect.EUsageType.Alle ) )
                                                                                                .OrderBy( x => x.Name )
                                                                                                .ToList();
+
+            this.Icon = System.Drawing.Icon.FromHandle( Properties.Resources.icon_damage_effect.GetHicon() );
         }
 
         public List<DamageEffect> SelectedDamageEffects

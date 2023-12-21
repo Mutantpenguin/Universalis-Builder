@@ -37,11 +37,11 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.dataGridViewDamageEffects = new System.Windows.Forms.DataGridView();
-            this.damageEffectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iconDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.damageEffectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDamageEffects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageEffectBindingSource)).BeginInit();
@@ -113,10 +113,6 @@
             this.dataGridViewDamageEffects.TabIndex = 0;
             this.dataGridViewDamageEffects.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // damageEffectBindingSource
-            // 
-            this.damageEffectBindingSource.DataSource = typeof(Universalis.DamageEffect);
-            // 
             // iconDataGridViewTextBoxColumn
             // 
             this.iconDataGridViewTextBoxColumn.DataPropertyName = "Icon";
@@ -156,16 +152,20 @@
             this.pointsDataGridViewTextBoxColumn.ReadOnly = true;
             this.pointsDataGridViewTextBoxColumn.Width = 30;
             // 
+            // damageEffectBindingSource
+            // 
+            this.damageEffectBindingSource.DataSource = typeof(Universalis.DamageEffect);
+            // 
             // DamageEffectSelectionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(515, 426);
-            this.ControlBox = false;
             this.Controls.Add(this.dataGridViewDamageEffects);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.Name = "DamageEffectSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Schadenseffekte";

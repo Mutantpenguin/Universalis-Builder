@@ -43,12 +43,11 @@
             this.toolStripMenuItemNegatives = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNeutrals = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewGroupTraits = new System.Windows.Forms.DataGridView();
-            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointsPerModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTraits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +94,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxSearch_KeyDown);
@@ -102,10 +102,6 @@
             // 
             // toolStrip1
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBoxSearch,
-            this.toolStripButtonClearSearch,
-            this.toolStripDropDownButtonFilter});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(589, 25);
@@ -196,10 +192,6 @@
             this.dataGridViewGroupTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewGroupTraits_CellToolTipTextNeeded);
             this.dataGridViewGroupTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewGroupTraits_KeyDown);
             // 
-            // groupTraitBindingSource
-            // 
-            this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
@@ -228,6 +220,10 @@
             this.PointsPerModel.ReadOnly = true;
             this.PointsPerModel.Width = 90;
             // 
+            // groupTraitBindingSource
+            // 
+            this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
+            // 
             // GroupTraitSelectionForm
             // 
             this.AcceptButton = this.buttonOk;
@@ -235,16 +231,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(589, 426);
-            this.ControlBox = false;
             this.Controls.Add(this.dataGridViewGroupTraits);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
+            this.MinimizeBox = false;
             this.Name = "GroupTraitSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Bitte wählen Sie eine Gruppeneigenschaft";
             this.panel1.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTraits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).EndInit();
             this.ResumeLayout(false);

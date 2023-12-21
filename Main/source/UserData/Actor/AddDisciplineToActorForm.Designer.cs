@@ -41,12 +41,12 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.dataGridViewDisciplines = new System.Windows.Forms.DataGridView();
-            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PowerCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedMaxQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).BeginInit();
@@ -153,10 +153,6 @@
             this.dataGridViewDisciplines.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewDisciplines_CellToolTipTextNeeded);
             this.dataGridViewDisciplines.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewDisciplines_KeyDown);
             // 
-            // disciplineBindingSource
-            // 
-            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
-            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -207,6 +203,10 @@
             this.PointsString.ReadOnly = true;
             this.PointsString.Width = 80;
             // 
+            // disciplineBindingSource
+            // 
+            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
+            // 
             // AddDisciplineToActorForm
             // 
             this.AcceptButton = this.buttonOk;
@@ -214,10 +214,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(457, 426);
-            this.ControlBox = false;
             this.Controls.Add(this.dataGridViewDisciplines);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.toolStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.Name = "AddDisciplineToActorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Disziplinenauswahl";

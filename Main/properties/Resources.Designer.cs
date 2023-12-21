@@ -403,6 +403,16 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_discipline {
+            get {
+                object obj = ResourceManager.GetObject("icon_discipline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon_equipment {
             get {
                 object obj = ResourceManager.GetObject("icon_equipment", resourceCulture);
@@ -426,16 +436,6 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap icon_group_trait {
             get {
                 object obj = ResourceManager.GetObject("icon_group_trait", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icon_power {
-            get {
-                object obj = ResourceManager.GetObject("icon_power", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

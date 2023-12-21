@@ -12,7 +12,7 @@ namespace Universalis
         {
             InitializeComponent();
 
-            this.Icon = Icon.FromHandle( Properties.Resources.icon_power.GetHicon() );
+            this.Icon = Icon.FromHandle( Properties.Resources.icon_discipline.GetHicon() );
 
             refreshGridView();
 

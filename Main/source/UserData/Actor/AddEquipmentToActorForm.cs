@@ -17,6 +17,8 @@ namespace Universalis
             updateDataGridViewEquipment();
 
             toolStripTextBoxSearch.TextBox.Select();
+
+            this.Icon = System.Drawing.Icon.FromHandle( Properties.Resources.icon_equipment.GetHicon() );
         }
 
         private readonly Faction m_faction;

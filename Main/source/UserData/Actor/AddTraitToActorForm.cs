@@ -25,6 +25,8 @@ namespace Universalis
             updateDataGridViewTraits();
 
             toolStripTextBoxSearch.TextBox.Select();
+
+            this.Icon = System.Drawing.Icon.FromHandle( Properties.Resources.icon_trait.GetHicon() );
         }
 
         private void ComboBox_SelectionChangeCommitted(object sender, EventArgs e)

@@ -18,6 +18,8 @@ namespace Universalis
             updateDataGridViewArchetypes();
 
             toolStripTextBoxSearch.TextBox.Select();
+
+            this.Icon = System.Drawing.Icon.FromHandle( Properties.Resources.icon_archetype.GetHicon() );
         }
 
         private readonly Faction m_faction;

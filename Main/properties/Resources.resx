@@ -220,6 +220,9 @@
   <data name="icon_damage_effect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_damage_effect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_discipline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_discipline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icon_equipment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_equipment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -228,9 +231,6 @@
   </data>
   <data name="icon_group_trait" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_group_trait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_power" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_power.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon_trait" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon_trait.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
