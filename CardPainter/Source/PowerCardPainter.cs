@@ -32,6 +32,7 @@ namespace Universalis
         private static readonly Font FontRules = new Font( "Arial", CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
         private static readonly Font FontAP = new Font( UniversalisFont.Family, CmToPixel( 0.6 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font FontDamageApplication = new Font( UniversalisFont.Family, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
         #endregion members
 
@@ -146,7 +147,29 @@ namespace Universalis
                     break;
             }
 
-            var rectDamage = new Rectangle( rectFooter.Left + ( 5 * SFooterPadding ) + ( 4 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
+            var rectDamageApplication = new Rectangle( rectFooter.Left + ( 5 * SFooterPadding ) + ( 4 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
+            switch( power.DamageApplication )
+            {   
+                case Power.EDamageApplication.Keinen:
+                    break;
+
+                case Power.EDamageApplication.Misserfolg:
+                    g.DrawImage( Properties.ResourcesKräfte.SchadenMisserfolg, rectDamageApplication );
+                    break;
+
+                case Power.EDamageApplication.Automatisch:
+                    g.DrawImage( Properties.ResourcesKräfte.SchadenAutomatisch, rectDamageApplication );
+                    break;
+
+                default:
+                    // TODO
+                    break;
+            }
+
+            if( power.DamageApplication != Power.EDamageApplication.Keinen )
+            {
+                DrawStringCentered( g, power.DamageValue.ToString(), FontDamageApplication, Brushes.White, rectDamageApplication );
+            }
 
             var rectDuration = new Rectangle( rectFooter.Left + ( 6 * SFooterPadding ) + ( 5 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
             switch( power.Duration )

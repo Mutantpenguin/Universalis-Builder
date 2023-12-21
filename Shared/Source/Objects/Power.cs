@@ -1,4 +1,5 @@
 ﻿using System;
+using static Universalis.Power;
 
 namespace Universalis
 {
@@ -24,6 +25,8 @@ namespace Universalis
             AP = power.AP;
             Target = power.Target;
             Range = power.Range;
+            DamageApplication = power.DamageApplication;
+            DamageValue = power.DamageValue;
             Duration = power.Duration;
             Rules = power.Rules;
         }
@@ -46,6 +49,10 @@ namespace Universalis
                 Target != power.Target
                 ||
                 Range != power.Range
+                ||
+                DamageApplication != power.DamageApplication
+                ||
+                DamageValue != power.DamageValue
                 ||
                 Duration != power.Duration
                 ||
@@ -104,6 +111,18 @@ namespace Universalis
             set;
         } = ERange.Distanz;
 
+        public EDamageApplication DamageApplication
+        {
+            get;
+            set;
+        } = EDamageApplication.Keinen;
+
+        public uint DamageValue
+        {
+            get;
+            set;
+        } = 0;
+
         public EDuration Duration
         {
             get;
@@ -134,6 +153,13 @@ namespace Universalis
         {
             Sofort = 1,
             Dauerhaft = 2
+        }
+
+        public enum EDamageApplication
+        {
+            Keinen = 1,
+            Misserfolg = 2,
+            Automatisch = 3,
         }
 
         #endregion enums
