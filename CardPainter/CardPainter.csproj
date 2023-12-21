@@ -158,19 +158,7 @@
     <None Include="Resources\Schadensreduktion_weiss.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\DauerDauerhaft.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\ZielNutzer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WirkungsabstandBerührung.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WirkungsabstandDistanz.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\DauerSofort.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ZielModell.png" />
@@ -179,10 +167,22 @@
     <None Include="Resources\ZielBereich.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SchadenAutomatisch.png" />
+    <None Include="Resources\WirkungsabstandDistanz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WirkungsabstandBerührung.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SchadenMisserfolg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SchadenAutomatisch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DauerSofort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DauerDauerhaft.png" />
   </ItemGroup>
   <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
