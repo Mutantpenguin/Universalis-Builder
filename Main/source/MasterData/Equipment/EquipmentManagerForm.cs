@@ -8,11 +8,11 @@ namespace Universalis
 {
     public partial class EquipmentManagerForm : Form
     {
-        public EquipmentManagerForm(Image icon)
+        public EquipmentManagerForm()
         {
             InitializeComponent();
 
-            this.Icon = Icon.FromHandle(((Bitmap)icon).GetHicon());
+            this.Icon = Icon.FromHandle( Properties.Resources.icon_equipment.GetHicon() );
 
             HasPermissions.DefaultCellStyle.NullValue = null;
 

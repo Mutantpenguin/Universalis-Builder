@@ -8,11 +8,11 @@ namespace Universalis
 {
     public partial class GroupTraitManagerForm : Form
     {
-        public GroupTraitManagerForm(Image icon)
+        public GroupTraitManagerForm()
         {
             InitializeComponent();
 
-            this.Icon = Icon.FromHandle(((Bitmap)icon).GetHicon());
+            this.Icon = Icon.FromHandle( Properties.Resources.icon_group_trait.GetHicon() );
 
             HasPermissions.DefaultCellStyle.NullValue = null;
 

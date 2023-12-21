@@ -8,11 +8,11 @@ namespace Universalis
 {
     public partial class ArchetypeManagerForm : Form
     {
-        public ArchetypeManagerForm(Image icon)
+        public ArchetypeManagerForm()
         {
             InitializeComponent();
 
-            this.Icon = Icon.FromHandle(((Bitmap)icon).GetHicon());
+            this.Icon = Icon.FromHandle( Properties.Resources.icon_archetype.GetHicon() );
 
             HasPermissions.DefaultCellStyle.NullValue = null;
 

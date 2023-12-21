@@ -8,11 +8,11 @@ namespace Universalis
 {
     public partial class DamageEffectManagerForm : Form
     {
-        public DamageEffectManagerForm(Image icon)
+        public DamageEffectManagerForm()
         {
             InitializeComponent();
 
-            this.Icon = Icon.FromHandle(((Bitmap)icon).GetHicon());
+            this.Icon = Icon.FromHandle( Properties.Resources.icon_damage_effect.GetHicon() );
 
             refreshGridView();
 

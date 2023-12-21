@@ -8,11 +8,11 @@ namespace Universalis
 {
     public partial class TraitsManagerForm : Form
     {
-        public TraitsManagerForm(Image icon)
+        public TraitsManagerForm()
         {
             InitializeComponent();
 
-            this.Icon = Icon.FromHandle(((Bitmap)icon).GetHicon());
+            this.Icon = Icon.FromHandle( Properties.Resources.icon_trait.GetHicon() );
 
             HasPermissions.DefaultCellStyle.NullValue = null;
 

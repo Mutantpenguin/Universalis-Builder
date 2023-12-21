@@ -8,11 +8,11 @@ namespace Universalis
 {
     public partial class FactionManagerForm : Form
     {
-        public FactionManagerForm(Image icon)
+        public FactionManagerForm()
         {
             InitializeComponent();
 
-            this.Icon = Icon.FromHandle(((Bitmap)icon).GetHicon());
+            this.Icon = Icon.FromHandle( Properties.Resources.icon_faction.GetHicon() );
 
             refreshGridView();
 

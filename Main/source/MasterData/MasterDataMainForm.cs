@@ -29,7 +29,7 @@ namespace Universalis
 
         private void buttonWeapons_Click( object sender, EventArgs e )
         {
-            weaponManager = new WeaponManagerForm(buttonWeapons.Image);
+            weaponManager = new WeaponManagerForm();
 
             weaponManager.FormClosed += delegate
             {
@@ -45,7 +45,7 @@ namespace Universalis
 
         private void buttonArmor_Click( object sender, EventArgs e )
         {
-            armorManager = new ArmorManagerForm(buttonArmor.Image);
+            armorManager = new ArmorManagerForm();
 
             armorManager.FormClosed += delegate
             {
@@ -61,7 +61,7 @@ namespace Universalis
 
         private void buttonEquipment_Click( object sender, EventArgs e )
         {
-            equipmentManager = new EquipmentManagerForm(buttonEquipment.Image);
+            equipmentManager = new EquipmentManagerForm();
 
             equipmentManager.FormClosed += delegate
             {
@@ -77,7 +77,7 @@ namespace Universalis
 
         private void buttonTraits_Click( object sender, EventArgs e )
         {
-            traitsManager = new TraitsManagerForm(buttonTraits.Image);
+            traitsManager = new TraitsManagerForm();
 
             traitsManager.FormClosed += delegate
             {
@@ -93,7 +93,7 @@ namespace Universalis
 
         private void buttonFactions_Click( object sender, EventArgs e )
         {
-            factionManager = new FactionManagerForm(buttonFactions.Image);
+            factionManager = new FactionManagerForm();
 
             factionManager.FormClosed += delegate
             {
@@ -109,7 +109,7 @@ namespace Universalis
 
         private void buttonArchetypes_Click( object sender, EventArgs e )
         {
-            archetypeManager = new ArchetypeManagerForm(buttonArchetypes.Image);
+            archetypeManager = new ArchetypeManagerForm();
 
             archetypeManager.FormClosed += delegate
             {
@@ -125,7 +125,7 @@ namespace Universalis
 
         private void buttonDamageEffects_Click( object sender, EventArgs e )
         {
-            damageEffectManager = new DamageEffectManagerForm(buttonDamageEffects.Image);
+            damageEffectManager = new DamageEffectManagerForm();
 
             damageEffectManager.FormClosed += delegate
             {
@@ -141,7 +141,7 @@ namespace Universalis
 
         private void buttonGroupTraits_Click( object sender, EventArgs e )
         {
-            groupTraitManager = new GroupTraitManagerForm(buttonGroupTraits.Image);
+            groupTraitManager = new GroupTraitManagerForm();
 
             groupTraitManager.FormClosed += delegate
             {
@@ -157,7 +157,7 @@ namespace Universalis
 
         private void buttonDisciplines_Click( object sender, EventArgs e )
         {
-            disciplineManager = new DisciplineManagerForm(buttonDisciplines.Image);
+            disciplineManager = new DisciplineManagerForm();
 
             disciplineManager.FormClosed += delegate
             {

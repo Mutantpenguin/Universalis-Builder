@@ -8,11 +8,11 @@ namespace Universalis
 {
     public partial class WeaponManagerForm : Form
     {
-        public WeaponManagerForm(Image icon)
+        public WeaponManagerForm()
         {
             InitializeComponent();
 
-            this.Icon = Icon.FromHandle(((Bitmap)icon).GetHicon());
+            this.Icon = Icon.FromHandle( Properties.Resources.icon_weapon.GetHicon() );
 
             HasPermissions.DefaultCellStyle.NullValue = null;
 

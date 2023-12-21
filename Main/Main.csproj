@@ -589,6 +589,25 @@
   <ItemGroup>
     <Content Include="icon.ico" />
     <Content Include="Resources\book-open-variant-custom_48.png" />
+    <None Include="Resources\icon_weapon.png" />
+    <None Include="Resources\icon_armor.png" />
+    <None Include="Resources\icon_faction.png" />
+    <None Include="Resources\icon_damage_effect.png" />
+    <None Include="Resources\icon_archetype.png" />
+    <None Include="Resources\icon_equipment.png" />
+    <None Include="Resources\icon_group_trait.png" />
+    <None Include="Resources\icon_trait.png" />
+    <None Include="Resources\icon_power.png" />
+    <None Include="Resources\icon_group_traits.png" />
+    <None Include="Resources\icon_weapons.png" />
+    <None Include="Resources\icon_armors.png" />
+    <None Include="Resources\icon_factions.png" />
+    <None Include="Resources\icon_damage_effects.png" />
+    <None Include="Resources\icon_archetypes.png" />
+    <None Include="Resources\icon_equipments.png" />
+    <None Include="Resources\icon_groups.png" />
+    <None Include="Resources\icon_traits.png" />
+    <None Include="Resources\icon_powers.png" />
     <None Include="Resources\alert-circle-red-24dp.png" />
     <None Include="Resources\alert-circle-red-18dp.png" />
     <None Include="Resources\outline_key_black_18dp.png" />

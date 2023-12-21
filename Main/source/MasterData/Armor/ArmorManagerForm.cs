@@ -8,11 +8,11 @@ namespace Universalis
 {
     public partial class ArmorManagerForm : Form
     {
-        public ArmorManagerForm(Image icon)
+        public ArmorManagerForm()
         {
             InitializeComponent();
 
-            this.Icon = Icon.FromHandle(((Bitmap)icon).GetHicon());
+            this.Icon = Icon.FromHandle( Properties.Resources.icon_armor.GetHicon() );
 
             HasPermissions.DefaultCellStyle.NullValue = null;
 
