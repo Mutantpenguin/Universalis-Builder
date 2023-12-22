@@ -164,6 +164,7 @@ namespace Universalis
             set;
         }
 
+        [JsonIgnore]
         public int PowerCount
         {
             get
