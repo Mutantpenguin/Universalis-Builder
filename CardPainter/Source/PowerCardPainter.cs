@@ -2,6 +2,7 @@
 using System.Drawing.Drawing2D;
 using System.Drawing;
 using static Universalis.CardPainterHelpers;
+using static Universalis.Archetype;
 
 namespace Universalis
 {
@@ -154,8 +155,7 @@ namespace Universalis
                     break;
 
                 default:
-                    // TODO
-                    break;
+                    throw new InvalidOperationException( "unkown " + nameof( power.Target ) );
             }
 
             var rectRange = new Rectangle( rectFooter.Left + ( 4 * SFooterPadding ) + ( 3 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
@@ -170,8 +170,7 @@ namespace Universalis
                     break;
                 
                 default:
-                    // TODO
-                    break;
+                    throw new InvalidOperationException( "unkown " + nameof( power.Range ) );
             }
 
             var rectDamageApplication = new Rectangle( rectFooter.Left + ( 5 * SFooterPadding ) + ( 4 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
@@ -189,8 +188,7 @@ namespace Universalis
                     break;
 
                 default:
-                    // TODO
-                    break;
+                    throw new InvalidOperationException( "unkown " + nameof( power.DamageApplication ) );
             }
 
             if( power.DamageApplication != Power.EDamageApplication.Keinen )
@@ -210,8 +208,7 @@ namespace Universalis
                     break;
 
                 default:
-                    // TODO
-                    break;
+                    throw new InvalidOperationException( "unkown " + nameof( power.Duration ) );
             }
         }
 
