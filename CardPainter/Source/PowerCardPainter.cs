@@ -99,7 +99,7 @@ namespace Universalis
         {
             var rectFooter = new Rectangle( SMargin, SCardHeight - SFooterHeight - SMargin, SContentWidth, SFooterHeight );
 
-            var footerElementWidth = ( SContentWidth - ( 5 * SFooterPadding ) ) / 6;
+            var footerElementWidth = ( SContentWidth - ( 7 * SFooterPadding ) ) / 6;
             var footerElementHeight = SFooterHeight - ( 2 * SFooterPadding );
 
             FillRoundedRectangle( g, Brushes.Black, rectFooter, SRectangleRadius );
