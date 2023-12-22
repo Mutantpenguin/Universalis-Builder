@@ -1,5 +1,7 @@
-﻿using System;
-using static Universalis.Power;
+﻿using Newtonsoft.Json;
+using Shared.Source.JsonHelper;
+using System;
+using System.Collections.Generic;
 
 namespace Universalis
 {
@@ -23,6 +25,8 @@ namespace Universalis
             Name = power.Name;
             Description = power.Description;
             AP = power.AP;
+            Attribute = power.Attribute;
+            Modifier = power.Modifier;
             Target = power.Target;
             Range = power.Range;
             DamageApplication = power.DamageApplication;
@@ -45,6 +49,10 @@ namespace Universalis
                 Description != power.Description
                 ||
                 AP != power.AP
+                ||
+                Attribute != power.Attribute
+                ||
+                Modifier != power.Modifier
                 ||
                 Target != power.Target
                 ||
@@ -99,6 +107,19 @@ namespace Universalis
             set;
         } = 0;
 
+        [JsonConverter( typeof( JsonEAttributeConverter ) )]
+        public EAttribute Attribute
+        {
+            get;
+            set;
+        } = EAttribute.AGI;
+
+        public int Modifier
+        {
+            get;
+            set;
+        } = 0;
+
         public ETarget Target
         {
             get;
@@ -129,13 +150,28 @@ namespace Universalis
             set;
         } = EDuration.Sofort;
 
-        /* TODO
-         * Attribute
-         * Modifier
-         * HP loss
-         */
-
         #region enums
+
+        public enum EAttribute
+        {
+            AGI = 1,
+            NK = 2,
+            FK = 3,
+            KO = 4,
+            WN = 5,
+            EH = 6,
+        }
+
+        public static Dictionary<EAttribute, string> AttributeMapping = new Dictionary<EAttribute, string>
+        {
+            { EAttribute.AGI, "AGI" },
+            { EAttribute.NK, "HTH" },
+            { EAttribute.FK, "LRC" },
+            { EAttribute.KO, "PHY" },
+            { EAttribute.WN, "AWA" },
+            { EAttribute.EH, "DET" },
+        };
+
         public enum ETarget
         {
             Bereich = 1,

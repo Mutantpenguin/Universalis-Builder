@@ -32,6 +32,8 @@ namespace Universalis
         private static readonly Font FontRules = new Font( "Arial", CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
         private static readonly Font FontAP = new Font( UniversalisFont.Family, CmToPixel( 0.6 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font FontAttributeBig = new Font( UniversalisFont.Family, CmToPixel( 0.6 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font FontAttributeSmall = new Font( UniversalisFont.Family, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
         private static readonly Font FontDamageApplication = new Font( UniversalisFont.Family, CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
         #endregion members
@@ -110,6 +112,31 @@ namespace Universalis
             var footerElementImageSize = footerElementHeight;
 
             var rectAttribute = new Rectangle( rectFooter.Left + ( 2 * SFooterPadding ) + footerElementWidth, rectFooter.Top + SFooterPadding, footerElementWidth, footerElementHeight );
+            if( power.Modifier == 0 )
+            {
+                DrawStringCentered( g, power.Attribute.ToString(), FontAttributeBig, Brushes.White, rectAttribute );
+            }
+            else
+            {
+                string modifierString;
+                Brush modifierBrush;
+                if( power.Modifier > 0 )
+                {
+                    modifierString = "+" + power.Modifier.ToString();
+                    modifierBrush = Brushes.LightGreen;
+                }
+                else
+                {
+                    modifierString = power.Modifier.ToString();
+                    modifierBrush = Brushes.Red;
+                }
+
+                var stringSize = g.MeasureString( modifierString, FontAttributeSmall );
+
+                g.DrawString( power.Attribute.ToString(), FontAttributeSmall, Brushes.White, rectAttribute.Location );
+                var modifierRect = new PointF( rectAttribute.Right - stringSize.Width, rectAttribute.Bottom - stringSize.Height );
+                g.DrawString( modifierString, FontAttributeSmall, modifierBrush, modifierRect );
+            }
             
             var rectTarget = new Rectangle( rectFooter.Left + ( 3 * SFooterPadding ) + ( 2 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
             switch( power.Target )

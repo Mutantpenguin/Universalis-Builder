@@ -74,6 +74,7 @@
     <Compile Include="Source\Helper\StringHelper.cs" />
     <Compile Include="Source\Helper\UniversalisSettings.cs" />
     <Compile Include="Source\Helper\ToolTipHelper.cs" />
+    <Compile Include="Source\JsonHelper\JsonEAttributeConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonDisciplineConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonFactionHashSetConverter.cs" />
     <Compile Include="Source\JsonHelper\JsonArchetypeHashSetConverter.cs" />
