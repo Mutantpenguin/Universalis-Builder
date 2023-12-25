@@ -181,19 +181,16 @@ namespace Universalis
 
                 case Power.EDamageApplication.Misserfolg:
                     g.DrawImage( Properties.ResourcesKräfte.SchadenMisserfolg, rectDamageApplication );
+                    DrawStringCentered( g, power.DamageValue.ToString(), FontDamageApplication, Brushes.White, rectDamageApplication );
                     break;
 
                 case Power.EDamageApplication.Automatisch:
                     g.DrawImage( Properties.ResourcesKräfte.SchadenAutomatisch, rectDamageApplication );
+                    DrawStringCentered( g, power.DamageValue.ToString(), FontDamageApplication, Brushes.Black, rectDamageApplication );
                     break;
 
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( power.DamageApplication ) );
-            }
-
-            if( power.DamageApplication != Power.EDamageApplication.Keinen )
-            {
-                DrawStringCentered( g, power.DamageValue.ToString(), FontDamageApplication, Brushes.White, rectDamageApplication );
             }
 
             var rectDuration = new Rectangle( rectFooter.Left + ( 6 * SFooterPadding ) + ( 5 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
