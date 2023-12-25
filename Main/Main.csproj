@@ -111,6 +111,12 @@
     <Compile Include="Source\MasterData\Discipline\DisciplineEditorForm.Designer.cs">
       <DependentUpon>DisciplineEditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\MasterData\Discipline\PowerEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\MasterData\Discipline\PowerEditorForm.Designer.cs">
+      <DependentUpon>PowerEditorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\MasterData\MasterDataMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,6 +395,9 @@
       <DependentUpon>DisciplineEditorForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\MasterData\Discipline\PowerEditorForm.resx">
+      <DependentUpon>PowerEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\MasterDataMainForm.resx">
       <DependentUpon>MasterDataMainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -408,6 +417,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\Armor\ArmorEditorForm.resx">
       <DependentUpon>ArmorEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\DamageEffect\DamageEffectManagerForm.resx">
       <DependentUpon>DamageEffectManagerForm.cs</DependentUpon>
@@ -529,6 +539,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\UserData\Group\GroupEditorForm.resx">
       <DependentUpon>GroupEditorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\UserData\Group\GroupManagerForm.resx">
       <DependentUpon>GroupManagerForm.cs</DependentUpon>
@@ -546,7 +557,6 @@
     <None Include="Properties\DataSources\Actor.ActorTrait.datasource" />
     <None Include="Properties\DataSources\Actor.ActorWeapon.datasource" />
     <None Include="Properties\DataSources\Actor.datasource" />
-    <None Include="Properties\DataSources\Archetype.ArchetypeTrait.datasource" />
     <None Include="Properties\DataSources\Archetype.datasource" />
     <None Include="Properties\DataSources\Armor.datasource" />
     <None Include="Properties\DataSources\AttributeModifier.datasource" />
@@ -558,6 +568,7 @@
     <None Include="Properties\DataSources\Group.datasource" />
     <None Include="Properties\DataSources\GroupTrait.datasource" />
     <None Include="Properties\DataSources\Permissions.datasource" />
+    <None Include="Properties\DataSources\Power.datasource" />
     <None Include="Properties\DataSources\Profile.datasource" />
     <None Include="Properties\DataSources\ProfileModifier.datasource" />
     <None Include="Properties\DataSources\Trait.datasource" />

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Universalis.Source.MasterData.Discipline;
 
 namespace Universalis
 {
@@ -39,7 +41,14 @@ namespace Universalis
         private void updateGridViewPowers()
         {
             powersBindingSource.DataSource = null;
-            powersBindingSource.DataSource = m_modifiedDiscipline.Powers.ToList();
+
+            List<Power> powers = m_modifiedDiscipline.Powers
+                .Where( s => s.Active )
+                .Where( s => s.Name.ToUpper().Contains( toolStripTextBoxSearch.Text.ToUpper() ) )
+                .OrderBy( x => x.Name )
+                .ToList();
+
+            powersBindingSource.DataSource = powers;
 
             dataGridViewPowers.ClearSelection();
 
@@ -215,6 +224,82 @@ namespace Universalis
             else
             {
                 pictureBoxPower.Image = null;
+            }
+        }
+
+        private void toolStripButtonAddPower_Click( object sender, EventArgs e )
+        {
+            var power = new Power();
+
+            dataGridViewPowers.ClearSelection();
+
+            m_modifiedDiscipline.Powers.Add( power );
+
+            editPower( power );
+
+            updateGridViewPowers();
+
+            dataGridViewPowers.ClearSelection();
+            foreach( DataGridViewRow row in dataGridViewPowers.Rows )
+            {
+                if( power.ID == ( (Power)row.DataBoundItem ).ID )
+                {
+                    row.Selected = true;
+                    break;
+                }
+            }
+        }
+
+        private void editPower( Power power )
+        {
+            using( var powerEditorForm = new PowerEditorForm( power ) )
+            {
+                powerEditorForm.ShowDialog( this );
+            }
+
+            disciplineBindingSource.ResetBindings( false );
+            powersBindingSource.ResetBindings( false );
+        }
+
+        private void dataGridViewPowers_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
+        {
+            if( -1 != e.RowIndex )
+            {
+                editPower( (Power)dataGridViewPowers.Rows[e.RowIndex].DataBoundItem );
+            }
+        }
+
+        private void toolStripButtonDeletePower_Click( object sender, EventArgs e )
+        {
+            if( dataGridViewPowers.SelectedCells.Count > 0 )
+            {
+                Power power = (Power)dataGridViewPowers.SelectedRows[0].DataBoundItem;
+
+                if( MessageBox.Show( $"Kraft '{power.Name}' wirklich löschen?", String.Empty, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    power.Active = false;
+
+                    updateGridViewPowers();
+                }
+            }
+        }
+
+        private void dataGridViewPowers_KeyDown( object sender, KeyEventArgs e )
+        {
+            if( e.KeyCode == Keys.Return )
+            {
+                e.Handled = true;
+                editPower( (Power)dataGridViewPowers.CurrentRow.DataBoundItem );
+            }
+        }
+
+        private void dataGridViewPowers_CellToolTipTextNeeded( object sender, DataGridViewCellToolTipTextNeededEventArgs e )
+        {
+            if( e.RowIndex > -1 )
+            {
+                Power power = (Power)dataGridViewPowers.Rows[e.RowIndex].DataBoundItem;
+
+                e.ToolTipText = ToolTipHelper.FormatMaxWidth( power.Description );
             }
         }
     }

@@ -51,6 +51,9 @@
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
             this.panelDiscipline = new System.Windows.Forms.Panel();
             this.dataGridViewPowers = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attributeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.powersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBoxPower = new System.Windows.Forms.PictureBox();
@@ -60,9 +63,6 @@
             this.toolStripButtonAddPower = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDeletePower = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attributeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
@@ -436,7 +436,40 @@
             this.dataGridViewPowers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPowers.Size = new System.Drawing.Size(297, 383);
             this.dataGridViewPowers.TabIndex = 35;
+            this.dataGridViewPowers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPowers_CellDoubleClick);
+            this.dataGridViewPowers.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewPowers_CellToolTipTextNeeded);
             this.dataGridViewPowers.SelectionChanged += new System.EventHandler(this.dataGridViewPowers_SelectionChanged);
+            this.dataGridViewPowers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewPowers_KeyDown);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // aPDataGridViewTextBoxColumn
+            // 
+            this.aPDataGridViewTextBoxColumn.DataPropertyName = "AP";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.aPDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.aPDataGridViewTextBoxColumn.HeaderText = "AP";
+            this.aPDataGridViewTextBoxColumn.Name = "aPDataGridViewTextBoxColumn";
+            this.aPDataGridViewTextBoxColumn.ReadOnly = true;
+            this.aPDataGridViewTextBoxColumn.ToolTipText = "Aktionspunkte";
+            this.aPDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // attributeDataGridViewTextBoxColumn
+            // 
+            this.attributeDataGridViewTextBoxColumn.DataPropertyName = "Attribute";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.attributeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.attributeDataGridViewTextBoxColumn.HeaderText = "A";
+            this.attributeDataGridViewTextBoxColumn.Name = "attributeDataGridViewTextBoxColumn";
+            this.attributeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.attributeDataGridViewTextBoxColumn.ToolTipText = "Attribut";
+            this.attributeDataGridViewTextBoxColumn.Width = 30;
             // 
             // powersBindingSource
             // 
@@ -508,7 +541,8 @@
             this.toolStripButtonAddPower.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAddPower.Name = "toolStripButtonAddPower";
             this.toolStripButtonAddPower.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonAddPower.ToolTipText = "neue Fraktion";
+            this.toolStripButtonAddPower.ToolTipText = "neue Kraft";
+            this.toolStripButtonAddPower.Click += new System.EventHandler(this.toolStripButtonAddPower_Click);
             // 
             // toolStripButtonDeletePower
             // 
@@ -520,6 +554,7 @@
             this.toolStripButtonDeletePower.Name = "toolStripButtonDeletePower";
             this.toolStripButtonDeletePower.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonDeletePower.ToolTipText = "Fraktion löschen";
+            this.toolStripButtonDeletePower.Click += new System.EventHandler(this.toolStripButtonDeletePower_Click);
             // 
             // toolStripButtonClearSearch
             // 
@@ -530,36 +565,6 @@
             this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
             this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // aPDataGridViewTextBoxColumn
-            // 
-            this.aPDataGridViewTextBoxColumn.DataPropertyName = "AP";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.aPDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.aPDataGridViewTextBoxColumn.HeaderText = "AP";
-            this.aPDataGridViewTextBoxColumn.Name = "aPDataGridViewTextBoxColumn";
-            this.aPDataGridViewTextBoxColumn.ReadOnly = true;
-            this.aPDataGridViewTextBoxColumn.ToolTipText = "Aktionspunkte";
-            this.aPDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // attributeDataGridViewTextBoxColumn
-            // 
-            this.attributeDataGridViewTextBoxColumn.DataPropertyName = "Attribute";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.attributeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.attributeDataGridViewTextBoxColumn.HeaderText = "A";
-            this.attributeDataGridViewTextBoxColumn.Name = "attributeDataGridViewTextBoxColumn";
-            this.attributeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.attributeDataGridViewTextBoxColumn.ToolTipText = "Attribut";
-            this.attributeDataGridViewTextBoxColumn.Width = 30;
             // 
             // DisciplineEditorForm
             // 
