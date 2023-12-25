@@ -16,10 +16,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxColor = new System.Windows.Forms.PictureBox();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
+            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -46,11 +50,22 @@
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
             this.panelDiscipline = new System.Windows.Forms.Panel();
+            this.dataGridViewPowers = new System.Windows.Forms.DataGridView();
+            this.powersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBoxPower = new System.Windows.Forms.PictureBox();
-            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.toolStripFactions = new System.Windows.Forms.ToolStrip();
+            this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButtonAddPower = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonDeletePower = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attributeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -63,9 +78,12 @@
             this.panelPermissions.SuspendLayout();
             this.toolStrip7.SuspendLayout();
             this.panelDiscipline.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPowers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.powersBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.toolStripFactions.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -116,6 +134,10 @@
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.textBoxPoints, "pro Modell");
             // 
+            // disciplineBindingSource
+            // 
+            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
+            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -149,10 +171,10 @@
             // 
             this.panel3.Controls.Add(this.textBoxDescription);
             this.panel3.Controls.Add(this.toolStrip1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 151);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(297, 187);
+            this.panel3.Size = new System.Drawing.Size(297, 257);
             this.panel3.TabIndex = 0;
             // 
             // textBoxDescription
@@ -163,7 +185,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(297, 162);
+            this.textBoxDescription.Size = new System.Drawing.Size(297, 232);
             this.textBoxDescription.TabIndex = 0;
             // 
             // toolStrip1
@@ -391,6 +413,35 @@
             this.panelDiscipline.Size = new System.Drawing.Size(297, 408);
             this.panelDiscipline.TabIndex = 35;
             // 
+            // dataGridViewPowers
+            // 
+            this.dataGridViewPowers.AllowUserToAddRows = false;
+            this.dataGridViewPowers.AllowUserToDeleteRows = false;
+            this.dataGridViewPowers.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewPowers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewPowers.AutoGenerateColumns = false;
+            this.dataGridViewPowers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPowers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.aPDataGridViewTextBoxColumn,
+            this.attributeDataGridViewTextBoxColumn});
+            this.dataGridViewPowers.DataSource = this.powersBindingSource;
+            this.dataGridViewPowers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewPowers.Location = new System.Drawing.Point(0, 25);
+            this.dataGridViewPowers.MultiSelect = false;
+            this.dataGridViewPowers.Name = "dataGridViewPowers";
+            this.dataGridViewPowers.ReadOnly = true;
+            this.dataGridViewPowers.RowHeadersVisible = false;
+            this.dataGridViewPowers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewPowers.Size = new System.Drawing.Size(297, 383);
+            this.dataGridViewPowers.TabIndex = 35;
+            this.dataGridViewPowers.SelectionChanged += new System.EventHandler(this.dataGridViewPowers_SelectionChanged);
+            // 
+            // powersBindingSource
+            // 
+            this.powersBindingSource.DataSource = typeof(Universalis.Power);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
@@ -399,6 +450,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.Controls.Add(this.panelDiscipline, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBoxPower, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 25);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -417,9 +469,97 @@
             this.pictureBoxPower.TabIndex = 36;
             this.pictureBoxPower.TabStop = false;
             // 
-            // disciplineBindingSource
+            // panel2
             // 
-            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
+            this.panel2.Controls.Add(this.dataGridViewPowers);
+            this.panel2.Controls.Add(this.toolStripFactions);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(306, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(297, 408);
+            this.panel2.TabIndex = 37;
+            // 
+            // toolStripFactions
+            // 
+            this.toolStripFactions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBoxSearch,
+            this.toolStripButtonAddPower,
+            this.toolStripButtonDeletePower,
+            this.toolStripButtonClearSearch});
+            this.toolStripFactions.Location = new System.Drawing.Point(0, 0);
+            this.toolStripFactions.Name = "toolStripFactions";
+            this.toolStripFactions.Size = new System.Drawing.Size(297, 25);
+            this.toolStripFactions.TabIndex = 37;
+            // 
+            // toolStripTextBoxSearch
+            // 
+            this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
+            this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
+            this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
+            // 
+            // toolStripButtonAddPower
+            // 
+            this.toolStripButtonAddPower.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonAddPower.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonAddPower.Image = global::Universalis.Properties.Resources.plus;
+            this.toolStripButtonAddPower.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonAddPower.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonAddPower.Name = "toolStripButtonAddPower";
+            this.toolStripButtonAddPower.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonAddPower.ToolTipText = "neue Fraktion";
+            // 
+            // toolStripButtonDeletePower
+            // 
+            this.toolStripButtonDeletePower.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripButtonDeletePower.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonDeletePower.Image = global::Universalis.Properties.Resources.trash;
+            this.toolStripButtonDeletePower.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonDeletePower.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonDeletePower.Name = "toolStripButtonDeletePower";
+            this.toolStripButtonDeletePower.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonDeletePower.ToolTipText = "Fraktion löschen";
+            // 
+            // toolStripButtonClearSearch
+            // 
+            this.toolStripButtonClearSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonClearSearch.Image = global::Universalis.Properties.Resources.clear;
+            this.toolStripButtonClearSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonClearSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
+            this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // aPDataGridViewTextBoxColumn
+            // 
+            this.aPDataGridViewTextBoxColumn.DataPropertyName = "AP";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.aPDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.aPDataGridViewTextBoxColumn.HeaderText = "AP";
+            this.aPDataGridViewTextBoxColumn.Name = "aPDataGridViewTextBoxColumn";
+            this.aPDataGridViewTextBoxColumn.ReadOnly = true;
+            this.aPDataGridViewTextBoxColumn.ToolTipText = "Aktionspunkte";
+            this.aPDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // attributeDataGridViewTextBoxColumn
+            // 
+            this.attributeDataGridViewTextBoxColumn.DataPropertyName = "Attribute";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.attributeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.attributeDataGridViewTextBoxColumn.HeaderText = "A";
+            this.attributeDataGridViewTextBoxColumn.Name = "attributeDataGridViewTextBoxColumn";
+            this.attributeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.attributeDataGridViewTextBoxColumn.ToolTipText = "Attribut";
+            this.attributeDataGridViewTextBoxColumn.Width = 30;
             // 
             // DisciplineEditorForm
             // 
@@ -433,12 +573,13 @@
             this.MinimumSize = new System.Drawing.Size(450, 39);
             this.Name = "DisciplineEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Eigenschaften Editor";
+            this.Text = "Disziplinen Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DisciplineEditorForm_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DisciplineEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -461,9 +602,14 @@
             this.toolStrip7.PerformLayout();
             this.panelDiscipline.ResumeLayout(false);
             this.panelDiscipline.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPowers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.powersBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.toolStripFactions.ResumeLayout(false);
+            this.toolStripFactions.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,5 +650,16 @@
         private System.Windows.Forms.Panel panelDiscipline;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox pictureBoxPower;
+        private System.Windows.Forms.DataGridView dataGridViewPowers;
+        private System.Windows.Forms.ToolStrip toolStripFactions;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearch;
+        private System.Windows.Forms.ToolStripButton toolStripButtonAddPower;
+        private System.Windows.Forms.ToolStripButton toolStripButtonDeletePower;
+        private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.BindingSource powersBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn attributeDataGridViewTextBoxColumn;
     }
 }

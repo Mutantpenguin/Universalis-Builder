@@ -1,5 +1,5 @@
-﻿using iTextSharp.text.pdf;
-using System;
+﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -33,10 +33,19 @@ namespace Universalis
 
             pictureBoxColor.BackColor = m_modifiedDiscipline.Color;
 
-            if( m_modifiedDiscipline.Powers.Count > 0 )
+            updateGridViewPowers();
+        }
+
+        private void updateGridViewPowers()
+        {
+            powersBindingSource.DataSource = null;
+            powersBindingSource.DataSource = m_modifiedDiscipline.Powers.ToList();
+
+            dataGridViewPowers.ClearSelection();
+
+            if( dataGridViewPowers.RowCount > 0 )
             {
-                pictureBoxPower.Image?.Dispose();
-                pictureBoxPower.Image = PowerCardPainter.GetBitmap( m_modifiedDiscipline, m_modifiedDiscipline.Powers[0] );
+                dataGridViewPowers.Rows[0].Selected = true;
             }
         }
 
@@ -182,7 +191,30 @@ namespace Universalis
                     var color = colorDialog.Color;
                     pictureBoxColor.BackColor = color;
                     m_modifiedDiscipline.Color = color;
+
+                    UpdateCard();
                 }
+            }
+        }
+
+        private void dataGridViewPowers_SelectionChanged( object sender, EventArgs e )
+        {
+            UpdateCard();
+        }
+
+        private void UpdateCard()
+        {
+            pictureBoxPower.Image?.Dispose();
+
+            if( dataGridViewPowers.SelectedRows.Count > 0 )
+            {
+                Power power = (Power)dataGridViewPowers.SelectedRows[0].DataBoundItem;
+
+                pictureBoxPower.Image = PowerCardPainter.GetBitmap( m_modifiedDiscipline, power );
+            }
+            else
+            {
+                pictureBoxPower.Image = null;
             }
         }
     }
