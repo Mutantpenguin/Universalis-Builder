@@ -22,14 +22,14 @@ namespace Universalis.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class ResourcesActorCard {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal ResourcesActorCard() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Universalis.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Universalis.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Universalis.Properties.ResourcesActorCard", typeof(ResourcesActorCard).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,6 +66,66 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap Autofeuer {
             get {
                 object obj = ResourceManager.GetObject("Autofeuer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bewegung_beine {
+            get {
+                object obj = ResourceManager.GetObject("bewegung_beine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bewegung_flug {
+            get {
+                object obj = ResourceManager.GetObject("bewegung_flug", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bewegung_kette {
+            get {
+                object obj = ResourceManager.GetObject("bewegung_kette", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bewegung_rad {
+            get {
+                object obj = ResourceManager.GetObject("bewegung_rad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bewegung_schweben {
+            get {
+                object obj = ResourceManager.GetObject("bewegung_schweben", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bewegung_stationär {
+            get {
+                object obj = ResourceManager.GetObject("bewegung_stationär", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

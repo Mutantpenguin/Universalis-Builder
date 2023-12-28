@@ -80,6 +80,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\ResourcesActorCard.Designer.cs">
+      <DependentUpon>ResourcesActorCard.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\ResourcesPowerCard1.Designer.cs">
+      <DependentUpon>ResourcesPowerCard.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Source\CardPainter\ActorCardPainter.cs" />
+    <Compile Include="Source\CardPainter\CardPainterHelpers.cs" />
+    <Compile Include="Source\CardPainter\PowerCardPainter.cs" />
     <Compile Include="Source\DeityModeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +392,15 @@
     <Compile Include="Source\UserData\Group\InactiveReasonForm.Designer.cs">
       <DependentUpon>InactiveReasonForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Properties\ResourcesActorCard.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesActorCard.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\ResourcesPowerCard.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourcesPowerCard1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\DeityModeForm.resx">
       <DependentUpon>DeityModeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -588,10 +610,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CardPainter\CardPainter.csproj">
-      <Project>{50b0689f-459d-4c43-9ed7-b4529b18b153}</Project>
-      <Name>CardPainter</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{7993deb0-5b56-4ef6-9bd0-507cd6fa6660}</Project>
       <Name>Shared</Name>
@@ -599,6 +617,38 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\ZielNutzer.png" />
+    <None Include="Resources\ZielModell.png" />
+    <None Include="Resources\ZielBereich.png" />
+    <None Include="Resources\WirkungsabstandDistanz.png" />
+    <None Include="Resources\WirkungsabstandBerührung.png" />
+    <None Include="Resources\Wahrnehmungsbereich.png" />
+    <None Include="Resources\Stärke_weiss.png" />
+    <None Include="Resources\Schutz_weiss.png" />
+    <None Include="Resources\Schadensreduktion_weiss.png" />
+    <None Include="Resources\SchadenMisserfolg.png" />
+    <None Include="Resources\SchadenAutomatisch.png" />
+    <None Include="Resources\Schaden_weiss.png" />
+    <None Include="Resources\riesig.png" />
+    <None Include="Resources\Reichweite_weiss.png" />
+    <None Include="Resources\nachladen.png" />
+    <None Include="Resources\mittel.png" />
+    <None Include="Resources\Koloss.png" />
+    <None Include="Resources\klein.png" />
+    <None Include="Resources\Infanterie.png" />
+    <None Include="Resources\Indirekt.png" />
+    <None Include="Resources\groß.png" />
+    <None Include="Resources\Gefahrenbereich.png" />
+    <None Include="Resources\Drohne.png" />
+    <None Include="Resources\DauerSofort.png" />
+    <None Include="Resources\DauerDauerhaft.png" />
+    <None Include="Resources\Autofeuer.png" />
+    <None Include="Resources\bewegung_beine.png" />
+    <None Include="Resources\bewegung_flug.png" />
+    <None Include="Resources\bewegung_kette.png" />
+    <None Include="Resources\bewegung_rad.png" />
+    <None Include="Resources\bewegung_schweben.png" />
+    <None Include="Resources\bewegung_stationär.png" />
     <Content Include="Resources\book-open-variant-custom_48.png" />
     <None Include="Resources\icon_discipline.png" />
     <None Include="Resources\icon_weapon.png" />

@@ -298,7 +298,7 @@ namespace Universalis
         private static void DrawCalculatedAttributes( Graphics g, Actor actor )
         {
             // WB - Wahrnehmungsbereich
-            g.DrawImage( Properties.Resources.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
+            g.DrawImage( Properties.ResourcesActorCard.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
 
             string modWbString = actor.ModAreaOfPerception().ToString();
             Size modWbSize = g.MeasureString( modWbString, FontStandard ).ToSize();
@@ -308,7 +308,7 @@ namespace Universalis
             int? dangerArea = actor.ModDangerArea();
             if( dangerArea.HasValue )
             {
-                g.DrawImage( Properties.Resources.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.ResourcesActorCard.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
                 DrawStringCentered( g, dangerArea.Value.ToString(), FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
             }
         }
@@ -453,15 +453,15 @@ namespace Universalis
             switch( type )
             {
                 case Archetype.EType.Infanterie:
-                    g.DrawImage( Properties.Resources.Infanterie, rect );
+                    g.DrawImage( Properties.ResourcesActorCard.Infanterie, rect );
                     break;
 
                 case Archetype.EType.Koloss:
-                    g.DrawImage( Properties.Resources.Koloss, rect );
+                    g.DrawImage( Properties.ResourcesActorCard.Koloss, rect );
                     break;
 
                 case Archetype.EType.Drohne:
-                    g.DrawImage( Properties.Resources.Drohne, rect );
+                    g.DrawImage( Properties.ResourcesActorCard.Drohne, rect );
                     break;
 
                 default:
@@ -480,19 +480,19 @@ namespace Universalis
             switch( size )
             {
                 case Archetype.ESize.Klein :
-                    img = Properties.Resources.klein;
+                    img = Properties.ResourcesActorCard.klein;
                     break;
 
                 case Archetype.ESize.Mittel :
-                    img = Properties.Resources.mittel;
+                    img = Properties.ResourcesActorCard.mittel;
                     break;
 
                 case Archetype.ESize.Groß :
-                    img = Properties.Resources.groß;
+                    img = Properties.ResourcesActorCard.groß;
                     break;
 
                 case Archetype.ESize.Riesig:
-                    img = Properties.Resources.riesig;
+                    img = Properties.ResourcesActorCard.riesig;
                     break;
 
                 default:
@@ -515,27 +515,27 @@ namespace Universalis
             switch( movementType )
             {
                 case Archetype.EMovementType.Stationär:
-                    img = Properties.ResourcesBewegung.bewegung_stationär;
+                    img = Properties.ResourcesActorCard.bewegung_stationär;
                     break;
 
                 case Archetype.EMovementType.Schweben:
-                    img = Properties.ResourcesBewegung.bewegung_schweben;
+                    img = Properties.ResourcesActorCard.bewegung_schweben;
                     break;
 
                 case Archetype.EMovementType.Beine:
-                    img = Properties.ResourcesBewegung.bewegung_beine;
+                    img = Properties.ResourcesActorCard.bewegung_beine;
                     break;
 
                 case Archetype.EMovementType.Flug:
-                    img = Properties.ResourcesBewegung.bewegung_flug;
+                    img = Properties.ResourcesActorCard.bewegung_flug;
                     break;
 
                 case Archetype.EMovementType.Kette:
-                    img = Properties.ResourcesBewegung.bewegung_kette;
+                    img = Properties.ResourcesActorCard.bewegung_kette;
                     break;
 
                 case Archetype.EMovementType.Rad:
-                    img = Properties.ResourcesBewegung.bewegung_rad;
+                    img = Properties.ResourcesActorCard.bewegung_rad;
                     break;
 
                 default:
@@ -636,9 +636,9 @@ namespace Universalis
                 DrawSectionHeader( g, "Waffen", SectionHeaderWeapons, posY );
 
                 // Captions
-                g.DrawImage( Properties.Resources.Stärke_weiss, new Rectangle( WeaponStrengthStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
-                g.DrawImage( Properties.Resources.Schaden_weiss, new Rectangle( WeaponDamageStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
-                g.DrawImage( Properties.Resources.Reichweite_weiss, new Rectangle( WeaponRangeStart + ( WeaponRangeWidth / 2 ) - ( SLineHeight / 2 ) + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.ResourcesActorCard.Stärke_weiss, new Rectangle( WeaponStrengthStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.ResourcesActorCard.Schaden_weiss, new Rectangle( WeaponDamageStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.ResourcesActorCard.Reichweite_weiss, new Rectangle( WeaponRangeStart + ( WeaponRangeWidth / 2 ) - ( SLineHeight / 2 ) + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
                 if( weaponUnarmed != null )
                 {
@@ -747,25 +747,25 @@ namespace Universalis
                     switch( weapon.SustainedFire )
                     {
                         case 1:
-                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - ( afSize / 2 ), ( SImageSize / 2 ) - ( afSize / 2 ), afSize, afSize ) );
+                            g_af.DrawImage( Properties.ResourcesActorCard.Autofeuer, new Rectangle( ( SImageSize / 2 ) - ( afSize / 2 ), ( SImageSize / 2 ) - ( afSize / 2 ), afSize, afSize ) );
                             break;
 
                         case 2:
-                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ) - afSize, afSize, afSize ) );
-                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ), afSize, afSize ) );
+                            g_af.DrawImage( Properties.ResourcesActorCard.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ) - afSize, afSize, afSize ) );
+                            g_af.DrawImage( Properties.ResourcesActorCard.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ), afSize, afSize ) );
                             break;
 
                         case 3:
-                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ) - afSize, afSize, afSize ) );
-                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ), afSize, afSize ) );
-                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ) - ( afSize / 2 ), afSize, afSize ) );
+                            g_af.DrawImage( Properties.ResourcesActorCard.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ) - afSize, afSize, afSize ) );
+                            g_af.DrawImage( Properties.ResourcesActorCard.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ), afSize, afSize ) );
+                            g_af.DrawImage( Properties.ResourcesActorCard.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ) - ( afSize / 2 ), afSize, afSize ) );
                             break;
 
                         case 4:
-                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ) - afSize, afSize, afSize ) );
-                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ), afSize, afSize ) );
-                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ) - afSize, afSize, afSize ) );
-                            g_af.DrawImage( Properties.Resources.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ), afSize, afSize ) );
+                            g_af.DrawImage( Properties.ResourcesActorCard.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ) - afSize, afSize, afSize ) );
+                            g_af.DrawImage( Properties.ResourcesActorCard.Autofeuer, new Rectangle( ( SImageSize / 2 ) - afSize, ( SImageSize / 2 ), afSize, afSize ) );
+                            g_af.DrawImage( Properties.ResourcesActorCard.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ) - afSize, afSize, afSize ) );
+                            g_af.DrawImage( Properties.ResourcesActorCard.Autofeuer, new Rectangle( ( SImageSize / 2 ), ( SImageSize / 2 ), afSize, afSize ) );
                             break;
                     }
                 }
@@ -777,14 +777,14 @@ namespace Universalis
 
             if( weapon.Reloadable )
             {
-                g.DrawImage( Properties.Resources.nachladen, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.ResourcesActorCard.nachladen, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
                 remainderPosX += SImageSize;
             }
 
             if( weapon.IndirectFire )
             {
-                g.DrawImage( Properties.Resources.Indirekt, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.ResourcesActorCard.Indirekt, new Rectangle( remainderPosX + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
                 remainderPosX += SImageSize;
             }
@@ -837,7 +837,7 @@ namespace Universalis
 
                 // Protection
                 g.DrawLine( SLinePenBlack, protectionStart, posY + SLineHeight, protectionStart, posY + SLineHeightDouble );
-                g.DrawImage( Properties.Resources.Schutz_weiss, new Rectangle( protectionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.ResourcesActorCard.Schutz_weiss, new Rectangle( protectionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
 
                 int actorModPHY = actor.ModPHY();
 
@@ -852,7 +852,7 @@ namespace Universalis
 
                 // Damage Reduction
                 g.DrawLine( SLinePenBlack, damageReductionStart, posY + SLineHeight, damageReductionStart, posY + SLineHeightDouble );
-                g.DrawImage( Properties.Resources.Schadensreduktion_weiss, new Rectangle( damageReductionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
+                g.DrawImage( Properties.ResourcesActorCard.Schadensreduktion_weiss, new Rectangle( damageReductionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
                 DrawStringCentered( g, armor.FormattedDamageReduction, FontArmor, ArmorFontBrush, new Rectangle( damageReductionStart, posY + SLineHeight, damageReductionWidth, SLineHeight ) );
 
                 // Damage Effects

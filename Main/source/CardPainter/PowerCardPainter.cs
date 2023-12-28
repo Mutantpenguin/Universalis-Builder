@@ -143,15 +143,15 @@ namespace Universalis
             switch( power.Target )
             {
                 case Power.ETarget.Nutzer:
-                    g.DrawImage( Properties.ResourcesKräfte.ZielNutzer, rectTarget );
+                    g.DrawImage( Properties.ResourcesPowerCard.ZielNutzer, rectTarget );
                     break;
 
                 case Power.ETarget.Bereich:
-                    g.DrawImage( Properties.ResourcesKräfte.ZielBereich, rectTarget );
+                    g.DrawImage( Properties.ResourcesPowerCard.ZielBereich, rectTarget );
                     break;
 
                 case Power.ETarget.Modell:
-                    g.DrawImage( Properties.ResourcesKräfte.ZielModell, rectTarget );
+                    g.DrawImage( Properties.ResourcesPowerCard.ZielModell, rectTarget );
                     break;
 
                 default:
@@ -162,11 +162,11 @@ namespace Universalis
             switch( power.Range )
             {
                 case Power.ERange.Distanz:
-                    g.DrawImage( Properties.ResourcesKräfte.WirkungsabstandDistanz, rectRange );
+                    g.DrawImage( Properties.ResourcesPowerCard.WirkungsabstandDistanz, rectRange );
                     break;
 
                 case Power.ERange.Berührung:
-                    g.DrawImage( Properties.ResourcesKräfte.WirkungsabstandBerührung, rectRange );
+                    g.DrawImage( Properties.ResourcesPowerCard.WirkungsabstandBerührung, rectRange );
                     break;
                 
                 default:
@@ -180,12 +180,12 @@ namespace Universalis
                     break;
 
                 case Power.EDamageApplication.Misserfolg:
-                    g.DrawImage( Properties.ResourcesKräfte.SchadenMisserfolg, rectDamageApplication );
+                    g.DrawImage( Properties.ResourcesPowerCard.SchadenMisserfolg, rectDamageApplication );
                     DrawStringCentered( g, power.DamageValue.ToString(), FontDamageApplication, Brushes.White, rectDamageApplication );
                     break;
 
                 case Power.EDamageApplication.Automatisch:
-                    g.DrawImage( Properties.ResourcesKräfte.SchadenAutomatisch, rectDamageApplication );
+                    g.DrawImage( Properties.ResourcesPowerCard.SchadenAutomatisch, rectDamageApplication );
                     DrawStringCentered( g, power.DamageValue.ToString(), FontDamageApplication, Brushes.Black, rectDamageApplication );
                     break;
 
@@ -197,11 +197,11 @@ namespace Universalis
             switch( power.Duration )
             {
                 case Power.EDuration.Sofort:
-                    g.DrawImage( Properties.ResourcesKräfte.DauerSofort, rectDuration );
+                    g.DrawImage( Properties.ResourcesPowerCard.DauerSofort, rectDuration );
                     break;
 
                 case Power.EDuration.Dauerhaft:
-                    g.DrawImage( Properties.ResourcesKräfte.DauerDauerhaft, rectDuration );
+                    g.DrawImage( Properties.ResourcesPowerCard.DauerDauerhaft, rectDuration );
                     break;
 
                 default:
