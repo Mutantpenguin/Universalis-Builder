@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Universalis.Source.Helper;
+using Universalis.Helper;
 
 namespace Universalis
 {

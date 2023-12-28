@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
+
 namespace Universalis
 {
     public partial class UniverseForm : Form
@@ -209,7 +210,6 @@ namespace Universalis
                     foreach( Discipline discipline in MasterDataStorage.Discipline.Disciplines.Where( s => s.Active )
                                                                                               .OrderBy( x => x.Name ) )
                     {
-                        // TODO generate Icon
                         if( discipline.Icon != null )
                         {
                             imageListDisciplines.Images.Add( discipline.ID.ToString(), discipline.Icon );
@@ -222,6 +222,8 @@ namespace Universalis
                             using( var g = Graphics.FromImage( disciplineIcon ) )
                             {
                                 g.Clear( discipline.Color );
+
+                                
                             }
 
                             imageListDisciplines.Images.Add( discipline.ID.ToString(), disciplineIcon );

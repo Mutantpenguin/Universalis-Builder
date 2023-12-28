@@ -2,7 +2,7 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace Universalis.Source.Helper
+namespace Universalis.Helper
 {
     internal static class ButtonText
     {

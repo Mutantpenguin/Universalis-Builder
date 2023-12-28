@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace Universalis.Source.Helper
+namespace Universalis.Helper
 {
     internal static class Drawing
     {

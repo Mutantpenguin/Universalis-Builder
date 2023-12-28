@@ -5,7 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
-using static Universalis.Source.Helper.Drawing;
+using static Universalis.Helper.Drawing;
 using static Universalis.CardPainterHelpers;
 
 namespace Universalis

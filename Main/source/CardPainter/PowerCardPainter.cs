@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using static Universalis.Source.Helper.Drawing;
+using static Universalis.Helper.Drawing;
 using static Universalis.CardPainterHelpers;
 
 namespace Universalis
