@@ -236,7 +236,7 @@ namespace Universalis
 
                     ListViewItem lvi = new ListViewItem()
                     {
-                        Text = discipline.Name,
+                        Text = discipline.Name + " ( " + discipline.Powers.Count + " )",
                         ImageKey = discipline.ID.ToString(),
                         ToolTipText = discipline.Description,
                     };
