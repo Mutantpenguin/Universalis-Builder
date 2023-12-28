@@ -25,6 +25,7 @@ namespace Universalis
             Active = discipline.Active;
 
             Name = discipline.Name;
+            Icon = discipline.Icon;
             Color = discipline.Color;
             Description = discipline.Description;
             BasePoints = discipline.BasePoints;
@@ -57,6 +58,8 @@ namespace Universalis
             if( Active != discipline.Active
                 ||
                 Name != discipline.Name
+                ||
+                Icon != discipline.Icon
                 ||
                 Color != discipline.Color
                 ||
@@ -121,6 +124,13 @@ namespace Universalis
             get;
             set;
         } = "Bitte Namen eingeben";
+
+        [JsonConverter( typeof( JsonJpegConverter ) )]
+        public Bitmap Icon
+        {
+            get;
+            set;
+        }
 
         public Color Color
         {

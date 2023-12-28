@@ -27,16 +27,16 @@ namespace Universalis
 
             listViewFactions.Font = new Font( UniversalisFont.Family, 10 );
 
-            imageListFactions.ImageSize = new System.Drawing.Size( 150, 150 );
+            SetupDisciplines();
 
-            RefreshList();
+            RefreshFactionsList();
         }
 
         private readonly Universe m_universe;
 
         private readonly bool m_deityMode;
 
-        private void RefreshList()
+        private void RefreshFactionsList()
         {
             imageListFactions.Images.Clear();
             listViewFactions.Clear();
@@ -139,7 +139,7 @@ namespace Universalis
 
                             MessageBox.Show( $"Die Gruppe '{groupLoaded.Name}' der Fraktion '{groupLoaded.Faction.Name}' wurde importiert" );
 
-                            RefreshList();
+                            RefreshFactionsList();
                         }
                         else
                         {
@@ -161,7 +161,7 @@ namespace Universalis
                                     group.Set( groupLoaded );
                                     UserDataStorage.Group.Save( group );
 
-                                    RefreshList();
+                                    RefreshFactionsList();
                                 }
                                 else
                                 {
@@ -176,7 +176,7 @@ namespace Universalis
                                         groupNew.Name = $"(Neuer Import von) {groupLoaded.Name}";
                                         UserDataStorage.Group.Save( groupNew );
 
-                                        RefreshList();
+                                        RefreshFactionsList();
                                     }
                                 }
                             }
@@ -185,6 +185,56 @@ namespace Universalis
                     catch( Exception ex )
                     {
                         MessageBox.Show( $"Problem beim Lesen der Gruppen-Datei '{Path.GetFileName( fileName )}':\n{ex.Message}" );
+                    }
+                }
+            }
+        }
+
+        private void SetupDisciplines()
+        {
+            if( MasterDataStorage.Discipline.Disciplines.Count == 0 )
+            {
+                panelDisciplines.Visible = false;
+            }
+            else
+            {
+                imageListDisciplines.Images.Clear();
+                listViewDisciplines.Clear();
+
+                foreach( string type in MasterDataStorage.Faction.Factions.Where( s => s.Active )
+                                                                          .Select( x => x.Type )
+                                                                          .Distinct()
+                                                                          .OrderBy( x => x ) )
+                {
+                    foreach( Discipline discipline in MasterDataStorage.Discipline.Disciplines.Where( s => s.Active )
+                                                                                              .OrderBy( x => x.Name ) )
+                    {
+                        // TODO generate Icon
+                        if( discipline.Icon != null )
+                        {
+                            imageListDisciplines.Images.Add( discipline.ID.ToString(), discipline.Icon );
+                        }
+                        else
+                        {
+                            var imageSize = imageListDisciplines.ImageSize;
+                            var disciplineIcon = new Bitmap( imageSize.Width, imageSize.Height );
+
+                            using( var g = Graphics.FromImage( disciplineIcon ) )
+                            {
+                                g.Clear( discipline.Color );
+                            }
+
+                            imageListDisciplines.Images.Add( discipline.ID.ToString(), disciplineIcon );
+                        }
+
+                        ListViewItem lvi = new ListViewItem()
+                        {
+                            Text = discipline.Name,
+                            ImageKey = discipline.ID.ToString(),
+                            ToolTipText = discipline.Description,
+                        };
+
+                        listViewDisciplines.Items.Add( lvi );
                     }
                 }
             }
