@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Drawing.Drawing2D;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using static Universalis.Source.Helper.Drawing;
 using static Universalis.CardPainterHelpers;
-using static Universalis.Archetype;
 
 namespace Universalis
 {

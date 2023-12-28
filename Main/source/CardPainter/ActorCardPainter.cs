@@ -5,6 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
+using static Universalis.Source.Helper.Drawing;
 using static Universalis.CardPainterHelpers;
 
 namespace Universalis
@@ -277,7 +278,6 @@ namespace Universalis
             g.DrawRectangle( SLinePenBlack, new Rectangle( posX, posY, widthName + widthAtt, SLineHeight ) );
 
             g.FillRectangle( Brushes.Black, rectName );
-
             DrawStringCentered( g, name, FontStandard, Brushes.White, rectName );
 
             if( !attribute.HasValue )
@@ -290,7 +290,6 @@ namespace Universalis
 
                 int printModValue = ( value < 0 ) ? 0 : value;
                 var brush = ( value < 0 ) ? Brushes.Red : Brushes.Black;
-
                 DrawStringCentered( g, printModValue.ToString(), FontStandard, brush, rectValue );
             }
         }
@@ -546,7 +545,6 @@ namespace Universalis
             int width = movementStringWidth + 3 * SImageMargin + SImageSize;
 
             g.DrawImage( img, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
-
             DrawStringCentered( g, BW.ToString(), FontStandard, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, movementStringWidth, SLineHeight ) );
 
             g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );

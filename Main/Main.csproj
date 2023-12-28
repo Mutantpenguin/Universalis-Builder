@@ -92,6 +92,7 @@
     </Compile>
     <Compile Include="Source\CardPainter\ActorCardPainter.cs" />
     <Compile Include="Source\CardPainter\CardPainterHelpers.cs" />
+    <Compile Include="Source\Helper\Drawing.cs" />
     <Compile Include="Source\CardPainter\PowerCardPainter.cs" />
     <Compile Include="Source\DeityModeForm.cs">
       <SubType>Form</SubType>
