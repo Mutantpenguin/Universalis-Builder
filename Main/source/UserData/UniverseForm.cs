@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-
+using static Universalis.Helper.Drawing;
 
 namespace Universalis
 {
@@ -202,42 +203,45 @@ namespace Universalis
                 imageListDisciplines.Images.Clear();
                 listViewDisciplines.Clear();
 
-                foreach( string type in MasterDataStorage.Faction.Factions.Where( s => s.Active )
-                                                                          .Select( x => x.Type )
-                                                                          .Distinct()
-                                                                          .OrderBy( x => x ) )
+                var imageSize = imageListDisciplines.ImageSize;
+                var rect = new Rectangle( new Point( 0, 0 ), imageSize );
+                Font disciplineFont = new Font( UniversalisFont.Family, 10, FontStyle.Regular, GraphicsUnit.Pixel );
+
+                foreach( Discipline discipline in MasterDataStorage.Discipline.Disciplines.Where( s => s.Active )
+                                                                                            .OrderBy( x => x.Name ) )
                 {
-                    foreach( Discipline discipline in MasterDataStorage.Discipline.Disciplines.Where( s => s.Active )
-                                                                                              .OrderBy( x => x.Name ) )
+                    if( discipline.Icon != null )
                     {
-                        if( discipline.Icon != null )
-                        {
-                            imageListDisciplines.Images.Add( discipline.ID.ToString(), discipline.Icon );
-                        }
-                        else
-                        {
-                            var imageSize = imageListDisciplines.ImageSize;
-                            var disciplineIcon = new Bitmap( imageSize.Width, imageSize.Height );
-
-                            using( var g = Graphics.FromImage( disciplineIcon ) )
-                            {
-                                g.Clear( discipline.Color );
-
-                                
-                            }
-
-                            imageListDisciplines.Images.Add( discipline.ID.ToString(), disciplineIcon );
-                        }
-
-                        ListViewItem lvi = new ListViewItem()
-                        {
-                            Text = discipline.Name,
-                            ImageKey = discipline.ID.ToString(),
-                            ToolTipText = discipline.Description,
-                        };
-
-                        listViewDisciplines.Items.Add( lvi );
+                        imageListDisciplines.Images.Add( discipline.ID.ToString(), discipline.Icon );
                     }
+                    else
+                    {
+                        var disciplineIcon = new Bitmap( imageSize.Width, imageSize.Height );
+
+                        using( var g = Graphics.FromImage( disciplineIcon ) )
+                        {
+                            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+                            g.Clear( discipline.Color );
+
+                            var textColor = ContrastFontColor( discipline.Color );
+
+                            var font = FindFont( g, discipline.Name, rect.Size, disciplineFont );
+
+                            DrawStringCentered(g, discipline.Name, font, new SolidBrush( textColor ), rect );
+                        }
+
+                        imageListDisciplines.Images.Add( discipline.ID.ToString(), disciplineIcon );
+                    }
+
+                    ListViewItem lvi = new ListViewItem()
+                    {
+                        Text = discipline.Name,
+                        ImageKey = discipline.ID.ToString(),
+                        ToolTipText = discipline.Description,
+                    };
+
+                    listViewDisciplines.Items.Add( lvi );
                 }
             }
         }
