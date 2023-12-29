@@ -21,6 +21,7 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( power ) );
             }
 
+            ID = power.ID;
             Active = power.Active;
             Name = power.Name;
             Description = power.Description;
@@ -40,6 +41,11 @@ namespace Universalis
             if( null == power )
             {
                 throw new ArgumentNullException( nameof( power ) );
+            }
+
+            if( ID != power.ID )
+            {
+                return false;
             }
 
             if( Active != power.Active
