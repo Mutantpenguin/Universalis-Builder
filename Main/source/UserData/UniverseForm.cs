@@ -204,8 +204,9 @@ namespace Universalis
                 listViewDisciplines.Clear();
 
                 var imageSize = imageListDisciplines.ImageSize;
-                var rect = new Rectangle( new Point( 0, 0 ), imageSize );
-                Font disciplineFont = new Font( UniversalisFont.Family, 10, FontStyle.Regular, GraphicsUnit.Pixel );
+                var padding = 5;
+                var rect = new Rectangle( padding, padding, imageSize.Width - 2 * padding, imageSize.Height - 2 * padding );
+                Font disciplineFont = new Font( UniversalisFont.Family, 50, FontStyle.Regular, GraphicsUnit.Pixel );
 
                 foreach( Discipline discipline in MasterDataStorage.Discipline.Disciplines.Where( s => s.Active )
                                                                                             .OrderBy( x => x.Name ) )
@@ -226,7 +227,7 @@ namespace Universalis
 
                             var textColor = ContrastFontColor( discipline.Color );
 
-                            var font = FindFont( g, discipline.Name, rect.Size, disciplineFont );
+                            var font = FindFontMultiLine( g, discipline.Name, rect.Size, disciplineFont );
 
                             DrawStringCentered(g, discipline.Name, font, new SolidBrush( textColor ), rect );
                         }

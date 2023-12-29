@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using static Universalis.Helper.Drawing;
 using static Universalis.CardPainterHelpers;
+using LibGit2Sharp;
 
 namespace Universalis
 {
@@ -28,7 +29,7 @@ namespace Universalis
 
         private static readonly Pen SStructureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
 
-        private static readonly Font Font0Dot2 = new Font( UniversalisFont.Family, CmToPixel( 0.2 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font FontTitle = new Font( UniversalisFont.Family, CmToPixel( 0.5 ), FontStyle.Regular, GraphicsUnit.Pixel );
         
         private static readonly Font FontRules = new Font( "Arial", CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
 
@@ -86,9 +87,9 @@ namespace Universalis
 
             RoundedRectangle( g, SStructureBlackPen, rect, SRectangleRadius );
 
-            var font = FindFont( g, name, rect.Size, Font0Dot2 );
+            var font = FindFontSingleLine( g, name, rect.Size, FontTitle );
 
-            DrawStringCentered( g, name, font, new SolidBrush(textColor), rect );
+            g.DrawString( name, font, new SolidBrush( textColor ), rect, StringFormatHCenterVCenter );
         }
 
         private static void DrawRules( Graphics g, string rules )
@@ -98,7 +99,7 @@ namespace Universalis
             
             var rect = new Rectangle( SMargin, contentTop, SContentWidth, contentHeight );
 
-            var font = FindFont( g, rules, rect.Size, FontRules );
+            var font = FindFontMultiLine( g, rules, rect.Size, FontRules );
 
             g.DrawString( rules, font, Brushes.Black, rect );
         }

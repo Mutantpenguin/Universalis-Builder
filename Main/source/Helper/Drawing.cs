@@ -68,23 +68,44 @@ namespace Universalis.Helper
             }
         }
 
-        public static Font FindFont( Graphics g, string text, Size availableSpace, Font preferedFont )
+        public static Font FindFontSingleLine( Graphics g, string text, Size availableSpace, Font preferedFont )
         {
             if( text.Length == 0 )
             {
                 return preferedFont;
             }
 
-            SizeF originalSize = g.MeasureString( text, preferedFont, availableSpace.Width );
+            SizeF preferredSize = g.MeasureString( text, preferedFont );
 
-            float heightScaleRatio = availableSpace.Height / originalSize.Height;
-            float widthScaleRatio = availableSpace.Width / originalSize.Width;
+            float heightScaleRatio = availableSpace.Height / preferredSize.Height;
+            float widthScaleRatio = availableSpace.Width / preferredSize.Width;
 
-            float scaleRatio = Math.Min( heightScaleRatio, widthScaleRatio );
+            // only ever scale down, never up
+            float scaleRatio = Math.Min( Math.Min( heightScaleRatio, widthScaleRatio ), 1.0f );
 
-            float ScaleFontSize = preferedFont.Size * scaleRatio;
+            float scaleFontSize = preferedFont.Size * scaleRatio;
 
-            return new Font( preferedFont.FontFamily, ScaleFontSize, preferedFont.Style, preferedFont.Unit );
+            return new Font( preferedFont.FontFamily, scaleFontSize, preferedFont.Style, preferedFont.Unit );
+        }
+
+        public static Font FindFontMultiLine( Graphics g, string text, Size availableSpace, Font preferedFont )
+        {
+            if( text.Length == 0 )
+            {
+                return preferedFont;
+            }
+
+            SizeF preferredSize = g.MeasureString( text, preferedFont, availableSpace.Width );
+
+            float heightScaleRatio = availableSpace.Height / preferredSize.Height;
+            float widthScaleRatio = availableSpace.Width / preferredSize.Width;
+
+            // only ever scale down, never up
+            float scaleRatio = Math.Min( Math.Min( heightScaleRatio, widthScaleRatio ), 1.0f );
+
+            float scaleFontSize = preferedFont.Size * scaleRatio;
+
+            return new Font( preferedFont.FontFamily, scaleFontSize, preferedFont.Style, preferedFont.Unit );
         }
 
         private static GraphicsPath RoundedRect( Rectangle bounds, int radius )

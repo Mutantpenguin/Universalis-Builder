@@ -73,24 +73,6 @@ namespace Universalis
         private static readonly Image SectionHeaderArmor = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.OliveDrab );
         private static readonly Image SectionHeaderEquipment = SectionHeader.Create( SSectionsWidth, SLineHeight, Color.SlateGray );
 
-        private static readonly StringFormat StringFormatHCenterVCenter = new StringFormat()
-        {
-            Alignment = StringAlignment.Center,
-            LineAlignment = StringAlignment.Center
-        };
-
-        private static readonly StringFormat StringFormatHLeftVCenter = new StringFormat()
-        {
-            Alignment = StringAlignment.Near,
-            LineAlignment = StringAlignment.Center
-        };
-
-        private static readonly StringFormat StringFormatHLeftVTop = new StringFormat()
-        {
-            Alignment = StringAlignment.Near,
-            LineAlignment = StringAlignment.Near
-        };
-
         private static readonly int XAttrFirstColumn = SSectionsPosX;
         private static readonly int XAttrSecondColumn = CmToPixel( 6.1 );
         private static readonly int XAttrThirdColumn = CmToPixel( 8.5 );
