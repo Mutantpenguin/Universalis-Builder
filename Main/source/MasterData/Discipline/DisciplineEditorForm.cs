@@ -219,7 +219,7 @@ namespace Universalis
             {
                 Power power = (Power)dataGridViewPowers.SelectedRows[0].DataBoundItem;
 
-                pictureBoxPower.Image = PowerCardPainter.GetBitmap( m_modifiedDiscipline, power );
+                pictureBoxPower.Image = PowerCardPainter.GetBitmap( m_modifiedDiscipline, power, monochrome: false );
             }
             else
             {

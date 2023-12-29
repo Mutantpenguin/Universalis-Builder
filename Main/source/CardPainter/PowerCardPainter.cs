@@ -39,7 +39,7 @@ namespace Universalis
 
         #endregion members
 
-        public static Bitmap GetBitmap( Discipline discipline, Power power )
+        public static Bitmap GetBitmap( Discipline discipline, Power power, bool monochrome )
         {
             if( null == discipline )
             {
@@ -58,11 +58,11 @@ namespace Universalis
 
                 g.Clear( Color.White );
 
-                DrawTitle( g, discipline.Color, power.Name );
+                DrawTitle( g, discipline.Color, power.Name, monochrome );
 
                 DrawRules( g, power.Rules );
 
-                DrawFooter( g, power );
+                DrawFooter( g, power, monochrome );
 
                 DrawStructure( g );
 
@@ -70,14 +70,21 @@ namespace Universalis
             }
         }
 
-        private static void DrawTitle( Graphics g, Color disciplineColor, string name )
+        private static void DrawTitle( Graphics g, Color disciplineColor, string name, bool monochrome )
         {
             var rect = new Rectangle( SMargin, SMargin, SContentWidth, STitleHeight );
 
-            SolidBrush disciplineBrush = new SolidBrush( disciplineColor );
-            FillRoundedRectangle( g, disciplineBrush, rect, SRectangleRadius );
+            Color textColor = Color.Black;
 
-            var textColor = ContrastFontColor( disciplineColor );
+            if( !monochrome )
+            {
+                var disciplineBrush = new SolidBrush( disciplineColor );
+                FillRoundedRectangle( g, disciplineBrush, rect, SRectangleRadius );
+
+                textColor = ContrastFontColor( disciplineColor );
+            }
+
+            RoundedRectangle( g, SStructureBlackPen, rect, SRectangleRadius );
 
             var font = FindFont( g, name, rect.Size, Font0Dot2 );
 
@@ -96,17 +103,17 @@ namespace Universalis
             g.DrawString( rules, font, Brushes.Black, rect );
         }
 
-        private static void DrawFooter( Graphics g, Power power )
+        private static void DrawFooter( Graphics g, Power power, bool monochrome )
         {
             var rectFooter = new Rectangle( SMargin, SCardHeight - SFooterHeight - SMargin, SContentWidth, SFooterHeight );
 
             var footerElementWidth = ( SContentWidth - ( 7 * SFooterPadding ) ) / 6;
             var footerElementHeight = SFooterHeight - ( 2 * SFooterPadding );
 
-            FillRoundedRectangle( g, Brushes.Black, rectFooter, SRectangleRadius );
+            RoundedRectangle( g, SStructureBlackPen, rectFooter, SRectangleRadius );
 
             var rectAP = new Rectangle( rectFooter.Left + SFooterPadding, rectFooter.Top + SFooterPadding, footerElementWidth, footerElementHeight );
-            DrawStringCentered( g, $"{power.AP}{ActionsPointsMarker}", FontAP, Brushes.White, rectAP );
+            DrawStringCentered( g, $"{power.AP}{ActionsPointsMarker}", FontAP, Brushes.Black, rectAP );
 
             var imgOffset = ( footerElementWidth - footerElementHeight ) / 2;
 
@@ -115,7 +122,7 @@ namespace Universalis
             var rectAttribute = new Rectangle( rectFooter.Left + ( 2 * SFooterPadding ) + footerElementWidth, rectFooter.Top + SFooterPadding, footerElementWidth, footerElementHeight );
             if( power.Modifier == 0 )
             {
-                DrawStringCentered( g, power.Attribute.ToString(), FontAttributeBig, Brushes.White, rectAttribute );
+                DrawStringCentered( g, power.Attribute.ToString(), FontAttributeBig, Brushes.Black, rectAttribute );
             }
             else
             {
@@ -134,12 +141,32 @@ namespace Universalis
 
                 var stringSize = g.MeasureString( modifierString, FontAttributeSmall );
 
-                g.DrawString( power.Attribute.ToString(), FontAttributeSmall, Brushes.White, rectAttribute.Location );
+                g.DrawString( power.Attribute.ToString(), FontAttributeSmall, Brushes.Black, rectAttribute.Location );
                 var modifierRect = new PointF( rectAttribute.Right - stringSize.Width, rectAttribute.Bottom - stringSize.Height );
                 g.DrawString( modifierString, FontAttributeSmall, modifierBrush, modifierRect );
             }
-            
-            var rectTarget = new Rectangle( rectFooter.Left + ( 3 * SFooterPadding ) + ( 2 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
+
+            var rectDamageApplication = new Rectangle( rectFooter.Left + ( 3 * SFooterPadding ) + ( 2 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
+            switch( power.DamageApplication )
+            {
+                case Power.EDamageApplication.Keinen:
+                    break;
+
+                case Power.EDamageApplication.Misserfolg:
+                    g.DrawImage( Properties.ResourcesPowerCard.SchadenMisserfolg, rectDamageApplication );
+                    DrawStringCentered( g, power.DamageValue.ToString(), FontDamageApplication, Brushes.Black, rectDamageApplication );
+                    break;
+
+                case Power.EDamageApplication.Automatisch:
+                    g.DrawImage( Properties.ResourcesPowerCard.SchadenAutomatisch, rectDamageApplication );
+                    DrawStringCentered( g, power.DamageValue.ToString(), FontDamageApplication, Brushes.White, rectDamageApplication );
+                    break;
+
+                default:
+                    throw new InvalidOperationException( "unkown " + nameof( power.DamageApplication ) );
+            }
+
+            var rectTarget = new Rectangle( rectFooter.Left + ( 4 * SFooterPadding ) + ( 3 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
             switch( power.Target )
             {
                 case Power.ETarget.Nutzer:
@@ -158,7 +185,7 @@ namespace Universalis
                     throw new InvalidOperationException( "unkown " + nameof( power.Target ) );
             }
 
-            var rectRange = new Rectangle( rectFooter.Left + ( 4 * SFooterPadding ) + ( 3 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
+            var rectRange = new Rectangle( rectFooter.Left + ( 5 * SFooterPadding ) + ( 4 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
             switch( power.Range )
             {
                 case Power.ERange.Distanz:
@@ -171,26 +198,6 @@ namespace Universalis
                 
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( power.Range ) );
-            }
-
-            var rectDamageApplication = new Rectangle( rectFooter.Left + ( 5 * SFooterPadding ) + ( 4 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
-            switch( power.DamageApplication )
-            {   
-                case Power.EDamageApplication.Keinen:
-                    break;
-
-                case Power.EDamageApplication.Misserfolg:
-                    g.DrawImage( Properties.ResourcesPowerCard.SchadenMisserfolg, rectDamageApplication );
-                    DrawStringCentered( g, power.DamageValue.ToString(), FontDamageApplication, Brushes.White, rectDamageApplication );
-                    break;
-
-                case Power.EDamageApplication.Automatisch:
-                    g.DrawImage( Properties.ResourcesPowerCard.SchadenAutomatisch, rectDamageApplication );
-                    DrawStringCentered( g, power.DamageValue.ToString(), FontDamageApplication, Brushes.Black, rectDamageApplication );
-                    break;
-
-                default:
-                    throw new InvalidOperationException( "unkown " + nameof( power.DamageApplication ) );
             }
 
             var rectDuration = new Rectangle( rectFooter.Left + ( 6 * SFooterPadding ) + ( 5 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );

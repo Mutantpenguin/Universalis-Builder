@@ -55,6 +55,19 @@ namespace Universalis.Helper
             }
         }
 
+        public static void RoundedRectangle( Graphics graphics, Pen pen, Rectangle bounds, int cornerRadius )
+        {
+            if( graphics == null )
+                throw new ArgumentNullException( "graphics" );
+            if( pen == null )
+                throw new ArgumentNullException( "pen" );
+
+            using( GraphicsPath path = RoundedRect( bounds, cornerRadius ) )
+            {
+                graphics.DrawPath( pen, path );
+            }
+        }
+
         public static Font FindFont( Graphics g, string text, Size availableSpace, Font preferedFont )
         {
             if( text.Length == 0 )

@@ -618,17 +618,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
-    <None Include="Resources\ZielNutzer.png" />
-    <None Include="Resources\ZielModell.png" />
-    <None Include="Resources\ZielBereich.png" />
-    <None Include="Resources\WirkungsabstandDistanz.png" />
+    <None Include="Resources\SchadenMisserfolg.png" />
+    <None Include="Resources\DauerDauerhaft.png" />
+    <None Include="Resources\SchadenAutomatisch.png" />
+    <None Include="Resources\DauerSofort.png" />
     <None Include="Resources\WirkungsabstandBerührung.png" />
+    <None Include="Resources\WirkungsabstandDistanz.png" />
+    <None Include="Resources\ZielBereich.png" />
+    <None Include="Resources\ZielModell.png" />
+    <None Include="Resources\ZielNutzer.png" />
     <None Include="Resources\Wahrnehmungsbereich.png" />
     <None Include="Resources\Stärke_weiss.png" />
     <None Include="Resources\Schutz_weiss.png" />
     <None Include="Resources\Schadensreduktion_weiss.png" />
-    <None Include="Resources\SchadenMisserfolg.png" />
-    <None Include="Resources\SchadenAutomatisch.png" />
     <None Include="Resources\Schaden_weiss.png" />
     <None Include="Resources\riesig.png" />
     <None Include="Resources\Reichweite_weiss.png" />
@@ -641,8 +643,6 @@
     <None Include="Resources\groß.png" />
     <None Include="Resources\Gefahrenbereich.png" />
     <None Include="Resources\Drohne.png" />
-    <None Include="Resources\DauerSofort.png" />
-    <None Include="Resources\DauerDauerhaft.png" />
     <None Include="Resources\Autofeuer.png" />
     <None Include="Resources\bewegung_beine.png" />
     <None Include="Resources\bewegung_flug.png" />
