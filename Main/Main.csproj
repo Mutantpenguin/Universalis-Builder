@@ -362,6 +362,7 @@
     <Compile Include="Source\UserData\Disciplines\DisciplineOverviewForm.Designer.cs">
       <DependentUpon>DisciplineOverviewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\UserData\Disciplines\PowersPDFExporter.cs" />
     <Compile Include="Source\UserData\UniverseForm.cs">
       <SubType>Form</SubType>
     </Compile>

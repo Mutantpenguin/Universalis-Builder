@@ -10,8 +10,8 @@ namespace Universalis
     {
         #region members
 
-        public const double CardWidthCm = 6.3;
-        public const double CardHeightCm = 8.8;
+        public const float CardWidthCm = 6.3f;
+        public const float CardHeightCm = 8.8f;
 
         public static readonly int SCardWidth = CmToPixel( CardWidthCm );
         public static readonly int SCardHeight = CmToPixel( CardHeightCm );

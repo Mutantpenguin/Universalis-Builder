@@ -34,7 +34,7 @@
             this.listViewPowers = new System.Windows.Forms.ListView();
             this.imageListPowers = new System.Windows.Forms.ImageList(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonPrint = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -81,25 +81,26 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.buttonPrint);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 628);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 32);
             this.panel1.TabIndex = 4;
             // 
-            // button1
+            // buttonPrint
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Image = global::Universalis.Properties.Resources.baseline_print_black_18dp;
-            this.button1.Location = new System.Drawing.Point(697, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 26);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "&Drucken";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPrint.Image = global::Universalis.Properties.Resources.baseline_print_black_18dp;
+            this.buttonPrint.Location = new System.Drawing.Point(697, 3);
+            this.buttonPrint.Name = "buttonPrint";
+            this.buttonPrint.Size = new System.Drawing.Size(100, 26);
+            this.buttonPrint.TabIndex = 3;
+            this.buttonPrint.Text = "&Drucken";
+            this.buttonPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonPrint.UseVisualStyleBackColor = true;
+            this.buttonPrint.Click += new System.EventHandler(this.buttonPrint_Click);
             // 
             // DisciplineOverviewForm
             // 
@@ -127,6 +128,6 @@
         private System.Windows.Forms.ListView listViewPowers;
         private System.Windows.Forms.ImageList imageListPowers;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonPrint;
     }
 }
