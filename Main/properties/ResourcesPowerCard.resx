@@ -124,17 +124,17 @@
   <data name="DauerSofort" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DauerSofort.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ReichweiteBerührung" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReichweiteBerührung.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReichweiteDistanz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReichweiteDistanz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SchadenAutomatisch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SchadenAutomatisch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SchadenMisserfolg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SchadenMisserfolg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WirkungsabstandBerührung" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WirkungsabstandBerührung.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="WirkungsabstandDistanz" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WirkungsabstandDistanz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ZielBereich" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ZielBereich.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

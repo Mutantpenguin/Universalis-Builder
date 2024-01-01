@@ -83,6 +83,26 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ReichweiteBerührung {
+            get {
+                object obj = ResourceManager.GetObject("ReichweiteBerührung", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ReichweiteDistanz {
+            get {
+                object obj = ResourceManager.GetObject("ReichweiteDistanz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap SchadenAutomatisch {
             get {
                 object obj = ResourceManager.GetObject("SchadenAutomatisch", resourceCulture);
@@ -96,26 +116,6 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap SchadenMisserfolg {
             get {
                 object obj = ResourceManager.GetObject("SchadenMisserfolg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WirkungsabstandBerührung {
-            get {
-                object obj = ResourceManager.GetObject("WirkungsabstandBerührung", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WirkungsabstandDistanz {
-            get {
-                object obj = ResourceManager.GetObject("WirkungsabstandDistanz", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

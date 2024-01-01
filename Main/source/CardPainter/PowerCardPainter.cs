@@ -189,11 +189,11 @@ namespace Universalis
             switch( power.Range )
             {
                 case Power.ERange.Distanz:
-                    g.DrawImage( Properties.ResourcesPowerCard.WirkungsabstandDistanz, rectRange );
+                    g.DrawImage( Properties.ResourcesPowerCard.ReichweiteDistanz, rectRange );
                     break;
 
                 case Power.ERange.Berührung:
-                    g.DrawImage( Properties.ResourcesPowerCard.WirkungsabstandBerührung, rectRange );
+                    g.DrawImage( Properties.ResourcesPowerCard.ReichweiteBerührung, rectRange );
                     break;
                 
                 default:

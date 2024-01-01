@@ -85,7 +85,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Properties\ResourcesPowerCard1.Designer.cs">
+    <Compile Include="Properties\ResourcesPowerCard.Designer.cs">
       <DependentUpon>ResourcesPowerCard.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -406,7 +406,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\ResourcesPowerCard.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ResourcesPowerCard1.Designer.cs</LastGenOutput>
+      <LastGenOutput>ResourcesPowerCard.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\DeityModeForm.resx">
@@ -632,8 +632,8 @@
     <None Include="Resources\DauerDauerhaft.png" />
     <None Include="Resources\SchadenAutomatisch.png" />
     <None Include="Resources\DauerSofort.png" />
-    <None Include="Resources\WirkungsabstandBerührung.png" />
-    <None Include="Resources\WirkungsabstandDistanz.png" />
+    <None Include="Resources\ReichweiteBerührung.png" />
+    <None Include="Resources\ReichweiteDistanz.png" />
     <None Include="Resources\ZielBereich.png" />
     <None Include="Resources\ZielModell.png" />
     <None Include="Resources\ZielNutzer.png" />
