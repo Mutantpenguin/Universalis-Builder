@@ -88,7 +88,7 @@ namespace Universalis
                 PdfWriter pdfWriter = PdfWriter.GetInstance( document, fs );
 
                 document.AddTitle( p_group.Name );
-                document.AddAuthor( "Markus Lobedann & Sandro Sapienza" );
+                document.AddAuthor( "Universalis" );
                 document.AddCreator( s_versionInfo );
                 document.AddKeywords( "Einheitenkarten für das Universalis Tabletop Spiel" );
                 document.AddSubject( p_group.Description );
