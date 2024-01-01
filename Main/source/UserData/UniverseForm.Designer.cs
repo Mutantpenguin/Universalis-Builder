@@ -194,6 +194,7 @@
             this.listViewDisciplines.Size = new System.Drawing.Size(766, 136);
             this.listViewDisciplines.TabIndex = 5;
             this.listViewDisciplines.UseCompatibleStateImageBehavior = false;
+            this.listViewDisciplines.ItemActivate += new System.EventHandler(this.listViewDisciplines_ItemActivate);
             // 
             // imageListDisciplines
             // 

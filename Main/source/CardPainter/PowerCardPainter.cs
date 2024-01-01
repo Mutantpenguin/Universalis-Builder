@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using static Universalis.Helper.Drawing;
 using static Universalis.CardPainterHelpers;
-using LibGit2Sharp;
+using static Universalis.Helper.Drawing;
 
 namespace Universalis
 {
@@ -14,8 +13,8 @@ namespace Universalis
         public const double CardWidthCm = 6.3;
         public const double CardHeightCm = 8.8;
 
-        private static readonly int SCardWidth = CmToPixel( CardWidthCm );
-        private static readonly int SCardHeight = CmToPixel( CardHeightCm );
+        public static readonly int SCardWidth = CmToPixel( CardWidthCm );
+        public static readonly int SCardHeight = CmToPixel( CardHeightCm );
 
         private static readonly int SMargin = CmToPixel( 0.2 );
         private static readonly int SRectangleRadius = CmToPixel( 0.25 );

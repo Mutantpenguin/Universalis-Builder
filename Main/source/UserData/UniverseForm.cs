@@ -28,6 +28,7 @@ namespace Universalis
             labelHeader.Top = ( panelHeader.Height - labelHeader.Height ) / 2;
 
             listViewFactions.Font = new Font( UniversalisFont.Family, 10 );
+            listViewDisciplines.Font = new Font( UniversalisFont.Family, 10 );
 
             SetupDisciplines();
 
@@ -252,6 +253,16 @@ namespace Universalis
             using( var infoForm = new UniverseInfoForm( m_universe ) )
             {
                 infoForm.ShowDialog();
+            }
+        }
+
+        private void listViewDisciplines_ItemActivate( object sender, EventArgs e )
+        {
+            Discipline discipline = MasterDataStorage.Discipline.Disciplines.First( x => x.ID.ToString() == listViewDisciplines.SelectedItems[0].ImageKey );
+
+            using( var disciplineOverviewForm = new DisciplineOverviewForm( discipline ) )
+            {
+                disciplineOverviewForm.ShowDialog( this );
             }
         }
     }
