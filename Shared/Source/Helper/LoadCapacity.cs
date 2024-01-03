@@ -9,7 +9,7 @@ namespace Universalis
             switch( type )
             {
                 case Archetype.EType.Infanterie:
-                case Archetype.EType.Drohne:
+                case Archetype.EType.Telematon:
                     return Convert.ToSingle( Math.Pow( phy, 2 ) );
 
                 case Archetype.EType.Koloss:

@@ -205,7 +205,7 @@ namespace Universalis
                         typeMultiplicator = 30.0f;
                         break;
 
-                    case EType.Drohne:
+                    case EType.Telematon:
                         typeMultiplicator = 10.0f;
                         break;
 
@@ -268,7 +268,7 @@ namespace Universalis
 
         public int? DangerArea( AttributeModifier modifier )
         {
-            if( Type == EType.Drohne )
+            if( Type == EType.Telematon )
             {
                 return null;
             }
@@ -322,7 +322,7 @@ namespace Universalis
         {
             Infanterie = 1,
             Koloss = 2,
-            Drohne = 3
+            Telematon = 3
         }
 
         public enum EMovementType

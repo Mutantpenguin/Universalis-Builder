@@ -491,7 +491,7 @@ namespace Universalis
 
         public int? ModAGI()
         {
-            if( this.Archetype.Type == Archetype.EType.Drohne )
+            if( this.Archetype.Type == Archetype.EType.Telematon )
             {
                 return null;
             }
@@ -503,7 +503,7 @@ namespace Universalis
 
         public int? ModHTH()
         {
-            if( this.Archetype.Type == Archetype.EType.Drohne )
+            if( this.Archetype.Type == Archetype.EType.Telematon )
             {
                 return null;
             }
@@ -514,7 +514,7 @@ namespace Universalis
         }
         public int? ModLRC()
         {
-            if( this.Archetype.Type == Archetype.EType.Drohne )
+            if( this.Archetype.Type == Archetype.EType.Telematon )
             {
                 return null;
             }
@@ -536,7 +536,7 @@ namespace Universalis
 
         public int? ModDET()
         {
-            if( this.Archetype.Type == Archetype.EType.Drohne )
+            if( this.Archetype.Type == Archetype.EType.Telematon )
             {
                 return null;
             }
@@ -618,7 +618,7 @@ namespace Universalis
 
         public Weapon WeaponUnarmed()
         {
-            if( this.Archetype.Type == Archetype.EType.Drohne ) 
+            if( this.Archetype.Type == Archetype.EType.Telematon ) 
             {
                 return null;
             }

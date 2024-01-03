@@ -88,7 +88,7 @@ namespace Universalis
 
             int points = 0;
 
-            if( type != Archetype.EType.Drohne )
+            if( type != Archetype.EType.Telematon )
             {
                 points += Attributes.AGI * attributeCosts.AGI;
                 points += Attributes.HTH * attributeCosts.HTH;
@@ -104,7 +104,7 @@ namespace Universalis
             switch( type )
             {
                 case Archetype.EType.Infanterie:
-                case Archetype.EType.Drohne:
+                case Archetype.EType.Telematon:
                     points += HitPoints * profileCosts.HitPoints;
                     break;
 

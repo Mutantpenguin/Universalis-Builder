@@ -652,7 +652,7 @@
     <None Include="Resources\Indirekt.png" />
     <None Include="Resources\groß.png" />
     <None Include="Resources\Gefahrenbereich.png" />
-    <None Include="Resources\Drohne.png" />
+    <None Include="Resources\Telematon.png" />
     <None Include="Resources\Autofeuer.png" />
     <None Include="Resources\bewegung_beine.png" />
     <None Include="Resources\bewegung_flug.png" />
