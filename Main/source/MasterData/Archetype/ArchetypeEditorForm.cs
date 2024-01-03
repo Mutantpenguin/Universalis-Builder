@@ -104,14 +104,14 @@ namespace Universalis
 
                 switch( (Archetype.EType)comboBoxType.SelectedItem )
                 {
-                    case Archetype.EType.Infanterie:
+                    case Archetype.EType.Standard:
                         if( ( size != Archetype.ESize.Klein )
                             &&
                             ( size != Archetype.ESize.Mittel )
                             &&
                             ( size != Archetype.ESize.Groß ) )
                         {
-                            MessageBox.Show( "Infanterie darf nur klein, mittel oder groß sein!",
+                            MessageBox.Show( "Standard-Modelle dürfen nur klein, mittel oder groß sein!",
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );

@@ -135,7 +135,7 @@ namespace Universalis
         {
             get;
             set;
-        } = EType.Infanterie;
+        } = EType.Standard;
 
         public ESize Size
         {
@@ -197,7 +197,7 @@ namespace Universalis
 
                 switch( Type )
                 {
-                    case EType.Infanterie:
+                    case EType.Standard:
                         typeMultiplicator = 17.5f;
                         break;
 
@@ -320,7 +320,7 @@ namespace Universalis
 
         public enum EType
         {
-            Infanterie = 1,
+            Standard = 1,
             Koloss = 2,
             Telematon = 3
         }

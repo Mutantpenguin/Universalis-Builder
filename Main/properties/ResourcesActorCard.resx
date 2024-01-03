@@ -127,9 +127,6 @@
   <data name="Indirekt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\indirekt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Infanterie" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Infanterie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="klein" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\klein.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -186,5 +183,8 @@
   </data>
   <data name="Telematon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Telematon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Standard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

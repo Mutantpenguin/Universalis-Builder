@@ -163,16 +163,6 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Infanterie {
-            get {
-                object obj = ResourceManager.GetObject("Infanterie", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap klein {
             get {
                 object obj = ResourceManager.GetObject("klein", resourceCulture);
@@ -256,6 +246,16 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap Schutz_weiss {
             get {
                 object obj = ResourceManager.GetObject("Schutz_weiss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Standard {
+            get {
+                object obj = ResourceManager.GetObject("Standard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

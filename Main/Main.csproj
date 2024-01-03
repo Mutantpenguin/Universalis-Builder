@@ -630,7 +630,7 @@
     <Content Include="icon.ico" />
     <None Include="Resources\Telematon.png" />
     <None Include="Resources\Koloss.png" />
-    <None Include="Resources\Infanterie.png" />
+    <None Include="Resources\Standard.png" />
     <None Include="Resources\SchadenMisserfolg.png" />
     <None Include="Resources\DauerDauerhaft.png" />
     <None Include="Resources\SchadenAutomatisch.png" />

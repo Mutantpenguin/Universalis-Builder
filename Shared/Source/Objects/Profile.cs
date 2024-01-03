@@ -103,7 +103,7 @@ namespace Universalis
 
             switch( type )
             {
-                case Archetype.EType.Infanterie:
+                case Archetype.EType.Standard:
                 case Archetype.EType.Telematon:
                     points += HitPoints * profileCosts.HitPoints;
                     break;

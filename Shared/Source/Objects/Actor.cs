@@ -636,7 +636,7 @@ namespace Universalis
 
                 switch( this.Archetype.Type )
                 {
-                    case Archetype.EType.Infanterie:
+                    case Archetype.EType.Standard:
                         weaponUnarmed.Class = Weapon.EClass.I;
                         break;
 
