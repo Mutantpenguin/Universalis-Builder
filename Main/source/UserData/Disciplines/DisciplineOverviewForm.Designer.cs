@@ -110,10 +110,12 @@
             this.Controls.Add(this.listViewPowers);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelHeader);
+            this.KeyPreview = true;
             this.MinimizeBox = false;
             this.Name = "DisciplineOverviewForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Disziplin";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DisciplineOverviewForm_KeyDown);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panel1.ResumeLayout(false);

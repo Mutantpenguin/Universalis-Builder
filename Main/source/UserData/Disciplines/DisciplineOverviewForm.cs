@@ -79,5 +79,13 @@ namespace Universalis
 
             PowersPDFExporter.GeneratePDF( m_discipline, powerList, Path.Combine( Path.GetTempPath(), Path.ChangeExtension( filename, "pdf" ) ) );
         }
+
+        private void DisciplineOverviewForm_KeyDown( object sender, KeyEventArgs e )
+        {
+            if( e.KeyCode == Keys.Escape )
+            {
+                this.Close();
+            }
+        }
     }
 }
