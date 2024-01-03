@@ -628,6 +628,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\Telematon.png" />
+    <None Include="Resources\Koloss.png" />
+    <None Include="Resources\Infanterie.png" />
     <None Include="Resources\SchadenMisserfolg.png" />
     <None Include="Resources\DauerDauerhaft.png" />
     <None Include="Resources\SchadenAutomatisch.png" />
@@ -646,13 +649,10 @@
     <None Include="Resources\Reichweite_weiss.png" />
     <None Include="Resources\nachladen.png" />
     <None Include="Resources\mittel.png" />
-    <None Include="Resources\Koloss.png" />
     <None Include="Resources\klein.png" />
-    <None Include="Resources\Infanterie.png" />
     <None Include="Resources\Indirekt.png" />
     <None Include="Resources\groß.png" />
     <None Include="Resources\Gefahrenbereich.png" />
-    <None Include="Resources\Telematon.png" />
     <None Include="Resources\Autofeuer.png" />
     <None Include="Resources\bewegung_beine.png" />
     <None Include="Resources\bewegung_flug.png" />
