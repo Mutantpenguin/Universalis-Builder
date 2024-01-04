@@ -208,7 +208,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(267, 84);
+            this.label3.Location = new System.Drawing.Point(276, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 36;
@@ -218,7 +218,7 @@
             // 
             this.textBoxWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxWeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "Weight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxWeight.Location = new System.Drawing.Point(323, 81);
+            this.textBoxWeight.Location = new System.Drawing.Point(332, 55);
             this.textBoxWeight.Name = "textBoxWeight";
             this.textBoxWeight.ReadOnly = true;
             this.textBoxWeight.Size = new System.Drawing.Size(50, 20);
@@ -267,7 +267,7 @@
             // 
             this.comboBoxMovementType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMovementType.FormattingEnabled = true;
-            this.comboBoxMovementType.Location = new System.Drawing.Point(94, 134);
+            this.comboBoxMovementType.Location = new System.Drawing.Point(102, 109);
             this.comboBoxMovementType.Name = "comboBoxMovementType";
             this.comboBoxMovementType.Size = new System.Drawing.Size(149, 21);
             this.comboBoxMovementType.TabIndex = 53;
@@ -277,7 +277,7 @@
             // HitPoints
             // 
             this.HitPoints.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileBindingSource, "HitPoints", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.HitPoints.Location = new System.Drawing.Point(94, 82);
+            this.HitPoints.Location = new System.Drawing.Point(102, 57);
             this.HitPoints.Maximum = new decimal(new int[] {
             27,
             0,
@@ -305,7 +305,7 @@
             // 
             // AreaOfPerception
             // 
-            this.AreaOfPerception.Location = new System.Drawing.Point(323, 55);
+            this.AreaOfPerception.Location = new System.Drawing.Point(332, 29);
             this.AreaOfPerception.Name = "AreaOfPerception";
             this.AreaOfPerception.ReadOnly = true;
             this.AreaOfPerception.Size = new System.Drawing.Size(50, 20);
@@ -316,7 +316,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(267, 58);
+            this.label16.Location = new System.Drawing.Point(276, 32);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(25, 13);
             this.label16.TabIndex = 59;
@@ -325,7 +325,7 @@
             // 
             // DangerArea
             // 
-            this.DangerArea.Location = new System.Drawing.Point(323, 28);
+            this.DangerArea.Location = new System.Drawing.Point(332, 3);
             this.DangerArea.Name = "DangerArea";
             this.DangerArea.ReadOnly = true;
             this.DangerArea.Size = new System.Drawing.Size(50, 20);
@@ -336,7 +336,7 @@
             // labelGB
             // 
             this.labelGB.AutoSize = true;
-            this.labelGB.Location = new System.Drawing.Point(267, 31);
+            this.labelGB.Location = new System.Drawing.Point(276, 6);
             this.labelGB.Name = "labelGB";
             this.labelGB.Size = new System.Drawing.Size(22, 13);
             this.labelGB.TabIndex = 57;
@@ -346,7 +346,7 @@
             // Speed
             // 
             this.Speed.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileBindingSource, "Speed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.Speed.Location = new System.Drawing.Point(94, 108);
+            this.Speed.Location = new System.Drawing.Point(102, 83);
             this.Speed.Maximum = new decimal(new int[] {
             12,
             0,
@@ -367,7 +367,7 @@
             // 
             this.textBoxTragkraft.BackColor = System.Drawing.SystemColors.Control;
             this.textBoxTragkraft.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "MaxLoadCapacity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBoxTragkraft.Location = new System.Drawing.Point(323, 107);
+            this.textBoxTragkraft.Location = new System.Drawing.Point(332, 81);
             this.textBoxTragkraft.Name = "textBoxTragkraft";
             this.textBoxTragkraft.ReadOnly = true;
             this.textBoxTragkraft.Size = new System.Drawing.Size(50, 20);
@@ -378,7 +378,7 @@
             // MaxQuantity
             // 
             this.MaxQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.archetypeBindingSource, "MaxQuantity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MaxQuantity.Location = new System.Drawing.Point(94, 161);
+            this.MaxQuantity.Location = new System.Drawing.Point(102, 136);
             this.MaxQuantity.Maximum = new decimal(new int[] {
             12,
             0,
@@ -398,7 +398,7 @@
             // labelSpeed
             // 
             this.labelSpeed.AutoSize = true;
-            this.labelSpeed.Location = new System.Drawing.Point(3, 110);
+            this.labelSpeed.Location = new System.Drawing.Point(3, 85);
             this.labelSpeed.Name = "labelSpeed";
             this.labelSpeed.Size = new System.Drawing.Size(85, 13);
             this.labelSpeed.TabIndex = 55;
@@ -407,7 +407,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 163);
+            this.label13.Location = new System.Drawing.Point(3, 138);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 13);
             this.label13.TabIndex = 67;
@@ -754,7 +754,7 @@
             // 
             this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel3});
-            this.toolStrip3.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip3.Location = new System.Drawing.Point(0, 64);
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.Size = new System.Drawing.Size(484, 25);
             this.toolStrip3.TabIndex = 0;
@@ -785,18 +785,17 @@
             this.panel2.Controls.Add(this.comboBoxType);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.comboBoxSize);
-            this.panel2.Controls.Add(this.toolStrip3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 64);
+            this.panel2.Location = new System.Drawing.Point(0, 89);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(484, 184);
+            this.panel2.Size = new System.Drawing.Size(484, 159);
             this.panel2.TabIndex = 39;
             // 
             // label18
             // 
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(375, 110);
+            this.label18.Location = new System.Drawing.Point(384, 84);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(19, 13);
             this.label18.TabIndex = 66;
@@ -806,7 +805,7 @@
             // 
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(375, 84);
+            this.label14.Location = new System.Drawing.Point(384, 58);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(19, 13);
             this.label14.TabIndex = 65;
@@ -815,7 +814,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(267, 110);
+            this.label5.Location = new System.Drawing.Point(276, 84);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 13);
             this.label5.TabIndex = 64;
@@ -824,7 +823,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 137);
+            this.label17.Location = new System.Drawing.Point(3, 112);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(75, 13);
             this.label17.TabIndex = 54;
@@ -833,7 +832,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 84);
+            this.label10.Location = new System.Drawing.Point(3, 59);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 13);
             this.label10.TabIndex = 51;
@@ -842,7 +841,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 31);
+            this.label15.Location = new System.Drawing.Point(3, 6);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(25, 13);
             this.label15.TabIndex = 47;
@@ -852,7 +851,7 @@
             // 
             this.comboBoxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(94, 28);
+            this.comboBoxType.Location = new System.Drawing.Point(102, 3);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(132, 21);
             this.comboBoxType.TabIndex = 46;
@@ -862,7 +861,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(4, 58);
+            this.label12.Location = new System.Drawing.Point(3, 33);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(36, 13);
             this.label12.TabIndex = 45;
@@ -872,7 +871,7 @@
             // 
             this.comboBoxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSize.FormattingEnabled = true;
-            this.comboBoxSize.Location = new System.Drawing.Point(94, 55);
+            this.comboBoxSize.Location = new System.Drawing.Point(102, 30);
             this.comboBoxSize.Name = "comboBoxSize";
             this.comboBoxSize.Size = new System.Drawing.Size(85, 21);
             this.comboBoxSize.TabIndex = 44;
@@ -1081,6 +1080,7 @@
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.toolStrip3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip7);
             this.KeyPreview = true;
