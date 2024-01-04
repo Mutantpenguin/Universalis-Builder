@@ -417,6 +417,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip7);
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "PowerEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Kraft Editor";
