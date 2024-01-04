@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using Universalis.Source.MasterData.Discipline;
 
 namespace Universalis
 {
@@ -252,7 +251,7 @@ namespace Universalis
 
         private void editPower( Power power )
         {
-            using( var powerEditorForm = new PowerEditorForm( power ) )
+            using( var powerEditorForm = new PowerEditorForm( m_modifiedDiscipline, power ) )
             {
                 powerEditorForm.ShowDialog( this );
             }

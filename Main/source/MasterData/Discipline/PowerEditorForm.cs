@@ -9,16 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Universalis.Source.MasterData.Discipline
+namespace Universalis
 {
     public partial class PowerEditorForm : Form
     {
-        public PowerEditorForm(Power power)
+        public PowerEditorForm( Discipline discipline, Power power )
         {
             InitializeComponent();
 
             this.Icon = Properties.Resources.icon;
 
+            m_discipline = discipline;
             m_originalPower = power;
 
             m_modifiedPower = new Power( power );
@@ -40,11 +41,40 @@ namespace Universalis.Source.MasterData.Discipline
 
             powerBindingSource.DataSource = m_modifiedPower;
 
+            powerBindingSource.ListChanged += PowerBindingSource_ListChanged;
+
             HandleDamageValue();
+
+            UpdateCard();
         }
 
+        protected override void Dispose( bool disposing )
+        {
+            if( disposing )
+            {
+                components?.Dispose();
+
+                pictureBoxPower.Image?.Dispose();
+            }
+
+            base.Dispose( disposing );
+        }
+
+        private void PowerBindingSource_ListChanged( object sender, ListChangedEventArgs e )
+        {
+            UpdateCard();
+        }
+
+        private readonly Discipline m_discipline;
         private readonly Power m_originalPower;
         private Power m_modifiedPower;
+
+        private void UpdateCard()
+        {
+            pictureBoxPower.Image?.Dispose();
+
+            pictureBoxPower.Image = PowerCardPainter.GetBitmap( m_discipline, m_modifiedPower, monochrome: false );
+        }
 
         private bool mandatoryFieldsFilled()
         {
@@ -120,17 +150,20 @@ namespace Universalis.Source.MasterData.Discipline
         private void comboBoxTarget_SelectionChangeCommitted( object sender, EventArgs e )
         {
             m_modifiedPower.Target = (Power.ETarget)comboBoxTarget.SelectedItem;
+            UpdateCard();
         }
 
         private void comboBoxRange_SelectionChangeCommitted( object sender, EventArgs e )
         {
             m_modifiedPower.Range = (Power.ERange)comboBoxRange.SelectedItem;
+            UpdateCard();
         }
 
         private void comboBoxDamageApplication_SelectionChangeCommitted( object sender, EventArgs e )
         {
             m_modifiedPower.DamageApplication = (Power.EDamageApplication)comboBoxDamageApplication.SelectedItem;
             HandleDamageValue();
+            UpdateCard();
         }
 
         private void HandleDamageValue()
@@ -149,11 +182,13 @@ namespace Universalis.Source.MasterData.Discipline
         private void comboBoxDuration_SelectionChangeCommitted( object sender, EventArgs e )
         {
             m_modifiedPower.Duration = (Power.EDuration)comboBoxDuration.SelectedItem;
+            UpdateCard();
         }
 
         private void comboBoxAttribute_SelectionChangeCommitted( object sender, EventArgs e )
         {
             m_modifiedPower.Attribute = (Power.EAttribute)comboBoxAttribute.SelectedItem;
+            UpdateCard();
         }
     }
 }

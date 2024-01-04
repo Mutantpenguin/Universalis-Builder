@@ -1,4 +1,4 @@
-﻿namespace Universalis.Source.MasterData.Discipline
+﻿namespace Universalis
 {
     partial class PowerEditorForm
     {
@@ -6,19 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose( bool disposing )
-        {
-            if( disposing && ( components != null ) )
-            {
-                components.Dispose();
-            }
-            base.Dispose( disposing );
-        }
 
         #region Windows Form Designer generated code
 
@@ -32,9 +19,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
+            this.powerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip7 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxAttribute = new System.Windows.Forms.ComboBox();
+            this.comboBoxDuration = new System.Windows.Forms.ComboBox();
+            this.comboBoxDamageApplication = new System.Windows.Forms.ComboBox();
+            this.comboBoxRange = new System.Windows.Forms.ComboBox();
+            this.comboBoxTarget = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.numericUpDownAP = new System.Windows.Forms.NumericUpDown();
@@ -53,14 +47,11 @@
             this.textBoxRules = new System.Windows.Forms.TextBox();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.comboBoxTarget = new System.Windows.Forms.ComboBox();
-            this.comboBoxRange = new System.Windows.Forms.ComboBox();
-            this.comboBoxDamageApplication = new System.Windows.Forms.ComboBox();
-            this.comboBoxDuration = new System.Windows.Forms.ComboBox();
-            this.comboBoxAttribute = new System.Windows.Forms.ComboBox();
-            this.powerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label5 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBoxPower = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).BeginInit();
             this.toolStrip7.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
@@ -71,7 +62,9 @@
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -80,9 +73,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(445, 39);
+            this.panel1.Size = new System.Drawing.Size(441, 39);
             this.panel1.TabIndex = 34;
             // 
             // label1
@@ -101,8 +94,12 @@
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.powerBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxName.Location = new System.Drawing.Point(6, 16);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(427, 20);
+            this.textBoxName.Size = new System.Drawing.Size(423, 20);
             this.textBoxName.TabIndex = 0;
+            // 
+            // powerBindingSource
+            // 
+            this.powerBindingSource.DataSource = typeof(Universalis.Power);
             // 
             // toolStrip7
             // 
@@ -110,7 +107,7 @@
             this.toolStripButtonSave});
             this.toolStrip7.Location = new System.Drawing.Point(0, 0);
             this.toolStrip7.Name = "toolStrip7";
-            this.toolStrip7.Size = new System.Drawing.Size(445, 25);
+            this.toolStrip7.Size = new System.Drawing.Size(894, 25);
             this.toolStrip7.TabIndex = 35;
             this.toolStrip7.Text = "toolStrip7";
             // 
@@ -142,10 +139,69 @@
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.numericUpDownDamageValue);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 89);
+            this.panel3.Location = new System.Drawing.Point(0, 64);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(445, 81);
+            this.panel3.Size = new System.Drawing.Size(441, 81);
             this.panel3.TabIndex = 36;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(210, 6);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.TabIndex = 55;
+            this.label5.Text = "Attribut/Modifier";
+            // 
+            // comboBoxAttribute
+            // 
+            this.comboBoxAttribute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxAttribute.FormattingEnabled = true;
+            this.comboBoxAttribute.Location = new System.Drawing.Point(298, 3);
+            this.comboBoxAttribute.Name = "comboBoxAttribute";
+            this.comboBoxAttribute.Size = new System.Drawing.Size(96, 21);
+            this.comboBoxAttribute.TabIndex = 54;
+            this.comboBoxAttribute.SelectionChangeCommitted += new System.EventHandler(this.comboBoxAttribute_SelectionChangeCommitted);
+            // 
+            // comboBoxDuration
+            // 
+            this.comboBoxDuration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDuration.FormattingEnabled = true;
+            this.comboBoxDuration.Location = new System.Drawing.Point(298, 57);
+            this.comboBoxDuration.Name = "comboBoxDuration";
+            this.comboBoxDuration.Size = new System.Drawing.Size(96, 21);
+            this.comboBoxDuration.TabIndex = 53;
+            this.comboBoxDuration.SelectionChangeCommitted += new System.EventHandler(this.comboBoxDuration_SelectionChangeCommitted);
+            // 
+            // comboBoxDamageApplication
+            // 
+            this.comboBoxDamageApplication.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDamageApplication.FormattingEnabled = true;
+            this.comboBoxDamageApplication.Location = new System.Drawing.Point(298, 30);
+            this.comboBoxDamageApplication.Name = "comboBoxDamageApplication";
+            this.comboBoxDamageApplication.Size = new System.Drawing.Size(96, 21);
+            this.comboBoxDamageApplication.TabIndex = 52;
+            this.comboBoxDamageApplication.SelectionChangeCommitted += new System.EventHandler(this.comboBoxDamageApplication_SelectionChangeCommitted);
+            // 
+            // comboBoxRange
+            // 
+            this.comboBoxRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRange.FormattingEnabled = true;
+            this.comboBoxRange.Location = new System.Drawing.Point(75, 56);
+            this.comboBoxRange.Name = "comboBoxRange";
+            this.comboBoxRange.Size = new System.Drawing.Size(96, 21);
+            this.comboBoxRange.TabIndex = 51;
+            this.comboBoxRange.SelectionChangeCommitted += new System.EventHandler(this.comboBoxRange_SelectionChangeCommitted);
+            // 
+            // comboBoxTarget
+            // 
+            this.comboBoxTarget.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTarget.FormattingEnabled = true;
+            this.comboBoxTarget.Location = new System.Drawing.Point(75, 29);
+            this.comboBoxTarget.Name = "comboBoxTarget";
+            this.comboBoxTarget.Size = new System.Drawing.Size(96, 21);
+            this.comboBoxTarget.TabIndex = 50;
+            this.comboBoxTarget.SelectionChangeCommitted += new System.EventHandler(this.comboBoxTarget_SelectionChangeCommitted);
             // 
             // label3
             // 
@@ -253,9 +309,9 @@
             // 
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel2});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 64);
+            this.toolStrip2.Location = new System.Drawing.Point(0, 39);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(445, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(441, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -271,9 +327,9 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 322);
+            this.panel4.Location = new System.Drawing.Point(0, 297);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(445, 139);
+            this.panel4.Size = new System.Drawing.Size(441, 133);
             this.panel4.TabIndex = 47;
             // 
             // textBoxDescription
@@ -284,7 +340,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(445, 114);
+            this.textBoxDescription.Size = new System.Drawing.Size(441, 108);
             this.textBoxDescription.TabIndex = 1;
             // 
             // toolStrip1
@@ -293,7 +349,7 @@
             this.toolStripLabel1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(445, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(441, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -309,9 +365,9 @@
             this.panel2.Controls.Add(this.textBoxRules);
             this.panel2.Controls.Add(this.toolStrip3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 170);
+            this.panel2.Location = new System.Drawing.Point(0, 145);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(445, 152);
+            this.panel2.Size = new System.Drawing.Size(441, 152);
             this.panel2.TabIndex = 48;
             // 
             // textBoxRules
@@ -322,7 +378,7 @@
             this.textBoxRules.Multiline = true;
             this.textBoxRules.Name = "textBoxRules";
             this.textBoxRules.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRules.Size = new System.Drawing.Size(445, 127);
+            this.textBoxRules.Size = new System.Drawing.Size(441, 127);
             this.textBoxRules.TabIndex = 1;
             // 
             // toolStrip3
@@ -331,7 +387,7 @@
             this.toolStripLabel3});
             this.toolStrip3.Location = new System.Drawing.Point(0, 0);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(445, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(441, 25);
             this.toolStrip3.TabIndex = 0;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -341,80 +397,51 @@
             this.toolStripLabel3.Size = new System.Drawing.Size(43, 22);
             this.toolStripLabel3.Text = "Regeln";
             // 
-            // comboBoxTarget
+            // tableLayoutPanel1
             // 
-            this.comboBoxTarget.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTarget.FormattingEnabled = true;
-            this.comboBoxTarget.Location = new System.Drawing.Point(75, 29);
-            this.comboBoxTarget.Name = "comboBoxTarget";
-            this.comboBoxTarget.Size = new System.Drawing.Size(96, 21);
-            this.comboBoxTarget.TabIndex = 50;
-            this.comboBoxTarget.SelectionChangeCommitted += new System.EventHandler(this.comboBoxTarget_SelectionChangeCommitted);
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.pictureBoxPower, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel5, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 25);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(894, 436);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // comboBoxRange
+            // panel5
             // 
-            this.comboBoxRange.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxRange.FormattingEnabled = true;
-            this.comboBoxRange.Location = new System.Drawing.Point(75, 56);
-            this.comboBoxRange.Name = "comboBoxRange";
-            this.comboBoxRange.Size = new System.Drawing.Size(96, 21);
-            this.comboBoxRange.TabIndex = 51;
-            this.comboBoxRange.SelectionChangeCommitted += new System.EventHandler(this.comboBoxRange_SelectionChangeCommitted);
+            this.panel5.Controls.Add(this.panel4);
+            this.panel5.Controls.Add(this.panel2);
+            this.panel5.Controls.Add(this.panel3);
+            this.panel5.Controls.Add(this.toolStrip2);
+            this.panel5.Controls.Add(this.panel1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(441, 430);
+            this.panel5.TabIndex = 0;
             // 
-            // comboBoxDamageApplication
+            // pictureBoxPower
             // 
-            this.comboBoxDamageApplication.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDamageApplication.FormattingEnabled = true;
-            this.comboBoxDamageApplication.Location = new System.Drawing.Point(298, 30);
-            this.comboBoxDamageApplication.Name = "comboBoxDamageApplication";
-            this.comboBoxDamageApplication.Size = new System.Drawing.Size(96, 21);
-            this.comboBoxDamageApplication.TabIndex = 52;
-            this.comboBoxDamageApplication.SelectionChangeCommitted += new System.EventHandler(this.comboBoxDamageApplication_SelectionChangeCommitted);
-            // 
-            // comboBoxDuration
-            // 
-            this.comboBoxDuration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDuration.FormattingEnabled = true;
-            this.comboBoxDuration.Location = new System.Drawing.Point(298, 57);
-            this.comboBoxDuration.Name = "comboBoxDuration";
-            this.comboBoxDuration.Size = new System.Drawing.Size(96, 21);
-            this.comboBoxDuration.TabIndex = 53;
-            this.comboBoxDuration.SelectionChangeCommitted += new System.EventHandler(this.comboBoxDuration_SelectionChangeCommitted);
-            // 
-            // comboBoxAttribute
-            // 
-            this.comboBoxAttribute.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxAttribute.FormattingEnabled = true;
-            this.comboBoxAttribute.Location = new System.Drawing.Point(298, 3);
-            this.comboBoxAttribute.Name = "comboBoxAttribute";
-            this.comboBoxAttribute.Size = new System.Drawing.Size(96, 21);
-            this.comboBoxAttribute.TabIndex = 54;
-            this.comboBoxAttribute.SelectionChangeCommitted += new System.EventHandler(this.comboBoxAttribute_SelectionChangeCommitted);
-            // 
-            // powerBindingSource
-            // 
-            this.powerBindingSource.DataSource = typeof(Universalis.Power);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(210, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 13);
-            this.label5.TabIndex = 55;
-            this.label5.Text = "Attribut/Modifier";
+            this.pictureBoxPower.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxPower.Location = new System.Drawing.Point(450, 3);
+            this.pictureBoxPower.Name = "pictureBoxPower";
+            this.pictureBoxPower.Size = new System.Drawing.Size(441, 430);
+            this.pictureBoxPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPower.TabIndex = 37;
+            this.pictureBoxPower.TabStop = false;
             // 
             // PowerEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(445, 461);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.toolStrip2);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(894, 461);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.toolStrip7);
             this.KeyPreview = true;
             this.MaximizeBox = false;
@@ -425,6 +452,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PowerEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).EndInit();
             this.toolStrip7.ResumeLayout(false);
             this.toolStrip7.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -442,7 +470,10 @@
             this.panel2.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,5 +512,8 @@
         private System.Windows.Forms.ComboBox comboBoxRange;
         private System.Windows.Forms.ComboBox comboBoxAttribute;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.PictureBox pictureBoxPower;
     }
 }
