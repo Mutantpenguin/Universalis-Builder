@@ -48,8 +48,8 @@
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBoxPower = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).BeginInit();
             this.toolStrip7.SuspendLayout();
@@ -63,8 +63,8 @@
             this.panel2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -412,6 +412,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(894, 436);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
+            // pictureBoxPower
+            // 
+            this.pictureBoxPower.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxPower.Location = new System.Drawing.Point(450, 3);
+            this.pictureBoxPower.Name = "pictureBoxPower";
+            this.pictureBoxPower.Size = new System.Drawing.Size(441, 430);
+            this.pictureBoxPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPower.TabIndex = 37;
+            this.pictureBoxPower.TabStop = false;
+            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.panel4);
@@ -425,16 +435,6 @@
             this.panel5.Size = new System.Drawing.Size(441, 430);
             this.panel5.TabIndex = 0;
             // 
-            // pictureBoxPower
-            // 
-            this.pictureBoxPower.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxPower.Location = new System.Drawing.Point(450, 3);
-            this.pictureBoxPower.Name = "pictureBoxPower";
-            this.pictureBoxPower.Size = new System.Drawing.Size(441, 430);
-            this.pictureBoxPower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPower.TabIndex = 37;
-            this.pictureBoxPower.TabStop = false;
-            // 
             // PowerEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,7 +444,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.toolStrip7);
             this.KeyPreview = true;
-            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PowerEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Kraft Editor";
@@ -471,9 +471,9 @@
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
