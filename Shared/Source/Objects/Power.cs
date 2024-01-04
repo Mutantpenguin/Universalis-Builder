@@ -111,7 +111,7 @@ namespace Universalis
         {
             get;
             set;
-        } = 0;
+        } = 1;
 
         [JsonConverter( typeof( JsonEAttributeConverter ) )]
         public EAttribute Attribute

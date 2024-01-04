@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,7 +23,24 @@ namespace Universalis.Source.MasterData.Discipline
 
             m_modifiedPower = new Power( power );
 
+            comboBoxAttribute.DataSource = Enum.GetValues( typeof( Power.EAttribute ) );
+            comboBoxAttribute.SelectedItem = m_modifiedPower.Attribute;
+
+            comboBoxTarget.DataSource = Enum.GetValues( typeof( Power.ETarget ) );
+            comboBoxTarget.SelectedItem = m_modifiedPower.Target;
+
+            comboBoxRange.DataSource = Enum.GetValues( typeof( Power.ERange ) );
+            comboBoxRange.SelectedItem = m_modifiedPower.Range;
+
+            comboBoxDamageApplication.DataSource = Enum.GetValues( typeof( Power.EDamageApplication ) );
+            comboBoxDamageApplication.SelectedItem = m_modifiedPower.DamageApplication;
+
+            comboBoxDuration.DataSource = Enum.GetValues( typeof( Power.EDuration ) );
+            comboBoxDuration.SelectedItem = m_modifiedPower.Duration;
+
             powerBindingSource.DataSource = m_modifiedPower;
+
+            HandleDamageValue();
         }
 
         private readonly Power m_originalPower;
@@ -42,9 +60,12 @@ namespace Universalis.Source.MasterData.Discipline
                 return false;
             }
 
-            if( numericUpDownWeight.Value == 0 )
+            if( m_modifiedPower.DamageApplication != Power.EDamageApplication.Keinen
+                &&
+                m_modifiedPower.DamageValue == 0 )
             {
-                MessageBox.Show( "Achtung, das Gewicht steht auf '0'!" );
+                MessageBox.Show( "Bei TP-Verlust darf der Wert nicht 0 sein." );
+                return false;
             }
 
             return true;
@@ -94,6 +115,45 @@ namespace Universalis.Source.MasterData.Discipline
             {
                 this.Close();
             }
+        }
+
+        private void comboBoxTarget_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            m_modifiedPower.Target = (Power.ETarget)comboBoxTarget.SelectedItem;
+        }
+
+        private void comboBoxRange_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            m_modifiedPower.Range = (Power.ERange)comboBoxRange.SelectedItem;
+        }
+
+        private void comboBoxDamageApplication_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            m_modifiedPower.DamageApplication = (Power.EDamageApplication)comboBoxDamageApplication.SelectedItem;
+            HandleDamageValue();
+        }
+
+        private void HandleDamageValue()
+        {
+            if( m_modifiedPower.DamageApplication == Power.EDamageApplication.Keinen )
+            {
+                m_modifiedPower.DamageValue = 0;
+                numericUpDownDamageValue.Visible = false;
+            }
+            else
+            {
+                numericUpDownDamageValue.Visible = true;
+            }
+        }
+
+        private void comboBoxDuration_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            m_modifiedPower.Duration = (Power.EDuration)comboBoxDuration.SelectedItem;
+        }
+
+        private void comboBoxAttribute_SelectionChangeCommitted( object sender, EventArgs e )
+        {
+            m_modifiedPower.Attribute = (Power.EAttribute)comboBoxAttribute.SelectedItem;
         }
     }
 }
