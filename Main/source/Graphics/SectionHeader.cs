@@ -15,7 +15,7 @@ namespace Universalis
 
                 Rectangle sectionRectangle = new Rectangle( 0, 0, width, height );
 
-                using( TextureBrush patternBrush = new TextureBrush( Shared.Properties.Resources.section_pattern, WrapMode.Tile ) )
+                using( TextureBrush patternBrush = new TextureBrush( Properties.Resources.section_pattern, WrapMode.Tile ) )
                 {
                     patternBrush.ScaleTransform( 0.4f, 0.4f );
                     g.FillRectangle( patternBrush, sectionRectangle );

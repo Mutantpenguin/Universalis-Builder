@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Resources;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -9,3 +10,22 @@ using System.Runtime.InteropServices;
 
 // Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
 [assembly: Guid( "16d00bb9-3021-4643-88e8-15794240cab2" )]
+
+[assembly: AssemblyCompany( "" )]
+[assembly: AssemblyProduct( "Universalis Program Suite" )]
+
+[assembly: AssemblyCopyright( "Copyright © Markus Lobedann 2023" )]
+[assembly: AssemblyTrademark( "" )]
+
+[assembly: AssemblyCulture( "" )]
+
+[assembly: ComVisible( false )]
+
+#if DEBUG
+[assembly: AssemblyConfiguration( "Debug" )]
+#else
+    [assembly: AssemblyConfiguration("Release")]
+#endif
+
+[assembly: AssemblyVersion( "0.7.0.0" )]
+[assembly: NeutralResourcesLanguage( "de-DE" )]

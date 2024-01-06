@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Shared.Source.JsonHelper;
+using Source.JsonHelper;
 using System;
 using System.Collections.Generic;
 

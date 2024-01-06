@@ -353,6 +353,46 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap empty {
+            get {
+                object obj = ResourceManager.GetObject("empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap empty_faction {
+            get {
+                object obj = ResourceManager.GetObject("empty_faction", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap empty_group {
+            get {
+                object obj = ResourceManager.GetObject("empty_group", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap empty_model {
+            get {
+                object obj = ResourceManager.GetObject("empty_model", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap funnel {
             get {
                 object obj = ResourceManager.GetObject("funnel", resourceCulture);
@@ -501,6 +541,16 @@ namespace Universalis.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] NovaRound_Regular {
+            get {
+                object obj = ResourceManager.GetObject("NovaRound_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap outline_key_black_18dp {
@@ -531,12 +581,63 @@ namespace Universalis.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {
+        ///	&quot;type&quot;: &quot;object&quot;,
+        ///	&quot;properties&quot;: {
+        ///		&quot;name&quot;: { &quot;type&quot;: &quot;string&quot; },
+        ///		&quot;description&quot;: { &quot;type&quot;: &quot;string&quot; },
+        ///		&quot;version&quot;: { &quot;type&quot;: &quot;string&quot; },
+        ///		&quot;id&quot;: {
+        ///			&quot;type&quot;: &quot;string&quot;,
+        ///			&quot;format&quot;: &quot;uuid&quot;
+        ///		},
+        ///		&quot;author&quot;: { &quot;type&quot;: &quot;string&quot; },
+        ///		&quot;website&quot;: {
+        ///			&quot;type&quot;: &quot;string&quot;,
+        ///			&quot;format&quot;: &quot;uri&quot;
+        ///		},
+        ///		&quot;contact&quot;: {
+        ///			&quot;type&quot;: &quot;string&quot;,
+        ///			&quot;format&quot;: &quot;email&quot;
+        ///		},
+        ///		&quot;costs&quot;: {}
+        ///	},
+        ///	&quot;required&quot;: [ &quot;name&quot;, &quot;description&quot;, &quot;id&quot; ],
+        ///	&quot;additionalProperties&quot;: false
+        ///}.
+        /// </summary>
+        internal static string schema_universe {
+            get {
+                return ResourceManager.GetString("schema_universe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap section_pattern {
+            get {
+                object obj = ResourceManager.GetObject("section_pattern", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap spinner {
             get {
                 object obj = ResourceManager.GetObject("spinner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream startup_sound {
+            get {
+                return ResourceManager.GetStream("startup_sound", resourceCulture);
             }
         }
         

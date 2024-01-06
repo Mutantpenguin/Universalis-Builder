@@ -124,7 +124,7 @@ namespace Universalis
         {
             get;
             set;
-        } = Shared.Properties.Resources.empty_group;
+        } = Properties.Resources.empty_group;
 
         [JsonConverter( typeof( JsonFactionConverter ) )]
         public Faction Faction

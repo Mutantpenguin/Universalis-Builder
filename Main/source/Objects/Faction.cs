@@ -86,6 +86,6 @@ namespace Universalis
         {
             get;
             set;
-        } = Shared.Properties.Resources.empty_faction;
+        } = Properties.Resources.empty_faction;
     }
 }

@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace Shared.Source.JsonHelper
+namespace Source.JsonHelper
 {
     internal class JsonEAttributeConverter : JsonConverter
     {

@@ -253,7 +253,7 @@ namespace Universalis
         {
             get;
             set;
-        } = Shared.Properties.Resources.empty_model;
+        } = Properties.Resources.empty_model;
 
         public class ActorDiscipline
         {

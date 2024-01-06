@@ -17,7 +17,7 @@ namespace Universalis
         private static readonly float s_cardHeight = CmToPixel( ActorCardPainter.CardHeightCm );
 
         #region fonts
-        private static readonly BaseFont s_baseFontUniversalis = BaseFont.CreateFont( UniversalisFont.FileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, Shared.Properties.Resources.NovaRound_Regular, null );
+        private static readonly BaseFont s_baseFontUniversalis = BaseFont.CreateFont( UniversalisFont.FileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, Properties.Resources.NovaRound_Regular, null );
 
         private static readonly Font s_pageTitleFont = new Font( s_baseFontUniversalis, CmToPixel( 1 ), Font.BOLD, Color.WHITE );
         private static readonly Font s_versionInfoFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );

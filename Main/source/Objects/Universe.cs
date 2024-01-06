@@ -158,7 +158,7 @@ namespace Universalis
 
             try
             {
-                var universeSchema = JSchema.Parse( Shared.Properties.Resources.schema_universe );
+                var universeSchema = JSchema.Parse( Properties.Resources.schema_universe );
 
                 JObject universeJObject = JObject.Parse( File.ReadAllText( universeSettingsPath ) );
 

@@ -17,7 +17,7 @@ namespace Universalis
             using( PrivateFontCollection pfc = new PrivateFontCollection() )
             {
                 // load Font from Resource
-                byte[] fontData = Shared.Properties.Resources.NovaRound_Regular;
+                byte[] fontData = Properties.Resources.NovaRound_Regular;
                 IntPtr fontPtr = Marshal.AllocCoTaskMem( fontData.Length );
                 Marshal.Copy( fontData, 0, fontPtr, fontData.Length );
                 AddFontMemResourceEx(fontPtr, (uint)fontData.Length, IntPtr.Zero, 0);

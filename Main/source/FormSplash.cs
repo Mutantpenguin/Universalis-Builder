@@ -7,7 +7,7 @@ namespace Universalis
     {
         public FormSplash()
         {
-            using( var player = new System.Media.SoundPlayer( Shared.Properties.Resources.startup_sound ) )
+            using( var player = new System.Media.SoundPlayer( Properties.Resources.startup_sound ) )
             {
                 player.Play();
             }

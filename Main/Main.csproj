@@ -71,6 +71,12 @@
     <Reference Include="Mono.Options, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Mono.Options.6.12.0.148\lib\net40\Mono.Options.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Schema, Version=3.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.Schema.3.0.15\lib\net45\Newtonsoft.Json.Schema.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -92,6 +98,12 @@
     </Compile>
     <Compile Include="Source\CardPainter\ActorCardPainter.cs" />
     <Compile Include="Source\CardPainter\CardPainterHelpers.cs" />
+    <Compile Include="Source\Fonts\UniversalisFont.cs" />
+    <Compile Include="Source\Globals\Costs.cs" />
+    <Compile Include="Source\Globals\Presets.cs" />
+    <Compile Include="Source\Graphics\SectionHeader.cs" />
+    <Compile Include="Source\Helper\ColorHelper.cs" />
+    <Compile Include="Source\Helper\DataGridViewHelper.cs" />
     <Compile Include="Source\Helper\Drawing.cs" />
     <Compile Include="Source\CardPainter\PowerCardPainter.cs" />
     <Compile Include="Source\DeityModeForm.cs">
@@ -107,12 +119,34 @@
       <DependentUpon>ArmorDisplayForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Helper\ButtonText.cs" />
+    <Compile Include="Source\Helper\Formatter.cs" />
+    <Compile Include="Source\Helper\ImageBase64Helper.cs" />
+    <Compile Include="Source\Helper\ImageHelper.cs" />
+    <Compile Include="Source\Helper\LoadCapacity.cs" />
+    <Compile Include="Source\Helper\RepositoryHelper.cs" />
+    <Compile Include="Source\Helper\StringHelper.cs" />
+    <Compile Include="Source\Helper\ToolTipHelper.cs" />
+    <Compile Include="Source\Helper\UniversalisSettings.cs" />
     <Compile Include="Source\Helper\WeaponDisplayForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Helper\WeaponDisplayForm.Designer.cs">
       <DependentUpon>WeaponDisplayForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\JsonHelper\JsonArchetypeConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonArchetypeHashSetConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonArmorConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonDamageEffectSetConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonDisciplineConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonEAttributeConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonEquipmentConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonFactionConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonFactionHashSetConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonGroupTraitorConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonJpegConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonPngConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonTraitConverter.cs" />
+    <Compile Include="Source\JsonHelper\JsonWeaponConverter.cs" />
     <Compile Include="Source\MasterData\Discipline\DisciplineManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +339,39 @@
     <Compile Include="Source\Misc\UniverseInfoForm.Designer.cs">
       <DependentUpon>UniverseInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Objects\Actor.cs" />
+    <Compile Include="Source\Objects\Archetype.cs" />
+    <Compile Include="Source\Objects\Armor.cs" />
+    <Compile Include="Source\Objects\AttributeModifier.cs" />
+    <Compile Include="Source\Objects\Attributes.cs" />
+    <Compile Include="Source\Objects\DamageColor.cs" />
+    <Compile Include="Source\Objects\DamageEffect.cs" />
+    <Compile Include="Source\Objects\Discipline.cs" />
+    <Compile Include="Source\Objects\Equipment.cs" />
+    <Compile Include="Source\Objects\Faction.cs" />
+    <Compile Include="Source\Objects\Group.cs" />
+    <Compile Include="Source\Objects\GroupTrait.cs" />
+    <Compile Include="Source\Objects\Permissions.cs" />
+    <Compile Include="Source\Objects\Power.cs" />
+    <Compile Include="Source\Objects\Profile.cs" />
+    <Compile Include="Source\Objects\ProfileModifier.cs" />
+    <Compile Include="Source\Objects\Trait.cs" />
+    <Compile Include="Source\Objects\Universe.cs" />
+    <Compile Include="Source\Objects\Weapon.cs" />
+    <Compile Include="Source\Objects\WeaponRange.cs" />
+    <Compile Include="Source\Storage\ArchetypeStorage.cs" />
+    <Compile Include="Source\Storage\ArmorStorage.cs" />
+    <Compile Include="Source\Storage\DamageEffectStorage.cs" />
+    <Compile Include="Source\Storage\DisciplineStorage.cs" />
+    <Compile Include="Source\Storage\EquipmentStorage.cs" />
+    <Compile Include="Source\Storage\FactionStorage.cs" />
+    <Compile Include="Source\Storage\GroupStorage.cs" />
+    <Compile Include="Source\Storage\GroupTraitStorage.cs" />
+    <Compile Include="Source\Storage\MasterDataStorage.cs" />
+    <Compile Include="Source\Storage\Storage.cs" />
+    <Compile Include="Source\Storage\TraitStorage.cs" />
+    <Compile Include="Source\Storage\UserDataStorage.cs" />
+    <Compile Include="Source\Storage\WeaponStorage.cs" />
     <Compile Include="Source\UniverseSelectionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -605,6 +672,8 @@
     <None Include="Properties\DataSources\Profile.datasource" />
     <None Include="Properties\DataSources\ProfileModifier.datasource" />
     <None Include="Properties\DataSources\Trait.datasource" />
+    <None Include="Properties\DataSources\Universalis.Archetype.datasource" />
+    <None Include="Properties\DataSources\Universalis.GroupTrait.datasource" />
     <None Include="Properties\DataSources\Weapon.datasource" />
     <None Include="Properties\DataSources\WeaponRange.datasource" />
     <None Include="Properties\Settings.settings">
@@ -621,13 +690,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Shared\Shared.csproj">
-      <Project>{7993deb0-5b56-4ef6-9bd0-507cd6fa6660}</Project>
-      <Name>Shared</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\startup_sound.wav" />
+    <None Include="Resources\NovaRound-Regular.ttf" />
+    <None Include="Resources\schema_universe.json" />
+    <None Include="Resources\section_pattern.png" />
+    <None Include="Resources\empty_model.png" />
+    <None Include="Resources\empty_group.png" />
+    <None Include="Resources\empty_faction.png" />
+    <None Include="Resources\empty.png" />
     <None Include="Resources\Telematon.png" />
     <None Include="Resources\Koloss.png" />
     <None Include="Resources\Standard.png" />
@@ -714,7 +785,6 @@
     <None Include="Resources\image.png" />
   </ItemGroup>
   <ItemGroup />
-  <Import Project="..\GlobalAssemblyInfo\GlobalAssemblyInfo.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -172,7 +172,7 @@ namespace Universalis
                     }
                     else
                     {
-                        universeLogo = Shared.Properties.Resources.empty;
+                        universeLogo = Properties.Resources.empty;
                     }
 
                     if( !lvi.ValidUniverse )
