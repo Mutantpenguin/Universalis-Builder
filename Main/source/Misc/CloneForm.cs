@@ -68,18 +68,17 @@ namespace Universalis
 
         private void BackgroundWorkerClone_DoWork( object sender, DoWorkEventArgs e )
         {
-            var co = new CloneOptions()
-            {
-                OnTransferProgress = progress =>
-                {
-                    this.Invoke( new MethodInvoker( () =>
-                    {
-                        labelObjects.Text = $"{progress.ReceivedObjects}/{progress.TotalObjects}";
-                        labelBytes.Text = $"{Math.Round((decimal)progress.ReceivedBytes / 1024 / 1024, 3 )} MiB";
-                    } ) );
+            var co = new CloneOptions();
 
-                    return true;
-                }
+            co.FetchOptions.OnTransferProgress = progress =>
+            {
+                this.Invoke( new MethodInvoker( () =>
+                {
+                    labelObjects.Text = $"{progress.ReceivedObjects}/{progress.TotalObjects}";
+                    labelBytes.Text = $"{Math.Round( (decimal)progress.ReceivedBytes / 1024 / 1024, 3 )} MiB";
+                } ) );
+
+                return true;
             };
 
             Repository.Clone( RepositoryURL.ToString(), UniversePath, co );
