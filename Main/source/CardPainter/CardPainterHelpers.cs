@@ -27,6 +27,12 @@ namespace Universalis
             LineAlignment = StringAlignment.Near
         };
 
+        public static readonly StringFormat StringFormatHRightVBottom = new StringFormat()
+        {
+            Alignment = StringAlignment.Far,
+            LineAlignment = StringAlignment.Far
+        };
+
         public static int CmToPixel( double cm )
         {
             return Convert.ToInt32( cm / 2.54f * Dpi );

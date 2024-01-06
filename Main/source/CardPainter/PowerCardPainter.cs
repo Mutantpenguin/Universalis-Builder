@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 using static Universalis.CardPainterHelpers;
 using static Universalis.Helper.Drawing;
 
@@ -55,6 +56,7 @@ namespace Universalis
             using( Graphics g = Graphics.FromImage( img ) )
             {
                 g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 
                 g.Clear( Color.White );
 
@@ -131,7 +133,7 @@ namespace Universalis
                 if( power.Modifier > 0 )
                 {
                     modifierString = "+" + power.Modifier.ToString();
-                    modifierBrush = Brushes.LightGreen;
+                    modifierBrush = Brushes.Green;
                 }
                 else
                 {
@@ -139,11 +141,12 @@ namespace Universalis
                     modifierBrush = Brushes.Red;
                 }
 
-                var stringSize = g.MeasureString( modifierString, FontAttributeSmall );
-
                 g.DrawString( power.Attribute.ToString(), FontAttributeSmall, Brushes.Black, rectAttribute.Location );
-                var modifierRect = new PointF( rectAttribute.Right - stringSize.Width, rectAttribute.Bottom - stringSize.Height );
-                g.DrawString( modifierString, FontAttributeSmall, modifierBrush, modifierRect );
+
+                var stringSize = g.MeasureString( modifierString, FontAttributeSmall, rectAttribute.Size, StringFormatHRightVBottom ).ToSize();
+                var modifierRect = new Rectangle( new Point( rectAttribute.Right, rectAttribute.Bottom ) - stringSize, stringSize );
+                modifierRect.Inflate( 6, 6 );
+                g.DrawString( modifierString, FontAttributeSmall, modifierBrush, modifierRect, StringFormatHRightVBottom );
             }
 
             var rectDamageApplication = new Rectangle( rectFooter.Left + ( 3 * SFooterPadding ) + ( 2 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
