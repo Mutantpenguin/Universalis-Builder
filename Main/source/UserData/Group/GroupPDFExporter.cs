@@ -367,10 +367,10 @@ namespace Universalis
                     flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.Rules } );
                 }
 
-                if( flipsideBlocks.Count > 0 )
-                {
                     PdfContentByte cb = pdfWriter.DirectContent;
 
+                if( flipsideBlocks.Count > 0 )
+                    {
                     {
                         PdfTemplate flipsideHeaderTemplate = cb.CreateTemplate( s_cardWidth, s_flipsideHeaderHeight );
 
@@ -416,12 +416,16 @@ namespace Universalis
                             document.Add( flipsideImg );
                         }
                     }
+                }
 
                     // draw a bounding-rectangle over the card and for the information on the back
                     cb.SaveState();
                     cb.SetColorStroke( Color.BLACK );
                     cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y, s_cardWidth, s_cardHeight );
-                    cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight, s_cardWidth, s_cardHeight );
+                if( flipsideBlocks.Count > 0 )
+                {
+                    cb.Rectangle( positions[i % 2].X, positions[i % 2].Y - s_cardHeight, s_cardWidth, s_cardHeight );
+                }
                     cb.Stroke();
                     cb.RestoreState();
                 }
