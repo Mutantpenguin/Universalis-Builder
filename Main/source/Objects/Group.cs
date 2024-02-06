@@ -155,7 +155,7 @@ namespace Universalis
 
                 if( GroupTrait != null )
                 {
-                    points += GroupTrait.Points( Models.Count );
+                    points += GroupTrait.Points( Models.Where( x => x.Active ).Count() );
                 }
 
                 points += Models.Where( x => x.Active )

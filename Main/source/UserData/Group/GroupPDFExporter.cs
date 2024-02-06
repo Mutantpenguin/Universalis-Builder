@@ -266,7 +266,7 @@ namespace Universalis
                     HorizontalAlignment = Element.ALIGN_RIGHT,
                     MinimumHeight = CmToPixel( 1 )
                 } );
-                overviewTable.AddCell( new PdfPCell( new Phrase( group.GroupTrait.Points( group.Models.Count() ).ToString() ) )
+                overviewTable.AddCell( new PdfPCell( new Phrase( group.GroupTrait.Points( group.Models.Where( x => x.Active ).Count() ).ToString() ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE,
