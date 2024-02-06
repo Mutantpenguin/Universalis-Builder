@@ -195,7 +195,7 @@ namespace Universalis
         {
             float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
             float actorImgWidth = CmToPixel( 1 );
-            float typeWidth = CmToPixel(2);
+            float typeWidth = CmToPixel(3);
             float pointsWidth = CmToPixel( 2 );
             float modelNameWidth = printableWidth - ( actorImgWidth + typeWidth + pointsWidth);
 
