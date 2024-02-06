@@ -320,13 +320,15 @@ namespace Universalis
                     document.NewPage();
                 }
 
+                var currentPosition = positions[i % 2];
+
                 Actor actor = sortedActorList[ i ];
 
                 using( System.Drawing.Image img = ActorCardPainter.GetBitmap(group.Faction, actor ) )
                 {
                     Image imgCard = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
                     imgCard.ScaleToFit( s_cardWidth, s_cardHeight );
-                    imgCard.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y );
+                    imgCard.SetAbsolutePosition( currentPosition.X, currentPosition.Y );
 
                     document.Add( imgCard );
                 }
@@ -385,7 +387,7 @@ namespace Universalis
 
                         Image flipsideHeaderImg = Image.GetInstance( flipsideHeaderTemplate );
                         flipsideHeaderImg.RotationDegrees = 180;
-                        flipsideHeaderImg.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight );
+                        flipsideHeaderImg.SetAbsolutePosition( currentPosition.X, currentPosition.Y - s_cardHeight );
 
                         document.Add( flipsideHeaderImg );
                     }
@@ -411,7 +413,7 @@ namespace Universalis
                             Image flipsideImg = Image.GetInstance( flipsideTemplate );
                             flipsideImg.ScaleAbsolute( s_cardWidth, s_cardHeight - s_flipsideHeaderHeight );
                             flipsideImg.RotationDegrees = 180;
-                            flipsideImg.SetAbsolutePosition( positions[ i % 2 ].X, positions[ i % 2 ].Y - s_cardHeight + s_flipsideHeaderHeight );
+                            flipsideImg.SetAbsolutePosition( currentPosition.X, currentPosition.Y - s_cardHeight + s_flipsideHeaderHeight );
 
                             document.Add( flipsideImg );
                         }
@@ -421,10 +423,10 @@ namespace Universalis
                     // draw a bounding-rectangle over the card and for the information on the back
                     cb.SaveState();
                     cb.SetColorStroke( Color.BLACK );
-                    cb.Rectangle( positions[ i % 2 ].X, positions[ i % 2 ].Y, s_cardWidth, s_cardHeight );
+                cb.Rectangle( currentPosition.X, currentPosition.Y, s_cardWidth, s_cardHeight );
                 if( flipsideBlocks.Count > 0 )
                 {
-                    cb.Rectangle( positions[i % 2].X, positions[i % 2].Y - s_cardHeight, s_cardWidth, s_cardHeight );
+                    cb.Rectangle( currentPosition.X, currentPosition.Y - s_cardHeight, s_cardWidth, s_cardHeight );
                 }
                     cb.Stroke();
                     cb.RestoreState();
