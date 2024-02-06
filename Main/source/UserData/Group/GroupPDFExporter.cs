@@ -98,7 +98,8 @@ namespace Universalis
 
                 CreateMainPage( document, pdfWriter, p_universe, p_group );
                 CreateCardPages( document, pdfWriter, p_group );
-                CreateDamageEffectsPage( document, pdfWriter, p_group );
+                CreateActivationCardPages( document, p_group );
+                CreateDamageEffectsPage( document, p_group );
 
                 document.Close();
             }
@@ -369,10 +370,10 @@ namespace Universalis
                     flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.Rules } );
                 }
 
-                    PdfContentByte cb = pdfWriter.DirectContent;
+                PdfContentByte cb = pdfWriter.DirectContent;
 
                 if( flipsideBlocks.Count > 0 )
-                    {
+                {
                     {
                         PdfTemplate flipsideHeaderTemplate = cb.CreateTemplate( s_cardWidth, s_flipsideHeaderHeight );
 
@@ -420,16 +421,70 @@ namespace Universalis
                     }
                 }
 
-                    // draw a bounding-rectangle over the card and for the information on the back
-                    cb.SaveState();
-                    cb.SetColorStroke( Color.BLACK );
+                // draw a bounding-rectangle over the card and for the information on the back
+                cb.SaveState();
+                cb.SetColorStroke( Color.BLACK );
                 cb.Rectangle( currentPosition.X, currentPosition.Y, s_cardWidth, s_cardHeight );
                 if( flipsideBlocks.Count > 0 )
                 {
                     cb.Rectangle( currentPosition.X, currentPosition.Y - s_cardHeight, s_cardWidth, s_cardHeight );
                 }
-                    cb.Stroke();
-                    cb.RestoreState();
+                cb.Stroke();
+                cb.RestoreState();
+            }
+        }
+
+        private static void CreateActivationCardPages( Document document, Group group )
+        {
+            document.SetPageSize( PageSize.A4 );
+
+            float activationCardWidth = CmToPixel( ActivationCardPainter.CardWidthCm );
+            float activationCardHeight = CmToPixel( ActivationCardPainter.CardHeightCm );
+
+            float horizontalMargin = ( document.PageSize.Width % activationCardWidth ) / 2.0f;
+            float verticalMargin = ( document.PageSize.Height % activationCardHeight ) / 2.0f;
+
+            int columnCount = (int)( document.PageSize.Width / activationCardWidth );
+            int rowCount = (int)( document.PageSize.Height / activationCardHeight );
+
+            int cardsPerPage = columnCount * rowCount;
+
+            System.Drawing.PointF[] positions = new System.Drawing.PointF[cardsPerPage];
+
+            int positionIndex = 0;
+            for( int row = 0; row < rowCount; row++ )
+            {
+                for( int col = 0; col < columnCount; col++ )
+                {
+                    positions[positionIndex].X = horizontalMargin + ( col * activationCardWidth );
+                    positions[positionIndex].Y = document.PageSize.Height - verticalMargin - ( ( row + 1 ) * activationCardHeight );
+
+                    positionIndex++;
+                }
+            }
+
+            List<Actor> sortedActorList = group.Models.Where( x => x.Active )
+                                                      .OrderBy( x => x.Name )
+                                                      .ToList();
+
+            for( int i = 0; i < sortedActorList.Count; i++ )
+            {
+                if( i % cardsPerPage == 0 )
+                {
+                    document.NewPage();
+                }
+
+                var currentPosition = positions[i % cardsPerPage];
+
+                Actor actor = sortedActorList[i];
+
+                using( System.Drawing.Image img = ActivationCardPainter.GetBitmap( actor ) )
+                {
+                    Image imgCard = Image.GetInstance( img, System.Drawing.Imaging.ImageFormat.Jpeg );
+                    imgCard.ScaleToFit( activationCardWidth, activationCardHeight );
+                    imgCard.SetAbsolutePosition( currentPosition.X, currentPosition.Y );
+
+                    document.Add( imgCard );
                 }
             }
         }
@@ -477,7 +532,7 @@ namespace Universalis
             columnText.Go();
         }
 
-        private static void CreateDamageEffectsPage( Document document, PdfWriter pdfWriter, Group p_group )
+        private static void CreateDamageEffectsPage( Document document, Group p_group )
         {
             var damageEffectsToPrint = new List<DamageEffect>();
 
