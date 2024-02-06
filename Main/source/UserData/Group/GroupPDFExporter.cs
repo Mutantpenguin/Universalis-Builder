@@ -225,8 +225,7 @@ namespace Universalis
                 HorizontalAlignment = Element.ALIGN_RIGHT
             } );
 
-            foreach( var actor in group.Models.Where( x => x.Active )
-                                              .OrderBy( x => x.Name ) )
+            foreach( var actor in group.Models.Where( x => x.Active ) )
             {
                 Image actorImg = Image.GetInstance( actor.Icon ?? group.Faction.Icon, System.Drawing.Imaging.ImageFormat.Png );
                 actorImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
@@ -310,9 +309,7 @@ namespace Universalis
             positions[ 1 ].X = ( 2 * distanceX ) + s_cardWidth;
             positions[ 1 ].Y = distanceY + s_cardHeight;
 
-            List<Actor> sortedActorList = group.Models.Where( x => x.Active )
-                                                         .OrderBy( x => x.Name )
-                                                         .ToList();
+            List<Actor> sortedActorList = group.Models.Where( x => x.Active ).ToList();
 
             for( int i = 0; i < sortedActorList.Count; i++ )
             {
@@ -463,9 +460,7 @@ namespace Universalis
                 }
             }
 
-            List<Actor> sortedActorList = group.Models.Where( x => x.Active )
-                                                      .OrderBy( x => x.Name )
-                                                      .ToList();
+            List<Actor> sortedActorList = group.Models.Where( x => x.Active ).ToList();
 
             for( int i = 0; i < sortedActorList.Count; i++ )
             {
