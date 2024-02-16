@@ -953,5 +953,20 @@ namespace Universalis
                 e.Effect = DragDropEffects.None;
             }
         }
+
+        private void dataGridViewDisciplines_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
+        {
+            if( -1 != e.RowIndex )
+            {
+                var actorDiscipline = (Actor.ActorDiscipline)dataGridViewDisciplines.Rows[e.RowIndex].DataBoundItem;
+
+                var discipline = actorDiscipline.Discipline;
+
+                using( var disciplineOverviewForm = new DisciplineOverviewForm( discipline ) )
+                {
+                    disciplineOverviewForm.ShowDialog( this );
+                }
+            }
+        }
     }
 }
