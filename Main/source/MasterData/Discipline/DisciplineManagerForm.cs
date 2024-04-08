@@ -14,6 +14,8 @@ namespace Universalis
 
             this.Icon = Icon.FromHandle( Properties.Resources.icon_discipline.GetHicon() );
 
+            HasPermissions.DefaultCellStyle.NullValue = null;
+
             refreshGridView();
 
             toolStripTextBoxSearch.TextBox.Select();
