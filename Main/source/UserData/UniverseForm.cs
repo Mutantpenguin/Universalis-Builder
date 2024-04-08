@@ -224,7 +224,12 @@ namespace Universalis
                         {
                             g.SmoothingMode = SmoothingMode.AntiAlias;
 
-                            g.Clear( discipline.Color );
+                            g.Clear( Color.White );
+
+                            var bounds = new Rectangle( 0, 0, imageSize.Width - 1, imageSize.Height - 1 );
+                            int cornerRadius = 10;
+                            FillRoundedRectangle( g, new SolidBrush( discipline.Color ), bounds, cornerRadius );
+                            RoundedRectangle( g, Pens.Black, bounds, cornerRadius );
 
                             var textColor = ContrastFontColor( discipline.Color );
 
