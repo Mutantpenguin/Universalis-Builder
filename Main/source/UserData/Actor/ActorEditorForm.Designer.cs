@@ -2308,7 +2308,7 @@
             this.KeyPreview = true;
             this.Name = "ActorEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Modell Editor";
+            this.Text = "Modell";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ActorEditorForm_FormClosing);
             this.Shown += new System.EventHandler(this.ActorEditorForm_Shown);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.ActorEditorForm_DragDrop);
