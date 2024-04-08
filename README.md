@@ -1,6 +1,6 @@
 # README #
 
-This is the Universalis Program Suite
+This is the `Universalis Builder`
 
 ### Cards ###
 It's possible to create Models for the Universalis Tabletop game with it
