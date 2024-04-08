@@ -222,6 +222,7 @@ namespace Universalis
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Faction.PermissionType == EPermissionType.White ? "Erlaubte Fraktionen: " : "Verbotene Fraktionen: ";
+                summary += Environment.NewLine + "\t";
                 summary += String.Join( ", ", Faction.Values.Select( x => x.Name ) );
             }
 
@@ -229,6 +230,7 @@ namespace Universalis
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Archetype.PermissionType == EPermissionType.White ? "Erlaubte Archetypen: " : "Verbotene Archetypen: ";
+                summary += Environment.NewLine + "\t";
                 summary += String.Join( ", ", Archetype.Values.Select( x => x.Name ) );
             }
 
@@ -236,6 +238,7 @@ namespace Universalis
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Type.PermissionType == EPermissionType.White ? "Erlaubte Typen: " : "Verbotene Typen: ";
+                summary += Environment.NewLine + "\t";
                 summary += String.Join( ", ", Type.Values.Select( x => x.ToString() ) );
             }
 
@@ -243,6 +246,7 @@ namespace Universalis
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += Size.PermissionType == EPermissionType.White ? "Erlaubte Größen: " : "Verbotene Größen: ";
+                summary += Environment.NewLine + "\t";
                 summary += String.Join( ", ", Size.Values.Select( x => x.ToString() ) );
             }
 
@@ -250,6 +254,7 @@ namespace Universalis
             {
                 summary += String.IsNullOrEmpty( summary ) ? "" : Environment.NewLine;
                 summary += MovementType.PermissionType == EPermissionType.White ? "Erlaubte Bewegungsarten: " : "Verbotene Bewegungsarten: ";
+                summary += Environment.NewLine + "\t";
                 summary += String.Join( ", ", MovementType.Values.Select( x => x.ToString() ) );
             }
 
