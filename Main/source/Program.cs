@@ -29,6 +29,7 @@ namespace Universalis
                     var p = new OptionSet()
                     {
                         { "d|deitymode", String.Empty, v => Options.DeityMode = v != null },
+                        { "no-intro", String.Empty, v => Options.DisableIntro = v != null },
                     };
 
                     try
@@ -55,7 +56,14 @@ namespace Universalis
                         Application.EnableVisualStyles();
                         Application.SetCompatibleTextRenderingDefault( false );
 
-                        Application.Run( new FormSplash() );
+                        if( !Options.DisableIntro )
+                        {
+                            Application.Run( new FormSplash() );
+                        }
+                        else
+                        {
+                            Application.Run( new UniverseSelectionForm() );
+                        }
                     }
                     catch
                     {}
