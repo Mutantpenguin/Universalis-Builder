@@ -479,23 +479,21 @@ namespace Universalis
 
         private int CalculatedPoints()
         {
-            var weaponCosts = Costs.Get().Weapons;
-
             float points = 0;
 
             points += AdditionalPoints;
 
-            points += Strength * weaponCosts.Strength;
-            points += Damage * weaponCosts.Damage;
+            points += Strength * Costs.Weapon.Strength;
+            points += Damage * Costs.Weapon.Damage;
 
             if( AdditiveStrength )
             {
-                points *= weaponCosts.AdditiveStrengthMultiplicator;
+                points *= Costs.Weapon.AdditiveStrengthMultiplicator;
             }
 
             for( int i = 0; i < SustainedFire; i++ )
             {
-                points *= weaponCosts.SustainedFireMultiplicator;
+                points *= Costs.Weapon.SustainedFireMultiplicator;
             }
 
             if( DamageEffects != null )
@@ -503,27 +501,27 @@ namespace Universalis
                 points += DamageEffects.Sum( x => x.Points );
 
                 // scale points with the amount of different damage effects
-                points *= (float)Math.Pow( weaponCosts.DamageEffectMultiplicator, DamageEffects.Count );
+                points *= (float)Math.Pow( Costs.Weapon.DamageEffectMultiplicator, DamageEffects.Count );
             }
 
             if( Unwieldy )
             {
-                points *= weaponCosts.UnwieldyMultiplicator;
+                points *= Costs.Weapon.UnwieldyMultiplicator;
             }
 
             if( Reloadable )
             {
-                points *= weaponCosts.ReloadMultiplicator;
+                points *= Costs.Weapon.ReloadMultiplicator;
             }
 
             if( IndirectFire )
             {
-                points *= weaponCosts.IndirectFireMultiplicator;
+                points *= Costs.Weapon.IndirectFireMultiplicator;
             }
 
             if( UseOnce )
             {
-                points *= weaponCosts.UseOnceMultiplicator;
+                points *= Costs.Weapon.UseOnceMultiplicator;
             }
 
             if( Type == EType.Fernkampf )

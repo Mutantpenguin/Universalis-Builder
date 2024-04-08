@@ -313,8 +313,6 @@ namespace Universalis
 
                 var universe = universeItem.Universe;
                 var universePath = universeItem.ImageKey;
-
-                Costs.Initialize( universeItem.Universe.Costs );
                 
                 using( ProgressForm progressForm = new ProgressForm( universe.Logo ) )
                 {

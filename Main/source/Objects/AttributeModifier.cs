@@ -95,18 +95,14 @@ namespace Universalis
 
         public int Points()
         {
-            var costs = Costs.Get();
-            var attributeCosts = costs.Attributes;
-            var modifierCosts = costs.Modifier;
-
             int points = 0;
 
-            points += AGI * Convert.ToInt32( attributeCosts.AGI * modifierCosts.Surcharge );
-            points += HTH * Convert.ToInt32( attributeCosts.HTH * modifierCosts.Surcharge );
-            points += LRC * Convert.ToInt32( attributeCosts.LRC * modifierCosts.Surcharge );
-            points += PHY * Convert.ToInt32( attributeCosts.PHY * modifierCosts.Surcharge );
-            points += AWA * Convert.ToInt32( attributeCosts.AWA * modifierCosts.Surcharge );
-            points += DET * Convert.ToInt32( attributeCosts.DET * modifierCosts.Surcharge );
+            points += AGI * Convert.ToInt32( Costs.Attribute.AGI * Costs.Modifier.Surcharge );
+            points += HTH * Convert.ToInt32( Costs.Attribute.HTH * Costs.Modifier.Surcharge );
+            points += LRC * Convert.ToInt32( Costs.Attribute.LRC * Costs.Modifier.Surcharge );
+            points += PHY * Convert.ToInt32( Costs.Attribute.PHY * Costs.Modifier.Surcharge );
+            points += AWA * Convert.ToInt32( Costs.Attribute.AWA * Costs.Modifier.Surcharge );
+            points += DET * Convert.ToInt32( Costs.Attribute.DET * Costs.Modifier.Surcharge );
 
             return points;
         }

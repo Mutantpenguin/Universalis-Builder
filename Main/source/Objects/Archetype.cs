@@ -174,13 +174,12 @@ namespace Universalis
         {
             get
             {
-                var costs = Costs.Get();
 
                 int points = 0;
 
                 points += AdditionalPoints;
 
-                points += costs.Movement.movementCost( MovementType );
+                points += Costs.Movement.movementCost( MovementType );
 
                 points += Profile.Points( Type );
 

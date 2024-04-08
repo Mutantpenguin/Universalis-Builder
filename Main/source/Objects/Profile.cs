@@ -82,34 +82,30 @@ namespace Universalis
 
         public int Points( Archetype.EType type )
         {
-            var costs = Costs.Get();
-            var attributeCosts = costs.Attributes;
-            var profileCosts = costs.Profiles;
-
             int points = 0;
 
             if( type != Archetype.EType.Telematon )
             {
-                points += Attributes.AGI * attributeCosts.AGI;
-                points += Attributes.HTH * attributeCosts.HTH;
-                points += Attributes.LRC * attributeCosts.LRC;
-                points += Attributes.DET * attributeCosts.DET;
+                points += Attributes.AGI * Costs.Attribute.AGI;
+                points += Attributes.HTH * Costs.Attribute.HTH;
+                points += Attributes.LRC * Costs.Attribute.LRC;
+                points += Attributes.DET * Costs.Attribute.DET;
             }
 
-            points += Speed * profileCosts.Speed;
+            points += Speed * Costs.Profile.Speed;
 
-            points += Attributes.PHY * attributeCosts.PHY;
-            points += Attributes.AWA * attributeCosts.AWA;
+            points += Attributes.PHY * Costs.Attribute.PHY;
+            points += Attributes.AWA * Costs.Attribute.AWA;
 
             switch( type )
             {
                 case Archetype.EType.Standard:
                 case Archetype.EType.Telematon:
-                    points += HitPoints * profileCosts.HitPoints;
+                    points += HitPoints * Costs.Profile.HitPoints;
                     break;
 
                 case Archetype.EType.Koloss:
-                    points += ( HitPoints * profileCosts.HitPoints ) + ( 3 * HitZoneHitPoints * profileCosts.HitPoints );
+                    points += ( HitPoints * Costs.Profile.HitPoints ) + ( 3 * HitZoneHitPoints * Costs.Profile.HitPoints );
                     break;
 
                 default:

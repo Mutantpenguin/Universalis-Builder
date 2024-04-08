@@ -3,160 +3,51 @@ using System;
 
 namespace Universalis
 {
-    public class Costs
+    public static class Costs
     {
-        public static void Initialize( Costs costs )
-        {
-            if( costs == null )
-            {
-                throw new ArgumentNullException( nameof( costs ) );
-            }
-
-            m_costs = costs;
-        }
-
-        public static Costs Get()
-        {
-            if( m_costs == null )
-            {
-                throw new InvalidOperationException( "Die Kosten wurden noch nicht initialisiert!" );
-            }
-
-            return m_costs;
-        }
-
-        private static Costs m_costs = null;
-
-        public class AttributeCosts
+        public static class Attribute
         {
             // Agility / "Agilität"
-            [JsonProperty( Required = Required.Always )]
-            public int AGI
-            {
-                get;
-                private set;
-            }
+            public static int AGI = 30;
 
             // Hand-To-Hand / "Nahkampf"
-            [JsonProperty( Required = Required.Always )]
-            public int HTH
-            {
-                get;
-                private set;
-            }
+            public static int HTH = 20;
 
             // Long-Range-Combat / "Fernkampf"
-            [JsonProperty( Required = Required.Always )]
-            public int LRC
-            {
-                get;
-                private set;
-            }
+            public static int LRC = 20;
 
             // Physique / "Konstitution"
-            [JsonProperty( Required = Required.Always )]
-            public int PHY
-            {
-                get;
-                private set;
-            }
+            public static int PHY = 30;
 
             // Awareness / "Wahrnehmung"
-            [JsonProperty( Required = Required.Always )]
-            public int AWA
-            {
-                get;
-                private set;
-            }
+            public static int AWA = 20;
 
             // Determination / "Entschlossenheit"
-            [JsonProperty( Required = Required.Always )]
-            public int DET
-            {
-                get;
-                private set;
-            }
+            public static int DET = 20;
         }
 
-        public class ProfileCosts
+        public static class Profile
         {
-            [JsonProperty( Required = Required.Always )]
-            public int Speed
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public int HitPoints
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public int CritThreshold
-            {
-                get;
-                private set;
-            }
+            public static int Speed = 20;
+            public static int HitPoints = 30;
+            public static int CritThreshold = 35;
         }
 
-        public class ModifierCosts
+        public static class Modifier
         {
-            [JsonProperty( Required = Required.Always )]
-            public float Surcharge
-            {
-                get;
-                private set;
-            }
+            public static float Surcharge = 1.2f;
         }
 
-        public class MovementCosts
+        public static class Movement
         {
-            [JsonProperty( Required = Required.Always )]
-            public int Hover
-            {
-                get;
-                private set;
-            }
+            public static int Hover = 100;
+            public static int Fly = 80;
+            public static int Walk = 50;
+            public static int Tracks = 70;
+            public static int Wheels = 70;
+            public static int Stationary = 0;
 
-            [JsonProperty( Required = Required.Always )]
-            public int Fly
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public int Walk
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public int Tracks
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public int Wheels
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public int Stationary
-            {
-                get;
-                private set;
-            }
-
-            public int movementCost( Archetype.EMovementType movementType ) 
+            public static int movementCost( Archetype.EMovementType movementType ) 
             {
                 switch( movementType )
                 {
@@ -184,150 +75,26 @@ namespace Universalis
             }
         }
 
-        public class WeaponCosts
+        public static class Weapon
         {
-            [JsonProperty( Required = Required.Always )]
-            public int Strength
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public int Damage
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float UseOnceMultiplicator
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float UnwieldyMultiplicator
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float ReloadMultiplicator
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float IndirectFireMultiplicator
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float DamageEffectMultiplicator
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float SustainedFireMultiplicator
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float AdditiveStrengthMultiplicator
-            {
-                get;
-                private set;
-            }
+            public static int Strength = 10;
+            public static int Damage = 20;
+            public static float UseOnceMultiplicator = 0.35f;
+            public static float UnwieldyMultiplicator = 0.8f;
+            public static float ReloadMultiplicator = 0.7f;
+            public static float IndirectFireMultiplicator = 1.4f;
+            public static float DamageEffectMultiplicator = 1.1f;
+            public static float SustainedFireMultiplicator = 1.4f;
+            public static float AdditiveStrengthMultiplicator = 1.2f;
         }
 
-        public class ArmorCosts
+        public static class Armor
         {
-            [JsonProperty( Required = Required.Always )]
-            public int Protection
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public int DamageReduction
-            {
-                get;
-                private set;
-            }
-
-            [ JsonProperty( Required = Required.Always )]
-            public float DamageEffectMultiplicator
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float SelfSustainingMultiplicator
-            {
-                get;
-                private set;
-            }
-
-            [JsonProperty( Required = Required.Always )]
-            public float AdditiveProtectionMultiplicator
-            {
-                get;
-                private set;
-            }
+            public static int Protection = 10;
+            public static int DamageReduction = 50;
+            public static float DamageEffectMultiplicator = 1.1f;
+            public static float SelfSustainingMultiplicator = 1.3f;
+            public static float AdditiveProtectionMultiplicator = 1.2f;
         }
-
-        [JsonProperty( Required = Required.Always )]
-        public AttributeCosts Attributes
-        {
-            get;
-            private set;
-        } = new AttributeCosts();
-        
-        [JsonProperty( Required = Required.Always )]
-        public ProfileCosts Profiles
-        {
-            get;
-            private set;
-        } = new ProfileCosts();
-        
-        [JsonProperty( Required = Required.Always )]
-        public ModifierCosts Modifier
-        {
-            get;
-            private set;
-        } = new ModifierCosts();
-        
-        [JsonProperty( Required = Required.Always )]
-        public MovementCosts Movement
-        {
-            get;
-            private set;
-        } = new MovementCosts();
-        
-        [JsonProperty( Required = Required.Always )]
-        public WeaponCosts Weapons
-        {
-            get;
-            private set;
-        } = new WeaponCosts();
-        
-        [JsonProperty( Required = Required.Always )]
-        public ArmorCosts Armors
-        {
-            get;
-            private set;
-        } = new ArmorCosts();
     }
 }

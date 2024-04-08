@@ -264,32 +264,30 @@ namespace Universalis
 
         private int CalculatedPoints()
         {
-            var armorCosts = Costs.Get().Armors;
-            
             float points = 0;
 
             points += AdditionalPoints;
 
-            points += Protection * armorCosts.Protection;
+            points += Protection * Costs.Armor.Protection;
 
             if( AdditiveProtection )
             {
-                points *= armorCosts.AdditiveProtectionMultiplicator;
+                points *= Costs.Armor.AdditiveProtectionMultiplicator;
             }
 
-            points += DamageReduction * armorCosts.DamageReduction;
+            points += DamageReduction * Costs.Armor.DamageReduction;
 
             if( DamageEffects != null )
             {
                 points += DamageEffects.Sum( x => x.Points );
 
                 // scale points with the amount of different damage effects
-                points *= (float)Math.Pow( armorCosts.DamageEffectMultiplicator, DamageEffects.Count );
+                points *= (float)Math.Pow( Costs.Armor.DamageEffectMultiplicator, DamageEffects.Count );
             }
 
             if( SelfSustaining )
             {
-                points *= armorCosts.SelfSustainingMultiplicator;
+                points *= Costs.Armor.SelfSustainingMultiplicator;
             }
 
             if( ProfileModifier != null )
