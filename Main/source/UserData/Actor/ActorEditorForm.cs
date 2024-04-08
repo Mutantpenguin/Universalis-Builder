@@ -648,21 +648,24 @@ namespace Universalis
         {
             if( e.RowIndex > -1 )
             {
-                Actor.ActorDiscipline actorDiscipline = (Actor.ActorDiscipline)dataGridViewDisciplines.Rows[ e.RowIndex ].DataBoundItem;
-
-                string disciplineSummary = actorDiscipline.Discipline.Summary();
-
-                if( !String.IsNullOrEmpty( disciplineSummary ) )
+                if( e.ColumnIndex != showPowersDataGridViewImageColumn.Index )
                 {
-                    string text = actorDiscipline.Discipline.FormattedName( actorDiscipline.Level ) + ":";
+                    Actor.ActorDiscipline actorDiscipline = (Actor.ActorDiscipline)dataGridViewDisciplines.Rows[e.RowIndex].DataBoundItem;
 
-                    text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( disciplineSummary );
+                    string disciplineSummary = actorDiscipline.Discipline.Summary();
 
-                    e.ToolTipText = text;
-                }
-                else
-                {
-                    e.ToolTipText = String.Empty;
+                    if( !String.IsNullOrEmpty( disciplineSummary ) )
+                    {
+                        string text = actorDiscipline.Discipline.FormattedName( actorDiscipline.Level ) + ":";
+
+                        text += Environment.NewLine + ToolTipHelper.FormatMaxWidth( disciplineSummary );
+
+                        e.ToolTipText = text;
+                    }
+                    else
+                    {
+                        e.ToolTipText = String.Empty;
+                    }
                 }
             }
         }
@@ -954,17 +957,20 @@ namespace Universalis
             }
         }
 
-        private void dataGridViewDisciplines_CellDoubleClick( object sender, DataGridViewCellEventArgs e )
+        private void dataGridViewDisciplines_CellClick( object sender, DataGridViewCellEventArgs e )
         {
             if( -1 != e.RowIndex )
             {
-                var actorDiscipline = (Actor.ActorDiscipline)dataGridViewDisciplines.Rows[e.RowIndex].DataBoundItem;
-
-                var discipline = actorDiscipline.Discipline;
-
-                using( var disciplineOverviewForm = new DisciplineOverviewForm( discipline ) )
+                if( e.ColumnIndex == showPowersDataGridViewImageColumn.Index )
                 {
-                    disciplineOverviewForm.ShowDialog( this );
+                    var actorDiscipline = (Actor.ActorDiscipline)dataGridViewDisciplines.Rows[e.RowIndex].DataBoundItem;
+
+                    var discipline = actorDiscipline.Discipline;
+
+                    using( var disciplineOverviewForm = new DisciplineOverviewForm( discipline ) )
+                    {
+                        disciplineOverviewForm.ShowDialog( this );
+                    }
                 }
             }
         }

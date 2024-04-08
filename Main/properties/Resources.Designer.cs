@@ -553,6 +553,16 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap open_in_app_18dp {
+            get {
+                object obj = ResourceManager.GetObject("open_in_app_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap outline_key_black_18dp {
             get {
                 object obj = ResourceManager.GetObject("outline_key_black_18dp", resourceCulture);
@@ -599,8 +609,7 @@ namespace Universalis.Properties {
         ///		&quot;contact&quot;: {
         ///			&quot;type&quot;: &quot;string&quot;,
         ///			&quot;format&quot;: &quot;email&quot;
-        ///		},
-        ///		&quot;costs&quot;: {}
+        ///		}
         ///	},
         ///	&quot;required&quot;: [ &quot;name&quot;, &quot;description&quot;, &quot;id&quot; ],
         ///	&quot;additionalProperties&quot;: false
