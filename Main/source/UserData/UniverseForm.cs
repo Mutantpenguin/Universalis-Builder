@@ -61,7 +61,7 @@ namespace Universalis
 
                     ListViewItem lvi = new ListViewItem()
                     {
-                        Text = faction.Name + " ( " + UserDataStorage.Group.Groups.Where( s => s.Active )
+                        Text = faction.Name + "\n( " + UserDataStorage.Group.Groups.Where( s => s.Active )
                                                                                   .Count( x => x.Faction == faction ) + " )",
                         ImageKey = faction.ID.ToString(),
                         ToolTipText = faction.Description,
