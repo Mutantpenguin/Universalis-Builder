@@ -1,5 +1,8 @@
-﻿using LibGit2Sharp;
+﻿using DiscordRPC;
+using DiscordRPC.Logging;
+using LibGit2Sharp;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -12,6 +15,9 @@ namespace Universalis
 {
     public partial class UniverseSelectionForm : Form
     {
+        private const string DiscordApplicationID = "1277355044693475431";
+        private const string RulesUrl = "https://mutantpenguin.github.io/Universalis/";
+
         private static readonly string UniversesSubFolder = "Universes";
 
         private static readonly string UniversesPath = Path.Combine( UniversalisSettings.UserAppFolder, UniversesSubFolder );
@@ -27,6 +33,8 @@ namespace Universalis
         private static readonly Image repoErrorOverlayImage = ImageHelper.Colorize( Properties.Resources.baseline_error_black_48dp, s_colorMatrixRepoError );
 
         private static readonly Image invalidUniverseOverlayImage = ImageHelper.Colorize( Properties.Resources.baseline_do_not_disturb_on_black_48dp, s_colorMatrixRepoError );
+
+        private DiscordRpcClient discordClient;
 
         public UniverseSelectionForm()
         {
@@ -313,7 +321,9 @@ namespace Universalis
 
                 var universe = universeItem.Universe;
                 var universePath = universeItem.ImageKey;
-                
+
+                InitializeDiscord(universe);
+
                 using( ProgressForm progressForm = new ProgressForm( universe.Logo ) )
                 {
                     Storage.BackgroundWorkerProvider backgroundWorkerProvider = () => progressForm.CreateBackgroundWorker();
@@ -637,7 +647,64 @@ namespace Universalis
 
         private void buttonOpenRules_Click( object sender, EventArgs e )
         {
-            System.Diagnostics.Process.Start("https://mutantpenguin.github.io/Universalis/");
+            System.Diagnostics.Process.Start( RulesUrl );
+        }
+
+        private void InitializeDiscord( Universe universe )
+        {
+            discordClient = new DiscordRpcClient( DiscordApplicationID )
+            {
+                Logger = new ConsoleLogger()
+                {
+                    Level = DiscordRPC.Logging.LogLevel.Warning
+                }
+            };
+
+            discordClient.Initialize();
+
+            var buttons = new List<DiscordRPC.Button>
+            {
+                new DiscordRPC.Button()
+                {
+                    Label = "The Rules",
+                    Url = RulesUrl
+                }
+            };
+
+            if( !String.IsNullOrEmpty( universe.Website ) )
+            {
+                buttons.Add(
+                    new DiscordRPC.Button()
+                    {
+                        Label = "The Universe",
+                        Url = universe.Website
+                    }
+                );
+            }
+
+            discordClient.SetPresence( new RichPresence()
+            {
+                Details = universe.NameWithVersion(),
+                State = Options.DeityMode ? "universe creation" : "group creation",
+                Timestamps = Timestamps.Now,
+                Buttons = buttons.ToArray(),
+                Assets = new Assets()
+                {
+                    LargeImageKey = "logo_large",
+                    LargeImageText = Options.DeityMode ? $"Editing the universe '{universe.Name}'." : $"Creating a group for the universe '{universe.Name}'.",
+                }
+            } );
+        }
+
+        protected override void Dispose( bool disposing )
+        {
+            if( disposing && ( components != null ) )
+            {
+                components.Dispose();
+
+                discordClient?.Dispose();
+            }
+            base.Dispose( disposing );
         }
     }
 }
