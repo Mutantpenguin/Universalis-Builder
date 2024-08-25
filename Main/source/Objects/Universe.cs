@@ -60,12 +60,12 @@ namespace Universalis
 
         public String NameWithVersion()
         {
-            return Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - " + Version );
+            return Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - v" + Version );
         }
 
         public String NameWithVersionAndHash()
         {
-            return Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - " + Version ) + ( String.IsNullOrEmpty( CommitHash ) ? String.Empty : " - " + CommitHash.Substring( 0, 8 ) );
+            return Name + ( String.IsNullOrEmpty( Version ) ? String.Empty : " - v" + Version ) + ( String.IsNullOrEmpty( CommitHash ) ? String.Empty : " - " + CommitHash.Substring( 0, 8 ) );
         }
 
         [JsonProperty( "id" )]
