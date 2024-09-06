@@ -346,9 +346,15 @@
             // Speed
             // 
             this.Speed.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileBindingSource, "Speed", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.Speed.DecimalPlaces = 1;
+            this.Speed.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             this.Speed.Location = new System.Drawing.Point(102, 83);
             this.Speed.Maximum = new decimal(new int[] {
-            12,
+            6,
             0,
             0,
             0});

@@ -488,7 +488,7 @@ namespace Universalis
             return xOffset + width;
         }
 
-        private static int DrawMovement( Graphics g, int xOffset, Archetype.EMovementType movementType, int BW )
+        private static int DrawMovement( Graphics g, int xOffset, Archetype.EMovementType movementType, float speed )
         {
             Bitmap img;
 
@@ -526,7 +526,7 @@ namespace Universalis
             int width = movementStringWidth + 3 * SImageMargin + SImageSize;
 
             g.DrawImage( img, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
-            DrawStringCentered( g, BW.ToString(), FontStandard, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, movementStringWidth, SLineHeight ) );
+            DrawStringCentered( g, speed.ToString() + "\"", FontStandard, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, movementStringWidth, SLineHeight ) );
 
             g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );
 

@@ -2,7 +2,7 @@
 {
     public static class Formatter
     {
-        public static string Modifier( int modifier )
+        public static string Modifier( float modifier )
         {
             if( modifier == 0 )
             {

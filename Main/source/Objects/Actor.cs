@@ -469,7 +469,7 @@ namespace Universalis
 
 #region profile
 
-        public int ModSpeed()
+        public float ModSpeed()
         {
             return Archetype.Profile.ModSpeed( CurrentProfileModifier() ) - ModLoadModifier();
         }

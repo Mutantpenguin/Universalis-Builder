@@ -28,7 +28,7 @@ namespace Universalis
 
         public static class Profile
         {
-            public static int Speed = 20;
+            public static int Speed = 10;
             public static int HitPoints = 30;
             public static int CritThreshold = 35;
         }

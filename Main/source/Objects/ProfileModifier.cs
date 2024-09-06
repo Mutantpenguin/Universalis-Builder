@@ -40,7 +40,7 @@ namespace Universalis
             return true;
         }
 
-        public int Speed
+        public float Speed
         {
             get;
             set;
@@ -80,7 +80,7 @@ namespace Universalis
         {
             int points = 0;
 
-            points += Speed * Convert.ToInt32( Costs.Profile.Speed * Costs.Modifier.Surcharge );
+            points += Convert.ToInt32( Speed * 2 * Costs.Profile.Speed * Costs.Modifier.Surcharge );
             points += HitPoints * Convert.ToInt32( Costs.Profile.HitPoints * Costs.Modifier.Surcharge );
             
             points += CritThreshold * Costs.Profile.CritThreshold;

@@ -32,7 +32,7 @@ namespace Universalis
 
         #region members
 
-        public int Speed
+        public float Speed
         {
             get;
             set;
@@ -52,7 +52,7 @@ namespace Universalis
 
         #endregion
 
-        public int ModSpeed( ProfileModifier modifier )
+        public float ModSpeed( ProfileModifier modifier )
         {
             if( modifier == null )
             {
@@ -92,7 +92,7 @@ namespace Universalis
                 points += Attributes.DET * Costs.Attribute.DET;
             }
 
-            points += Speed * Costs.Profile.Speed;
+            points += Convert.ToInt32( Speed * 2 * Costs.Profile.Speed );
 
             points += Attributes.PHY * Costs.Attribute.PHY;
             points += Attributes.AWA * Costs.Attribute.AWA;
