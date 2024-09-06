@@ -265,7 +265,7 @@ namespace Universalis
             }
         }
 
-        public int? DangerArea( AttributeModifier modifier )
+        public float? DangerArea( AttributeModifier modifier )
         {
             if( Type == EType.Telematon )
             {
@@ -273,7 +273,7 @@ namespace Universalis
             }
             else
             {
-                int lengthDangerArea = Presets.MaxLengthDangerArea - Profile.Attributes.ModDET( modifier );
+                float lengthDangerArea = ( Presets.MaxLengthDangerArea - Profile.Attributes.ModDET( modifier ) ) / 2.0f;
 
                 if( lengthDangerArea < 0 )
                 {

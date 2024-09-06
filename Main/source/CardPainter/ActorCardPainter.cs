@@ -286,11 +286,11 @@ namespace Universalis
             DrawStringCentered( g, modWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, modWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
 
             // GB - Gefahrenbereich
-            int? dangerArea = actor.ModDangerArea();
+            float? dangerArea = actor.ModDangerArea();
             if( dangerArea.HasValue )
             {
                 g.DrawImage( Properties.ResourcesActorCard.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
-                DrawStringCentered( g, dangerArea.Value.ToString(), FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
+                DrawStringCentered( g, dangerArea.Value.ToString() + "\"", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
             }
         }
 

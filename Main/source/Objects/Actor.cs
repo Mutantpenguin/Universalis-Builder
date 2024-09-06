@@ -548,7 +548,7 @@ namespace Universalis
         #endregion profile
 
         #region calculated values
-        public int? ModDangerArea()
+        public float? ModDangerArea()
         {
             return Archetype.DangerArea( CurrentProfileModifier().AttributeModifier );
         }
