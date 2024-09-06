@@ -375,7 +375,6 @@ namespace Universalis
                     else
                     {
                         toolStripButtonGroupTraitSelect.Checked = false;
-                        toolStripButtonGroupTraitSelect.Image = Properties.Resources.ui_check_box_uncheck;
                     }
                 }
             }
@@ -385,11 +384,11 @@ namespace Universalis
         {
             if(toolStripButtonGroupTraitSelect.Checked)
             {
-                toolStripButtonGroupTraitSelect.Image = Properties.Resources.ui_check_box;
+                toolStripButtonGroupTraitSelect.Image = Properties.Resources.trash;
             }
             else
             {
-                toolStripButtonGroupTraitSelect.Image = Properties.Resources.ui_check_box_uncheck;
+                toolStripButtonGroupTraitSelect.Image = Properties.Resources.plus;
             }
         }
 

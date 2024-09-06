@@ -299,7 +299,6 @@ namespace Universalis
                     else
                     {
                         toolStripButtonArmorSelect.Checked = false;
-                        toolStripButtonArmorSelect.Image = Properties.Resources.ui_check_box_uncheck;
                     }
                 }
             }
@@ -309,11 +308,11 @@ namespace Universalis
         {
             if( toolStripButtonArmorSelect.Checked )
             {
-                toolStripButtonArmorSelect.Image = Properties.Resources.ui_check_box;
+                toolStripButtonArmorSelect.Image = Properties.Resources.trash;
             }
             else
             {
-                toolStripButtonArmorSelect.Image = Properties.Resources.ui_check_box_uncheck;
+                toolStripButtonArmorSelect.Image = Properties.Resources.plus;
             }
         }
 #endregion armor
