@@ -282,8 +282,7 @@ namespace Universalis
             g.DrawImage( Properties.ResourcesActorCard.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
 
             string modWbString = actor.ModAreaOfPerception().ToString() + "\"";
-            Size modWbSize = g.MeasureString( modWbString, FontStandard ).ToSize();
-            DrawStringCentered( g, modWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, modWbSize.Width + CmToPixel( 0.1 ), CmToPixel( 0.5 ) ) );
+            DrawStringCentered( g, modWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, CmToPixel( 1 ), SLineHeight ) );
 
             // GB - Gefahrenbereich
             float? dangerArea = actor.ModDangerArea();
