@@ -566,7 +566,7 @@ namespace Universalis
             }
             else
             {
-                return $"{attributePHY * Presets.throwRangeLengthMultiplier}/{Presets.throwRangeAmount}";
+                return $"{attributePHY}/{Presets.throwRangeAmount}";
             }
         }
 

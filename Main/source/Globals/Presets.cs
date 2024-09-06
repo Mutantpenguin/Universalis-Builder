@@ -7,7 +7,6 @@
         public const float HitZoneHitPointsMultiplier = 2.0f / 3.0f;
 
         public const int AreaOfPerceptionMultiplier = 2;
-        public const int throwRangeLengthMultiplier = 2;
         public const float throwRangeLengthUnwieldyMultiplier = 0.5f;
         public const int throwRangeAmount = 3;
 
