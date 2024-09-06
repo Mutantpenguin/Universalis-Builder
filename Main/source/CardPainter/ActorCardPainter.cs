@@ -45,7 +45,7 @@ namespace Universalis
         private static readonly Font FontPoints = Font0Dot2;
         private static readonly Font FontWeapon = Font0Dot3;
         private static readonly Font FontWeaponName = Font0Dot2;
-        private static readonly Font FontWeaponRadius = Font0Dot25;
+        private static readonly Font FontWeaponRadius = Font0Dot3;
         private static readonly Font FontWk = Font0Dot3;
         private static readonly Font FontUnwieldy = Font0Dot3;
         private static readonly Font FontArmor = Font0Dot3;
@@ -772,7 +772,7 @@ namespace Universalis
             {
                 Rectangle rect = new Rectangle( remainderPosX + WeaponRadiusMargin, posY + WeaponRadiusMargin, SLineHeight - ( 2 * WeaponRadiusMargin ), SLineHeight - ( 2 * WeaponRadiusMargin ) );
                 g.FillEllipse( Brushes.Black, rect );
-                DrawStringCentered( g, weapon.FormattedRadius, FontWeaponRadius, Brushes.White, rect );
+                DrawStringCentered( g, weapon.Radius.ToString(), FontWeaponRadius, Brushes.White, rect );
 
                 remainderPosX += SImageSize;
             }

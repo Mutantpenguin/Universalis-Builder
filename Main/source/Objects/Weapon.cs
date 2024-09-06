@@ -457,7 +457,7 @@ namespace Universalis
                 switch( Type )
                 {
                     case EType.Fernkampf:
-                        return ( Range.Length * Range.Amount ) + "cm";
+                        return ( Range.Length * Range.Amount ) + "\"";
 
                     case EType.Nahkampf:
                         return "NK";
@@ -472,7 +472,7 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string FormattedRadius => ( 0 == Radius ) ? "-" : Radius.ToString();
+        public string FormattedRadius => ( 0 == Radius ) ? "-" : Radius.ToString() + "\"";
 
         [ JsonIgnore]
         public int Points => CalculatedPoints();
@@ -528,19 +528,19 @@ namespace Universalis
             {
                 float rangeMultiplikator = 0.0f;
 
-                // each cm adds 1% to the costs
+                // each inch adds 2% to the costs
                 // but for each range-band the costs diminish
                 // 1st is full, 2nd is half, 3rd a third and so on
-                for( int i = 0; i < Range.Amount; i++ )
+                for( int i = 1; i <= Range.Amount; i++ )
                 {
-                    rangeMultiplikator += (float)Range.Length / (i+1);
+                    rangeMultiplikator += (float)Range.Length / i * 2;
                 }
 
                 points *= 1 + ( rangeMultiplikator / 100.0f );
             }
 
-            // each cm in radius adds 5%
-            points *= 1 + ( ( Radius * 5 ) / 100.0f );
+            // each inch in radius adds 10%
+            points *= 1 + ( ( Radius * 10 ) / 100.0f );
 
             // the lower the class the higher the points
             points *= ( 1 + ( 5 - (int)Class ) * 0.25f );

@@ -553,7 +553,7 @@
             this.numericUpDownRadius.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponBindingSource, "Radius", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.numericUpDownRadius.Location = new System.Drawing.Point(216, 81);
             this.numericUpDownRadius.Maximum = new decimal(new int[] {
-            10,
+            6,
             0,
             0,
             0});
