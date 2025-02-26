@@ -36,7 +36,7 @@ namespace Universalis
                 {
                     e.Value = !String.IsNullOrEmpty( archetype.Rules );
                 }
-                else if( ( archetype.Type == Archetype.EType.Telematon ) && (  ( e.ColumnIndex == AGIDataGridViewTextBoxColumn.Index )
+                else if( ( archetype.Type == Archetype.EType.Begleiter ) && (  ( e.ColumnIndex == AGIDataGridViewTextBoxColumn.Index )
                                                                             ||
                                                                             ( e.ColumnIndex == HTHDataGridViewTextBoxColumn.Index )
                                                                             ||

@@ -460,7 +460,7 @@ namespace Universalis
                 }
             }
 
-            List<Actor> sortedActorList = group.Models.Where( x => x.Active ).Where( x => x.Archetype.Type != Archetype.EType.Telematon ).ToList();
+            List<Actor> sortedActorList = group.Models.Where( x => x.Active ).Where( x => x.Archetype.Type != Archetype.EType.Begleiter ).ToList();
 
             for( int i = 0; i < sortedActorList.Count; i++ )
             {

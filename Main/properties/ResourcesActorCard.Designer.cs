@@ -73,6 +73,16 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Begleiter {
+            get {
+                object obj = ResourceManager.GetObject("Begleiter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bewegung_beine {
             get {
                 object obj = ResourceManager.GetObject("bewegung_beine", resourceCulture);
@@ -266,16 +276,6 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap Stärke_weiss {
             get {
                 object obj = ResourceManager.GetObject("Stärke_weiss", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Telematon {
-            get {
-                object obj = ResourceManager.GetObject("Telematon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

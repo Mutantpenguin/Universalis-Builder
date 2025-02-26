@@ -302,7 +302,7 @@ namespace Universalis
             switch( actor.Archetype.Type )
             {
                 case Archetype.EType.Standard:
-                case Archetype.EType.Telematon:
+                case Archetype.EType.Begleiter:
                     int posX = SPictureRect.X + margin;
                     int posY = SPictureRect.Y + margin;
 
@@ -440,8 +440,8 @@ namespace Universalis
                     g.DrawImage( Properties.ResourcesActorCard.Koloss, rect );
                     break;
 
-                case Archetype.EType.Telematon:
-                    g.DrawImage( Properties.ResourcesActorCard.Telematon, rect );
+                case Archetype.EType.Begleiter:
+                    g.DrawImage( Properties.ResourcesActorCard.Begleiter, rect );
                     break;
 
                 default:

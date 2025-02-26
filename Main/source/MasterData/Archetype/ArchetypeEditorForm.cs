@@ -119,7 +119,7 @@ namespace Universalis
                         }
                         break;
 
-                    case Archetype.EType.Telematon:
+                    case Archetype.EType.Begleiter:
                         if( ( size != Archetype.ESize.Klein )
                             &&
                             ( size != Archetype.ESize.Mittel )
@@ -128,7 +128,7 @@ namespace Universalis
                             &&
                             ( size != Archetype.ESize.Riesig ) )
                         {
-                            MessageBox.Show( "Telematons dürfen nur klein, mittel, groß oder riesig sein!",
+                            MessageBox.Show( "Begleiter dürfen nur klein, mittel, groß oder riesig sein!",
                                              caption,
                                              MessageBoxButtons.OK,
                                              MessageBoxIcon.Stop );
@@ -223,7 +223,7 @@ namespace Universalis
 
         private void TypeDependantFields()
         {
-            if( Archetype.EType.Telematon == (Archetype.EType)comboBoxType.SelectedItem )
+            if( Archetype.EType.Begleiter == (Archetype.EType)comboBoxType.SelectedItem )
             {
                 numericUpDownAGI.Minimum = 0;
                 numericUpDownHTH.Minimum = 0;
@@ -255,7 +255,7 @@ namespace Universalis
         {
             switch( m_modifiedArchetype.Type )
             {
-                case Archetype.EType.Telematon:
+                case Archetype.EType.Begleiter:
                     DangerArea.Visible = false;
                     labelGB.Visible = false;
 

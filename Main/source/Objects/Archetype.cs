@@ -204,7 +204,7 @@ namespace Universalis
                         typeMultiplicator = 30.0f;
                         break;
 
-                    case EType.Telematon:
+                    case EType.Begleiter:
                         typeMultiplicator = 10.0f;
                         break;
 
@@ -267,7 +267,7 @@ namespace Universalis
 
         public float? DangerArea( AttributeModifier modifier )
         {
-            if( Type == EType.Telematon )
+            if( Type == EType.Begleiter )
             {
                 return null;
             }
@@ -321,7 +321,7 @@ namespace Universalis
         {
             Standard = 1,
             Koloss = 2,
-            Telematon = 3
+            Begleiter = 3
         }
 
         public enum EMovementType

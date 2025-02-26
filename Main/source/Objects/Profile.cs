@@ -84,7 +84,7 @@ namespace Universalis
         {
             int points = 0;
 
-            if( type != Archetype.EType.Telematon )
+            if( type != Archetype.EType.Begleiter )
             {
                 points += Attributes.AGI * Costs.Attribute.AGI;
                 points += Attributes.HTH * Costs.Attribute.HTH;
@@ -100,7 +100,7 @@ namespace Universalis
             switch( type )
             {
                 case Archetype.EType.Standard:
-                case Archetype.EType.Telematon:
+                case Archetype.EType.Begleiter:
                     points += HitPoints * Costs.Profile.HitPoints;
                     break;
 

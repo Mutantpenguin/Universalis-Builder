@@ -9,7 +9,7 @@ namespace Universalis
             switch( type )
             {
                 case Archetype.EType.Standard:
-                case Archetype.EType.Telematon:
+                case Archetype.EType.Begleiter:
                     return Convert.ToSingle( Math.Pow( phy, 2 ) );
 
                 case Archetype.EType.Koloss:

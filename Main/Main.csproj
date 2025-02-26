@@ -105,9 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\ResourcesActorCard.Designer.cs">
-      <DependentUpon>ResourcesActorCard.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>ResourcesActorCard.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\ResourcesPowerCard.Designer.cs">
       <DependentUpon>ResourcesPowerCard.resx</DependentUpon>
@@ -720,7 +720,7 @@
     <None Include="Resources\empty_group.png" />
     <None Include="Resources\empty_faction.png" />
     <None Include="Resources\empty.png" />
-    <None Include="Resources\Telematon.png" />
+    <None Include="Resources\Begleiter.png" />
     <None Include="Resources\Koloss.png" />
     <None Include="Resources\Standard.png" />
     <None Include="Resources\SchadenMisserfolg.png" />
