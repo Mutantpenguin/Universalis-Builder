@@ -16,6 +16,10 @@ namespace Universalis
         private static readonly float s_cardWidth = CmToPixel( ActorCardPainter.CardWidthCm );
         private static readonly float s_cardHeight = CmToPixel( ActorCardPainter.CardHeightCm );
 
+        private static readonly Image s_type_standard_img = Image.GetInstance( Properties.ResourcesActorCard.Standard, System.Drawing.Imaging.ImageFormat.Png );
+        private static readonly Image s_type_begleiter_img = Image.GetInstance( Properties.ResourcesActorCard.Begleiter, System.Drawing.Imaging.ImageFormat.Png );
+        private static readonly Image s_type_koloss_img = Image.GetInstance( Properties.ResourcesActorCard.Koloss, System.Drawing.Imaging.ImageFormat.Png );
+
         #region fonts
         private static readonly BaseFont s_baseFontUniversalis = BaseFont.CreateFont( UniversalisFont.FileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, Properties.Resources.NovaRound_Regular, null );
 
@@ -196,7 +200,7 @@ namespace Universalis
         {
             float printableWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
             float actorImgWidth = CmToPixel( 1 );
-            float typeWidth = CmToPixel(3);
+            float typeWidth = CmToPixel(1);
             float pointsWidth = CmToPixel( 2 );
             float modelNameWidth = printableWidth - ( actorImgWidth + typeWidth + pointsWidth);
 
@@ -215,10 +219,12 @@ namespace Universalis
                 Border = Rectangle.NO_BORDER,
                 Colspan = 2
             } );
+
             overviewTable.AddCell(new PdfPCell(new Phrase("Typ", s_actorFontHeader))
             {
                 Border = Rectangle.NO_BORDER
             });
+
             overviewTable.AddCell( new PdfPCell( new Phrase( "Punkte", s_actorFontHeader ) )
             {
                 Border = Rectangle.NO_BORDER,
@@ -242,10 +248,30 @@ namespace Universalis
                     VerticalAlignment = Element.ALIGN_MIDDLE
                 } );
 
-                overviewTable.AddCell(new PdfPCell(new Phrase(actor.Archetype.Type.ToString()))
+                Image typeImg = null;
+                switch( actor.Archetype.Type )
+                {
+                    case Archetype.EType.Standard:
+                        typeImg = s_type_standard_img;
+                        break;
+
+                    case Archetype.EType.Koloss:
+                        typeImg = s_type_koloss_img;
+                        break;
+
+                    case Archetype.EType.Begleiter:
+                        typeImg = s_type_begleiter_img;
+                        break;
+
+                    default:
+                        throw new InvalidOperationException( "unkown " + nameof( actor.Archetype.Type ) );
+                }
+                typeImg.ScaleToFit( CmToPixel( 0.9f ), CmToPixel( 0.9f ) );
+                overviewTable.AddCell(new PdfPCell( typeImg )
                 {
                     Border = Rectangle.TOP_BORDER,
-                    VerticalAlignment = Element.ALIGN_MIDDLE
+                    VerticalAlignment = Element.ALIGN_MIDDLE,
+                    MinimumHeight = CmToPixel( 1 ),
                 });
 
                 overviewTable.AddCell( new PdfPCell( new Phrase( actor.Points.ToString() ) )
