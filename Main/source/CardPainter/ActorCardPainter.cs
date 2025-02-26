@@ -412,7 +412,7 @@ namespace Universalis
 
         private static void DrawPoints( Graphics g, Actor actor )
         {
-            string points = $"{actor.Points}pkt";
+            string points = $"{actor.Points.ToString( "N0" )}pkt";
 
             g.DrawString( points, FontPoints, Brushes.Black, new Rectangle( 0, CmToPixel( 7.5 ), SSectionsPosX, CmToPixel( 0.5 ) ), StringFormatHCenterVCenter );
         }

@@ -3,6 +3,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.text.pdf.draw;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -274,7 +275,7 @@ namespace Universalis
                     MinimumHeight = CmToPixel( 1 ),
                 });
 
-                overviewTable.AddCell( new PdfPCell( new Phrase( actor.Points.ToString() ) )
+                overviewTable.AddCell( new PdfPCell( new Phrase( actor.Points.ToString( "N0" ) ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE,
@@ -292,7 +293,7 @@ namespace Universalis
                     HorizontalAlignment = Element.ALIGN_RIGHT,
                     MinimumHeight = CmToPixel( 1 )
                 } );
-                overviewTable.AddCell( new PdfPCell( new Phrase( group.GroupTrait.Points( group.Models.Where( x => x.Active ).Count() ).ToString() ) )
+                overviewTable.AddCell( new PdfPCell( new Phrase( group.GroupTrait.Points( group.Models.Where( x => x.Active ).Count() ).ToString( "N0" ) ) )
                 {
                     Border = Rectangle.TOP_BORDER,
                     VerticalAlignment = Element.ALIGN_MIDDLE,
@@ -306,7 +307,7 @@ namespace Universalis
                 Border = Rectangle.TOP_BORDER,
                 HorizontalAlignment = Element.ALIGN_RIGHT
             } );
-            overviewTable.AddCell( new PdfPCell( new Phrase( group.Points.ToString(), s_actorFontHeader ) )
+            overviewTable.AddCell( new PdfPCell( new Phrase( group.Points.ToString( "N0" ), s_actorFontHeader ) )
             {
                 Border = Rectangle.TOP_BORDER,
                 HorizontalAlignment = Element.ALIGN_RIGHT
