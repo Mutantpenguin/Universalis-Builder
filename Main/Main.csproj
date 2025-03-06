@@ -190,12 +190,6 @@
     <Compile Include="Source\MasterData\MasterDataMainForm.Designer.cs">
       <DependentUpon>MasterDataMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\MasterData\Archetype\AddTraitToArchetypeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\MasterData\Archetype\AddTraitToArchetypeForm.Designer.cs">
-      <DependentUpon>AddTraitToArchetypeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\MasterData\Archetype\ArchetypeEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -516,10 +510,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\MasterDataMainForm.resx">
       <DependentUpon>MasterDataMainForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\MasterData\Archetype\AddTraitToArchetypeForm.resx">
-      <DependentUpon>AddTraitToArchetypeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\MasterData\Archetype\ArchetypeEditorForm.resx">
