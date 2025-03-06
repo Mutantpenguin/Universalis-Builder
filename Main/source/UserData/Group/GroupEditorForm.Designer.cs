@@ -208,7 +208,7 @@
             // 
             // textBoxPoints
             // 
-            this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Points", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.groupBindingSource, "Points", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxPoints.Location = new System.Drawing.Point(234, 43);
             this.textBoxPoints.Name = "textBoxPoints";
             this.textBoxPoints.ReadOnly = true;
@@ -329,6 +329,7 @@
             // 
             this.actorPointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N0";
             this.actorPointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.actorPointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.actorPointsDataGridViewTextBoxColumn.Name = "actorPointsDataGridViewTextBoxColumn";
@@ -708,11 +709,11 @@
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonPrint;
         private System.Windows.Forms.Button buttonImage;
-        private System.Windows.Forms.DataGridViewImageColumn actorIconDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn actorNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn actorPointsDataGridViewTextBoxColumn;
         private System.Windows.Forms.PictureBox pictureBoxInvalidGroup;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.DataGridViewImageColumn actorIconDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actorNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actorPointsDataGridViewTextBoxColumn;
     }
 }

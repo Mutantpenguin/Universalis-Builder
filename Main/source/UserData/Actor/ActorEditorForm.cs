@@ -145,7 +145,7 @@ namespace Universalis
                 textBoxBelastung.BackColor = SystemColors.Control;
             }
 
-            textBoxPointCost.Text = m_actorModified.Points.ToString();
+            textBoxPointCost.Text = m_actorModified.Points.ToString( "N0" );
 
             if( m_initialized )
             {

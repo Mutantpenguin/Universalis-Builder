@@ -184,6 +184,7 @@
             // 
             this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N0";
             this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";

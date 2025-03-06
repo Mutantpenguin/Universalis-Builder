@@ -121,7 +121,7 @@
             // textBoxPoints
             // 
             this.textBoxPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.equipmentBindingSource, "Points", true));
+            this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.equipmentBindingSource, "Points", true, System.Windows.Forms.DataSourceUpdateMode.OnValidation, null, "N0"));
             this.textBoxPoints.Location = new System.Drawing.Point(422, 16);
             this.textBoxPoints.Name = "textBoxPoints";
             this.textBoxPoints.ReadOnly = true;
@@ -244,6 +244,7 @@
             this.numericUpDownBasePoints.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownBasePoints.TabIndex = 4;
             this.numericUpDownBasePoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownBasePoints.ThousandsSeparator = true;
             this.numericUpDownBasePoints.ValueChanged += new System.EventHandler(this.numericUpDownBasePoints_ValueChanged);
             // 
             // panel3

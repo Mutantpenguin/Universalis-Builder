@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArchetypeEditorForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
@@ -163,7 +163,7 @@
             // textBoxPoints
             // 
             this.textBoxPoints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "Points", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxPoints.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "Points", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.textBoxPoints.Location = new System.Drawing.Point(425, 16);
             this.textBoxPoints.Name = "textBoxPoints";
             this.textBoxPoints.ReadOnly = true;
@@ -217,7 +217,7 @@
             // textBoxWeight
             // 
             this.textBoxWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxWeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "Weight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxWeight.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "Weight", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N1"));
             this.textBoxWeight.Location = new System.Drawing.Point(332, 55);
             this.textBoxWeight.Name = "textBoxWeight";
             this.textBoxWeight.ReadOnly = true;
@@ -372,7 +372,7 @@
             // textBoxTragkraft
             // 
             this.textBoxTragkraft.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxTragkraft.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "MaxLoadCapacity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.textBoxTragkraft.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.archetypeBindingSource, "MaxLoadCapacity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N1"));
             this.textBoxTragkraft.Location = new System.Drawing.Point(332, 81);
             this.textBoxTragkraft.Name = "textBoxTragkraft";
             this.textBoxTragkraft.ReadOnly = true;
@@ -958,6 +958,7 @@
             this.numericUpDownAdditionalPoints.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownAdditionalPoints.TabIndex = 4;
             this.numericUpDownAdditionalPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownAdditionalPoints.ThousandsSeparator = true;
             this.numericUpDownAdditionalPoints.ValueChanged += new System.EventHandler(this.numericUpDownAdditionalPoints_ValueChanged);
             // 
             // toolStrip4
@@ -981,8 +982,8 @@
             this.dataGridViewFaction.AllowUserToAddRows = false;
             this.dataGridViewFaction.AllowUserToDeleteRows = false;
             this.dataGridViewFaction.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewFaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewFaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewFaction.AutoGenerateColumns = false;
             this.dataGridViewFaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

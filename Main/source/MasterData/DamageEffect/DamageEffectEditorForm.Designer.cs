@@ -105,6 +105,7 @@
             this.numericUpDownPoints.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownPoints.TabIndex = 45;
             this.numericUpDownPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownPoints.ThousandsSeparator = true;
             // 
             // label2
             // 

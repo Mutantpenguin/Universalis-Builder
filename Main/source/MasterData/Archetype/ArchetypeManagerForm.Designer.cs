@@ -411,6 +411,7 @@
             // 
             this.Points.DataPropertyName = "Points";
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.Format = "N0";
             this.Points.DefaultCellStyle = dataGridViewCellStyle12;
             this.Points.HeaderText = "Punkte";
             this.Points.Name = "Points";

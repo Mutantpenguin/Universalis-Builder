@@ -261,11 +261,11 @@ namespace Universalis
             {
                 if( MaxLevel == 1 )
                 {
-                    return Points( 1 ).ToString();
+                    return Points( 1 ).ToString( "N0" );
                 }
                 else
                 {
-                    return $"{Points( 1 )} bis {Points( MaxLevel )}";
+                    return $"{Points( 1 ):N0} bis {Points( MaxLevel ):N0}";
                 }
             }
         }

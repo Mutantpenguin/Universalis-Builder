@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewGroups = new System.Windows.Forms.DataGridView();
+            this.groupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripCardManager = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonAddGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDeleteGroup = new System.Windows.Forms.ToolStripButton();
@@ -43,17 +44,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxFactionDescription = new System.Windows.Forms.TextBox();
             this.pictureBoxFaction = new System.Windows.Forms.PictureBox();
-            this.groupBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroups)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).BeginInit();
             this.toolStripCardManager.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFaction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewGroups
@@ -87,6 +87,10 @@
             this.dataGridViewGroups.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridViewGroups_CellPainting);
             this.dataGridViewGroups.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewGroups_CellToolTipTextNeeded);
             this.dataGridViewGroups.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewGroups_KeyDown);
+            // 
+            // groupBindingSource
+            // 
+            this.groupBindingSource.DataSource = typeof(Universalis.Group);
             // 
             // toolStripCardManager
             // 
@@ -127,6 +131,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -191,10 +196,6 @@
             this.pictureBoxFaction.TabIndex = 0;
             this.pictureBoxFaction.TabStop = false;
             // 
-            // groupBindingSource
-            // 
-            this.groupBindingSource.DataSource = typeof(Universalis.Group);
-            // 
             // iconDataGridViewImageColumn
             // 
             this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
@@ -226,6 +227,7 @@
             // 
             this.pointsDataGridViewTextBoxColumn.DataPropertyName = "Points";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N0";
             this.pointsDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.pointsDataGridViewTextBoxColumn.HeaderText = "Punkte";
             this.pointsDataGridViewTextBoxColumn.Name = "pointsDataGridViewTextBoxColumn";
@@ -247,6 +249,7 @@
             this.Text = "Gruppen";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GroupManagerForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroups)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).EndInit();
             this.toolStripCardManager.ResumeLayout(false);
             this.toolStripCardManager.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -254,7 +257,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFaction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

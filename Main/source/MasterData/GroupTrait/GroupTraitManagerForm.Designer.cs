@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonGroupTraitAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonGroupTraitDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
+            this.filterFaction = new System.Windows.Forms.ToolStripComboBox();
+            this.checkBoxFilterFaction = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButtonFilter = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItemPositives = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNegatives = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNeutrals = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewGroupTraits = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HasPermissions = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PointsPerModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.filterFaction = new System.Windows.Forms.ToolStripComboBox();
-            this.checkBoxFilterFaction = new System.Windows.Forms.ToolStripButton();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HasPermissions = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PointsPerModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTraits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).BeginInit();
@@ -130,6 +130,26 @@
             this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
             this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
             // 
+            // filterFaction
+            // 
+            this.filterFaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterFaction.Enabled = false;
+            this.filterFaction.Name = "filterFaction";
+            this.filterFaction.Size = new System.Drawing.Size(90, 25);
+            this.filterFaction.ToolTipText = "Fraktion";
+            // 
+            // checkBoxFilterFaction
+            // 
+            this.checkBoxFilterFaction.CheckOnClick = true;
+            this.checkBoxFilterFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.checkBoxFilterFaction.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterFaction.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.checkBoxFilterFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.checkBoxFilterFaction.Name = "checkBoxFilterFaction";
+            this.checkBoxFilterFaction.Size = new System.Drawing.Size(23, 22);
+            this.checkBoxFilterFaction.ToolTipText = "nach Fraktion filtern";
+            this.checkBoxFilterFaction.Click += new System.EventHandler(this.checkBoxFilterFaction_Click);
+            // 
             // toolStripDropDownButtonFilter
             // 
             this.toolStripDropDownButtonFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -179,8 +199,8 @@
             this.dataGridViewGroupTraits.AllowUserToAddRows = false;
             this.dataGridViewGroupTraits.AllowUserToDeleteRows = false;
             this.dataGridViewGroupTraits.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewGroupTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewGroupTraits.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGroupTraits.AutoGenerateColumns = false;
             this.dataGridViewGroupTraits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGroupTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -202,32 +222,6 @@
             this.dataGridViewGroupTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewGroupTraits_CellToolTipTextNeeded);
             this.dataGridViewGroupTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewGroupTraits_KeyDown);
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // HasPermissions
-            // 
-            this.HasPermissions.HeaderText = "B";
-            this.HasPermissions.Name = "HasPermissions";
-            this.HasPermissions.ReadOnly = true;
-            this.HasPermissions.ToolTipText = "Berechtigungen";
-            this.HasPermissions.Width = 25;
-            // 
-            // PointsPerModel
-            // 
-            this.PointsPerModel.DataPropertyName = "PointsPerModel";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle4;
-            this.PointsPerModel.HeaderText = "Punkte/Modell";
-            this.PointsPerModel.Name = "PointsPerModel";
-            this.PointsPerModel.ReadOnly = true;
-            this.PointsPerModel.Width = 90;
-            // 
             // groupTraitBindingSource
             // 
             this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
@@ -247,25 +241,32 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
-            // filterFaction
+            // nameDataGridViewTextBoxColumn
             // 
-            this.filterFaction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filterFaction.Enabled = false;
-            this.filterFaction.Name = "filterFaction";
-            this.filterFaction.Size = new System.Drawing.Size(90, 25);
-            this.filterFaction.ToolTipText = "Fraktion";
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // checkBoxFilterFaction
+            // HasPermissions
             // 
-            this.checkBoxFilterFaction.CheckOnClick = true;
-            this.checkBoxFilterFaction.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterFaction.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
-            this.checkBoxFilterFaction.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.checkBoxFilterFaction.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.checkBoxFilterFaction.Name = "checkBoxFilterFaction";
-            this.checkBoxFilterFaction.Size = new System.Drawing.Size(23, 22);
-            this.checkBoxFilterFaction.ToolTipText = "nach Fraktion filtern";
-            this.checkBoxFilterFaction.Click += new System.EventHandler(this.checkBoxFilterFaction_Click);
+            this.HasPermissions.HeaderText = "B";
+            this.HasPermissions.Name = "HasPermissions";
+            this.HasPermissions.ReadOnly = true;
+            this.HasPermissions.ToolTipText = "Berechtigungen";
+            this.HasPermissions.Width = 25;
+            // 
+            // PointsPerModel
+            // 
+            this.PointsPerModel.DataPropertyName = "PointsPerModel";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "N0";
+            this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PointsPerModel.HeaderText = "Punkte/Modell";
+            this.PointsPerModel.Name = "PointsPerModel";
+            this.PointsPerModel.ReadOnly = true;
+            this.PointsPerModel.Width = 90;
             // 
             // GroupTraitManagerForm
             // 
@@ -307,10 +308,10 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNegatives;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNeutrals;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
+        private System.Windows.Forms.ToolStripComboBox filterFaction;
+        private System.Windows.Forms.ToolStripButton checkBoxFilterFaction;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn HasPermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsPerModel;
-        private System.Windows.Forms.ToolStripComboBox filterFaction;
-        private System.Windows.Forms.ToolStripButton checkBoxFilterFaction;
     }
 }

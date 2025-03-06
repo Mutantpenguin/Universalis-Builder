@@ -102,6 +102,7 @@
             this.numericUpDownPoints.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownPoints.TabIndex = 48;
             this.numericUpDownPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownPoints.ThousandsSeparator = true;
             this.toolTip1.SetToolTip(this.numericUpDownPoints, "Punkte pro Modell");
             // 
             // groupTraitBindingSource

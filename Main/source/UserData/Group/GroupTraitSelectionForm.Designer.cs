@@ -43,10 +43,10 @@
             this.toolStripMenuItemNegatives = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNeutrals = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewGroupTraits = new System.Windows.Forms.DataGridView();
+            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointsPerModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupTraitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTraits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupTraitBindingSource)).BeginInit();
@@ -192,6 +192,10 @@
             this.dataGridViewGroupTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewGroupTraits_CellToolTipTextNeeded);
             this.dataGridViewGroupTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewGroupTraits_KeyDown);
             // 
+            // groupTraitBindingSource
+            // 
+            this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
@@ -214,15 +218,12 @@
             // 
             this.PointsPerModel.DataPropertyName = "PointsPerModel";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N0";
             this.PointsPerModel.DefaultCellStyle = dataGridViewCellStyle3;
             this.PointsPerModel.HeaderText = "Punkte/Model";
             this.PointsPerModel.Name = "PointsPerModel";
             this.PointsPerModel.ReadOnly = true;
             this.PointsPerModel.Width = 90;
-            // 
-            // groupTraitBindingSource
-            // 
-            this.groupTraitBindingSource.DataSource = typeof(Universalis.GroupTrait);
             // 
             // GroupTraitSelectionForm
             // 

@@ -247,6 +247,7 @@
             this.numericUpDownBasePoints.Size = new System.Drawing.Size(56, 20);
             this.numericUpDownBasePoints.TabIndex = 47;
             this.numericUpDownBasePoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownBasePoints.ThousandsSeparator = true;
             // 
             // labelMaxLevel
             // 
