@@ -75,7 +75,7 @@ namespace Universalis
 
         private static readonly int XAttrFirstColumn = SSectionsPosX;
         private static readonly int XAttrSecondColumn = CmToPixel( 6.1 );
-        private static readonly int XAttrThirdColumn = CmToPixel( 8.5 );
+        private static readonly int XAttrThirdColumn = CmToPixel( 9 );
         private const String UseOnceMarker = "○";
         private const String UnwieldyMarker = "◈";
         #endregion members
@@ -117,13 +117,12 @@ namespace Universalis
                 g.Clear( Color.White );
 
                 DrawName( g, actor.Name );
-                DrawFaction( g, faction);
 
                 DrawPicture( g, actor.Img, actor.Active );
 
                 DrawAttributes( g, actor );
                 DrawCalculatedAttributes( g, actor );
-                DrawMisc( g, actor );
+                DrawMisc( g, actor, faction );
 
                 DrawHitPoints( g, actor );
                 DrawPoints( g, actor );
@@ -201,21 +200,11 @@ namespace Universalis
 
         private static void DrawName( Graphics g, String actorName )
         {
-            int posX = CmToPixel( 0.5 );
-            int posY = 0;
-
-            Size textSize = new Size( CmToPixel( 4 ) - posX, CmToPixel( 0.5 ) );
-            Rectangle textRect = new Rectangle( new Point( posX, posY ), textSize );
+            Size textSize = new Size( CmToPixel( 4 ), CmToPixel( 0.5 ) );
+            Rectangle textRect = new Rectangle( new Point( 0, 0 ), textSize );
             g.MeasureString( actorName, FontName, textSize, StringFormatHCenterVCenter, out _, out int linesFilled );
 
             g.DrawString( actorName, linesFilled > 1 ? FontNameSmall : FontName, Brushes.Black, textRect, StringFormatHCenterVCenter );
-        }
-
-        private static void DrawFaction( Graphics g, Faction faction )
-        {
-            Rectangle rect = new Rectangle( Point.Empty, new Size( CmToPixel( 0.5 ), CmToPixel( 0.5 ) ) );
-
-            g.DrawImage( faction.Icon, rect );
         }
 
         private static void DrawPicture( Graphics g, Bitmap image, bool active )
@@ -278,19 +267,58 @@ namespace Universalis
 
         private static void DrawCalculatedAttributes( Graphics g, Actor actor )
         {
+            DrawMovement( g, XAttrThirdColumn, actor.Archetype.MovementType, actor.ModSpeed() );
+
             // WB - Wahrnehmungsbereich
-            g.DrawImage( Properties.ResourcesActorCard.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SImageMargin, SImageSize, SImageSize ) );
+            g.DrawImage( Properties.ResourcesActorCard.Wahrnehmungsbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
 
             string modWbString = actor.ModAreaOfPerception().ToString() + "\"";
-            DrawStringCentered( g, modWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), 0, CmToPixel( 1 ), SLineHeight ) );
+            DrawStringCentered( g, modWbString, FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
 
             // GB - Gefahrenbereich
             float? dangerArea = actor.ModDangerArea();
             if( dangerArea.HasValue )
             {
-                g.DrawImage( Properties.ResourcesActorCard.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeight + SImageMargin, SImageSize, SImageSize ) );
-                DrawStringCentered( g, dangerArea.Value.ToString() + "\"", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeight, CmToPixel( 1 ), SLineHeight ) );
+                g.DrawImage( Properties.ResourcesActorCard.Gefahrenbereich, new Rectangle( XAttrThirdColumn, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
+                DrawStringCentered( g, dangerArea.Value.ToString() + "\"", FontStandard, Brushes.Black, new Rectangle( XAttrThirdColumn + CmToPixel( 0.5 ), SLineHeightDouble, CmToPixel( 1 ), SLineHeight ) );
             }
+        }
+
+        private static void DrawMovement( Graphics g, int xOffset, Archetype.EMovementType movementType, float speed )
+        {
+            Rectangle rect = new Rectangle( xOffset + SImageMargin, SImageMargin, SImageSize, SImageSize );
+
+            switch( movementType )
+            {
+                case Archetype.EMovementType.Stationär:
+                    g.DrawImage( Properties.ResourcesActorCard.bewegung_stationär, rect );
+                    break;
+
+                case Archetype.EMovementType.Schweben:
+                    g.DrawImage( Properties.ResourcesActorCard.bewegung_schweben, rect );
+                    break;
+
+                case Archetype.EMovementType.Beine:
+                    g.DrawImage( Properties.ResourcesActorCard.bewegung_beine, rect );
+                    break;
+
+                case Archetype.EMovementType.Flug:
+                    g.DrawImage( Properties.ResourcesActorCard.bewegung_flug, rect );
+                    break;
+
+                case Archetype.EMovementType.Kette:
+                    g.DrawImage( Properties.ResourcesActorCard.bewegung_kette, rect );
+                    break;
+
+                case Archetype.EMovementType.Rad:
+                    g.DrawImage( Properties.ResourcesActorCard.bewegung_rad, rect );
+                    break;
+
+                default:
+                    throw new InvalidOperationException( "unkown " + nameof( Archetype.EMovementType ) );
+            }
+
+            DrawStringCentered( g, speed.ToString() + "\"", FontStandard, Brushes.Black, new Rectangle( xOffset + CmToPixel( 0.5 ), 0, CmToPixel( 1 ), SLineHeight ) );
         }
 
         private static void DrawHitPoints( Graphics g, Actor actor )
@@ -417,18 +445,26 @@ namespace Universalis
             g.DrawString( points, FontPoints, Brushes.Black, new Rectangle( 0, CmToPixel( 7.5 ), SSectionsPosX, CmToPixel( 0.5 ) ), StringFormatHCenterVCenter );
         }
 
-        private static void DrawMisc( Graphics g, Actor actor )
+        private static void DrawMisc( Graphics g, Actor actor, Faction faction)
         {
-            int sizeX = DrawType( g, XAttrThirdColumn, actor.Archetype.Type );
-            int movementX = DrawSize( g, sizeX, actor.Archetype.Size );
-            int weightX = DrawMovement( g, movementX, actor.Archetype.MovementType, actor.ModSpeed() );
+            int width = SLineHeightDouble;
+
+            DrawFaction( g, faction, width );
+            DrawType( g, actor.Archetype.Type, width );
+            DrawSize( g, actor.Archetype.Size, width );
         }
 
-        private static int DrawType( Graphics g, int xOffset, Archetype.EType type )
+        private static void DrawFaction( Graphics g, Faction faction, int width )
         {
-            int width = SLineHeight;
+            int sideLength = width;
+            Rectangle rect = new Rectangle( SCardWidth - sideLength, 0, sideLength, sideLength );
 
-            Rectangle rect = new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight );
+            g.DrawImage( faction.Icon, rect );
+        }
+
+        private static void DrawType( Graphics g, Archetype.EType type, int width )
+        {
+            Rectangle rect = new Rectangle( SCardWidth - width + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize );
 
             switch( type )
             {
@@ -447,90 +483,33 @@ namespace Universalis
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
             }
-
-            g.DrawRectangle( SLinePenBlack, rect );
-
-            return xOffset + width;
         }
 
-        private static int DrawSize( Graphics g, int xOffset, Archetype.ESize size )
+        private static void DrawSize( Graphics g, Archetype.ESize size, int width )
         {
-            Bitmap img;
+            Rectangle rect = new Rectangle( SCardWidth - width + ( width / 2 ), SLineHeightDouble + SImageMargin, SImageSize, SImageSize );
 
             switch( size )
             {
                 case Archetype.ESize.Klein :
-                    img = Properties.ResourcesActorCard.klein;
+                    g.DrawImage( Properties.ResourcesActorCard.klein, rect );
                     break;
 
                 case Archetype.ESize.Mittel :
-                    img = Properties.ResourcesActorCard.mittel;
+                    g.DrawImage( Properties.ResourcesActorCard.mittel, rect );
                     break;
 
                 case Archetype.ESize.Groß :
-                    img = Properties.ResourcesActorCard.groß;
+                    g.DrawImage( Properties.ResourcesActorCard.groß, rect );
                     break;
 
                 case Archetype.ESize.Riesig:
-                    img = Properties.ResourcesActorCard.riesig;
+                    g.DrawImage( Properties.ResourcesActorCard.riesig, rect );
                     break;
 
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( Archetype.ESize ) );
             }
-
-            int width = SLineHeight;
-
-            g.DrawImage( img, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
-
-            g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );
-
-            return xOffset + width;
-        }
-
-        private static int DrawMovement( Graphics g, int xOffset, Archetype.EMovementType movementType, float speed )
-        {
-            Bitmap img;
-
-            switch( movementType )
-            {
-                case Archetype.EMovementType.Stationär:
-                    img = Properties.ResourcesActorCard.bewegung_stationär;
-                    break;
-
-                case Archetype.EMovementType.Schweben:
-                    img = Properties.ResourcesActorCard.bewegung_schweben;
-                    break;
-
-                case Archetype.EMovementType.Beine:
-                    img = Properties.ResourcesActorCard.bewegung_beine;
-                    break;
-
-                case Archetype.EMovementType.Flug:
-                    img = Properties.ResourcesActorCard.bewegung_flug;
-                    break;
-
-                case Archetype.EMovementType.Kette:
-                    img = Properties.ResourcesActorCard.bewegung_kette;
-                    break;
-
-                case Archetype.EMovementType.Rad:
-                    img = Properties.ResourcesActorCard.bewegung_rad;
-                    break;
-
-                default:
-                    throw new InvalidOperationException( "unkown " + nameof( Archetype.EMovementType ) );
-            }
-
-            int movementStringWidth = CmToPixel( 0.6 );
-            int width = movementStringWidth + 3 * SImageMargin + SImageSize;
-
-            g.DrawImage( img, new Rectangle( xOffset + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize ) );
-            DrawStringCentered( g, speed.ToString() + "\"", FontStandard, Brushes.Black, new Rectangle( xOffset + 2 * SImageMargin + SImageSize, SLineHeightDouble, movementStringWidth, SLineHeight ) );
-
-            g.DrawRectangle( SLinePenBlack, new Rectangle( xOffset, SLineHeightDouble, width, SLineHeight ) );
-
-            return xOffset + width;
         }
 
         private static void DrawSectionHeader( Graphics g, String name, Image sectionHeader, int posY )
