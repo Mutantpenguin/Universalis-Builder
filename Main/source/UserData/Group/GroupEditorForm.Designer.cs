@@ -148,7 +148,6 @@
             // 
             // buttonImage
             // 
-            this.buttonImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonImage.Image = global::Universalis.Properties.Resources.baseline_image_search_black_24dp;
             this.buttonImage.Location = new System.Drawing.Point(135, 26);
             this.buttonImage.Margin = new System.Windows.Forms.Padding(0);
