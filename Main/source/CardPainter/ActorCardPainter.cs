@@ -137,11 +137,11 @@ namespace Universalis
 
                 int traitsEndY = DrawTraits( g, actor.Traits, headerEndY );
 
-                int weaponsEndY = DrawWeapons( g, actor, traitsEndY );
+                int armorEndY = DrawArmor( g, actor, actor.Armor, traitsEndY );
 
-                int armorEndY = DrawArmor( g, actor, actor.Armor, weaponsEndY );
+                int weaponsEndY = DrawWeapons( g, actor, armorEndY );
 
-                int equipmentEndY = DrawEquipment( g, actor.Equipments, armorEndY );
+                int equipmentEndY = DrawEquipment( g, actor.Equipments, weaponsEndY );
 
                 int disciplinesEndY = DrawDisciplines( g, actor.Disciplines, equipmentEndY );
 
