@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Universalis
@@ -189,16 +190,13 @@ namespace Universalis
                         weapon.Range = new WeaponRange()
                         {
                             Length = m_originalWeapon.Range.Length,
-                            Amount = m_originalWeapon.Range.Amount
+                            Amount = m_originalWeapon.Range.Amount,
+                            MinAmount = m_originalWeapon.Range.MinAmount
                         };
                     }
                     else
                     {
-                        weapon.Range = new WeaponRange()
-                        {
-                            Length = 10,
-                            Amount = 1
-                        };
+                        weapon.Range = new WeaponRange();
                     }
                     break;
 
@@ -498,6 +496,20 @@ namespace Universalis
                                                         new System.Drawing.Size( textBoxPermissions.Width, 0 ) );
 
             textBoxPermissions.Height = messageSize.Height;
+        }
+
+        private void numericUpDownWeaponRangeAmount_ValueChanged( object sender, EventArgs e )
+        {
+            weaponRangeBindingSource.SuspendBinding();
+
+            if( numericUpDownWeaponRangeMinAmount.Value > numericUpDownWeaponRangeAmount.Value )
+            {
+                numericUpDownWeaponRangeMinAmount.Value = numericUpDownWeaponRangeAmount.Value;
+            }
+
+            numericUpDownWeaponRangeMinAmount.Maximum = numericUpDownWeaponRangeAmount.Value;
+
+            weaponRangeBindingSource.ResumeBinding();
         }
     }
 }

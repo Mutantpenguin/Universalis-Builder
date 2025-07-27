@@ -60,9 +60,9 @@
             this.filterType = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
-            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.WeaponClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedMaxQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,8 +91,8 @@
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -260,10 +260,6 @@
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWeapons_KeyDown);
             // 
-            // weaponBindingSource
-            // 
-            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -278,6 +274,10 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
+            // 
+            // weaponBindingSource
+            // 
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
             // 
             // WeaponClass
             // 
@@ -339,7 +339,7 @@
             this.FormattedRange.Name = "FormattedRange";
             this.FormattedRange.ReadOnly = true;
             this.FormattedRange.ToolTipText = "Reichweite";
-            this.FormattedRange.Width = 40;
+            this.FormattedRange.Width = 50;
             // 
             // MaxRange
             // 
@@ -350,7 +350,7 @@
             this.MaxRange.Name = "MaxRange";
             this.MaxRange.ReadOnly = true;
             this.MaxRange.ToolTipText = "maximale Reichweite";
-            this.MaxRange.Width = 40;
+            this.MaxRange.Width = 50;
             // 
             // FormattedSustainedFire
             // 
@@ -555,9 +555,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

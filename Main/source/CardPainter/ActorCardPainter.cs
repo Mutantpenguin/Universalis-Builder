@@ -83,7 +83,7 @@ namespace Universalis
         #region weaponMembers
         private static readonly int WeaponWkWidth = CmToPixel( 0.5 );
         private static readonly int WeaponNameWidth = CmToPixel( 2.3 );
-        private static readonly int WeaponRangeWidth = CmToPixel( 0.9 );
+        private static readonly int WeaponRangeWidth = CmToPixel( 1.1 );
         private static readonly int WeaponStrengthWidth = CmToPixel( 0.5 );
         private static readonly int WeaponDamageWidth = CmToPixel( 0.5 );
         private static readonly int WeaponUnwieldyWidth = WeaponWkWidth / 3;
@@ -95,6 +95,12 @@ namespace Universalis
         private static readonly int WeaponDamageStart = WeaponStrengthStart + WeaponStrengthWidth;
 
         private static readonly int WeaponRadiusMargin = SImageMargin + CmToPixel( 0.015f );
+        #endregion
+
+        #region armorMembers
+        private static readonly int ArmorNameWidth = WeaponWkWidth + WeaponNameWidth + WeaponRangeWidth;
+        private static readonly int ArmorProtectionWidth = CmToPixel( 0.5 );
+        private static readonly int ArmorDamageReductionWidth = CmToPixel( 0.5 );
         #endregion
 
         public static Bitmap GetBitmap( Faction faction, Actor actor )
@@ -779,19 +785,15 @@ namespace Universalis
         {
             if( armor != null )
             {
-                int nameWidth = CmToPixel( 3.7 );
-                int protectionWidth = CmToPixel( 0.5 );
-                int damageReductionWidth = CmToPixel( 0.5 );
-
-                int protectionStart = SSectionsPosX + nameWidth;
-                int damageReductionStart = protectionStart + protectionWidth;
-                int effectsStart = damageReductionStart + damageReductionWidth;
+                int protectionStart = SSectionsPosX + ArmorNameWidth;
+                int damageReductionStart = protectionStart + ArmorProtectionWidth;
+                int effectsStart = damageReductionStart + ArmorDamageReductionWidth;
 
                 DrawSectionHeader( g, "Rüstung", SectionHeaderArmor, posY );
 
                 g.DrawLine( SLinePenBlack, SSectionsPosX, posY + SLineHeightDouble, SSectionsWidth, posY + SLineHeightDouble );
 
-                g.DrawString( armor.Name, FontArmorName, Brushes.Black, new Rectangle( SSectionsPosX, posY + SLineHeight, nameWidth, SLineHeight ), StringFormatHLeftVCenter );
+                g.DrawString( armor.Name, FontArmorName, Brushes.Black, new Rectangle( SSectionsPosX, posY + SLineHeight, ArmorNameWidth, SLineHeight ), StringFormatHLeftVCenter );
 
                 // Protection
                 g.DrawLine( SLinePenBlack, protectionStart, posY + SLineHeight, protectionStart, posY + SLineHeightDouble );
@@ -801,17 +803,17 @@ namespace Universalis
 
                 if( armor.AdditiveProtection )
                 {
-                    DrawStringCentered( g, ( armor.Protection + actorModPHY ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                    DrawStringCentered( g, ( armor.Protection + actorModPHY ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, ArmorProtectionWidth, SLineHeight ) );
                 }
                 else
                 {
-                    DrawStringCentered( g, Math.Max( armor.Protection, actorModPHY ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, protectionWidth, SLineHeight ) );
+                    DrawStringCentered( g, Math.Max( armor.Protection, actorModPHY ).ToString(), FontArmor, ArmorFontBrush, new Rectangle( protectionStart, posY + SLineHeight, ArmorProtectionWidth, SLineHeight ) );
                 }
 
                 // Damage Reduction
                 g.DrawLine( SLinePenBlack, damageReductionStart, posY + SLineHeight, damageReductionStart, posY + SLineHeightDouble );
                 g.DrawImage( Properties.ResourcesActorCard.Schadensreduktion_weiss, new Rectangle( damageReductionStart + SImageMargin, posY + SImageMargin, SImageSize, SImageSize ) );
-                DrawStringCentered( g, armor.FormattedDamageReduction, FontArmor, ArmorFontBrush, new Rectangle( damageReductionStart, posY + SLineHeight, damageReductionWidth, SLineHeight ) );
+                DrawStringCentered( g, armor.FormattedDamageReduction, FontArmor, ArmorFontBrush, new Rectangle( damageReductionStart, posY + SLineHeight, ArmorDamageReductionWidth, SLineHeight ) );
 
                 // Damage Effects
                 g.DrawLine( SLinePenBlack, effectsStart, posY + SLineHeight, effectsStart, posY + SLineHeightDouble );

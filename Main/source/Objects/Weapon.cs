@@ -65,7 +65,8 @@ namespace Universalis
                 Range = new WeaponRange
                 {
                     Length = weapon.Range.Length,
-                    Amount = weapon.Range.Amount
+                    Amount = weapon.Range.Amount,
+                    MinAmount = weapon.Range.MinAmount
                 };
             }
             else
@@ -410,7 +411,14 @@ namespace Universalis
                         }
                         else
                         {
-                            return Range.Length + "/" + Range.Amount;
+                            if( Range.MinAmount > 1 )
+                            {
+                                return Range.Length + "/" + Range.MinAmount + "›" + Range.Amount;
+                            }
+                            else
+                            {
+                                return Range.Length + "/" + Range.Amount;
+                            }
                         }
 
                     case EType.Nahkampf:
@@ -457,17 +465,24 @@ namespace Universalis
                 switch( Type )
                 {
                     case EType.Fernkampf:
-                        return ( Range.Length * Range.Amount ) + "\"";
+                        if( Range.MinAmount > 1 )
+                        {
+                            return ( Range.Length * (Range.MinAmount-1) ) + "\"-" + ( Range.Length * Range.Amount ) + "\"";
+                        }
+                        else
+                        {
+                            return ( Range.Length * Range.Amount ) + "\"";
+                        }
 
                     case EType.Nahkampf:
-                        return "NK";
+                                return "NK";
 
-                    case EType.Wurf:
-                        return "-";
+                            case EType.Wurf:
+                                return "-";
 
-                    default:
-                        throw new InvalidOperationException( "unkown Weapon.EType" );
-                }
+                            default:
+                                throw new InvalidOperationException( "unkown Weapon.EType" );
+                            }
             }
         }
 

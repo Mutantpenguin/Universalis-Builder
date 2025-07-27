@@ -53,7 +53,6 @@
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.dataGridViewWeapons = new System.Windows.Forms.DataGridView();
-            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +63,7 @@
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.filterType = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
+            this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedMaxQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,10 +90,10 @@
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pointsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonOk
@@ -173,10 +173,6 @@
             this.dataGridViewWeapons.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridViewWeapons_CellFormatting);
             this.dataGridViewWeapons.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewWeapons_CellToolTipTextNeeded);
             this.dataGridViewWeapons.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewWeapons_KeyDown);
-            // 
-            // weaponBindingSource
-            // 
-            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
             // 
             // panel2
             // 
@@ -282,6 +278,10 @@
             this.checkBoxFilterType.ToolTipText = "nach Typ filtern";
             this.checkBoxFilterType.Click += new System.EventHandler(this.checkBoxFilterType_Click);
             // 
+            // weaponBindingSource
+            // 
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
+            // 
             // classDataGridViewTextBoxColumn
             // 
             this.classDataGridViewTextBoxColumn.DataPropertyName = "Class";
@@ -344,7 +344,7 @@
             this.WeaponRange.Name = "WeaponRange";
             this.WeaponRange.ReadOnly = true;
             this.WeaponRange.ToolTipText = "Reichweite";
-            this.WeaponRange.Width = 40;
+            this.WeaponRange.Width = 50;
             // 
             // MaxRange
             // 
@@ -355,7 +355,7 @@
             this.MaxRange.Name = "MaxRange";
             this.MaxRange.ReadOnly = true;
             this.MaxRange.ToolTipText = "maximale Reichweite";
-            this.MaxRange.Width = 40;
+            this.MaxRange.Width = 50;
             // 
             // FormattedSustainedFire
             // 
@@ -561,11 +561,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Waffenauswahl";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewWeapons)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

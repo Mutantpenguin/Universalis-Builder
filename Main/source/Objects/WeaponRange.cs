@@ -6,12 +6,18 @@
         {
             get;
             set;
-        }
+        } = 10;
 
         public int Amount
         {
             get;
             set;
-        }
+        } = 1;
+
+        public int MinAmount
+        {
+            get;
+            set;
+        } = 1;
     }
 }
