@@ -151,19 +151,19 @@ namespace Universalis
                     g.DrawLine( SStructureBlackPen, SSectionsPosX, traitsEndY, SCardWidth, traitsEndY );
                 }
 
-                if( traitsEndY < weaponsEndY )
+                if( traitsEndY < armorEndY )
                 {
                     g.DrawLine( SStructureBlackPen, SSectionsPosX, weaponsEndY,     SCardWidth, weaponsEndY );
                 }
 
-                if( weaponsEndY < armorEndY )
-                {
-                    g.DrawLine( SStructureBlackPen, SSectionsPosX, armorEndY,       SCardWidth, armorEndY );
-                }
-
-                if( armorEndY < equipmentEndY )
+                if( armorEndY < weaponsEndY )
                 {
                     g.DrawLine( SStructureBlackPen, SSectionsPosX, equipmentEndY, SCardWidth, equipmentEndY );
+                }
+
+                if( weaponsEndY < equipmentEndY )
+                {
+                    g.DrawLine( SStructureBlackPen, SSectionsPosX, armorEndY,       SCardWidth, armorEndY );
                 }
 
                 if( equipmentEndY < disciplinesEndY )
