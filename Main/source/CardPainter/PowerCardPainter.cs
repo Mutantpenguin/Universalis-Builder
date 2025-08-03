@@ -74,23 +74,29 @@ namespace Universalis
 
         private static void DrawTitle( Graphics g, Color disciplineColor, string name, bool monochrome )
         {
-            var rect = new Rectangle( SMargin, SMargin, SContentWidth, STitleHeight );
-
             Color textColor = Color.Black;
 
-            if( !monochrome )
             {
-                var disciplineBrush = new SolidBrush( disciplineColor );
-                FillRoundedRectangle( g, disciplineBrush, rect, SRectangleRadius );
+                var borderRect = new Rectangle( 0, 0, SCardWidth, STitleHeight );
 
-                textColor = ContrastFontColor( disciplineColor );
+                if( !monochrome )
+                {
+                    var disciplineBrush = new SolidBrush( disciplineColor );
+                    g.FillRectangle( disciplineBrush, borderRect );
+
+                    textColor = ContrastFontColor( disciplineColor );
+                }
+
+                g.DrawRectangle( SStructureBlackPen, borderRect );
             }
 
-            RoundedRectangle( g, SStructureBlackPen, rect, SRectangleRadius );
+            {
+                var fontRect = new Rectangle( SMargin, 0, SContentWidth, STitleHeight );
+            
+                var font = FindFontSingleLine( g, name, fontRect.Size, FontTitle );
 
-            var font = FindFontSingleLine( g, name, rect.Size, FontTitle );
-
-            g.DrawString( name, font, new SolidBrush( textColor ), rect, StringFormatHCenterVCenter );
+                g.DrawString( name, font, new SolidBrush( textColor ), fontRect, StringFormatHCenterVCenter );
+            }
         }
 
         private static void DrawRules( Graphics g, string rules )
