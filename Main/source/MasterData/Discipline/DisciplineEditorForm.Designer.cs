@@ -19,6 +19,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxColor = new System.Windows.Forms.PictureBox();
@@ -51,9 +52,6 @@
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
             this.panelDiscipline = new System.Windows.Forms.Panel();
             this.dataGridViewPowers = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attributeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.powersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBoxPower = new System.Windows.Forms.PictureBox();
@@ -63,6 +61,10 @@
             this.toolStripButtonAddPower = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDeletePower = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attributeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
@@ -425,6 +427,7 @@
             this.dataGridViewPowers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPowers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
+            this.LevelDataGridViewTextBoxColumn,
             this.aPDataGridViewTextBoxColumn,
             this.attributeDataGridViewTextBoxColumn});
             this.dataGridViewPowers.DataSource = this.powersBindingSource;
@@ -441,36 +444,6 @@
             this.dataGridViewPowers.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewPowers_CellToolTipTextNeeded);
             this.dataGridViewPowers.SelectionChanged += new System.EventHandler(this.dataGridViewPowers_SelectionChanged);
             this.dataGridViewPowers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewPowers_KeyDown);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // aPDataGridViewTextBoxColumn
-            // 
-            this.aPDataGridViewTextBoxColumn.DataPropertyName = "AP";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.aPDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.aPDataGridViewTextBoxColumn.HeaderText = "AP";
-            this.aPDataGridViewTextBoxColumn.Name = "aPDataGridViewTextBoxColumn";
-            this.aPDataGridViewTextBoxColumn.ReadOnly = true;
-            this.aPDataGridViewTextBoxColumn.ToolTipText = "Aktionspunkte";
-            this.aPDataGridViewTextBoxColumn.Width = 30;
-            // 
-            // attributeDataGridViewTextBoxColumn
-            // 
-            this.attributeDataGridViewTextBoxColumn.DataPropertyName = "Attribute";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.attributeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.attributeDataGridViewTextBoxColumn.HeaderText = "A";
-            this.attributeDataGridViewTextBoxColumn.Name = "attributeDataGridViewTextBoxColumn";
-            this.attributeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.attributeDataGridViewTextBoxColumn.ToolTipText = "Attribut";
-            this.attributeDataGridViewTextBoxColumn.Width = 30;
             // 
             // powersBindingSource
             // 
@@ -566,6 +539,47 @@
             this.toolStripButtonClearSearch.Name = "toolStripButtonClearSearch";
             this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // LevelDataGridViewTextBoxColumn
+            // 
+            this.LevelDataGridViewTextBoxColumn.DataPropertyName = "Level";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.LevelDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.LevelDataGridViewTextBoxColumn.HeaderText = "LVL";
+            this.LevelDataGridViewTextBoxColumn.Name = "LevelDataGridViewTextBoxColumn";
+            this.LevelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.LevelDataGridViewTextBoxColumn.ToolTipText = "Level";
+            this.LevelDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // aPDataGridViewTextBoxColumn
+            // 
+            this.aPDataGridViewTextBoxColumn.DataPropertyName = "AP";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.aPDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.aPDataGridViewTextBoxColumn.HeaderText = "AP";
+            this.aPDataGridViewTextBoxColumn.Name = "aPDataGridViewTextBoxColumn";
+            this.aPDataGridViewTextBoxColumn.ReadOnly = true;
+            this.aPDataGridViewTextBoxColumn.ToolTipText = "Aktionspunkte";
+            this.aPDataGridViewTextBoxColumn.Width = 30;
+            // 
+            // attributeDataGridViewTextBoxColumn
+            // 
+            this.attributeDataGridViewTextBoxColumn.DataPropertyName = "Attribute";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.attributeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.attributeDataGridViewTextBoxColumn.HeaderText = "A";
+            this.attributeDataGridViewTextBoxColumn.Name = "attributeDataGridViewTextBoxColumn";
+            this.attributeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.attributeDataGridViewTextBoxColumn.ToolTipText = "Attribut";
+            this.attributeDataGridViewTextBoxColumn.Width = 30;
             // 
             // DisciplineEditorForm
             // 
@@ -665,6 +679,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.BindingSource powersBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attributeDataGridViewTextBoxColumn;
     }

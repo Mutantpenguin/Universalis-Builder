@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.X509;
+using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Net.Mime;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 using static Universalis.CardPainterHelpers;
 using static Universalis.Helper.Drawing;
@@ -30,8 +33,11 @@ namespace Universalis
         private static readonly Pen SStructureBlackPen = new Pen( Color.Black, CmToPixel( 0.02f ) );
 
         private static readonly Font FontTitle = new Font( UniversalisFont.Family, CmToPixel( 0.5 ), FontStyle.Regular, GraphicsUnit.Pixel );
-        
+
+        private static readonly int LevelHeight = CmToPixel( 0.3 );
+
         private static readonly Font FontRules = new Font( "Arial", CmToPixel( 0.3 ), FontStyle.Regular, GraphicsUnit.Pixel );
+        private static readonly Font FontLevelMarker = new Font( "Arial", LevelHeight, FontStyle.Regular, GraphicsUnit.Pixel );
 
         private static readonly Font FontAP = new Font( UniversalisFont.Family, CmToPixel( 0.6 ), FontStyle.Regular, GraphicsUnit.Pixel );
         private static readonly Font FontAttributeBig = new Font( UniversalisFont.Family, CmToPixel( 0.6 ), FontStyle.Regular, GraphicsUnit.Pixel );
@@ -60,9 +66,9 @@ namespace Universalis
 
                 g.Clear( Color.White );
 
-                DrawTitle( g, discipline.Color, power.Name, monochrome );
+                DrawTitle( g, discipline.Color, power.Name, power.Level, monochrome );
 
-                DrawRules( g, power.Rules );
+                DrawRules( g, power.Rules, power.Level );
 
                 DrawFooter( g, power, monochrome );
 
@@ -72,12 +78,12 @@ namespace Universalis
             }
         }
 
-        private static void DrawTitle( Graphics g, Color disciplineColor, string name, bool monochrome )
+        private static void DrawTitle( Graphics g, Color disciplineColor, string name, uint level, bool monochrome )
         {
             Color textColor = Color.Black;
 
             {
-                var borderRect = new Rectangle( 0, 0, SCardWidth, STitleHeight );
+                var borderRect = new Rectangle( 0, 0, SCardWidth, STitleHeight + LevelHeight );
 
                 if( !monochrome )
                 {
@@ -96,19 +102,26 @@ namespace Universalis
                 var font = FindFontSingleLine( g, name, fontRect.Size, FontTitle );
 
                 g.DrawString( name, font, new SolidBrush( textColor ), fontRect, StringFormatHCenterVCenter );
+
+                var lvlRect = new Rectangle( SMargin, STitleHeight - CmToPixel( 0.1 ), SContentWidth, LevelHeight );
+
+                DrawStringCentered( g, new string( '✦', Convert.ToInt32( level ) ), FontLevelMarker, Brushes.Black, lvlRect );
             }
         }
 
-        private static void DrawRules( Graphics g, string rules )
+        private static void DrawRules( Graphics g, string rules, uint level )
         {
-            var contentTop = SMargin + STitleHeight + SMargin;
+            var contentTop = STitleHeight + SMargin;
+
+            int lvlMargin = CmToPixel( 0.1f );
+
             var contentHeight = SCardHeight - 4 * SMargin - STitleHeight - SFooterHeight;
             
-            var rect = new Rectangle( SMargin, contentTop, SContentWidth, contentHeight );
+            var contentRect = new Rectangle( SMargin, contentTop + (2* lvlMargin) + CmToPixel(0.2), SContentWidth, contentHeight );
 
-            var font = FindFontMultiLine( g, rules, rect.Size, FontRules );
+            var font = FindFontMultiLine( g, rules, contentRect.Size, FontRules );
 
-            g.DrawString( rules, font, Brushes.Black, rect );
+            g.DrawString( rules, font, Brushes.Black, contentRect );
         }
 
         private static void DrawFooter( Graphics g, Power power, bool monochrome )

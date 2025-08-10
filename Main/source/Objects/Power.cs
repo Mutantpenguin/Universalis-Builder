@@ -2,6 +2,7 @@
 using Source.JsonHelper;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Activation;
 
 namespace Universalis
 {
@@ -25,6 +26,7 @@ namespace Universalis
             Active = power.Active;
             Name = power.Name;
             Description = power.Description;
+            Level = power.Level;
             AP = power.AP;
             Attribute = power.Attribute;
             Modifier = power.Modifier;
@@ -53,6 +55,8 @@ namespace Universalis
                 Name != power.Name
                 ||
                 Description != power.Description
+                ||
+                Level != power.Level
                 ||
                 AP != power.AP
                 ||
@@ -107,6 +111,13 @@ namespace Universalis
             get;
             set;
         } = String.Empty;
+
+        public uint Level
+        {
+            get;
+            set;
+        } = 1;
+
         public uint AP
         {
             get;

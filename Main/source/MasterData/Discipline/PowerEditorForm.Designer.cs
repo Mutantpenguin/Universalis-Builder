@@ -17,9 +17,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDownLevel = new System.Windows.Forms.NumericUpDown();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.powerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip7 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonSave = new System.Windows.Forms.ToolStripButton();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -50,8 +51,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBoxPower = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.powerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLevel)).BeginInit();
             this.toolStrip7.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
@@ -65,18 +67,30 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.numericUpDownLevel);
             this.panel1.Controls.Add(this.textBoxName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(441, 39);
             this.panel1.TabIndex = 34;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(376, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 13);
+            this.label6.TabIndex = 58;
+            this.label6.Text = "Level";
             // 
             // label1
             // 
@@ -87,6 +101,31 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Name";
             // 
+            // numericUpDownLevel
+            // 
+            this.numericUpDownLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numericUpDownLevel.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.powerBindingSource, "Level", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownLevel.Location = new System.Drawing.Point(379, 16);
+            this.numericUpDownLevel.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numericUpDownLevel.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownLevel.Name = "numericUpDownLevel";
+            this.numericUpDownLevel.Size = new System.Drawing.Size(56, 20);
+            this.numericUpDownLevel.TabIndex = 57;
+            this.numericUpDownLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownLevel.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // textBoxName
             // 
             this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -94,12 +133,8 @@
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.powerBindingSource, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textBoxName.Location = new System.Drawing.Point(6, 16);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(423, 20);
+            this.textBoxName.Size = new System.Drawing.Size(367, 20);
             this.textBoxName.TabIndex = 0;
-            // 
-            // powerBindingSource
-            // 
-            this.powerBindingSource.DataSource = typeof(Universalis.Power);
             // 
             // toolStrip7
             // 
@@ -435,6 +470,10 @@
             this.panel5.Size = new System.Drawing.Size(441, 430);
             this.panel5.TabIndex = 0;
             // 
+            // powerBindingSource
+            // 
+            this.powerBindingSource.DataSource = typeof(Universalis.Power);
+            // 
             // PowerEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,7 +491,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PowerEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLevel)).EndInit();
             this.toolStrip7.ResumeLayout(false);
             this.toolStrip7.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -474,6 +513,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.powerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,5 +555,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBoxPower;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown numericUpDownLevel;
     }
 }
