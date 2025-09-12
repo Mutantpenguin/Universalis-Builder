@@ -472,50 +472,14 @@ namespace Universalis
         {
             Rectangle rect = new Rectangle( SCardWidth - width + SImageMargin, SLineHeightDouble + SImageMargin, SImageSize, SImageSize );
 
-            switch( type )
-            {
-                case Archetype.EType.Standard:
-                    g.DrawImage( Properties.ResourcesActorCard.Standard, rect );
-                    break;
-
-                case Archetype.EType.Koloss:
-                    g.DrawImage( Properties.ResourcesActorCard.Koloss, rect );
-                    break;
-
-                case Archetype.EType.Begleiter:
-                    g.DrawImage( Properties.ResourcesActorCard.Begleiter, rect );
-                    break;
-
-                default:
-                    throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
-            }
+            g.DrawImage( Universalis.TypeHelper.GetImage(type), rect );
         }
 
         private static void DrawSize( Graphics g, Archetype.ESize size, int width )
         {
             Rectangle rect = new Rectangle( SCardWidth - width + ( width / 2 ), SLineHeightDouble + SImageMargin, SImageSize, SImageSize );
 
-            switch( size )
-            {
-                case Archetype.ESize.Klein :
-                    g.DrawImage( Properties.ResourcesActorCard.klein, rect );
-                    break;
-
-                case Archetype.ESize.Mittel :
-                    g.DrawImage( Properties.ResourcesActorCard.mittel, rect );
-                    break;
-
-                case Archetype.ESize.Groß :
-                    g.DrawImage( Properties.ResourcesActorCard.groß, rect );
-                    break;
-
-                case Archetype.ESize.Riesig:
-                    g.DrawImage( Properties.ResourcesActorCard.riesig, rect );
-                    break;
-
-                default:
-                    throw new InvalidOperationException( "unkown " + nameof( Archetype.ESize ) );
-            }
+            g.DrawImage( Universalis.SizeHelper.GetImage(size), rect );
         }
 
         private static void DrawSectionHeader( Graphics g, String name, Image sectionHeader, int posY )

@@ -326,57 +326,9 @@ namespace Universalis
 
                     var drawRect = new Rectangle( e.CellBounds.X, e.CellBounds.Y, e.CellBounds.Width - 2, e.CellBounds.Height - 1 );
 
-                    {
-                        Image typeImage = null;
+                    e.Graphics.DrawImage( Universalis.TypeHelper.GetImage( actor.Archetype.Type ), new Rectangle( drawRect.X, drawRect.Y, drawRect.Width, drawRect.Width ) );
 
-                        switch( actor.Archetype.Type )
-                        {
-                            case Archetype.EType.Standard:
-                                typeImage = Properties.ResourcesActorCard.Standard;
-                                break;
-
-                            case Archetype.EType.Koloss:
-                                typeImage = Properties.ResourcesActorCard.Koloss;
-                                break;
-
-                            case Archetype.EType.Begleiter:
-                                typeImage = Properties.ResourcesActorCard.Begleiter;
-                                break;
-
-                            default:
-                                throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
-                        }
-
-                        e.Graphics.DrawImage( typeImage, new Rectangle( drawRect.X, drawRect.Y, drawRect.Width, drawRect.Width ) );
-                    }
-
-                    {
-                        Image sizeImage = null;
-
-                        switch( actor.Archetype.Size )
-                        {
-                            case Archetype.ESize.Klein:
-                                sizeImage = Properties.ResourcesActorCard.klein;
-                                break;
-
-                            case Archetype.ESize.Mittel:
-                                sizeImage = Properties.ResourcesActorCard.mittel;
-                                break;
-
-                            case Archetype.ESize.Groß:
-                                sizeImage = Properties.ResourcesActorCard.groß;
-                                break;
-
-                            case Archetype.ESize.Riesig:
-                                sizeImage = Properties.ResourcesActorCard.riesig;
-                                break;
-
-                            default:
-                                throw new InvalidOperationException( "unkown " + nameof( Archetype.ESize ) );
-                        }
-
-                        e.Graphics.DrawImage( sizeImage, new Rectangle( drawRect.X, drawRect.Y + ( drawRect.Height / 2 ), drawRect.Width, drawRect.Width ) );
-                    }
+                    e.Graphics.DrawImage( Universalis.SizeHelper.GetImage( actor.Archetype.Size ), new Rectangle( drawRect.X, drawRect.Y + ( drawRect.Height / 2 ), drawRect.Width, drawRect.Width ) );
 
                     e.Handled = true;
                 }
