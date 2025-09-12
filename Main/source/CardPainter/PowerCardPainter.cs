@@ -1,10 +1,6 @@
-﻿using Org.BouncyCastle.Asn1.X509;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Net.Mime;
-using System.Reflection.Emit;
-using System.Windows.Forms;
 using static Universalis.CardPainterHelpers;
 using static Universalis.Helper.Drawing;
 
