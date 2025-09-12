@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Universalis
             this.CenterToParent();
 
             this.WindowState = Properties.Settings.Default.GroupEditorWindowState;
-
+            
             this.Icon = Properties.Resources.icon;
 
             pictureBoxFactionIcon.Image = m_groupModified.Faction.Icon;
@@ -42,6 +43,8 @@ namespace Universalis
             groupBindingSource.DataSource = m_groupModified;
 
             toolStripButtonGroupTraitSelect.Checked = ( m_groupModified.GroupTrait != null );
+
+            actorInfoDataGridViewTextBoxColumn.DefaultCellStyle.NullValue = null;
 
             updateGroupTrait();
 
@@ -266,20 +269,20 @@ namespace Universalis
             {
                 if( e.ColumnIndex == actorNameDataGridViewTextBoxColumn.Index )
                 {
-                    Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
+                    Actor actor = (Actor)dataGridViewActors.Rows[e.RowIndex].DataBoundItem;
 
-                    e.PaintBackground(e.CellBounds, true);
+                    e.PaintBackground( e.CellBounds, true );
 
                     var nameBounds = e.CellBounds;
                     nameBounds.Y += 3;
-                    TextRenderer.DrawText(e.Graphics, actor.Name, m_actorNameFont, nameBounds, Color.Black, TextFormatFlags.WordEllipsis);
+                    TextRenderer.DrawText( e.Graphics, actor.Name, m_actorNameFont, nameBounds, Color.Black, TextFormatFlags.WordEllipsis );
 
                     var descriptionBounds = e.CellBounds;
                     descriptionBounds.Y += 20;
                     string description = actor.Archetype.Name + " - " + actor.Archetype.Type.ToString();
-                    TextRenderer.DrawText(e.Graphics, description, m_actorDescriptionFont, descriptionBounds, Color.Black, TextFormatFlags.WordEllipsis);
+                    TextRenderer.DrawText( e.Graphics, description, m_actorDescriptionFont, descriptionBounds, Color.Black, TextFormatFlags.WordEllipsis );
 
-                    if ( !actor.IsValid().valid )
+                    if( !actor.IsValid().valid )
                     {
                         Image imgInactiveComposition = Properties.Resources.alert_circle_red_18dp;
                         e.Graphics.DrawImageUnscaled( imgInactiveComposition, e.CellBounds.X + e.CellBounds.Width - (int)( imgInactiveComposition.Width * 1.5 ), e.CellBounds.Y + ( ( e.CellBounds.Height - imgInactiveComposition.Height ) / 2 ) );
@@ -289,9 +292,9 @@ namespace Universalis
                 }
                 else if( e.ColumnIndex == actorIconDataGridViewImageColumn.Index )
                 {
-                    e.PaintBackground( e.CellBounds, true );
+                    Actor actor = (Actor)dataGridViewActors.Rows[e.RowIndex].DataBoundItem;
 
-                    Actor actor = (Actor)dataGridViewActors.Rows[ e.RowIndex ].DataBoundItem;
+                    e.PaintBackground( e.CellBounds, true );
 
                     if( !actor.Active )
                     {
@@ -309,6 +312,70 @@ namespace Universalis
                     else
                     {
                         e.PaintContent( e.CellBounds );
+                    }
+
+                    e.Handled = true;
+                }
+                else if( e.ColumnIndex == actorInfoDataGridViewTextBoxColumn.Index )
+                {
+                    Actor actor = (Actor)dataGridViewActors.Rows[e.RowIndex].DataBoundItem;
+
+                    e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+                    e.PaintBackground( e.CellBounds, true );
+
+                    var drawRect = new Rectangle( e.CellBounds.X, e.CellBounds.Y, e.CellBounds.Width - 2, e.CellBounds.Height - 1 );
+
+                    {
+                        Image typeImage = null;
+
+                        switch( actor.Archetype.Type )
+                        {
+                            case Archetype.EType.Standard:
+                                typeImage = Properties.ResourcesActorCard.Standard;
+                                break;
+
+                            case Archetype.EType.Koloss:
+                                typeImage = Properties.ResourcesActorCard.Koloss;
+                                break;
+
+                            case Archetype.EType.Begleiter:
+                                typeImage = Properties.ResourcesActorCard.Begleiter;
+                                break;
+
+                            default:
+                                throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
+                        }
+
+                        e.Graphics.DrawImage( typeImage, new Rectangle( drawRect.X, drawRect.Y, drawRect.Width, drawRect.Width ) );
+                    }
+
+                    {
+                        Image sizeImage = null;
+
+                        switch( actor.Archetype.Size )
+                        {
+                            case Archetype.ESize.Klein:
+                                sizeImage = Properties.ResourcesActorCard.klein;
+                                break;
+
+                            case Archetype.ESize.Mittel:
+                                sizeImage = Properties.ResourcesActorCard.mittel;
+                                break;
+
+                            case Archetype.ESize.Groß:
+                                sizeImage = Properties.ResourcesActorCard.groß;
+                                break;
+
+                            case Archetype.ESize.Riesig:
+                                sizeImage = Properties.ResourcesActorCard.riesig;
+                                break;
+
+                            default:
+                                throw new InvalidOperationException( "unkown " + nameof( Archetype.ESize ) );
+                        }
+
+                        e.Graphics.DrawImage( sizeImage, new Rectangle( drawRect.X, drawRect.Y + ( drawRect.Height / 2 ), drawRect.Width, drawRect.Width ) );
                     }
 
                     e.Handled = true;
