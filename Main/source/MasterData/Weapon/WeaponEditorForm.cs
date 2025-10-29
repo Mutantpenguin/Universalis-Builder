@@ -331,6 +331,7 @@ namespace Universalis
             {
                 case Weapon.EType.Fernkampf:
                     numericUpDownWeaponRangeLength.Enabled = true;
+                    numericUpDownWeaponRangeMinAmount.Enabled = true;
                     numericUpDownWeaponRangeAmount.Enabled = true;
                     numericUpDownSustainedFire.Enabled = true;
                     checkBoxIndirectFire.Enabled = true;
@@ -339,6 +340,7 @@ namespace Universalis
 
                 case Weapon.EType.Nahkampf:
                     numericUpDownWeaponRangeLength.Enabled = false;
+                    numericUpDownWeaponRangeMinAmount.Enabled = false;
                     numericUpDownWeaponRangeAmount.Enabled = false;
                     numericUpDownSustainedFire.Enabled = false;
                     numericUpDownSustainedFire.Value = 0;
@@ -348,6 +350,7 @@ namespace Universalis
 
                 case Weapon.EType.Wurf:
                     numericUpDownWeaponRangeLength.Enabled = false;
+                    numericUpDownWeaponRangeMinAmount.Enabled = false;
                     numericUpDownWeaponRangeAmount.Enabled = false;
                     numericUpDownSustainedFire.Enabled = false;
                     numericUpDownSustainedFire.Value = 0;
