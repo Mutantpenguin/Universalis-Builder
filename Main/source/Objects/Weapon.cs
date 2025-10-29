@@ -403,22 +403,13 @@ namespace Universalis
                 switch( Type )
                 {
                     case EType.Fernkampf:
-                        if( Range.Length == 0
-                            ||
-                            Range.Amount == 0 )
+                        if( Range.MinAmount > 1 )
                         {
-                            return "-";
+                            return Range.Length + "/" + Range.MinAmount + "›" + Range.Amount;
                         }
                         else
                         {
-                            if( Range.MinAmount > 1 )
-                            {
-                                return Range.Length + "/" + Range.MinAmount + "›" + Range.Amount;
-                            }
-                            else
-                            {
-                                return Range.Length + "/" + Range.Amount;
-                            }
+                            return Range.Length + "/" + Range.Amount;
                         }
 
                     case EType.Nahkampf:
@@ -475,14 +466,14 @@ namespace Universalis
                         }
 
                     case EType.Nahkampf:
-                                return "NK";
+                        return "NK";
 
-                            case EType.Wurf:
-                                return "-";
+                    case EType.Wurf:
+                        return "-";
 
-                            default:
-                                throw new InvalidOperationException( "unkown Weapon.EType" );
-                            }
+                    default:
+                        throw new InvalidOperationException( "unkown Weapon.EType" );
+                }
             }
         }
 
