@@ -460,7 +460,7 @@ namespace Universalis
                     case EType.Fernkampf:
                         if( Range.MinAmount > 1 )
                         {
-                            return ( Range.Length * (Range.MinAmount-1) ) + "\"-" + ( Range.Length * Range.Amount ) + "\"";
+                            return ( ( Range.Length * (Range.MinAmount-1) ) +1  ) + "\"-" + ( Range.Length * Range.Amount ) + "\"";
                         }
                         else
                         {
