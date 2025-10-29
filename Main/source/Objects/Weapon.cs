@@ -178,9 +178,11 @@ namespace Universalis
 
             if( ( Range != null ) && ( weapon.Range != null ) )
             {
-                if( Range.Amount != weapon.Range.Amount
-                ||
-                Range.Length != weapon.Range.Length )
+                if( Range.MinAmount != weapon.Range.MinAmount
+                    ||
+                    Range.Amount != weapon.Range.Amount
+                    ||
+                    Range.Length != weapon.Range.Length )
                 {
                     return false;
                 }
