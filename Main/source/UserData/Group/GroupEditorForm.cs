@@ -101,6 +101,11 @@ namespace Universalis
 
         private void buttonSave_Click( object sender, EventArgs e )
         {
+            Save();
+        }
+
+        private void Save()
+        {
             if( mandatoryFieldsFilled() )
             {
                 m_groupOriginal.Set( m_groupModified );
@@ -576,12 +581,18 @@ namespace Universalis
         {
             if( !m_groupModified.Equals( m_groupOriginal ) )
             {
-                MessageBox.Show( "Es wurden Änderungen an der Gruppe vorgenommen. Bitte speichern Sie die Gruppe vorher!",
-                                 String.Empty,
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.Stop );
-
-                return;
+                if( MessageBox.Show( "Drucken nicht möglich, da Änderungen vorgenommen wurden. Gruppe speichern?",
+                                     String.Empty,
+                                     MessageBoxButtons.OKCancel,
+                                     MessageBoxIcon.Stop,
+                                     MessageBoxDefaultButton.Button2 ) == DialogResult.OK )
+                {
+                    Save();
+                }
+                else
+                {
+                    return;
+                }
             }
 
             var (valid, reason) = m_groupModified.IsValid();
