@@ -558,18 +558,6 @@ namespace Universalis
             return Archetype.AreaOfPerception( CurrentProfileModifier().AttributeModifier );
         }
 
-        public static string ThrowRange( int attributePHY, bool unwieldy )
-        {
-            if( unwieldy )
-            {
-                return $"{Math.Ceiling( attributePHY * Presets.throwRangeLengthUnwieldyMultiplier )}/{Presets.throwRangeAmount}";
-            }
-            else
-            {
-                return $"{attributePHY}/{Presets.throwRangeAmount}";
-            }
-        }
-
         public float ModMaxLoadCapacity()
         {
             int modPHY = Archetype.Profile.Attributes.ModPHY( CurrentProfileModifier().AttributeModifier );

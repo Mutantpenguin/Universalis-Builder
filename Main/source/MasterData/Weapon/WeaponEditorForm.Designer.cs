@@ -44,6 +44,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.numericUpDownWeaponRangeMinAmount = new System.Windows.Forms.NumericUpDown();
             this.checkBoxReloadable = new System.Windows.Forms.CheckBox();
             this.checkBoxAdditiveStrength = new System.Windows.Forms.CheckBox();
             this.checkBoxIndirectFire = new System.Windows.Forms.CheckBox();
@@ -58,7 +59,7 @@
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.textBoxMaxRange = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelRange = new System.Windows.Forms.Label();
             this.comboBoxWeaponClass = new System.Windows.Forms.ComboBox();
             this.numericUpDownWeaponRangeAmount = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
@@ -96,7 +97,6 @@
             this.toolStripButtonPermissions = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
-            this.numericUpDownWeaponRangeMinAmount = new System.Windows.Forms.NumericUpDown();
             this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.weaponRangeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,6 +108,7 @@
             this.panel4.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeaponRangeMinAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDamage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStrength)).BeginInit();
             this.toolStrip2.SuspendLayout();
@@ -129,7 +130,6 @@
             this.panel8.SuspendLayout();
             this.panelPermissions.SuspendLayout();
             this.toolStrip7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeaponRangeMinAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponRangeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageEffectsBindingSource)).BeginInit();
@@ -305,7 +305,7 @@
             this.panel3.Controls.Add(this.toolStrip2);
             this.panel3.Controls.Add(this.textBoxMaxRange);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.labelRange);
             this.panel3.Controls.Add(this.comboBoxWeaponClass);
             this.panel3.Controls.Add(this.numericUpDownWeaponRangeAmount);
             this.panel3.Controls.Add(this.label6);
@@ -318,6 +318,30 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(256, 176);
             this.panel3.TabIndex = 6;
+            // 
+            // numericUpDownWeaponRangeMinAmount
+            // 
+            this.numericUpDownWeaponRangeMinAmount.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponRangeBindingSource, "MinAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownWeaponRangeMinAmount.Location = new System.Drawing.Point(115, 107);
+            this.numericUpDownWeaponRangeMinAmount.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownWeaponRangeMinAmount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownWeaponRangeMinAmount.Name = "numericUpDownWeaponRangeMinAmount";
+            this.numericUpDownWeaponRangeMinAmount.Size = new System.Drawing.Size(35, 20);
+            this.numericUpDownWeaponRangeMinAmount.TabIndex = 37;
+            this.numericUpDownWeaponRangeMinAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numericUpDownWeaponRangeMinAmount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // checkBoxReloadable
             // 
@@ -451,10 +475,10 @@
             // 
             // textBoxMaxRange
             // 
-            this.textBoxMaxRange.Location = new System.Drawing.Point(213, 107);
+            this.textBoxMaxRange.Location = new System.Drawing.Point(197, 107);
             this.textBoxMaxRange.Name = "textBoxMaxRange";
             this.textBoxMaxRange.ReadOnly = true;
-            this.textBoxMaxRange.Size = new System.Drawing.Size(38, 20);
+            this.textBoxMaxRange.Size = new System.Drawing.Size(54, 20);
             this.textBoxMaxRange.TabIndex = 19;
             this.textBoxMaxRange.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip.SetToolTip(this.textBoxMaxRange, "maximale Reichweite");
@@ -468,14 +492,14 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Klasse / Typ";
             // 
-            // label8
+            // labelRange
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 110);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 13);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Reichweite";
+            this.labelRange.AutoSize = true;
+            this.labelRange.Location = new System.Drawing.Point(3, 110);
+            this.labelRange.Name = "labelRange";
+            this.labelRange.Size = new System.Drawing.Size(60, 13);
+            this.labelRange.TabIndex = 18;
+            this.labelRange.Text = "Reichweite";
             // 
             // comboBoxWeaponClass
             // 
@@ -491,7 +515,7 @@
             // numericUpDownWeaponRangeAmount
             // 
             this.numericUpDownWeaponRangeAmount.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponRangeBindingSource, "Amount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownWeaponRangeAmount.Location = new System.Drawing.Point(172, 107);
+            this.numericUpDownWeaponRangeAmount.Location = new System.Drawing.Point(149, 107);
             this.numericUpDownWeaponRangeAmount.Maximum = new decimal(new int[] {
             10,
             0,
@@ -532,7 +556,7 @@
             0,
             0});
             this.numericUpDownWeaponRangeLength.Name = "numericUpDownWeaponRangeLength";
-            this.numericUpDownWeaponRangeLength.Size = new System.Drawing.Size(51, 20);
+            this.numericUpDownWeaponRangeLength.Size = new System.Drawing.Size(35, 20);
             this.numericUpDownWeaponRangeLength.TabIndex = 16;
             this.numericUpDownWeaponRangeLength.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.numericUpDownWeaponRangeLength.Value = new decimal(new int[] {
@@ -900,30 +924,6 @@
             this.toolStripButtonPermissionsEditor.Text = "editieren";
             this.toolStripButtonPermissionsEditor.Click += new System.EventHandler(this.toolStripButtonPermissionsEditor_Click);
             // 
-            // numericUpDownWeaponRangeMinAmount
-            // 
-            this.numericUpDownWeaponRangeMinAmount.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponRangeBindingSource, "MinAmount", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownWeaponRangeMinAmount.Location = new System.Drawing.Point(138, 107);
-            this.numericUpDownWeaponRangeMinAmount.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDownWeaponRangeMinAmount.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownWeaponRangeMinAmount.Name = "numericUpDownWeaponRangeMinAmount";
-            this.numericUpDownWeaponRangeMinAmount.Size = new System.Drawing.Size(35, 20);
-            this.numericUpDownWeaponRangeMinAmount.TabIndex = 37;
-            this.numericUpDownWeaponRangeMinAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDownWeaponRangeMinAmount.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // weaponBindingSource
             // 
             this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
@@ -977,6 +977,7 @@
             this.toolStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeaponRangeMinAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDamage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStrength)).EndInit();
             this.toolStrip2.ResumeLayout(false);
@@ -1012,7 +1013,6 @@
             this.panelPermissions.PerformLayout();
             this.toolStrip7.ResumeLayout(false);
             this.toolStrip7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeaponRangeMinAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponRangeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageEffectsBindingSource)).EndInit();
@@ -1044,7 +1044,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.BindingSource weaponRangeBindingSource;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelRange;
         private System.Windows.Forms.NumericUpDown numericUpDownWeaponRangeAmount;
         private System.Windows.Forms.NumericUpDown numericUpDownWeaponRangeLength;
         private System.Windows.Forms.TextBox textBoxMaxRange;

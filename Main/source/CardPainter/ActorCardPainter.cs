@@ -653,14 +653,7 @@ namespace Universalis
 
             DrawStringCentered( g, weapon.FormattedDamage, FontWeapon, WeaponFontBrush, new Rectangle( WeaponDamageStart, posY, WeaponDamageWidth, SLineHeight ) );
 
-            if( Weapon.EType.Wurf == weapon.Type )
-            {
-                DrawStringCentered( g, Actor.ThrowRange( actor.ModPHY(), weapon.Unwieldy ), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
-            }
-            else
-            {
-                DrawStringCentered( g, weapon.FormattedRange, FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
-            }
+            DrawStringCentered( g, weapon.FormattedRangeWithPHY( actor.ModPHY()), FontWeapon, WeaponFontBrush, new Rectangle( WeaponRangeStart, posY, WeaponRangeWidth, SLineHeight ) );
 
             int remainderPosX = WeaponDamageStart + WeaponDamageWidth;
 

@@ -402,27 +402,39 @@ namespace Universalis
         {
             get
             {
-                switch( Type )
-                {
-                    case EType.Fernkampf:
-                        if( Range.MinAmount > 1 )
-                        {
-                            return Range.Length + "/" + Range.MinAmount + "›" + Range.Amount;
-                        }
-                        else
-                        {
-                            return Range.Length + "/" + Range.Amount;
-                        }
+                return this.FormattedRangeWithPHY(null);
+            }
+        }
 
-                    case EType.Nahkampf:
-                        return "NK";
+        public string FormattedRangeWithPHY( int? attributePHY )
+        {
+            switch( Type )
+            {
+                case EType.Fernkampf:
+                    if( Range.MinAmount > 1 )
+                    {
+                        return Range.Length + "/" + Range.MinAmount + "›" + Range.Amount;
+                    }
+                    else
+                    {
+                        return Range.Length + "/" + Range.Amount;
+                    }
 
-                    case EType.Wurf:
-                        return "Wurf";
+                case EType.Nahkampf:
+                    return "NK";
 
-                    default:
-                        throw new InvalidOperationException( "unkown Weapon.EType" );
-                }
+                case EType.Wurf:
+                    if( Range.MinAmount > 1 )
+                    {
+                        return (attributePHY?.ToString() ?? "KO") + "/" + Range.MinAmount + "›" + Range.Amount;
+                    }
+                    else
+                    {
+                        return ( attributePHY?.ToString() ?? "KO" ) + "/" + Range.Amount;
+                    }
+
+                default:
+                    throw new InvalidOperationException( "unkown Weapon.EType" );
             }
         }
 

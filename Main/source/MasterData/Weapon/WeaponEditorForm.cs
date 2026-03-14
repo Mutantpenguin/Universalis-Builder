@@ -184,6 +184,7 @@ namespace Universalis
             switch( weapon.Type )
             {
                 case Weapon.EType.Fernkampf:
+                case Weapon.EType.Wurf:
                     if( m_originalWeapon.Range != null )
                     {
                         weapon.Range = new WeaponRange()
@@ -197,10 +198,15 @@ namespace Universalis
                     {
                         weapon.Range = new WeaponRange();
                     }
+
+                    if( weapon.Type == Weapon.EType.Wurf )
+                    {
+                        weapon.Range.Length = 0;
+                    }
+
                     break;
 
                 case Weapon.EType.Nahkampf:
-                case Weapon.EType.Wurf:
                     weapon.Range = null;
                     break;
             }
@@ -330,18 +336,22 @@ namespace Universalis
             switch( weapon.Type )
             {
                 case Weapon.EType.Fernkampf:
-                    numericUpDownWeaponRangeLength.Enabled = true;
-                    numericUpDownWeaponRangeMinAmount.Enabled = true;
-                    numericUpDownWeaponRangeAmount.Enabled = true;
+                    labelRange.Visible = true;
+                    numericUpDownWeaponRangeLength.Visible = true;
+                    numericUpDownWeaponRangeMinAmount.Visible = true;
+                    numericUpDownWeaponRangeAmount.Visible = true;
+                    textBoxMaxRange.Visible = true;
                     numericUpDownSustainedFire.Enabled = true;
                     checkBoxIndirectFire.Enabled = true;
                     checkBoxIndirectFire.Checked = false;
                     break;
 
                 case Weapon.EType.Nahkampf:
-                    numericUpDownWeaponRangeLength.Enabled = false;
-                    numericUpDownWeaponRangeMinAmount.Enabled = false;
-                    numericUpDownWeaponRangeAmount.Enabled = false;
+                    labelRange.Visible = false;
+                    numericUpDownWeaponRangeLength.Visible = false;
+                    numericUpDownWeaponRangeMinAmount.Visible = false;
+                    numericUpDownWeaponRangeAmount.Visible = false;
+                    textBoxMaxRange.Visible = false;
                     numericUpDownSustainedFire.Enabled = false;
                     numericUpDownSustainedFire.Value = 0;
                     checkBoxIndirectFire.Enabled = false;
@@ -349,9 +359,11 @@ namespace Universalis
                     break;
 
                 case Weapon.EType.Wurf:
-                    numericUpDownWeaponRangeLength.Enabled = false;
-                    numericUpDownWeaponRangeMinAmount.Enabled = false;
-                    numericUpDownWeaponRangeAmount.Enabled = false;
+                    labelRange.Visible = true;
+                    numericUpDownWeaponRangeLength.Visible = false;
+                    numericUpDownWeaponRangeMinAmount.Visible = true;
+                    numericUpDownWeaponRangeAmount.Visible = true;
+                    textBoxMaxRange.Visible = false;
                     numericUpDownSustainedFire.Enabled = false;
                     numericUpDownSustainedFire.Value = 0;
                     checkBoxIndirectFire.Enabled = false;
