@@ -196,7 +196,7 @@ namespace Universalis
 
                     if( archetype.MaxQuantity > 0 )
                     {
-                        var archetypeCount = m_groupModified.Models.Where( x => x.Archetype == archetype ).Count();
+                        var archetypeCount = m_groupModified.Models.Where( x => x.Archetype == archetype && x.Active ).Count();
 
                         if( archetypeCount > archetype.MaxQuantity )
                         {
