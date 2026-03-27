@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArchetypeEditorForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -46,7 +45,6 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.comboBoxMovementType = new System.Windows.Forms.ComboBox();
             this.HitPoints = new System.Windows.Forms.NumericUpDown();
-            this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AreaOfPerception = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.DangerArea = new System.Windows.Forms.TextBox();
@@ -62,7 +60,6 @@
             this.tableLayoutPanelAttribMods = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.numericUpDownAGI = new System.Windows.Forms.NumericUpDown();
-            this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.numericUpDownHTH = new System.Windows.Forms.NumericUpDown();
@@ -103,20 +100,23 @@
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel4 = new System.Windows.Forms.ToolStripLabel();
             this.dataGridViewFaction = new System.Windows.Forms.DataGridView();
-            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.factionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripFactions = new System.Windows.Forms.ToolStrip();
             this.toolStripComboBoxFaction = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButtonFactionAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFactionDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.numericUpDownCrit = new System.Windows.Forms.NumericUpDown();
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.attributeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.profileBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
             this.panel4.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HitPoints)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxQuantity)).BeginInit();
             this.toolStrip7.SuspendLayout();
@@ -124,7 +124,6 @@
             this.tableLayoutPanelAttribMods.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHTH)).BeginInit();
             this.panel7.SuspendLayout();
@@ -143,8 +142,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
             this.toolStrip4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).BeginInit();
             this.toolStripFactions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -170,10 +173,6 @@
             this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
             this.textBoxPoints.TabIndex = 38;
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
             // 
             // label2
             // 
@@ -231,9 +230,9 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 640);
+            this.panel4.Location = new System.Drawing.Point(0, 666);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(484, 81);
+            this.panel4.Size = new System.Drawing.Size(484, 55);
             this.panel4.TabIndex = 5;
             // 
             // textBoxDescription
@@ -244,7 +243,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(484, 56);
+            this.textBoxDescription.Size = new System.Drawing.Size(484, 30);
             this.textBoxDescription.TabIndex = 1;
             // 
             // toolStrip1
@@ -267,7 +266,7 @@
             // 
             this.comboBoxMovementType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMovementType.FormattingEnabled = true;
-            this.comboBoxMovementType.Location = new System.Drawing.Point(102, 109);
+            this.comboBoxMovementType.Location = new System.Drawing.Point(102, 135);
             this.comboBoxMovementType.Name = "comboBoxMovementType";
             this.comboBoxMovementType.Size = new System.Drawing.Size(149, 21);
             this.comboBoxMovementType.TabIndex = 53;
@@ -298,10 +297,6 @@
             0,
             0,
             0});
-            // 
-            // profileBindingSource
-            // 
-            this.profileBindingSource.DataSource = typeof(Universalis.Profile);
             // 
             // AreaOfPerception
             // 
@@ -352,7 +347,7 @@
             0,
             0,
             65536});
-            this.Speed.Location = new System.Drawing.Point(102, 83);
+            this.Speed.Location = new System.Drawing.Point(102, 109);
             this.Speed.Maximum = new decimal(new int[] {
             6,
             0,
@@ -384,7 +379,7 @@
             // MaxQuantity
             // 
             this.MaxQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.archetypeBindingSource, "MaxQuantity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.MaxQuantity.Location = new System.Drawing.Point(102, 136);
+            this.MaxQuantity.Location = new System.Drawing.Point(102, 162);
             this.MaxQuantity.Maximum = new decimal(new int[] {
             12,
             0,
@@ -404,7 +399,7 @@
             // labelSpeed
             // 
             this.labelSpeed.AutoSize = true;
-            this.labelSpeed.Location = new System.Drawing.Point(3, 85);
+            this.labelSpeed.Location = new System.Drawing.Point(3, 111);
             this.labelSpeed.Name = "labelSpeed";
             this.labelSpeed.Size = new System.Drawing.Size(85, 13);
             this.labelSpeed.TabIndex = 55;
@@ -413,7 +408,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 138);
+            this.label13.Location = new System.Drawing.Point(3, 164);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 13);
             this.label13.TabIndex = 67;
@@ -445,7 +440,7 @@
             this.panel3.Controls.Add(this.tableLayoutPanelAttribMods);
             this.panel3.Controls.Add(this.toolStrip2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 248);
+            this.panel3.Location = new System.Drawing.Point(0, 274);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(484, 74);
             this.panel3.TabIndex = 37;
@@ -505,10 +500,6 @@
             0,
             0,
             0});
-            // 
-            // attributeBindingSource
-            // 
-            this.attributeBindingSource.DataSource = typeof(Universalis.Attributes);
             // 
             // label4
             // 
@@ -769,6 +760,8 @@
             // panel2
             // 
             this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.label20);
+            this.panel2.Controls.Add(this.numericUpDownCrit);
             this.panel2.Controls.Add(this.MaxQuantity);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label18);
@@ -794,7 +787,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 89);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(484, 159);
+            this.panel2.Size = new System.Drawing.Size(484, 185);
             this.panel2.TabIndex = 39;
             // 
             // label18
@@ -829,7 +822,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 112);
+            this.label17.Location = new System.Drawing.Point(3, 138);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(75, 13);
             this.label17.TabIndex = 54;
@@ -903,7 +896,7 @@
             this.panel6.Controls.Add(this.panel11);
             this.panel6.Controls.Add(this.toolStrip4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 322);
+            this.panel6.Location = new System.Drawing.Point(0, 348);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(484, 124);
             this.panel6.TabIndex = 40;
@@ -982,8 +975,8 @@
             this.dataGridViewFaction.AllowUserToAddRows = false;
             this.dataGridViewFaction.AllowUserToDeleteRows = false;
             this.dataGridViewFaction.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewFaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewFaction.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewFaction.AutoGenerateColumns = false;
             this.dataGridViewFaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFaction.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -991,7 +984,7 @@
             this.nameDataGridViewTextBoxColumn});
             this.dataGridViewFaction.DataSource = this.factionsBindingSource;
             this.dataGridViewFaction.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridViewFaction.Location = new System.Drawing.Point(0, 471);
+            this.dataGridViewFaction.Location = new System.Drawing.Point(0, 497);
             this.dataGridViewFaction.MultiSelect = false;
             this.dataGridViewFaction.Name = "dataGridViewFaction";
             this.dataGridViewFaction.ReadOnly = true;
@@ -1002,27 +995,6 @@
             this.dataGridViewFaction.TabIndex = 41;
             this.dataGridViewFaction.Visible = false;
             // 
-            // iconDataGridViewImageColumn
-            // 
-            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
-            this.iconDataGridViewImageColumn.HeaderText = "Icon";
-            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
-            this.iconDataGridViewImageColumn.ReadOnly = true;
-            this.iconDataGridViewImageColumn.Width = 40;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // factionsBindingSource
-            // 
-            this.factionsBindingSource.DataSource = typeof(Universalis.Faction);
-            // 
             // toolStripFactions
             // 
             this.toolStripFactions.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -1032,7 +1004,7 @@
             this.toolStripButtonFactionAdd,
             this.toolStripButtonFactionDelete,
             this.toolStripLabel5});
-            this.toolStripFactions.Location = new System.Drawing.Point(0, 446);
+            this.toolStripFactions.Location = new System.Drawing.Point(0, 472);
             this.toolStripFactions.Name = "toolStripFactions";
             this.toolStripFactions.Size = new System.Drawing.Size(484, 25);
             this.toolStripFactions.TabIndex = 42;
@@ -1076,6 +1048,63 @@
             this.toolStripLabel5.Size = new System.Drawing.Size(139, 22);
             this.toolStripLabel5.Text = "Fraktionsberechtigungen";
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(3, 85);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(71, 13);
+            this.label20.TabIndex = 70;
+            this.label20.Text = "Krit. Schwelle";
+            // 
+            // numericUpDownCrit
+            // 
+            this.numericUpDownCrit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileBindingSource, "CritThreshold", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownCrit.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownCrit.Location = new System.Drawing.Point(102, 83);
+            this.numericUpDownCrit.Name = "numericUpDownCrit";
+            this.numericUpDownCrit.ReadOnly = true;
+            this.numericUpDownCrit.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownCrit.TabIndex = 71;
+            this.numericUpDownCrit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // archetypeBindingSource
+            // 
+            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
+            // 
+            // iconDataGridViewImageColumn
+            // 
+            this.iconDataGridViewImageColumn.DataPropertyName = "Icon";
+            this.iconDataGridViewImageColumn.HeaderText = "Icon";
+            this.iconDataGridViewImageColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.iconDataGridViewImageColumn.Name = "iconDataGridViewImageColumn";
+            this.iconDataGridViewImageColumn.ReadOnly = true;
+            this.iconDataGridViewImageColumn.Width = 40;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // factionsBindingSource
+            // 
+            this.factionsBindingSource.DataSource = typeof(Universalis.Faction);
+            // 
+            // attributeBindingSource
+            // 
+            this.attributeBindingSource.DataSource = typeof(Universalis.Attributes);
+            // 
+            // profileBindingSource
+            // 
+            this.profileBindingSource.DataSource = typeof(Universalis.Profile);
+            // 
             // ArchetypeEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1098,13 +1127,11 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ArchetypeEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.HitPoints)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Speed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxQuantity)).EndInit();
             this.toolStrip7.ResumeLayout(false);
@@ -1116,7 +1143,6 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAGI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHTH)).EndInit();
@@ -1146,9 +1172,13 @@
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).EndInit();
             this.toolStripFactions.ResumeLayout(false);
             this.toolStripFactions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1236,5 +1266,7 @@
         private System.Windows.Forms.BindingSource factionsBindingSource;
         private System.Windows.Forms.DataGridViewImageColumn iconDataGridViewImageColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.NumericUpDown numericUpDownCrit;
     }
 }

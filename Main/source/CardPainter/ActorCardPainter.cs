@@ -395,7 +395,9 @@ namespace Universalis
             {
                 Rectangle rect = new Rectangle( posX + ( SHitPointSize * col ), posY + ( SHitPointSize * row ), SHitPointSize, SHitPointSize );
 
-                g.FillEllipse( i > crit ? HitPointCritBrush : HitPointNormalBrush, rect );
+                var brush = ( critThreshold < 0 ) ? HitPointCritTooLowBrush : ( i > crit ) ? HitPointCritBrush : HitPointNormalBrush;
+
+                g.FillEllipse( brush, rect );
 
                 g.DrawEllipse( SHitPointBorderPen, rect );
 
@@ -423,7 +425,7 @@ namespace Universalis
             {
                 Rectangle rect = new Rectangle( x + ( SHitPointSize * col ), y + ( SHitPointSize * row ), SHitPointSize, SHitPointSize );
 
-                var brush = critThreshold < -50 ? HitPointCritTooLowBrush : i > crit ? HitPointCritBrush : HitPointNormalBrush;
+                var brush = (critThreshold < 0) ? HitPointCritTooLowBrush : (i > crit) ? HitPointCritBrush : HitPointNormalBrush;
 
                 g.FillEllipse( brush, rect );
 

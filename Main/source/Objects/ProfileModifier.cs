@@ -82,8 +82,7 @@ namespace Universalis
 
             points += Convert.ToInt32( Speed * 2 * Costs.Profile.Speed * Costs.Modifier.Surcharge );
             points += HitPoints * Convert.ToInt32( Costs.Profile.HitPoints * Costs.Modifier.Surcharge );
-            
-            points += CritThreshold * Costs.Profile.CritThreshold;
+            points += CritThreshold * Convert.ToInt32( Costs.Profile.CritThreshold * Costs.Modifier.Surcharge );
 
             if( AttributeModifier != null )
             {

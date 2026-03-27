@@ -9,7 +9,9 @@ namespace Universalis
         {
             if( Speed != profile.Speed
                 ||
-                HitPoints != profile.HitPoints )
+                HitPoints != profile.HitPoints
+                ||
+                CritThreshold != profile.CritThreshold )
             {
                 return false;
             }
@@ -26,6 +28,7 @@ namespace Universalis
         {
             Speed = profile.Speed;
             HitPoints = profile.HitPoints;
+            CritThreshold = profile.CritThreshold;
 
             Attributes = new Attributes( profile.Attributes );
         }
@@ -43,6 +46,12 @@ namespace Universalis
             get;
             set;
         } = 5;
+
+        public int CritThreshold
+        {
+            get;
+            set;
+        } = 50;
 
         public Attributes Attributes
         {
@@ -73,6 +82,16 @@ namespace Universalis
             }
 
             return HitPoints + modifier.HitPoints;
+        }
+
+        public int ModCritThreshold( ProfileModifier modifier)
+        {
+            if( modifier == null )
+            {
+                throw new ArgumentNullException( nameof( modifier ) );
+            }
+
+            return CritThreshold + modifier.CritThreshold;
         }
 
         public int ModHitZoneHitPoints( ProfileModifier modifier )
@@ -111,6 +130,8 @@ namespace Universalis
                 default:
                     throw new InvalidOperationException( "unkown " + nameof( Archetype.EType ) );
             }
+
+            points += (CritThreshold - 50) * Costs.Profile.CritThreshold;
 
             return points;
         }

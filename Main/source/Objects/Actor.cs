@@ -486,7 +486,7 @@ namespace Universalis
 
         public int ModCritThreshold()
         {
-            return 50 + CurrentProfileModifier().CritThreshold;
+            return Archetype.Profile.ModCritThreshold( CurrentProfileModifier() );
         }
 
         public int? ModAGI()

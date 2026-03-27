@@ -29,7 +29,7 @@ namespace Universalis
         {
             public static int Speed = 10;
             public static int HitPoints = 30;
-            public static int CritThreshold = 35;
+            public static int CritThreshold = 15;
         }
 
         public static class Modifier

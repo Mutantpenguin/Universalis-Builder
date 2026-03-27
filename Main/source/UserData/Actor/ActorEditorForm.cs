@@ -166,7 +166,7 @@ namespace Universalis
             textBoxBaseDET.Text = attributes.DET.ToString();
             textBoxBaseSpeed.Text = profile.Speed.ToString();
             textBoxBaseHP.Text = profile.HitPoints.ToString();
-            textBoxBaseCS.Text = "50%";
+            textBoxBaseCS.Text = profile.CritThreshold.ToString() + "%";
 
             // modifications
             var currentProfileModifier = m_actorModified.CurrentProfileModifier();

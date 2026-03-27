@@ -154,18 +154,18 @@
   <data name="toolStripButtonFactionAdd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACfSURBVDhPvZTdCYMwFEYzQe1Dp3CKzmAHEewwdryu0af6
-        HUhCerkEqRcPHNDcn5hoTGdwkQ/5zHLN2G5u8iU/8mtkjBg5XUb5lraBlRxyXZhlT5Miue6TrdIrmLNe
-        jJofBuntCd6zXowaaiuT9BKx1wiprSyyDbKU0uCaLfd2mdRWwhqFLS1ssyHk9UPYBwkhR6TALIcPbcvh
-        38gfpLQBHYKaqYmKFVUAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACbSURBVDhPvZTRDcIwDAVvAuCDKZiCGWAQJBgGxmONfoFO
+        SqpiGRSBxUlPah37NU6awB9YAUfg0uSzsWG2wA2YgEeQMcfM+cgOuCcGUeaYm+JXRkyWZunMrkmyOjXF
+        uLLmhfWbNVH7phhX1lg7c0iSRoyUtTPnMGgr3WDT1N9jm9bWG5W1VrbYUrL9UvZDSskR6ZQc2iU/XyNf
+        8QQdgpqpivEWxAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="toolStripButtonFactionDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACCSURBVDhPY6AHkAFiBTQsAcQEAUiRAxRXA/F/LPg3EKcD
-        MUydABBjgHggxqYZHwYZhgEMgLieRAzyLlYAsgGbBmwYZDFOAFKAzQvYMCgocIJRg8B4pBqUDcTYNGHD
-        3kCME4Ay4XMgxqYRGV8GYhYgxgtACmyAGJbD0bEFENMKMDAAAIEijfysNOvGAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACCSURBVDhPY2CgA5BhYGBQQMMS6IqwAZAiByiuZmBg+I8F
+        /2ZgYEhHUieAbggIxGPRSAiDDMMABgwMDPUkYpB3sQKQDeiKcWGQxTgBSAG683FhUFDgBKMGjWiDsrFo
+        wIW90TUjA1AmfI5FEzq+zMDAwIKuGR2AFNgg5XB0bIGugaoAAIEijfyG21wLAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

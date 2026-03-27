@@ -120,18 +120,17 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonOk.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAGNJREFUOE9j
-        GAU0AwpAvB9Kkw1Amu8D8Wsg1gcJkAPobwgPlEYHJBliDcQghY5gHgKQ7B0RIL4IxF+BGGYY2WECMuwC
-        EIMMiwNiigIWZth/ICbbEBgQBuI9QEyRIaMAGTAwAABckRlPbqBcUwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAGVJREFUOE9j
+        YBgFtAIKDAwM+6E02QCk+T4DA8NrBgYGfXRJYgH9DeFBF4ACkgyxhip0RBMnyRAQEGFgYLjIwMDwFckw
+        kg2BAZBhF6CGxZFrCAzADPtPiSEwIMzAwLCHUkNGASoAAFyRGU/2CE5tAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="buttonCancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAALNJREFUOE+1
-        lEEOgkAQBPfkZ/wUiQ/iwtmf8Av8iF4h2JXApjEDJGTspMJme3rWWdHyb91FK17is8CaPbxT3UQnRjHv
-        gEcNtaEwehGFI6gNm3FKFDiCzEbM7eM8xUNMtseaPbx1j8zmzrjE1QQCqBE0ANYIz2vJVg3CTQ/y9LV/
-        SiBb9RZugjdDURMgW5XWKG20tMtO+/pRyguJ0n4iCINTfMxf8KjZbeJibi7x8t/IRZXyBQNtqqGJs8Xr
-        AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAKdJREFUOE+1
+        lEEKg0AMRd+ql/FShR6oG9e9SW/RXqTdKsoDO8RhRKjxwceQ5EdndIST6YA78Aa+i4zNWdvlAvTAAEwb
+        smaPvU0sPBvGLdnbHOZd6uY96VnhuuNyHsANGEPO2Jy1X07Pas/cxHgnDXJdBihjsRZ79RZeVTEavcY4
+        PqXSW/hUxXqYtIYovYW0QWlLS9vstNcvKR+kpB0RSTm0kcO/kb+ZAQNtqqHUWlCiAAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -140,18 +139,18 @@
   <data name="toolStripButtonClearSearch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACbSURBVDhP1ZNBDkAwEEV7CYlb2XAPt3EGVrZWjuEMbByB
-        /8XItClakYiXvGCmJv2k5heUsI+wgxm0KODywBkeJHCCvoUhHjTQbVZwcGp8Zl3X6IYvEreb7sowXqXG
-        vl5/GUm/2Kp7d5fUG0krw8jZEPreIEYbVUErQ+htNJJDtxH9sYUa6gaN/v3kKmKIFr6IIVpHRHjl0H6N
-        MSseE7luXZRpmQAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACXSURBVDhPY2AYCqCAgYFhPwl4JwMDgz+6IaEMDAz/ycDv
+        kQ0RZWBgeIVFEbEYDlZhkZzOwMBwHU0MxAeJo6sFA2xeAjlXAophhoFomBhIHsUgfF5C1rgBi8EoBmHz
+        EjbDQACXIdQ1COS1l1gkkA0hymsgEIJFguTAhoGVWAwjOfpBAJ8XicEoAJsXicEoWQQGqJJpBx4AAB4T
+        uW5Pa6VQAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="checkBoxFilterType.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABhSURBVDhPY6AFYAJiPSB2IBKD1IL0oACQwG4g/k8iBulB
-        MUwTiEESN4F4PpEYpBakB6QXDoyBGCQ4E8wjDoDUgvSA9MLBqEEoYNQgwoC2BlEti1At04IASIDiYoRC
-        wMAAALh7WOlNnv6YAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVDhPY2CgAWBiYGDQY2BgcCASg9SC9GAYspuBgeE/
+        iRikB8UwTajETQYGhvlEYpBakB6QXjgwhgrORBYkAEBqQXpAeuFg1CAUMGoQYUBbg6iWRaiWaWGGUVyM
+        UAwAuHtY6SpmTbkAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="maxQuantityDataGridViewTextBoxColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -169,10 +168,13 @@
   <metadata name="HasRules.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="SpeedDataGridViewTextBoxColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="hitPointsDataGridViewTextBoxColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="SpeedDataGridViewTextBoxColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="critThresholdDataGridViewTextBoxColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="AGIDataGridViewTextBoxColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
