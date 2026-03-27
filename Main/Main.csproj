@@ -720,11 +720,11 @@
     <None Include="Resources\DauerPermanent.png" />
     <None Include="Resources\SchadenAutomatisch.png" />
     <None Include="Resources\DauerSofort.png" />
-    <None Include="Resources\ReichweiteBerührung.png" />
+    <None Include="Resources\ReichweiteKontakt.png" />
     <None Include="Resources\ReichweiteDistanz.png" />
-    <None Include="Resources\ZielBereich.png" />
+    <None Include="Resources\ZielBeliebig.png" />
     <None Include="Resources\ZielModell.png" />
-    <None Include="Resources\ZielNutzer.png" />
+    <None Include="Resources\ZielAnwender.png" />
     <None Include="Resources\Wahrnehmungsbereich.png" />
     <None Include="Resources\Stärke_weiss.png" />
     <None Include="Resources\Schutz_weiss.png" />

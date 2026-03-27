@@ -140,7 +140,7 @@ namespace Universalis
         {
             get;
             set;
-        } = ETarget.Bereich;
+        } = ETarget.Beliebig;
 
         public ERange Range
         {
@@ -190,15 +190,15 @@ namespace Universalis
 
         public enum ETarget
         {
-            Bereich = 1,
+            Beliebig = 1,
             Modell = 2,
-            Nutzer = 3,
+            Anwender = 3,
         }
 
         public enum ERange
         {
             Distanz = 1,
-            Berührung = 2,
+            Kontakt = 2,
         }
 
         public enum EDuration

@@ -124,11 +124,11 @@
   <data name="DauerSofort" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DauerSofort.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ReichweiteBerührung" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ReichweiteBerührung.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ReichweiteDistanz" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ReichweiteDistanz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReichweiteKontakt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReichweiteKontakt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SchadenAutomatisch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SchadenAutomatisch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,13 +136,13 @@
   <data name="SchadenMisserfolg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SchadenMisserfolg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ZielBereich" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ZielBereich.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ZielAnwender" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZielAnwender.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ZielBeliebig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZielBeliebig.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ZielModell" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ZielModell.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ZielNutzer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ZielNutzer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

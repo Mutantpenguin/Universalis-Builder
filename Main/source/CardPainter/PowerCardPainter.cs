@@ -187,12 +187,12 @@ namespace Universalis
             var rectTarget = new Rectangle( rectFooter.Left + ( 4 * SFooterPadding ) + ( 3 * footerElementWidth ) + imgOffset, rectFooter.Top + SFooterPadding, footerElementImageSize, footerElementImageSize );
             switch( power.Target )
             {
-                case Power.ETarget.Nutzer:
-                    g.DrawImage( Properties.ResourcesPowerCard.ZielNutzer, rectTarget );
+                case Power.ETarget.Anwender:
+                    g.DrawImage( Properties.ResourcesPowerCard.ZielAnwender, rectTarget );
                     break;
 
-                case Power.ETarget.Bereich:
-                    g.DrawImage( Properties.ResourcesPowerCard.ZielBereich, rectTarget );
+                case Power.ETarget.Beliebig:
+                    g.DrawImage( Properties.ResourcesPowerCard.ZielBeliebig, rectTarget );
                     break;
 
                 case Power.ETarget.Modell:
@@ -210,8 +210,8 @@ namespace Universalis
                     g.DrawImage( Properties.ResourcesPowerCard.ReichweiteDistanz, rectRange );
                     break;
 
-                case Power.ERange.Berührung:
-                    g.DrawImage( Properties.ResourcesPowerCard.ReichweiteBerührung, rectRange );
+                case Power.ERange.Kontakt:
+                    g.DrawImage( Properties.ResourcesPowerCard.ReichweiteKontakt, rectRange );
                     break;
                 
                 default:

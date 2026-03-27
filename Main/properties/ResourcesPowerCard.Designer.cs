@@ -83,9 +83,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ReichweiteBerührung {
+        internal static System.Drawing.Bitmap ReichweiteDistanz {
             get {
-                object obj = ResourceManager.GetObject("ReichweiteBerührung", resourceCulture);
+                object obj = ResourceManager.GetObject("ReichweiteDistanz", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ReichweiteDistanz {
+        internal static System.Drawing.Bitmap ReichweiteKontakt {
             get {
-                object obj = ResourceManager.GetObject("ReichweiteDistanz", resourceCulture);
+                object obj = ResourceManager.GetObject("ReichweiteKontakt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,19 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ZielBereich {
+        internal static System.Drawing.Bitmap ZielAnwender {
             get {
-                object obj = ResourceManager.GetObject("ZielBereich", resourceCulture);
+                object obj = ResourceManager.GetObject("ZielAnwender", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ZielBeliebig {
+            get {
+                object obj = ResourceManager.GetObject("ZielBeliebig", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,16 +146,6 @@ namespace Universalis.Properties {
         internal static System.Drawing.Bitmap ZielModell {
             get {
                 object obj = ResourceManager.GetObject("ZielModell", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ZielNutzer {
-            get {
-                object obj = ResourceManager.GetObject("ZielNutzer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
