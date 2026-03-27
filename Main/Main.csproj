@@ -717,7 +717,7 @@
     <None Include="Resources\Koloss.png" />
     <None Include="Resources\Standard.png" />
     <None Include="Resources\SchadenMisserfolg.png" />
-    <None Include="Resources\DauerDauerhaft.png" />
+    <None Include="Resources\DauerPermanent.png" />
     <None Include="Resources\SchadenAutomatisch.png" />
     <None Include="Resources\DauerSofort.png" />
     <None Include="Resources\ReichweiteBerührung.png" />

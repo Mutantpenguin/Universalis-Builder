@@ -63,9 +63,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DauerDauerhaft {
+        internal static System.Drawing.Bitmap DauerPermanent {
             get {
-                object obj = ResourceManager.GetObject("DauerDauerhaft", resourceCulture);
+                object obj = ResourceManager.GetObject("DauerPermanent", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

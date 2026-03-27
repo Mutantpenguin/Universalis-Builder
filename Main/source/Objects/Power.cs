@@ -204,7 +204,7 @@ namespace Universalis
         public enum EDuration
         {
             Sofort = 1,
-            Dauerhaft = 2
+            Permanent = 2
         }
 
         public enum EDamageApplication

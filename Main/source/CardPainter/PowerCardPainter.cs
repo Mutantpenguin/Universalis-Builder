@@ -225,8 +225,8 @@ namespace Universalis
                     g.DrawImage( Properties.ResourcesPowerCard.DauerSofort, rectDuration );
                     break;
 
-                case Power.EDuration.Dauerhaft:
-                    g.DrawImage( Properties.ResourcesPowerCard.DauerDauerhaft, rectDuration );
+                case Power.EDuration.Permanent:
+                    g.DrawImage( Properties.ResourcesPowerCard.DauerPermanent, rectDuration );
                     break;
 
                 default:
