@@ -164,7 +164,7 @@ namespace Universalis
             textBoxBasePHY.Text = attributes.PHY.ToString();
             textBoxBaseAWA.Text = attributes.AWA.ToString();
             textBoxBaseDET.Text = attributes.DET.ToString();
-            textBoxBaseSpeed.Text = profile.Speed.ToString();
+            textBoxBaseSpeed.Text = profile.Speed.ToString() + "\"";
             textBoxBaseHP.Text = profile.HitPoints.ToString();
             textBoxBaseCS.Text = profile.CritThreshold.ToString() + "%";
 
@@ -189,7 +189,7 @@ namespace Universalis
             textBoxResultPHY.Text = m_actorModified.ModPHY().ToString();
             textBoxResultAWA.Text = m_actorModified.ModAWA().ToString();
             textBoxResultDET.Text = m_actorModified.ModDET().ToString();
-            textBoxResultSpeed.Text = m_actorModified.ModSpeed().ToString();
+            textBoxResultSpeed.Text = m_actorModified.ModSpeed().ToString() + "\"";
             textBoxResultHP.Text = m_actorModified.ModHitPoints().ToString();
             textBoxResultCS.Text = m_actorModified.ModCritThreshold().ToString() + "%";
 

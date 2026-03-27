@@ -125,7 +125,15 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string SpeedString => Formatter.Modifier( Speed );
+        public string SpeedString
+        {
+            get
+            {
+                string speed = Formatter.Modifier( Speed );
+
+                return String.IsNullOrEmpty(speed) ? String.Empty : speed + "\"";
+            }
+        }
 
         [JsonIgnore]
         public string HitPointsString => Formatter.Modifier( HitPoints );

@@ -118,6 +118,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBoxSearch_KeyDown);
@@ -267,7 +268,8 @@
             // SpeedDataGridViewTextBoxColumn
             // 
             this.SpeedDataGridViewTextBoxColumn.DataPropertyName = "Profile.Speed";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "0.0\\\"";
             this.SpeedDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.SpeedDataGridViewTextBoxColumn.HeaderText = "GK";
             this.SpeedDataGridViewTextBoxColumn.Name = "SpeedDataGridViewTextBoxColumn";
@@ -287,7 +289,8 @@
             // critThresholdDataGridViewTextBoxColumn
             // 
             this.critThresholdDataGridViewTextBoxColumn.DataPropertyName = "Profile.CritThreshold";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "0\\%";
             this.critThresholdDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             this.critThresholdDataGridViewTextBoxColumn.HeaderText = "KS";
             this.critThresholdDataGridViewTextBoxColumn.Name = "critThresholdDataGridViewTextBoxColumn";
