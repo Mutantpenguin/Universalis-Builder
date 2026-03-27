@@ -703,6 +703,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\NotoSansSymbols2-Regular.ttf" />
     <None Include="Resources\open_in_app_18dp.png" />
     <None Include="Resources\startup_sound.wav" />
     <None Include="Resources\NovaRound-Regular.ttf" />

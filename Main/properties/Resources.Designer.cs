@@ -543,6 +543,16 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] NotoSansSymbols2_Regular {
+            get {
+                object obj = ResourceManager.GetObject("NotoSansSymbols2_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] NovaRound_Regular {
             get {
                 object obj = ResourceManager.GetObject("NovaRound_Regular", resourceCulture);

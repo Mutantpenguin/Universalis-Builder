@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using static Universalis.CardPainterHelpers;
 
 namespace Universalis
 {
@@ -22,8 +23,9 @@ namespace Universalis
 
         #region fonts
         private static readonly BaseFont s_baseFontUniversalis = BaseFont.CreateFont( UniversalisFont.FileName, BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, Properties.Resources.NovaRound_Regular, null );
+        private static readonly BaseFont s_baseFontNotoSansSymbols2 = BaseFont.CreateFont( "NotoSansSymbols2-Regular.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, BaseFont.CACHED, Properties.Resources.NotoSansSymbols2_Regular, null );
 
-        private static readonly Font s_pageTitleFont = new Font( s_baseFontUniversalis, CmToPixel( 1 ), Font.BOLD, Color.WHITE );
+                private static readonly Font s_pageTitleFont = new Font( s_baseFontUniversalis, CmToPixel( 1 ), Font.BOLD, Color.WHITE );
         private static readonly Font s_versionInfoFont = new Font( Font.HELVETICA, CmToPixel( 0.25f ), Font.NORMAL, Color.GRAY );
 
         private static readonly Font s_actorFont = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ) );
@@ -32,6 +34,7 @@ namespace Universalis
         private static readonly Font s_groupTraitFontHeader = new Font( s_baseFontUniversalis, CmToPixel( 0.5f ), Font.BOLD );
 
         private static readonly Font s_flipsideHeaderFont = new Font( s_baseFontUniversalis, CmToPixel( 0.35f ), Font.NORMAL, Color.WHITE );
+        private static readonly Font s_actionPointsFlipsideFont = new Font( s_baseFontNotoSansSymbols2, CmToPixel( 0.25f ), Font.NORMAL );
         private static readonly Font s_nameFlipsideFont = new Font( s_baseFontUniversalis, CmToPixel( 0.2f ), Font.BOLD );
         private static readonly Font s_rulesFlipsideFont = new Font( Font.HELVETICA, CmToPixel( 0.2f ) );
 
@@ -318,6 +321,7 @@ namespace Universalis
         private struct flipsideBlock
         {
             public string Name;
+            public uint AP;
             public string Rules;
             public int Priority;
         };
@@ -366,10 +370,10 @@ namespace Universalis
 
                 foreach( var entry in actor.Traits.Select( x => new { x.Trait, x.Level } )
                                                      .Distinct()
-                                                     .Select( x => new { Name = x.Trait.FormattedName( x.Level ), Rules = x.Trait.FormattedRules( x.Level ) } )
+                                                     .Select( x => new { Name = x.Trait.FormattedName( x.Level ), Rules = x.Trait.FormattedRules( x.Level ), x.Trait.AP } )
                                                      .Where( x => !String.IsNullOrEmpty( x.Rules ) ) )
                 {
-                    flipsideBlocks.Add( new flipsideBlock() { Name = entry.Name, Rules = entry.Rules } );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = entry.Name, Rules = entry.Rules, AP = entry.AP } );
                 }
 
                 if( ( actor.Armor != null )
@@ -390,7 +394,7 @@ namespace Universalis
                                                                    .Distinct()
                                                                    .Where( x => !String.IsNullOrEmpty( x.Rules ) ) )
                 {
-                    flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.Rules } );
+                    flipsideBlocks.Add( new flipsideBlock() { Name = equipment.Name, Rules = equipment.Rules, AP = equipment.AP } );
                 }
 
                 PdfContentByte cb = pdfWriter.DirectContent;
@@ -525,7 +529,19 @@ namespace Universalis
                 Border = Rectangle.NO_BORDER
             };
 
-            cell.AddElement( new Phrase( block.Name, s_nameFlipsideFont ) );
+            var namePhrase = new Phrase
+            {
+                new Phrase( block.Name, s_nameFlipsideFont )
+            };
+
+            if( block.AP > 0 )
+            {
+                namePhrase.Add( new Phrase( " " + ActionsPointsMarker, s_actionPointsFlipsideFont ) );
+                namePhrase.Add( new Phrase( block.AP.ToString(), s_nameFlipsideFont ) );
+            }
+
+            cell.AddElement( namePhrase );
+
             cell.AddElement( new LineSeparator( 0.3f, 100, Color.BLACK, Element.ALIGN_LEFT, -2 ) );
             cell.AddElement( new Phrase( block.Rules, s_rulesFlipsideFont ) );
 
