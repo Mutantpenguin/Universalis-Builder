@@ -39,7 +39,7 @@ namespace Universalis
         {
             get;
             set;
-        } = 4;
+        } = 1.5f;
 
         public int HitPoints
         {
