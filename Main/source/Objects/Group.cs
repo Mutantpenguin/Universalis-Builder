@@ -199,6 +199,100 @@ namespace Universalis
                 }
             }
 
+            {
+                var weapons = Models.SelectMany( x => x.Weapons )
+                                    .Select( x => x.Weapon )
+                                    .Where( x => x.MaxGroupQuantity > 0 )
+                                    .GroupBy( x => x )
+                                    .Select( x => new { weapon = x.Key, count = x.Count() } )
+                                    .Where( x => x.count > x.weapon.MaxGroupQuantity );
+
+                foreach( var entry in weapons )
+                {
+                    reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) + $"Waffe '{entry.weapon.Name}' darf nur {entry.weapon.MaxGroupQuantity}x in der Gruppe vorkommen, kommt aber {entry.count}x vor:";
+
+                    foreach( var model in Models.Where( x => x.Active && x.Weapons.Exists( y => y.Weapon == entry.weapon ) ) )
+                    {
+                        reasonString += Environment.NewLine + "- " + model.Name;
+                    }
+                }
+            }
+
+            {
+                var equipments = Models.SelectMany( x => x.Equipments )
+                                       .Select( x => x.Equipment )
+                                       .Where( x => x.MaxGroupQuantity > 0 )
+                                       .GroupBy( x => x )
+                                       .Select( x => new { equipment = x.Key, count = x.Count() } )
+                                       .Where( x => x.count > x.equipment.MaxGroupQuantity );
+
+                foreach( var entry in equipments )
+                {
+                    reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) + $"Ausrüstung '{entry.equipment.Name}' darf nur {entry.equipment.MaxGroupQuantity}x in der Gruppe vorkommen, kommt aber {entry.count}x vor:";
+
+                    foreach( var model in Models.Where( x => x.Active && x.Equipments.Exists( y => y.Equipment == entry.equipment ) ) )
+                    {
+                        reasonString += Environment.NewLine + "- " + model.Name;
+                    }
+                }
+            }
+
+            {
+                var armors = Models.Select( x => x.Armor )
+                                   .Where( x => x != null && x.MaxGroupQuantity > 0 )
+                                   .GroupBy( x => x )
+                                   .Select( x => new { armor = x.Key, count = x.Count() } )
+                                   .Where( x => x.count > x.armor.MaxGroupQuantity );
+
+                foreach( var entry in armors )
+                {
+                    reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) + $"Rüstung '{entry.armor.Name}' darf nur {entry.armor.MaxGroupQuantity}x in der Gruppe vorkommen, kommt aber {entry.count}x vor:";
+
+                    foreach( var model in Models.Where( x => x.Active && x.Armor == entry.armor ) )
+                    {
+                        reasonString += Environment.NewLine + "- " + model.Name;
+                    }
+                }
+            }
+
+            {
+                var traits = Models.SelectMany( x => x.Traits )
+                                   .Select( x => x.Trait )
+                                   .Where( x => x.MaxGroupQuantity > 0 )
+                                   .GroupBy( x => x )
+                                   .Select( x => new { trait = x.Key, count = x.Count() } )
+                                   .Where( x => x.count > x.trait.MaxGroupQuantity );
+
+                foreach( var entry in traits )
+                {
+                    reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) + $"Eigenschaft '{entry.trait.Name}' darf nur {entry.trait.MaxGroupQuantity}x in der Gruppe vorkommen, kommt aber {entry.count}x vor:";
+
+                    foreach( var model in Models.Where( x => x.Active && x.Traits.Exists( y => y.Trait == entry.trait ) ) )
+                    {
+                        reasonString += Environment.NewLine + "- " + model.Name;
+                    }
+                }
+            }
+
+            {
+                var disciplines = Models.SelectMany( x => x.Disciplines )
+                                        .Select( x => x.Discipline )
+                                        .Where( x => x.MaxGroupQuantity > 0 )
+                                        .GroupBy( x => x )
+                                        .Select( x => new { discipline = x.Key, count = x.Count() } )
+                                        .Where( x => x.count > x.discipline.MaxGroupQuantity );
+
+                foreach( var entry in disciplines )
+                {
+                    reasonString += ( String.IsNullOrEmpty( reasonString ) ? String.Empty : ( Environment.NewLine + Environment.NewLine ) ) + $"Eigenschaft '{entry.discipline.Name}' darf nur {entry.discipline.MaxGroupQuantity}x in der Gruppe vorkommen, kommt aber {entry.count}x vor:";
+
+                    foreach( var model in Models.Where( x => x.Active && x.Disciplines.Exists( y => y.Discipline == entry.discipline ) ) )
+                    {
+                        reasonString += Environment.NewLine + "- " + model.Name;
+                    }
+                }
+            }
+
             return (String.IsNullOrEmpty( reasonString ), reasonString);
         }
     }
