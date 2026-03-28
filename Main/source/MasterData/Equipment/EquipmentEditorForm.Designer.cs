@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBoxUnwieldy = new System.Windows.Forms.CheckBox();
-            this.equipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -68,8 +67,12 @@
             this.toolStripButtonPermissions = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.numericUpDownMaxGroupQuantity = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownMaxModelQuantity = new System.Windows.Forms.NumericUpDown();
+            this.equipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBasePoints)).BeginInit();
@@ -85,11 +88,18 @@
             this.panel8.SuspendLayout();
             this.panelPermissions.SuspendLayout();
             this.toolStrip7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxGroupQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxModelQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.numericUpDownMaxGroupQuantity);
+            this.panel1.Controls.Add(this.numericUpDownMaxModelQuantity);
             this.panel1.Controls.Add(this.checkBoxUnwieldy);
             this.panel1.Controls.Add(this.textBoxPoints);
             this.panel1.Controls.Add(this.numericUpDownWeight);
@@ -100,7 +110,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(484, 65);
+            this.panel1.Size = new System.Drawing.Size(484, 91);
             this.panel1.TabIndex = 0;
             // 
             // checkBoxUnwieldy
@@ -113,10 +123,6 @@
             this.checkBoxUnwieldy.TabIndex = 36;
             this.checkBoxUnwieldy.Text = "Unhandlich";
             this.checkBoxUnwieldy.UseVisualStyleBackColor = true;
-            // 
-            // equipmentBindingSource
-            // 
-            this.equipmentBindingSource.DataSource = typeof(Universalis.Equipment);
             // 
             // textBoxPoints
             // 
@@ -173,7 +179,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 5;
@@ -253,7 +259,7 @@
             this.panel3.Controls.Add(this.panelProfileModifier);
             this.panel3.Controls.Add(this.toolStrip2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 214);
+            this.panel3.Location = new System.Drawing.Point(0, 240);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(484, 54);
             this.panel3.TabIndex = 2;
@@ -325,7 +331,7 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 329);
+            this.panel4.Location = new System.Drawing.Point(0, 355);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(484, 211);
             this.panel4.TabIndex = 3;
@@ -365,7 +371,7 @@
             this.panel11.Controls.Add(this.panel2);
             this.panel11.Controls.Add(this.toolStrip3);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(0, 90);
+            this.panel11.Location = new System.Drawing.Point(0, 116);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(484, 124);
             this.panel11.TabIndex = 4;
@@ -446,7 +452,7 @@
             this.panel8.Controls.Add(this.panelPermissions);
             this.panel8.Controls.Add(this.toolStrip7);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 268);
+            this.panel8.Location = new System.Drawing.Point(0, 294);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(484, 61);
             this.panel8.TabIndex = 34;
@@ -515,6 +521,46 @@
             this.toolStripButtonPermissionsEditor.Text = "editieren";
             this.toolStripButtonPermissionsEditor.Click += new System.EventHandler(this.toolStripButtonPermissionsEditor_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(193, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.TabIndex = 56;
+            this.label4.Text = "Max pro Gruppe";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(44, 70);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 13);
+            this.label8.TabIndex = 55;
+            this.label8.Text = "Max pro Modell";
+            // 
+            // numericUpDownMaxGroupQuantity
+            // 
+            this.numericUpDownMaxGroupQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.equipmentBindingSource, "MaxGroupQuantity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownMaxGroupQuantity.Location = new System.Drawing.Point(152, 68);
+            this.numericUpDownMaxGroupQuantity.Name = "numericUpDownMaxGroupQuantity";
+            this.numericUpDownMaxGroupQuantity.Size = new System.Drawing.Size(35, 20);
+            this.numericUpDownMaxGroupQuantity.TabIndex = 54;
+            this.numericUpDownMaxGroupQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // numericUpDownMaxModelQuantity
+            // 
+            this.numericUpDownMaxModelQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.equipmentBindingSource, "MaxModelQuantity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownMaxModelQuantity.Location = new System.Drawing.Point(3, 68);
+            this.numericUpDownMaxModelQuantity.Name = "numericUpDownMaxModelQuantity";
+            this.numericUpDownMaxModelQuantity.Size = new System.Drawing.Size(35, 20);
+            this.numericUpDownMaxModelQuantity.TabIndex = 53;
+            this.numericUpDownMaxModelQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // equipmentBindingSource
+            // 
+            this.equipmentBindingSource.DataSource = typeof(Universalis.Equipment);
+            // 
             // EquipmentEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,7 +583,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EquipmentEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBasePoints)).EndInit();
@@ -565,6 +610,9 @@
             this.panelPermissions.PerformLayout();
             this.toolStrip7.ResumeLayout(false);
             this.toolStrip7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxGroupQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxModelQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipmentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -611,5 +659,9 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonPermissions;
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.ToolStripButton toolStripButtonPermissionsEditor;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown numericUpDownMaxGroupQuantity;
+        private System.Windows.Forms.NumericUpDown numericUpDownMaxModelQuantity;
     }
 }

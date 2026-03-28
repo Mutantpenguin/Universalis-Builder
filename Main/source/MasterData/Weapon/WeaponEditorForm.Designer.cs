@@ -29,10 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxPoints = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.numericUpDownMaxGroupQuantity = new System.Windows.Forms.NumericUpDown();
             this.weaponBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.numericUpDownMaxModelQuantity = new System.Windows.Forms.NumericUpDown();
+            this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -102,7 +106,9 @@
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxGroupQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxModelQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageEffects)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
@@ -138,6 +144,10 @@
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.numericUpDownMaxGroupQuantity);
+            this.panel1.Controls.Add(this.numericUpDownMaxModelQuantity);
             this.panel1.Controls.Add(this.textBoxPoints);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -145,8 +155,48 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(484, 39);
+            this.panel1.Size = new System.Drawing.Size(484, 65);
             this.panel1.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(193, 44);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "Max pro Gruppe";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(44, 44);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 13);
+            this.label8.TabIndex = 51;
+            this.label8.Text = "Max pro Modell";
+            // 
+            // numericUpDownMaxGroupQuantity
+            // 
+            this.numericUpDownMaxGroupQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponBindingSource, "MaxGroupQuantity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownMaxGroupQuantity.Location = new System.Drawing.Point(152, 42);
+            this.numericUpDownMaxGroupQuantity.Name = "numericUpDownMaxGroupQuantity";
+            this.numericUpDownMaxGroupQuantity.Size = new System.Drawing.Size(35, 20);
+            this.numericUpDownMaxGroupQuantity.TabIndex = 50;
+            this.numericUpDownMaxGroupQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // weaponBindingSource
+            // 
+            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
+            // 
+            // numericUpDownMaxModelQuantity
+            // 
+            this.numericUpDownMaxModelQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.weaponBindingSource, "MaxModelQuantity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownMaxModelQuantity.Location = new System.Drawing.Point(3, 42);
+            this.numericUpDownMaxModelQuantity.Name = "numericUpDownMaxModelQuantity";
+            this.numericUpDownMaxModelQuantity.Size = new System.Drawing.Size(35, 20);
+            this.numericUpDownMaxModelQuantity.TabIndex = 49;
+            this.numericUpDownMaxModelQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // textBoxPoints
             // 
@@ -158,10 +208,6 @@
             this.textBoxPoints.Size = new System.Drawing.Size(56, 20);
             this.textBoxPoints.TabIndex = 36;
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // weaponBindingSource
-            // 
-            this.weaponBindingSource.DataSource = typeof(Universalis.Weapon);
             // 
             // label2
             // 
@@ -258,7 +304,7 @@
             this.panel4.Controls.Add(this.textBoxDescription);
             this.panel4.Controls.Add(this.toolStrip1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 485);
+            this.panel4.Location = new System.Drawing.Point(0, 511);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(484, 132);
             this.panel4.TabIndex = 5;
@@ -674,8 +720,8 @@
             this.dataGridViewDamageEffects.AllowUserToAddRows = false;
             this.dataGridViewDamageEffects.AllowUserToDeleteRows = false;
             this.dataGridViewDamageEffects.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewDamageEffects.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDamageEffects.AutoGenerateColumns = false;
             this.dataGridViewDamageEffects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDamageEffects.ColumnHeadersVisible = false;
@@ -714,7 +760,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 64);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 90);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -728,7 +774,7 @@
             this.panel5.Controls.Add(this.panel2);
             this.panel5.Controls.Add(this.toolStrip4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 246);
+            this.panel5.Location = new System.Drawing.Point(0, 272);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(484, 124);
             this.panel5.TabIndex = 6;
@@ -806,7 +852,7 @@
             this.panel7.Controls.Add(this.panelProfileModifier);
             this.panel7.Controls.Add(this.toolStrip6);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 370);
+            this.panel7.Location = new System.Drawing.Point(0, 396);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(484, 54);
             this.panel7.TabIndex = 32;
@@ -879,7 +925,7 @@
             this.panel8.Controls.Add(this.panelPermissions);
             this.panel8.Controls.Add(this.toolStrip7);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 424);
+            this.panel8.Location = new System.Drawing.Point(0, 450);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(484, 61);
             this.panel8.TabIndex = 33;
@@ -971,7 +1017,9 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WeaponEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxGroupQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weaponBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxModelQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDamageEffects)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).EndInit();
@@ -1097,5 +1145,9 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.ToolStripButton toolStripButtonPermissionsEditor;
         private System.Windows.Forms.NumericUpDown numericUpDownWeaponRangeMinAmount;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown numericUpDownMaxGroupQuantity;
+        private System.Windows.Forms.NumericUpDown numericUpDownMaxModelQuantity;
     }
 }

@@ -153,6 +153,12 @@ namespace Universalis
                 }
             }
 
+            if( weapon.MaxModelQuantity != 0 && weapon.MaxGroupQuantity != 0 && weapon.MaxGroupQuantity < weapon.MaxModelQuantity )
+            {
+                MessageBox.Show( "Die maximale Anzahl je Gruppe muss größer oder gleich der maximalen Anzahl je Modell sein!" );
+                return false;
+            }
+
             return true;
         }
 
