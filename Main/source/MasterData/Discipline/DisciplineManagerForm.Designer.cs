@@ -35,12 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewDisciplines = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PowerCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormattedMaxQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaxLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HasPermissions = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripFactions = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
@@ -49,6 +43,12 @@
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PowerCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedMaxGroupQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HasPermissions = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisciplines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
             this.toolStripFactions.SuspendLayout();
@@ -67,7 +67,7 @@
             this.dataGridViewDisciplines.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.PowerCount,
-            this.FormattedMaxQuantity,
+            this.FormattedMaxGroupQuantity,
             this.MaxLevel,
             this.HasPermissions,
             this.PointsString});
@@ -85,64 +85,6 @@
             this.dataGridViewDisciplines.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewDisciplines_CellFormatting);
             this.dataGridViewDisciplines.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewDisciplines_CellToolTipTextNeeded);
             this.dataGridViewDisciplines.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewDisciplines_KeyDown);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // PowerCount
-            // 
-            this.PowerCount.DataPropertyName = "PowerCount";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PowerCount.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PowerCount.HeaderText = "#";
-            this.PowerCount.Name = "PowerCount";
-            this.PowerCount.ReadOnly = true;
-            this.PowerCount.ToolTipText = "Anzahl Kräfte";
-            this.PowerCount.Width = 35;
-            // 
-            // FormattedMaxQuantity
-            // 
-            this.FormattedMaxQuantity.DataPropertyName = "FormattedMaxQuantity";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FormattedMaxQuantity.DefaultCellStyle = dataGridViewCellStyle3;
-            this.FormattedMaxQuantity.HeaderText = "Max.";
-            this.FormattedMaxQuantity.Name = "FormattedMaxQuantity";
-            this.FormattedMaxQuantity.ReadOnly = true;
-            this.FormattedMaxQuantity.ToolTipText = "Group";
-            this.FormattedMaxQuantity.Width = 35;
-            // 
-            // MaxLevel
-            // 
-            this.MaxLevel.DataPropertyName = "MaxLevel";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.MaxLevel.DefaultCellStyle = dataGridViewCellStyle4;
-            this.MaxLevel.HeaderText = "Max. LVL";
-            this.MaxLevel.Name = "MaxLevel";
-            this.MaxLevel.ReadOnly = true;
-            this.MaxLevel.Width = 75;
-            // 
-            // HasPermissions
-            // 
-            this.HasPermissions.HeaderText = "B";
-            this.HasPermissions.Name = "HasPermissions";
-            this.HasPermissions.ReadOnly = true;
-            this.HasPermissions.ToolTipText = "Berechtigungen";
-            this.HasPermissions.Width = 25;
-            // 
-            // PointsString
-            // 
-            this.PointsString.DataPropertyName = "PointsString";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.PointsString.DefaultCellStyle = dataGridViewCellStyle5;
-            this.PointsString.HeaderText = "Punkte";
-            this.PointsString.Name = "PointsString";
-            this.PointsString.ReadOnly = true;
-            this.PointsString.Width = 80;
             // 
             // disciplineBindingSource
             // 
@@ -221,6 +163,64 @@
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // PowerCount
+            // 
+            this.PowerCount.DataPropertyName = "PowerCount";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PowerCount.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PowerCount.HeaderText = "#";
+            this.PowerCount.Name = "PowerCount";
+            this.PowerCount.ReadOnly = true;
+            this.PowerCount.ToolTipText = "Anzahl Kräfte";
+            this.PowerCount.Width = 35;
+            // 
+            // FormattedMaxGroupQuantity
+            // 
+            this.FormattedMaxGroupQuantity.DataPropertyName = "FormattedMaxGroupQuantity";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.FormattedMaxGroupQuantity.DefaultCellStyle = dataGridViewCellStyle3;
+            this.FormattedMaxGroupQuantity.HeaderText = "Max.";
+            this.FormattedMaxGroupQuantity.Name = "FormattedMaxGroupQuantity";
+            this.FormattedMaxGroupQuantity.ReadOnly = true;
+            this.FormattedMaxGroupQuantity.ToolTipText = "Group";
+            this.FormattedMaxGroupQuantity.Width = 35;
+            // 
+            // MaxLevel
+            // 
+            this.MaxLevel.DataPropertyName = "MaxLevel";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.MaxLevel.DefaultCellStyle = dataGridViewCellStyle4;
+            this.MaxLevel.HeaderText = "Max. LVL";
+            this.MaxLevel.Name = "MaxLevel";
+            this.MaxLevel.ReadOnly = true;
+            this.MaxLevel.Width = 75;
+            // 
+            // HasPermissions
+            // 
+            this.HasPermissions.HeaderText = "B";
+            this.HasPermissions.Name = "HasPermissions";
+            this.HasPermissions.ReadOnly = true;
+            this.HasPermissions.ToolTipText = "Berechtigungen";
+            this.HasPermissions.Width = 25;
+            // 
+            // PointsString
+            // 
+            this.PointsString.DataPropertyName = "PointsString";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.PointsString.DefaultCellStyle = dataGridViewCellStyle5;
+            this.PointsString.HeaderText = "Punkte";
+            this.PointsString.Name = "PointsString";
+            this.PointsString.ReadOnly = true;
+            this.PointsString.Width = 80;
+            // 
             // DisciplineManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,7 +258,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonAddDiscipline;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn PowerCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedMaxQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedMaxGroupQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxLevel;
         private System.Windows.Forms.DataGridViewImageColumn HasPermissions;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsString;

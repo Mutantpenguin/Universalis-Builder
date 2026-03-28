@@ -295,7 +295,7 @@ namespace Universalis
         }
 
         [JsonIgnore]
-        public string FormattedMaxQuantity
+        public string FormattedMaxGroupQuantity
         {
             get
             {

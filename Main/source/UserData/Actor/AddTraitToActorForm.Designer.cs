@@ -56,9 +56,10 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOk = new System.Windows.Forms.Button();
             this.dataGridViewTraits = new System.Windows.Forms.DataGridView();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormattedMaxQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedMaxGroupQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -72,7 +73,6 @@
             this.AWAString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DETString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).BeginInit();
@@ -228,7 +228,7 @@
             this.dataGridViewTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.groupDataGridViewTextBoxColumn,
-            this.FormattedMaxQuantity,
+            this.FormattedMaxGroupQuantity,
             this.MaxLevel,
             this.FormattedAP,
             this.UseOnce,
@@ -256,6 +256,10 @@
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
             this.dataGridViewTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewTraits_KeyDown);
             // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -271,16 +275,16 @@
             this.groupDataGridViewTextBoxColumn.Name = "groupDataGridViewTextBoxColumn";
             this.groupDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // FormattedMaxQuantity
+            // FormattedMaxGroupQuantity
             // 
-            this.FormattedMaxQuantity.DataPropertyName = "FormattedMaxQuantity";
+            this.FormattedMaxGroupQuantity.DataPropertyName = "FormattedMaxGroupQuantity";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FormattedMaxQuantity.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FormattedMaxQuantity.HeaderText = "Max.";
-            this.FormattedMaxQuantity.Name = "FormattedMaxQuantity";
-            this.FormattedMaxQuantity.ReadOnly = true;
-            this.FormattedMaxQuantity.ToolTipText = "Gruppe";
-            this.FormattedMaxQuantity.Width = 35;
+            this.FormattedMaxGroupQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FormattedMaxGroupQuantity.HeaderText = "Max.";
+            this.FormattedMaxGroupQuantity.Name = "FormattedMaxGroupQuantity";
+            this.FormattedMaxGroupQuantity.ReadOnly = true;
+            this.FormattedMaxGroupQuantity.ToolTipText = "Gruppe";
+            this.FormattedMaxGroupQuantity.Width = 35;
             // 
             // MaxLevel
             // 
@@ -421,10 +425,6 @@
             this.PointsString.ReadOnly = true;
             this.PointsString.Width = 80;
             // 
-            // traitBindingSource
-            // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
-            // 
             // AddTraitToActorForm
             // 
             this.AcceptButton = this.buttonOk;
@@ -464,9 +464,11 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNegatives;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNeutrals;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
+        private System.Windows.Forms.ToolStripComboBox filterGroup;
+        private System.Windows.Forms.ToolStripButton checkBoxFilterTraitGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedMaxQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedMaxGroupQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAP;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;
@@ -480,7 +482,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AWAString;
         private System.Windows.Forms.DataGridViewTextBoxColumn DETString;
         private System.Windows.Forms.DataGridViewTextBoxColumn PointsString;
-        private System.Windows.Forms.ToolStripComboBox filterGroup;
-        private System.Windows.Forms.ToolStripButton checkBoxFilterTraitGroup;
     }
 }

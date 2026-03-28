@@ -49,19 +49,19 @@
             this.toolStripButtonTraitDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
+            this.filterGroup = new System.Windows.Forms.ToolStripComboBox();
+            this.checkBoxFilterTraitGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStripDropDownButtonFilter = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItemPositives = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNegatives = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemNeutrals = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewTraits = new System.Windows.Forms.DataGridView();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.checkBoxFilterTraitGroup = new System.Windows.Forms.ToolStripButton();
-            this.filterGroup = new System.Windows.Forms.ToolStripComboBox();
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormattedMaxQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedMaxGroupQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaxLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FormattedAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UseOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -78,8 +78,8 @@
             this.PointsString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -156,6 +156,25 @@
             this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
             this.toolStripButtonClearSearch.Click += new System.EventHandler(this.toolStripButtonClearSearch_Click);
             // 
+            // filterGroup
+            // 
+            this.filterGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.filterGroup.Enabled = false;
+            this.filterGroup.Name = "filterGroup";
+            this.filterGroup.Size = new System.Drawing.Size(121, 25);
+            // 
+            // checkBoxFilterTraitGroup
+            // 
+            this.checkBoxFilterTraitGroup.CheckOnClick = true;
+            this.checkBoxFilterTraitGroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.checkBoxFilterTraitGroup.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
+            this.checkBoxFilterTraitGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.checkBoxFilterTraitGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.checkBoxFilterTraitGroup.Name = "checkBoxFilterTraitGroup";
+            this.checkBoxFilterTraitGroup.Size = new System.Drawing.Size(23, 22);
+            this.checkBoxFilterTraitGroup.ToolTipText = "nach WK filtern";
+            this.checkBoxFilterTraitGroup.Click += new System.EventHandler(this.checkBoxFilterTraitGroup_Click);
+            // 
             // toolStripDropDownButtonFilter
             // 
             this.toolStripDropDownButtonFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -212,7 +231,7 @@
             this.dataGridViewTraits.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.groupDataGridViewTextBoxColumn,
-            this.FormattedMaxQuantity,
+            this.FormattedMaxGroupQuantity,
             this.MaxLevel,
             this.FormattedAP,
             this.UseOnce,
@@ -242,6 +261,10 @@
             this.dataGridViewTraits.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewTraits_CellToolTipTextNeeded);
             this.dataGridViewTraits.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewTraits_KeyDown);
             // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -256,29 +279,6 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
-            // 
-            // checkBoxFilterTraitGroup
-            // 
-            this.checkBoxFilterTraitGroup.CheckOnClick = true;
-            this.checkBoxFilterTraitGroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.checkBoxFilterTraitGroup.Image = global::Universalis.Properties.Resources.ui_check_box_uncheck;
-            this.checkBoxFilterTraitGroup.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.checkBoxFilterTraitGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.checkBoxFilterTraitGroup.Name = "checkBoxFilterTraitGroup";
-            this.checkBoxFilterTraitGroup.Size = new System.Drawing.Size(23, 22);
-            this.checkBoxFilterTraitGroup.ToolTipText = "nach WK filtern";
-            this.checkBoxFilterTraitGroup.Click += new System.EventHandler(this.checkBoxFilterTraitGroup_Click);
-            // 
-            // filterGroup
-            // 
-            this.filterGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filterGroup.Enabled = false;
-            this.filterGroup.Name = "filterGroup";
-            this.filterGroup.Size = new System.Drawing.Size(121, 25);
-            // 
-            // traitBindingSource
-            // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -295,16 +295,16 @@
             this.groupDataGridViewTextBoxColumn.Name = "groupDataGridViewTextBoxColumn";
             this.groupDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // FormattedMaxQuantity
+            // FormattedMaxGroupQuantity
             // 
-            this.FormattedMaxQuantity.DataPropertyName = "FormattedMaxQuantity";
+            this.FormattedMaxGroupQuantity.DataPropertyName = "FormattedMaxGroupQuantity";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FormattedMaxQuantity.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FormattedMaxQuantity.HeaderText = "Max.";
-            this.FormattedMaxQuantity.Name = "FormattedMaxQuantity";
-            this.FormattedMaxQuantity.ReadOnly = true;
-            this.FormattedMaxQuantity.ToolTipText = "Gruppe";
-            this.FormattedMaxQuantity.Width = 35;
+            this.FormattedMaxGroupQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FormattedMaxGroupQuantity.HeaderText = "Max.";
+            this.FormattedMaxGroupQuantity.Name = "FormattedMaxGroupQuantity";
+            this.FormattedMaxGroupQuantity.ReadOnly = true;
+            this.FormattedMaxGroupQuantity.ToolTipText = "Gruppe";
+            this.FormattedMaxGroupQuantity.Width = 35;
             // 
             // MaxLevel
             // 
@@ -461,9 +461,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTraits)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,7 +489,7 @@
         private System.Windows.Forms.ToolStripComboBox filterGroup;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedMaxQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedMaxGroupQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaxLevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn FormattedAP;
         private System.Windows.Forms.DataGridViewCheckBoxColumn UseOnce;

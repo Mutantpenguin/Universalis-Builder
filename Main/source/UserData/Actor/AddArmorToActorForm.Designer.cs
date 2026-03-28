@@ -53,7 +53,7 @@
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FormattedMaxQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FormattedMaxGroupQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.protectionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damageReductionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.effectsImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
@@ -114,7 +114,7 @@
             this.dataGridViewArmor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArmor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
-            this.FormattedMaxQuantity,
+            this.FormattedMaxGroupQuantity,
             this.protectionDataGridViewTextBoxColumn,
             this.damageReductionDataGridViewTextBoxColumn,
             this.effectsImageDataGridViewImageColumn,
@@ -197,16 +197,16 @@
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // FormattedMaxQuantity
+            // FormattedMaxGroupQuantity
             // 
-            this.FormattedMaxQuantity.DataPropertyName = "FormattedMaxQuantity";
+            this.FormattedMaxGroupQuantity.DataPropertyName = "FormattedMaxGroupQuantity";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.FormattedMaxQuantity.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FormattedMaxQuantity.HeaderText = "Max.";
-            this.FormattedMaxQuantity.Name = "FormattedMaxQuantity";
-            this.FormattedMaxQuantity.ReadOnly = true;
-            this.FormattedMaxQuantity.ToolTipText = "Gruppe";
-            this.FormattedMaxQuantity.Width = 35;
+            this.FormattedMaxGroupQuantity.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FormattedMaxGroupQuantity.HeaderText = "Max.";
+            this.FormattedMaxGroupQuantity.Name = "FormattedMaxGroupQuantity";
+            this.FormattedMaxGroupQuantity.ReadOnly = true;
+            this.FormattedMaxGroupQuantity.ToolTipText = "Gruppe";
+            this.FormattedMaxGroupQuantity.Width = 35;
             // 
             // protectionDataGridViewTextBoxColumn
             // 
@@ -403,7 +403,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripButton toolStripButtonClearSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedMaxQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FormattedMaxGroupQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn protectionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn damageReductionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewImageColumn effectsImageDataGridViewImageColumn;
