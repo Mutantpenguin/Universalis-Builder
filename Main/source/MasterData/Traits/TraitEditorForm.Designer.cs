@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBoxGroup = new System.Windows.Forms.ComboBox();
-            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxPoints = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,8 +69,10 @@
             this.toolStripButtonPermissions = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel6 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
+            this.traitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDownMaxGroupQuantity = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -87,11 +88,15 @@
             this.panel8.SuspendLayout();
             this.panelPermissions.SuspendLayout();
             this.toolStrip7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxGroupQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.numericUpDownMaxGroupQuantity);
             this.panel1.Controls.Add(this.comboBoxGroup);
             this.panel1.Controls.Add(this.textBoxPoints);
             this.panel1.Controls.Add(this.label3);
@@ -100,7 +105,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 40);
+            this.panel1.Size = new System.Drawing.Size(434, 65);
             this.panel1.TabIndex = 1;
             // 
             // comboBoxGroup
@@ -113,10 +118,6 @@
             this.comboBoxGroup.Name = "comboBoxGroup";
             this.comboBoxGroup.Size = new System.Drawing.Size(114, 21);
             this.comboBoxGroup.TabIndex = 38;
-            // 
-            // traitBindingSource
-            // 
-            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
             // 
             // textBoxPoints
             // 
@@ -200,7 +201,7 @@
             this.panel3.Controls.Add(this.textBoxDescription);
             this.panel3.Controls.Add(this.toolStrip1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 330);
+            this.panel3.Location = new System.Drawing.Point(0, 355);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(434, 187);
             this.panel3.TabIndex = 0;
@@ -240,7 +241,7 @@
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.toolStrip2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 65);
+            this.panel4.Location = new System.Drawing.Point(0, 90);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(434, 150);
             this.panel4.TabIndex = 1;
@@ -390,7 +391,7 @@
             this.panel5.Controls.Add(this.panelProfileModifier);
             this.panel5.Controls.Add(this.toolStrip4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 215);
+            this.panel5.Location = new System.Drawing.Point(0, 240);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(434, 54);
             this.panel5.TabIndex = 3;
@@ -463,7 +464,7 @@
             this.panel8.Controls.Add(this.panelPermissions);
             this.panel8.Controls.Add(this.toolStrip7);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 269);
+            this.panel8.Location = new System.Drawing.Point(0, 294);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(434, 61);
             this.panel8.TabIndex = 34;
@@ -532,6 +533,28 @@
             this.toolStripButtonPermissionsEditor.Text = "editieren";
             this.toolStripButtonPermissionsEditor.Click += new System.EventHandler(this.toolStripButtonPermissionsEditor_Click);
             // 
+            // traitBindingSource
+            // 
+            this.traitBindingSource.DataSource = typeof(Universalis.Trait);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(44, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 13);
+            this.label7.TabIndex = 58;
+            this.label7.Text = "Max pro Gruppe";
+            // 
+            // numericUpDownMaxGroupQuantity
+            // 
+            this.numericUpDownMaxGroupQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.traitBindingSource, "MaxGroupQuantity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownMaxGroupQuantity.Location = new System.Drawing.Point(3, 42);
+            this.numericUpDownMaxGroupQuantity.Name = "numericUpDownMaxGroupQuantity";
+            this.numericUpDownMaxGroupQuantity.Size = new System.Drawing.Size(35, 20);
+            this.numericUpDownMaxGroupQuantity.TabIndex = 57;
+            this.numericUpDownMaxGroupQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // TraitEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,7 +577,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TraitEditorForm_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAP)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -582,6 +604,8 @@
             this.panelPermissions.PerformLayout();
             this.toolStrip7.ResumeLayout(false);
             this.toolStrip7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.traitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxGroupQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -630,5 +654,7 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel6;
         private System.Windows.Forms.ToolStripButton toolStripButtonPermissionsEditor;
         private System.Windows.Forms.ComboBox comboBoxGroup;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numericUpDownMaxGroupQuantity;
     }
 }

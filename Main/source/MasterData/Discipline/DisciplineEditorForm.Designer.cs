@@ -24,7 +24,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBoxColor = new System.Windows.Forms.PictureBox();
             this.textBoxPoints = new System.Windows.Forms.TextBox();
-            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
@@ -52,7 +51,7 @@
             this.toolStripButtonPermissionsEditor = new System.Windows.Forms.ToolStripButton();
             this.panelDiscipline = new System.Windows.Forms.Panel();
             this.dataGridViewPowers = new System.Windows.Forms.DataGridView();
-            this.powersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.LevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBoxPower = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -61,13 +60,15 @@
             this.toolStripButtonAddPower = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonDeletePower = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonClearSearch = new System.Windows.Forms.ToolStripButton();
+            this.disciplineBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.attributeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.powersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.numericUpDownMaxGroupQuantity = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
             this.panel3.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -81,16 +82,20 @@
             this.toolStrip7.SuspendLayout();
             this.panelDiscipline.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPowers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.powersBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).BeginInit();
             this.panel2.SuspendLayout();
             this.toolStripFactions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.powersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxGroupQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.numericUpDownMaxGroupQuantity);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBoxColor);
             this.panel1.Controls.Add(this.textBoxPoints);
@@ -100,7 +105,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(297, 39);
+            this.panel1.Size = new System.Drawing.Size(297, 65);
             this.panel1.TabIndex = 1;
             // 
             // label2
@@ -136,10 +141,6 @@
             this.textBoxPoints.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.toolTip1.SetToolTip(this.textBoxPoints, "pro Modell");
             // 
-            // disciplineBindingSource
-            // 
-            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -174,9 +175,9 @@
             this.panel3.Controls.Add(this.textBoxDescription);
             this.panel3.Controls.Add(this.toolStrip1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 151);
+            this.panel3.Location = new System.Drawing.Point(0, 177);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(297, 257);
+            this.panel3.Size = new System.Drawing.Size(297, 231);
             this.panel3.TabIndex = 0;
             // 
             // textBoxDescription
@@ -187,7 +188,7 @@
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(297, 232);
+            this.textBoxDescription.Size = new System.Drawing.Size(297, 206);
             this.textBoxDescription.TabIndex = 0;
             // 
             // toolStrip1
@@ -213,7 +214,7 @@
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.toolStrip2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 39);
+            this.panel4.Location = new System.Drawing.Point(0, 65);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(297, 51);
             this.panel4.TabIndex = 1;
@@ -335,7 +336,7 @@
             this.panel8.Controls.Add(this.panelPermissions);
             this.panel8.Controls.Add(this.toolStrip7);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 90);
+            this.panel8.Location = new System.Drawing.Point(0, 116);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(297, 61);
             this.panel8.TabIndex = 34;
@@ -445,9 +446,16 @@
             this.dataGridViewPowers.SelectionChanged += new System.EventHandler(this.dataGridViewPowers_SelectionChanged);
             this.dataGridViewPowers.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewPowers_KeyDown);
             // 
-            // powersBindingSource
+            // LevelDataGridViewTextBoxColumn
             // 
-            this.powersBindingSource.DataSource = typeof(Universalis.Power);
+            this.LevelDataGridViewTextBoxColumn.DataPropertyName = "Level";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.LevelDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.LevelDataGridViewTextBoxColumn.HeaderText = "LVL";
+            this.LevelDataGridViewTextBoxColumn.Name = "LevelDataGridViewTextBoxColumn";
+            this.LevelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.LevelDataGridViewTextBoxColumn.ToolTipText = "Level";
+            this.LevelDataGridViewTextBoxColumn.Width = 30;
             // 
             // tableLayoutPanel1
             // 
@@ -540,6 +548,10 @@
             this.toolStripButtonClearSearch.Size = new System.Drawing.Size(23, 22);
             this.toolStripButtonClearSearch.ToolTipText = "Text löschen";
             // 
+            // disciplineBindingSource
+            // 
+            this.disciplineBindingSource.DataSource = typeof(Universalis.Discipline);
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -547,17 +559,6 @@
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // LevelDataGridViewTextBoxColumn
-            // 
-            this.LevelDataGridViewTextBoxColumn.DataPropertyName = "Level";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.LevelDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.LevelDataGridViewTextBoxColumn.HeaderText = "LVL";
-            this.LevelDataGridViewTextBoxColumn.Name = "LevelDataGridViewTextBoxColumn";
-            this.LevelDataGridViewTextBoxColumn.ReadOnly = true;
-            this.LevelDataGridViewTextBoxColumn.ToolTipText = "Level";
-            this.LevelDataGridViewTextBoxColumn.Width = 30;
             // 
             // aPDataGridViewTextBoxColumn
             // 
@@ -581,6 +582,28 @@
             this.attributeDataGridViewTextBoxColumn.ToolTipText = "Attribut";
             this.attributeDataGridViewTextBoxColumn.Width = 30;
             // 
+            // powersBindingSource
+            // 
+            this.powersBindingSource.DataSource = typeof(Universalis.Power);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(44, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 13);
+            this.label7.TabIndex = 58;
+            this.label7.Text = "Max pro Gruppe";
+            // 
+            // numericUpDownMaxGroupQuantity
+            // 
+            this.numericUpDownMaxGroupQuantity.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.disciplineBindingSource, "MaxGroupQuantity", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownMaxGroupQuantity.Location = new System.Drawing.Point(3, 42);
+            this.numericUpDownMaxGroupQuantity.Name = "numericUpDownMaxGroupQuantity";
+            this.numericUpDownMaxGroupQuantity.Size = new System.Drawing.Size(35, 20);
+            this.numericUpDownMaxGroupQuantity.TabIndex = 57;
+            this.numericUpDownMaxGroupQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // DisciplineEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,7 +622,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxColor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -623,13 +645,15 @@
             this.panelDiscipline.ResumeLayout(false);
             this.panelDiscipline.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPowers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.powersBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPower)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.toolStripFactions.ResumeLayout(false);
             this.toolStripFactions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.disciplineBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.powersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxGroupQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -682,5 +706,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LevelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn aPDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attributeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numericUpDownMaxGroupQuantity;
     }
 }
