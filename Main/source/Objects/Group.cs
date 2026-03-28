@@ -200,7 +200,8 @@ namespace Universalis
             }
 
             {
-                var weapons = Models.SelectMany( x => x.Weapons )
+                var weapons = Models.Where( x => x.Active )
+                                    .SelectMany( x => x.Weapons )
                                     .Select( x => x.Weapon )
                                     .Where( x => x.MaxGroupQuantity > 0 )
                                     .GroupBy( x => x )
@@ -219,7 +220,8 @@ namespace Universalis
             }
 
             {
-                var equipments = Models.SelectMany( x => x.Equipments )
+                var equipments = Models.Where( x => x.Active )
+                                       .SelectMany( x => x.Equipments )
                                        .Select( x => x.Equipment )
                                        .Where( x => x.MaxGroupQuantity > 0 )
                                        .GroupBy( x => x )
@@ -238,7 +240,8 @@ namespace Universalis
             }
 
             {
-                var armors = Models.Select( x => x.Armor )
+                var armors = Models.Where( x => x.Active )
+                                   .Select( x => x.Armor )
                                    .Where( x => x != null && x.MaxGroupQuantity > 0 )
                                    .GroupBy( x => x )
                                    .Select( x => new { armor = x.Key, count = x.Count() } )
@@ -256,7 +259,8 @@ namespace Universalis
             }
 
             {
-                var traits = Models.SelectMany( x => x.Traits )
+                var traits = Models.Where( x => x.Active )
+                                   .SelectMany( x => x.Traits )
                                    .Select( x => x.Trait )
                                    .Where( x => x.MaxGroupQuantity > 0 )
                                    .GroupBy( x => x )
@@ -275,7 +279,8 @@ namespace Universalis
             }
 
             {
-                var disciplines = Models.SelectMany( x => x.Disciplines )
+                var disciplines = Models.Where( x => x.Active )
+                                        .SelectMany( x => x.Disciplines )
                                         .Select( x => x.Discipline )
                                         .Where( x => x.MaxGroupQuantity > 0 )
                                         .GroupBy( x => x )
