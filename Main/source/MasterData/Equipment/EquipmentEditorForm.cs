@@ -114,7 +114,7 @@ namespace Universalis
 
             var equipment = ( equipmentBindingSource.DataSource as Equipment );
 
-            if( equipment.MaxModelQuantity != 0 && equipment.MaxGroupQuantity != 0 && equipment.MaxGroupQuantity < equipment.MaxModelQuantity )
+            if( equipment.MaxModelQuantity > 0 && equipment.MaxGroupQuantity > 0 && equipment.MaxGroupQuantity < equipment.MaxModelQuantity )
             {
                 MessageBox.Show( "Die maximale Anzahl je Gruppe muss größer oder gleich der maximalen Anzahl je Modell sein!" );
                 return false;
