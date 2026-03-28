@@ -813,6 +813,14 @@ namespace Universalis
             {
                 dataGridViewWeapons.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.Firebrick;
             }
+
+            if( weapon.MaxModelQuantity > 0 )
+            {
+                if( weapon.MaxModelQuantity < m_actorModified.Weapons.Where(x => x.Weapon == weapon).Count() )
+                {
+                    dataGridViewWeapons.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.OrangeRed;
+                }
+            }
         }
 
         private void dataGridViewEquipment_RowPrePaint( object sender, DataGridViewRowPrePaintEventArgs e )
@@ -822,6 +830,14 @@ namespace Universalis
             if( !equipment.Active )
             {
                 dataGridViewEquipment.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.Firebrick;
+            }
+
+            if( equipment.MaxModelQuantity > 0 )
+            {
+                if( equipment.MaxModelQuantity < m_actorModified.Equipments.Where( x => x.Equipment == equipment ).Count() )
+                {
+                    dataGridViewEquipment.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.OrangeRed;
+                }
             }
         }
 
