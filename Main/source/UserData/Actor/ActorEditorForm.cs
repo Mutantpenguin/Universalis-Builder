@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using static Universalis.Costs;
 
 namespace Universalis
 {
@@ -339,10 +340,17 @@ namespace Universalis
                     {
                         foreach( Weapon weapon in addWeaponToActor.SelectedWeapons )
                         {
-                            m_actorModified.Weapons.Add( new Actor.ActorWeapon
+                            if( ( weapon.MaxModelQuantity > 0 ) && ( weapon.MaxModelQuantity <= m_actorModified.Weapons.Where( x => x.Weapon == weapon ).Count() ) )
                             {
-                                Weapon = weapon
-                            } );
+                                MessageBox.Show( $"'{weapon.Name}' ist bereits schon {weapon.MaxModelQuantity}x ausgestattet.", String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Stop );
+                            }
+                            else
+                            {
+                                m_actorModified.Weapons.Add( new Actor.ActorWeapon
+                                {
+                                    Weapon = weapon
+                                } );
+                            }
                         }
 
                         updateGridViewWeapons();
@@ -386,10 +394,17 @@ namespace Universalis
                     {
                         foreach( Equipment equipment in addEquipmentToActor.SelectedEquipment )
                         {
-                            m_actorModified.Equipments.Add( new Actor.ActorEquipment
+                            if( ( equipment.MaxModelQuantity > 0 ) && ( equipment.MaxModelQuantity <= m_actorModified.Equipments.Where( x => x.Equipment == equipment ).Count() ) )
                             {
-                                Equipment = equipment
-                            } );
+                                MessageBox.Show( $"'{equipment.Name}' ist bereits schon {equipment.MaxModelQuantity}x ausgestattet.", String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Stop );
+                            }
+                            else
+                            {
+                                m_actorModified.Equipments.Add( new Actor.ActorEquipment
+                                {
+                                    Equipment = equipment
+                                } );
+                            }
                         }
 
                         updateGridViewEquipment();
@@ -814,12 +829,9 @@ namespace Universalis
                 dataGridViewWeapons.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.Firebrick;
             }
 
-            if( weapon.MaxModelQuantity > 0 )
+            if( ( weapon.MaxModelQuantity > 0 ) && ( weapon.MaxModelQuantity < m_actorModified.Weapons.Where(x => x.Weapon == weapon).Count() ) )
             {
-                if( weapon.MaxModelQuantity < m_actorModified.Weapons.Where(x => x.Weapon == weapon).Count() )
-                {
-                    dataGridViewWeapons.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.OrangeRed;
-                }
+                dataGridViewWeapons.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.OrangeRed;
             }
         }
 
@@ -832,12 +844,9 @@ namespace Universalis
                 dataGridViewEquipment.Rows[ e.RowIndex ].DefaultCellStyle.BackColor = Color.Firebrick;
             }
 
-            if( equipment.MaxModelQuantity > 0 )
+            if( ( equipment.MaxModelQuantity > 0 ) && ( equipment.MaxModelQuantity < m_actorModified.Equipments.Where( x => x.Equipment == equipment ).Count() ) )
             {
-                if( equipment.MaxModelQuantity < m_actorModified.Equipments.Where( x => x.Equipment == equipment ).Count() )
-                {
-                    dataGridViewEquipment.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.OrangeRed;
-                }
+                dataGridViewEquipment.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.OrangeRed;
             }
         }
 
