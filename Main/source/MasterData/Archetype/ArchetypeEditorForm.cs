@@ -237,10 +237,10 @@ namespace Universalis
             }
             else
             {
-                numericUpDownAGI.Minimum = 1;
-                numericUpDownHTH.Minimum = 1;
-                numericUpDownLRC.Minimum = 1;
-                numericUpDownDET.Minimum = 1;
+                numericUpDownAGI.Minimum = 0;
+                numericUpDownHTH.Minimum = 0;
+                numericUpDownLRC.Minimum = 0;
+                numericUpDownDET.Minimum = 0;
 
                 numericUpDownAGI.Maximum = 12;
                 numericUpDownHTH.Maximum = 12;
