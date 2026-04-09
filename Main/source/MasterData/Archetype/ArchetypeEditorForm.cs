@@ -225,15 +225,15 @@ namespace Universalis
         {
             if( Archetype.EType.Begleiter == (Archetype.EType)comboBoxType.SelectedItem )
             {
-                numericUpDownAGI.Minimum = 0;
-                numericUpDownHTH.Minimum = 0;
-                numericUpDownLRC.Minimum = 0;
-                numericUpDownDET.Minimum = 0;
+                numericUpDownAGI.Minimum = -6;
+                numericUpDownHTH.Minimum = -6;
+                numericUpDownLRC.Minimum = -6;
+                numericUpDownDET.Minimum = -6;
 
-                numericUpDownAGI.Value = 0;
-                numericUpDownHTH.Value = 0;
-                numericUpDownLRC.Value = 0;
-                numericUpDownDET.Value = 0;
+                numericUpDownAGI.Maximum = 6;
+                numericUpDownHTH.Maximum = 6;
+                numericUpDownLRC.Maximum = 6;
+                numericUpDownDET.Maximum = 6;
             }
             else
             {
@@ -242,27 +242,27 @@ namespace Universalis
                 numericUpDownLRC.Minimum = 1;
                 numericUpDownDET.Minimum = 1;
 
-                var attributes = m_originalArchetype.Profile.Attributes;
-
-                numericUpDownAGI.Value = Math.Max( attributes.AGI, 1 );
-                numericUpDownHTH.Value = Math.Max( attributes.HTH, 1 );
-                numericUpDownLRC.Value = Math.Max( attributes.LRC, 1 );
-                numericUpDownDET.Value = Math.Max( attributes.DET, 1 );
+                numericUpDownAGI.Maximum = 12;
+                numericUpDownHTH.Maximum = 12;
+                numericUpDownLRC.Maximum = 12;
+                numericUpDownDET.Maximum = 12;
             }
         }
 
         private void comboBoxType_SelectedValueChanged( object sender, EventArgs e )
         {
+            var attributes = m_originalArchetype.Profile.Attributes;
+
             switch( m_modifiedArchetype.Type )
             {
                 case Archetype.EType.Begleiter:
                     DangerArea.Visible = false;
                     labelGB.Visible = false;
 
-                    numericUpDownAGI.Enabled = false;
-                    numericUpDownHTH.Enabled = false;
-                    numericUpDownLRC.Enabled = false;
-                    numericUpDownDET.Enabled = false;
+                    numericUpDownAGI.Value = Math.Min( attributes.AGI, 6 );
+                    numericUpDownHTH.Value = Math.Min( attributes.HTH, 6 );
+                    numericUpDownLRC.Value = Math.Min( attributes.LRC, 6 );
+                    numericUpDownDET.Value = Math.Min( attributes.DET, 6 );
 
                     break;
 
@@ -270,10 +270,10 @@ namespace Universalis
                     DangerArea.Visible = true;
                     labelGB.Visible = true;
 
-                    numericUpDownAGI.Enabled = true;
-                    numericUpDownHTH.Enabled = true;
-                    numericUpDownLRC.Enabled = true;
-                    numericUpDownDET.Enabled = true;
+                    numericUpDownAGI.Value = Math.Max( attributes.AGI, 1 );
+                    numericUpDownHTH.Value = Math.Max( attributes.HTH, 1 );
+                    numericUpDownLRC.Value = Math.Max( attributes.LRC, 1 );
+                    numericUpDownDET.Value = Math.Max( attributes.DET, 1 );
 
                     break;
             }

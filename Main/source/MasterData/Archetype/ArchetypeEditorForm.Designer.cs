@@ -81,6 +81,8 @@
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.numericUpDownCrit = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -105,8 +107,6 @@
             this.toolStripButtonFactionAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonFactionDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel5 = new System.Windows.Forms.ToolStripLabel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.numericUpDownCrit = new System.Windows.Forms.NumericUpDown();
             this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iconDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -137,13 +137,13 @@
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrit)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownAdditionalPoints)).BeginInit();
             this.toolStrip4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).BeginInit();
             this.toolStripFactions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).BeginInit();
@@ -491,6 +491,11 @@
             0,
             0,
             0});
+            this.numericUpDownAGI.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            -2147483648});
             this.numericUpDownAGI.Name = "numericUpDownAGI";
             this.numericUpDownAGI.Size = new System.Drawing.Size(68, 20);
             this.numericUpDownAGI.TabIndex = 1;
@@ -532,6 +537,11 @@
             0,
             0,
             0});
+            this.numericUpDownHTH.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            -2147483648});
             this.numericUpDownHTH.Name = "numericUpDownHTH";
             this.numericUpDownHTH.Size = new System.Drawing.Size(68, 20);
             this.numericUpDownHTH.TabIndex = 2;
@@ -619,6 +629,11 @@
             0,
             0,
             0});
+            this.numericUpDownLRC.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            -2147483648});
             this.numericUpDownLRC.Name = "numericUpDownLRC";
             this.numericUpDownLRC.Size = new System.Drawing.Size(68, 20);
             this.numericUpDownLRC.TabIndex = 2;
@@ -706,6 +721,11 @@
             0,
             0,
             0});
+            this.numericUpDownDET.Minimum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            -2147483648});
             this.numericUpDownDET.Name = "numericUpDownDET";
             this.numericUpDownDET.Size = new System.Drawing.Size(71, 20);
             this.numericUpDownDET.TabIndex = 2;
@@ -789,6 +809,30 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(484, 185);
             this.panel2.TabIndex = 39;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(3, 85);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(71, 13);
+            this.label20.TabIndex = 70;
+            this.label20.Text = "Krit. Schwelle";
+            // 
+            // numericUpDownCrit
+            // 
+            this.numericUpDownCrit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileBindingSource, "CritThreshold", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.numericUpDownCrit.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDownCrit.Location = new System.Drawing.Point(102, 83);
+            this.numericUpDownCrit.Name = "numericUpDownCrit";
+            this.numericUpDownCrit.ReadOnly = true;
+            this.numericUpDownCrit.Size = new System.Drawing.Size(50, 20);
+            this.numericUpDownCrit.TabIndex = 71;
+            this.numericUpDownCrit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label18
             // 
@@ -1048,30 +1092,6 @@
             this.toolStripLabel5.Size = new System.Drawing.Size(139, 22);
             this.toolStripLabel5.Text = "Fraktionsberechtigungen";
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 85);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(71, 13);
-            this.label20.TabIndex = 70;
-            this.label20.Text = "Krit. Schwelle";
-            // 
-            // numericUpDownCrit
-            // 
-            this.numericUpDownCrit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.profileBindingSource, "CritThreshold", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.numericUpDownCrit.Increment = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDownCrit.Location = new System.Drawing.Point(102, 83);
-            this.numericUpDownCrit.Name = "numericUpDownCrit";
-            this.numericUpDownCrit.ReadOnly = true;
-            this.numericUpDownCrit.Size = new System.Drawing.Size(50, 20);
-            this.numericUpDownCrit.TabIndex = 71;
-            this.numericUpDownCrit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // archetypeBindingSource
             // 
             this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
@@ -1164,6 +1184,7 @@
             this.toolStrip3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrit)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel11.ResumeLayout(false);
@@ -1174,7 +1195,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFaction)).EndInit();
             this.toolStripFactions.ResumeLayout(false);
             this.toolStripFactions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCrit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factionsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attributeBindingSource)).EndInit();
