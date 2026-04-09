@@ -235,13 +235,17 @@ namespace Universalis
 
         private static void DrawAttributes( Graphics g, Actor actor )
         {
-            DrawAttribute( g, XAttrFirstColumn, 0,                "AGI",    actor.ModAGI() );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 0.5 ), "NK",     actor.ModHTH() );
-            DrawAttribute( g, XAttrFirstColumn, CmToPixel( 1 ),   "FK",     actor.ModLRC() );
+            int row1PosY = 0;
+            int row2PosY = CmToPixel( 0.5 );
+            int row3PosY = CmToPixel( 1 );
 
-            DrawAttribute( g, XAttrSecondColumn, 0,                 "KO",   actor.ModPHY() );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 0.5 ),  "WN",   actor.ModAWA() );
-            DrawAttribute( g, XAttrSecondColumn, CmToPixel( 1 ),    "EH",   actor.ModDET() );
+            DrawAttribute( g, XAttrFirstColumn,  row1PosY, "AGI", actor.ModAGI() );
+            DrawAttribute( g, XAttrFirstColumn,  row2PosY, "NK",  actor.ModHTH() );
+            DrawAttribute( g, XAttrFirstColumn,  row3PosY, "FK",  actor.ModLRC() );
+
+            DrawAttribute( g, XAttrSecondColumn, row1PosY, "KO",  actor.ModPHY() );
+            DrawAttribute( g, XAttrSecondColumn, row2PosY, "WN",  actor.ModAWA() );
+            DrawAttribute( g, XAttrSecondColumn, row3PosY, "EH",  actor.ModDET() );
         }
 
         private static void DrawAttribute( Graphics g, int posX, int posY, string name, int? attribute )
