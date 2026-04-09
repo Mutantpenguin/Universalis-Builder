@@ -308,6 +308,122 @@ namespace Universalis
             return text;
         }
 
+        #region Attributes
+
+        [JsonIgnore]
+        public string AGIString
+        {
+            get
+            {
+                var AGI = Profile.Attributes.AGI;
+
+                if( Type == EType.Begleiter )
+                {
+                    if( AGI > 0 )
+                        return "+" + AGI.ToString();
+                    else if( AGI < 0 )
+                        return AGI.ToString();
+                    else
+                        return "-";
+                }
+                else
+                {
+                    return AGI.ToString();
+                }
+            }
+        }
+
+        [JsonIgnore]
+        public string HTHString
+        {
+            get
+            {
+                var HTH = Profile.Attributes.HTH;
+
+                if( Type == EType.Begleiter )
+                {
+                    if( HTH > 0 )
+                        return "+" + HTH.ToString();
+                    else if( HTH < 0 )
+                        return HTH.ToString();
+                    else
+                        return "-";
+                }
+                else
+                {
+                    return HTH.ToString();
+                }
+            }
+        }
+
+        [JsonIgnore]
+        public string LRCString
+        {
+            get
+            {
+                var LRC = Profile.Attributes.LRC;
+
+                if( Type == EType.Begleiter )
+                {
+                    if( LRC > 0 )
+                        return "+" + LRC.ToString();
+                    else if( LRC < 0 )
+                        return LRC.ToString();
+                    else
+                        return "-";
+                }
+                else
+                {
+                    return LRC.ToString();
+                }
+            }
+        }
+
+        [JsonIgnore]
+        public string PHYString
+        {
+            get
+            {
+                var PHY = Profile.Attributes.PHY;
+                return PHY.ToString();
+            }
+        }
+
+        [JsonIgnore]
+        public string AWAString
+        {
+            get
+            {
+                var AWA = Profile.Attributes.AWA;
+                return AWA.ToString();
+            }
+        }
+
+        [JsonIgnore]
+        public string DETString
+        {
+            get
+            {
+                var DET = Profile.Attributes.DET;
+
+                if( Type == EType.Begleiter )
+                {
+                    if( DET > 0 )
+                        return "+" + DET.ToString();
+                    else if( DET < 0 )
+                        return DET.ToString();
+                    else
+                        return "-";
+                }
+                else
+                {
+                    return DET.ToString();
+                }
+            }
+        }
+
+        #endregion Attributes
+
         #region enums
         public enum ESize
         {

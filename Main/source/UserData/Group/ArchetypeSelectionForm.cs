@@ -36,16 +36,6 @@ namespace Universalis
                 {
                     e.Value = !String.IsNullOrEmpty( archetype.Rules );
                 }
-                else if( ( archetype.Type == Archetype.EType.Begleiter ) && (  ( e.ColumnIndex == AGIDataGridViewTextBoxColumn.Index )
-                                                                            ||
-                                                                            ( e.ColumnIndex == HTHDataGridViewTextBoxColumn.Index )
-                                                                            ||
-                                                                            ( e.ColumnIndex == LRCDataGridViewTextBoxColumn.Index )
-                                                                            ||
-                                                                            ( e.ColumnIndex == DETDataGridViewTextBoxColumn.Index ) ) )
-                {
-                    e.Value = "-";
-                }
             }
         }
 

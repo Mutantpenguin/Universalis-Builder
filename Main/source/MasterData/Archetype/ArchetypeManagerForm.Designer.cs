@@ -53,9 +53,9 @@
             this.filterType = new System.Windows.Forms.ToolStripComboBox();
             this.checkBoxFilterType = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewArchetypes = new System.Windows.Forms.DataGridView();
+            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.archetypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,8 +76,8 @@
             this.Points = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypes)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -101,6 +101,7 @@
             // toolStripTextBoxSearch
             // 
             this.toolStripTextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripTextBoxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxSearch.Name = "toolStripTextBoxSearch";
             this.toolStripTextBoxSearch.Size = new System.Drawing.Size(100, 25);
             this.toolStripTextBoxSearch.ToolTipText = "nach Namen filtern";
@@ -239,6 +240,10 @@
             this.dataGridViewArchetypes.CellToolTipTextNeeded += new System.Windows.Forms.DataGridViewCellToolTipTextNeededEventHandler(this.dataGridViewArchetype_CellToolTipTextNeeded);
             this.dataGridViewArchetypes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewArchetype_KeyDown);
             // 
+            // archetypeBindingSource
+            // 
+            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -253,10 +258,6 @@
             // 
             this.toolStripStatusLabelCount.Name = "toolStripStatusLabelCount";
             this.toolStripStatusLabelCount.Size = new System.Drawing.Size(0, 17);
-            // 
-            // archetypeBindingSource
-            // 
-            this.archetypeBindingSource.DataSource = typeof(Universalis.Archetype);
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -345,7 +346,7 @@
             // 
             // AGIDataGridViewTextBoxColumn
             // 
-            this.AGIDataGridViewTextBoxColumn.DataPropertyName = "Profile.Attributes.AGI";
+            this.AGIDataGridViewTextBoxColumn.DataPropertyName = "AGIString";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.AGIDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             this.AGIDataGridViewTextBoxColumn.HeaderText = "AGI";
@@ -355,7 +356,7 @@
             // 
             // HTHDataGridViewTextBoxColumn
             // 
-            this.HTHDataGridViewTextBoxColumn.DataPropertyName = "Profile.Attributes.HTH";
+            this.HTHDataGridViewTextBoxColumn.DataPropertyName = "HTHString";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.HTHDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             this.HTHDataGridViewTextBoxColumn.HeaderText = "NK";
@@ -365,7 +366,7 @@
             // 
             // LRCDataGridViewTextBoxColumn
             // 
-            this.LRCDataGridViewTextBoxColumn.DataPropertyName = "Profile.Attributes.LRC";
+            this.LRCDataGridViewTextBoxColumn.DataPropertyName = "LRCString";
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.LRCDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.LRCDataGridViewTextBoxColumn.HeaderText = "FK";
@@ -375,7 +376,7 @@
             // 
             // PHYDataGridViewTextBoxColumn
             // 
-            this.PHYDataGridViewTextBoxColumn.DataPropertyName = "Profile.Attributes.PHY";
+            this.PHYDataGridViewTextBoxColumn.DataPropertyName = "PHYString";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.PHYDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
             this.PHYDataGridViewTextBoxColumn.HeaderText = "KO";
@@ -385,7 +386,7 @@
             // 
             // AWADataGridViewTextBoxColumn
             // 
-            this.AWADataGridViewTextBoxColumn.DataPropertyName = "Profile.Attributes.AWA";
+            this.AWADataGridViewTextBoxColumn.DataPropertyName = "AWAString";
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.AWADataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle10;
             this.AWADataGridViewTextBoxColumn.HeaderText = "WN";
@@ -395,7 +396,7 @@
             // 
             // DETDataGridViewTextBoxColumn
             // 
-            this.DETDataGridViewTextBoxColumn.DataPropertyName = "Profile.Attributes.DET";
+            this.DETDataGridViewTextBoxColumn.DataPropertyName = "DETString";
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DETDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
             this.DETDataGridViewTextBoxColumn.HeaderText = "EH";
@@ -449,9 +450,9 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArchetypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.archetypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
