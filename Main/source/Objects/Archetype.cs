@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Net;
 
 namespace Universalis
 {
@@ -319,12 +320,7 @@ namespace Universalis
 
                 if( Type == EType.Begleiter )
                 {
-                    if( AGI > 0 )
-                        return "+" + AGI.ToString();
-                    else if( AGI < 0 )
-                        return AGI.ToString();
-                    else
-                        return "-";
+                    return Formatter.Modifier( AGI ) ?? "-";
                 }
                 else
                 {
@@ -342,12 +338,7 @@ namespace Universalis
 
                 if( Type == EType.Begleiter )
                 {
-                    if( HTH > 0 )
-                        return "+" + HTH.ToString();
-                    else if( HTH < 0 )
-                        return HTH.ToString();
-                    else
-                        return "-";
+                    return Formatter.Modifier( HTH ) ?? "-";
                 }
                 else
                 {
@@ -365,12 +356,7 @@ namespace Universalis
 
                 if( Type == EType.Begleiter )
                 {
-                    if( LRC > 0 )
-                        return "+" + LRC.ToString();
-                    else if( LRC < 0 )
-                        return LRC.ToString();
-                    else
-                        return "-";
+                    return Formatter.Modifier( LRC ) ?? "-";
                 }
                 else
                 {
@@ -408,12 +394,7 @@ namespace Universalis
 
                 if( Type == EType.Begleiter )
                 {
-                    if( DET > 0 )
-                        return "+" + DET.ToString();
-                    else if( DET < 0 )
-                        return DET.ToString();
-                    else
-                        return "-";
+                    return Formatter.Modifier( DET ) ?? "-";
                 }
                 else
                 {
