@@ -489,39 +489,18 @@ namespace Universalis
             return Archetype.Profile.ModCritThreshold( CurrentProfileModifier() );
         }
 
-        public int? ModAGI()
+        public int ModAGI()
         {
-            if( this.Archetype.Type == Archetype.EType.Begleiter )
-            {
-                return null;
-            }
-            else
-            {
-                return Archetype.Profile.Attributes.ModAGI( CurrentProfileModifier().AttributeModifier ) - ModLoadModifier();
-            }
+            return Archetype.Profile.Attributes.ModAGI( CurrentProfileModifier().AttributeModifier ) - ModLoadModifier();
         }
 
-        public int? ModHTH()
+        public int ModHTH()
         {
-            if( this.Archetype.Type == Archetype.EType.Begleiter )
-            {
-                return null;
-            }
-            else
-            {
-                return Archetype.Profile.Attributes.ModHTH( CurrentProfileModifier().AttributeModifier );
-            }
+            return Archetype.Profile.Attributes.ModHTH( CurrentProfileModifier().AttributeModifier );
         }
-        public int? ModLRC()
+        public int ModLRC()
         {
-            if( this.Archetype.Type == Archetype.EType.Begleiter )
-            {
-                return null;
-            }
-            else
-            {
-                return Archetype.Profile.Attributes.ModLRC( CurrentProfileModifier().AttributeModifier );
-            }
+            return Archetype.Profile.Attributes.ModLRC( CurrentProfileModifier().AttributeModifier );
         }
 
         public int ModPHY()
@@ -534,17 +513,107 @@ namespace Universalis
             return Archetype.Profile.Attributes.ModAWA( CurrentProfileModifier().AttributeModifier );
         }
 
-        public int? ModDET()
+        public int ModDET()
         {
-            if( this.Archetype.Type == Archetype.EType.Begleiter )
+            return Archetype.Profile.Attributes.ModDET( CurrentProfileModifier().AttributeModifier );
+        }
+
+        #region Attributes
+
+        [JsonIgnore]
+        public string ModAGIString
+        {
+            get
             {
-                return null;
-            }
-            else
-            {
-                return Archetype.Profile.Attributes.ModDET( CurrentProfileModifier().AttributeModifier );
+                var AGI = ModAGI();
+
+                if( Archetype.Type == Archetype.EType.Begleiter )
+                {
+                    return Formatter.Modifier( AGI ) ?? "-";
+                }
+                else
+                {
+                    return AGI.ToString();
+                }
             }
         }
+
+        [JsonIgnore]
+        public string ModHTHString
+        {
+            get
+            {
+                var HTH = ModHTH();
+
+                if( Archetype.Type == Archetype.EType.Begleiter )
+                {
+                    return Formatter.Modifier( HTH ) ?? "-";
+                }
+                else
+                {
+                    return HTH.ToString();
+                }
+            }
+        }
+
+        [JsonIgnore]
+        public string ModLRCString
+        {
+            get
+            {
+                var LRC = ModLRC();
+
+                if( Archetype.Type == Archetype.EType.Begleiter )
+                {
+                    return Formatter.Modifier( LRC ) ?? "-";
+                }
+                else
+                {
+                    return LRC.ToString();
+                }
+            }
+        }
+
+        [JsonIgnore]
+        public string ModPHYString
+        {
+            get
+            {
+                var PHY = ModPHY();
+                return PHY.ToString();
+            }
+        }
+
+        [JsonIgnore]
+        public string ModAWAString
+        {
+            get
+            {
+                var AWA = ModAWA();
+                return AWA.ToString();
+            }
+        }
+
+        [JsonIgnore]
+        public string ModDETString
+        {
+            get
+            {
+                var DET = ModDET();
+
+                if( Archetype.Type == Archetype.EType.Begleiter )
+                {
+                    return Formatter.Modifier( DET ) ?? "-";
+                }
+                else
+                {
+                    return DET.ToString();
+                }
+            }
+        }
+
+        #endregion Attribures
+
         #endregion profile
 
         #region calculated values

@@ -239,16 +239,16 @@ namespace Universalis
             int row2PosY = CmToPixel( 0.5 );
             int row3PosY = CmToPixel( 1 );
 
-            DrawAttribute( g, XAttrFirstColumn,  row1PosY, "AGI", actor.ModAGI() );
-            DrawAttribute( g, XAttrFirstColumn,  row2PosY, "NK",  actor.ModHTH() );
-            DrawAttribute( g, XAttrFirstColumn,  row3PosY, "FK",  actor.ModLRC() );
+            DrawAttribute( g, XAttrFirstColumn,  row1PosY, "AGI", actor.ModAGI(), actor.ModAGIString, -6, 6 );
+            DrawAttribute( g, XAttrFirstColumn,  row2PosY, "NK",  actor.ModHTH(), actor.ModHTHString, -6, 6 );
+            DrawAttribute( g, XAttrFirstColumn,  row3PosY, "FK",  actor.ModLRC(), actor.ModLRCString, -6, 6 );
 
-            DrawAttribute( g, XAttrSecondColumn, row1PosY, "KO",  actor.ModPHY() );
-            DrawAttribute( g, XAttrSecondColumn, row2PosY, "WN",  actor.ModAWA() );
-            DrawAttribute( g, XAttrSecondColumn, row3PosY, "EH",  actor.ModDET() );
+            DrawAttribute( g, XAttrSecondColumn, row1PosY, "KO", actor.ModPHY(), actor.ModPHYString, 0, 12 );
+            DrawAttribute( g, XAttrSecondColumn, row2PosY, "WN", actor.ModAWA(), actor.ModAWAString, 0, 12 );
+            DrawAttribute( g, XAttrSecondColumn, row3PosY, "EH", actor.ModDET(), actor.ModDETString, -6, 6 );
         }
 
-        private static void DrawAttribute( Graphics g, int posX, int posY, string name, int? attribute )
+        private static void DrawAttribute( Graphics g, int posX, int posY, string name, int attribute, string attributeString, int min, int max )
         {
             int widthName = CmToPixel( 0.9 );
             int widthAtt = CmToPixel( 1.2 );
@@ -261,18 +261,8 @@ namespace Universalis
             g.FillRectangle( Brushes.Black, rectName );
             DrawStringCentered( g, name, FontStandard, Brushes.White, rectName );
 
-            if( !attribute.HasValue )
-            {
-                DrawStringCentered( g, "-", FontStandard, Brushes.Black, rectValue );
-            }
-            else
-            {
-                var value = attribute.Value;
-
-                int printModValue = ( value < 0 ) ? 0 : value;
-                var brush = ( value < 0 ) ? Brushes.Red : Brushes.Black;
-                DrawStringCentered( g, printModValue.ToString(), FontStandard, brush, rectValue );
-            }
+            var brush = ( attribute < min || attribute > max ) ? Brushes.Red : Brushes.Black;
+            DrawStringCentered( g, attributeString, FontStandard, brush, rectValue );
         }
 
         private static void DrawCalculatedAttributes( Graphics g, Actor actor )
