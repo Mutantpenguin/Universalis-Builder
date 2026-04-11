@@ -239,13 +239,25 @@ namespace Universalis
             int row2PosY = CmToPixel( 0.5 );
             int row3PosY = CmToPixel( 1 );
 
-            DrawAttribute( g, XAttrFirstColumn,  row1PosY, "AGI", actor.ModAGI(), actor.ModAGIString, -6, 6 );
-            DrawAttribute( g, XAttrFirstColumn,  row2PosY, "NK",  actor.ModHTH(), actor.ModHTHString, -6, 6 );
-            DrawAttribute( g, XAttrFirstColumn,  row3PosY, "FK",  actor.ModLRC(), actor.ModLRCString, -6, 6 );
+            int attributeMin = 0;
+            int attributeMax = 12;
 
-            DrawAttribute( g, XAttrSecondColumn, row1PosY, "KO", actor.ModPHY(), actor.ModPHYString, 0, 12 );
-            DrawAttribute( g, XAttrSecondColumn, row2PosY, "WN", actor.ModAWA(), actor.ModAWAString, 0, 12 );
-            DrawAttribute( g, XAttrSecondColumn, row3PosY, "EH", actor.ModDET(), actor.ModDETString, -6, 6 );
+            int companionAttributeMin = attributeMin;
+            int companionAttributeMax = attributeMax;
+
+            if( actor.Archetype.Type == Archetype.EType.Begleiter )
+            {
+                companionAttributeMin = -6;
+                companionAttributeMax = 6;
+            }
+
+            DrawAttribute( g, XAttrFirstColumn,  row1PosY, "AGI", actor.ModAGI(), actor.ModAGIString, companionAttributeMin, companionAttributeMax );
+            DrawAttribute( g, XAttrFirstColumn,  row2PosY, "NK",  actor.ModHTH(), actor.ModHTHString, companionAttributeMin, companionAttributeMax );
+            DrawAttribute( g, XAttrFirstColumn,  row3PosY, "FK",  actor.ModLRC(), actor.ModLRCString, companionAttributeMin, companionAttributeMax );
+
+            DrawAttribute( g, XAttrSecondColumn, row1PosY, "KO", actor.ModPHY(), actor.ModPHYString, attributeMin, attributeMax );
+            DrawAttribute( g, XAttrSecondColumn, row2PosY, "WN", actor.ModAWA(), actor.ModAWAString, attributeMin, attributeMax );
+            DrawAttribute( g, XAttrSecondColumn, row3PosY, "EH", actor.ModDET(), actor.ModDETString, companionAttributeMin, companionAttributeMax );
         }
 
         private static void DrawAttribute( Graphics g, int posX, int posY, string name, int attribute, string attributeString, int min, int max )
