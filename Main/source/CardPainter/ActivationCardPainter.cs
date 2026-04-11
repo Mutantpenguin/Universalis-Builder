@@ -33,6 +33,11 @@ namespace Universalis
                 throw new ArgumentNullException( nameof( actor ) );
             }
 
+            if( actor.Archetype.Type == Archetype.EType.Begleiter )
+            {
+                throw new ArgumentException( "Not usable for 'Begleiter'.", nameof( actor ) );
+            }
+
             Bitmap img = new Bitmap( SCardWidth, SCardHeight );
             using( Graphics g = Graphics.FromImage( img ) )
             {
@@ -64,9 +69,7 @@ namespace Universalis
             Rectangle rect = new Rectangle( circleLeft, circleTop, circleDiameter, circleDiameter );
             g.FillEllipse( Brushes.Black, rect );
 
-            var attributeAGI = actor.ModAGI();
-            var attributeAGIstring = attributeAGI.HasValue ? attributeAGI.Value.ToString() : "-";
-            DrawStringCentered( g, attributeAGIstring, FontAGI, Brushes.White, rect );
+            DrawStringCentered( g, actor.ModAGI().ToString(), FontAGI, Brushes.White, rect );
 
             var footerRectangle = new Rectangle( 0, SIconSize, SCardWidth, SCardHeight - SIconSize );
             var font = FindFontSingleLine( g, actor.Name, footerRectangle.Size, FontName );
