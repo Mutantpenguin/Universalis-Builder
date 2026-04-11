@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using static Universalis.Costs;
 
 namespace Universalis
 {
@@ -193,6 +193,109 @@ namespace Universalis
             textBoxResultSpeed.Text = m_actorModified.ModSpeed().ToString() + "\"";
             textBoxResultHP.Text = m_actorModified.ModHitPoints().ToString();
             textBoxResultCS.Text = m_actorModified.ModCritThreshold().ToString() + "%";
+
+            #region coloring
+
+            int attributeMin = 0;
+            int attributeMax = 12;
+
+            int companionAttributeMin = attributeMin;
+            int companionAttributeMax = attributeMax;
+
+            if( m_actorModified.Archetype.Type == Archetype.EType.Begleiter )
+            {
+                companionAttributeMin = -6;
+                companionAttributeMax = 6;
+            }
+
+            var agi = m_actorModified.ModAGI();
+            if( agi < companionAttributeMin || agi > companionAttributeMax )
+            {
+                textBoxResultAGI.BackColor = Color.OrangeRed;
+            }
+            else
+            {
+                textBoxResultAGI.BackColor = SystemColors.Control;
+            }
+
+            var hth = m_actorModified.ModHTH();
+            if( hth < companionAttributeMin || hth > companionAttributeMax )
+            {
+                textBoxResultHTH.BackColor = Color.OrangeRed;
+            }
+            else
+            {
+                textBoxResultHTH.BackColor = SystemColors.Control;
+            }
+
+            var lrc = m_actorModified.ModLRC();
+            if( lrc < companionAttributeMin || lrc > companionAttributeMax )
+            {
+                textBoxResultLRC.BackColor = Color.OrangeRed;
+            }
+            else
+            {
+                textBoxResultLRC.BackColor = SystemColors.Control;
+            }
+
+            var phy = m_actorModified.ModPHY();
+            if( phy < attributeMin || phy > attributeMax )
+            {
+                textBoxResultPHY.BackColor = Color.OrangeRed;
+            }
+            else
+            {
+                textBoxResultPHY.BackColor = SystemColors.Control;
+            }
+
+            var awa = m_actorModified.ModAWA();
+            if( awa < attributeMin || awa > attributeMax )
+            {
+                textBoxResultAWA.BackColor = Color.OrangeRed;
+            }
+            else
+            {
+                textBoxResultAWA.BackColor = SystemColors.Control;
+            }
+
+            var det = m_actorModified.ModDET();
+            if( det < companionAttributeMin || det > companionAttributeMax )
+            {
+                textBoxResultDET.BackColor = Color.OrangeRed;
+            }
+            else
+            {
+                textBoxResultDET.BackColor = SystemColors.Control;
+            }
+
+            if( m_actorModified.ModCritThreshold() < 0 )
+            {
+                textBoxResultCS.BackColor = Color.OrangeRed;
+            }
+            else
+            {
+                textBoxResultCS.BackColor = SystemColors.Control;
+            }
+
+            if( m_actorModified.ModSpeed() < 0 )
+            {
+                textBoxResultSpeed.BackColor = Color.OrangeRed;
+            }
+            else
+            {
+                textBoxResultSpeed.BackColor = SystemColors.Control;
+            }
+
+            if( m_actorModified.ModHitPoints() < 0 )
+            {
+                textBoxResultHP.BackColor = Color.OrangeRed;
+            }
+            else
+            {
+                textBoxResultHP.BackColor = SystemColors.Control;
+            }
+
+            #endregion coloring
 
             var (valid, reason) = m_actorModified.IsValid();
 
@@ -386,31 +489,38 @@ namespace Universalis
 
         private void toolStripButtonEquipmentAdd_Click( object sender, EventArgs e )
         {
-            using( AddEquipmentToActorForm addEquipmentToActor = new AddEquipmentToActorForm(m_faction, m_actorModified.Archetype ) )
+            try
             {
-                if( addEquipmentToActor.ShowDialog( this ) == DialogResult.OK )
+                using( AddEquipmentToActorForm addEquipmentToActor = new AddEquipmentToActorForm( m_faction, m_actorModified.Archetype ) )
                 {
-                    if( addEquipmentToActor.SelectedEquipment.Count > 0 )
+                    if( addEquipmentToActor.ShowDialog( this ) == DialogResult.OK )
                     {
-                        foreach( Equipment equipment in addEquipmentToActor.SelectedEquipment )
+                        if( addEquipmentToActor.SelectedEquipment.Count > 0 )
                         {
-                            if( ( equipment.MaxModelQuantity > 0 ) && ( equipment.MaxModelQuantity <= m_actorModified.Equipments.Where( x => x.Equipment == equipment ).Count() ) )
+                            foreach( Equipment equipment in addEquipmentToActor.SelectedEquipment )
                             {
-                                MessageBox.Show( $"'{equipment.Name}' ist bereits schon {equipment.MaxModelQuantity}x ausgestattet.", String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Stop );
-                            }
-                            else
-                            {
-                                m_actorModified.Equipments.Add( new Actor.ActorEquipment
+                                if( ( equipment.MaxModelQuantity > 0 ) && ( equipment.MaxModelQuantity <= m_actorModified.Equipments.Where( x => x.Equipment == equipment ).Count() ) )
                                 {
-                                    Equipment = equipment
-                                } );
+                                    MessageBox.Show( $"'{equipment.Name}' ist bereits schon {equipment.MaxModelQuantity}x ausgestattet.", String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Stop );
+                                }
+                                else
+                                {
+                                    m_actorModified.Equipments.Add( new Actor.ActorEquipment
+                                    {
+                                        Equipment = equipment
+                                    } );
+                                }
                             }
-                        }
 
-                        updateGridViewEquipment();
-                        updateFields();
+                            updateGridViewEquipment();
+                            updateFields();
+                        }
                     }
                 }
+            }
+            catch( Exception ex )
+            {
+                Debug.WriteLine( ex );
             }
         }
 

@@ -56,7 +56,6 @@ namespace Universalis
 
         private static readonly Brush HitPointCritBrush = new SolidBrush( Color.Orange );
         private static readonly Brush HitPointNormalBrush = new SolidBrush( Color.White );
-        private static readonly Brush HitPointCritTooLowBrush = new SolidBrush( Color.Red );
 
         private static readonly Brush WeaponFontBrush = new SolidBrush( DamageColor.red );
         private static readonly Brush ArmorFontBrush = new SolidBrush( DamageColor.green );
@@ -330,7 +329,9 @@ namespace Universalis
                     throw new InvalidOperationException( "unkown " + nameof( Archetype.EMovementType ) );
             }
 
-            DrawStringCentered( g, speed.ToString() + "\"", FontStandard, Brushes.Black, new Rectangle( xOffset + CmToPixel( 0.5 ), 0, CmToPixel( 1 ), SLineHeight ) );
+            var brush = ( speed < 0 ) ? Brushes.Red : Brushes.Black;
+
+            DrawStringCentered( g, speed.ToString() + "\"", FontStandard, brush, new Rectangle( xOffset + CmToPixel( 0.5 ), 0, CmToPixel( 1 ), SLineHeight ) );
         }
 
         private static void DrawHitPoints( Graphics g, Actor actor )
@@ -401,7 +402,7 @@ namespace Universalis
             {
                 Rectangle rect = new Rectangle( posX + ( SHitPointSize * col ), posY + ( SHitPointSize * row ), SHitPointSize, SHitPointSize );
 
-                var brush = ( critThreshold < 0 ) ? HitPointCritTooLowBrush : ( i > crit ) ? HitPointCritBrush : HitPointNormalBrush;
+                var brush = ( critThreshold < 0 ) ? Brushes.Red : ( i > crit ) ? HitPointCritBrush : HitPointNormalBrush;
 
                 g.FillEllipse( brush, rect );
 
@@ -431,7 +432,7 @@ namespace Universalis
             {
                 Rectangle rect = new Rectangle( x + ( SHitPointSize * col ), y + ( SHitPointSize * row ), SHitPointSize, SHitPointSize );
 
-                var brush = (critThreshold < 0) ? HitPointCritTooLowBrush : (i > crit) ? HitPointCritBrush : HitPointNormalBrush;
+                var brush = (critThreshold < 0) ? Brushes.Red : (i > crit) ? HitPointCritBrush : HitPointNormalBrush;
 
                 g.FillEllipse( brush, rect );
 
