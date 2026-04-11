@@ -156,15 +156,15 @@ namespace Universalis
 
 
             // base values
-            var profile = m_actorModified.Archetype.Profile;
-            var attributes = profile.Attributes;
+            var archetype = m_actorModified.Archetype;
+            var profile = archetype.Profile;
 
-            textBoxBaseAGI.Text = attributes.AGI.ToString();
-            textBoxBaseHTH.Text = attributes.HTH.ToString();
-            textBoxBaseLRC.Text = attributes.LRC.ToString();
-            textBoxBasePHY.Text = attributes.PHY.ToString();
-            textBoxBaseAWA.Text = attributes.AWA.ToString();
-            textBoxBaseDET.Text = attributes.DET.ToString();
+            textBoxBaseAGI.Text = archetype.AGIString;
+            textBoxBaseHTH.Text = archetype.HTHString;
+            textBoxBaseLRC.Text = archetype.LRCString;
+            textBoxBasePHY.Text = archetype.PHYString;
+            textBoxBaseAWA.Text = archetype.AWAString;
+            textBoxBaseDET.Text = archetype.DETString;
             textBoxBaseSpeed.Text = profile.Speed.ToString() + "\"";
             textBoxBaseHP.Text = profile.HitPoints.ToString();
             textBoxBaseCS.Text = profile.CritThreshold.ToString() + "%";
@@ -184,12 +184,12 @@ namespace Universalis
             textBoxModCS.Text = currentProfileModifier.CritThresholdString;
 
             // final values
-            textBoxResultAGI.Text = m_actorModified.ModAGI().ToString();
-            textBoxResultHTH.Text = m_actorModified.ModHTH().ToString();
-            textBoxResultLRC.Text = m_actorModified.ModLRC().ToString();
-            textBoxResultPHY.Text = m_actorModified.ModPHY().ToString();
-            textBoxResultAWA.Text = m_actorModified.ModAWA().ToString();
-            textBoxResultDET.Text = m_actorModified.ModDET().ToString();
+            textBoxResultAGI.Text = m_actorModified.ModAGIString;
+            textBoxResultHTH.Text = m_actorModified.ModHTHString;
+            textBoxResultLRC.Text = m_actorModified.ModLRCString;
+            textBoxResultPHY.Text = m_actorModified.ModPHYString;
+            textBoxResultAWA.Text = m_actorModified.ModAWAString;
+            textBoxResultDET.Text = m_actorModified.ModDETString;
             textBoxResultSpeed.Text = m_actorModified.ModSpeed().ToString() + "\"";
             textBoxResultHP.Text = m_actorModified.ModHitPoints().ToString();
             textBoxResultCS.Text = m_actorModified.ModCritThreshold().ToString() + "%";
