@@ -604,23 +604,54 @@ namespace Universalis
                 return false;
             }
 
-            if( ( m_actorModified.ModAGI() < 0 )
-                ||
-                ( m_actorModified.ModHTH() < 0 )
-                ||
-                ( m_actorModified.ModLRC() < 0 )
-                ||
-                ( m_actorModified.ModPHY() < 0 )
-                ||
-                ( m_actorModified.ModAWA() < 0 )
-                ||
-                ( m_actorModified.ModDET() < 0 ) )
+            if( m_actorModified.Archetype.Type == Archetype.EType.Begleiter )
             {
-                MessageBox.Show( "Attribute dürfen nicht negativ sein!",
-                                 caption,
-                                 MessageBoxButtons.OK,
-                                 MessageBoxIcon.Stop );
-                return false;
+                if( ( m_actorModified.ModPHY() < 0 )
+                    ||
+                    ( m_actorModified.ModAWA() < 0 ) )
+                {
+                    MessageBox.Show( "Attribute AGI und WN dürfen nicht negativ sein!",
+                                     caption,
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Stop );
+                    return false;
+                }
+
+                if( ( m_actorModified.ModAGI() < -6 || m_actorModified.ModAGI() > 6 )
+                    ||
+                    ( m_actorModified.ModHTH() < -6 || m_actorModified.ModHTH() > 6 )
+                    ||
+                    ( m_actorModified.ModLRC() < -6 || m_actorModified.ModLRC() > 6 )
+                    ||
+                    ( m_actorModified.ModDET() < -6 || m_actorModified.ModDET() > 6 ) )
+                {
+                    MessageBox.Show( "Attribute AGI, NK, FK und EH müssen zwischen -6 und +6 liegen!",
+                                     caption,
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Stop );
+                    return false;
+                }
+            }
+            else
+            {
+                if( ( m_actorModified.ModAGI() < 0 )
+                    ||
+                    ( m_actorModified.ModHTH() < 0 )
+                    ||
+                    ( m_actorModified.ModLRC() < 0 )
+                    ||
+                    ( m_actorModified.ModPHY() < 0 )
+                    ||
+                    ( m_actorModified.ModAWA() < 0 )
+                    ||
+                    ( m_actorModified.ModDET() < 0 ) )
+                {
+                    MessageBox.Show( "Attribute dürfen nicht negativ sein!",
+                                     caption,
+                                     MessageBoxButtons.OK,
+                                     MessageBoxIcon.Stop );
+                    return false;
+                }
             }
 
             if( ( m_actorModified.ModSpeed() <= 0 ) && ( Archetype.EMovementType.Stationär != m_actorModified.Archetype.MovementType ) )
