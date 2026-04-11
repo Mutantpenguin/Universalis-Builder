@@ -610,7 +610,7 @@ namespace Universalis
                     ||
                     ( m_actorModified.ModAWA() < 0 ) )
                 {
-                    MessageBox.Show( "Attribute AGI und WN dürfen nicht negativ sein!",
+                    MessageBox.Show( "Attribute KO und WN dürfen nicht negativ sein!",
                                      caption,
                                      MessageBoxButtons.OK,
                                      MessageBoxIcon.Stop );
