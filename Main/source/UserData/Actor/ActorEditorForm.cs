@@ -489,38 +489,31 @@ namespace Universalis
 
         private void toolStripButtonEquipmentAdd_Click( object sender, EventArgs e )
         {
-            try
+            using( AddEquipmentToActorForm addEquipmentToActor = new AddEquipmentToActorForm( m_faction, m_actorModified.Archetype ) )
             {
-                using( AddEquipmentToActorForm addEquipmentToActor = new AddEquipmentToActorForm( m_faction, m_actorModified.Archetype ) )
+                if( addEquipmentToActor.ShowDialog( this ) == DialogResult.OK )
                 {
-                    if( addEquipmentToActor.ShowDialog( this ) == DialogResult.OK )
+                    if( addEquipmentToActor.SelectedEquipment.Count > 0 )
                     {
-                        if( addEquipmentToActor.SelectedEquipment.Count > 0 )
+                        foreach( Equipment equipment in addEquipmentToActor.SelectedEquipment )
                         {
-                            foreach( Equipment equipment in addEquipmentToActor.SelectedEquipment )
+                            if( ( equipment.MaxModelQuantity > 0 ) && ( equipment.MaxModelQuantity <= m_actorModified.Equipments.Where( x => x.Equipment == equipment ).Count() ) )
                             {
-                                if( ( equipment.MaxModelQuantity > 0 ) && ( equipment.MaxModelQuantity <= m_actorModified.Equipments.Where( x => x.Equipment == equipment ).Count() ) )
-                                {
-                                    MessageBox.Show( $"'{equipment.Name}' ist bereits schon {equipment.MaxModelQuantity}x ausgestattet.", String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Stop );
-                                }
-                                else
-                                {
-                                    m_actorModified.Equipments.Add( new Actor.ActorEquipment
-                                    {
-                                        Equipment = equipment
-                                    } );
-                                }
+                                MessageBox.Show( $"'{equipment.Name}' ist bereits schon {equipment.MaxModelQuantity}x ausgestattet.", String.Empty, MessageBoxButtons.OK, MessageBoxIcon.Stop );
                             }
-
-                            updateGridViewEquipment();
-                            updateFields();
+                            else
+                            {
+                                m_actorModified.Equipments.Add( new Actor.ActorEquipment
+                                {
+                                    Equipment = equipment
+                                } );
+                            }
                         }
+
+                        updateGridViewEquipment();
+                        updateFields();
                     }
                 }
-            }
-            catch( Exception ex )
-            {
-                Debug.WriteLine( ex );
             }
         }
 
