@@ -208,92 +208,18 @@ namespace Universalis
                 companionAttributeMax = 6;
             }
 
-            var agi = m_actorModified.ModAGI();
-            if( agi < companionAttributeMin || agi > companionAttributeMax )
-            {
-                textBoxResultAGI.BackColor = Color.OrangeRed;
-            }
-            else
-            {
-                textBoxResultAGI.BackColor = SystemColors.Control;
-            }
+            void SetTextBoxColor( TextBox tb, bool isInvalid ) => tb.BackColor = isInvalid ? Color.OrangeRed : SystemColors.Control;
 
-            var hth = m_actorModified.ModHTH();
-            if( hth < companionAttributeMin || hth > companionAttributeMax )
-            {
-                textBoxResultHTH.BackColor = Color.OrangeRed;
-            }
-            else
-            {
-                textBoxResultHTH.BackColor = SystemColors.Control;
-            }
+            SetTextBoxColor( textBoxResultAGI, m_actorModified.ModAGI() < companionAttributeMin || m_actorModified.ModAGI() > companionAttributeMax );
+            SetTextBoxColor( textBoxResultHTH, m_actorModified.ModHTH() < companionAttributeMin || m_actorModified.ModHTH() > companionAttributeMax );
+            SetTextBoxColor( textBoxResultLRC, m_actorModified.ModLRC() < companionAttributeMin || m_actorModified.ModLRC() > companionAttributeMax );
+            SetTextBoxColor( textBoxResultPHY, m_actorModified.ModPHY() < attributeMin || m_actorModified.ModPHY() > attributeMax );
+            SetTextBoxColor( textBoxResultAWA, m_actorModified.ModAWA() < attributeMin || m_actorModified.ModAWA() > attributeMax );
+            SetTextBoxColor( textBoxResultDET, m_actorModified.ModDET() < companionAttributeMin || m_actorModified.ModDET() > companionAttributeMax );
 
-            var lrc = m_actorModified.ModLRC();
-            if( lrc < companionAttributeMin || lrc > companionAttributeMax )
-            {
-                textBoxResultLRC.BackColor = Color.OrangeRed;
-            }
-            else
-            {
-                textBoxResultLRC.BackColor = SystemColors.Control;
-            }
-
-            var phy = m_actorModified.ModPHY();
-            if( phy < attributeMin || phy > attributeMax )
-            {
-                textBoxResultPHY.BackColor = Color.OrangeRed;
-            }
-            else
-            {
-                textBoxResultPHY.BackColor = SystemColors.Control;
-            }
-
-            var awa = m_actorModified.ModAWA();
-            if( awa < attributeMin || awa > attributeMax )
-            {
-                textBoxResultAWA.BackColor = Color.OrangeRed;
-            }
-            else
-            {
-                textBoxResultAWA.BackColor = SystemColors.Control;
-            }
-
-            var det = m_actorModified.ModDET();
-            if( det < companionAttributeMin || det > companionAttributeMax )
-            {
-                textBoxResultDET.BackColor = Color.OrangeRed;
-            }
-            else
-            {
-                textBoxResultDET.BackColor = SystemColors.Control;
-            }
-
-            if( m_actorModified.ModCritThreshold() < 0 )
-            {
-                textBoxResultCS.BackColor = Color.OrangeRed;
-            }
-            else
-            {
-                textBoxResultCS.BackColor = SystemColors.Control;
-            }
-
-            if( m_actorModified.ModSpeed() < 0 )
-            {
-                textBoxResultSpeed.BackColor = Color.OrangeRed;
-            }
-            else
-            {
-                textBoxResultSpeed.BackColor = SystemColors.Control;
-            }
-
-            if( m_actorModified.ModHitPoints() < 0 )
-            {
-                textBoxResultHP.BackColor = Color.OrangeRed;
-            }
-            else
-            {
-                textBoxResultHP.BackColor = SystemColors.Control;
-            }
+            SetTextBoxColor( textBoxResultCS, m_actorModified.ModCritThreshold() < 0 );
+            SetTextBoxColor( textBoxResultSpeed, m_actorModified.ModSpeed() < 0 );
+            SetTextBoxColor( textBoxResultHP, m_actorModified.ModHitPoints() < 0 );
 
             #endregion coloring
 
