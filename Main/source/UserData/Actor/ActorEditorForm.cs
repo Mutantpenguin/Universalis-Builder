@@ -134,10 +134,13 @@ namespace Universalis
 #region update
         private void updateFields()
         {
-            textBoxTragkraft.Text = $"{m_actorModified.ModMaxLoadCapacity():n1} kg";
+            float modMaxLoadCapacity = m_actorModified.ModMaxLoadCapacity();
+            float loadoutWeight = m_actorModified.LoadoutWeight( withSelfSustaining: false );
 
-            textBoxBelastung.Text = $"{m_actorModified.LoadoutWeight(withSelfSustaining: false ):n1} kg";
-            if( m_actorModified.LoadoutWeight( withSelfSustaining: false ) > m_actorModified.ModMaxLoadCapacity() )
+            textBoxTragkraft.Text = $"{modMaxLoadCapacity:n1} kg";
+            
+            textBoxBelastung.Text = $"{loadoutWeight:n1} kg";
+            if( loadoutWeight < 0 || loadoutWeight > modMaxLoadCapacity )
             {
                 textBoxBelastung.BackColor = Color.OrangeRed;
             }
@@ -681,6 +684,15 @@ namespace Universalis
                                      MessageBoxIcon.Stop );
                     return false;
                 }
+            }
+
+            if( 0 > m_actorModified.LoadoutWeight( withSelfSustaining: false ) )
+            {
+                MessageBox.Show( "Die Belastung darf nicht negativ sein. Speichern wird abgebrochen.",
+                                 caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
+                return false;
             }
 
             if( ( m_actorModified.ModSpeed() <= 0 ) && ( Archetype.EMovementType.Stationär != m_actorModified.Archetype.MovementType ) )
