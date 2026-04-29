@@ -661,7 +661,14 @@ namespace Universalis
 
         private int ModLoadModifier()
         {
-            int loadModifier = Convert.ToInt32( Math.Ceiling( LoadoutWeight( withSelfSustaining: false ) / ModMaxLoadCapacity() ) );
+            float modMaxLoadCapacity = ModMaxLoadCapacity();
+
+            if( modMaxLoadCapacity <= 0 )
+            {
+                return 0;
+            }
+
+            int loadModifier = Convert.ToInt32( Math.Ceiling( LoadoutWeight( withSelfSustaining: false ) / modMaxLoadCapacity ) );
 
             if( loadModifier > 0 )
             {
