@@ -138,7 +138,15 @@ namespace Universalis
             float loadoutWeight = m_actorModified.LoadoutWeight( withSelfSustaining: false );
 
             textBoxTragkraft.Text = $"{modMaxLoadCapacity:n1} kg";
-            
+            if( modMaxLoadCapacity < 0 )
+            {
+                textBoxTragkraft.BackColor = Color.OrangeRed;
+            }
+            else
+            {
+                textBoxTragkraft.BackColor = SystemColors.Control;
+            }
+
             textBoxBelastung.Text = $"{loadoutWeight:n1} kg";
             if( loadoutWeight < 0 || loadoutWeight > modMaxLoadCapacity )
             {
@@ -689,6 +697,15 @@ namespace Universalis
             if( 0 > m_actorModified.LoadoutWeight( withSelfSustaining: false ) )
             {
                 MessageBox.Show( "Die Belastung darf nicht negativ sein. Speichern wird abgebrochen.",
+                                 caption,
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Stop );
+                return false;
+            }
+
+            if( 0 > m_actorModified.ModMaxLoadCapacity() )
+            {
+                MessageBox.Show( "Die Tragkraft darf nicht negativ sein. Speichern wird abgebrochen.",
                                  caption,
                                  MessageBoxButtons.OK,
                                  MessageBoxIcon.Stop );
