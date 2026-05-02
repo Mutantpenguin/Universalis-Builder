@@ -17,7 +17,7 @@ namespace Universalis
             using( PrivateFontCollection pfc = new PrivateFontCollection() )
             {
                 // load Font from Resource
-                byte[] fontData = Properties.Resources.NovaRound_Regular;
+                byte[] fontData = Properties.Resources.NovaFlat_Regular;
                 IntPtr fontPtr = Marshal.AllocCoTaskMem( fontData.Length );
                 Marshal.Copy( fontData, 0, fontPtr, fontData.Length );
                 AddFontMemResourceEx(fontPtr, (uint)fontData.Length, IntPtr.Zero, 0);
@@ -28,8 +28,8 @@ namespace Universalis
             }
         }
 
-        private const string Name = "Nova Round";
-        public const string FileName = "NovaRound-Regular.ttf";
+        private const string Name = "Nova Flat";
+        public const string FileName = "NovaFlat-Regular.ttf";
 
         public static readonly FontFamily Family;
     }

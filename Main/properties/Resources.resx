@@ -265,8 +265,8 @@
   <data name="NotoSansSymbols2_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NotoSansSymbols2-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="NovaRound_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NovaRound-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="NovaFlat_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NovaFlat-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="open_in_app_18dp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\open_in_app_18dp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
