@@ -553,9 +553,9 @@ namespace Universalis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] NovaRound_Regular {
+        internal static byte[] NovaFlat_Regular {
             get {
-                object obj = ResourceManager.GetObject("NovaRound_Regular", resourceCulture);
+                object obj = ResourceManager.GetObject("NovaFlat_Regular", resourceCulture);
                 return ((byte[])(obj));
             }
         }
